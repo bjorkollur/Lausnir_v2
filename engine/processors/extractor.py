@@ -92,8 +92,8 @@ def _rich_text_to_plain(nodes: list | None) -> str:
 
 
 def _html_to_plain(html: str | None) -> str | None:
-    """Strip HTML tags to plain text. Returns None for blank/None input."""
-    if not html:
+    """Strip HTML tags to plain text. Returns None for blank/None/non-string input."""
+    if not html or not isinstance(html, str):
         return None
     text = BeautifulSoup(html, "html.parser").get_text(separator="\n").strip()
     return text or None
@@ -123,10 +123,23 @@ def _parse_parties_gegn(title: str | None) -> tuple[list, list]:
 
 # ─── Per-source extractors ────────────────────────────────────────────────────
 
+def _richtext_body(value: str | dict | None) -> str | None:
+    """Parse richText from island.is — either HTML string or Contentful rich text dict."""
+    if not value:
+        return None
+    if isinstance(value, str):
+        return _html_to_plain(value)
+    if isinstance(value, dict):
+        content = value.get("document", {}).get("content")
+        text = _rich_text_to_plain(content)
+        return text or None
+    return None
+
+
 def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
     title = raw.get("title") or raw.get("caseTitle") or ""
     plf, dfd = _parse_parties_gegn(title)
-    plain_body = _html_to_plain(raw.get("richText"))
+    plain_body = _richtext_body(raw.get("richText"))
     return {
         "case_number": raw.get("caseNumber") or raw.get("id"),
         "document_date": _parse_icelandic_date(

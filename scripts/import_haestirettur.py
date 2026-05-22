@@ -20,12 +20,13 @@ from rich.progress import (
     TimeElapsedColumn,
     TimeRemainingColumn,
 )
-from sqlalchemy import func, select, update
+from sqlalchemy import func, null as sa_null, select, update
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from engine.config.sources import SourceConfig, get_config
-from engine.database.connection import AsyncSessionLocal, init_db
+import engine.database.connection as _db_conn
+from engine.database.connection import init_db
 from engine.database.models import Document, Source
 from engine.processors.extractor import Extractor
 from engine.processors.http_utils import get_with_retry, make_client, post_with_retry
@@ -170,24 +171,28 @@ async def _ensure_source(session: AsyncSession, config: SourceConfig) -> uuid.UU
 
 async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
     """INSERT or UPDATE by (source_id, external_id) — true idempotent upsert."""
+    def _v(val: Any) -> Any:
+        # asyncpg serializes Python None to JSON null for JSONB columns; use sa_null() for SQL NULL
+        return sa_null() if val is None else val
+
     values: dict[str, Any] = {
         "id": doc.id,
         "source_id": doc.source_id,
         "external_id": doc.external_id,
-        "url": doc.url,
-        "raw_api_data": doc.raw_api_data,
-        "case_number": doc.case_number,
-        "document_date": doc.document_date,
-        "court": doc.court,
-        "verdict_type": doc.verdict_type,
-        "instance_tier": doc.instance_tier,
-        "plaintiffs": doc.plaintiffs,
-        "defendants": doc.defendants,
-        "keywords": doc.keywords,
-        "summary": doc.summary,
-        "body_text": doc.body_text,
-        "lower_body_text": doc.lower_body_text,
-        "validation_errors": doc.validation_errors,
+        "url": _v(doc.url),
+        "raw_api_data": _v(doc.raw_api_data),
+        "case_number": _v(doc.case_number),
+        "document_date": _v(doc.document_date),
+        "court": _v(doc.court),
+        "verdict_type": _v(doc.verdict_type),
+        "instance_tier": _v(doc.instance_tier),
+        "plaintiffs": _v(doc.plaintiffs),
+        "defendants": _v(doc.defendants),
+        "keywords": _v(doc.keywords),
+        "summary": _v(doc.summary),
+        "body_text": _v(doc.body_text),
+        "lower_body_text": _v(doc.lower_body_text),
+        "validation_errors": _v(doc.validation_errors),
     }
     update_cols = {
         k: v for k, v in values.items()
@@ -234,7 +239,7 @@ async def main() -> None:
     config = get_config("haestirettur")
     await init_db()
 
-    async with AsyncSessionLocal() as session:
+    async with _db_conn.AsyncSessionLocal() as session:
         source_id = await _ensure_source(session, config)
 
     start_page, saved_total, imported_count = _load_checkpoint()
@@ -287,13 +292,13 @@ async def main() -> None:
                 ]
 
                 # Batch upsert — one transaction per page
-                async with AsyncSessionLocal() as session:
+                async with _db_conn.AsyncSessionLocal() as session:
                     for doc in docs:
                         await _upsert_doc(session, doc)
                     await session.commit()
 
                 # Batch render + markdown_path update — one transaction per page
-                async with AsyncSessionLocal() as session:
+                async with _db_conn.AsyncSessionLocal() as session:
                     for doc in docs:
                         md_path = _render_and_save(doc, config)
                         if md_path:
