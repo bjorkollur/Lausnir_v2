@@ -100,13 +100,29 @@ def _html_to_plain(html: str | None) -> str | None:
     return BeautifulSoup(html, "html.parser").get_text(separator="\n").strip() or None
 ```
 
-Update `_extract_haestirettur()` — one line change:
+Add `_detect_verdict_type()` — pattern match on stripped body text:
 
 ```python
-"body_text": _html_to_plain(raw.get("richText")) or raw.get("text") or None,
+def _detect_verdict_type(plain_text: str | None, keywords: list) -> str | None:
+    if not plain_text:
+        return None
+    if re.search(r"Úrskurðarorð|úrskurðar\b", plain_text, re.IGNORECASE):
+        return "Úrskurður"
+    return None  # caller falls back to config.verdict_type_default
 ```
 
-`raw.get("text")` fallback ensures old documents already stored with a `"text"` key still extract correctly on backfill.
+Update `_extract_haestirettur()` — two line changes:
+
+```python
+plain_body = _html_to_plain(raw.get("richText"))
+...
+"body_text": plain_body or raw.get("text") or None,
+"verdict_type": _detect_verdict_type(plain_body, raw.get("keywords") or [])
+               or config.verdict_type_default,
+```
+
+`plain_body` is computed once and reused for both `body_text` and `verdict_type` detection.  
+`raw.get("text")` fallback on `body_text` ensures old documents stored with a `"text"` key still extract correctly on backfill.
 
 ---
 
@@ -155,18 +171,18 @@ for page in range(start_page, last_page + 1):
             await _upsert_doc(session, doc)
         await session.commit()
 
-    # Render markdown, save PDFs, then write markdown_path back to DB
-    for doc in docs:
-        md_path = _render_and_save(doc, config)
-        if md_path:
-            async with AsyncSessionLocal() as s:
+    # Render markdown + save PDFs, then batch-update markdown_path (one transaction per page)
+    async with AsyncSessionLocal() as s:
+        for doc in docs:
+            md_path = _render_and_save(doc, config)
+            if md_path:
                 await s.execute(
                     update(Document)
                     .where(Document.source_id == doc.source_id,
                            Document.external_id == doc.external_id)
                     .values(markdown_path=str(md_path))
                 )
-                await s.commit()
+        await s.commit()
 
     # Checkpoint after commit
     _save_checkpoint(page, last_page, imported_count)
@@ -224,13 +240,13 @@ Error count = docs where `validation_errors` is non-empty. Shown live, detail vi
 | `keywords` | list | `keywords` | `keywords` |
 | `presentings` | list | `presentings` | `summary` |
 | `court` | list | `court` | `court` → `"Hrd."` (via `SourceConfig.abbreviation`) |
-| `richText` | detail | `richText` | `body_text` (via `_html_to_plain`) |
+| `richText` | detail | `richText` | `body_text` (via `_html_to_plain`); also drives `verdict_type` detection |
 | `pdfString` | detail | `pdfString` | PDF file on disk |
 | `resolutionLink` | detail | `resolutionLink` | stored in `raw_api_data` only |
 
 `lower_body_text` → `None` (Hæstiréttur lower court text is separate document via `resolutionLink`, not embedded).  
 `instance_tier` → `3` (from `SourceConfig`).  
-`verdict_type` → `config.verdict_type_default` (`"Dómur"`) — list query has no type field.
+`verdict_type` → `_detect_verdict_type(plain_body, keywords)` with fallback to `config.verdict_type_default` (`"Dómur"`). Matches `"Úrskurðarorð"` or `"úrskurðar\b"` in body text → `"Úrskurður"`. List query has no type field.
 
 ---
 
