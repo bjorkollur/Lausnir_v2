@@ -78,17 +78,63 @@ def _keywords_from_content(content_list: list | None) -> list[str]:
     return [k for k in out if k]
 
 
+_BLOCK_NODES = {
+    "paragraph", "heading-1", "heading-2", "heading-3",
+    "heading-4", "heading-5", "heading-6",
+    "ordered-list", "unordered-list", "list-item",
+    "blockquote", "hr",
+}
+
+_HEADING_MARKERS = {
+    "heading-1": "# ",
+    "heading-2": "## ",
+    "heading-3": "### ",
+    "heading-4": "#### ",
+    "heading-5": "##### ",
+    "heading-6": "###### ",
+}
+
+
+_MONTHS_IS_RE = (
+    r'(?:janúar|febrúar|mars|apríl|maí|júní|júlí|ágúst|september|október|nóvember|desember)'
+)
+_LOWER_COURT_SPLIT_RE = re.compile(
+    r'^((?:Úrskurður|Dómur)\s+(?:Landsréttar|Héraðsdóms\b[^\n,]*?)'
+    r'(?:\s*,?\s*\w+daginn?\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
+    r'|\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?)\s*)$',
+    re.MULTILINE | re.IGNORECASE,
+)
+
+
+def _split_lower_court(text: str) -> tuple[str, str | None]:
+    """Split body at first lower court section header. Returns (body, lower_body)."""
+    m = _LOWER_COURT_SPLIT_RE.search(text)
+    if not m:
+        return text, None
+    body = text[:m.start()].rstrip()
+    lower = text[m.start():].strip()
+    return body, lower or None
+
+
 def _rich_text_to_plain(nodes: list | None) -> str:
     if not nodes:
         return ""
     parts = []
     for node in nodes:
-        if isinstance(node, dict):
-            if node.get("nodeType") == "text":
-                parts.append(node.get("value", ""))
-            elif "content" in node:
-                parts.append(_rich_text_to_plain(node["content"]))
-    return "".join(parts).strip()
+        if not isinstance(node, dict):
+            continue
+        node_type = node.get("nodeType", "")
+        if node_type == "text":
+            parts.append(node.get("value", ""))
+        elif "content" in node:
+            inner = _rich_text_to_plain(node["content"])
+            if node_type in _BLOCK_NODES:
+                marker = _HEADING_MARKERS.get(node_type, "")
+                parts.append(("\n\n" + marker + inner) if inner else "")
+            else:
+                parts.append(inner)
+    text = "".join(parts)
+    return re.sub(r"\n{3,}", "\n\n", text).strip()
 
 
 def _html_to_plain(html: str | None) -> str | None:
@@ -112,7 +158,7 @@ def _parse_parties_gegn(title: str | None) -> tuple[list, list]:
     """'A ehf. gegn B hf.' → ([{name:A ehf.}], [{name:B hf.}])"""
     if not title:
         return [], []
-    parts = re.split(r"\bgegn\b", title, maxsplit=1, flags=re.IGNORECASE)
+    parts = re.split(r"(?<!\w)gegn", title, maxsplit=1, flags=re.IGNORECASE)
     if len(parts) == 2:
         return (
             [{"name": parts[0].strip(), "lawyer": None}],
@@ -139,7 +185,11 @@ def _richtext_body(value: str | dict | None) -> str | None:
 def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
     title = raw.get("title") or raw.get("caseTitle") or ""
     plf, dfd = _parse_parties_gegn(title)
-    plain_body = _richtext_body(raw.get("richText"))
+    plain_body = _richtext_body(raw.get("richText")) or raw.get("text") or raw.get("content")
+    if config.has_lower_court and plain_body:
+        plain_body, lower_body = _split_lower_court(plain_body)
+    else:
+        lower_body = raw.get("lowerCourtText") or None
     return {
         "case_number": raw.get("caseNumber") or raw.get("id"),
         "document_date": _parse_icelandic_date(
@@ -159,8 +209,8 @@ def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
         "summary": (
             raw.get("presentings") or raw.get("abstract") or raw.get("summary") or None
         ),
-        "body_text": plain_body or raw.get("text") or raw.get("content") or None,
-        "lower_body_text": raw.get("lowerCourtText") or None,
+        "body_text": plain_body or None,
+        "lower_body_text": lower_body,
         "raw_api_data": raw,
     }
 

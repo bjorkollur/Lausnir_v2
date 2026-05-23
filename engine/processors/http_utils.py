@@ -19,9 +19,9 @@ _HEADERS = {
     "Accept-Language": "is, en;q=0.9",
 }
 
-_RETRY_STATUSES = {429, 405}
-_BASE_BACKOFF = 15.0
-_BACKOFF_FACTOR = 2.5
+_RETRY_STATUSES = {429, 405, 500, 503}
+_RETRY_PAUSE = 5.0
+_MAX_RETRIES = 3
 
 
 def make_client(**kwargs) -> httpx.AsyncClient:
@@ -34,17 +34,23 @@ async def post_with_retry(
     url: str,
     payload: dict,
     *,
-    max_retries: int = 3,
+    max_retries: int = _MAX_RETRIES,
 ) -> dict:
-    """POST JSON; retry on 429/405 with exponential backoff (15 s × 2.5^n)."""
+    """POST JSON; retry on 429/405/500/503 or timeout with a flat 5 s pause, max 3 attempts."""
     for attempt in range(max_retries):
-        resp = await client.post(url, json=payload)
+        try:
+            resp = await client.post(url, json=payload)
+        except httpx.TimeoutException:
+            if attempt == max_retries - 1:
+                raise
+            log.warning("POST timeout — sleeping %.1f s (attempt %d/%d)", _RETRY_PAUSE, attempt + 1, max_retries)
+            await asyncio.sleep(_RETRY_PAUSE)
+            continue
         if resp.status_code in _RETRY_STATUSES:
             if attempt == max_retries - 1:
                 resp.raise_for_status()
-            delay = _BASE_BACKOFF * (_BACKOFF_FACTOR ** attempt)
-            log.warning("WAF throttle %d — sleeping %.1f s", resp.status_code, delay)
-            await asyncio.sleep(delay)
+            log.warning("HTTP %d — sleeping %.1f s (attempt %d/%d)", resp.status_code, _RETRY_PAUSE, attempt + 1, max_retries)
+            await asyncio.sleep(_RETRY_PAUSE)
             continue
         resp.raise_for_status()
         return resp.json()
@@ -55,17 +61,23 @@ async def get_with_retry(
     client: httpx.AsyncClient,
     url: str,
     *,
-    max_retries: int = 3,
+    max_retries: int = _MAX_RETRIES,
 ) -> httpx.Response:
-    """GET; retry on 429/405 with same backoff. GET does not trigger CloudFront WAF."""
+    """GET; retry on 429/405/500/503 or timeout with a flat 5 s pause, max 3 attempts."""
     for attempt in range(max_retries):
-        resp = await client.get(url)
+        try:
+            resp = await client.get(url)
+        except httpx.TimeoutException:
+            if attempt == max_retries - 1:
+                raise
+            log.warning("GET timeout — sleeping %.1f s (attempt %d/%d)", _RETRY_PAUSE, attempt + 1, max_retries)
+            await asyncio.sleep(_RETRY_PAUSE)
+            continue
         if resp.status_code in _RETRY_STATUSES:
             if attempt == max_retries - 1:
                 resp.raise_for_status()
-            delay = _BASE_BACKOFF * (_BACKOFF_FACTOR ** attempt)
-            log.warning("Throttled GET %d — sleeping %.1f s", resp.status_code, delay)
-            await asyncio.sleep(delay)
+            log.warning("HTTP %d — sleeping %.1f s (attempt %d/%d)", resp.status_code, _RETRY_PAUSE, attempt + 1, max_retries)
+            await asyncio.sleep(_RETRY_PAUSE)
             continue
         resp.raise_for_status()
         return resp

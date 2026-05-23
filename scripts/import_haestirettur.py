@@ -233,7 +233,7 @@ def _render_and_save(doc: Document, config: SourceConfig) -> Path | None:
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-async def main() -> None:
+async def main(limit: int | None = None) -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     config = get_config("haestirettur")
@@ -318,6 +318,9 @@ async def main() -> None:
 
                 _save_checkpoint(page, last_page, imported_count)
 
+                if limit is not None and imported_count >= limit:
+                    break
+
                 progress.update(
                     task_id,
                     advance=len(docs),
@@ -337,4 +340,8 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--limit", type=int, default=None, help="Stop after N documents")
+    args = parser.parse_args()
+    asyncio.run(main(limit=args.limit))
