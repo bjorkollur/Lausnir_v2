@@ -145,12 +145,12 @@ Call `Renderer.rebuild_all(source_short_name)` to regenerate all .md files for a
 ## Validation Rules
 
 Enforced by `engine/processors/validator.py`:
-- `case_number` must match source's expected format
+- `case_number` must match source's expected format; prefix number > 1500 flagged as likely parse error
 - `document_date` must be ≥ 1900 and ≤ today+1
 - `verdict_type` must be in allowed set
 - `body_text` must be ≥ 200 chars (or flagged short)
 - `plaintiffs`/`defendants` must be non-empty for adversarial cases
-- `keywords` recommended ≥ 3 items
+- `keywords` flagged missing if empty; no minimum count enforced
 
 Validation errors stored in `validation_errors JSONB` column — never silently dropped.
 
@@ -167,9 +167,8 @@ engine/
     extractor.py        # Extract structured fields from raw_api_data
     validator.py        # Validate before storage
     renderer.py         # Derive .md and urlausn from DB fields
-    pdf_reader.py       # PDF → text (pdfplumber + PyMuPDF)
+    pdf_parser.py       # PDF → text with heading/table detection (PyMuPDF)
     http_utils.py       # Retry logic, WAF-safe fetch
-    parties_parser.py   # Parse plaintiff/defendant from text
 scripts/
   import_{source}.py    # One per source
   backfill_{source}.py  # Re-process existing docs
@@ -208,6 +207,13 @@ uv run python scripts/backfill_render.py --source heradsdomstolar
 # Run under supervisor (auto-restart on crash)
 nohup ./scripts/supervised.sh scripts/import_X.py /tmp/X.log > /tmp/X_sup.log 2>&1 &
 ```
+
+## Gotchas
+
+- `case_number` is NOT unique in the DB — use `.scalars().all()` not `scalar_one_or_none()` when querying by it
+- Landsréttur PDFs: heading detection uses `"Bold"` key (not `"BoldMT"`) to match both old (`Times New Roman,Bold`) and new (`TimesNewRomanPS-BoldMT`) fonts; italic fonts excluded via `"Ital"` check in `_heading_marker()`
+- `_correct_date_if_wrong()` in extractor only overrides the API date when the document's own text reveals a *different* date — not a blanket override
+- `lower_body_text = None` is correct for Landsréttur docs that don't embed a lower court — not a bug
 
 ## Migration from v1
 
