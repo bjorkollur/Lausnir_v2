@@ -106,6 +106,24 @@ _MONTHS_IS_RE = (
 # everything up to (but not including) "Dómur/Úrskurður Landsréttar" which opens the body.
 _LANDSRETTUR_PREAMBLE_RE = re.compile(r'^.*?(?=(?:Dómur|Úrskurður) Landsréttar\b)', re.DOTALL)
 
+# Extracts the keyword string after "Lykilorð" in the PDF preamble.
+# e.g. "Lykilorð Kærumál. Gæsluvarðhald. 2. mgr. 95. gr. laga nr. 88/2008."
+_LANDSRETTUR_PDF_KEYWORDS_RE = re.compile(
+    r'\bLykilorð\s+(.+?)(?=\n\n|\nÚtdráttur|\nDómur|\nÚrskurður|\Z)',
+    re.DOTALL,
+)
+
+# Split on ". " before an uppercase letter (new topic keyword).
+_KW_UPPERCASE_SPLIT_RE = re.compile(r'\.\s+(?=[A-ZÁÉÍÓÚÝÐÞÆÖ])')
+
+# Further split a chunk at ". DIGIT" when preceded by a full word (≥4 lowercase
+# chars). This separates "Gæsluvarðhald" from "2. mgr. 95. gr. laga nr. 88/2008"
+# while leaving "laga nr. 88" and "2. mgr. 95" intact (abbreviations are ≤3 chars).
+# Fixed-width lookbehind: check exactly the 4 chars before ". "
+_KW_DIGIT_SPLIT_RE = re.compile(
+    r'(?<=[a-záéíóúýðþæö][a-záéíóúýðþæö][a-záéíóúýðþæö][a-záéíóúýðþæö])\.\s+(?=\d)'
+)
+
 _LOWER_COURT_SPLIT_RE = re.compile(
     r'^(?:#{1,6}\s+)?((?:Úrskurður|Dómur)\s+(?:Landsréttar|Héraðsdóms\b[^\n,]*?)'
     r'(?:\s*,?\s*\w+daginn?\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
@@ -122,6 +140,34 @@ def _split_lower_court(text: str) -> tuple[str, str | None]:
     body = text[:m.start()].rstrip()
     lower = text[m.start():].strip()
     return body, lower or None
+
+
+def _keywords_from_pdf_preamble(full_text: str) -> list[str]:
+    """
+    Extract keywords from the 'Lykilorð' line in a Landsréttur PDF preamble.
+    Returns [] if not found. Used as fallback when the API returns no keywords.
+
+    Input:  "Lykilorð Kærumál. Gæsluvarðhald. 2. mgr. 95. gr. laga nr. 88/2008."
+    Output: ["Kærumál", "Gæsluvarðhald", "2. mgr. 95. gr. laga nr. 88/2008"]
+
+    Splitting rules:
+    1. Split on ". " before uppercase → separates topic words (Kærumál, Gæsluvarðhald).
+    2. Within each chunk, split on ". DIGIT" when preceded by ≥4 lowercase chars
+       (a full word, not a 2–3-char abbreviation like mgr/gr/nr) → separates
+       "Gæsluvarðhald" from "2. mgr. 95. gr. laga nr. 88/2008" without breaking
+       internal legal references.
+    """
+    m = _LANDSRETTUR_PDF_KEYWORDS_RE.search(full_text)
+    if not m:
+        return []
+    raw_kws = m.group(1).strip()
+    # Pass 1: split on ". " before uppercase
+    chunks = _KW_UPPERCASE_SPLIT_RE.split(raw_kws)
+    # Pass 2: within each chunk split on ". DIGIT" after a long word
+    parts: list[str] = []
+    for chunk in chunks:
+        parts.extend(_KW_DIGIT_SPLIT_RE.split(chunk))
+    return [p.strip().rstrip(".") for p in parts if p.strip()]
 
 
 def _rich_text_to_plain(nodes: list | None) -> str:
@@ -379,10 +425,18 @@ def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
     plf, dfd = _parse_parties_gegn(title)
 
     # Landsréttur: richText is always None — body comes from PDF
-    plain_body = _pdf_b64_to_text(raw.get("pdfString"), config)
+    full_pdf_text = _pdf_b64_to_text(raw.get("pdfString"), config)
+
+    # Extract keywords from PDF preamble BEFORE stripping it, as fallback for
+    # docs where the API returns keywords: [] (common in older 2018–2019 docs).
+    api_keywords = _keywords_from_content(raw.get("keywords"))
+    if not api_keywords and full_pdf_text:
+        api_keywords = _keywords_from_pdf_preamble(full_pdf_text)
+
+    plain_body = full_pdf_text
 
     # Strip preamble (court name, date, parties, keywords, abstract — already
-    # captured in structured fields). Body begins at "Dómur Landsréttar".
+    # captured in structured fields). Body begins at "Dómur/Úrskurður Landsréttar".
     if plain_body:
         m = _LANDSRETTUR_PREAMBLE_RE.match(plain_body)
         if m:
@@ -407,7 +461,7 @@ def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
         "instance_tier": config.instance_tier,
         "plaintiffs": plf or None,
         "defendants": dfd or None,
-        "keywords": _keywords_from_content(raw.get("keywords")),
+        "keywords": api_keywords,
         "summary": raw.get("presentings") or None,
         "body_text": plain_body or None,
         "lower_body_text": lower_body,
