@@ -12,3 +12,4 @@ alembic/versions/*.py
 graphify-out/
 .claude/
 checkpoints/
+.graphify_*.json

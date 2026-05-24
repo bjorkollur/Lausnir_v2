@@ -10,6 +10,8 @@ from datetime import date
 from typing import TYPE_CHECKING
 
 _CASE_YEAR_RE = re.compile(r'/(\d{4})$')
+_CASE_NUM_PREFIX_RE = re.compile(r'^(\d+)/')
+_MAX_CASE_NUM_PREFIX = 1500
 
 if TYPE_CHECKING:
     from engine.config.sources import SourceConfig
@@ -31,6 +33,12 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
         err("case_number", "Missing")
     elif config.case_number_prefix and not doc.case_number.startswith(config.case_number_prefix):
         err("case_number", f"Expected prefix {config.case_number_prefix!r}, got {doc.case_number!r}")
+    else:
+        m_prefix = _CASE_NUM_PREFIX_RE.match(doc.case_number or "")
+        if m_prefix:
+            num = int(m_prefix.group(1))
+            if num > _MAX_CASE_NUM_PREFIX:
+                err("case_number", f"Fyrrihluti málsnúmers ({num}) er óvænt hár (> {_MAX_CASE_NUM_PREFIX}) — líklega villa í þáttun")
 
     # document_date
     if doc.document_date is None:
@@ -75,7 +83,5 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
     # keywords
     if not doc.keywords:
         err("keywords", "Missing")
-    elif len(doc.keywords) < 2:
-        err("keywords", f"Only {len(doc.keywords)} keyword(s)")
 
     return errors
