@@ -209,15 +209,35 @@ def _detect_verdict_type(plain_text: str | None, keywords: list) -> str | None:
 
 
 def _parse_parties_gegn(title: str | None) -> tuple[list, list]:
-    """'A ehf. gegn B hf.' → ([{name:A ehf.}], [{name:B hf.}])"""
+    """
+    Parse plaintiff/defendant from an island.is verdict title.
+
+    Handles two formats:
+    1. Civil/standard: 'A ehf. gegn B hf.'  →  split on 'gegn'
+    2. Criminal appeal (kærumál): 'Lögreglustjórinn ... \\nVarnaraðili X (...)'
+       → split on '\\nVarnaraðili'; strips the role label from the defendant name.
+    """
     if not title:
         return [], []
+
+    # Format 1: split on 'gegn'
     parts = re.split(r"(?<!\w)gegn", title, maxsplit=1, flags=re.IGNORECASE)
     if len(parts) == 2:
         return (
             [{"name": parts[0].strip(), "lawyer": None}],
             [{"name": parts[1].strip(), "lawyer": None}],
         )
+
+    # Format 2: kærumál — '\nVarnaraðili [name]' with no 'gegn'
+    m = re.search(r'\n[Vv]arnaraðili\s+', title)
+    if m:
+        plaintiff_text = title[:m.start()].strip()
+        defendant_text = title[m.end():].strip()  # strip the 'Varnaraðili ' role label
+        return (
+            [{"name": plaintiff_text, "lawyer": None}],
+            [{"name": defendant_text, "lawyer": None}],
+        )
+
     return [{"name": title.strip(), "lawyer": None}], []
 
 
