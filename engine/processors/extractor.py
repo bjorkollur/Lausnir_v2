@@ -124,6 +124,13 @@ _KW_DIGIT_SPLIT_RE = re.compile(
     r'(?<=[a-záéíóúýðþæö][a-záéíóúýðþæö][a-záéíóúýðþæö][a-záéíóúýðþæö])\.\s+(?=\d)'
 )
 
+# Extracts the verdict date from the Landsréttur PDF preamble.
+# Matches: "Dómur þriðjudaginn 5. maí 2022." or "Úrskurður fimmtudaginn 5. maí 2022."
+_LANDSRETTUR_PDF_DATE_RE = re.compile(
+    r'(?:Dómur|Úrskurður)\s+\w+daginn?\s+(\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4})\.',
+    re.IGNORECASE,
+)
+
 _LOWER_COURT_SPLIT_RE = re.compile(
     r'^(?:#{1,6}\s+)?((?:Úrskurður|Dómur)\s+(?:Landsréttar|Héraðsdóms\b[^\n,]*?)'
     r'(?:\s*,?\s*\w+daginn?\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
@@ -453,6 +460,18 @@ def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
     if not api_keywords and full_pdf_text:
         api_keywords = _keywords_from_pdf_preamble(full_pdf_text)
 
+    # Extract date from PDF preamble — used as primary source because island.is
+    # API verdictDate is occasionally wrong by a year (e.g. 267/2022 returns 2021).
+    # Falls back to API date when PDF extraction yields nothing.
+    pdf_date: date | None = None
+    if full_pdf_text:
+        m_date = _LANDSRETTUR_PDF_DATE_RE.search(full_pdf_text[:500])
+        if m_date:
+            pdf_date = _parse_icelandic_date(m_date.group(1))
+    document_date = pdf_date or _parse_icelandic_date(
+        raw.get("verdictDate") or raw.get("date")
+    )
+
     plain_body = full_pdf_text
 
     # Strip preamble (court name, date, parties, keywords, abstract — already
@@ -470,9 +489,7 @@ def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
 
     return {
         "case_number": raw.get("caseNumber"),
-        "document_date": _parse_icelandic_date(
-            raw.get("verdictDate") or raw.get("date")
-        ),
+        "document_date": document_date,
         "court": config.abbreviation,
         "verdict_type": (
             _detect_verdict_type(plain_body, raw.get("keywords") or [])
