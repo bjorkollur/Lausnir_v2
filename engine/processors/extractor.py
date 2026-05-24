@@ -5,10 +5,13 @@ The extractor never reads from DB — only transforms raw_api_data.
 """
 from __future__ import annotations
 
+import base64
+import io
 import re
 from datetime import date
 from typing import Any
 
+import fitz  # PyMuPDF
 from bs4 import BeautifulSoup
 
 from engine.config.sources import SourceConfig
@@ -98,8 +101,13 @@ _HEADING_MARKERS = {
 _MONTHS_IS_RE = (
     r'(?:janúar|febrúar|mars|apríl|maí|júní|júlí|ágúst|september|október|nóvember|desember)'
 )
+
+# Matches the preamble/title block at the start of a Landsréttur PDF:
+# everything up to (but not including) "Dómur/Úrskurður Landsréttar" which opens the body.
+_LANDSRETTUR_PREAMBLE_RE = re.compile(r'^.*?(?=(?:Dómur|Úrskurður) Landsréttar\b)', re.DOTALL)
+
 _LOWER_COURT_SPLIT_RE = re.compile(
-    r'^((?:Úrskurður|Dómur)\s+(?:Landsréttar|Héraðsdóms\b[^\n,]*?)'
+    r'^(?:#{1,6}\s+)?((?:Úrskurður|Dómur)\s+(?:Landsréttar|Héraðsdóms\b[^\n,]*?)'
     r'(?:\s*,?\s*\w+daginn?\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
     r'|\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?)\s*)$',
     re.MULTILINE | re.IGNORECASE,
@@ -167,6 +175,157 @@ def _parse_parties_gegn(title: str | None) -> tuple[list, list]:
     return [{"name": title.strip(), "lawyer": None}], []
 
 
+# ─── PDF extraction ──────────────────────────────────────────────────────────
+
+_MARGIN_NUM_RE = re.compile(r'^\d{1,3}$')  # paragraph margin numbers
+
+
+def _heading_marker(font: str, size: float, crop: "PdfCrop | None") -> str:
+    """Return a markdown heading prefix if this font/size is configured as a heading, else ''."""
+    if crop is None:
+        return ""
+    # Font-based (e.g. 'Bold' → '## ') — substring match on font name.
+    # Italic variants are skipped unless the key itself specifies 'Ital', so
+    # key='Bold' matches 'Times New Roman,Bold' and 'TimesNewRomanPS-BoldMT'
+    # but NOT 'Times New Roman,BoldItalic' or 'TimesNewRomanPS-BoldItal'.
+    for key, marker in (crop.heading_fonts or {}).items():
+        if key in font:
+            if "Ital" in font and "Ital" not in key:
+                continue  # skip italic unless key explicitly targets italic
+            return marker
+    # Size-based (e.g. 20.0pt → '# ')
+    for size_key, marker in (crop.heading_sizes or {}).items():
+        if abs(size - size_key) < 0.5:
+            return marker
+    return ""
+
+
+def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
+    """
+    Convert a single dict-mode block to a text string.
+
+    Rules:
+    - Heading block (all spans BoldMT/configured font): return '## text'
+    - Margin-number block (first line is a small-size paragraph number, x < 90pt):
+      merge number with following text as 'N text…'
+    - Body block: join lines, de-hyphenating PDF word-wraps
+    """
+    if block.get("type") != 0:  # type 1 = image, skip
+        return None
+    lines = block.get("lines", [])
+    if not lines:
+        return None
+
+    # ── Detect heading ────────────────────────────────────────────────────────
+    # A heading block has exactly one line whose dominant font is a heading font.
+    # We check all spans; if every non-empty span is a heading font → heading.
+    if len(lines) == 1:
+        spans = lines[0].get("spans", [])
+        texts = [s["text"].strip() for s in spans if s["text"].strip()]
+        if texts:
+            # Use first span's font/size to check heading
+            first_span = next((s for s in spans if s["text"].strip()), None)
+            if first_span:
+                marker = _heading_marker(
+                    first_span.get("font", ""),
+                    first_span.get("size", 0),
+                    crop,
+                )
+                if marker:
+                    return marker + " ".join(texts)
+
+    # ── Detect margin number (paragraph number) ───────────────────────────────
+    # First line of block: single span, small size (≤10.5pt), x < 90, pure digit(s)
+    first_line_spans = lines[0].get("spans", [])
+    margin_num: str | None = None
+    body_start_line = 0
+    if first_line_spans:
+        s = first_line_spans[0]
+        if (
+            len(first_line_spans) == 1
+            and s.get("size", 12) <= 10.5
+            and s["bbox"][0] < 90
+            and _MARGIN_NUM_RE.match(s["text"].strip())
+        ):
+            margin_num = s["text"].strip()
+            body_start_line = 1
+
+    # ── Join body lines with de-hyphenation ───────────────────────────────────
+    text_parts: list[str] = []
+    for line in lines[body_start_line:]:
+        line_text = " ".join(s["text"] for s in line.get("spans", [])).strip()
+        if not line_text:
+            continue
+        if text_parts and text_parts[-1].endswith("-"):
+            # PDF word-wrap hyphen: join without space, remove hyphen
+            text_parts[-1] = text_parts[-1][:-1] + line_text
+        else:
+            text_parts.append(line_text)
+
+    body = " ".join(text_parts).strip()
+    if not body:
+        return margin_num  # edge case: number-only block
+
+    if margin_num:
+        return f"{margin_num} {body}"
+    return body
+
+
+def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
+    """
+    Extract structured text from PDF bytes using span-level font information.
+
+    Features:
+    - Crop header/footer per PdfCrop settings
+    - Font-based heading detection (heading_fonts) → '## heading'
+    - Size-based heading detection (heading_sizes) as fallback
+    - Margin paragraph numbers merged with their text ('6 Áfrýjandi var…')
+    - PDF word-wrap de-hyphenation ('flugumferðar-\\nstjórar' → 'flugumferðarstjórar')
+    """
+    crop = config.pdf_crop
+    try:
+        doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+    except Exception:
+        return None
+
+    page_parts: list[str] = []
+    for page_num, page in enumerate(doc):
+        page_height = page.rect.height
+        header = crop.header_pt if crop else 0.0
+        footer = crop.footer_pt if crop else 0.0
+        if crop and crop.skip_header_on_first and page_num == 0:
+            header = 0.0
+
+        clip = fitz.Rect(0, header, page.rect.width, page_height - footer)
+        d = page.get_text("dict", clip=clip)
+
+        block_texts: list[str] = []
+        for block in d.get("blocks", []):
+            t = _block_to_text(block, crop)
+            if t:
+                block_texts.append(t)
+
+        if block_texts:
+            page_parts.append("\n\n".join(block_texts))
+
+    doc.close()
+    if not page_parts:
+        return None
+    full = "\n\n".join(page_parts)
+    return re.sub(r"\n{3,}", "\n\n", full).strip() or None
+
+
+def _pdf_b64_to_text(b64: str | None, config: SourceConfig) -> str | None:
+    """Decode base64 pdfString and extract structured text via _pdf_bytes_to_text."""
+    if not b64:
+        return None
+    try:
+        pdf_bytes = base64.b64decode(b64)
+    except Exception:
+        return None
+    return _pdf_bytes_to_text(pdf_bytes, config)
+
+
 # ─── Per-source extractors ────────────────────────────────────────────────────
 
 def _richtext_body(value: str | dict | None) -> str | None:
@@ -216,7 +375,44 @@ def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
 
 
 def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
-    return _extract_haestirettur(raw, config)
+    title = raw.get("title") or ""
+    plf, dfd = _parse_parties_gegn(title)
+
+    # Landsréttur: richText is always None — body comes from PDF
+    plain_body = _pdf_b64_to_text(raw.get("pdfString"), config)
+
+    # Strip preamble (court name, date, parties, keywords, abstract — already
+    # captured in structured fields). Body begins at "Dómur Landsréttar".
+    if plain_body:
+        m = _LANDSRETTUR_PREAMBLE_RE.match(plain_body)
+        if m:
+            plain_body = plain_body[m.end():]
+
+    # Split Landsréttur body from embedded héraðsdómur at the end
+    if config.has_lower_court and plain_body:
+        plain_body, lower_body = _split_lower_court(plain_body)
+    else:
+        lower_body = None
+
+    return {
+        "case_number": raw.get("caseNumber"),
+        "document_date": _parse_icelandic_date(
+            raw.get("verdictDate") or raw.get("date")
+        ),
+        "court": config.abbreviation,
+        "verdict_type": (
+            _detect_verdict_type(plain_body, raw.get("keywords") or [])
+            or config.verdict_type_default
+        ),
+        "instance_tier": config.instance_tier,
+        "plaintiffs": plf or None,
+        "defendants": dfd or None,
+        "keywords": _keywords_from_content(raw.get("keywords")),
+        "summary": raw.get("presentings") or None,
+        "body_text": plain_body or None,
+        "lower_body_text": lower_body,
+        "raw_api_data": raw,
+    }
 
 
 def _extract_heradsdomstolar(raw: dict, config: SourceConfig) -> dict:

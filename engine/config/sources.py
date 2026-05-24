@@ -11,7 +11,11 @@ class PdfCrop:
     header_pt: float = 0.0
     footer_pt: float = 0.0
     skip_header_on_first: bool = False
+    # Size-based heading detection (héraðsdómstólar): {pt: "## "}
     heading_sizes: dict[float, str] = field(default_factory=dict)
+    # Font-based heading detection (landsréttur): substring match on font name
+    # e.g. {"BoldMT": "## "} matches "TimesNewRomanPS-BoldMT"
+    heading_fonts: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass
@@ -52,6 +56,15 @@ _SOURCES: list[SourceConfig] = [
         parse_parties="gegn",
         verdict_type_default="Dómur",
         case_number_prefix="",
+        pdf_crop=PdfCrop(
+            header_pt=0.0,
+            footer_pt=65.0,
+            skip_header_on_first=False,
+            # "Bold" matches both old PDFs (Times New Roman,Bold / Times New Roman Bold,Bol)
+            # and new PDFs (TimesNewRomanPS-BoldMT). Italic variants are excluded by
+            # _heading_marker() — see extractor.py.
+            heading_fonts={"Bold": "## "},
+        ),
     ),
     SourceConfig(
         short_name="heradsdomstolar",
