@@ -141,18 +141,35 @@ def _date_from_verdict_text(text: str | None, search_chars: int = 800) -> "date 
     Extract the verdict date stamped on the document itself.
 
     Searches the first `search_chars` characters of `text` for the pattern
-    'Dómur/Úrskurður [weekday] D. [month] YYYY.' and returns that date.
-
-    Returns None when the pattern is absent (e.g. Hæstiréttur richText),
-    which causes callers to fall back to the API date.
-
-    This is the authoritative date source — the API verdictDate field is
-    occasionally wrong (off by a year), while the document header is not.
+    'Dómur/Úrskurður [weekday] D. [month] YYYY.' and returns that date,
+    or None if the pattern is absent.
     """
     if not text:
         return None
     m = _VERDICT_DATE_RE.search(text[:search_chars])
     return _parse_icelandic_date(m.group(1)) if m else None
+
+
+def _correct_date_if_wrong(
+    api_date: "date | None",
+    verdict_text: str | None,
+) -> "date | None":
+    """
+    Return the API date unless the document text reveals it is wrong.
+
+    Logic:
+    - Extract the date stamped on the document itself (weekday + D. month YYYY).
+    - If found AND it differs from the API date → API is likely wrong; use doc date.
+    - If found AND it matches the API date → API is confirmed correct; use API date.
+    - If not found → no cross-check possible; use API date.
+
+    This means the body-text date is only ever used as a *correction*, never as
+    an unconditional override, so correctly-dated long-running cases are unaffected.
+    """
+    doc_date = _date_from_verdict_text(verdict_text)
+    if doc_date is not None and doc_date != api_date:
+        return doc_date
+    return api_date
 
 _LOWER_COURT_SPLIT_RE = re.compile(
     r'^(?:#{1,6}\s+)?((?:Úrskurður|Dómur)\s+(?:Landsréttar|Héraðsdóms\b[^\n,]*?)'
@@ -445,14 +462,12 @@ def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
         plain_body, lower_body = _split_lower_court(plain_body)
     else:
         lower_body = raw.get("lowerCourtText") or None
-    # Use date from body text if the "Dómur/Úrskurður [weekday] D. [month] YYYY."
-    # pattern is present; Hæstiréttur richText typically lacks this line so it
-    # falls back to the API verdictDate — which is the correct behaviour.
-    document_date = (
-        _date_from_verdict_text(plain_body)
-        or _parse_icelandic_date(
+    # Correct API date if document text reveals it is wrong (mismatch only).
+    document_date = _correct_date_if_wrong(
+        _parse_icelandic_date(
             raw.get("verdictDate") or raw.get("date") or raw.get("dateOfRuling")
-        )
+        ),
+        plain_body,
     )
     return {
         "case_number": raw.get("caseNumber") or raw.get("id"),
@@ -490,11 +505,10 @@ def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
     if not api_keywords and full_pdf_text:
         api_keywords = _keywords_from_pdf_preamble(full_pdf_text)
 
-    # Use date stamped on the PDF as primary — API verdictDate occasionally wrong.
-    # Falls back to API date when the preamble pattern is not found.
-    document_date = (
-        _date_from_verdict_text(full_pdf_text)
-        or _parse_icelandic_date(raw.get("verdictDate") or raw.get("date"))
+    # Correct API date if PDF preamble reveals it is wrong (mismatch only).
+    document_date = _correct_date_if_wrong(
+        _parse_icelandic_date(raw.get("verdictDate") or raw.get("date")),
+        full_pdf_text,
     )
 
     plain_body = full_pdf_text
