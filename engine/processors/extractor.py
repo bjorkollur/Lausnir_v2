@@ -292,6 +292,26 @@ def _parse_parties_gegn(title: str | None) -> tuple[list, list]:
 
 _MARGIN_NUM_RE = re.compile(r'^\d{1,3}$')  # paragraph margin numbers
 
+# Matches a new numbered paragraph: 1–3 digit number, period, space, uppercase.
+# 4-digit years like "2015. Þar er..." do NOT match, avoiding false paragraph breaks.
+_NEW_PARA_RE = re.compile(r'^\d{1,3}\.\s+[A-ZÁÉÍÓÚÝÞÆÖ]')
+
+
+def _collapse_spaced_letters(text: str) -> str:
+    """Collapse letter-spaced headings: 'D Ó M S O R Ð:' → 'DÓMSORÐ:'.
+
+    PDF files sometimes store heading characters with wide letter-spacing,
+    causing fitz to emit each character as a separate 'word'.  If every
+    whitespace-delimited token contains at most one alphabetic character
+    (plus possible punctuation such as ':') and there are at least 3 tokens,
+    we collapse them by removing the spaces.  This avoids false positives on
+    normal phrases like 'A og B' (where 'og' has two alpha chars).
+    """
+    tokens = text.split()
+    if len(tokens) >= 3 and all(sum(c.isalpha() for c in t) <= 1 for t in tokens):
+        return "".join(tokens)
+    return text
+
 
 def _heading_marker(font: str, size: float, crop: "PdfCrop | None") -> str:
     """Return a markdown heading prefix if this font/size is configured as a heading, else ''."""
@@ -318,9 +338,12 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     Convert a single dict-mode block to a text string.
 
     Rules:
-    - Heading block (all spans BoldMT/configured font): return '## text'
-    - Margin-number block (first line is a small-size paragraph number, x < 90pt):
-      merge number with following text as 'N text…'
+    - Heading block (single-line, dominant heading font): return '## text',
+      collapsing letter-spaced characters ('D Ó M S O R Ð:' → 'DÓMSORÐ:')
+    - Margin-number block (first span ≤10.5pt, x < 100pt, pure digit):
+      return 'N. body…'  (period inserted after the number)
+    - Combined-span block (number + body in one span, small/left-margin):
+      insert period via regex ('3   Ákærði…' → '3. Ákærði…')
     - Body block: join lines, de-hyphenating PDF word-wraps
     """
     if block.get("type") != 0:  # type 1 = image, skip
@@ -345,10 +368,12 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
                     crop,
                 )
                 if marker:
-                    return marker + " ".join(texts)
+                    # Fix letter-spaced headings: "D Ó M S O R Ð:" → "DÓMSORÐ:"
+                    return marker + _collapse_spaced_letters(" ".join(texts))
 
     # ── Detect margin number (paragraph number) ───────────────────────────────
-    # First line of block: single span, small size (≤10.5pt), x < 90, pure digit(s)
+    # Case A: first span is a pure digit at small size and left-margin x position.
+    # (Threshold relaxed to 100 pt — Landsréttur margin numbers sit at x ≈ 94 pt.)
     first_line_spans = lines[0].get("spans", [])
     margin_num: str | None = None
     body_start_line = 0
@@ -357,7 +382,7 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
         if (
             len(first_line_spans) == 1
             and s.get("size", 12) <= 10.5
-            and s["bbox"][0] < 90
+            and s["bbox"][0] < 100
             and _MARGIN_NUM_RE.match(s["text"].strip())
         ):
             margin_num = s["text"].strip()
@@ -380,7 +405,20 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
         return margin_num  # edge case: number-only block
 
     if margin_num:
-        return f"{margin_num} {body}"
+        # Case A: standalone number detected — add period separator
+        return f"{margin_num}. {body}"
+
+    # Case B: combined "3   Ákærði..." span — fitz merged the paragraph number
+    # with the body text into a single span.  Insert a period when the first
+    # span is small-size and positioned in the left margin.
+    if first_line_spans:
+        s0 = first_line_spans[0]
+        if (
+            s0.get("size", 12) <= 10.5
+            and s0.get("bbox", [999])[0] < 100
+        ):
+            body = re.sub(r'^(\d{1,3})\s{2,}(?=[A-ZÁÉÍÓÚÝÞÆÖ])', r'\1. ', body)
+
     return body
 
 
@@ -401,7 +439,7 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     except Exception:
         return None
 
-    page_parts: list[str] = []
+    all_blocks: list[str] = []
     for page_num, page in enumerate(doc):
         page_height = page.rect.height
         header = crop.header_pt if crop else 0.0
@@ -412,20 +450,36 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
         clip = fitz.Rect(0, header, page.rect.width, page_height - footer)
         d = page.get_text("dict", clip=clip)
 
-        block_texts: list[str] = []
         for block in d.get("blocks", []):
             t = _block_to_text(block, crop)
             if t:
-                block_texts.append(t)
-
-        if block_texts:
-            page_parts.append("\n\n".join(block_texts))
+                all_blocks.append(t)
 
     doc.close()
-    if not page_parts:
+    if not all_blocks:
         return None
-    full = "\n\n".join(page_parts)
-    return re.sub(r"\n{3,}", "\n\n", full).strip() or None
+
+    # Smart join: blocks that begin a new numbered paragraph or a heading get a
+    # blank-line separator; all other blocks are continuation text joined with a
+    # space (with hyphen-removal when the previous block ends with '-').
+    # This prevents false paragraph breaks mid-sentence while keeping genuine
+    # paragraph structure intact across page boundaries.
+    result = all_blocks[0]
+    for curr in all_blocks[1:]:
+        prev_last = result.rsplit("\n", 1)[-1]  # last line of accumulated text
+        if (
+            curr.startswith("## ")
+            or prev_last.startswith("## ")
+            or _NEW_PARA_RE.match(curr)
+        ):
+            result += "\n\n" + curr
+        elif result.endswith("-"):
+            # De-hyphenate across block boundary
+            result = result[:-1] + curr
+        else:
+            result += " " + curr.lstrip()
+
+    return re.sub(r"\n{3,}", "\n\n", result).strip() or None
 
 
 def _pdf_b64_to_text(b64: str | None, config: SourceConfig) -> str | None:
