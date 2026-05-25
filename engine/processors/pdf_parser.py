@@ -5,7 +5,9 @@ from collections import defaultdict
 import pdfplumber
 
 # Numbered paragraph: "10. Capital letter..." — not "1. mgr." or "1. gr."
-_NEW_PARA = re.compile(r'^\s*\d+\.\s+[A-ZÁÉÍÓÚÝÞÆÖ„\"\«]')
+# \d{1,3} prevents 4-digit years (e.g. "2015. Þar er...") from being treated
+# as new paragraphs when a sentence wraps across a line or page boundary.
+_NEW_PARA = re.compile(r'^\s*\d{1,3}\.\s+[A-ZÁÉÍÓÚÝÞÆÖ„\"\«]')
 _HEADING_LINE = re.compile(r'^\s*#')
 _PARA_NUM_ONLY = re.compile(r'^\s*\d{1,3}\.\s*$')  # "5." eða "99." ein á línu — aldrei heading (ekki ártöl)
 _MARGIN_NUM = re.compile(r'^\d{1,3}$')  # "2", "14" — málsgreinanúmer án punkts
@@ -138,7 +140,10 @@ def _extract_with_headings(page, heading_sizes: dict, heading_fonts: dict) -> st
             if current:
                 last_line = current.pop()
                 flush()
-                if blocks:
+                # Bæta aðeins við tómri línu ef síðasta block er ekki þegar tóm —
+                # forðast tvær consecutive tómar línur þegar is_big_gap hafði þegar
+                # bætt við einni áður.
+                if blocks and blocks[-1] != "":
                     blocks.append("")
                 current.append(f"{num}. {last_line}")
             else:
@@ -160,8 +165,10 @@ def _extract_with_headings(page, heading_sizes: dict, heading_fonts: dict) -> st
                 blocks.append("")  # auð lína á milli blokka
 
         if prefix:
-            # Fyrirsögn — alltaf ein lína, án skáletur-merkinga
-            blocks.append(f"{prefix}{line_text}")
+            # Fyrirsögn — alltaf ein lína, án skáletur-merkinga.
+            # _collapse_spaced_letters lagar "D Ó M S O R Ð:" → "DÓMSORÐ:"
+            heading_text = _collapse_spaced_letters(line_text)
+            blocks.append(f"{prefix}{heading_text}")
             pending_para_num = None
         else:
             body = _build_line_text(line_words) if use_inline_italic else line_text
@@ -183,6 +190,25 @@ def _heading_prefix(size: float, fontname: str, heading_sizes: dict, heading_fon
         if font_sub in fontname:
             return prefix
     return ""
+
+
+def _collapse_spaced_letters(line_text: str) -> str:
+    """Sameinar stafabilsbreytt fyrirsagnartext.
+
+    Í sumum PDF-skjölum eru stafir í fyrirsögnum staðsettir með víðu millibili
+    (letter-spacing), þannig að pdfplumber les hvern staf sem sérstakt "orð".
+    Niðurstaðan er "D Ó M S O R Ð:" í stað "DÓMSORÐ:".
+
+    Greining: ef ÖLLUM tókum hefur í mesta lagi einn stafrænn staf (plús mögulega
+    greinarmerki eins og ":"), og eru ≥ 3 tókar, þá er textinn sameinaður án bila.
+    Þetta kemur í veg fyrir að "A og B" (lögmæt fyrirsögn) sé brotlægt sett saman
+    (þar sem "og" hefur tvo stafræna stafi).
+    Gildir eingöngu um fyrirsagnarlínur (þar sem prefix er sett).
+    """
+    tokens = line_text.split()
+    if len(tokens) >= 3 and all(sum(c.isalpha() for c in t) <= 1 for t in tokens):
+        return "".join(tokens)
+    return line_text
 
 
 def _build_line_text(line_words: list) -> str:
