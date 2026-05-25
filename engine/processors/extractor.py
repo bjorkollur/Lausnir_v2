@@ -290,11 +290,47 @@ def _parse_parties_gegn(title: str | None) -> tuple[list, list]:
 
 # ─── PDF extraction ──────────────────────────────────────────────────────────
 
-_MARGIN_NUM_RE = re.compile(r'^\d{1,3}$')  # paragraph margin numbers
+_MARGIN_NUM_RE = re.compile(r'^\d{1,3}$')   # paragraph margin numbers (pure digit)
+_ROMAN_NUM_RE  = re.compile(r'^[IVX]+$')   # Roman numerals I, II, III… (no period)
 
 # Matches a new numbered paragraph: 1–3 digit number, period, space, uppercase.
 # 4-digit years like "2015. Þar er..." do NOT match, avoiding false paragraph breaks.
 _NEW_PARA_RE = re.compile(r'^\d{1,3}\.\s+[A-ZÁÉÍÓÚÝÞÆÖ]')
+
+
+def _build_body_from_lines(lines: list) -> str:
+    """Join lines (list of fitz line dicts) into a single string, de-hyphenating wraps."""
+    parts: list[str] = []
+    for line in lines:
+        lt = " ".join(s["text"] for s in line.get("spans", [])).strip()
+        if not lt:
+            continue
+        if parts and parts[-1].endswith("-"):
+            parts[-1] = parts[-1][:-1] + lt
+        else:
+            parts.append(lt)
+    return " ".join(parts).strip()
+
+
+def _is_page_footer_num(block: dict, page_height: float, page_width: float) -> bool:
+    """True if this block is a document page number printed in the footer margin.
+
+    PDF generators often place the page number as a separate text object early in
+    the page content stream, causing fitz to return it before the body blocks even
+    though it sits near the bottom of the page visually.  We detect it by position
+    (bottom 13 % of page, horizontally centred) and content (1–3 pure digits).
+    """
+    lines = block.get("lines", [])
+    if len(lines) != 1:
+        return False
+    spans = lines[0].get("spans", [])
+    if len(spans) != 1:
+        return False
+    s = spans[0]
+    if not re.match(r'^\d{1,3}$', s["text"].strip()):
+        return False
+    x, y = s["bbox"][0], s["bbox"][1]
+    return y > page_height * 0.87 and x > page_width * 0.3
 
 
 def _collapse_spaced_letters(text: str) -> str:
@@ -334,17 +370,16 @@ def _heading_marker(font: str, size: float, crop: "PdfCrop | None") -> str:
 
 
 def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
-    """
-    Convert a single dict-mode block to a text string.
+    """Convert a single fitz dict-mode block to a normalised text string.
 
-    Rules:
-    - Heading block (single-line, dominant heading font): return '## text',
-      collapsing letter-spaced characters ('D Ó M S O R Ð:' → 'DÓMSORÐ:')
-    - Margin-number block (first span ≤10.5pt, x < 100pt, pure digit):
-      return 'N. body…'  (period inserted after the number)
-    - Combined-span block (number + body in one span, small/left-margin):
-      insert period via regex ('3   Ákærði…' → '3. Ákærði…')
-    - Body block: join lines, de-hyphenating PDF word-wraps
+    Return values:
+    - ``'## heading'``          — single-line Bold heading block
+    - ``'## heading\\n\\nbody'``  — Bold heading on first line, body on rest
+    - ``'### I\\n\\nbody'``       — centred Roman-numeral section header
+    - ``'\\n\\nbody'``            — first-line-indented paragraph (new-para signal)
+    - ``'N. body…'``             — left-margin paragraph number with period
+    - ``'body…'``                — regular body block
+    - ``None``                   — image, empty, or page-footer number block
     """
     if block.get("type") != 0:  # type 1 = image, skip
         return None
@@ -352,24 +387,50 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     if not lines:
         return None
 
-    # ── Detect heading ────────────────────────────────────────────────────────
-    # A heading block has exactly one line whose dominant font is a heading font.
-    # We check all spans; if every non-empty span is a heading font → heading.
-    if len(lines) == 1:
-        spans = lines[0].get("spans", [])
-        texts = [s["text"].strip() for s in spans if s["text"].strip()]
-        if texts:
-            # Use first span's font/size to check heading
-            first_span = next((s for s in spans if s["text"].strip()), None)
-            if first_span:
-                marker = _heading_marker(
-                    first_span.get("font", ""),
-                    first_span.get("size", 0),
-                    crop,
-                )
-                if marker:
-                    # Fix letter-spaced headings: "D Ó M S O R Ð:" → "DÓMSORÐ:"
-                    return marker + _collapse_spaced_letters(" ".join(texts))
+    # Skip any leading blank lines in the block.  Some PDFs emit an empty
+    # italic-space span as the very first line (e.g. lower-court sections that
+    # add a leading superscript / footnote marker).  Without this skip the whole
+    # block would be discarded even though subsequent lines have real content.
+    first_spans: list = []
+    first_nonempty: list = []
+    lines_start = 0
+    for lines_start, _line in enumerate(lines):
+        first_spans = _line.get("spans", [])
+        first_nonempty = [s for s in first_spans if s["text"].strip()]
+        if first_nonempty:
+            break
+    else:
+        return None  # every line is empty
+    if lines_start:
+        lines = lines[lines_start:]
+
+    first_span = first_nonempty[0]
+
+    # ── Detect heading (single-line or multi-line block) ──────────────────────
+    # Multi-line case: some lower-court PDFs put a heading (e.g. the spaced
+    # "Ú R S K U R Ð A R O R Ð:") on the first line of a block whose remaining
+    # lines contain the verdict body.  We handle both cases here.
+    marker = _heading_marker(first_span.get("font", ""), first_span.get("size", 0), crop)
+    if marker:
+        heading_texts = [s["text"].strip() for s in first_spans if s["text"].strip()]
+        heading = _collapse_spaced_letters(" ".join(heading_texts))
+        if len(lines) == 1:
+            return marker + heading
+        body = _build_body_from_lines(lines[1:])
+        return f"{marker}{heading}\n\n{body}" if body else marker + heading
+
+    # ── Detect centred Roman-numeral section header (I, II, III…) ─────────────
+    # Lower-court bodies sometimes use a centred Roman numeral as a divider.
+    # Signature: first line is a single pure-Roman span placed far to the right
+    # of where the body text begins on subsequent lines (delta x > 100 pt).
+    if len(lines) > 1 and len(first_nonempty) == 1:
+        if _ROMAN_NUM_RE.match(first_span["text"].strip()):
+            second_spans = lines[1].get("spans", [])
+            second_x = second_spans[0]["bbox"][0] if second_spans else 0.0
+            if second_x > 0 and first_span["bbox"][0] > second_x + 100:
+                roman = first_span["text"].strip()
+                body = _build_body_from_lines(lines[1:])
+                return f"### {roman}\n\n{body}" if body else f"### {roman}"
 
     # ── Detect margin number (paragraph number) ───────────────────────────────
     # Case A: first span is a pure digit at small size and left-margin x position.
@@ -377,33 +438,19 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     #   older style  x ≈ 94  (combined "N   text…" span)
     #   newer style  x ≈ 105 (standalone "N" span; body continues at x ≈ 122)
     # Body text always starts at x ≥ 120, so 115 is a safe upper bound.
-    first_line_spans = lines[0].get("spans", [])
     margin_num: str | None = None
     body_start_line = 0
-    if first_line_spans:
-        s = first_line_spans[0]
-        if (
-            len(first_line_spans) == 1
-            and s.get("size", 12) <= 10.5
-            and s["bbox"][0] < 115
-            and _MARGIN_NUM_RE.match(s["text"].strip())
-        ):
-            margin_num = s["text"].strip()
-            body_start_line = 1
+    if (
+        len(first_spans) == 1
+        and first_span.get("size", 12) <= 10.5
+        and first_span["bbox"][0] < 115
+        and _MARGIN_NUM_RE.match(first_span["text"].strip())
+    ):
+        margin_num = first_span["text"].strip()
+        body_start_line = 1
 
     # ── Join body lines with de-hyphenation ───────────────────────────────────
-    text_parts: list[str] = []
-    for line in lines[body_start_line:]:
-        line_text = " ".join(s["text"] for s in line.get("spans", [])).strip()
-        if not line_text:
-            continue
-        if text_parts and text_parts[-1].endswith("-"):
-            # PDF word-wrap hyphen: join without space, remove hyphen
-            text_parts[-1] = text_parts[-1][:-1] + line_text
-        else:
-            text_parts.append(line_text)
-
-    body = " ".join(text_parts).strip()
+    body = _build_body_from_lines(lines[body_start_line:])
     if not body:
         return margin_num  # edge case: number-only block
 
@@ -416,13 +463,22 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     # span is small-size and positioned in the left margin.
     # Lookahead uses \S (any non-whitespace) so redacted content like
     # "[…]" (which starts with "[") is handled in addition to uppercase letters.
-    if first_line_spans:
-        s0 = first_line_spans[0]
-        if (
-            s0.get("size", 12) <= 10.5
-            and s0.get("bbox", [999])[0] < 115
-        ):
-            body = re.sub(r'^(\d{1,3})\s{2,}(?=\S)', r'\1. ', body)
+    if (
+        first_span.get("size", 12) <= 10.5
+        and first_span["bbox"][0] < 115
+    ):
+        body = re.sub(r'^(\d{1,3})\s{2,}(?=\S)', r'\1. ', body)
+
+    # ── Detect first-line indent → signals a new paragraph ───────────────────
+    # Some lower-court PDFs separate paragraphs with first-line indentation
+    # rather than blank lines.  When the first line's x position is noticeably
+    # larger than the continuation lines' x (delta > 20 pt), this block starts
+    # a new paragraph.  We prefix "\n\n" so the smart-join phase handles it.
+    if len(lines) > 1 and not margin_num:
+        second_spans = lines[1].get("spans", [])
+        if second_spans:
+            if first_span["bbox"][0] - second_spans[0]["bbox"][0] > 20:
+                body = "\n\n" + body
 
     return body
 
@@ -447,15 +503,22 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     all_blocks: list[str] = []
     for page_num, page in enumerate(doc):
         page_height = page.rect.height
+        page_width  = page.rect.width
         header = crop.header_pt if crop else 0.0
         footer = crop.footer_pt if crop else 0.0
         if crop and crop.skip_header_on_first and page_num == 0:
             header = 0.0
 
-        clip = fitz.Rect(0, header, page.rect.width, page_height - footer)
+        clip = fitz.Rect(0, header, page_width, page_height - footer)
         d = page.get_text("dict", clip=clip)
 
         for block in d.get("blocks", []):
+            # Skip centred page-footer numbers — they appear first in fitz's
+            # block list (early in the PDF content stream) even though they sit
+            # near the bottom of the page, and would otherwise get injected into
+            # the middle of body text across page boundaries.
+            if _is_page_footer_num(block, page_height, page_width):
+                continue
             t = _block_to_text(block, crop)
             if t:
                 all_blocks.append(t)
@@ -464,20 +527,23 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     if not all_blocks:
         return None
 
-    # Smart join: blocks that begin a new numbered paragraph or a heading get a
-    # blank-line separator; all other blocks are continuation text joined with a
-    # space (with hyphen-removal when the previous block ends with '-').
-    # This prevents false paragraph breaks mid-sentence while keeping genuine
-    # paragraph structure intact across page boundaries.
+    # Smart join: blocks that begin a new heading, numbered paragraph, or
+    # first-line-indented paragraph get a blank-line separator; all other blocks
+    # are continuation text joined with a space.
+    # Block signals:
+    #   starts with '#'  → heading (## or ###) — always separated
+    #   starts with '\n' → first-line-indent paragraph — carries its own \n\n
+    #   matches _NEW_PARA_RE → numbered paragraph
     result = all_blocks[0]
     for curr in all_blocks[1:]:
         prev_last = result.rsplit("\n", 1)[-1]  # last line of accumulated text
         if (
-            curr.startswith("## ")
-            or prev_last.startswith("## ")
+            curr.startswith("#")       # ## or ### heading / Roman section
+            or prev_last.startswith("#")
             or _NEW_PARA_RE.match(curr)
+            or curr.startswith("\n")   # first-line-indent paragraph signal
         ):
-            result += "\n\n" + curr
+            result += "\n\n" + curr.lstrip("\n")
         elif result.endswith("-"):
             # De-hyphenate across block boundary
             result = result[:-1] + curr
