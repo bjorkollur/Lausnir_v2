@@ -295,7 +295,7 @@ _ROMAN_NUM_RE  = re.compile(r'^[IVX]+$')   # Roman numerals I, II, III… (no pe
 
 # Matches a new numbered paragraph: 1–3 digit number, period, space, uppercase.
 # 4-digit years like "2015. Þar er..." do NOT match, avoiding false paragraph breaks.
-_NEW_PARA_RE = re.compile(r'^\d{1,3}\.\s+[A-ZÁÉÍÓÚÝÞÆÖ]')
+_NEW_PARA_RE = re.compile(r'^\d{1,3}\.\s+[A-ZÁÐÉÍÓÚÝÞÆÖ]')
 
 
 def _build_body_from_lines(lines: list) -> str:
@@ -347,6 +347,31 @@ def _collapse_spaced_letters(text: str) -> str:
     if len(tokens) >= 3 and all(sum(c.isalpha() for c in t) <= 1 for t in tokens):
         return "".join(tokens)
     return text
+
+
+def _collapse_spaced_letters_inline(text: str) -> str:
+    """Collapse letter-spaced sequences anywhere in body text.
+
+    Some older lower-court PDFs render "DÓMSORÐ:" and "ÚRSKURÐARORÐ:" with
+    letter-spacing so pdfplumber/fitz reads them as "D Ó M S O R Ð:" and
+    "Ú R S K U R Ð A R O R Ð:".  When these appear inline (not in a dedicated
+    Bold heading block) they slip through the heading-level collapse.
+
+    Detection: a sequence of 5+ single uppercase Icelandic chars separated by
+    exactly one space, optionally followed by ':'.  The 5-char minimum avoids
+    false positives on short abbreviations (e.g. "A B C") while reliably
+    matching DÓMSORÐ (7 chars) and ÚRSKURÐARORÐ (13 chars).
+    """
+    def _collapse(m: "re.Match") -> str:
+        seq = m.group(0)
+        tokens = seq.split()
+        if all(sum(c.isalpha() for c in t) <= 1 for t in tokens):
+            return "".join(tokens)
+        return seq
+
+    # Note: include Ð (U+00D0, eth) explicitly — it sits between the standard
+    # A-Z range and the accented vowels, so it is NOT covered by [A-ZÁÉÍÓÚÝÞÆÖ].
+    return re.sub(r'[A-ZÁÐÉÍÓÚÝÞÆÖ](?: [A-ZÁÐÉÍÓÚÝÞÆÖ]){4,}(?::)?', _collapse, text)
 
 
 def _heading_marker(font: str, size: float, crop: "PdfCrop | None") -> str:
@@ -417,6 +442,10 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
         if len(lines) == 1:
             return marker + heading
         body = _build_body_from_lines(lines[1:])
+        # A section heading and the first numbered paragraph may be merged into
+        # the same fitz block (heading on L0, "N   body…" on L1).  Apply the
+        # same margin-number period insertion that the non-heading path uses.
+        body = re.sub(r'^(\d{1,3})\s{2,}(?=\S)', r'\1. ', body)
         return f"{marker}{heading}\n\n{body}" if body else marker + heading
 
     # ── Detect centred Roman-numeral section header (I, II, III…) ─────────────
@@ -440,8 +469,11 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     # Body text always starts at x ≥ 120, so 115 is a safe upper bound.
     margin_num: str | None = None
     body_start_line = 0
+    # We check len(first_nonempty) == 1 (not len(first_spans) == 1) so that
+    # blocks whose first line has [margin_num, blank_arial_space] — two spans
+    # but only one non-empty — are still recognised as Case A.
     if (
-        len(first_spans) == 1
+        len(first_nonempty) == 1
         and first_span.get("size", 12) <= 10.5
         and first_span["bbox"][0] < 115
         and _MARGIN_NUM_RE.match(first_span["text"].strip())
@@ -550,6 +582,9 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
         else:
             result += " " + curr.lstrip()
 
+    # Collapse any letter-spaced sequences that appeared inline in body text
+    # (e.g. "D Ó M S O R Ð:" → "DÓMSORÐ:" in older lower-court PDFs).
+    result = _collapse_spaced_letters_inline(result)
     return re.sub(r"\n{3,}", "\n\n", result).strip() or None
 
 
