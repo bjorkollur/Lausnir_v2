@@ -373,7 +373,10 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
 
     # ── Detect margin number (paragraph number) ───────────────────────────────
     # Case A: first span is a pure digit at small size and left-margin x position.
-    # (Threshold relaxed to 100 pt — Landsréttur margin numbers sit at x ≈ 94 pt.)
+    # Threshold is 115 pt — Landsréttur docs use two layouts:
+    #   older style  x ≈ 94  (combined "N   text…" span)
+    #   newer style  x ≈ 105 (standalone "N" span; body continues at x ≈ 122)
+    # Body text always starts at x ≥ 120, so 115 is a safe upper bound.
     first_line_spans = lines[0].get("spans", [])
     margin_num: str | None = None
     body_start_line = 0
@@ -382,7 +385,7 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
         if (
             len(first_line_spans) == 1
             and s.get("size", 12) <= 10.5
-            and s["bbox"][0] < 100
+            and s["bbox"][0] < 115
             and _MARGIN_NUM_RE.match(s["text"].strip())
         ):
             margin_num = s["text"].strip()
@@ -411,13 +414,15 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     # Case B: combined "3   Ákærði..." span — fitz merged the paragraph number
     # with the body text into a single span.  Insert a period when the first
     # span is small-size and positioned in the left margin.
+    # Lookahead uses \S (any non-whitespace) so redacted content like
+    # "[…]" (which starts with "[") is handled in addition to uppercase letters.
     if first_line_spans:
         s0 = first_line_spans[0]
         if (
             s0.get("size", 12) <= 10.5
-            and s0.get("bbox", [999])[0] < 100
+            and s0.get("bbox", [999])[0] < 115
         ):
-            body = re.sub(r'^(\d{1,3})\s{2,}(?=[A-ZÁÉÍÓÚÝÞÆÖ])', r'\1. ', body)
+            body = re.sub(r'^(\d{1,3})\s{2,}(?=\S)', r'\1. ', body)
 
     return body
 
