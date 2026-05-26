@@ -318,19 +318,37 @@ def _is_page_footer_num(block: dict, page_height: float, page_width: float) -> b
     PDF generators often place the page number as a separate text object early in
     the page content stream, causing fitz to return it before the body blocks even
     though it sits near the bottom of the page visually.  We detect it by position
-    (bottom 13 % of page, horizontally centred) and content (1–3 pure digits).
+    (bottom 20 % of page, horizontally centred) and content (1–3 pure digits).
+
+    The threshold is 80 % (not the more conservative 87 %) because some PDFs render
+    the page number at ~82–85 % of page height — still clearly in the footer area —
+    and these would otherwise be misidentified as paragraph numbers and injected into
+    the extracted text.  The "all trailing lines blank" check prevents false positives
+    from genuine paragraph numbers that happen to appear near the bottom: a real
+    paragraph would have body text on the lines that follow, while a page-number
+    block has only blank continuation lines.
     """
     lines = block.get("lines", [])
-    if len(lines) != 1:
+    if not lines:
         return False
-    spans = lines[0].get("spans", [])
-    if len(spans) != 1:
+    # The page number must be the only non-blank content in the block.
+    # Some PDF generators append blank lines after the number, producing a
+    # 3-line block: ["11 ", " ", " "].  We allow that by checking that all
+    # lines after the first are pure whitespace.
+    first_spans = lines[0].get("spans", [])
+    if len(first_spans) != 1:
         return False
-    s = spans[0]
+    s = first_spans[0]
     if not re.match(r'^\d{1,3}$', s["text"].strip()):
         return False
     x, y = s["bbox"][0], s["bbox"][1]
-    return y > page_height * 0.87 and x > page_width * 0.3
+    if not (y > page_height * 0.80 and x > page_width * 0.3):
+        return False
+    # Verify that any remaining lines are blank (no real content)
+    for line in lines[1:]:
+        if any(sp["text"].strip() for sp in line.get("spans", [])):
+            return False
+    return True
 
 
 def _collapse_spaced_letters(text: str) -> str:
@@ -443,63 +461,113 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
             return marker + heading
         body = _build_body_from_lines(lines[1:])
         # A section heading and the first numbered paragraph may be merged into
-        # the same fitz block (heading on L0, "N   body…" on L1).  Apply the
+        # the same fitz block (heading on L0, "N body…" on L1).  Apply the
         # same margin-number period insertion that the non-heading path uses.
-        body = re.sub(r'^(\d{1,3})\s{2,}(?=\S)', r'\1. ', body)
+        # We match one-or-more SPACES only (not \s which includes newlines).
+        body = re.sub(r'^(\d{1,3}) +(?=\S)', r'\1. ', body)
         return f"{marker}{heading}\n\n{body}" if body else marker + heading
 
     # ── Detect centred Roman-numeral section header (I, II, III…) ─────────────
     # Lower-court bodies sometimes use a centred Roman numeral as a divider.
-    # Signature: first line is a single pure-Roman span placed far to the right
-    # of where the body text begins on subsequent lines (delta x > 100 pt).
+    # Signature: first line is a single pure-Roman span; the body text begins on
+    # a subsequent line significantly to the LEFT (delta x > 100 pt).
+    #
+    # A centred paragraph number ("1 ") may appear between the Roman numeral and
+    # the body text (both at the same centred x position).  We scan forward past
+    # such intermediate lines to find where the body actually begins.
     if len(lines) > 1 and len(first_nonempty) == 1:
         if _ROMAN_NUM_RE.match(first_span["text"].strip()):
-            second_spans = lines[1].get("spans", [])
-            second_x = second_spans[0]["bbox"][0] if second_spans else 0.0
-            if second_x > 0 and first_span["bbox"][0] > second_x + 100:
+            roman_x = first_span["bbox"][0]
+            body_line_start = 0  # 0 means "not found"
+            for _i in range(1, len(lines)):
+                _spans_i = lines[_i].get("spans", [])
+                _nonempty_i = [s for s in _spans_i if s["text"].strip()]
+                if _nonempty_i and _nonempty_i[0]["bbox"][0] < roman_x - 100:
+                    body_line_start = _i
+                    break
+            if body_line_start:
                 roman = first_span["text"].strip()
-                body = _build_body_from_lines(lines[1:])
+                # Any lines between the Roman numeral and the body (e.g. a
+                # centred paragraph number "1 ") become part of the body prefix.
+                pre = _build_body_from_lines(lines[1:body_line_start])
+                body = _build_body_from_lines(lines[body_line_start:])
+                if pre:
+                    body = (pre + " " + body).strip() if body else pre.strip()
+                # Insert period after any leading margin number ("1 Í" → "1. Í").
+                body = re.sub(r'^(\d{1,3}) +(?=\S)', r'\1. ', body)
                 return f"### {roman}\n\n{body}" if body else f"### {roman}"
 
     # ── Detect margin number (paragraph number) ───────────────────────────────
-    # Case A: first span is a pure digit at small size and left-margin x position.
-    # Threshold is 115 pt — Landsréttur docs use two layouts:
-    #   older style  x ≈ 94  (combined "N   text…" span)
-    #   newer style  x ≈ 105 (standalone "N" span; body continues at x ≈ 122)
-    # Body text always starts at x ≥ 120, so 115 is a safe upper bound.
-    margin_num: str | None = None
-    body_start_line = 0
+    # Case A: first span is a pure digit.  Two layout variants:
+    #
+    #   Left-margin layout (used by both Landsréttur upper-court and most
+    #     lower-court embeds):
+    #     x < 115 pt.  No size constraint — different lower-court PDFs use
+    #     different sizes (sz≈10 for older, sz≈12 for newer), and the
+    #     combination of a pure digit, left-margin x position and a single
+    #     non-empty span is already specific enough to paragraph numbers.
+    #
+    #   Centred layout (lower-court embeds where the paragraph number is
+    #     typeset at the horizontal centre of the page and body text follows
+    #     left-aligned on subsequent lines):
+    #     num_x >> body_x — the body's first non-blank line starts more than
+    #     100 pt to the LEFT of the paragraph number.  No size constraint —
+    #     different lower-court PDFs use different sizes (sz≈10 or sz≈12).
+    #     The structural guards (single non-empty span on L0, pure digit,
+    #     body starting far to the left) are sufficient without a size check.
+    #     Page-footer numbers are always filtered by _is_page_footer_num
+    #     before this point, so no false positives from footer page numbers.
+    #
     # We check len(first_nonempty) == 1 (not len(first_spans) == 1) so that
     # blocks whose first line has [margin_num, blank_arial_space] — two spans
     # but only one non-empty — are still recognised as Case A.
-    if (
+    margin_num: str | None = None
+    body_start_line = 0
+    _is_margin_num_candidate = (
         len(first_nonempty) == 1
-        and first_span.get("size", 12) <= 10.5
-        and first_span["bbox"][0] < 115
         and _MARGIN_NUM_RE.match(first_span["text"].strip())
-    ):
+    )
+    if _is_margin_num_candidate and first_span["bbox"][0] < 115:
+        # Left-margin layout
         margin_num = first_span["text"].strip()
         body_start_line = 1
+    elif _is_margin_num_candidate and len(lines) > 1:
+        # Centred layout: verify that at least one subsequent line has body text
+        # starting more than 100 pt to the LEFT of the paragraph number.  We scan
+        # ALL remaining lines (not just lines[1]) because an intermediate centred
+        # subtitle (e.g. italic section title "Sóknaraðili BRU SICAR" at x≈244)
+        # may appear between the paragraph number (x≈290) and the body (x≈82).
+        _num_x = first_span["bbox"][0]
+        for _l in lines[1:]:
+            _ne = [s for s in _l.get("spans", []) if s["text"].strip()]
+            if _ne and _ne[0]["bbox"][0] < _num_x - 100:
+                margin_num = first_span["text"].strip()
+                body_start_line = 1  # always skip only L0; keep subtitle in body
+                break
 
     # ── Join body lines with de-hyphenation ───────────────────────────────────
     body = _build_body_from_lines(lines[body_start_line:])
     if not body:
-        return margin_num  # edge case: number-only block
+        # Standalone margin-number block (the body is in the following block).
+        # Return with a leading \n\n (new-paragraph signal) and a trailing period
+        # so smart-join can recognise this as the start of a new paragraph and
+        # attach the next block as its body rather than opening another \n\n.
+        return f"\n\n{margin_num}." if margin_num else None
 
     if margin_num:
         # Case A: standalone number detected — add period separator
         return f"{margin_num}. {body}"
 
-    # Case B: combined "3   Ákærði..." span — fitz merged the paragraph number
+    # Case B: combined "3 Ákærði..." span — fitz merged the paragraph number
     # with the body text into a single span.  Insert a period when the first
-    # span is small-size and positioned in the left margin.
-    # Lookahead uses \S (any non-whitespace) so redacted content like
-    # "[…]" (which starts with "[") is handled in addition to uppercase letters.
-    if (
-        first_span.get("size", 12) <= 10.5
-        and first_span["bbox"][0] < 115
-    ):
-        body = re.sub(r'^(\d{1,3})\s{2,}(?=\S)', r'\1. ', body)
+    # span is positioned in the left margin.  No size constraint — different
+    # lower-court PDFs use different sizes (sz≈10 older, sz≈12 newer) for
+    # paragraph numbers, and the x-position guard is sufficient.
+    # We match one-or-more SPACES (not \s) so that "\n\n" paragraph breaks
+    # already present in the body are never accidentally collapsed to ". ".
+    # Lookahead uses \S so redacted content like "[…]" is also handled.
+    if first_span["bbox"][0] < 115:
+        body = re.sub(r'^(\d{1,3}) +(?=\S)', r'\1. ', body)
 
     # ── Detect first-line indent → signals a new paragraph ───────────────────
     # Some lower-court PDFs separate paragraphs with first-line indentation
@@ -566,10 +634,26 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     #   starts with '#'  → heading (## or ###) — always separated
     #   starts with '\n' → first-line-indent paragraph — carries its own \n\n
     #   matches _NEW_PARA_RE → numbered paragraph
+    _STANDALONE_NUM_RE = re.compile(r'^\d{1,3}\.$')
+
     result = all_blocks[0]
     for curr in all_blocks[1:]:
         prev_last = result.rsplit("\n", 1)[-1]  # last line of accumulated text
+
+        # Special case: previous line is a standalone margin number ("9.").
+        # The body of that paragraph is in the next block.  Glue them with a
+        # space rather than inserting another \n\n (which would leave "9." as
+        # its own isolated "paragraph").
+        # Guard: do NOT glue if the next block is ITSELF a new numbered para
+        # ("20. Ákærða...") or a heading — those must stay as separate paragraphs.
         if (
+            _STANDALONE_NUM_RE.match(prev_last)
+            and not _NEW_PARA_RE.match(curr)
+            and not curr.startswith("#")
+        ):
+            result = result.rstrip("\n") + " " + curr.lstrip()
+
+        elif (
             curr.startswith("#")       # ## or ### heading / Roman section
             or prev_last.startswith("#")
             or _NEW_PARA_RE.match(curr)
