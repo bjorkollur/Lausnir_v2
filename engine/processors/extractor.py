@@ -412,6 +412,44 @@ def _heading_marker(font: str, size: float, crop: "PdfCrop | None") -> str:
     return ""
 
 
+def _group_by_y(lines: list, tol: float = 3.0) -> list[list]:
+    """Group non-empty fitz lines by shared Y-top coordinate (within *tol* pt).
+
+    Returns a list of groups sorted by ascending Y.  Each group is a list of
+    lines whose ``bbox[1]`` values are within *tol* of the group's anchor (the
+    first line in the group by Y order).  Groups with a single line represent
+    ordinary body rows; groups with ≥ 2 lines represent table columns that
+    share the same vertical position.
+    """
+    nonempty = sorted(
+        (l for l in lines if any(s["text"].strip() for s in l.get("spans", []))),
+        key=lambda l: l["bbox"][1],
+    )
+    groups: list[list] = []
+    for line in nonempty:
+        if groups and abs(line["bbox"][1] - groups[-1][0]["bbox"][1]) <= tol:
+            groups[-1].append(line)
+        else:
+            groups.append([line])
+    return groups
+
+
+def _has_column_gap(group: list, min_gap: float = 20.0) -> bool:
+    """Return True if sorted-by-X lines have at least one inter-column gap ≥ *min_gap* pt.
+
+    Distinguishes genuine table columns (large visual white-space gaps, ≥ 20 pt)
+    from individual words that a PDF generator stored as separate fitz "lines" all
+    at the same Y — word-spacing in 10-12 pt fonts is typically 5–17 pt.
+    """
+    cols = sorted(group, key=lambda l: l["bbox"][0])
+    for i in range(1, len(cols)):
+        x_end_prev = cols[i - 1]["bbox"][2]    # right edge of previous column
+        x_start_curr = cols[i]["bbox"][0]      # left edge of current column
+        if x_start_curr - x_end_prev >= min_gap:
+            return True
+    return False
+
+
 def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     """Convert a single fitz dict-mode block to a normalised text string.
 
@@ -448,6 +486,39 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
         lines = lines[lines_start:]
 
     first_span = first_nonempty[0]
+
+    # ── Detect table layout ───────────────────────────────────────────────────
+    # When multiple fitz "lines" within a block share the same Y coordinate
+    # (within 3 pt) the PDF is encoding a table row — each column is a separate
+    # line at the same vertical position rather than a new text row.
+    #
+    # Two table styles seen in lower-court documents:
+    #   • No-border tables: each visual row is a separate fitz block; the block
+    #     has 2–4 same-Y lines (one per column).
+    #   • Bordered tables: all rows packed into one fitz block; pairs/groups of
+    #     same-Y lines form one row each.
+    #
+    # Guard: some PDFs store each word of a paragraph as a separate fitz "line"
+    # at the same Y (word-spacing layout).  We require at least one column gap
+    # ≥ 20 pt — normal word-spacing is 5–17 pt; real column gaps are ≥ 20 pt.
+    #
+    # We MUST check for tables BEFORE the heading check because a bold column
+    # header (e.g. "Skýring" in Times New Roman,Bold) would otherwise be
+    # incorrectly promoted to a '##' heading.
+    _y_groups = _group_by_y(lines)
+    if any(len(g) >= 2 and _has_column_gap(g) for g in _y_groups):
+        _trows: list[str] = []
+        for _grp in _y_groups:
+            _cols = sorted(_grp, key=lambda l: l["bbox"][0])
+            _cells = [
+                " ".join(s["text"].strip() for s in _c.get("spans", []) if s["text"].strip())
+                for _c in _cols
+            ]
+            _cells = [c for c in _cells if c]
+            if _cells:
+                _trows.append(" | ".join(_cells))
+        if _trows:
+            return "\n".join(_trows)
 
     # ── Detect heading (single-line or multi-line block) ──────────────────────
     # Multi-line case: some lower-court PDFs put a heading (e.g. the spaced
@@ -634,11 +705,16 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     #   starts with '#'  → heading (## or ###) — always separated
     #   starts with '\n' → first-line-indent paragraph — carries its own \n\n
     #   matches _NEW_PARA_RE → numbered paragraph
+    #   contains ' | '  → table row (produced by _block_to_text table path)
     _STANDALONE_NUM_RE = re.compile(r'^\d{1,3}\.$')
+    _TROW_SEP = " | "  # sentinel present in every table-row block
 
     result = all_blocks[0]
     for curr in all_blocks[1:]:
         prev_last = result.rsplit("\n", 1)[-1]  # last line of accumulated text
+
+        curr_trow = _TROW_SEP in curr
+        prev_trow = _TROW_SEP in prev_last
 
         # Special case: previous line is a standalone margin number ("9.").
         # The body of that paragraph is in the next block.  Glue them with a
@@ -652,6 +728,14 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
             and not curr.startswith("#")
         ):
             result = result.rstrip("\n") + " " + curr.lstrip()
+
+        elif curr_trow and prev_trow:
+            # Consecutive table rows → single newline (keep rows together)
+            result += "\n" + curr
+
+        elif curr_trow or prev_trow:
+            # Transition between table block and normal text → blank line
+            result += "\n\n" + curr.lstrip("\n")
 
         elif (
             curr.startswith("#")       # ## or ### heading / Roman section
