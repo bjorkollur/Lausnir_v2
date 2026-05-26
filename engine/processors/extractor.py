@@ -299,18 +299,75 @@ _ROMAN_NUM_RE  = re.compile(r'^[IVX]+$')   # Roman numerals I, II, III… (no pe
 _NEW_PARA_RE = re.compile(r'^\d{1,3}\.\s+[A-ZÁÐÉÍÓÚÝÞÆÖ]')
 
 
+_INLINE_PARA_START_RE = re.compile(r'^\d{1,3}\.\s')
+"""Matches numbered-paragraph starts like ``1. text`` or ``12.  text``."""
+
+
 def _build_body_from_lines(lines: list) -> str:
-    """Join lines (list of fitz line dicts) into a single string, de-hyphenating wraps."""
+    """Join fitz line dicts into a single string, de-hyphenating wraps.
+
+    Embedded-paragraph detection
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Some lower-court PDFs pack multiple numbered paragraphs into a single
+    fitz block.  The layout encodes each paragraph as::
+
+        x = 64   "N. First word of paragraph …"   ← left-margin paragraph number
+        x = 82   "… continuation of same paragraph …"
+
+    so a block that spans two paragraphs looks like::
+
+        x = 82   continuation of paragraph N-1
+        x = 64   "N. First word of paragraph N"   ← embedded start
+
+    When a non-first line sits ≥ 10 pt to the LEFT of the first non-empty
+    line in the block **and** matches ``N. text``, it is treated as the start
+    of a new numbered paragraph and preceded by ``\\n\\n`` in the output.
+    The caller (``_block_to_text``) returns this string verbatim; the
+    ``_pdf_bytes_to_text`` assembler preserves the internal ``\\n\\n`` so the
+    paragraph boundaries survive the block-joining step.
+    """
+    # Baseline x-coordinate: x of the first non-empty line in this block.
+    first_x: float | None = None
+    for line in lines:
+        if any(s["text"].strip() for s in line.get("spans", [])):
+            first_x = line["bbox"][0]
+            break
+
     parts: list[str] = []
     for line in lines:
         lt = " ".join(s["text"] for s in line.get("spans", [])).strip()
         if not lt:
             continue
-        if parts and parts[-1].endswith("-"):
-            parts[-1] = parts[-1][:-1] + lt
+
+        line_x = line["bbox"][0]
+        is_embedded_para = (
+            parts                                        # not the very first line
+            and first_x is not None
+            and line_x < first_x - 10                   # ≥ 10 pt further left
+            and _INLINE_PARA_START_RE.match(lt)          # "N. text"
+        )
+
+        if is_embedded_para:
+            # Close the current paragraph and open a new one.
+            parts.append("\n\n" + lt)
+        elif parts and parts[-1].rstrip("\n").endswith("-"):
+            # De-hyphenate across a line wrap.
+            parts[-1] = parts[-1].rstrip("\n")[:-1] + lt
         else:
             parts.append(lt)
-    return " ".join(parts).strip()
+
+    if not parts:
+        return ""
+
+    # Join parts: regular parts with a space; parts that open with \n keep
+    # their own separator (no extra space inserted before the newline).
+    result = ""
+    for p in parts:
+        if result and not p.startswith("\n"):
+            result += " " + p
+        else:
+            result += p
+    return result.strip()
 
 
 def _is_page_footer_num(block: dict, page_height: float, page_width: float) -> bool:
