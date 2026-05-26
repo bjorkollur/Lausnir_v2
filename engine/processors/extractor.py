@@ -12,6 +12,7 @@ from datetime import date
 from typing import Any
 
 import fitz  # PyMuPDF
+import pdfplumber
 from bs4 import BeautifulSoup
 
 from engine.config.sources import SourceConfig
@@ -618,6 +619,18 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
 
     # ── Join body lines with de-hyphenation ───────────────────────────────────
     body = _build_body_from_lines(lines[body_start_line:])
+
+    # ── Normalise split-span "N . text" → "N. text" ──────────────────────────
+    # Some PDFs encode a section heading as two adjacent fitz spans on the same
+    # line: the number in one span ("  3") and the period+text in another
+    # (". Niðurstaða ").  _build_body_from_lines joins them with a space →
+    # "3 . Niðurstaða".  Collapse the spurious space before the period so the
+    # body starts with "3. Niðurstaða" and is recognised as a properly numbered
+    # section rather than triggering a missing-period warning.
+    # Guard: require a space after the period ("N . ") to avoid collapsing
+    # decimal numbers like "3 .5".
+    body = re.sub(r'^(\d{1,3}) \. ', r'\1. ', body)
+
     if not body:
         # Standalone margin-number block (the body is in the following block).
         # Return with a leading \n\n (new-paragraph signal) and a trailing period
@@ -654,6 +667,78 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     return body
 
 
+_PLUMBER_PARA_NUM_RE = re.compile(
+    r'^(\d{1,3}) +(?=[^\W\d_\s])',  # "35 Í..." → "35. Í..."  (letter-only lookahead)
+    re.UNICODE,
+)
+
+
+def _render_plumber_table(rows: list) -> str:
+    """Render a pdfplumber table (list of row-lists) as pipe-separated text.
+
+    Multi-line cell text is collapsed to a single space.  None and
+    whitespace-only cells are dropped.  Rows where all cells are empty
+    after cleaning are skipped.
+
+    Paragraph numbers in the first cell of each row receive an inserted period
+    to match the normalisation applied by *_block_to_text* (Case B): e.g. a cell
+    extracted by pdfplumber as ``'35 Í 8. mgr…'`` becomes ``'35. Í 8. mgr…'``.
+    The lookahead ``[^\\W\\d_\\s]`` restricts the substitution to cells whose
+    first non-space character after the digits is a Unicode letter — this avoids
+    touching numeric cells like ``'75 95.000'`` where the digit is followed by
+    another digit.
+    """
+    result_rows: list[str] = []
+    for row in rows:
+        cells = []
+        for c in row:
+            if c is None:
+                continue
+            t = str(c).replace("\n", " ").strip()
+            if t:
+                cells.append(t)
+        if cells:
+            # Apply paragraph-number period to first cell only (left margin).
+            cells[0] = _PLUMBER_PARA_NUM_RE.sub(r'\1. ', cells[0])
+            result_rows.append(" | ".join(cells))
+    return "\n".join(result_rows)
+
+
+def _exclude_table_lines(
+    block: dict,
+    t_top: float,
+    t_bot: float,
+    tol_top: float = 8.0,
+    tol_bot: float = 2.0,
+) -> dict | None:
+    """Return a copy of *block* with all lines inside the table Y zone removed.
+
+    Lines whose Y-top falls within [t_top - tol_top, t_bot + tol_bot] are
+    considered inside the table and are excluded.  Returns None if no lines
+    remain.
+
+    Asymmetric tolerances:
+      tol_top (8 pt) — captures blocks whose first line (often blank/space) sits
+        slightly above the drawn top border due to PDF layout conventions.
+      tol_bot (2 pt) — handles only sub-pixel drawing coordinate imprecision;
+        a small value prevents absorbing the first line of text that follows
+        immediately after the table's bottom border (which can be as close as
+        ~3–4 pt away in tightly-laid-out documents).
+    """
+    kept = [
+        l for l in block.get("lines", [])
+        if not (t_top - tol_top <= l["bbox"][1] <= t_bot + tol_bot)
+    ]
+    if not kept:
+        return None
+    new_block = dict(block)
+    new_block["lines"] = kept
+    ys = [l["bbox"][1] for l in kept]
+    ye = [l["bbox"][3] for l in kept]
+    new_block["bbox"] = (block["bbox"][0], min(ys), block["bbox"][2], max(ye))
+    return new_block
+
+
 def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     """
     Extract structured text from PDF bytes using span-level font information.
@@ -664,12 +749,32 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     - Size-based heading detection (heading_sizes) as fallback
     - Margin paragraph numbers merged with their text ('6 Áfrýjandi var…')
     - PDF word-wrap de-hyphenation ('flugumferðar-\\nstjórar' → 'flugumferðarstjórar')
+    - pdfplumber table extraction for bordered tables (takes precedence over
+      fitz-based same-Y-line detection when the page has drawn border lines)
     """
     crop = config.pdf_crop
     try:
         doc = fitz.open(stream=pdf_bytes, filetype="pdf")
     except Exception:
         return None
+
+    # Pre-scan: find which page numbers have drawings (potential bordered tables).
+    # This is cheap with fitz and lets us avoid opening pdfplumber for PDFs that
+    # have no bordered tables at all.
+    _MIN_DRAWINGS_FOR_TABLE = 10  # fewer than this almost never forms a full table
+    pages_with_drawings: set[int] = set()
+    for pn, pg in enumerate(doc):
+        if len(pg.get_drawings()) >= _MIN_DRAWINGS_FOR_TABLE:
+            pages_with_drawings.add(pn)
+
+    # Open pdfplumber only when at least one page has potential bordered tables.
+    # Failures are non-fatal — we fall back to pure fitz extraction.
+    plumber_doc: pdfplumber.PDF | None = None
+    if pages_with_drawings:
+        try:
+            plumber_doc = pdfplumber.open(io.BytesIO(pdf_bytes))
+        except Exception:
+            pass
 
     all_blocks: list[str] = []
     for page_num, page in enumerate(doc):
@@ -683,17 +788,82 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
         clip = fitz.Rect(0, header, page_width, page_height - footer)
         d = page.get_text("dict", clip=clip)
 
+        # ── pdfplumber bordered-table detection ───────────────────────────────
+        # For pages with drawn border lines, pdfplumber can reconstruct table
+        # rows that span multiple fitz blocks (e.g. multi-line description +
+        # separate amount block at the same Y).  We collect table Y-ranges here
+        # and later skip / replace fitz blocks that fall within them.
+        table_regions: list[tuple[float, float, str]] = []
+        if plumber_doc is not None and page_num in pages_with_drawings:
+            try:
+                plumber_page = plumber_doc.pages[page_num]
+                for ft in plumber_page.find_tables():
+                    tdata = ft.extract()
+                    if not tdata:
+                        continue
+                    # Skip single-column "tables" — these are bordered text boxes
+                    # (e.g. paragraphs wrapped in a box), not real data tables.
+                    # Real data tables always have ≥ 2 columns; single-column
+                    # detections are false positives that break paragraph numbering.
+                    max_cols = max(
+                        sum(1 for c in row if c is not None and str(c).strip())
+                        for row in tdata
+                    )
+                    if max_cols < 2:
+                        continue
+                    ttxt = _render_plumber_table(tdata)
+                    if ttxt:
+                        # ft.bbox = (x0, top, x1, bottom) in page coords from top
+                        table_regions.append((ft.bbox[1], ft.bbox[3], ttxt))
+            except Exception:
+                pass
+
+        # ── Per-page block collection with Y position ─────────────────────────
+        # Collect (y_top, text) pairs so that pdfplumber table text can be
+        # inserted at the correct position when blocks are sorted by Y.
+        page_items: list[tuple[float, str]] = []
+        tables_inserted: set[int] = set()
+
         for block in d.get("blocks", []):
-            # Skip centred page-footer numbers — they appear first in fitz's
-            # block list (early in the PDF content stream) even though they sit
-            # near the bottom of the page, and would otherwise get injected into
-            # the middle of body text across page boundaries.
             if _is_page_footer_num(block, page_height, page_width):
                 continue
-            t = _block_to_text(block, crop)
-            if t:
-                all_blocks.append(t)
 
+            block_y_top = block["bbox"][1]
+            block_y_bot = block["bbox"][3]
+
+            # Check whether this block overlaps with any pdfplumber table zone.
+            # We use a Y-range overlap test (not just "top inside zone") because
+            # a block may start slightly above the table's drawn top border yet
+            # have most of its content inside the table (e.g. a block whose first
+            # line is an empty/space span that sits 10–15 pt above the border).
+            effective_block = block
+            for ti, (ty0, ty1, ttxt) in enumerate(table_regions):
+                # Overlap: block bottom > zone top  AND  block top < zone bottom
+                if block_y_bot > ty0 - 8 and block_y_top < ty1 + 8:
+                    # Block overlaps the table zone.
+                    # Insert the pdfplumber table text once at this zone.
+                    if ti not in tables_inserted:
+                        page_items.append((ty0, ttxt))
+                        tables_inserted.add(ti)
+                    # Strip lines that fall within the table zone; the remainder
+                    # (lines above or below the table) is processed normally.
+                    effective_block = _exclude_table_lines(block, ty0, ty1)
+                    break
+
+            if effective_block is None:
+                continue
+            t = _block_to_text(effective_block, crop)
+            if t:
+                page_items.append((effective_block["bbox"][1], t))
+
+        # Sort page items by Y so pdfplumber tables appear in reading order
+        # alongside fitz blocks even when their insertion points differ.
+        page_items.sort(key=lambda x: x[0])
+        for _, t in page_items:
+            all_blocks.append(t)
+
+    if plumber_doc is not None:
+        plumber_doc.close()
     doc.close()
     if not all_blocks:
         return None
