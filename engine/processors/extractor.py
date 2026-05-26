@@ -451,6 +451,57 @@ def _has_column_gap(group: list, min_gap: float = 20.0) -> bool:
     return False
 
 
+def _md_table(rows: list[list[str]]) -> str:
+    """Format a list of cell-lists as Markdown pipe-table rows.
+
+    Each cell-list produces one ``| c1 | c2 | … |`` line.  The separator row
+    (``| --- | --- | …``) is NOT inserted here — it is added by the
+    post-processing step :func:`_insert_md_table_separators` which runs on the
+    fully assembled page text and therefore handles both single-row-per-block
+    (no-border) tables and all-rows-in-one-block (bordered) tables correctly.
+
+    If *rows* is empty an empty string is returned.
+    """
+    if not rows:
+        return ""
+    return "\n".join("| " + " | ".join(cells) + " |" for cells in rows)
+
+
+def _insert_md_table_separators(text: str) -> str:
+    """Post-process assembled PDF text: insert Markdown table separator rows.
+
+    Scans *text* line by line.  Whenever a sequence of consecutive
+    ``| … |`` lines is encountered the first line is treated as the header;
+    if the immediately following line is not already a separator
+    (``| --- | … |``) one is inserted automatically.
+
+    This approach works for:
+    • **Bordered tables** (all rows in one fitz/pdfplumber block): the rows
+      arrive already joined; the first row gets a separator inserted once.
+    • **No-border tables** (each visual row is a separate fitz block): rows
+      are joined with ``\\n`` by the block-assembly logic; the same first-row
+      detection adds the separator only after the header, not after every row.
+    """
+    lines = text.split("\n")
+    out: list[str] = []
+    in_table = False
+    for i, line in enumerate(lines):
+        is_row = line.startswith("| ") and line.endswith(" |")
+        if is_row:
+            out.append(line)
+            if not in_table:
+                # First row of a new table — insert separator if next line isn't one.
+                next_line = lines[i + 1] if i + 1 < len(lines) else ""
+                if not next_line.startswith("| ---"):
+                    ncols = len([x for x in line.split("|") if x.strip()])
+                    out.append("| " + " | ".join("---" for _ in range(ncols)) + " |")
+            in_table = True
+        else:
+            in_table = False
+            out.append(line)
+    return "\n".join(out)
+
+
 def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     """Convert a single fitz dict-mode block to a normalised text string.
 
@@ -508,7 +559,7 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     # incorrectly promoted to a '##' heading.
     _y_groups = _group_by_y(lines)
     if any(len(g) >= 2 and _has_column_gap(g) for g in _y_groups):
-        _trows: list[str] = []
+        _tcells: list[list[str]] = []
         for _grp in _y_groups:
             _cols = sorted(_grp, key=lambda l: l["bbox"][0])
             _cells = [
@@ -517,9 +568,9 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
             ]
             _cells = [c for c in _cells if c]
             if _cells:
-                _trows.append(" | ".join(_cells))
-        if _trows:
-            return "\n".join(_trows)
+                _tcells.append(_cells)
+        if _tcells:
+            return _md_table(_tcells)
 
     # ── Detect heading (single-line or multi-line block) ──────────────────────
     # Multi-line case: some lower-court PDFs put a heading (e.g. the spaced
@@ -688,7 +739,7 @@ def _render_plumber_table(rows: list) -> str:
     touching numeric cells like ``'75 95.000'`` where the digit is followed by
     another digit.
     """
-    result_rows: list[str] = []
+    all_cells: list[list[str]] = []
     for row in rows:
         cells = []
         for c in row:
@@ -700,8 +751,8 @@ def _render_plumber_table(rows: list) -> str:
         if cells:
             # Apply paragraph-number period to first cell only (left margin).
             cells[0] = _PLUMBER_PARA_NUM_RE.sub(r'\1. ', cells[0])
-            result_rows.append(" | ".join(cells))
-    return "\n".join(result_rows)
+            all_cells.append(cells)
+    return _md_table(all_cells)
 
 
 def _exclude_table_lines(
@@ -923,6 +974,13 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     # Collapse any letter-spaced sequences that appeared inline in body text
     # (e.g. "D Ó M S O R Ð:" → "DÓMSORÐ:" in older lower-court PDFs).
     result = _collapse_spaced_letters_inline(result)
+
+    # Insert Markdown table separator rows (| --- | --- |) after the header
+    # row of each pipe-table sequence.  Must run after full block assembly so
+    # it sees consecutive table rows regardless of whether they came from a
+    # single bordered-table block or multiple no-border single-row blocks.
+    result = _insert_md_table_separators(result)
+
     return re.sub(r"\n{3,}", "\n\n", result).strip() or None
 
 
