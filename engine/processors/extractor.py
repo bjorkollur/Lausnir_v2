@@ -810,16 +810,43 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     if first_span["bbox"][0] < 115:
         body = re.sub(r'^(\d{1,3}) +(?=\S)', r'\1. ', body)
 
-    # ── Detect first-line indent → signals a new paragraph ───────────────────
-    # Some lower-court PDFs separate paragraphs with first-line indentation
-    # rather than blank lines.  When the first line's x position is noticeably
-    # larger than the continuation lines' x (delta > 20 pt), this block starts
-    # a new paragraph.  We prefix "\n\n" so the smart-join phase handles it.
-    if len(lines) > 1 and not margin_num:
-        second_spans = lines[1].get("spans", [])
-        if second_spans:
-            if first_span["bbox"][0] - second_spans[0]["bbox"][0] > 20:
-                body = "\n\n" + body
+    # ── Detect paragraph / structural-unit boundary ──────────────────────────
+    # Some lower-court PDFs use neither blank lines nor paragraph numbers to
+    # separate paragraphs and section headings.  Three encoding styles:
+    #
+    # Style A (x-coordinate indent): the first line's x is ≥ 20 pt to the
+    #   RIGHT of the continuation lines.  Typical in some court PDF styles.
+    #
+    # Style B (whitespace indent): the first span's RAW text starts with ≥ 4
+    #   spaces.  Word-generated embeds encode the indent as literal space
+    #   characters, not as an x-position shift.  Must be checked before
+    #   _build_body_from_lines strips the text.
+    #   Example: 854/2019 lower court — every paragraph's first span starts
+    #   with 8 spaces; continuation lines have no leading spaces.
+    #
+    # Style C (centred single-line block): a standalone short line (≤ 60 chars)
+    #   whose x position is > 150 pt — i.e. noticeably right of the normal body
+    #   margin (~82–96 pt).  Captures section markers like "Niðurstaða" and
+    #   Roman-numeral dividers ("I.", "II.") that are typeset centred on the
+    #   page without bold formatting.
+    #
+    # All styles prefix the assembled body with "\n\n" so the smart-join phase
+    # in _pdf_bytes_to_text treats this block as a new paragraph or heading.
+    if not margin_num:
+        _para_start = False
+        # Style A — x-coordinate delta between first and second line
+        if len(lines) > 1:
+            second_spans = lines[1].get("spans", [])
+            if second_spans and first_span["bbox"][0] - second_spans[0]["bbox"][0] > 20:
+                _para_start = True
+        # Style B — leading whitespace in raw span text
+        if not _para_start and first_span["text"].startswith("    "):
+            _para_start = True
+        # Style C — centred/right-shifted single-line block
+        if not _para_start and len(lines) == 1 and first_span["bbox"][0] > 150 and len(body.strip()) <= 60:
+            _para_start = True
+        if _para_start:
+            body = "\n\n" + body
 
     return body
 
