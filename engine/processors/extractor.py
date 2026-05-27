@@ -348,6 +348,7 @@ def _build_body_from_lines(
 
     parts: list[str] = []
     after_heading = False
+    prev_x: float | None = None  # x of the previous non-empty line (Style D)
     for line in lines:
         lt = " ".join(s["text"] for s in line.get("spans", [])).strip()
         if not lt:
@@ -379,6 +380,23 @@ def _build_body_from_lines(
             and _INLINE_PARA_START_RE.match(lt)          # "N. text"
         )
 
+        # ── Style D: first-line-indent paragraph detection ────────────────────
+        # Some lower-court PDFs typeset paragraphs with first-line indentation:
+        # the first line of a paragraph is indented further right (x≈118) while
+        # continuation lines are flush left (x≈82).  Within a single large fitz
+        # block all these lines appear together, so we detect a paragraph start
+        # when the current line jumps significantly right of the previous line.
+        # Guards: not the first line, not already classified, prev_x known, and
+        # the current line doesn't end a hyphenated word (still mid-word).
+        is_indent_start = (
+            parts
+            and prev_x is not None
+            and not is_inline_heading
+            and not is_embedded_para
+            and line_x > prev_x + 20
+            and not (parts and parts[-1].rstrip("\n").endswith("-"))
+        )
+
         if is_inline_heading:
             marker = _heading_marker(
                 nonempty_spans[0].get("font", ""),
@@ -391,7 +409,7 @@ def _build_body_from_lines(
             # First body line after an inline heading: force blank line.
             parts.append("\n\n" + lt)
             after_heading = False
-        elif is_embedded_para:
+        elif is_embedded_para or is_indent_start:
             # Close the current paragraph and open a new one.
             parts.append("\n\n" + lt)
         elif parts and parts[-1].rstrip("\n").endswith("-"):
@@ -399,6 +417,8 @@ def _build_body_from_lines(
             parts[-1] = parts[-1].rstrip("\n")[:-1] + lt
         else:
             parts.append(lt)
+
+        prev_x = line_x
 
     if not parts:
         return ""
@@ -715,13 +735,24 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
             if body_line_start:
                 roman = first_span["text"].strip()
                 # Any lines between the Roman numeral and the body (e.g. a
-                # centred paragraph number "1 ") become part of the body prefix.
+                # centred paragraph number "1 " or an italic subtitle like
+                # "Málsatvik") become part of the body prefix.
                 # No crop here — Roman-numeral section opener; body lines
                 # are not expected to contain further inline headings.
                 pre = _build_body_from_lines(lines[1:body_line_start])
-                body = _build_body_from_lines(lines[body_line_start:])
+                body = _build_body_from_lines(lines[body_line_start:], crop)
                 if pre:
-                    body = (pre + " " + body).strip() if body else pre.strip()
+                    pre_stripped = pre.strip()
+                    if len(pre_stripped) <= 60 and "\n\n" not in pre_stripped:
+                        # Short single-phrase subtitle (e.g. "Málsatvik",
+                        # "Helstu málsástæður") → promote to #### subheading.
+                        body = (
+                            f"#### {pre_stripped}\n\n{body}".strip()
+                            if body
+                            else f"#### {pre_stripped}"
+                        )
+                    else:
+                        body = (pre_stripped + " " + body).strip() if body else pre_stripped
                 # Insert period after any leading margin number ("1 Í" → "1. Í").
                 body = re.sub(r'^(\d{1,3}) +(?=\S)', r'\1. ', body)
                 return f"### {roman}\n\n{body}" if body else f"### {roman}"
