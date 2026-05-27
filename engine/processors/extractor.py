@@ -678,10 +678,31 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     # We MUST check for tables BEFORE the heading check because a bold column
     # header (e.g. "Skýring" in Times New Roman,Bold) would otherwise be
     # incorrectly promoted to a '##' heading.
+    #
+    # Mixed blocks: some large blocks contain both regular paragraph text
+    # (single-column rows) and a table (multi-column rows) — e.g. a 92-line
+    # block whose first 80 lines are paragraphs and whose last 12 are a cost
+    # breakdown table.  Treating the whole block as a table wraps the paragraph
+    # text in spurious pipe characters.  We fix this by locating the first and
+    # last multi-column group and only treating that region as a table; lines
+    # before the first table row are returned as regular body text.
+    #
+    # _last_t uses a wider criterion than _first_t: once a table region starts
+    # (first gap ≥ 20 pt column), we extend it to include any subsequent group
+    # that has ≥ 2 fitz lines at the same Y even if the inter-column gap is
+    # < 20 pt.  This handles summary rows like "Alls: | 10.279.088 krónur."
+    # where two bold adjacent cells have a narrow gap (~8 pt) but are clearly
+    # part of the same table, not separate paragraph text.
     _y_groups = _group_by_y(lines)
-    if any(len(g) >= 2 and _has_column_gap(g) for g in _y_groups):
+    _multicol_idx = [i for i, g in enumerate(_y_groups) if len(g) >= 2 and _has_column_gap(g)]
+    if _multicol_idx:
+        _first_t = _multicol_idx[0]
+        # Extend to the last group that has ≥ 2 fitz lines (narrow-gap rows included)
+        _last_t = max(i for i, g in enumerate(_y_groups) if len(g) >= 2)
+        # Lines in the table region (first to last multi-row group, inclusive)
+        _table_groups = _y_groups[_first_t : _last_t + 1]
         _tcells: list[list[str]] = []
-        for _grp in _y_groups:
+        for _grp in _table_groups:
             _cols = sorted(_grp, key=lambda l: l["bbox"][0])
             _cells = [
                 " ".join(s["text"].strip() for s in _c.get("spans", []) if s["text"].strip())
@@ -691,7 +712,21 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
             if _cells:
                 _tcells.append(_cells)
         if _tcells:
-            return _md_table(_tcells)
+            _result_parts: list[str] = []
+            # Pre-table lines → regular body text
+            _pre_lines = [l for g in _y_groups[:_first_t] for l in g]
+            if _pre_lines:
+                _pre_body = _build_body_from_lines(_pre_lines, crop)
+                if _pre_body:
+                    _result_parts.append(_pre_body)
+            _result_parts.append(_md_table(_tcells))
+            # Post-table lines → regular body text (rare)
+            _post_lines = [l for g in _y_groups[_last_t + 1 :] for l in g]
+            if _post_lines:
+                _post_body = _build_body_from_lines(_post_lines, crop)
+                if _post_body:
+                    _result_parts.append(_post_body)
+            return "\n\n".join(_result_parts)
 
     # ── Detect heading (single-line or multi-line block) ──────────────────────
     # Multi-line case: some lower-court PDFs put a heading (e.g. the spaced
