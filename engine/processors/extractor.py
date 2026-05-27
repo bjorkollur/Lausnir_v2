@@ -303,7 +303,10 @@ _INLINE_PARA_START_RE = re.compile(r'^\d{1,3}\.\s')
 """Matches numbered-paragraph starts like ``1. text`` or ``12.  text``."""
 
 
-def _build_body_from_lines(lines: list) -> str:
+def _build_body_from_lines(
+    lines: list,
+    crop: "PdfCrop | None" = None,
+) -> str:
     """Join fitz line dicts into a single string, de-hyphenating wraps.
 
     Embedded-paragraph detection
@@ -325,6 +328,16 @@ def _build_body_from_lines(lines: list) -> str:
     The caller (``_block_to_text``) returns this string verbatim; the
     ``_pdf_bytes_to_text`` assembler preserves the internal ``\\n\\n`` so the
     paragraph boundaries survive the block-joining step.
+
+    Inline-heading detection
+    ~~~~~~~~~~~~~~~~~~~~~~~~
+    Some lower-court PDFs embed section headings (e.g. "Dómkröfur",
+    "Lagarök", "Niðurstaða") as bold lines WITHIN large fitz blocks — at
+    the same x-coordinate as surrounding body text, so x-position alone
+    cannot distinguish them.  When *crop* is provided and **all** non-empty
+    spans on a non-first line carry a heading font (per *crop.heading_fonts*)
+    AND the collapsed line text is short (≤ 80 chars), the line is promoted
+    to a ``## heading`` with blank lines on both sides.
     """
     # Baseline x-coordinate: x of the first non-empty line in this block.
     first_x: float | None = None
@@ -334,20 +347,51 @@ def _build_body_from_lines(lines: list) -> str:
             break
 
     parts: list[str] = []
+    after_heading = False
     for line in lines:
         lt = " ".join(s["text"] for s in line.get("spans", [])).strip()
         if not lt:
             continue
 
         line_x = line["bbox"][0]
+        nonempty_spans = [s for s in line.get("spans", []) if s["text"].strip()]
+
+        # ── Inline heading detection ──────────────────────────────────────────
+        # Detects bold heading lines embedded inside a larger block (e.g.
+        # "Dómkröfur", "Lagarök" at x=82 within a 48-line body block).
+        # Guards:
+        #  • parts non-empty → not the very first line (handled by _block_to_text)
+        #  • crop provided → heading_fonts configured for this source
+        #  • all non-empty spans are bold → not mixed bold/plain inline text
+        #  • len ≤ 80 → short standalone phrase, not a sentence
+        is_inline_heading = False
+        if parts and crop is not None and nonempty_spans and len(lt) <= 80:
+            is_inline_heading = all(
+                bool(_heading_marker(s.get("font", ""), s.get("size", 0), crop))
+                for s in nonempty_spans
+            )
+
         is_embedded_para = (
             parts                                        # not the very first line
+            and not is_inline_heading                    # already handled above
             and first_x is not None
             and line_x < first_x - 10                   # ≥ 10 pt further left
             and _INLINE_PARA_START_RE.match(lt)          # "N. text"
         )
 
-        if is_embedded_para:
+        if is_inline_heading:
+            marker = _heading_marker(
+                nonempty_spans[0].get("font", ""),
+                nonempty_spans[0].get("size", 0),
+                crop,
+            )
+            parts.append("\n\n" + marker + _collapse_spaced_letters(lt))
+            after_heading = True
+        elif after_heading:
+            # First body line after an inline heading: force blank line.
+            parts.append("\n\n" + lt)
+            after_heading = False
+        elif is_embedded_para:
             # Close the current paragraph and open a new one.
             parts.append("\n\n" + lt)
         elif parts and parts[-1].rstrip("\n").endswith("-"):
@@ -639,6 +683,9 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
         heading = _collapse_spaced_letters(" ".join(heading_texts))
         if len(lines) == 1:
             return marker + heading
+        # Do NOT pass crop here: we are inside a heading block and the
+        # remaining lines are its continuation body, not independent headings.
+        # Passing crop would promote party-name lines in preamble blocks to '##'.
         body = _build_body_from_lines(lines[1:])
         # A section heading and the first numbered paragraph may be merged into
         # the same fitz block (heading on L0, "N body…" on L1).  Apply the
@@ -669,6 +716,8 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
                 roman = first_span["text"].strip()
                 # Any lines between the Roman numeral and the body (e.g. a
                 # centred paragraph number "1 ") become part of the body prefix.
+                # No crop here — Roman-numeral section opener; body lines
+                # are not expected to contain further inline headings.
                 pre = _build_body_from_lines(lines[1:body_line_start])
                 body = _build_body_from_lines(lines[body_line_start:])
                 if pre:
@@ -726,7 +775,7 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
                 break
 
     # ── Join body lines with de-hyphenation ───────────────────────────────────
-    body = _build_body_from_lines(lines[body_start_line:])
+    body = _build_body_from_lines(lines[body_start_line:], crop)
 
     # ── Normalise split-span "N . text" → "N. text" ──────────────────────────
     # Some PDFs encode a section heading as two adjacent fitz spans on the same
