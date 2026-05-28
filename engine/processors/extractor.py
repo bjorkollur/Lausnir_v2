@@ -175,8 +175,15 @@ def _correct_date_if_wrong(
 _LOWER_COURT_SPLIT_RE = re.compile(
     r'^(?:#{1,6}\s+)?((?:Úrskurður|Dómur)\s+(?:Landsréttar|Héraðsdóms\b[^\n,]*?)'
     r'(?:\s*,?\s*\w+daginn?\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
-    r'|\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?)\s*)$',
+    r'|\s*,?\s*\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?)\s*)$',
     re.MULTILINE | re.IGNORECASE,
+)
+
+# Matches non-bold lower-court heading blocks that _heading_marker misses.
+# Used in _block_to_text to force these as ## headings so _split_lower_court
+# can find them even when the PDF uses plain (non-bold) font for the heading.
+_LOWER_COURT_BLOCK_RE = re.compile(
+    r'^(?:Dómur|Úrskurður)\s+Héraðsdóms\b', re.IGNORECASE
 )
 
 
@@ -959,6 +966,20 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
         if _para_start:
             body = "\n\n" + body
 
+    # Style D — lower-court heading in plain (non-bold) font.
+    # Some PDFs typeset "Úrskurður Héraðsdóms Reykjavíkur miðvikudaginn …"
+    # in regular Times New Roman at x≈148 — just under Style C's x>150
+    # threshold and/or over its ≤60-char limit.  _heading_marker returns None
+    # so the block would be absorbed as body text and _split_lower_court would
+    # never find it.  Detect the pattern here and force a ## heading so the
+    # split can work regardless of font or x-position.
+    if (
+        not margin_num
+        and len(lines) == 1
+        and _LOWER_COURT_BLOCK_RE.match(body.strip())
+    ):
+        return "## " + body.strip()
+
     return body
 
 
@@ -1267,6 +1288,9 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     # before the text is returned and used by _split_lower_court.
     result = re.sub(r'D\s*ó\s*m\s*u\s*r', 'Dómur', result)
     result = re.sub(r'Ú\s*r\s*s\s*k\s*u\s*r\s*ð\s*u\s*r', 'Úrskurður', result)
+    # Some PDFs use 'z' where Icelandic has 's' (font glyph substitution):
+    # "marz" → "mars", "marz-apríl" → "mars-apríl" etc.
+    result = re.sub(r'\bm\s*a\s*r\s*z\b', 'mars', result, flags=re.IGNORECASE)
     # Collapse any remaining multiple spaces within heading lines
     # (e.g. "Reykjavíkur  2. desember" → "Reykjavíkur 2. desember").
     result = re.sub(
