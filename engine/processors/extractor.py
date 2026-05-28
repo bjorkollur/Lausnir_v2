@@ -827,7 +827,8 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
                     else:
                         body = (pre_stripped + " " + body).strip() if body else pre_stripped
                 # Insert period after any leading margin number ("1 Í" → "1. Í").
-                body = re.sub(r'^(\d{1,3}) +(?=\S)', r'\1. ', body)
+                # MULTILINE so it fires on saw_blank-introduced paragraphs too.
+                body = re.sub(r'^(\d{1,3}) +(?=\S)', r'\1. ', body, flags=re.MULTILINE)
                 return f"### {roman}\n\n{body}" if body else f"### {roman}"
 
     # ── Detect margin number (paragraph number) ───────────────────────────────
@@ -911,8 +912,10 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
     # We match one-or-more SPACES (not \s) so that "\n\n" paragraph breaks
     # already present in the body are never accidentally collapsed to ". ".
     # Lookahead uses \S so redacted content like "[…]" is also handled.
+    # MULTILINE: saw_blank and Y-gap detection in _build_body_from_lines can
+    # introduce \n\n mid-block; ^ must match those internal line starts too.
     if first_span["bbox"][0] < 115:
-        body = re.sub(r'^(\d{1,3}) +(?=\S)', r'\1. ', body)
+        body = re.sub(r'^(\d{1,3}) +(?=\S)', r'\1. ', body, flags=re.MULTILINE)
 
     # ── Detect paragraph / structural-unit boundary ──────────────────────────
     # Some lower-court PDFs use neither blank lines nor paragraph numbers to
