@@ -1258,6 +1258,24 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     # (e.g. "D Ó M S O R Ð:" → "DÓMSORÐ:" in older lower-court PDFs).
     result = _collapse_spaced_letters_inline(result)
 
+    # Fix split-word artifacts caused by font-encoding issues in some PDFs.
+    # The PDF content stream encodes "Dómur" as two runs "Dó" + " mur" and
+    # "Úrskurður" similarly, producing heading lines like:
+    #   "## Dó mur Héraðsdóms Reykjavíkur  2. desember 2024"
+    # These broken words prevent _LOWER_COURT_SPLIT_RE from finding the split
+    # point (lower_body_text ends up NULL).  Fix the two known problem words
+    # before the text is returned and used by _split_lower_court.
+    result = re.sub(r'D\s*ó\s*m\s*u\s*r', 'Dómur', result)
+    result = re.sub(r'Ú\s*r\s*s\s*k\s*u\s*r\s*ð\s*u\s*r', 'Úrskurður', result)
+    # Collapse any remaining multiple spaces within heading lines
+    # (e.g. "Reykjavíkur  2. desember" → "Reykjavíkur 2. desember").
+    result = re.sub(
+        r'^(#{1,6} .+)$',
+        lambda m: re.sub(r' {2,}', ' ', m.group(0)),
+        result,
+        flags=re.MULTILINE,
+    )
+
     # Insert Markdown table separator rows (| --- | --- |) after the header
     # row of each pipe-table sequence.  Must run after full block assembly so
     # it sees consecutive table rows regardless of whether they came from a
