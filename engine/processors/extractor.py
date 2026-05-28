@@ -348,13 +348,27 @@ def _build_body_from_lines(
 
     parts: list[str] = []
     after_heading = False
-    prev_x: float | None = None  # x of the previous non-empty line (Style D)
+    prev_x: float | None = None   # x of the previous non-empty line (Style D)
+    saw_blank: bool = False        # explicit blank fitz line *or* Y-gap > 25 pt
+    prev_y: float | None = None   # Y of the previous non-empty line (gap detection)
     for line in lines:
         lt = " ".join(s["text"] for s in line.get("spans", [])).strip()
         if not lt:
+            # Explicit blank fitz line — remember it so the next real line
+            # opens a new paragraph (unless we haven't output anything yet).
+            if parts:
+                saw_blank = True
             continue
 
         line_x = line["bbox"][0]
+        line_y = line["bbox"][1]
+
+        # Y-gap paragraph detection: some PDFs filter blank lines but leave a
+        # visible vertical gap (> 25 pt) between paragraphs.  Treat it the same
+        # as an explicit blank line so the paragraph boundary is preserved.
+        if prev_y is not None and line_y - prev_y > 25 and parts:
+            saw_blank = True
+
         nonempty_spans = [s for s in line.get("spans", []) if s["text"].strip()]
 
         # ── Inline heading detection ──────────────────────────────────────────
@@ -405,8 +419,9 @@ def _build_body_from_lines(
             )
             parts.append("\n\n" + marker + _collapse_spaced_letters(lt))
             after_heading = True
-        elif after_heading:
-            # First body line after an inline heading: force blank line.
+        elif after_heading or saw_blank:
+            # Explicit blank line, Y-gap, or first line after an inline heading:
+            # always open a new paragraph.
             parts.append("\n\n" + lt)
             after_heading = False
         elif is_embedded_para or is_indent_start:
@@ -419,6 +434,8 @@ def _build_body_from_lines(
             parts.append(lt)
 
         prev_x = line_x
+        prev_y = line_y
+        saw_blank = False
 
     if not parts:
         return ""
@@ -699,6 +716,19 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
         _first_t = _multicol_idx[0]
         # Extend to the last group that has ≥ 2 fitz lines (narrow-gap rows included)
         _last_t = max(i for i, g in enumerate(_y_groups) if len(g) >= 2)
+        # Y-gap extension: pull in any immediately-following single-column groups
+        # that are within 25 pt of the last table row — these are continuation
+        # cells (e.g. "sakarefnis." wrapping from a roman-numeral list item)
+        # rather than the start of a new paragraph after the table.
+        if _last_t + 1 < len(_y_groups):
+            _prev_grp_y = _y_groups[_last_t][0]["bbox"][1]
+            for _ext_i in range(_last_t + 1, len(_y_groups)):
+                _ext_grp = _y_groups[_ext_i]
+                _curr_grp_y = _ext_grp[0]["bbox"][1]
+                if _curr_grp_y - _prev_grp_y > 25:
+                    break
+                _last_t = _ext_i
+                _prev_grp_y = _curr_grp_y
         # Lines in the table region (first to last multi-row group, inclusive)
         _table_groups = _y_groups[_first_t : _last_t + 1]
         _tcells: list[list[str]] = []
@@ -710,7 +740,15 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
             ]
             _cells = [c for c in _cells if c]
             if _cells:
-                _tcells.append(_cells)
+                if len(_cells) == 1 and _tcells:
+                    # Single-cell continuation: merge into the last cell of the
+                    # previous row (e.g. "starfssviðs hennar;" wrapping after
+                    # "i)  | [text]" in a roman-numeral list table).
+                    _tcells[-1] = _tcells[-1][:-1] + [
+                        _tcells[-1][-1].rstrip() + " " + _cells[0].lstrip()
+                    ]
+                else:
+                    _tcells.append(_cells)
         if _tcells:
             _result_parts: list[str] = []
             # Pre-table lines → regular body text
@@ -1051,15 +1089,26 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
                     tdata = ft.extract()
                     if not tdata:
                         continue
-                    # Skip single-column "tables" — these are bordered text boxes
-                    # (e.g. paragraphs wrapped in a box), not real data tables.
-                    # Real data tables always have ≥ 2 columns; single-column
-                    # detections are false positives that break paragraph numbering.
-                    max_cols = max(
-                        sum(1 for c in row if c is not None and str(c).strip())
-                        for row in tdata
+                    # Skip bordered text boxes masquerading as tables.
+                    # A real data table has ≥ 2 non-empty cells in a meaningful
+                    # fraction of its rows.  A bordered paragraph box may have
+                    # 1–2 "accidentally" multi-cell rows (paragraph text split
+                    # mid-word by the column detector) but nearly all rows are
+                    # single-column.  We require ≥ 25 % of non-empty rows to
+                    # have ≥ 2 non-empty cells.  This passes real tables (all or
+                    # most rows have 2+ cells) while rejecting text boxes where
+                    # only 1–2 out of 25–50 rows are accidentally multi-cell.
+                    nonempty_row_count = sum(
+                        1 for row in tdata
+                        if any(c is not None and str(c).strip() for c in row)
                     )
-                    if max_cols < 2:
+                    multicol_rows = sum(
+                        1 for row in tdata
+                        if sum(1 for c in row if c is not None and str(c).strip()) >= 2
+                    )
+                    if nonempty_row_count == 0:
+                        continue
+                    if multicol_rows / nonempty_row_count < 0.25:
                         continue
                     ttxt = _render_plumber_table(tdata)
                     if ttxt:
