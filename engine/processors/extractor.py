@@ -1174,6 +1174,34 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     if not all_blocks:
         return None
 
+    # ── Merge standalone Roman-numeral blocks with following italic title ─────
+    # Some lower-court PDFs (e.g. Héraðsdómur embeds in Landsréttur) typeset
+    # section headings as two consecutive fitz blocks:
+    #   Block A:  "I."  (centred, regular Times New Roman, size 10)  → '\n\nI.'
+    #   Block B:  "Helstu málsatvik"  (italic, left-margin)           → plain text
+    # _block_to_text cannot merge them (no lookahead), so we do it here.
+    # Guard: next block must be a short single-line text (≤ 80 chars, no \n)
+    # that is NOT already a heading — avoids swallowing body paragraphs.
+    _LONE_ROMAN_RE = re.compile(r'^[\n]*([IVX]+)\.\s*$')
+    _merged_blocks: list[str] = []
+    _bi = 0
+    while _bi < len(all_blocks):
+        _rm = _LONE_ROMAN_RE.match(all_blocks[_bi])
+        if _rm and _bi + 1 < len(all_blocks):
+            _nxt = all_blocks[_bi + 1]
+            if (
+                _nxt
+                and not _nxt.startswith("#")
+                and "\n" not in _nxt.strip()
+                and len(_nxt.strip()) <= 80
+            ):
+                _merged_blocks.append(f"\n\n### {_rm.group(1)}. {_nxt.strip()}")
+                _bi += 2
+                continue
+        _merged_blocks.append(all_blocks[_bi])
+        _bi += 1
+    all_blocks = _merged_blocks
+
     # Smart join: blocks that begin a new heading, numbered paragraph, or
     # first-line-indented paragraph get a blank-line separator; all other blocks
     # are continuation text joined with a space.
