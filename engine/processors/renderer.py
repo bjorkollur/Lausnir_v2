@@ -268,13 +268,41 @@ def to_urlausn(doc: "Document", config: "SourceConfig") -> str:
     return f"{' '.join(parts)} – {vt}"
 
 
+def _md_filename(doc: "Document", config: "SourceConfig") -> str:
+    """Return the canonical .md filename for a document.
+
+    Format: ``{court}_{case}_{DD-MM-YYYY}.md``
+
+    Examples::
+
+        Lrd_177-2024_06-03-2024.md   (Landsréttur 177/2024, 6. mars 2024)
+        Hrd_385-2017_01-11-2018.md   (Hæstiréttur 385/2017, 1. nóvember 2018)
+
+    Rules:
+    - *court*: abbreviation from ``doc.court`` (or ``config.abbreviation``),
+      with all periods and spaces removed.  ``'Lrd.'`` → ``'Lrd'``,
+      ``'Hérd. Rvk.'`` → ``'HérdRvk'``.
+    - *case*: ``doc.case_number`` with ``/`` → ``-`` and spaces → ``_``.
+    - *date*: ``document_date`` formatted as ``DD-MM-YYYY``.
+      Omitted when no date is available.
+    """
+    abbr = doc.court or config.abbreviation
+    court_part = re.sub(r"[.\s]+", "", abbr)          # 'Lrd.' → 'Lrd'
+    case_part  = (doc.case_number or "").replace("/", "-").replace(" ", "_")
+    if doc.document_date:
+        d = doc.document_date
+        date_part = f"_{d.day:02d}-{d.month:02d}-{d.year}"
+    else:
+        date_part = ""
+    return f"{court_part}_{case_part}{date_part}.md"
+
+
 def write_markdown(doc: "Document", config: "SourceConfig", data_dir: str) -> Path:
     """Write .md to disk and return the path."""
     if not doc.case_number:
         raise ValueError(f"Cannot write markdown for doc without case_number: {doc.id}")
-    safe_case = doc.case_number.replace("/", "-").replace(" ", "_")
     out_dir = Path(data_dir) / "markdown" / config.short_name
     out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / f"{safe_case}.md"
+    path = out_dir / _md_filename(doc, config)
     path.write_text(to_markdown(doc, config), encoding="utf-8")
     return path
