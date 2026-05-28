@@ -299,8 +299,12 @@ _ROMAN_NUM_RE  = re.compile(r'^[IVX]+$')   # Roman numerals I, II, III… (no pe
 _NEW_PARA_RE = re.compile(r'^\d{1,3}\.\s+[A-ZÁÐÉÍÓÚÝÞÆÖ]')
 
 
-_INLINE_PARA_START_RE = re.compile(r'^\d{1,3}\.\s')
-"""Matches numbered-paragraph starts like ``1. text`` or ``12.  text``."""
+_INLINE_PARA_START_RE = re.compile(r'^\d{1,3}\.\s+[A-ZÁÐÉÍÓÚÝÞÆÖ\[]')
+"""Matches numbered-paragraph starts like ``1. Texti`` or ``12.  Annað``.
+
+The uppercase-letter guard (``[A-ZÁÐÉÍÓÚÝÞÆÖ[]``) prevents Icelandic dates
+such as "24. júní" or "31. maí" from being mistaken for paragraph numbers —
+month names are all lowercase in Icelandic."""
 
 
 def _build_body_from_lines(
