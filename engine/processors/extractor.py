@@ -173,10 +173,51 @@ def _correct_date_if_wrong(
     return api_date
 
 _LOWER_COURT_SPLIT_RE = re.compile(
-    r'^(?:#{1,6}\s+)?((?:Úrskurður|Dómur)\s+(?:Landsréttar|Héraðsdóms\b[^\n,]*?)'
-    r'(?:\s*,?\s*\w+daginn?\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
-    r'|\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?)\s*)$',
+    # Variant A: full date present — heading marker optional.
+    # Héraðsdóm\w* handles all declension forms (Héraðsdóms, Héraðsdómur,
+    # Héraðsdóm, Héraðsdóma, Héraðsdómsdóms …).  \w+dag\w* handles
+    # daginn / dagurinn variants.  Trailing [^\n]* allows case-number suffixes.
+    r'^(?:#{1,6}\s+)?(?:Úrskurður|Dóm(?:ur|ar))\s+(?:Landsréttar|Héra(?:ðsd|ðds)óm\w*\b[^\n,]*?)'
+    r'(?:\s*,?\s*\w+dag\w*\s+\d{1,2}\.\s*' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
+    r'|\s*,?\s*\d{1,2}\.\s*' + _MONTHS_IS_RE + r'\s+\d{4}\.?)'
+    r'[^\n]*$'
+    r'|'
+    # Variant B: ## heading present but date absent/redacted/partial or replaced
+    # by a case number.  The ## is the safety guard against false positives.
+    r'^#{1,6}\s+(?:Úrskurður|Dóm(?:ur|ar))\s+Héra(?:ðsd|ðds)óm\w*\b[^\n]*$'
+    r'|'
+    # Variant C: ## heading starting directly with "Héraðsdóm" (no Dómur/Úrskurður
+    # prefix) — rare early-2018 format, e.g. "## Héraðsdóms Reykjaness, föstudaginn…"
+    r'^#{1,6}\s+Héra(?:ðsd|ðds)óm\w*\b[^\n]*$'
+    r'|'
+    # Variant D: ## heading with direct district name — Héraðsdóms word omitted
+    # entirely.  e.g. "## Dómur Norðurlands eystra 6. apríl 2021".
+    # The ## marker is a required safety guard against false positives.
+    # District list covers all Icelandic héraðsdómar.
+    r'^#{1,6}\s+(?:Úrskurður|Dóm(?:ur|ar))\s+'
+    r'(?:Reykjavíkur|Reykjaness|Vesturlands|Norðurlands\s+(?:eystra|vestra)'
+    r'|Austurlands|Suðurlands|Suðurnesja)\b[^\n]*$'
+    r'|'
+    # Variant E: ## heading with only a weekday/date — court name entirely absent.
+    # e.g. "## Úrskurður föstudaginn 21. júní 2019"  (kærumál, rare format).
+    # Requires ## AND (optional weekday +) numeric date for safety.
+    r'^#{1,6}\s+(?:Úrskurður|Dóm(?:ur|ar))\s+(?:\w+dag\w*\s+)?\d{1,2}\.\s*'
+    + _MONTHS_IS_RE +
+    r'\s+\d{4}\.?[^\n]*$',
     re.MULTILINE | re.IGNORECASE,
+)
+
+# Matches non-bold lower-court heading blocks that _heading_marker misses.
+# Used in _block_to_text to force these as ## headings so _split_lower_court
+# can find them even when the PDF uses plain (non-bold) font for the heading.
+# Also matches the rare form where Héraðsdóms is omitted and the district name
+# follows directly (e.g. "Dómur Norðurlands eystra …").
+_LOWER_COURT_BLOCK_RE = re.compile(
+    r'^(?:Dóm(?:ur|ar)|Úrskurður)\s+'
+    r'(?:Héra(?:ðsd|ðds)óm\w*'
+    r'|Reykjavíkur|Reykjaness|Vesturlands|Norðurlands\s+(?:eystra|vestra)'
+    r'|Austurlands|Suðurlands|Suðurnesja)\b',
+    re.IGNORECASE,
 )
 
 
@@ -299,8 +340,12 @@ _ROMAN_NUM_RE  = re.compile(r'^[IVX]+$')   # Roman numerals I, II, III… (no pe
 _NEW_PARA_RE = re.compile(r'^\d{1,3}\.\s+[A-ZÁÐÉÍÓÚÝÞÆÖ]')
 
 
-_INLINE_PARA_START_RE = re.compile(r'^\d{1,3}\.\s')
-"""Matches numbered-paragraph starts like ``1. text`` or ``12.  text``."""
+_INLINE_PARA_START_RE = re.compile(r'^\d{1,3}\.\s+[A-ZÁÐÉÍÓÚÝÞÆÖ\[]')
+"""Matches numbered-paragraph starts like ``1. Texti`` or ``12.  Annað``.
+
+The uppercase-letter guard (``[A-ZÁÐÉÍÓÚÝÞÆÖ[]``) prevents Icelandic dates
+such as "24. júní" or "31. maí" from being mistaken for paragraph numbers —
+month names are all lowercase in Icelandic."""
 
 
 def _build_body_from_lines(
@@ -955,6 +1000,20 @@ def _block_to_text(block: dict, crop: "PdfCrop | None") -> str | None:
         if _para_start:
             body = "\n\n" + body
 
+    # Style D — lower-court heading in plain (non-bold) font.
+    # Some PDFs typeset "Úrskurður Héraðsdóms Reykjavíkur miðvikudaginn …"
+    # in regular Times New Roman at x≈148 — just under Style C's x>150
+    # threshold and/or over its ≤60-char limit.  _heading_marker returns None
+    # so the block would be absorbed as body text and _split_lower_court would
+    # never find it.  Detect the pattern here and force a ## heading so the
+    # split can work regardless of font or x-position.
+    if (
+        not margin_num
+        and len(lines) == 1
+        and _LOWER_COURT_BLOCK_RE.match(body.strip())
+    ):
+        return "## " + body.strip()
+
     return body
 
 
@@ -1170,6 +1229,34 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     if not all_blocks:
         return None
 
+    # ── Merge standalone Roman-numeral blocks with following italic title ─────
+    # Some lower-court PDFs (e.g. Héraðsdómur embeds in Landsréttur) typeset
+    # section headings as two consecutive fitz blocks:
+    #   Block A:  "I."  (centred, regular Times New Roman, size 10)  → '\n\nI.'
+    #   Block B:  "Helstu málsatvik"  (italic, left-margin)           → plain text
+    # _block_to_text cannot merge them (no lookahead), so we do it here.
+    # Guard: next block must be a short single-line text (≤ 80 chars, no \n)
+    # that is NOT already a heading — avoids swallowing body paragraphs.
+    _LONE_ROMAN_RE = re.compile(r'^[\n]*([IVX]+)\.\s*$')
+    _merged_blocks: list[str] = []
+    _bi = 0
+    while _bi < len(all_blocks):
+        _rm = _LONE_ROMAN_RE.match(all_blocks[_bi])
+        if _rm and _bi + 1 < len(all_blocks):
+            _nxt = all_blocks[_bi + 1]
+            if (
+                _nxt
+                and not _nxt.startswith("#")
+                and "\n" not in _nxt.strip()
+                and len(_nxt.strip()) <= 80
+            ):
+                _merged_blocks.append(f"\n\n### {_rm.group(1)}. {_nxt.strip()}")
+                _bi += 2
+                continue
+        _merged_blocks.append(all_blocks[_bi])
+        _bi += 1
+    all_blocks = _merged_blocks
+
     # Smart join: blocks that begin a new heading, numbered paragraph, or
     # first-line-indented paragraph get a blank-line separator; all other blocks
     # are continuation text joined with a space.
@@ -1225,6 +1312,51 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     # Collapse any letter-spaced sequences that appeared inline in body text
     # (e.g. "D Ó M S O R Ð:" → "DÓMSORÐ:" in older lower-court PDFs).
     result = _collapse_spaced_letters_inline(result)
+
+    # Fix split-word artifacts caused by font-encoding issues in some PDFs.
+    # The PDF content stream encodes "Dómur" as two runs "Dó" + " mur" and
+    # "Úrskurður" similarly, producing heading lines like:
+    #   "## Dó mur Héraðsdóms Reykjavíkur  2. desember 2024"
+    # These broken words prevent _LOWER_COURT_SPLIT_RE from finding the split
+    # point (lower_body_text ends up NULL).  Fix the two known problem words
+    # before the text is returned and used by _split_lower_court.
+    result = re.sub(r'D\s*ó\s*m\s*u\s*r', 'Dómur', result)
+    result = re.sub(r'Ú\s*r\s*s\s*k\s*u\s*r\s*ð\s*u\s*r', 'Úrskurður', result)
+    # "H é r a ð s d ó m u r" → "Héraðsdómur": spaced-letter artefact.
+    result = re.sub(r'H\s*é\s*r\s*a\s*ð\s*s\s*d\s*ó\s*m\s*u\s*r', 'Héraðsdómur', result)
+    # "Héaðsdóm" → "Héraðsdóm": missing 'r' (PDF/OCR artefact).
+    result = re.sub(r'Héaðsdóm', 'Héraðsdóm', result)
+    # "Héraðdóm" → "Héraðsdóm": missing connector 's' (PDF/OCR artefact).
+    result = re.sub(r'Héraðdóm', 'Héraðsdóm', result)
+    # "Héraðdsóm" → "Héraðsdóm": transposed 'd' and 's' (PDF/OCR artefact).
+    result = re.sub(r'Héraðdsóm', 'Héraðsdóm', result)
+    # "Héraðsóm" → "Héraðsdóm": missing 'd' between 's' and 'ó'.
+    result = re.sub(r'Héraðsóm', 'Héraðsdóm', result)
+    # "Héraðsdom" → "Héraðsdóm": unaccented 'o' (glyph encoding artefact).
+    result = re.sub(r'Héraðsdom', 'Héraðsdóm', result)
+    # "Héraðssóm" → "Héraðsdóm": double 's', 'd' replaced by second 's'.
+    result = re.sub(r'Héraðssóm', 'Héraðsdóm', result)
+    # "Hérðasdóm" → "Héraðsdóm": 'a' and 'ð' transposed (chars 4-5 swapped).
+    result = re.sub(r'Hérðasdóm', 'Héraðsdóm', result)
+    # "Hérðasdsóm" → "Héraðsdóm": severely garbled ('a'↔'ð' swap + extra 's').
+    result = re.sub(r'Hérðasdsóm', 'Héraðsdóm', result)
+    # "H éraðsdóm" → "Héraðsdóm": space inserted after first letter.
+    result = re.sub(r'\bH\s+éraðsdóm', 'Héraðsdóm', result)
+    # "Hérað sdóm" → "Héraðsdóm": space between 'ð' and 's'.
+    result = re.sub(r'Héra[ðd]\s+sdóm', 'Héraðsdóm', result)
+    # "Úrskuður" → "Úrskurður": missing second 'r' (PDF/OCR artefact).
+    result = re.sub(r'\bÚrskuður\b', 'Úrskurður', result)
+    # Some PDFs use 'z' where Icelandic has 's' (font glyph substitution):
+    # "marz" → "mars", "marz-apríl" → "mars-apríl" etc.
+    result = re.sub(r'\bm\s*a\s*r\s*z\b', 'mars', result, flags=re.IGNORECASE)
+    # Collapse any remaining multiple spaces within heading lines
+    # (e.g. "Reykjavíkur  2. desember" → "Reykjavíkur 2. desember").
+    result = re.sub(
+        r'^(#{1,6} .+)$',
+        lambda m: re.sub(r' {2,}', ' ', m.group(0)),
+        result,
+        flags=re.MULTILINE,
+    )
 
     # Insert Markdown table separator rows (| --- | --- |) after the header
     # row of each pipe-table sequence.  Must run after full block assembly so
