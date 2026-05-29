@@ -176,19 +176,24 @@ _LOWER_COURT_SPLIT_RE = re.compile(
     # Variant A: full date present — heading marker optional.
     # Héraðsdóm\w* handles all declension forms (Héraðsdóms, Héraðsdómur,
     # Héraðsdóm, Héraðsdóma, Héraðsdómsdóms …).  \w+dag\w* handles
-    # daginn / dagurinn variants.  Trailing [^\n]* allows case-number suffixes.
-    r'^(?:#{1,6}\s+)?(?:Úrskurður|Dóm(?:ur|ar))\s+(?:Landsréttar|Héra(?:ðsd|ðds)óm\w*\b[^\n,]*?)'
-    r'(?:\s*,?\s*\w+dag\w*\s+\d{1,2}\.\s*' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
-    r'|\s*,?\s*\d{1,2}\.\s*' + _MONTHS_IS_RE + r'\s+\d{4}\.?)'
-    r'[^\n]*$'
+    # daginn / dagurinn variants.  [^\n]{0,30}$ allows a short case-number
+    # suffix after the year but blocks continuation sentences like
+    # "var kærður til Hæstaréttar…".
+    r'^(?:#{1,6}\s+)?(?:Úrskurður|Dóm(?:ur|ar))\s+(?:Landsréttar|Héra(?:ðsd|ðds)óm\w*\b[^\n,]{0,25}?)'
+    r'(?:\s*,?\s*\w+dag\w*\s+\d{1,2}\.?\s*' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
+    r'|\s*,?\s*\d{1,2}\.?\s*' + _MONTHS_IS_RE + r'\s+\d{4}\.?)'
+    r'[^\n]{0,30}$'
     r'|'
     # Variant B: ## heading present but date absent/redacted/partial or replaced
     # by a case number.  The ## is the safety guard against false positives.
-    r'^#{1,6}\s+(?:Úrskurður|Dóm(?:ur|ar))\s+Héra(?:ðsd|ðds)óm\w*\b[^\n]*$'
+    # [^\n]{0,80} prevents matching long descriptive summary headings like
+    # "## Úrskurður héraðsdóms um að X skyldi sæta gæsluvarðhaldi…" (160+ chars)
+    # that appear in Hæstiréttur bodies when referencing the lower court ruling.
+    r'^#{1,6}\s+(?:Úrskurður|Dóm(?:ur|ar))\s+Héra(?:ðsd|ðds)óm\w*\b[^\n]{0,80}$'
     r'|'
     # Variant C: ## heading starting directly with "Héraðsdóm" (no Dómur/Úrskurður
     # prefix) — rare early-2018 format, e.g. "## Héraðsdóms Reykjaness, föstudaginn…"
-    r'^#{1,6}\s+Héra(?:ðsd|ðds)óm\w*\b[^\n]*$'
+    r'^#{1,6}\s+Héra(?:ðsd|ðds)óm\w*\b[^\n]{0,80}$'
     r'|'
     # Variant D: ## heading with direct district name — Héraðsdóms word omitted
     # entirely.  e.g. "## Dómur Norðurlands eystra 6. apríl 2021".
@@ -1385,12 +1390,17 @@ def _richtext_body(value: str | dict | None) -> str | None:
     if not value:
         return None
     if isinstance(value, str):
-        return _html_to_plain(value)
-    if isinstance(value, dict):
+        text = _html_to_plain(value)
+    elif isinstance(value, dict):
         content = value.get("document", {}).get("content")
         text = _rich_text_to_plain(content)
-        return text or None
-    return None
+    else:
+        return None
+    if not text:
+        return None
+    # Normalise typos that appear in richText source data
+    text = re.sub(r'\bÚskurðarorð\b', 'Úrskurðarorð', text)  # missing 'r'
+    return text
 
 
 def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:

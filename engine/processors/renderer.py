@@ -51,11 +51,23 @@ def _court_eignarfall(abbr: str) -> str:
 # Sett inn rétt áður en niðurstöðukaflinn byrjar í body_text / lower_body_text.
 
 VERDICT_MARKER = "<!-- VERDICT -->"
+LOWER_COURT_VERDICT_MARKER = "<!-- LOWER COURT VERDICT -->"
 
 def _spaced(word: str) -> str:
     """Pattern matching a word with optional whitespace between each character."""
     return r'\s*'.join(re.escape(c) for c in word)
 
+
+# Matches "Dómsorð" when it appears mid-line (e.g. "...Hæstarétti. Dómsorð:\n\n")
+# so it can be moved to its own line before _DOMSORÐ_RE promotes it to ##.
+_INLINE_DÓMSORÐ_RE = re.compile(
+    r'(?<!\n)[ \t]+(?!#)(' + _spaced('Dómsorð') + r')(\s*:?)',
+    re.IGNORECASE,
+)
+_INLINE_ÚRSKURÐARORÐ_RE = re.compile(
+    r'(?<!\n)[ \t]+(?!#)(' + _spaced('Úrskurðarorð') + r')(\s*:?)',
+    re.IGNORECASE,
+)
 
 _DOMSORÐ_RE = re.compile(
     r'^(?!#)' + _spaced('Dómsorð') + r'(\:?)',
@@ -111,21 +123,32 @@ def _ensure_lower_subheadings(text: str) -> str:
     return _LOWER_SUBHEADINGS_RE.sub(r'## \1\2', text)
 
 
+_ITALIC_COLON_RE = re.compile(r'^(## (?:Dómsorð|Úrskurðarorð))_:_', re.MULTILINE)
+
+
 def _ensure_h2_headings(text: str) -> str:
     """Upgrade Dómsorð/Úrskurðarorð and standalone Roman numerals to H2."""
+    # First, move any mid-line occurrences onto their own line so the ^-anchored
+    # patterns below can find them (rare in older richText docs).
+    text = _INLINE_DÓMSORÐ_RE.sub(r'\n\n\1\2', text)
+    text = _INLINE_ÚRSKURÐARORÐ_RE.sub(r'\n\n\1\2', text)
     text = _DOMSORÐ_RE.sub(r'## Dómsorð\1', text)
     text = _ÚRSKURÐARORÐ_RE.sub(r'## Úrskurðarorð\1', text)
     text = _ROMAN_H2_RE.sub(r'## \1', text)
+    # Normalize richText italic-colon artifact: "## Dómsorð_:_" → "## Dómsorð:"
+    text = _ITALIC_COLON_RE.sub(r'\1:', text)
     return text
 
 # #{0,3} leyfir að Dómsorð/Úrskurðarorð séu þegar orðin ## heading.
+# _spaced() variants catch lines where letters have spaces between them
+# (e.g. "## Ú rskurðarorð:" from older PDF encodings).
 _VERDICT_SECTION_PATTERNS = re.compile(
-    r"^#{0,3}\s*(Dómsorð|Úrskurðarorð)\b",
+    r"^#{0,3}\s*(?:" + _spaced("Dómsorð") + r"|" + _spaced("Úrskurðarorð") + r")\b",
     re.MULTILINE | re.IGNORECASE,
 )
 
 
-def inject_verdict_marker(text: str) -> str:
+def inject_verdict_marker(text: str, marker: str = VERDICT_MARKER) -> str:
     """
     Finnur niðurstöðukafla í texta og setur <!-- NIÐURSTÖÐUR --> rétt á undan.
     Ef ekkert mynstur finnst er textinn skilinn óbreyttur.
@@ -161,7 +184,7 @@ def inject_verdict_marker(text: str) -> str:
     # Settu inn marker með tveimur línubilum umhverfis
     before = text[:line_start].rstrip("\n")
     after = text[line_start:]
-    return f"{before}\n\n{VERDICT_MARKER}\n{after}"
+    return f"{before}\n\n{marker}\n{after}"
 
 
 def _bold_outside_parens(name: str) -> str:
@@ -250,7 +273,7 @@ def to_markdown(doc: "Document", config: "SourceConfig") -> str:
                 _ensure_h2_headings(doc.lower_body_text.strip())
             )
         )
-        marked_lower = inject_verdict_marker(lower)
+        marked_lower = inject_verdict_marker(lower, LOWER_COURT_VERDICT_MARKER)
         body += f"\n\n<!-- lægra dómstig -->\n\n{marked_lower}"
 
     return header + body + "\n"
