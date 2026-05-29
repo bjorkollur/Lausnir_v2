@@ -173,17 +173,51 @@ def _correct_date_if_wrong(
     return api_date
 
 _LOWER_COURT_SPLIT_RE = re.compile(
-    r'^(?:#{1,6}\s+)?((?:Úrskurður|Dómur)\s+(?:Landsréttar|Héraðsdóms\b[^\n,]*?)'
-    r'(?:\s*,?\s*\w+daginn?\s+\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
-    r'|\s*,?\s*\d{1,2}\.\s+' + _MONTHS_IS_RE + r'\s+\d{4}\.?)\s*)$',
+    # Variant A: full date present — heading marker optional.
+    # Héraðsdóm\w* handles all declension forms (Héraðsdóms, Héraðsdómur,
+    # Héraðsdóm, Héraðsdóma, Héraðsdómsdóms …).  \w+dag\w* handles
+    # daginn / dagurinn variants.  Trailing [^\n]* allows case-number suffixes.
+    r'^(?:#{1,6}\s+)?(?:Úrskurður|Dóm(?:ur|ar))\s+(?:Landsréttar|Héra(?:ðsd|ðds)óm\w*\b[^\n,]*?)'
+    r'(?:\s*,?\s*\w+dag\w*\s+\d{1,2}\.\s*' + _MONTHS_IS_RE + r'\s+\d{4}\.?'
+    r'|\s*,?\s*\d{1,2}\.\s*' + _MONTHS_IS_RE + r'\s+\d{4}\.?)'
+    r'[^\n]*$'
+    r'|'
+    # Variant B: ## heading present but date absent/redacted/partial or replaced
+    # by a case number.  The ## is the safety guard against false positives.
+    r'^#{1,6}\s+(?:Úrskurður|Dóm(?:ur|ar))\s+Héra(?:ðsd|ðds)óm\w*\b[^\n]*$'
+    r'|'
+    # Variant C: ## heading starting directly with "Héraðsdóm" (no Dómur/Úrskurður
+    # prefix) — rare early-2018 format, e.g. "## Héraðsdóms Reykjaness, föstudaginn…"
+    r'^#{1,6}\s+Héra(?:ðsd|ðds)óm\w*\b[^\n]*$'
+    r'|'
+    # Variant D: ## heading with direct district name — Héraðsdóms word omitted
+    # entirely.  e.g. "## Dómur Norðurlands eystra 6. apríl 2021".
+    # The ## marker is a required safety guard against false positives.
+    # District list covers all Icelandic héraðsdómar.
+    r'^#{1,6}\s+(?:Úrskurður|Dóm(?:ur|ar))\s+'
+    r'(?:Reykjavíkur|Reykjaness|Vesturlands|Norðurlands\s+(?:eystra|vestra)'
+    r'|Austurlands|Suðurlands|Suðurnesja)\b[^\n]*$'
+    r'|'
+    # Variant E: ## heading with only a weekday/date — court name entirely absent.
+    # e.g. "## Úrskurður föstudaginn 21. júní 2019"  (kærumál, rare format).
+    # Requires ## AND (optional weekday +) numeric date for safety.
+    r'^#{1,6}\s+(?:Úrskurður|Dóm(?:ur|ar))\s+(?:\w+dag\w*\s+)?\d{1,2}\.\s*'
+    + _MONTHS_IS_RE +
+    r'\s+\d{4}\.?[^\n]*$',
     re.MULTILINE | re.IGNORECASE,
 )
 
 # Matches non-bold lower-court heading blocks that _heading_marker misses.
 # Used in _block_to_text to force these as ## headings so _split_lower_court
 # can find them even when the PDF uses plain (non-bold) font for the heading.
+# Also matches the rare form where Héraðsdóms is omitted and the district name
+# follows directly (e.g. "Dómur Norðurlands eystra …").
 _LOWER_COURT_BLOCK_RE = re.compile(
-    r'^(?:Dómur|Úrskurður)\s+Héraðsdóms\b', re.IGNORECASE
+    r'^(?:Dóm(?:ur|ar)|Úrskurður)\s+'
+    r'(?:Héra(?:ðsd|ðds)óm\w*'
+    r'|Reykjavíkur|Reykjaness|Vesturlands|Norðurlands\s+(?:eystra|vestra)'
+    r'|Austurlands|Suðurlands|Suðurnesja)\b',
+    re.IGNORECASE,
 )
 
 
@@ -1288,6 +1322,30 @@ def _pdf_bytes_to_text(pdf_bytes: bytes, config: SourceConfig) -> str | None:
     # before the text is returned and used by _split_lower_court.
     result = re.sub(r'D\s*ó\s*m\s*u\s*r', 'Dómur', result)
     result = re.sub(r'Ú\s*r\s*s\s*k\s*u\s*r\s*ð\s*u\s*r', 'Úrskurður', result)
+    # "H é r a ð s d ó m u r" → "Héraðsdómur": spaced-letter artefact.
+    result = re.sub(r'H\s*é\s*r\s*a\s*ð\s*s\s*d\s*ó\s*m\s*u\s*r', 'Héraðsdómur', result)
+    # "Héaðsdóm" → "Héraðsdóm": missing 'r' (PDF/OCR artefact).
+    result = re.sub(r'Héaðsdóm', 'Héraðsdóm', result)
+    # "Héraðdóm" → "Héraðsdóm": missing connector 's' (PDF/OCR artefact).
+    result = re.sub(r'Héraðdóm', 'Héraðsdóm', result)
+    # "Héraðdsóm" → "Héraðsdóm": transposed 'd' and 's' (PDF/OCR artefact).
+    result = re.sub(r'Héraðdsóm', 'Héraðsdóm', result)
+    # "Héraðsóm" → "Héraðsdóm": missing 'd' between 's' and 'ó'.
+    result = re.sub(r'Héraðsóm', 'Héraðsdóm', result)
+    # "Héraðsdom" → "Héraðsdóm": unaccented 'o' (glyph encoding artefact).
+    result = re.sub(r'Héraðsdom', 'Héraðsdóm', result)
+    # "Héraðssóm" → "Héraðsdóm": double 's', 'd' replaced by second 's'.
+    result = re.sub(r'Héraðssóm', 'Héraðsdóm', result)
+    # "Hérðasdóm" → "Héraðsdóm": 'a' and 'ð' transposed (chars 4-5 swapped).
+    result = re.sub(r'Hérðasdóm', 'Héraðsdóm', result)
+    # "Hérðasdsóm" → "Héraðsdóm": severely garbled ('a'↔'ð' swap + extra 's').
+    result = re.sub(r'Hérðasdsóm', 'Héraðsdóm', result)
+    # "H éraðsdóm" → "Héraðsdóm": space inserted after first letter.
+    result = re.sub(r'\bH\s+éraðsdóm', 'Héraðsdóm', result)
+    # "Hérað sdóm" → "Héraðsdóm": space between 'ð' and 's'.
+    result = re.sub(r'Héra[ðd]\s+sdóm', 'Héraðsdóm', result)
+    # "Úrskuður" → "Úrskurður": missing second 'r' (PDF/OCR artefact).
+    result = re.sub(r'\bÚrskuður\b', 'Úrskurður', result)
     # Some PDFs use 'z' where Icelandic has 's' (font glyph substitution):
     # "marz" → "mars", "marz-apríl" → "mars-apríl" etc.
     result = re.sub(r'\bm\s*a\s*r\s*z\b', 'mars', result, flags=re.IGNORECASE)
