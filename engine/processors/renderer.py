@@ -58,23 +58,34 @@ def _spaced(word: str) -> str:
     return r'\s*'.join(re.escape(c) for c in word)
 
 
-# Matches "Dómsorð" when it appears mid-line (e.g. "...Hæstarétti. Dómsorð:\n\n")
-# so it can be moved to its own line before _DOMSORÐ_RE promotes it to ##.
+# Matches "Dómsorð"/"Úrskurðarorð" when it appears mid-line so it can be moved
+# to its own line before _DOMSORÐ_RE promotes it to ##.
+# Two cases:
+#   a) preceded by space/tab  (e.g. "...Hæstarétti. Dómsorð:\n\n")
+#   b) preceded immediately by sentence-ending punctuation with no space
+#      (e.g. "...kvað upp dóm þennan.Dómsorð:Stefndi…")
+# The colon is REQUIRED (not optional) to avoid false-splitting sentence references
+# like "...í dómsorðI greinir" where the inflected word follows a space.
 _INLINE_DÓMSORÐ_RE = re.compile(
-    r'(?<!\n)[ \t]+(?!#)(' + _spaced('Dómsorð') + r')(\s*:?)',
+    r'(?<!\n)(?:[ \t]+|(?<=[.!?]))(?!#)(' + _spaced('Dómsorð') + r')(\s*:)',
     re.IGNORECASE,
 )
 _INLINE_ÚRSKURÐARORÐ_RE = re.compile(
-    r'(?<!\n)[ \t]+(?!#)(' + _spaced('Úrskurðarorð') + r')(\s*:?)',
+    r'(?<!\n)(?:[ \t]+|(?<=[.!?]))(?!#)(' + _spaced('Úrskurðarorð') + r')(\s*:)',
     re.IGNORECASE,
 )
 
+# (?=[;:_.\s]|$) prevents promoting inflected forms like "Dómsorðar" or "Úrskurðarorðig"
+# that may appear at line start in older richText docs (the inflection character is
+# neither punctuation nor whitespace, so the lookahead fails).
+# '_' is included so that the richText italic-colon artefact "Dómsorð_:_" is promoted
+# here before _ITALIC_COLON_RE normalises "## Dómsorð_:_" → "## Dómsorð:".
 _DOMSORÐ_RE = re.compile(
-    r'^(?!#)' + _spaced('Dómsorð') + r'(\:?)',
+    r'^(?!#)' + _spaced('Dómsorð') + r'(\:?)(?=[;:_.\s]|$)',
     re.MULTILINE | re.IGNORECASE,
 )
 _ÚRSKURÐARORÐ_RE = re.compile(
-    r'^(?!#)' + _spaced('Úrskurðarorð') + r'(\:?)',
+    r'^(?!#)' + _spaced('Úrskurðarorð') + r'(\:?)(?=[;:_.\s]|$)',
     re.MULTILINE | re.IGNORECASE,
 )
 _ROMAN_H2_RE = re.compile(
@@ -142,8 +153,17 @@ def _ensure_h2_headings(text: str) -> str:
 # #{0,3} leyfir að Dómsorð/Úrskurðarorð séu þegar orðin ## heading.
 # _spaced() variants catch lines where letters have spaces between them
 # (e.g. "## Ú rskurðarorð:" from older PDF encodings).
+# (?-i:[A-Z]) — case-sensitive uppercase lookahead (inside the IGNORECASE pattern)
+# to allow merged "DÓMSORÐStefndi" headings (next char is uppercase) while
+# rejecting inflected forms like "Dómsorðig" (next char is lowercase inflection).
+# Also catches "Ályktunarorð"/"Ályktarorð" — verdict-section words in older formats.
 _VERDICT_SECTION_PATTERNS = re.compile(
-    r"^#{0,3}\s*(?:" + _spaced("Dómsorð") + r"|" + _spaced("Úrskurðarorð") + r")\b",
+    r"^#{0,3}\s*(?:"
+    + _spaced("Dómsorð") + r"|"
+    + _spaced("Úrskurðarorð") + r"|"
+    + _spaced("Ályktunarorð") + r"|"
+    + _spaced("Ályktarorð")
+    + r")(?:[;:.\s]|$|(?-i:[A-ZÁÐÉÍÓÚÝÞÆÖ]))",
     re.MULTILINE | re.IGNORECASE,
 )
 
