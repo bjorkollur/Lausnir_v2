@@ -58,6 +58,14 @@ def _spaced(word: str) -> str:
     return r'\s*'.join(re.escape(c) for c in word)
 
 
+def _spaced_eth(word: str) -> str:
+    """Like _spaced but maps ð/Ð → [ðÐdD] for OCR robustness (old PDFs use plain D)."""
+    return r'\s*'.join(
+        r'[ðÐdD]' if c in 'ðÐ' else re.escape(c)
+        for c in word
+    )
+
+
 # Matches "Dómsorð"/"Úrskurðarorð" when it appears mid-line so it can be moved
 # to its own line before _DOMSORÐ_RE promotes it to ##.
 # Two cases:
@@ -150,7 +158,8 @@ def _ensure_h2_headings(text: str) -> str:
     text = _ITALIC_COLON_RE.sub(r'\1:', text)
     return text
 
-# #{0,3} leyfir að Dómsorð/Úrskurðarorð séu þegar orðin ## heading.
+# #{0,6} leyfir að Dómsorð/Úrskurðarorð séu þegar orðin heading á hvaða stigi sem er.
+# Eldri Hrd. PDF-ar nota oft ####/##### fyrir Dómsorð í neðra dómstigstexta.
 # _spaced() variants catch lines where letters have spaces between them
 # (e.g. "## Ú rskurðarorð:" from older PDF encodings).
 # (?-i:[A-Z]) — case-sensitive uppercase lookahead (inside the IGNORECASE pattern)
@@ -158,14 +167,96 @@ def _ensure_h2_headings(text: str) -> str:
 # rejecting inflected forms like "Dómsorðig" (next char is lowercase inflection).
 # Also catches "Ályktunarorð"/"Ályktarorð" — verdict-section words in older formats.
 _VERDICT_SECTION_PATTERNS = re.compile(
-    r"^#{0,3}\s*(?:"
-    + _spaced("Dómsorð") + r"|"
-    + _spaced("Úrskurðarorð") + r"|"
-    + _spaced("Ályktunarorð") + r"|"
-    + _spaced("Ályktarorð")
+    r"^#{0,6}\s*(?:"
+    + r"D\s*ó\s*m\s*(?:s\s*)?o\s*r\s*(?:[oO]\s*)?[ðÐdD]" + r"|"
+    # Fuzzy Úrskurðarorð: (?:[rRðÐdDaA]\s*)* gleypur miðhlutann og nær yfir
+    # allar þekktar stafsetningarvillur (vantar r/Ð, víxlað, D í stað Ð o.fl.)
+    + r"[ÚúUu]\s*[rR]?\s*(?:[sS]\s*)?[kK]\s*[uU]\s*(?:[rRðÐdDaAsS]\s*)*[oO]\s*[rR]?\s*[ðÐdD]" + r"|"
+    + _spaced_eth("Ályktunarorð") + r"|"
+    + _spaced_eth("Ályktarorð")
     + r")(?:[;:.\s]|$|(?-i:[A-ZÁÐÉÍÓÚÝÞÆÖ]))",
     re.MULTILINE | re.IGNORECASE,
 )
+
+# Passar við "Úrskurður" (með eða án bila á milli stafa, með eða án tvípunkts)
+# sem stendur ein og sér á línu — með eða án heading-merkis.
+# Notað til að greina þegar PDF notar "Úrskurður" í stað "Úrskurðarorð" sem fyrirsögn.
+_LATE_ÚRSKURÐUR_RE = re.compile(
+    r'^#{0,2}\s*[ÚúUu]\s*[rR]\s*[sS]\s*[kK]\s*[uU]\s*[rR]\s*[ðÐdD]\s*[uU]\s*[rR]\s*[.:]?\s*$',
+    re.MULTILINE | re.IGNORECASE,
+)
+
+
+def _promote_late_urskurdur(text: str) -> str:
+    """Ef lower court texti hefur enga niðurstöðufyrirsögn en 'Úrskurður' kemur
+    fyrir stakt á línu í seinni hluta textans, er hann hækkaður í '## Úrskurðarorð:'.
+
+    Varð til vegna PDF-a þar sem niðurstöðukaflinn er merktur 'Úrskurður' en
+    ætti að vera 'Úrskurðarorð' (dæmi: Hrd. 22/2014).
+    """
+    if _VERDICT_SECTION_PATTERNS.search(text):
+        return text
+    matches = list(_LATE_ÚRSKURÐUR_RE.finditer(text))
+    if not matches:
+        return text
+    last = matches[-1]
+    # Aðeins ef línan er í síðustu 10 línum (línutal, ekki stafafjöldi)
+    if text[last.end():].count('\n') > 10:
+        return text
+    return text[:last.start()] + '## Úrskurðarorð:' + text[last.end():]
+
+
+# Passar við "Dómur" (með eða án bila, með eða án ##, með eða án tvípunkts)
+# sem stendur ein og sér á línu. Notað þegar PDF notar "Dómur" sem niðurstöðufyrirsögn.
+_LATE_DÓMUR_RE = re.compile(
+    r'^#{0,2}\s*D\s*[óÓoO]\s*m\s*u\s*r\s*:?\s*$',
+    re.MULTILINE | re.IGNORECASE,
+)
+
+
+def _promote_late_domur(text: str) -> str:
+    """Ef '## Dómur:' kemur fyrir í síðustu 10 línum lower court texta
+    og engin niðurstöðufyrirsögn er þegar til staðar, breytist það í '## Dómsorð:'.
+
+    Varð til vegna Landsréttar-dóma þar sem héraðsdómari notar 'Dómur:' sem
+    niðurstöðufyrirsögn (dæmi: Lrd. 191/2023).
+    """
+    if _VERDICT_SECTION_PATTERNS.search(text):
+        return text
+    matches = list(_LATE_DÓMUR_RE.finditer(text))
+    if not matches:
+        return text
+    last = matches[-1]
+    # Aðeins ef línan er í síðustu 10 línum
+    if text[last.end():].count('\n') > 10:
+        return text
+    return text[:last.start()] + '## Dómsorð:' + text[last.end():]
+
+
+# Passar við "ákvörðun" stakt á línu — notað í eldri sakamálum þar sem dómari
+# tekur formlega ákvörðun (t.d. ferðabann) í stað hefðbundinnar Dómsorð-fyrirsagnar.
+_LATE_ÁKVÖRÐUN_RE = re.compile(
+    r'^#{0,2}\s*[áÁaA]\s*k\s*v\s*[öÖoO]\s*r\s*[ðÐdD]\s*u\s*n\s*:?\s*$',
+    re.MULTILINE | re.IGNORECASE,
+)
+
+
+def _promote_late_akvordun(text: str) -> str:
+    """Ef 'ákvörðun' kemur fyrir stakt á línu í síðustu 10 línum lower court texta
+    og engin niðurstöðufyrirsögn er þegar til staðar, breytist það í '## Dómsorð:'.
+
+    Varð til vegna eldri Hæstaréttar-mála þar sem dómari tekur formlega ákvörðun
+    (t.d. ferðabann) með 'ákvörðun' sem fyrirsögn (dæmi: Hrd. 123/2001).
+    """
+    if _VERDICT_SECTION_PATTERNS.search(text):
+        return text
+    matches = list(_LATE_ÁKVÖRÐUN_RE.finditer(text))
+    if not matches:
+        return text
+    last = matches[-1]
+    if text[last.end():].count('\n') > 10:
+        return text
+    return text[:last.start()] + '## Dómsorð:' + text[last.end():]
 
 
 def inject_verdict_marker(text: str, marker: str = VERDICT_MARKER) -> str:
@@ -293,6 +384,9 @@ def to_markdown(doc: "Document", config: "SourceConfig") -> str:
                 _ensure_h2_headings(doc.lower_body_text.strip())
             )
         )
+        lower = _promote_late_urskurdur(lower)
+        lower = _promote_late_domur(lower)
+        lower = _promote_late_akvordun(lower)
         marked_lower = inject_verdict_marker(lower, LOWER_COURT_VERDICT_MARKER)
         body += f"\n\n<!-- lægra dómstig -->\n\n{marked_lower}"
 
