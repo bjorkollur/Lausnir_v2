@@ -447,7 +447,7 @@ def _extract_parties_from_heradsdomstolar_preamble(pdf_text: str) -> tuple[list,
     # Flatten to single line so lawyer paragraphs merge with the name line.
     flat = text.replace('\n', ' ')
     m = re.search(
-        r'Stefnandi:\s+(.+?)\s+Stefnd[ia]:\s+(.+?)(?:\s+Dómar[ai]|\s{3,}|$)',
+        r'Stefnandi:\s+(.+?)\s+Stefnd[iau]:\s+(.+?)(?:\s+Dómar[ai]|\s{3,}|$)',
         flat, re.IGNORECASE,
     )
     if m:
@@ -487,6 +487,29 @@ def _extract_parties_from_heradsdomstolar_preamble(pdf_text: str) -> tuple[list,
             else:
                 plf_text = name
             break
+
+    # Fallback for old PDFs without ## headings: try last plain-text party name
+    # before gegn (skip lawyer-paren lines and court intro lines).
+    if not plf_text:
+        _INTRO_RE = re.compile(
+            r'^(?:Ár\s+\d|Mál\s+|Málið|[Hh]éraðsdóm|\d{1,2}\.\s+[a-z]|\d+\s+\w)',
+        )
+        for p in reversed(pre_paras):
+            if p.startswith('(') and p.endswith(')'):
+                continue  # lawyer attribution
+            if _INTRO_RE.match(p) or len(p) > 120:
+                # Long court-intro line: try to pull the party name from just
+                # before gegn (same-line format: "... Ákæruvaldið (lög.) gegn ...")
+                inline_m = re.search(
+                    r'([A-ZÁÐÉÍÓÚÝÞÆÖ][^\n:(]{2,60}?)\s+(?:\([^)]{3,60}\))?\s*$',
+                    p,
+                )
+                if inline_m:
+                    plf_text = inline_m.group(1).strip()
+                continue
+            if not p.startswith('## '):
+                plf_text = p
+                break
 
     # ── Defendant ──────────────────────────────────────────────────────────────
     _SKIP_RE = re.compile(
@@ -579,7 +602,7 @@ def _extract_parties_from_body_start(body_text: str) -> tuple[list, list]:
 
     # 0a. Stefnandi / Stefndi labeled format in preamble-style (colon separated)
     m = re.search(
-        r'Stefnandi:\s+(.+?)\s+Stefnd[ia]:\s+(.+?)(?:\s+Dómar[ai]|\s{2}|$)',
+        r'Stefnandi:\s+(.+?)\s+Stefnd[iau]:\s+(.+?)(?:\s+Dómar[ai]|\s{2}|$)',
         s, re.IGNORECASE,
     )
     if m:
@@ -604,7 +627,7 @@ def _extract_parties_from_body_start(body_text: str) -> tuple[list, list]:
 
     # 1. Criminal Ár format: Ákæruvaldið (saksóknari) gegn X
     m = re.search(
-        r'Ákæruvaldið\s+(?:\(([^)]+)\)\s+)?gegn\s+([^,]{5,60}?)(?:,\s|\s+sem\b|\s+kt\b|\s+fædd)',
+        r'Ákæruvaldið\s+(?:\(([^)]+)\)\s+)?gegn\s+([^(,\n]{5,60}?)(?:\s*\(|\s+kt\b|\s+fædd|,\s|\s+sem\b)',
         s, re.IGNORECASE,
     )
     if m:
@@ -632,19 +655,21 @@ def _extract_parties_from_body_start(body_text: str) -> tuple[list, list]:
         or re.search(r'Mál\s+þetta\s+höfðaði\s+([^,]{4,80}?)(?=,\s+með\b|\s+með\b)', s, re.IGNORECASE)
         or re.search(r'\baf\s+hálfu\s+([A-ZÁÐÉÍÓÚÝÞÆÖ][^,]{4,80}?)(?=,|\s+með\b)', s, re.IGNORECASE)
         or re.search(r'var\s+höfðað\s+af\s+([A-ZÁÐÉÍÓÚÝÞÆÖ][^,]{4,80}?)(?=,)', s, re.IGNORECASE)
+        or re.search(r'Stefnandi\s+er\s+([^,\.]{3,80})', s, re.IGNORECASE)
     )
 
     # For criminal cases: look for prosecution entity when no civil plaintiff found
     if not plf_m and dfd_m:
         plf_m = (
-            re.search(r'Mál\s+þetta\s+höfðaði\s+([^,]{4,80}?)(?=,\s+með\b|\s+með\b)', s, re.IGNORECASE)
+            re.search(r'(Ákæruvaldið(?:\s+\([^)]+\))?)', s[:800], re.IGNORECASE)
+            or re.search(r'Mál\s+þetta\s+höfðaði\s+([^,]{4,80}?)(?=,\s+með\b|\s+með\b)', s, re.IGNORECASE)
             or re.search(
                 r'útgefinni\s+af\s+((?:lögreglustjóra|ríkissaksóknara|héraðssaksóknara)[^,\s]{0,50}[^,]*?)(?=\s*\d|\s*,)',
                 s, re.IGNORECASE,
             )
             or re.search(
                 r'((?:lögreglustjóri(?:nn)?\s+[^\n,]{5,40}|ríkissaksóknari|héraðssaksóknari))',
-                s[:400], re.IGNORECASE,
+                s[:600], re.IGNORECASE,
             )
         )
 
@@ -1907,9 +1932,15 @@ def _extract_heradsdomstolar(raw: dict, config: SourceConfig) -> dict:
                         if m2 and 0 < m2.end() < len(plain_body):
                             plain_body = plain_body[m2.end():]
 
-    # Final fallback: extract from old-format intro sentence in body text
-    if not plf and not dfd and plain_body:
-        plf, dfd = _extract_parties_from_body_start(plain_body)
+    # Final fallback: extract from old-format intro sentence in body text.
+    # Called when plaintiff is missing even if defendant was found via preamble,
+    # so plain-text preamble docs (no ## headings) can still get a plaintiff.
+    if not plf and plain_body:
+        plf2, dfd2 = _extract_parties_from_body_start(plain_body)
+        if not plf:
+            plf = plf2
+        if not dfd:
+            dfd = dfd2
 
     return {
         "case_number": raw.get("caseNumber"),
