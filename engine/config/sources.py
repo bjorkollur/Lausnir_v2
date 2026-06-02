@@ -79,7 +79,9 @@ _SOURCES: list[SourceConfig] = [
             header_pt=65.0,
             footer_pt=62.0,
             skip_header_on_first=True,
-            heading_sizes={20.0: "# ", 14.0: "## "},
+            # Section headings are 12pt bold — same size as body text, so font-based
+            # detection is needed. "Bold" matches TimesNewRomanPS-BoldMT and similar.
+            heading_fonts={"Bold": "## "},
         ),
     ),
     SourceConfig(

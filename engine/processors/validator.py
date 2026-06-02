@@ -52,7 +52,7 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
             doc_year = doc.document_date.year
             if doc_year < case_year:
                 err("document_date", f"Dagsetning ({doc_year}) á undan stofnunarári máls ({case_year})")
-            elif doc_year - case_year >= 4:
+            elif doc_year - case_year >= 6:
                 err("document_date", f"Dagsetning ({doc_year}) er {doc_year - case_year} árum seinna en stofnunarár ({case_year})")
 
     # court
@@ -74,10 +74,15 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
         err("body_text", f"Suspiciously short: {len(doc.body_text)} chars")
 
     # parties (only for adversarial sources)
+    # Flag only when one side is present but the other is missing — that indicates
+    # a parse failure in an adversarial case.  If both are absent the title was
+    # a prose summary (pre-2013 API format) with no structured party data.
     if config.parse_parties != "none":
-        if not doc.plaintiffs:
+        has_plf = bool(doc.plaintiffs)
+        has_dfd = bool(doc.defendants)
+        if has_dfd and not has_plf:
             err("plaintiffs", "Empty")
-        if not doc.defendants:
+        if has_plf and not has_dfd:
             err("defendants", "Empty")
 
     # keywords

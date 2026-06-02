@@ -75,11 +75,11 @@ def _spaced_eth(word: str) -> str:
 # The colon is REQUIRED (not optional) to avoid false-splitting sentence references
 # like "...í dómsorðI greinir" where the inflected word follows a space.
 _INLINE_DÓMSORÐ_RE = re.compile(
-    r'(?<!\n)(?:[ \t]+|(?<=[.!?]))(?!#)(' + _spaced('Dómsorð') + r')(\s*:)',
+    r'(?<!\n)(?<!#)(?:[ \t]+|(?<=[.!?]))(?!#)(' + _spaced('Dómsorð') + r')(\s*:)',
     re.IGNORECASE,
 )
 _INLINE_ÚRSKURÐARORÐ_RE = re.compile(
-    r'(?<!\n)(?:[ \t]+|(?<=[.!?]))(?!#)(' + _spaced('Úrskurðarorð') + r')(\s*:)',
+    r'(?<!\n)(?<!#)(?:[ \t]+|(?<=[.!?]))(?!#)(' + _spaced('Úrskurðarorð') + r')(\s*:)',
     re.IGNORECASE,
 )
 
@@ -375,7 +375,7 @@ def to_markdown(doc: "Document", config: "SourceConfig") -> str:
         marked_body = inject_verdict_marker(_ensure_h2_headings(doc.body_text.strip()))
         body = f"{body_h2}\n\n{marked_body}"
     else:
-        body = body_h2
+        body = ""
 
     # Lower court (appended if present)
     if doc.lower_body_text and doc.lower_body_text.strip():
@@ -434,10 +434,12 @@ def _md_filename(doc: "Document", config: "SourceConfig") -> str:
     return f"{court_part}_{case_part}{date_part}.md"
 
 
-def write_markdown(doc: "Document", config: "SourceConfig", data_dir: str) -> Path:
-    """Write .md to disk and return the path."""
+def write_markdown(doc: "Document", config: "SourceConfig", data_dir: str) -> Path | None:
+    """Write .md to disk and return the path, or None if body_text is absent."""
     if not doc.case_number:
         raise ValueError(f"Cannot write markdown for doc without case_number: {doc.id}")
+    if not doc.body_text:
+        return None
     out_dir = Path(data_dir) / "markdown" / config.short_name
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / _md_filename(doc, config)

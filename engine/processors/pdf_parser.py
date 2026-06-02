@@ -168,7 +168,8 @@ def _extract_with_headings(page, heading_sizes: dict, heading_fonts: dict) -> st
             # Fyrirsögn — alltaf ein lína, án skáletur-merkinga.
             # _collapse_spaced_letters lagar "D Ó M S O R Ð:" → "DÓMSORÐ:"
             heading_text = _collapse_spaced_letters(line_text)
-            blocks.append(f"{prefix}{heading_text}")
+            if heading_text.strip():  # skip empty bold lines (PDF separators)
+                blocks.append(f"{prefix}{heading_text}")
             pending_para_num = None
         else:
             body = _build_line_text(line_words) if use_inline_italic else line_text
