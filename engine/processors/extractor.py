@@ -614,14 +614,20 @@ def _extract_parties_from_body_start(body_text: str) -> tuple[list, list]:
 
     # 0b. "Stefnandi er X, heimilisfang. Stefndu eru A, götu 1, bær, B, götu 2, bær..."
     # Last-resort body-text extraction — only used when preamble extraction yields nothing.
-    m_plf = re.search(r'Stefnandi\s+er\s+([^,\.]{3,80})', s, re.IGNORECASE)
+    m_plf = re.search(r'Stefnandi\s+er\s+([^,\.]{1,80})', s, re.IGNORECASE)
     m_dfd = re.search(
         r'Stefnd[ui]\s+er[u]?\s+(.+?)(?:\.\s+[A-ZÁÐÉÍÓÚÝÞÆÖ]|\.\s*$)',
         s, re.IGNORECASE,
     )
     if m_plf and m_dfd:
         plf_name = ' '.join(m_plf.group(1).split())
-        dfd_names = _parse_stefndu_list(m_dfd.group(1))
+        # Plural 'eru' → multi-defendant list with address stripping.
+        # Singular 'er'  → single defendant; take only up to first comma.
+        if re.search(r'\beru\b', m_dfd.group(0), re.IGNORECASE):
+            dfd_names = _parse_stefndu_list(m_dfd.group(1))
+        else:
+            dfd_name = m_dfd.group(1).split(',')[0].strip()
+            dfd_names = [dfd_name] if dfd_name else []
         plf = [{"name": plf_name, "lawyer": None}]
         dfd = [{"name": n, "lawyer": None} for n in dfd_names] if dfd_names else []
         if plf or dfd:
@@ -657,7 +663,7 @@ def _extract_parties_from_body_start(body_text: str) -> tuple[list, list]:
         or re.search(r'Mál\s+þetta\s+höfðaði\s+([^,]{4,80}?)(?=,\s+með\b|\s+með\b)', s, re.IGNORECASE)
         or re.search(r'\baf\s+hálfu\s+([A-ZÁÐÉÍÓÚÝÞÆÖ][^,]{4,80}?)(?=,|\s+með\b)', s, re.IGNORECASE)
         or re.search(r'var\s+höfðað\s+af\s+([A-ZÁÐÉÍÓÚÝÞÆÖ][^,]{4,80}?)(?=,)', s, re.IGNORECASE)
-        or re.search(r'Stefnandi\s+er\s+([^,\.]{3,80})', s, re.IGNORECASE)
+        or re.search(r'Stefnandi\s+er\s+([^,\.]{1,80})', s, re.IGNORECASE)
     )
 
     # For criminal cases: look for prosecution entity when no civil plaintiff found
