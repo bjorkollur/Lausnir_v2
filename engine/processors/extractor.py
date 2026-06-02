@@ -501,7 +501,7 @@ def _extract_parties_from_heradsdomstolar_preamble(pdf_text: str) -> tuple[list,
                 # Long court-intro line: try to pull the party name from just
                 # before gegn (same-line format: "... Ákæruvaldið (lög.) gegn ...")
                 inline_m = re.search(
-                    r'([A-ZÁÐÉÍÓÚÝÞÆÖ][^\n:(]{2,60}?)\s+(?:\([^)]{3,60}\))?\s*$',
+                    r'([A-ZÁÐÉÍÓÚÝÞÆÖ][^\n:(]{2,60}?)\s*(?:\([^)]{3,60}\))?\s*$',
                     p,
                 )
                 if inline_m:
@@ -522,6 +522,8 @@ def _extract_parties_from_heradsdomstolar_preamble(pdf_text: str) -> tuple[list,
     if same_line_gegn:
         # Pattern E: defendant is on the same line as gegn
         rest = text[gegn_m.end():].split('\n\n')[0].strip()
+        # Truncate at sentence-break conjunctions that start prose, not names
+        rest = re.split(r'\s+en\s+málið\b|\s+en\s+dómteki|\s+samdægurs\b', rest)[0].strip()
         m = re.match(r'^(.*?)\s*(\([^)]{3,80}\))\s*$', rest)
         if m:
             name = m.group(1).strip()
