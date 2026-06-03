@@ -30,7 +30,7 @@ from engine.database.connection import init_db
 from engine.database.models import Document, Source
 from engine.processors.extractor import Extractor
 from engine.processors.http_utils import get_with_retry, make_client, post_with_retry
-from engine.processors.renderer import write_markdown
+from engine.processors.renderer import unique_verdict_filename, verdict_filename, write_markdown
 from engine.processors.validator import validate
 
 log = logging.getLogger(__name__)
@@ -209,26 +209,32 @@ async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
     )
 
 
-def _render_and_save(doc: Document, config: SourceConfig) -> Path | None:
-    """Write .md to disk and decode PDF bytes. Returns markdown Path or None on failure."""
-    data_dir = os.environ.get("DATA_DIR", "/Volumes/RuleOfLaw/Lausnir_Data")
+def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> str | None:
+    """Write .md and PDF to disk. Returns the unique verdict_filename stem or None.
 
-    md_path: Path | None = None
+    ``taken`` is updated in-place with the assigned filename so the caller's
+    collision-avoidance set stays current across the full import run.
+    """
+    base = verdict_filename(doc, config)
+    vf = unique_verdict_filename(base, taken)
+    taken.add(vf)
+
     try:
-        md_path = write_markdown(doc, config, data_dir)
+        write_markdown(doc, config, vf=vf)
     except Exception as exc:
         log.warning("write_markdown failed for %s: %s", doc.external_id, exc)
+        return None
 
     try:
         pdf_b64 = (doc.raw_api_data or {}).get("pdfString")
         if pdf_b64:
-            pdf_dir = Path(data_dir) / "raw" / config.short_name
-            pdf_dir.mkdir(parents=True, exist_ok=True)
-            (pdf_dir / f"{doc.external_id}.pdf").write_bytes(base64.b64decode(pdf_b64))
+            pdf_path = config.pdf_path(vf)
+            pdf_path.parent.mkdir(parents=True, exist_ok=True)
+            pdf_path.write_bytes(base64.b64decode(pdf_b64))
     except Exception as exc:
         log.warning("PDF save failed for %s: %s", doc.external_id, exc)
 
-    return md_path
+    return vf
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -241,6 +247,15 @@ async def main(limit: int | None = None) -> None:
 
     async with _db_conn.AsyncSessionLocal() as session:
         source_id = await _ensure_source(session, config)
+
+    # Load existing verdict_filenames to prevent collisions during this run
+    async with _db_conn.AsyncSessionLocal() as session:
+        rows = (await session.execute(
+            select(Document.verdict_filename)
+            .where(Document.source_id == source_id)
+            .where(Document.verdict_filename.isnot(None))
+        )).scalars().all()
+    taken: set[str] = set(rows)
 
     start_page, saved_total, imported_count = _load_checkpoint()
     total_errors = 0
@@ -297,18 +312,18 @@ async def main(limit: int | None = None) -> None:
                         await _upsert_doc(session, doc)
                     await session.commit()
 
-                # Batch render + markdown_path update — one transaction per page
+                # Batch render + verdict_filename update — one transaction per page
                 async with _db_conn.AsyncSessionLocal() as session:
                     for doc in docs:
-                        md_path = _render_and_save(doc, config)
-                        if md_path:
+                        vf = _render_and_save(doc, config, taken)
+                        if vf:
                             await session.execute(
                                 update(Document)
                                 .where(
                                     Document.source_id == doc.source_id,
                                     Document.external_id == doc.external_id,
                                 )
-                                .values(markdown_path=str(md_path))
+                                .values(verdict_filename=vf)
                             )
                     await session.commit()
 

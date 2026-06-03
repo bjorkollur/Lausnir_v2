@@ -3,7 +3,14 @@ Per-source configuration. Add one SourceConfig entry per source instead of
 writing if/elif branches in the pipeline.
 """
 from __future__ import annotations
+
+import os
 from dataclasses import dataclass, field
+from pathlib import Path
+
+_DATA_DIR = os.environ.get("DATA_DIR", "/Volumes/RuleOfLaw/Lausnir_Data")
+MARKDOWN_DIR: str = os.path.join(_DATA_DIR, "markdown")
+RAW_DIR: str = os.path.join(_DATA_DIR, "raw")
 
 
 @dataclass
@@ -32,6 +39,14 @@ class SourceConfig:
     ])
     case_number_prefix: str = ""   # e.g. 'E-', 'S-', '' — used for validation
     pdf_crop: PdfCrop | None = None
+
+    def markdown_path(self, verdict_filename: str) -> Path:
+        """Full path to .md file: {MARKDOWN_DIR}/{short_name}/{verdict_filename}.md"""
+        return Path(MARKDOWN_DIR) / self.short_name / f"{verdict_filename}.md"
+
+    def pdf_path(self, verdict_filename: str) -> Path:
+        """Full path to .pdf file: {RAW_DIR}/{short_name}/{verdict_filename}.pdf"""
+        return Path(RAW_DIR) / self.short_name / f"{verdict_filename}.pdf"
 
 
 # ─── Registry ────────────────────────────────────────────────────────────────

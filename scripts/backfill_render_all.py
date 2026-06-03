@@ -12,7 +12,6 @@ from __future__ import annotations
 
 import asyncio
 import logging
-import os
 from pathlib import Path
 
 from rich.progress import (
@@ -30,11 +29,9 @@ from engine.config.sources import SOURCE_REGISTRY, get_config
 import engine.database.connection as _db_conn
 from engine.database.connection import init_db
 from engine.database.models import Document, Source
-from engine.processors.renderer import write_markdown
+from engine.processors.renderer import verdict_filename, write_markdown
 
 log = logging.getLogger(__name__)
-
-_DATA_DIR = os.environ.get("DATA_DIR", "/Volumes/RuleOfLaw/Lausnir_Data")
 
 
 async def _render_batch(
@@ -50,19 +47,18 @@ async def _render_batch(
         if not doc.case_number:
             continue
         try:
-            p = write_markdown(doc, config, _DATA_DIR)
-            md_path = str(p) if p else None
+            vf = verdict_filename(doc, config)
+            write_markdown(doc, config)
         except Exception as exc:
             log.warning("write_markdown failed for %s: %s", doc.external_id, exc)
             errors += 1
             continue
 
-        if md_path:
-            await session.execute(
-                update(Document)
-                .where(Document.id == doc.id)
-                .values(markdown_path=md_path)
-            )
+        await session.execute(
+            update(Document)
+            .where(Document.id == doc.id)
+            .values(verdict_filename=vf)
+        )
         updated += 1
 
     return updated, errors

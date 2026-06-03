@@ -24,7 +24,7 @@ from engine.database.connection import init_db
 from engine.database.models import Document, Source
 from engine.processors.extractor import Extractor
 from engine.processors.http_utils import get_with_retry, make_client
-from engine.processors.renderer import write_markdown
+from engine.processors.renderer import unique_verdict_filename, verdict_filename, write_markdown
 from engine.processors.validator import validate
 
 log = logging.getLogger(__name__)
@@ -56,7 +56,6 @@ async def _fetch_detail(client, build_id: str, verdict_id: str) -> dict:
 async def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     config = get_config("heradsdomstolar")
-    data_dir = os.environ.get("DATA_DIR", "/Volumes/RuleOfLaw/Lausnir_Data")
     await init_db()
 
     async with _db_conn.AsyncSessionLocal() as session:
@@ -150,29 +149,30 @@ async def main() -> None:
                 )
                 await session.commit()
 
+            # Write .md and compute verdict_filename
+            vf = None
+            try:
+                write_markdown(doc, config)
+                vf = verdict_filename(doc, config)
+            except Exception as exc:
+                log.warning("write_markdown failed for %s: %s", doc.external_id, exc)
+
             # Save PDF bytes
             pdf_b64 = raw.get("pdfString")
             if pdf_b64:
                 try:
-                    pdf_dir = Path(data_dir) / "raw" / config.short_name
-                    pdf_dir.mkdir(parents=True, exist_ok=True)
-                    (pdf_dir / f"{doc.external_id}.pdf").write_bytes(base64.b64decode(pdf_b64))
+                    pdf_path = config.pdf_path(vf or doc.external_id)
+                    pdf_path.parent.mkdir(parents=True, exist_ok=True)
+                    pdf_path.write_bytes(base64.b64decode(pdf_b64))
                 except Exception as exc:
                     log.warning("PDF save failed for %s: %s", doc.external_id, exc)
 
-            # Write .md
-            md_path = None
-            try:
-                md_path = write_markdown(doc, config, data_dir)
-            except Exception as exc:
-                log.warning("write_markdown failed for %s: %s", doc.external_id, exc)
-
-            if md_path:
+            if vf:
                 async with _db_conn.AsyncSessionLocal() as session:
                     await session.execute(
                         update(Document)
                         .where(Document.id == doc.id)
-                        .values(markdown_path=str(md_path))
+                        .values(verdict_filename=vf)
                     )
                     await session.commit()
 

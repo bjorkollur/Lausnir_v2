@@ -86,7 +86,7 @@ class Document(Base):
     # tsvector computed on insert/update via trigger (see migration)
 
     # ── Paths ─────────────────────────────────────────────────────────────────
-    markdown_path: Mapped[str | None] = mapped_column(Text)
+    verdict_filename: Mapped[str | None] = mapped_column(Text)
 
     # ── Metadata ──────────────────────────────────────────────────────────────
     validation_errors: Mapped[list[Any] | None] = mapped_column(JSONB)
