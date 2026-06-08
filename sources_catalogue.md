@@ -2,8 +2,8 @@
 
 Yfirlit yfir allar heimildir í gagnagrunni. Uppfært: júní 2026.
 
-**Heildartala skjala:** ~82.333  
-**Heimildir:** 57 (57 með gögn)
+**Heildartala skjala:** ~82.338  
+**Heimildir:** 58 (58 með gögn)
 
 ---
 
@@ -75,6 +75,7 @@ API: `https://www.stjornarradid.is/gogn/urskurdir-og-alit-/`
 |---|---|---|---|---|---|---|---|
 | `felagsdomur` | Félagsdómur | Féld. | 1 | gegn | 304 | 2000–2026 | 106 söguleg frá stjornarradid.is (2000–2010); 198 frá felagsdomur.is (2010–2026) með F- forskeyti |
 | `lausn_stundar` | Nefnd vegna lausnar um stundarsakir | Nefnd.Lausn | 1 | none | 27 | 2002–2019 | |
+| `landsdomar` | Landsdómur | Ld. | 3 | gegn | 5 | 2011–2012 | HTML scrape; 4/5 PDF skönnuð→Docling OCR; engin mál síðan 2012 |
 
 ---
 

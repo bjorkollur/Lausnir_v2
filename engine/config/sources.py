@@ -266,6 +266,18 @@ _SOURCES: list[SourceConfig] = [
         h1_use_display_name=True,
     ),
     SourceConfig(
+        short_name="landsdomar",
+        display_name="Landsdómur",
+        abbreviation="Ld.",
+        instance_tier=3,
+        has_lower_court=False,
+        parse_parties="gegn",
+        verdict_type_default="Dómur",
+        verdict_types_allowed=["Dómur", "Úrskurður"],
+        case_number_prefix="",
+        h1_use_display_name=True,
+    ),
+    SourceConfig(
         short_name="malskotsbeidnir",
         display_name="Málskotsbeiðnir Hæstaréttar",
         abbreviation="Hrd. málsk.",
