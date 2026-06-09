@@ -16,6 +16,7 @@ from typing import Any
 from pgvector.sqlalchemy import Vector
 from sqlalchemy import (
     Date,
+    Float,
     ForeignKey,
     Index,
     SmallInteger,
@@ -107,3 +108,38 @@ class Document(Base):
 
     def __repr__(self) -> str:
         return f"<Document {self.case_number or self.external_id!r} ({self.court})>"
+
+
+class DocumentLink(Base):
+    """Appeals-chain edge: a lower-court doc was appealed to a higher-court doc.
+
+    Direction is always lower → higher (from_doc_id → to_doc_id) with
+    relation 'appealed_to'. The chain Hérd → Lrd → Hrd is reconstructed by
+    following edges; instance_tier on each document disambiguates the rungs.
+    Built by matching a higher court's embedded lower_body_text against the
+    lower court's own body_text (see scripts/link_appeals.py).
+    """
+    __tablename__ = "document_links"
+
+    id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
+    )
+    from_doc_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("documents.id", ondelete="CASCADE"), nullable=False
+    )
+    to_doc_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("documents.id", ondelete="CASCADE"), nullable=False
+    )
+    relation: Mapped[str] = mapped_column(Text, nullable=False)  # 'appealed_to'
+    confidence: Mapped[float | None] = mapped_column(Float)       # combined-sim score
+    method: Mapped[str | None] = mapped_column(Text)             # casenum | court_date | court_window
+    created_at: Mapped[datetime] = mapped_column(server_default=func.now())
+
+    __table_args__ = (
+        UniqueConstraint("from_doc_id", "to_doc_id", "relation", name="uq_link_from_to_rel"),
+        Index("ix_link_from", "from_doc_id"),
+        Index("ix_link_to", "to_doc_id"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<DocumentLink {self.from_doc_id} -{self.relation}-> {self.to_doc_id}>"
