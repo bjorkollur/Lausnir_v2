@@ -34,6 +34,7 @@ def _court_eignarfall(abbr: str) -> str:
         "Endurupptkd.":    "Endurupptökudóms",
         "Hrd. málsk.":     "Hæstaréttar",
         "Persónuvnd.":     "Persónuverndar",
+        "UA":              "Umboðsmanns",
         "Hérd. Rvk.":      "Héraðsdóms Reykjavíkur",
         "Hérd. Reykn.":    "Héraðsdóms Reykjaness",
         "Hérd. Vestl.":    "Héraðsdóms Vesturlands",
@@ -337,10 +338,16 @@ def to_markdown(doc: "Document", config: "SourceConfig") -> str:
 
     # Header
     url_line = f"##### {doc.url}\n" if doc.url else ""
-    title_line = (
-        f"# {vt} {court_egnf} – {case_nr}\n" if case_nr
-        else f"# {vt} {court_egnf}\n"
-    )
+    if config.h1_use_display_name:
+        title_line = (
+            f"# {config.display_name} – {vt} – {case_nr}\n" if case_nr
+            else f"# {config.display_name} – {vt}\n"
+        )
+    else:
+        title_line = (
+            f"# {vt} {court_egnf} – {case_nr}\n" if case_nr
+            else f"# {vt} {court_egnf}\n"
+        )
     date_line = f"## {_date_str(doc.document_date)}\n" if doc.document_date else ""
 
     parties_block = ""
@@ -405,7 +412,7 @@ def to_urlausn(doc: "Document", config: "SourceConfig") -> str:
     return f"{' '.join(parts)} – {vt}"
 
 
-_VERDICT_CODE = {"Dómur": "D", "Úrskurður": "U"}
+_VERDICT_CODE = {"Dómur": "D", "Úrskurður": "U", "Álit": "A", "Bréf": "B"}
 
 _ICELAND_TO_ASCII = str.maketrans(
     "áéíóúýðöÁÉÍÓÚÝÐÖ",
@@ -439,7 +446,7 @@ def verdict_filename(doc: "Document", config: "SourceConfig") -> str:
     """
     abbr = doc.court or config.abbreviation
     court_part = _ascii(re.sub(r"[.\s]+", "", abbr))   # 'Hérd. Rvk.' → 'HerdRvk'
-    case_part  = (doc.case_number or "").replace("/", "-").replace(" ", "_")
+    case_part  = (doc.case_number or f"id{doc.external_id}").replace("/", "-").replace(" ", "_")
     verdict_code = _VERDICT_CODE.get(doc.verdict_type or "", "")
     verdict_part = f"_{verdict_code}" if verdict_code else ""
     if doc.document_date:
@@ -481,8 +488,6 @@ def write_markdown(
     Pass a pre-computed ``vf`` (from ``unique_verdict_filename``) to avoid
     recomputing it and to ensure collision-safe filenames are used.
     """
-    if not doc.case_number:
-        raise ValueError(f"Cannot write markdown for doc without case_number: {doc.id}")
     if not doc.body_text:
         return None
     if vf is None:

@@ -10,6 +10,7 @@ from datetime import date
 from typing import TYPE_CHECKING
 
 _CASE_YEAR_RE = re.compile(r'/(\d{4})$')
+_CASE_YEAR_FIRST_RE = re.compile(r'^(\d{4})/')  # PV old format: "2017/1453"
 _CASE_NUM_PREFIX_RE = re.compile(r'^(\d+)/')
 _MAX_CASE_NUM_PREFIX = 1500
 
@@ -37,7 +38,8 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
         m_prefix = _CASE_NUM_PREFIX_RE.match(doc.case_number or "")
         if m_prefix:
             num = int(m_prefix.group(1))
-            if num > _MAX_CASE_NUM_PREFIX:
+            # Skip if the prefix is a 4-digit year (e.g. Persónuvernd "2017/1453")
+            if num > _MAX_CASE_NUM_PREFIX and not (1900 <= num <= 2100):
                 err("case_number", f"Fyrrihluti málsnúmers ({num}) er óvænt hár (> {_MAX_CASE_NUM_PREFIX}) — líklega villa í þáttun")
 
     # document_date
@@ -46,9 +48,16 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
     elif not (_MIN_DATE <= doc.document_date <= _MAX_DATE):
         err("document_date", f"Out of range: {doc.document_date}")
     elif doc.case_number:
-        m = _CASE_YEAR_RE.search(doc.case_number)
-        if m:
+        # Year-first format "YYYY/NNN": extract year from prefix, not suffix
+        m_yf = _CASE_YEAR_FIRST_RE.match(doc.case_number)
+        m = None if m_yf else _CASE_YEAR_RE.search(doc.case_number)
+        if m_yf:
+            case_year = int(m_yf.group(1))
+        elif m:
             case_year = int(m.group(1))
+        else:
+            case_year = None
+        if case_year:
             doc_year = doc.document_date.year
             if doc_year < case_year:
                 err("document_date", f"Dagsetning ({doc_year}) á undan stofnunarári máls ({case_year})")

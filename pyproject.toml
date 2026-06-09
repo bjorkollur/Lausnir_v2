@@ -29,6 +29,7 @@ dependencies = [
     "apscheduler",
     "psycopg2-binary>=2.9.12",
     "graphifyy>=0.8.14",
+    "playwright>=1.60.0",
 ]
 
 [dependency-groups]

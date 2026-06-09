@@ -358,8 +358,8 @@ def _parse_parties_gegn(title: str | None) -> tuple[list, list]:
     return [{"name": title.strip(), "lawyer": None}], []
 
 
-_PLF_LABEL_RE = re.compile(r'(?:Stefnend[ua]r?|Stefnandi|Sækjandi|Sóknaraðil(?:i|ar))\s*:', re.I)
-_DFD_LABEL_RE = re.compile(r'(?:Stefnd[uia]|Ákærð[uia](?:/sakborningar)?|Varnaraðii?l(?:i|ar))\s*:', re.I)
+_PLF_LABEL_RE = re.compile(r'(?:Stefnend[ua]r?|Stefnandi|Sækjandi|Sóknaraðil(?:i|ar)|Endurupptökubeiðandi)\s*:', re.I)
+_DFD_LABEL_RE = re.compile(r'(?:Stefnd[uia]|Ákærð[uia](?:/sakborningar)?|Varnaraðii?l(?:i|ar)|Gagnaðil(?:i|ar))\s*:', re.I)
 _GEGN_LINE_RE = re.compile(r'^gegn$', re.I)
 
 
@@ -1989,11 +1989,9 @@ def _extract_felagsdomur(raw: dict, config: SourceConfig) -> dict:
 
 def _extract_malskotsbeidnir(raw: dict, config: SourceConfig) -> dict:
     plf, dfd = _parse_parties_gegn(raw.get("title"))
-    # richText detail node
-    content = raw.get("content") or {}
-    body = _rich_text_to_plain(content.get("json", {}).get("content"))
+    body = _richtext_body(raw.get("richText"))
     return {
-        "case_number": raw.get("caseNumber") or raw.get("id"),
+        "case_number": raw.get("caseNumber"),
         "document_date": _parse_icelandic_date(raw.get("date")),
         "court": config.abbreviation,
         "verdict_type": config.verdict_type_default,
@@ -2002,42 +2000,240 @@ def _extract_malskotsbeidnir(raw: dict, config: SourceConfig) -> dict:
         "defendants": dfd or None,
         "keywords": _keywords_from_content(raw.get("keywords")),
         "summary": None,
-        "body_text": body or raw.get("text") or None,
+        "body_text": body or None,
         "lower_body_text": None,
         "raw_api_data": raw,
     }
 
 
+_PV_VERDICT_HEADINGS = {"úrskurður", "ákvörðun", "álit", "niðurstaða"}
+# Matches: "Mál nr. 2025020471", "Mál númer 2017/1453", "mál 2020010401"
+_PV_CASE_NR_RE = re.compile(
+    r"mál[i]?\s+(?:(?:nr\.?|númer)\s*)?(\d{10}|\d{4}/\d+)",
+    re.IGNORECASE,
+)
+# Splits body text at first Roman-numeral section heading (e.g. "I.Grundvöllur", "I. Málsatvik")
+_PV_ROMAN_I_RE = re.compile(r"\n\nI\.\s*[A-ZÁÐÉÍÓÚÝÞÆÖ]")
+# Fallback: bare "nr. 2020072069" (e.g. "Persónuverndar nr. XXXXXXXXXX")
+_PV_NR_RE = re.compile(r"nr\.\s*(\d{10})", re.IGNORECASE)
+
+
+def _pv_parse_content(content_list: list) -> tuple[str | None, str | None, str | None]:
+    """Parse Persónuvernd content list into (verdict_type, summary, body_text).
+
+    Content items before the first verdict-type heading become the summary.
+    The full text (summary + verdict + body) becomes body_text.
+    """
+    all_para_nodes: list = []
+    for item in content_list or []:
+        doc = item.get("document", {}) if isinstance(item, dict) else {}
+        all_para_nodes.extend(doc.get("content", []))
+
+    summary_parts: list[str] = []
+    body_parts: list[str] = []
+    verdict_type: str | None = None
+    found_heading = False
+
+    for node in all_para_nodes:
+        text = _rich_text_to_plain([node]).strip()
+        if not found_heading and text.lower().rstrip(":") in _PV_VERDICT_HEADINGS:
+            verdict_type = text.rstrip(":").capitalize()
+            found_heading = True
+        elif not found_heading and text:
+            summary_parts.append(text)
+        if text:
+            body_parts.append(text)
+
+    summary = "\n\n".join(summary_parts).strip() or None
+    body = "\n\n".join(body_parts).strip() or None
+    return verdict_type, summary, body
+
+
 def _extract_personuvernd(raw: dict, config: SourceConfig) -> dict:
+    # Case number: only from cardIntro and title — body text may reference other cases
+    ci_text = _rich_text_to_plain(
+        (raw.get("cardIntro") or [{}])[0].get("document", {}).get("content")
+        if isinstance((raw.get("cardIntro") or [None])[0], dict) else None
+    )
+    title = re.sub(r"\s+", " ", raw.get("title") or "")
+    verdict_type, summary, body_text = _pv_parse_content(raw.get("content") or [])
+    # Preamble = body text up to first Roman-numeral section (I. Málsatvik, etc.)
+    body_preamble = body_text or ""
+    roman_m = _PV_ROMAN_I_RE.search(body_preamble)
+    if roman_m:
+        body_preamble = body_preamble[:roman_m.start()]
+    m = (
+        _PV_CASE_NR_RE.search(ci_text or "")
+        or _PV_CASE_NR_RE.search(title)
+        or _PV_NR_RE.search(title)
+        or _PV_CASE_NR_RE.search(body_preamble)
+    )
+    case_number = m.group(1) if m else None
+
+    keywords = [t["title"] for t in (raw.get("filterTags") or []) if t.get("title")]
+
     return {
-        "case_number": raw.get("caseNumber") or raw.get("id"),
+        "case_number": case_number,
         "document_date": _parse_icelandic_date(raw.get("date")),
         "court": config.abbreviation,
-        "verdict_type": raw.get("type") or config.verdict_type_default,
+        "verdict_type": verdict_type or config.verdict_type_default,
         "instance_tier": config.instance_tier,
         "plaintiffs": None,
         "defendants": None,
-        "keywords": _keywords_from_content(raw.get("keywords")),
-        "summary": raw.get("abstract") or None,
-        "body_text": raw.get("text") or None,
+        "keywords": keywords or None,
+        "summary": summary,
+        "body_text": body_text,
         "lower_body_text": None,
         "raw_api_data": raw,
     }
 
 
 def _extract_endurupptokudomur(raw: dict, config: SourceConfig) -> dict:
-    plf, dfd = _parse_parties_gegn(raw.get("title"))
+    plf, dfd = _parse_parties_role_based(raw.get("title"))
+    body_text = _pdf_b64_to_text(raw.get("pdfString"), config)
     return {
         "case_number": raw.get("caseNumber"),
-        "document_date": _parse_icelandic_date(raw.get("date")),
+        "document_date": _parse_icelandic_date(raw.get("verdictDate")),
         "court": config.abbreviation,
-        "verdict_type": raw.get("type") or config.verdict_type_default,
+        "verdict_type": config.verdict_type_default,
         "instance_tier": config.instance_tier,
         "plaintiffs": plf or None,
         "defendants": dfd or None,
         "keywords": _keywords_from_content(raw.get("keywords")),
-        "summary": raw.get("abstract") or None,
-        "body_text": raw.get("text") or None,
+        "summary": raw.get("presentings") or None,
+        "body_text": body_text or None,
+        "lower_body_text": None,
+        "raw_api_data": raw,
+    }
+
+
+# ─── Umboðsmaður Alþingis ─────────────────────────────────────────────────────
+
+_UA_DATE_RE = re.compile(
+    r'lauk\s+m[aá]linu\s+me[ðd]\s+\w+\s+(\d{1,2}\.\s*\w+\s+\d{4})',
+    re.IGNORECASE,
+)
+_UA_COMPLAINANT_RE = re.compile(
+    r'^(.+?)\s+(?:kvartaði|kvartuðu|kvörtuðu|kvartaðist|kvörtuðust)\b',
+    re.IGNORECASE | re.MULTILINE,
+)
+# Respondent: "kvartaði/kvörtuðu yfir stjórnsýslu/aðgerðaleysi/meðferð X í tengslum..."
+_UA_RESPONDENT_RE = re.compile(
+    r'(?:kvartaði|kvartuðu|kvörtuðu|kvartaðist|kvörtuðust)\s+'
+    r'yfir\s+(?:stjórnsýslu|aðgerðaleysi|meðferð|framkvæmd|afgreiðslu)\s+'
+    r'(.+?)(?=\s+(?:í\s|vegna\s|og\s|þar\s|sem\s)|[,.]|$)',
+    re.IGNORECASE,
+)
+# Fallback date: any Icelandic date in text ("30. október 1991")
+_UA_DATE_FALLBACK_RE = re.compile(
+    r'\b(\d{1,2})\.\s*(janúar|febrúar|mars|apríl|maí|júní|júlí|ágúst|september|október|nóvember|desember)\s+(\d{4})\b',
+    re.IGNORECASE,
+)
+# Fallback: "beinist að X og" from body text
+_UA_RESPONDENT_BODY_RE = re.compile(
+    r'beinist\s+a[ðd]\s+(.+?)(?=\s+(?:og\s|vegna\s|þar\s|sem\s)|[,.]|$)',
+    re.IGNORECASE,
+)
+
+
+def _extract_umbodsmadur(raw: dict, config: SourceConfig) -> dict:
+    title = (raw.get("title") or "").strip()
+    verdict_type = (raw.get("verdict_type") or config.verdict_type_default).strip()
+    reifun_text = (raw.get("reifun_text") or "").strip()
+    body_text = (raw.get("body_text") or "").strip()
+
+    # Keywords: title split on ". " (trailing periods stripped)
+    keywords = [k.strip(" .") for k in title.split(".") if k.strip(" .")] or None
+
+    # Date: "lauk málinu með bréfi/áliti DD. month YYYY"
+    # Try reifun first, then body text (old Álits may have it at the end of the body).
+    # Fallback: last Icelandic date in reifun (avoids picking up the complaint date from body).
+    document_date: date | None = None
+    for text in (reifun_text, body_text):
+        dm = _UA_DATE_RE.search(text)
+        if dm:
+            document_date = _parse_icelandic_date(dm.group(1).strip())
+            break
+    if document_date is None and reifun_text:
+        # Use last Icelandic date in reifun; require year ≥ 1987 (Ombudsman established)
+        # to avoid picking up referenced historical dates.
+        for d, m_name, y in reversed(_UA_DATE_FALLBACK_RE.findall(reifun_text)):
+            if int(y) >= 1987:
+                document_date = _parse_icelandic_date(f"{d}. {m_name} {y}")
+                break
+
+    # Complainant: subject before "kvartaði/kvörtuðu"
+    # Strip appositive clauses: "A, búsettur í T-sýslu, kvartaði" → "A"
+    plaintiffs = None
+    cm = _UA_COMPLAINANT_RE.search(reifun_text)
+    if cm:
+        name = cm.group(1).strip()
+        comma_pos = name.find(",")
+        if comma_pos > 0:
+            name = name[:comma_pos].strip()
+        if name:
+            plaintiffs = [{"name": name, "lawyer": None}]
+
+    # Respondent: authority being investigated (best-effort from reifun, then body)
+    defendants = None
+    rm = _UA_RESPONDENT_RE.search(reifun_text)
+    if rm:
+        name = rm.group(1).strip()
+        if name:
+            defendants = [{"name": name, "lawyer": None}]
+    if defendants is None:
+        rb = _UA_RESPONDENT_BODY_RE.search(body_text[:500])
+        if rb:
+            name = rb.group(1).strip()
+            if name:
+                defendants = [{"name": name, "lawyer": None}]
+
+    return {
+        "case_number": raw.get("case_number_str") or None,
+        "document_date": document_date,
+        "court": config.abbreviation,
+        "verdict_type": verdict_type,
+        "instance_tier": config.instance_tier,
+        "plaintiffs": plaintiffs,
+        "defendants": defendants,
+        "keywords": keywords,
+        "summary": reifun_text or None,
+        "body_text": body_text or None,
+        "lower_body_text": None,
+        "raw_api_data": raw,
+    }
+
+
+def _extract_stjornarradid(raw: dict, config: SourceConfig) -> dict:
+    """Generic extractor for stjornarradid.is committee rulings.
+
+    body_text is pre-parsed to markdown by the importer; we just normalise the
+    structured fields that were stashed alongside it in raw_api_data.
+    """
+    verdict_type = (raw.get("verdict_type_str") or config.verdict_type_default).strip()
+    date_str = (raw.get("date_str") or "").strip()
+    document_date = _parse_icelandic_date(date_str) if date_str else None
+
+    if config.parse_parties == "none":
+        plaintiffs = None
+        defendants = None
+    else:
+        plaintiffs_raw = raw.get("plaintiffs_raw") or []
+        defendants_raw = raw.get("defendants_raw") or []
+        plaintiffs = [{"name": n, "lawyer": None} for n in plaintiffs_raw if n] or None
+        defendants = [{"name": n, "lawyer": None} for n in defendants_raw if n] or None
+
+    return {
+        "case_number": raw.get("case_number_str") or None,
+        "document_date": document_date,
+        "court": config.abbreviation,
+        "verdict_type": verdict_type,
+        "instance_tier": config.instance_tier,
+        "plaintiffs": plaintiffs,
+        "defendants": defendants,
+        "keywords": raw.get("keywords_raw") or None,
+        "summary": raw.get("summary") or None,
+        "body_text": raw.get("body_text") or None,
         "lower_body_text": None,
         "raw_api_data": raw,
     }
@@ -2049,8 +2245,49 @@ _EXTRACTORS: dict[str, Any] = {
     "haestirettur": _extract_haestirettur,
     "landsrettur": _extract_landsrettur,
     "heradsdomstolar": _extract_heradsdomstolar,
-    "felagsdomur": _extract_felagsdomur,
+    "felagsdomur": _extract_stjornarradid,
     "malskotsbeidnir": _extract_malskotsbeidnir,
     "personuvernd": _extract_personuvernd,
     "endurupptokudomur": _extract_endurupptokudomur,
+    "umbodsmadur": _extract_umbodsmadur,
+    "afryjunarnefnd_haskoli": _extract_stjornarradid,
+    "kaeruna_utlend": _extract_stjornarradid,
+    "urvel": _extract_stjornarradid,
+    "knhus": _extract_stjornarradid,
+    "urvel_atv": _extract_stjornarradid,
+    "urvel_felag": _extract_stjornarradid,
+    "urvel_faed": _extract_stjornarradid,
+    "urvel_greid": _extract_stjornarradid,
+    "urvel_barna": _extract_stjornarradid,
+    "mannanafnanefnd": _extract_stjornarradid,
+    "kaeruna_utbod": _extract_stjornarradid,
+    "urnefnd_uppl": _extract_stjornarradid,
+    "innvida": _extract_stjornarradid,
+    "yfirfasteignamat": _extract_stjornarradid,
+    "kaeruna_jafnr": _extract_stjornarradid,
+    "matsnefnd_eignarnam": _extract_stjornarradid,
+    "endurupptakunefnd": _extract_stjornarradid,
+    "urnefnd_hollusta": _extract_stjornarradid,
+    "urnefnd_verdtryggt": _extract_stjornarradid,
+    "urnefnd_raforka": _extract_stjornarradid,
+    "urnefnd_kosninga": _extract_stjornarradid,
+    "sveitarstj_alit": _extract_stjornarradid,
+    "lausn_stundar": _extract_stjornarradid,
+    "matsnefnd_lax": _extract_stjornarradid,
+    "velferdar_raduneyti": _extract_stjornarradid,
+    "sjavarutv": _extract_stjornarradid,
+    "heilbrigdi_raduneyti": _extract_stjornarradid,
+    "stjornsyslu_kaerur": _extract_stjornarradid,
+    "umhverfi_raduneyti": _extract_stjornarradid,
+    "matvael_land": _extract_stjornarradid,
+    "mennta_raduneyti": _extract_stjornarradid,
+    "landskjor": _extract_stjornarradid,
+    "felag_hus_raduneyti": _extract_stjornarradid,
+    "ferdathjod": _extract_stjornarradid,
+    "vidskiptamal": _extract_stjornarradid,
+    "innanr_utl": _extract_stjornarradid,
+    "mnh_raduneyti": _extract_stjornarradid,
+    "forseta_raduneyti": _extract_stjornarradid,
+    "kosninga_ursk": _extract_stjornarradid,
+    "utanr_raduneyti": _extract_stjornarradid,
 }
