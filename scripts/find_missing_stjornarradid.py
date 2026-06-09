@@ -43,6 +43,10 @@ from import_stjornarradid import (
     _upsert_doc,
 )
 
+# Allow dynamic short_names to use the generic stjornarradid extractor
+from engine.processors import extractor as _ext_mod
+_stjornarradid_fn = _ext_mod._EXTRACTORS.get("innvida")  # any registered stjornarradid source
+
 log = logging.getLogger(__name__)
 
 _SEARCH_URL = "https://www.stjornarradid.is/gogn/urskurdir-og-alit-/$LisasticSearch/Search/"
@@ -203,14 +207,20 @@ async def phase2(dry_run: bool = False) -> None:
                 log.warning("HTTP %d for %s", resp.status_code, newsid)
                 continue
 
-            # Extract cname from response if not yet known
+            # Extract cname from response if not yet known.
+            # The detail page embeds it in <meta data-category='Ministry,CommitteeName,type:X'>
             if not cname:
-                cname_m = re.search(r'cname=([^&"\']+)', resp.url.query or "")
-                if not cname_m:
-                    cname_m = re.search(r'cname=([^&"\']+)', resp.text[:2000])
-                if cname_m:
-                    cname = urllib.parse.unquote_plus(cname_m.group(1))
-                    missing[newsid] = cname
+                cname = resp.url.params.get("cname", "")
+            if not cname:
+                cat_m = re.search(r"data-category='([^']*)'", resp.text)
+                if cat_m:
+                    parts = [p.strip() for p in cat_m.group(1).split(',')
+                             if p.strip() and not p.strip().startswith('type:')]
+                    # Last non-type part is typically the committee name
+                    if parts:
+                        cname = parts[-1]
+            if cname:
+                missing[newsid] = cname
 
             # Determine source
             short_name: str | None = None
@@ -258,6 +268,10 @@ async def phase2(dry_run: bool = False) -> None:
             if dry_run:
                 missing[newsid] = f"DRY:{cname}"
                 continue
+
+            # Register dynamic short_name so Extractor can find it
+            if short_name not in _ext_mod._EXTRACTORS and _stjornarradid_fn:
+                _ext_mod._EXTRACTORS[short_name] = _stjornarradid_fn
 
             doc = _build_document(raw, source_id, config)
 
