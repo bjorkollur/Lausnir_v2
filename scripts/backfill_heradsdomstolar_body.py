@@ -22,7 +22,7 @@ from engine.config.sources import get_config
 from engine.database.connection import init_db
 from engine.database.models import Document, Source
 from engine.processors.extractor import Extractor
-from engine.processors.renderer import write_markdown
+from engine.processors.renderer import verdict_filename, write_markdown
 from engine.processors.validator import validate
 
 log = logging.getLogger(__name__)
@@ -84,17 +84,18 @@ async def main() -> None:
             await session.commit()
 
         # Re-render .md
-        md_path = None
+        vf = None
         try:
-            md_path = write_markdown(doc, config, data_dir)
+            write_markdown(doc, config)
+            vf = verdict_filename(doc, config)
         except Exception as exc:
             log.warning("write_markdown failed for %s: %s", doc.external_id, exc)
 
-        if md_path:
+        if vf:
             async with _db_conn.AsyncSessionLocal() as session:
                 await session.execute(
                     update(Document).where(Document.id == doc.id).values(
-                        markdown_path=str(md_path)
+                        verdict_filename=vf
                     )
                 )
                 await session.commit()

@@ -1,10 +1,6 @@
-"""Rename all .md files to the canonical filename format.
+"""Rename all .md files to the canonical filename format and update verdict_filename in DB.
 
-Old format:  {case_number}.md              e.g.  385-2017.md
-New format:  {court}_{case}_{DD-MM-YYYY}.md  e.g.  Hrd_385-2017_01-11-2018.md
-
-Renames the file on disk (if it exists) and updates ``markdown_path`` in the DB.
-Skips docs where the path is already in the new format.  Safe to re-run.
+Safe to re-run — skips docs where verdict_filename already matches.
 
 Usage:
     uv run python scripts/migrate_md_filenames.py
@@ -14,19 +10,17 @@ from __future__ import annotations
 
 import asyncio
 import logging
-import os
 from pathlib import Path
 
-from sqlalchemy import select, update
+from sqlalchemy import Row, select, update
 
 from engine.config.sources import SOURCE_REGISTRY, get_config
 import engine.database.connection as _db_conn
 from engine.database.connection import init_db
 from engine.database.models import Document, Source
-from engine.processors.renderer import _md_filename
+from engine.processors.renderer import verdict_filename as compute_vf
 
 log = logging.getLogger(__name__)
-_DATA_DIR = os.environ.get("DATA_DIR", "/Volumes/RuleOfLaw/Lausnir_Data")
 
 
 async def migrate_source(short_name: str, dry_run: bool) -> tuple[int, int, int]:
@@ -45,51 +39,55 @@ async def migrate_source(short_name: str, dry_run: bool) -> tuple[int, int, int]
             return 0, 0, 0
 
         result = await session.execute(
-            select(Document)
+            select(
+                Document.id,
+                Document.court,
+                Document.case_number,
+                Document.document_date,
+                Document.verdict_type,
+                Document.verdict_filename,
+            )
             .where(Document.source_id == src.id)
-            .where(Document.markdown_path.isnot(None))
             .order_by(Document.external_id)
         )
-        docs = result.scalars().all()
+        docs: list[Row] = result.all()
 
-    out_dir = Path(_DATA_DIR) / "markdown" / short_name
-
-    updates: list[tuple[object, Path]] = []  # (doc.id, new_path)
+    updates: list[tuple[object, str]] = []  # (doc.id, new_vf)
     for doc in docs:
-        new_name = _md_filename(doc, config)
-        new_path = out_dir / new_name
+        new_vf = compute_vf(doc, config)
+        old_vf = doc.verdict_filename
 
-        old_path = Path(doc.markdown_path) if doc.markdown_path else None
-
-        # Already using the new name?
-        if old_path and old_path == new_path:
+        if old_vf == new_vf:
             already_ok += 1
             continue
 
-        # Rename file on disk if the old path exists
-        if old_path and old_path.exists():
-            if not dry_run:
-                old_path.rename(new_path)
-            log.info("  %s → %s", old_path.name, new_name)
-            renamed += 1
-        elif new_path.exists():
-            # File already has the new name but DB still points to old path
-            log.info("  (file already renamed) updating DB: %s", new_name)
-            renamed += 1
+        # Rename .md on disk if old file exists
+        if old_vf:
+            old_path = config.markdown_path(old_vf)
+            new_path = config.markdown_path(new_vf)
+            if old_path.exists():
+                if not dry_run:
+                    old_path.rename(new_path)
+                log.info("  %s → %s", old_vf, new_vf)
+                renamed += 1
+            elif new_path.exists():
+                log.info("  (already renamed on disk) updating DB: %s", new_vf)
+                renamed += 1
+            else:
+                log.debug("  missing: %s", old_vf)
+                missing += 1
         else:
-            log.debug("  missing: %s", old_path)
             missing += 1
 
-        updates.append((doc.id, new_path))
+        updates.append((doc.id, new_vf))
 
-    # Bulk-update the DB
     if updates and not dry_run:
         async with _db_conn.AsyncSessionLocal() as session:
-            for doc_id, new_path in updates:
+            for doc_id, new_vf in updates:
                 await session.execute(
                     update(Document)
                     .where(Document.id == doc_id)
-                    .values(markdown_path=str(new_path))
+                    .values(verdict_filename=new_vf)
                 )
             await session.commit()
 
@@ -103,7 +101,7 @@ async def main(dry_run: bool = False) -> None:
     )
     await init_db()
 
-    sources = [sn for sn in SOURCE_REGISTRY if sn in ("haestirettur", "landsrettur")]
+    sources = [sn for sn in SOURCE_REGISTRY if sn in ("haestirettur", "landsrettur", "heradsdomstolar")]
     for short_name in sources:
         log.info("=== %s ===", short_name)
         renamed, ok, missing = await migrate_source(short_name, dry_run)

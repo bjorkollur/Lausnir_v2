@@ -1,4 +1,4 @@
-"""Import all Landsréttur verdicts from island.is GraphQL into lausnir_v2."""
+"""Import all Endurupptökudómur verdicts from island.is GraphQL into lausnir_v2."""
 from __future__ import annotations
 
 import asyncio
@@ -46,18 +46,15 @@ query GetVerdicts($input: WebVerdictsInput!) {
   }
 }
 """
-
-# NOTE: GraphQL API requires "Landsrettur" (no accents) — "Landsréttur" returns 0 results
-_COURT_FILTER = "Landsrettur"
+_COURT_API_NAME = "Endurupptokudomur"
 
 _CHECKPOINT_DIR = Path("checkpoints")
-_CHECKPOINT_FILE = _CHECKPOINT_DIR / "landsrettur.json"
+_CHECKPOINT_FILE = _CHECKPOINT_DIR / "endurupptokudomur.json"
 
 
 # ── Checkpoint ────────────────────────────────────────────────────────────────
 
 def _load_checkpoint() -> tuple[int, int, int]:
-    """Return (start_page, total_pages, imported_count). Defaults to (1, 0, 0)."""
     if _CHECKPOINT_FILE.exists():
         data = json.loads(_CHECKPOINT_FILE.read_text())
         return data["last_completed_page"] + 1, data["total_pages"], data["imported"]
@@ -77,7 +74,6 @@ def _save_checkpoint(page: int, total_pages: int, imported: int) -> None:
 # ── API helpers ───────────────────────────────────────────────────────────────
 
 async def _get_build_id(client: httpx.AsyncClient) -> str:
-    """Extract Next.js buildId from island.is/domar HTML."""
     resp = await get_with_retry(client, "https://island.is/domar")
     html = resp.text
     marker = '"buildId":"'
@@ -93,10 +89,9 @@ async def _get_build_id(client: httpx.AsyncClient) -> str:
 
 
 async def _fetch_list_page(client: httpx.AsyncClient, page: int) -> dict:
-    """Fetch one page (10 items) from the GraphQL list endpoint."""
     payload = {
         "query": _GQL_QUERY,
-        "variables": {"input": {"court": _COURT_FILTER, "page": page}},
+        "variables": {"input": {"court": _COURT_API_NAME, "page": page}},
     }
     data = await post_with_retry(client, _GQL_ENDPOINT, payload)
     return data["data"]["webVerdicts"]
@@ -107,7 +102,6 @@ async def _fetch_detail(
     build_id: str,
     verdict_id: str,
 ) -> dict:
-    """Fetch pdfString (and any richText/resolutionLink) via Next.js JSON route."""
     url = f"https://island.is/_next/data/{build_id}/domar/{verdict_id}.json"
     resp = await get_with_retry(client, url)
     return resp.json()["pageProps"]["pageProps"]["pageProps"]["componentProps"]["item"]
@@ -121,7 +115,6 @@ def _build_document(
     source_id: uuid.UUID,
     config: SourceConfig,
 ) -> Document:
-    """Merge list + detail into a Document. Handles failed detail gracefully."""
     ext_id = list_item["id"]
 
     if isinstance(detail, Exception):
@@ -131,7 +124,6 @@ def _build_document(
     else:
         raw = {
             **list_item,
-            "richText": detail.get("richText"),
             "pdfString": detail.get("pdfString"),
             "resolutionLink": detail.get("resolutionLink"),
         }
@@ -154,7 +146,6 @@ def _build_document(
 # ── DB helpers ────────────────────────────────────────────────────────────────
 
 async def _ensure_source(session: AsyncSession, config: SourceConfig) -> uuid.UUID:
-    """SELECT source by short_name; INSERT if absent. Returns the source UUID."""
     result = await session.execute(
         select(Source).where(Source.short_name == config.short_name)
     )
@@ -173,7 +164,6 @@ async def _ensure_source(session: AsyncSession, config: SourceConfig) -> uuid.UU
 
 
 async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
-    """INSERT or UPDATE by (source_id, external_id) — true idempotent upsert."""
     def _v(val: Any) -> Any:
         return sa_null() if val is None else val
 
@@ -212,7 +202,6 @@ async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
 
 
 def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> str | None:
-    """Write .md and PDF to disk. Returns the unique verdict_filename stem or None."""
     base = verdict_filename(doc, config)
     vf = unique_verdict_filename(base, taken)
     taken.add(vf)
@@ -240,7 +229,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 async def main(limit: int | None = None) -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
-    config = get_config("landsrettur")
+    config = get_config("endurupptokudomur")
     await init_db()
 
     async with _db_conn.AsyncSessionLocal() as session:
@@ -267,7 +256,7 @@ async def main(limit: int | None = None) -> None:
         TimeRemainingColumn(),
         refresh_per_second=2,
     ) as progress:
-        task_id = progress.add_task("Importing landsrettur…", total=None)
+        task_id = progress.add_task("Importing endurupptokudomur…", total=None)
 
         async with make_client() as client:
             build_id = await _get_build_id(client)
@@ -280,19 +269,16 @@ async def main(limit: int | None = None) -> None:
                 if last_page is not None and page > last_page:
                     break
 
-                # Refresh build_id every 100 pages — Next.js deploys can rotate it
                 if page > 1 and page % 100 == 0:
                     build_id = await _get_build_id(client)
                     log.info("Refreshed build_id at page %d", page)
 
-                # Sequential POST — WAF-sensitive
                 data = await _fetch_list_page(client, page)
 
                 if last_page is None:
                     last_page = math.ceil(data["total"] / 10)
                     progress.update(task_id, total=data["total"])
 
-                # Concurrent GETs — WAF-safe (detail fetches parallelised per page)
                 details = await asyncio.gather(
                     *[_fetch_detail(client, build_id, v["id"]) for v in data["items"]],
                     return_exceptions=True,
@@ -303,13 +289,11 @@ async def main(limit: int | None = None) -> None:
                     for item, detail in zip(data["items"], details)
                 ]
 
-                # Batch upsert — one transaction per page
                 async with _db_conn.AsyncSessionLocal() as session:
                     for doc in docs:
                         await _upsert_doc(session, doc)
                     await session.commit()
 
-                # Batch render + verdict_filename update — one transaction per page
                 async with _db_conn.AsyncSessionLocal() as session:
                     for doc in docs:
                         vf = _render_and_save(doc, config, taken)
@@ -337,7 +321,7 @@ async def main(limit: int | None = None) -> None:
                     task_id,
                     advance=len(docs),
                     description=(
-                        f"Importing landsrettur  "
+                        f"Importing endurupptokudomur  "
                         f"[Page {page}/{last_page}  Errors: {total_errors}]"
                     ),
                 )

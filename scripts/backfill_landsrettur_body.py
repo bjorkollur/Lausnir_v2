@@ -33,7 +33,7 @@ import engine.database.connection as _db_conn
 from engine.database.connection import init_db
 from engine.database.models import Document, Source
 from engine.processors.extractor import Extractor
-from engine.processors.renderer import write_markdown
+from engine.processors.renderer import verdict_filename, write_markdown
 from engine.processors.validator import validate
 
 log = logging.getLogger(__name__)
@@ -86,11 +86,10 @@ async def _backfill_batch(
         tmp.validation_errors = val_errors or None
 
         # Render markdown
-        md_path: str | None = None
+        vf: str | None = None
         try:
-            p = write_markdown(tmp, config, _DATA_DIR)
-            if p:
-                md_path = str(p)
+            write_markdown(tmp, config)
+            vf = verdict_filename(tmp, config)
         except Exception as exc:
             log.warning("write_markdown failed for %s: %s", doc.external_id, exc)
 
@@ -102,7 +101,7 @@ async def _backfill_batch(
                 body_text=new_body,
                 lower_body_text=new_lower,
                 validation_errors=val_errors or None,
-                **({"markdown_path": md_path} if md_path else {}),
+                **({"verdict_filename": vf} if vf else {}),
             )
         )
         updated += 1

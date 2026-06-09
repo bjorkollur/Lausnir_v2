@@ -1,12 +1,10 @@
-"""Import all Landsréttur verdicts from island.is GraphQL into lausnir_v2."""
+"""Import Persónuvernd úrskurðir, ákvarðanir og álit from island.is GraphQL."""
 from __future__ import annotations
 
 import asyncio
-import base64
 import json
 import logging
 import math
-import os
 import uuid
 from pathlib import Path
 from typing import Any
@@ -36,28 +34,35 @@ from engine.processors.validator import validate
 log = logging.getLogger(__name__)
 
 _GQL_ENDPOINT = "https://island.is/api/graphql"
-_GQL_QUERY = """
-query GetVerdicts($input: WebVerdictsInput!) {
-  webVerdicts(input: $input) {
+_GENERIC_LIST_ID = "18Qfx6UBAJmLrmaNZZA6lM"
+
+_GQL_LIST = """
+query GetItems($input: GetGenericListItemsInput!) {
+  getGenericListItems(input: $input) {
     total
-    items {
-      id title court caseNumber verdictDate keywords presentings
-    }
+    items { id title date slug filterTags { id title } }
   }
 }
 """
 
-# NOTE: GraphQL API requires "Landsrettur" (no accents) — "Landsréttur" returns 0 results
-_COURT_FILTER = "Landsrettur"
+_GQL_DETAIL = """
+query GetItem($input: GetGenericListItemBySlugInput!) {
+  getGenericListItemBySlug(input: $input) {
+    id title date slug
+    filterTags { id title }
+    cardIntro { ... on Html { document } }
+    content { ... on Html { document } }
+  }
+}
+"""
 
 _CHECKPOINT_DIR = Path("checkpoints")
-_CHECKPOINT_FILE = _CHECKPOINT_DIR / "landsrettur.json"
+_CHECKPOINT_FILE = _CHECKPOINT_DIR / "personuvernd.json"
 
 
 # ── Checkpoint ────────────────────────────────────────────────────────────────
 
 def _load_checkpoint() -> tuple[int, int, int]:
-    """Return (start_page, total_pages, imported_count). Defaults to (1, 0, 0)."""
     if _CHECKPOINT_FILE.exists():
         data = json.loads(_CHECKPOINT_FILE.read_text())
         return data["last_completed_page"] + 1, data["total_pages"], data["imported"]
@@ -76,41 +81,22 @@ def _save_checkpoint(page: int, total_pages: int, imported: int) -> None:
 
 # ── API helpers ───────────────────────────────────────────────────────────────
 
-async def _get_build_id(client: httpx.AsyncClient) -> str:
-    """Extract Next.js buildId from island.is/domar HTML."""
-    resp = await get_with_retry(client, "https://island.is/domar")
-    html = resp.text
-    marker = '"buildId":"'
-    start = html.find(marker)
-    if start == -1:
-        raise ValueError("Could not find buildId in island.is/domar response")
-    start += len(marker)
-    end = html.index('"', start)
-    build_id = html[start:end]
-    if not build_id:
-        raise ValueError("Empty buildId extracted from island.is/domar")
-    return build_id
-
-
 async def _fetch_list_page(client: httpx.AsyncClient, page: int) -> dict:
-    """Fetch one page (10 items) from the GraphQL list endpoint."""
     payload = {
-        "query": _GQL_QUERY,
-        "variables": {"input": {"court": _COURT_FILTER, "page": page}},
+        "query": _GQL_LIST,
+        "variables": {"input": {"genericListId": _GENERIC_LIST_ID, "page": page}},
     }
     data = await post_with_retry(client, _GQL_ENDPOINT, payload)
-    return data["data"]["webVerdicts"]
+    return data["data"]["getGenericListItems"]
 
 
-async def _fetch_detail(
-    client: httpx.AsyncClient,
-    build_id: str,
-    verdict_id: str,
-) -> dict:
-    """Fetch pdfString (and any richText/resolutionLink) via Next.js JSON route."""
-    url = f"https://island.is/_next/data/{build_id}/domar/{verdict_id}.json"
-    resp = await get_with_retry(client, url)
-    return resp.json()["pageProps"]["pageProps"]["pageProps"]["componentProps"]["item"]
+async def _fetch_detail(client: httpx.AsyncClient, slug: str) -> dict:
+    payload = {
+        "query": _GQL_DETAIL,
+        "variables": {"input": {"slug": slug}},
+    }
+    data = await post_with_retry(client, _GQL_ENDPOINT, payload)
+    return data["data"]["getGenericListItemBySlug"]
 
 
 # ── Document builder ──────────────────────────────────────────────────────────
@@ -121,7 +107,6 @@ def _build_document(
     source_id: uuid.UUID,
     config: SourceConfig,
 ) -> Document:
-    """Merge list + detail into a Document. Handles failed detail gracefully."""
     ext_id = list_item["id"]
 
     if isinstance(detail, Exception):
@@ -131,9 +116,8 @@ def _build_document(
     else:
         raw = {
             **list_item,
-            "richText": detail.get("richText"),
-            "pdfString": detail.get("pdfString"),
-            "resolutionLink": detail.get("resolutionLink"),
+            "cardIntro": detail.get("cardIntro"),
+            "content": detail.get("content"),
         }
         extra_errors = []
 
@@ -142,7 +126,7 @@ def _build_document(
         id=uuid.uuid4(),
         source_id=source_id,
         external_id=ext_id,
-        url=f"https://island.is/domar/{ext_id}",
+        url=f"https://island.is/s/personuvernd/urskurdir-akvardanir-og-alit/{list_item.get('slug', ext_id)}",
         **fields,
     )
     errors = validate(doc, config)
@@ -154,7 +138,6 @@ def _build_document(
 # ── DB helpers ────────────────────────────────────────────────────────────────
 
 async def _ensure_source(session: AsyncSession, config: SourceConfig) -> uuid.UUID:
-    """SELECT source by short_name; INSERT if absent. Returns the source UUID."""
     result = await session.execute(
         select(Source).where(Source.short_name == config.short_name)
     )
@@ -173,7 +156,6 @@ async def _ensure_source(session: AsyncSession, config: SourceConfig) -> uuid.UU
 
 
 async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
-    """INSERT or UPDATE by (source_id, external_id) — true idempotent upsert."""
     def _v(val: Any) -> Any:
         return sa_null() if val is None else val
 
@@ -196,42 +178,24 @@ async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
         "lower_body_text": _v(doc.lower_body_text),
         "validation_errors": _v(doc.validation_errors),
     }
-    update_cols = {
-        k: v for k, v in values.items()
-        if k not in ("id", "source_id", "external_id")
-    }
+    update_cols = {k: v for k, v in values.items() if k not in ("id", "source_id", "external_id")}
     update_cols["updated_at"] = func.now()
     await session.execute(
         pg_insert(Document)
         .values(**values)
-        .on_conflict_do_update(
-            constraint="uq_doc_source_external",
-            set_=update_cols,
-        )
+        .on_conflict_do_update(constraint="uq_doc_source_external", set_=update_cols)
     )
 
 
 def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> str | None:
-    """Write .md and PDF to disk. Returns the unique verdict_filename stem or None."""
     base = verdict_filename(doc, config)
     vf = unique_verdict_filename(base, taken)
     taken.add(vf)
-
     try:
         write_markdown(doc, config, vf=vf)
     except Exception as exc:
         log.warning("write_markdown failed for %s: %s", doc.external_id, exc)
         return None
-
-    try:
-        pdf_b64 = (doc.raw_api_data or {}).get("pdfString")
-        if pdf_b64:
-            pdf_path = config.pdf_path(vf)
-            pdf_path.parent.mkdir(parents=True, exist_ok=True)
-            pdf_path.write_bytes(base64.b64decode(pdf_b64))
-    except Exception as exc:
-        log.warning("PDF save failed for %s: %s", doc.external_id, exc)
-
     return vf
 
 
@@ -240,7 +204,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 async def main(limit: int | None = None) -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
-    config = get_config("landsrettur")
+    config = get_config("personuvernd")
     await init_db()
 
     async with _db_conn.AsyncSessionLocal() as session:
@@ -267,12 +231,9 @@ async def main(limit: int | None = None) -> None:
         TimeRemainingColumn(),
         refresh_per_second=2,
     ) as progress:
-        task_id = progress.add_task("Importing landsrettur…", total=None)
+        task_id = progress.add_task("Importing personuvernd…", total=None)
 
         async with make_client() as client:
-            build_id = await _get_build_id(client)
-            log.info("build_id: %s", build_id)
-
             last_page: int | None = saved_total if saved_total > 0 else None
             page = start_page
 
@@ -280,21 +241,15 @@ async def main(limit: int | None = None) -> None:
                 if last_page is not None and page > last_page:
                     break
 
-                # Refresh build_id every 100 pages — Next.js deploys can rotate it
-                if page > 1 and page % 100 == 0:
-                    build_id = await _get_build_id(client)
-                    log.info("Refreshed build_id at page %d", page)
-
-                # Sequential POST — WAF-sensitive
                 data = await _fetch_list_page(client, page)
 
                 if last_page is None:
                     last_page = math.ceil(data["total"] / 10)
                     progress.update(task_id, total=data["total"])
 
-                # Concurrent GETs — WAF-safe (detail fetches parallelised per page)
+                # Concurrent detail fetches — all via GraphQL POST (WAF-safe)
                 details = await asyncio.gather(
-                    *[_fetch_detail(client, build_id, v["id"]) for v in data["items"]],
+                    *[_fetch_detail(client, v["slug"]) for v in data["items"]],
                     return_exceptions=True,
                 )
 
@@ -303,13 +258,11 @@ async def main(limit: int | None = None) -> None:
                     for item, detail in zip(data["items"], details)
                 ]
 
-                # Batch upsert — one transaction per page
                 async with _db_conn.AsyncSessionLocal() as session:
                     for doc in docs:
                         await _upsert_doc(session, doc)
                     await session.commit()
 
-                # Batch render + verdict_filename update — one transaction per page
                 async with _db_conn.AsyncSessionLocal() as session:
                     for doc in docs:
                         vf = _render_and_save(doc, config, taken)
@@ -337,7 +290,7 @@ async def main(limit: int | None = None) -> None:
                     task_id,
                     advance=len(docs),
                     description=(
-                        f"Importing landsrettur  "
+                        f"Importing personuvernd  "
                         f"[Page {page}/{last_page}  Errors: {total_errors}]"
                     ),
                 )

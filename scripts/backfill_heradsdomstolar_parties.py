@@ -94,7 +94,7 @@ async def main() -> None:
 
         # Re-render markdown only if we found something meaningful
         if doc.body_text and (new_plf or new_dfd):
-            write_markdown(doc, config, data_dir)
+            write_markdown(doc, config)
 
         if new_plf or new_dfd:
             got_parties += 1

@@ -34,6 +34,7 @@ def _court_eignarfall(abbr: str) -> str:
         "Endurupptkd.":    "Endurupptökudóms",
         "Hrd. málsk.":     "Hæstaréttar",
         "Persónuvnd.":     "Persónuverndar",
+        "UA":              "Umboðsmanns",
         "Hérd. Rvk.":      "Héraðsdóms Reykjavíkur",
         "Hérd. Reykn.":    "Héraðsdóms Reykjaness",
         "Hérd. Vestl.":    "Héraðsdóms Vesturlands",
@@ -337,10 +338,16 @@ def to_markdown(doc: "Document", config: "SourceConfig") -> str:
 
     # Header
     url_line = f"##### {doc.url}\n" if doc.url else ""
-    title_line = (
-        f"# {vt} {court_egnf} – {case_nr}\n" if case_nr
-        else f"# {vt} {court_egnf}\n"
-    )
+    if config.h1_use_display_name:
+        title_line = (
+            f"# {config.display_name} – {vt} – {case_nr}\n" if case_nr
+            else f"# {config.display_name} – {vt}\n"
+        )
+    else:
+        title_line = (
+            f"# {vt} {court_egnf} – {case_nr}\n" if case_nr
+            else f"# {vt} {court_egnf}\n"
+        )
     date_line = f"## {_date_str(doc.document_date)}\n" if doc.document_date else ""
 
     parties_block = ""
@@ -405,43 +412,87 @@ def to_urlausn(doc: "Document", config: "SourceConfig") -> str:
     return f"{' '.join(parts)} – {vt}"
 
 
-def _md_filename(doc: "Document", config: "SourceConfig") -> str:
-    """Return the canonical .md filename for a document.
+_VERDICT_CODE = {"Dómur": "D", "Úrskurður": "U", "Álit": "A", "Bréf": "B"}
 
-    Format: ``{court}_{case}_{DD-MM-YYYY}.md``
+_ICELAND_TO_ASCII = str.maketrans(
+    "áéíóúýðöÁÉÍÓÚÝÐÖ",
+    "aeiouydoAEIOUYDO",
+)
+
+
+def _ascii(s: str) -> str:
+    """Transliterate Icelandic characters to ASCII. þ→th, æ→ae, rest 1-to-1."""
+    return s.translate(_ICELAND_TO_ASCII).replace("þ", "th").replace("Þ", "Th").replace("æ", "ae").replace("Æ", "Ae")
+
+
+def verdict_filename(doc: "Document", config: "SourceConfig") -> str:
+    """Return the canonical filename stem (no extension) for a document.
+
+    Format: ``{court}_{case}_{D|U}_{DD-MM-YYYY}``
 
     Examples::
 
-        Lrd_177-2024_06-03-2024.md   (Landsréttur 177/2024, 6. mars 2024)
-        Hrd_385-2017_01-11-2018.md   (Hæstiréttur 385/2017, 1. nóvember 2018)
+        Lrd_177-2024_D_06-03-2024    (Landsréttur 177/2024, dómur, 6. mars 2024)
+        HerdRvk_E-100-2020_U_05-05-2020  (Héraðsdómur Reykjavíkur, úrskurður)
 
     Rules:
     - *court*: abbreviation from ``doc.court`` (or ``config.abbreviation``),
-      with all periods and spaces removed.  ``'Lrd.'`` → ``'Lrd'``,
-      ``'Hérd. Rvk.'`` → ``'HérdRvk'``.
+      periods and spaces removed, Icelandic chars transliterated to ASCII.
+      ``'Hérd. Rvk.'`` → ``'HerdRvk'``, ``'Lrd.'`` → ``'Lrd'``.
     - *case*: ``doc.case_number`` with ``/`` → ``-`` and spaces → ``_``.
+    - *verdict*: ``D`` for Dómur, ``U`` for Úrskurður, omitted if unknown.
     - *date*: ``document_date`` formatted as ``DD-MM-YYYY``.
       Omitted when no date is available.
     """
     abbr = doc.court or config.abbreviation
-    court_part = re.sub(r"[.\s]+", "", abbr)          # 'Lrd.' → 'Lrd'
-    case_part  = (doc.case_number or "").replace("/", "-").replace(" ", "_")
+    court_part = _ascii(re.sub(r"[.\s]+", "", abbr))   # 'Hérd. Rvk.' → 'HerdRvk'
+    case_part  = (doc.case_number or f"id{doc.external_id}").replace("/", "-").replace(" ", "_")
+    verdict_code = _VERDICT_CODE.get(doc.verdict_type or "", "")
+    verdict_part = f"_{verdict_code}" if verdict_code else ""
     if doc.document_date:
         d = doc.document_date
         date_part = f"_{d.day:02d}-{d.month:02d}-{d.year}"
     else:
         date_part = ""
-    return f"{court_part}_{case_part}{date_part}.md"
+    return f"{court_part}_{case_part}{verdict_part}{date_part}"
 
 
-def write_markdown(doc: "Document", config: "SourceConfig", data_dir: str) -> Path | None:
-    """Write .md to disk and return the path, or None if body_text is absent."""
-    if not doc.case_number:
-        raise ValueError(f"Cannot write markdown for doc without case_number: {doc.id}")
+def unique_verdict_filename(base: str, taken: set[str]) -> str:
+    """Return ``base`` if not in ``taken``, else ``base_2``, ``base_3``, …
+
+    The caller is responsible for maintaining ``taken`` across the import run:
+    load all existing ``verdict_filename`` values for the source at startup,
+    then add each newly assigned name before moving to the next document.
+
+    Example::
+
+        taken = {"HerdRvk_E-100-2020_D_05-05-2020"}
+        unique_verdict_filename("HerdRvk_E-100-2020_D_05-05-2020", taken)
+        # → "HerdRvk_E-100-2020_D_05-05-2020_2"
+    """
+    if base not in taken:
+        return base
+    i = 2
+    while f"{base}_{i}" in taken:
+        i += 1
+    return f"{base}_{i}"
+
+
+def write_markdown(
+    doc: "Document",
+    config: "SourceConfig",
+    vf: str | None = None,
+) -> Path | None:
+    """Write .md to disk and return the path, or None if body_text is absent.
+
+    Pass a pre-computed ``vf`` (from ``unique_verdict_filename``) to avoid
+    recomputing it and to ensure collision-safe filenames are used.
+    """
     if not doc.body_text:
         return None
-    out_dir = Path(data_dir) / "markdown" / config.short_name
-    out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / _md_filename(doc, config)
-    path.write_text(to_markdown(doc, config), encoding="utf-8")
-    return path
+    if vf is None:
+        vf = verdict_filename(doc, config)
+    md_path = config.markdown_path(vf)
+    md_path.parent.mkdir(parents=True, exist_ok=True)
+    md_path.write_text(to_markdown(doc, config), encoding="utf-8")
+    return md_path
