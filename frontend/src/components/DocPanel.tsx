@@ -61,7 +61,7 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
               {doc.appeal_links.map((l) => (
                 <li key={l.document_id} className="text-sm">
                   <span className="text-slate-500">
-                    {l.relation === "appealed_to" ? "Áfrýjað frá: " : "Áfrýjað til: "}
+                    {l.relation === "appealed_to" ? "Áfrýjað til: " : "Áfrýjað frá: "}
                   </span>
                   <Link
                     to={`/domur/${l.document_id}`}

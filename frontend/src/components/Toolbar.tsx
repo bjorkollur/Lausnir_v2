@@ -16,7 +16,7 @@ export function Toolbar({ state, regexFields, onChange }:
         value={state.sort}
         onChange={(e) => onChange({ sort: e.target.value as Sort })}
         className="text-sm border border-slate-300 rounded-full px-3 py-1.5">
-        <option value="relevance">Relevans</option>
+        <option value="relevance">Bestar niðurstöður</option>
         <option value="newest">Nýjast fyrst</option>
         <option value="oldest">Elst fyrst</option>
       </select>
