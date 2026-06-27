@@ -61,6 +61,16 @@ def test_empty_words_returns_nothing():
     assert params == {}
 
 
+def test_proximity_hyphenated_word_sanitized():
+    """Hyphenated input like 'e-mál' lemmatizes to 'e mál' — internal spaces must become ' & '."""
+    import re as re_
+    frags, params = _build_text_filter("proximity", ["e-mál"], None, 5)
+    assert len(frags) == 1
+    prox_q = params["prox_q"]
+    # No bare space between word characters (all spaces must be around valid operators)
+    assert not re_.search(r'\w \w', prox_q), f"Bare space in tsquery: {prox_q!r}"
+
+
 def test_order_clause_proximity_allows_relevance():
     result = _order_clause("proximity", True, "relevance", "ts_rank(x,y)")
     assert "ts_rank" in result

@@ -139,10 +139,12 @@ def _build_text_filter(
         lemma_words = [lw for lw in lemma_words if lw]
         if not lemma_words:
             return frags, params
-        if len(lemma_words) == 1:
-            tsq = lemma_words[0]
+        # Normalize: multi-token lemmas (e.g. "e mál" from "e-mál") need & between tokens
+        safe_lemmas = [" & ".join(lw.split()) for lw in lemma_words]
+        if len(safe_lemmas) == 1:
+            tsq = safe_lemmas[0]
         else:
-            tsq = f" <{proximity_n}> ".join(lemma_words)
+            tsq = f" <{proximity_n}> ".join(safe_lemmas)
         params["prox_q"] = tsq
         frags.append("d.fts_is @@ to_tsquery('simple', :prox_q)")
         return frags, params
