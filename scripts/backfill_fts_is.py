@@ -42,14 +42,28 @@ def _build_fts_text(doc_row) -> str:
     text_blob = " ".join(filter(None, [
         doc_row.summary or "",
         doc_row.body_text or "",
+        doc_row.lower_body_text or "",
     ]))
     lemmatized = lemmatize_text(text_blob)
     return f"{structured} {lemmatized}".strip()
 
 
-async def backfill(limit: int | None = None, source_name: str | None = None) -> None:
+async def backfill(
+    limit: int | None = None,
+    source_name: str | None = None,
+    reindex_lower_body: bool = False,
+) -> None:
     await init_db()
     engine = await get_engine()
+
+    if reindex_lower_body:
+        # Null out fts_is for documents that have lower_body_text so they get re-processed
+        async with engine.connect() as conn:
+            await conn.execute(
+                text("UPDATE documents SET fts_is = NULL WHERE lower_body_text IS NOT NULL")
+            )
+            await conn.commit()
+        log.info("Cleared fts_is for all documents with lower_body_text.")
 
     async with engine.connect() as conn:
         # Count total to process
@@ -81,6 +95,7 @@ async def backfill(limit: int | None = None, source_name: str | None = None) -> 
                     Document.verdict_type,
                     Document.summary,
                     Document.body_text,
+                    Document.lower_body_text,
                 )
                 .where(Document.fts_is.is_(None))
             )
@@ -153,6 +168,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--source", type=str, default=None)
+    parser.add_argument("--reindex-lower-body", action="store_true",
+                        help="Clear and re-index all docs with lower_body_text (adds it to fts_is)")
     args = parser.parse_args()
 
-    asyncio.run(backfill(limit=args.limit, source_name=args.source))
+    asyncio.run(backfill(
+        limit=args.limit,
+        source_name=args.source,
+        reindex_lower_body=args.reindex_lower_body,
+    ))
