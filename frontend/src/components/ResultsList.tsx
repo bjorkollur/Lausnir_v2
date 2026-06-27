@@ -12,17 +12,19 @@ export function ResultsList({ state }: { state: SearchState }) {
   const q = useSearch(state);
   const sentinel = useRef<HTMLDivElement>(null);
 
+  const { hasNextPage, isFetchingNextPage, fetchNextPage } = q;
+
   useEffect(() => {
     const el = sentinel.current;
     if (!el) return;
     const io = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && q.hasNextPage && !q.isFetchingNextPage) {
-        q.fetchNextPage();
+      if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
+        fetchNextPage();
       }
     });
     io.observe(el);
     return () => io.disconnect();
-  }, [q.hasNextPage, q.isFetchingNextPage, q]);
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   if (q.isPending) return <ResultsSkeleton />;
   if (q.isError) return <ErrorState error={q.error} />;
