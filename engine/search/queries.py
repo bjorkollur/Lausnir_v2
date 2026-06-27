@@ -44,7 +44,7 @@ REGEX_COLUMNS: dict[str, str] = {
     "parties": "(coalesce(d.plaintiffs::text, '') || ' ' || coalesce(d.defendants::text, ''))",
     "keywords": "d.keywords::text",
 }
-DEFAULT_REGEX_FIELDS = ["body_text"]
+DEFAULT_REGEX_FIELDS = ["body_text", "lower_body_text"]
 
 REGEX_TIMEOUT_MS = 10_000
 DEFAULT_PAGE_SIZE = 20
