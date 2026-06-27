@@ -280,7 +280,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None) -> None:
+async def main(limit: int | None = None, new_only: bool = False) -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
@@ -309,7 +309,15 @@ async def main(limit: int | None = None) -> None:
         all_paths = await _fetch_listing_paths(client)
         log.info("Total paths: %d", len(all_paths))
 
-        pending = [p for p in all_paths if p.rstrip("/").split("/")[-1] not in imported_ids]
+        if new_only:
+            pending = []
+            for p in all_paths:
+                if p.rstrip("/").split("/")[-1] in imported_ids:
+                    log.info("Stopping at first known: %s", p.rstrip("/").split("/")[-1])
+                    break
+                pending.append(p)
+        else:
+            pending = [p for p in all_paths if p.rstrip("/").split("/")[-1] not in imported_ids]
         log.info("To import: %d", len(pending))
 
         with Progress(
@@ -395,5 +403,6 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="Stop after N documents")
+    parser.add_argument("--new-only", action="store_true", help="Stop at first known doc (newest-first listing)")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit))
+    asyncio.run(main(limit=args.limit, new_only=args.new_only))

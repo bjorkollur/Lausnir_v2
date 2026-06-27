@@ -150,6 +150,16 @@ def _build_document(
 
 # ── DB helpers ────────────────────────────────────────────────────────────────
 
+async def _get_new_ids(session: AsyncSession, source_id: uuid.UUID, candidate_ids: list[str]) -> set[str]:
+    """Return the subset of candidate_ids not yet in the DB."""
+    from sqlalchemy import text as sa_text
+    rows = (await session.execute(
+        sa_text("SELECT external_id FROM documents WHERE source_id = :sid AND external_id = ANY(:ids)"),
+        {"sid": source_id, "ids": candidate_ids},
+    )).scalars().all()
+    return set(candidate_ids) - set(rows)
+
+
 async def _ensure_source(session: AsyncSession, config: SourceConfig) -> uuid.UUID:
     """SELECT source by short_name; INSERT if absent. Returns the source UUID."""
     result = await session.execute(
@@ -209,6 +219,51 @@ async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
     )
 
 
+async def _link_via_resolution_link(session: AsyncSession, docs: list[Document]) -> int:
+    """Create Hrd↔Lrd document_links from resolutionLink in raw_api_data.
+
+    Returns count of new link pairs inserted.
+    """
+    from sqlalchemy import text as sa_text
+    inserted = 0
+    for doc in docs:
+        rl = (doc.raw_api_data or {}).get("resolutionLink", "")
+        if not rl:
+            continue
+        if "?id=" in rl:
+            lrd_ext_id = rl.split("?id=")[-1].split("&")[0]
+        else:
+            lrd_ext_id = rl.rstrip("/").split("/")[-1]
+        if not lrd_ext_id:
+            continue
+
+        # Find the lower court document (Lrd or Hérd)
+        row = (await session.execute(sa_text("""
+            SELECT d.id FROM documents d
+            JOIN sources s ON d.source_id = s.id
+            WHERE s.short_name IN ('landsrettur', 'heradsdomstolar', 'felagsdomur') AND d.external_id = :eid
+        """), {"eid": lrd_ext_id})).fetchone()
+        if not row:
+            continue
+        lower_id = row[0]
+
+        # Insert Hrd → lower  appealed_to
+        await session.execute(sa_text("""
+            INSERT INTO document_links (id, from_doc_id, to_doc_id, relation, confidence, method)
+            VALUES (:id, :from_id, :to_id, 'appealed_to', 1.0, 'resolution_link')
+            ON CONFLICT DO NOTHING
+        """), {"id": uuid.uuid4(), "from_id": doc.id, "to_id": lower_id})
+        # Insert lower → Hrd  appealed_from
+        await session.execute(sa_text("""
+            INSERT INTO document_links (id, from_doc_id, to_doc_id, relation, confidence, method)
+            VALUES (:id, :from_id, :to_id, 'appealed_from', 1.0, 'resolution_link')
+            ON CONFLICT DO NOTHING
+        """), {"id": uuid.uuid4(), "from_id": lower_id, "to_id": doc.id})
+        inserted += 1
+
+    return inserted
+
+
 def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> str | None:
     """Write .md and PDF to disk. Returns the unique verdict_filename stem or None.
 
@@ -239,7 +294,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None) -> None:
+async def main(limit: int | None = None, new_only: bool = False) -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     config = get_config("haestirettur")
@@ -257,7 +312,10 @@ async def main(limit: int | None = None) -> None:
         )).scalars().all()
     taken: set[str] = set(rows)
 
-    start_page, saved_total, imported_count = _load_checkpoint()
+    if new_only:
+        start_page, saved_total, imported_count = 1, 0, 0
+    else:
+        start_page, saved_total, imported_count = _load_checkpoint()
     total_errors = 0
 
     with Progress(
@@ -295,21 +353,37 @@ async def main(limit: int | None = None) -> None:
                     last_page = math.ceil(data["total"] / 10)
                     progress.update(task_id, total=data["total"])
 
+                # In new_only mode: skip detail fetch for existing docs
+                items = data["items"]
+                if new_only:
+                    async with _db_conn.AsyncSessionLocal() as chk:
+                        new_ids = await _get_new_ids(chk, source_id, [v["id"] for v in items])
+                    if not new_ids:
+                        log.info("Page %d: all %d docs already in DB — stopping", page, len(items))
+                        break
+                    items = [v for v in items if v["id"] in new_ids]
+                    log.info("Page %d: %d new / %d total", page, len(items), len(data["items"]))
+
                 # Concurrent GETs — WAF-safe
                 details = await asyncio.gather(
-                    *[_fetch_detail(client, build_id, v["id"]) for v in data["items"]],
+                    *[_fetch_detail(client, build_id, v["id"]) for v in items],
                     return_exceptions=True,
                 )
 
                 docs = [
                     _build_document(item, detail, source_id, config)
-                    for item, detail in zip(data["items"], details)
+                    for item, detail in zip(items, details)
                 ]
 
                 # Batch upsert — one transaction per page
                 async with _db_conn.AsyncSessionLocal() as session:
                     for doc in docs:
                         await _upsert_doc(session, doc)
+                    await session.commit()
+
+                # Link via resolutionLink (Hrd → Lrd)
+                async with _db_conn.AsyncSessionLocal() as session:
+                    await _link_via_resolution_link(session, docs)
                     await session.commit()
 
                 # Batch render + verdict_filename update — one transaction per page
@@ -331,7 +405,8 @@ async def main(limit: int | None = None) -> None:
                 total_errors += page_errors
                 imported_count += len(docs)
 
-                _save_checkpoint(page, last_page, imported_count)
+                if not new_only:
+                    _save_checkpoint(page, last_page, imported_count)
 
                 if limit is not None and imported_count >= limit:
                     break
@@ -358,5 +433,6 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="Stop after N documents")
+    parser.add_argument("--new-only", action="store_true", help="Only import documents not yet in DB")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit))
+    asyncio.run(main(limit=args.limit, new_only=args.new_only))

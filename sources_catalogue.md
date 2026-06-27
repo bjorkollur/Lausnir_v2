@@ -2,8 +2,8 @@
 
 Yfirlit yfir allar heimildir í gagnagrunni. Uppfært: júní 2026.
 
-**Heildartala skjala:** ~82.338  
-**Heimildir:** 58 (58 með gögn)
+**Heildartala skjala:** ~86.614  
+**Heimildir:** 59 (59 með gögn)
 
 ---
 
@@ -120,7 +120,17 @@ API: `https://www.stjornarradid.is/gogn/urskurdir-og-alit-/`
 
 ---
 
-## 8. Persónuvernd
+## 8. Lögfræðiritgerðir
+
+Gögn: `https://skemman.is` (DSpace OAI-PMH + HTML scrape)
+
+| short_name | Heiti | Skst. | Tier | Aðilar | Skjöl | Tímabil | Athugasemdir |
+|---|---|---|---|---|---|---|---|
+| `logfraediritgerdir` | Lögfræðiritgerðir (Skemman) | Ritg. | 1 | none | 4.276 | 2006–2026 | 2.807 opin (PDF→poppler); 1.469 læst (body_text=NULL); plaintiffs=höfundur; case_number=titill; verdict_type=Ritgerð |
+
+---
+
+## 9. Persónuvernd
 
 API: `https://island.is/api/graphql` — `getGenericListItems` (list) + `getGenericListItemBySlug` (detail)
 

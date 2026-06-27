@@ -42,6 +42,7 @@ _BASE_URL = "https://umbodsmadur.is/alit-og-bref/mal/nr/{id}/skoda/mal/"
 _CHECKPOINT_DIR = Path("checkpoints")
 _CHECKPOINT_FILE = _CHECKPOINT_DIR / "umbodsmadur.json"
 _REQUEST_DELAY = 0.5  # seconds between requests
+_MAX_CONSECUTIVE_404 = 50  # stop new-only sweep after this many misses in a row
 
 
 # ── Checkpoint ────────────────────────────────────────────────────────────────
@@ -201,7 +202,21 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None) -> None:
+async def _max_external_id(source_id: uuid.UUID) -> int:
+    """Return the highest numeric external_id already in the DB, or 0 if none."""
+    from sqlalchemy import text as sa_text
+    async with _db_conn.AsyncSessionLocal() as session:
+        row = (await session.execute(
+            sa_text(
+                "SELECT MAX(external_id::int) FROM documents "
+                "WHERE source_id = :sid AND external_id ~ '^[0-9]+$'"
+            ),
+            {"sid": source_id},
+        )).scalar()
+    return row or 0
+
+
+async def main(limit: int | None = None, new_only: bool = False) -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     config = get_config("umbodsmadur")
@@ -218,7 +233,13 @@ async def main(limit: int | None = None) -> None:
         )).scalars().all()
     taken: set[str] = set(rows)
 
-    start_id, imported_count = _load_checkpoint()
+    if new_only:
+        max_id = await _max_external_id(source_id)
+        start_id = max_id + 1
+        imported_count = 0
+        log.info("new-only: starting from ID %d (max in DB: %d)", start_id, max_id)
+    else:
+        start_id, imported_count = _load_checkpoint()
     total_errors = 0
 
     with Progress(
@@ -235,6 +256,7 @@ async def main(limit: int | None = None) -> None:
 
         async with make_client() as client:
             case_id = start_id
+            consecutive_misses = 0
 
             while True:
                 if limit is not None and imported_count >= limit:
@@ -246,12 +268,19 @@ async def main(limit: int | None = None) -> None:
                     resp = await get_with_retry(client, url)
                 except httpx.HTTPStatusError as exc:
                     if exc.response.status_code == 404:
-                        # Retry once (x2 total), then move to next ID — never stop
+                        consecutive_misses += 1
+                        if new_only and consecutive_misses >= _MAX_CONSECUTIVE_404:
+                            log.info(
+                                "Stopped after %d consecutive 404s (last ID: %d)",
+                                consecutive_misses, case_id,
+                            )
+                            break
                         await asyncio.sleep(_REQUEST_DELAY)
                         try:
                             resp2 = await client.get(url)
                             resp2.raise_for_status()
                             resp = resp2
+                            consecutive_misses = 0
                         except Exception:
                             case_id += 1
                             await asyncio.sleep(_REQUEST_DELAY)
@@ -269,8 +298,16 @@ async def main(limit: int | None = None) -> None:
 
                 raw = _parse_case_page(resp.text, case_id, url)
                 if raw is None:
+                    consecutive_misses += 1
+                    if new_only and consecutive_misses >= _MAX_CONSECUTIVE_404:
+                        log.info(
+                            "Stopped after %d consecutive misses (last ID: %d)",
+                            consecutive_misses, case_id,
+                        )
+                        break
                     log.warning("Could not parse case ID %d — skipping", case_id)
-                    _save_checkpoint(case_id, imported_count)
+                    if not new_only:
+                        _save_checkpoint(case_id, imported_count)
                     case_id += 1
                     await asyncio.sleep(_REQUEST_DELAY)
                     continue
@@ -298,11 +335,14 @@ async def main(limit: int | None = None) -> None:
                         )
                     await session.commit()
 
+                consecutive_misses = 0
+
                 if doc.validation_errors:
                     total_errors += 1
 
                 imported_count += 1
-                _save_checkpoint(case_id, imported_count)
+                if not new_only:
+                    _save_checkpoint(case_id, imported_count)
 
                 progress.update(
                     task_id,
@@ -323,5 +363,7 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="Stop after N documents")
+    parser.add_argument("--new-only", action="store_true",
+                        help="Start from max DB id+1, stop after 50 consecutive misses")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit))
+    asyncio.run(main(limit=args.limit, new_only=args.new_only))

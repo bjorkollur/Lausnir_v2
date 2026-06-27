@@ -1794,6 +1794,9 @@ def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,
+        "case_type": raw.get("caseType") or _infer_hrd_lrd_case_type(
+            raw.get("keywords"), plf
+        ),
         "plaintiffs": plf or None,
         "defendants": dfd or None,
         "keywords": _keywords_from_content(
@@ -1806,6 +1809,44 @@ def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
         "lower_body_text": lower_body,
         "raw_api_data": raw,
     }
+
+
+def _infer_hrd_lrd_case_type(
+    keywords: list | None,
+    plaintiffs: list[dict] | None,
+) -> str:
+    """Infer case_type from keywords and plaintiffs when API does not provide it.
+
+    Kærumál keyword → Kært, absence → Áfrýjað.
+    Ákæruvaldið as plaintiff → sakamál, otherwise → einkamál.
+    """
+    kw_lower = [k.lower() for k in (keywords or []) if isinstance(k, str)]
+    has_kaermal = any("kærumál" in k for k in kw_lower)
+    has_akaeruvalid = any(
+        (p.get("name") or "").startswith("Ákæruvaldið")
+        for p in (plaintiffs or [])
+    )
+    if has_kaermal and has_akaeruvalid:
+        return "Kært sakamál"
+    if not has_kaermal and has_akaeruvalid:
+        return "Áfrýjað sakamál"
+    if has_kaermal:
+        return "Kært einkamál"
+    return "Áfrýjað einkamál"
+
+
+_LRD_CASE_TYPE_NORMALISE: dict[str, str] = {
+    "Einkamál áfrýjað": "Áfrýjað einkamál",
+    "Einkamál kært":    "Kært einkamál",
+    "Sakamál áfrýjað":  "Áfrýjað sakamál",
+    "Sakamál kært":     "Kært sakamál",
+}
+
+
+def _normalise_lrd_case_type(value: str | None) -> str | None:
+    if not value:
+        return None
+    return _LRD_CASE_TYPE_NORMALISE.get(value, value)
 
 
 def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
@@ -1851,6 +1892,9 @@ def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,
+        "case_type": _normalise_lrd_case_type(raw.get("caseType")) or _infer_hrd_lrd_case_type(
+            raw.get("keywords"), plf
+        ),
         "plaintiffs": plf or None,
         "defendants": dfd or None,
         "keywords": api_keywords,
@@ -1859,6 +1903,35 @@ def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
         "lower_body_text": lower_body,
         "raw_api_data": raw,
     }
+
+
+_HERADSDOMUR_CASE_TYPE: dict[str, str] = {
+    "A": "Aðfarabeiðnir",
+    "B": "Bráðabirgðaforsjá og farbann",
+    "D": "Opinber skipti",
+    "E": "Einkamál",
+    "I": "Beiðni um endurupptöku",
+    "K": "Ágreiningsmál v/kyrrsetningar og lögbanns",
+    "L": "Lögræðismál",
+    "M": "Matsmál",
+    "Q": "Ágreiningsmál v/opinberra skipta",
+    "R": "Rannsóknarmál",
+    "S": "Sakamál",
+    "T": "Ágreiningsmál v/þinglýsingar",
+    "U": "Barnaverndarmál",
+    "V": "Vitnamál",
+    "X": "Ágreiningsmál v/gjaldþrotaskipta",
+    "Y": "Ágreiningsmál v/aðfarargerða",
+    "Z": "Ágreiningsmál v/nauðungarsölu",
+    "Ö": "Annað",
+}
+
+
+def _heradsdomur_case_type(case_number: str | None) -> str | None:
+    if not case_number:
+        return None
+    prefix = case_number.split("-")[0].upper()
+    return _HERADSDOMUR_CASE_TYPE.get(prefix)
 
 
 def _extract_heradsdomstolar(raw: dict, config: SourceConfig) -> dict:
@@ -1959,6 +2032,7 @@ def _extract_heradsdomstolar(raw: dict, config: SourceConfig) -> dict:
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,
+        "case_type": _heradsdomur_case_type(raw.get("caseNumber")),
         "plaintiffs": plf or None,
         "defendants": dfd or None,
         "keywords": _keywords_from_content(raw.get("keywords")),
@@ -2239,6 +2313,105 @@ def _extract_stjornarradid(raw: dict, config: SourceConfig) -> dict:
     }
 
 
+# Maps DSpace dc.type.degree (English) → Icelandic Námsstig stem and one-letter
+# abbreviation used in the thesis PDF filename. Unknown degrees fall back to the
+# raw English string (flagged via validation when case_type looks non-Icelandic).
+_DEGREE_MAP: dict[str, tuple[str, str]] = {
+    "doctoral": ("Doktors", "D"),
+    "master's": ("Meistara", "M"),
+    "masters": ("Meistara", "M"),
+    "master": ("Meistara", "M"),
+    "bachelor's": ("Bakkalár", "B"),
+    "bachelors": ("Bakkalár", "B"),
+    "bachelor": ("Bakkalár", "B"),
+    "diploma": ("Diplóma", "P"),
+}
+
+
+def degree_to_namsstig(degree: str | None) -> tuple[str | None, str | None]:
+    """Return (case_type, abbrev). e.g. 'Master's' → ('Meistara ritgerð', 'M')."""
+    if not degree:
+        return None, None
+    stem, abbr = _DEGREE_MAP.get(degree.strip().lower(), (degree.strip(), "X"))
+    return f"{stem} ritgerð", abbr
+
+
+def clean_person_name(name: str | None) -> str | None:
+    """Strip trailing birth-year and parenthetical notes from a Skemman person name.
+
+    'Diljá Mist Einarsdóttir 1987-'        → 'Diljá Mist Einarsdóttir'
+    'Johnstone, Rachael Lorna, 1977-'      → 'Johnstone, Rachael Lorna'
+    'Erla Gunnlaugsdóttir 1984 (lögfræðingur)' → 'Erla Gunnlaugsdóttir'
+    """
+    if not name:
+        return None
+    n = re.sub(r"\([^)]*\)", "", name)                       # drop parentheticals
+    n = re.sub(r",?\s*\d{4}\s*-?\s*\d{0,4}\s*$", "", n)      # drop trailing birth year
+    n = re.sub(r"\s+", " ", n).strip().strip(",").strip()
+    return n or None
+
+
+def _parse_browse_date(s: str | None) -> "date | None":
+    """Parse Skemman browse-table date 'D.M.YYYY' (e.g. '5.5.2017')."""
+    if not s:
+        return None
+    m = re.match(r"(\d{1,2})\.(\d{1,2})\.(\d{4})", s.strip())
+    if not m:
+        return None
+    try:
+        return date(int(m[3]), int(m[2]), int(m[1]))
+    except ValueError:
+        return None
+
+
+def _extract_logfraediritgerdir(raw: dict, config: SourceConfig) -> dict:
+    """Map a Skemman thesis (OAI dim + browse row + handle file-list) to NORM fields.
+
+    The importer stashes the merged metadata in raw; body_text is the extracted
+    plain text of the 'Heildartexti' PDF (None when the file is locked/embargoed).
+    No new DB columns: Höfundur→plaintiffs[0].name, Leiðbeinandi→plaintiffs[0].lawyer,
+    Titill→case_number, Námsstig→case_type, Útdráttur/Athugasemdir→summary,
+    Efnisorð→keywords, Samþykkt→document_date, URI→url/external_id.
+    """
+    title = (raw.get("title") or "").strip()
+    author = clean_person_name(raw.get("author"))
+    advisor = clean_person_name(raw.get("advisor"))
+
+    plaintiffs = None
+    if author:
+        plaintiffs = [{"name": author, "lawyer": advisor}]
+
+    # Útdráttur (abstract) + Athugasemdir (note), both into summary.
+    summary_parts = [p.strip() for p in (raw.get("abstract"), raw.get("note")) if p and p.strip()]
+    summary = "\n\n".join(summary_parts) or None
+
+    keywords = [s.strip() for s in (raw.get("subjects") or []) if s and s.strip()] or None
+
+    case_type, _abbr = degree_to_namsstig(raw.get("degree"))
+
+    # body lives in body_text only — keep it out of the JSONB metadata payload.
+    raw_meta = {k: v for k, v in raw.items() if k != "pdf_text"}
+
+    return {
+        "case_number": title or None,
+        "document_date": (
+            _parse_icelandic_date(raw.get("date_issued"))
+            or _parse_browse_date(raw.get("browse_date"))
+        ),
+        "court": config.abbreviation,
+        "verdict_type": config.verdict_type_default,
+        "instance_tier": None,            # á ekki við ritgerðir
+        "case_type": case_type,
+        "plaintiffs": plaintiffs,
+        "defendants": None,
+        "keywords": keywords,
+        "summary": summary,
+        "body_text": (raw.get("pdf_text") or None),
+        "lower_body_text": None,
+        "raw_api_data": raw_meta,
+    }
+
+
 # ─── Registry ─────────────────────────────────────────────────────────────────
 
 _EXTRACTORS: dict[str, Any] = {
@@ -2290,4 +2463,5 @@ _EXTRACTORS: dict[str, Any] = {
     "forseta_raduneyti": _extract_stjornarradid,
     "kosninga_ursk": _extract_stjornarradid,
     "utanr_raduneyti": _extract_stjornarradid,
+    "logfraediritgerdir": _extract_logfraediritgerdir,
 }

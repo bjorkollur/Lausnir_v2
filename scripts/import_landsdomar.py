@@ -263,7 +263,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None) -> None:
+async def main(limit: int | None = None, new_only: bool = False) -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
@@ -292,7 +292,15 @@ async def main(limit: int | None = None) -> None:
         all_items = await _collect_items(client)
         log.info("Total items: %d", len(all_items))
 
-        pending = [it for it in all_items if it["num"] not in imported_ids]
+        if new_only:
+            pending = []
+            for it in all_items:
+                if it["num"] in imported_ids:
+                    log.info("Stopping at first known: nr/%s", it["num"])
+                    break
+                pending.append(it)
+        else:
+            pending = [it for it in all_items if it["num"] not in imported_ids]
         log.info("To import: %d", len(pending))
 
         with Progress(
@@ -381,5 +389,6 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="Stop after N documents")
+    parser.add_argument("--new-only", action="store_true", help="Stop at first known doc (newest-first listing)")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit))
+    asyncio.run(main(limit=args.limit, new_only=args.new_only))

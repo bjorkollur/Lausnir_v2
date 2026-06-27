@@ -321,7 +321,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None) -> None:
+async def main(limit: int | None = None, new_only: bool = False) -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
@@ -336,7 +336,15 @@ async def main(limit: int | None = None) -> None:
         all_items = _fetch_all_list_items(client)
         log.info("Found %d documents total", len(all_items))
 
-        to_import = [x for x in all_items if x["external_id"] not in imported_ids]
+        if new_only:
+            to_import = []
+            for x in all_items:
+                if x["external_id"] in imported_ids:
+                    log.info("Stopping at first known: %s", x["external_id"])
+                    break
+                to_import.append(x)
+        else:
+            to_import = [x for x in all_items if x["external_id"] not in imported_ids]
         if limit is not None:
             to_import = to_import[:limit]
         log.info("%d documents to import", len(to_import))
@@ -417,5 +425,6 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--new-only", action="store_true", help="Stop at first known item (newest-first listing)")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit))
+    asyncio.run(main(limit=args.limit, new_only=args.new_only))

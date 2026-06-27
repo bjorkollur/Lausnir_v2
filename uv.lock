@@ -543,6 +543,22 @@ wheels = [
 ]
 
 [[package]]
+name = "islenska"
+version = "1.3.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cffi" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b8/28/ed985fbbf0efccb30575dcc8d9899424244d8ef58db1356e0e561a07ef39/islenska-1.3.1.tar.gz", hash = "sha256:8cde53349bd8dc2736dc91c2994a0afcae8cbe8e7a9cd7591d130f27264aa8de", size = 50395091, upload-time = "2026-05-22T12:39:10.317Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/80/9e/279fe76d0b38303ce7f9b8da0c7daf02273baeb52d324c23c3cbe556907e/islenska-1.3.1-cp39-abi3-macosx_10_9_x86_64.whl", hash = "sha256:2bc747f534fffd8a84a43c14628044bd8f10fd514ce60458804a95a6bdcfdeea", size = 50470313, upload-time = "2026-05-22T12:38:29.185Z" },
+    { url = "https://files.pythonhosted.org/packages/32/80/8d5dbb94ba1a3386da81a25d804ccefb7e7c4dc9883ded6a582dc942fb43/islenska-1.3.1-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:23125896b576fc6c400128541ed8a8fca63fafce8661b16eebba24ba85e035d5", size = 50469141, upload-time = "2026-05-22T12:38:33.361Z" },
+    { url = "https://files.pythonhosted.org/packages/16/d1/4d701a81f5a8c5ce83caf5162d105218b12051d620454eda8a8f47b46dca/islenska-1.3.1-cp39-abi3-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:4f6267fd1d6a671de8321f65663a52b7f44190b2db85dc6d9d41884399b09c92", size = 51020415, upload-time = "2026-05-22T12:38:37.45Z" },
+    { url = "https://files.pythonhosted.org/packages/d4/ea/931c1e23b4fa2086b2fe32d5869bfdf0cd0e84761410cd076ba6f14e08ee/islenska-1.3.1-cp39-abi3-win_amd64.whl", hash = "sha256:8831aa0716be7f0899ddab534fb4061f7a9857a3928b72a2c5a9355c10b2359d", size = 50468092, upload-time = "2026-05-22T12:38:42.276Z" },
+]
+
+[[package]]
 name = "jiter"
 version = "0.15.0"
 source = { registry = "https://pypi.org/simple" }
@@ -618,6 +634,7 @@ dependencies = [
     { name = "pydantic-settings" },
     { name = "pymupdf" },
     { name = "python-dateutil" },
+    { name = "reynir" },
     { name = "rich" },
     { name = "sqlalchemy", extra = ["asyncio"] },
     { name = "uvicorn" },
@@ -650,6 +667,7 @@ requires-dist = [
     { name = "pydantic-settings" },
     { name = "pymupdf" },
     { name = "python-dateutil" },
+    { name = "reynir", specifier = ">=3.6.1" },
     { name = "rich" },
     { name = "sqlalchemy", extras = ["asyncio"] },
     { name = "uvicorn" },
@@ -1335,6 +1353,18 @@ wheels = [
 ]
 
 [[package]]
+name = "reynir"
+version = "3.6.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cffi" },
+    { name = "islenska" },
+    { name = "tokenizer" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4a/94/d881c0dfc279ded4875c4ef5b9f860a8878a0e8fa09853b21164b4efdfe2/reynir-3.6.1.tar.gz", hash = "sha256:d16dcb1f0c4d2245ebe9f5d4aec801cfe73da0459d5e669be9cfa9b88c37a1ea", size = 424584, upload-time = "2025-12-12T17:22:59.91Z" }
+
+[[package]]
 name = "rich"
 version = "15.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1510,6 +1540,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/81/69/17425771797c36cded50b7fe44e850315d039f28b15901ab44839e70b593/starlette-1.0.0.tar.gz", hash = "sha256:6a4beaf1f81bb472fd19ea9b918b50dc3a77a6f2e190a12954b25e6ed5eea149", size = 2655289, upload-time = "2026-03-22T18:29:46.779Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0b/c9/584bc9651441b4ba60cc4d557d8a547b5aff901af35bda3a4ee30c819b82/starlette-1.0.0-py3-none-any.whl", hash = "sha256:d3ec55e0bb321692d275455ddfd3df75fff145d009685eb40dc91fc66b03d38b", size = 72651, upload-time = "2026-03-22T18:29:45.111Z" },
+]
+
+[[package]]
+name = "tokenizer"
+version = "3.6.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e9/99/f8170b9c5029df79a5f8e3bd3dba136307e1291f8a872786d750f82668b5/tokenizer-3.6.2.tar.gz", hash = "sha256:60f6b7e389502bd076d0843c0f43987b3912620738cf8495b0015e536a524bb7", size = 132942, upload-time = "2025-12-12T15:59:14.58Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/96/23/fad15aa97fb3761cc89a7bed84b60cd25afae937bfac8eb2bf275adf0a67/tokenizer-3.6.2-py3-none-any.whl", hash = "sha256:60bab4bf36b155fe4d0935e01dfb04b27474b37b6c9b16c6dcef7d1e95428e2d", size = 83102, upload-time = "2025-12-12T15:59:13.129Z" },
 ]
 
 [[package]]

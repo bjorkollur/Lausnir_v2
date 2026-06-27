@@ -426,7 +426,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None, year: str | None = None) -> None:
+async def main(limit: int | None = None, year: str | None = None, new_only: bool = False) -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
@@ -435,6 +435,11 @@ async def main(limit: int | None = None, year: str | None = None) -> None:
 
     config = get_config("fjarskiptastofa")
     imported_slugs = _load_checkpoint()
+
+    if new_only and year is None:
+        from datetime import date as _date
+        year = str(_date.today().year)
+        log.info("new-only: restricting to year %s", year)
 
     log.info("Collecting slugs from fjarskiptastofa.is…")
     all_items = await asyncio.to_thread(_collect_all_slugs, year)
@@ -531,5 +536,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--year", type=str, default=None, help="Import only this year, e.g. 2024")
+    parser.add_argument("--new-only", action="store_true", help="Only check current year for new items")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit, year=args.year))
+    asyncio.run(main(limit=args.limit, year=args.year, new_only=args.new_only))

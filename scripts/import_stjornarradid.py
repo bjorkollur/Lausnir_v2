@@ -630,12 +630,13 @@ async def main(source_short_name: str, cid: str | None, dry_run: bool = False, l
         rows = (await session.execute(
             select(Document.external_id, Document.verdict_filename)
             .where(Document.source_id == source_id)
-            .where(Document.verdict_filename.isnot(None))
         )).all()
     # taken: all known filenames (for collision avoidance)
     # existing_vf: existing_id → filename (to reuse on re-import)
-    taken: set[str] = {r.verdict_filename for r in rows}
-    existing_vf: dict[str, str] = {r.external_id: r.verdict_filename for r in rows}
+    # existing_ids: skip fetch+upsert entirely for already-imported docs
+    taken: set[str] = {r.verdict_filename for r in rows if r.verdict_filename}
+    existing_vf: dict[str, str] = {r.external_id: r.verdict_filename for r in rows if r.verdict_filename}
+    existing_ids: set[str] = {r.external_id for r in rows}
 
     async with make_client() as client:
         log.info("Fetching case list for committee: %s", config.display_name)
@@ -756,6 +757,10 @@ async def main(source_short_name: str, cid: str | None, dry_run: bool = False, l
         skipped = 0
 
         for newsid, href, description in cases:
+            if newsid in existing_ids:
+                skipped += 1
+                continue
+
             # Build full detail URL
             if href.startswith("http"):
                 detail_url = href

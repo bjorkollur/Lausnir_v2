@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import html
 import json
 import logging
 import re
@@ -142,7 +143,7 @@ async def _ensure_source_by_name(
 
 def _cname_to_short_name(cname: str) -> str:
     """Derive a short_name slug from a cname string."""
-    s = cname.lower()
+    s = html.unescape(cname).lower()
     # Remove common prefixes
     s = re.sub(r'^úrskurðir\s+(á\s+)?', '', s)
     s = re.sub(r'^álit\s+', '', s)

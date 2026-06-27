@@ -216,7 +216,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None) -> None:
+async def main(limit: int | None = None, new_only: bool = False) -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
@@ -244,7 +244,17 @@ async def main(limit: int | None = None) -> None:
     async with make_client() as client:
         all_items = await _fetch_all_items(client)
 
-    pending = [it for it in all_items if it["uniqueId"] not in imported_ids]
+    if new_only:
+        from datetime import date as _date
+        cutoff = _date.today().replace(year=_date.today().year - 2)
+        pending = [
+            it for it in all_items
+            if it["uniqueId"] not in imported_ids
+            and _date.fromisoformat(it["created"][:10]) >= cutoff
+        ]
+        log.info("new-only: last 2 years (≥%s), %d to import", cutoff, len(pending))
+    else:
+        pending = [it for it in all_items if it["uniqueId"] not in imported_ids]
     log.info("Total: %d, to import: %d", len(all_items), len(pending))
 
     with Progress(
@@ -332,5 +342,6 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="Stop after N documents")
+    parser.add_argument("--new-only", action="store_true", help="Only check rulings from last 2 years (sequential id order)")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit))
+    asyncio.run(main(limit=args.limit, new_only=args.new_only))

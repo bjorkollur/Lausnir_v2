@@ -90,8 +90,16 @@ def _save_checkpoint(imported_ids: set[str], count: int) -> None:
 
 # ── Fetch / collect ───────────────────────────────────────────────────────────
 
-async def _collect_items(client: httpx.AsyncClient) -> list[dict]:
-    """Return [{pdf_url, filename, external_id, verdict_type}] from all listing pages."""
+async def _collect_items(
+    client: httpx.AsyncClient,
+    imported_ids: set[str] | None = None,
+    new_only: bool = False,
+) -> list[dict]:
+    """Return [{pdf_url, filename, external_id, verdict_type}] from all listing pages.
+
+    In new_only mode, stops adding items from each page as soon as a known id is seen
+    (each listing page is independently newest-first).
+    """
     items: list[dict] = []
     seen: set[str] = set()
     for page_url, verdict_type in _LISTING_PAGES:
@@ -101,14 +109,18 @@ async def _collect_items(client: httpx.AsyncClient) -> list[dict]:
             pdf_url = m.group(1)
             filename = pdf_url.split("/")[-1]
             ext_id = filename.removesuffix(".pdf")
-            if ext_id not in seen:
-                seen.add(ext_id)
-                items.append({
-                    "pdf_url": pdf_url,
-                    "filename": filename,
-                    "external_id": ext_id,
-                    "verdict_type": verdict_type,
-                })
+            if ext_id in seen:
+                continue
+            seen.add(ext_id)
+            if new_only and imported_ids is not None and ext_id in imported_ids:
+                log.info("new-only: stopping %s at first known: %s", verdict_type, ext_id)
+                break
+            items.append({
+                "pdf_url": pdf_url,
+                "filename": filename,
+                "external_id": ext_id,
+                "verdict_type": verdict_type,
+            })
         await asyncio.sleep(0.3)
     return items
 
@@ -247,7 +259,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None) -> None:
+async def main(limit: int | None = None, new_only: bool = False) -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
@@ -273,8 +285,8 @@ async def main(limit: int | None = None) -> None:
 
     async with make_client() as client:
         log.info("Collecting PDF links from listing pages…")
-        all_items = await _collect_items(client)
-        log.info("Total PDFs: %d", len(all_items))
+        all_items = await _collect_items(client, imported_ids=imported_ids, new_only=new_only)
+        log.info("Total PDFs collected: %d", len(all_items))
 
         pending = [it for it in all_items if it["external_id"] not in imported_ids]
         log.info("To import: %d", len(pending))
@@ -362,5 +374,6 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="Stop after N documents")
+    parser.add_argument("--new-only", action="store_true", help="Stop at first known per listing page (newest-first)")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit))
+    asyncio.run(main(limit=args.limit, new_only=args.new_only))

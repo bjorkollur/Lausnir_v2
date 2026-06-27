@@ -272,7 +272,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None) -> None:
+async def main(limit: int | None = None, new_only: bool = False) -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
@@ -287,7 +287,15 @@ async def main(limit: int | None = None) -> None:
         all_posts = _fetch_all_posts(client)
         log.info("Total posts: %d", len(all_posts))
 
-        to_import = [p for p in all_posts if int(p["id"]) not in imported_ids]
+        if new_only:
+            to_import = []
+            for p in all_posts:
+                if int(p["id"]) in imported_ids:
+                    log.info("Stopping at first known post (wp_id=%d)", int(p["id"]))
+                    break
+                to_import.append(p)
+        else:
+            to_import = [p for p in all_posts if int(p["id"]) not in imported_ids]
         if limit is not None:
             to_import = to_import[:limit]
         log.info("%d posts to import", len(to_import))
@@ -373,5 +381,6 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--new-only", action="store_true", help="Stop at first known post (newest-first WP REST)")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit))
+    asyncio.run(main(limit=args.limit, new_only=args.new_only))

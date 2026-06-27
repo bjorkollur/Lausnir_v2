@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import type { SearchState } from "../lib/searchState";
 
 export function SearchBar({ state, onChange }:

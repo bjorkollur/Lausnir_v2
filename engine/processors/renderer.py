@@ -102,6 +102,19 @@ _ROMAN_H2_RE = re.compile(
     re.MULTILINE | re.IGNORECASE,
 )
 
+# Promotes bold Roman-numeral section headings to ## (Fix B).
+# Handles two forms that arise from HTML <strong> tag serialisation:
+#   **I. Málsmeðferð kærunefndar.**  → single <strong> element
+#   **IV.****Niðurstaða.**            → two adjacent <strong> elements
+# Group 1 = numeral+dot (e.g. "IV."), group 2 = title text.
+_BOLD_ROMAN_HEADING_RE = re.compile(
+    r'^\*\*([IVX]+\.)'
+    r'(?:\*\*\*\*|\s+)'
+    r'([^*\n]{1,80}?)'
+    r'\.*\*\*\s*$',
+    re.MULTILINE,
+)
+
 
 _LOWER_COURT_H1_RE = re.compile(
     r'^(?!#)((?:Úrskurður|Dómur)\s+(?:Landsréttar|Héraðsdóms)\b[^\n]*)',
@@ -147,7 +160,13 @@ _ITALIC_COLON_RE = re.compile(r'^(## (?:Dómsorð|Úrskurðarorð))_:_', re.MULT
 
 
 def _ensure_h2_headings(text: str) -> str:
-    """Upgrade Dómsorð/Úrskurðarorð and standalone Roman numerals to H2."""
+    """Upgrade Dómsorð/Úrskurðarorð and standalone Roman numerals to H2.
+
+    Does NOT promote **IV. Title.** bold headings — that step is source-specific
+    and handled separately via _promote_bold_roman_headings() for HTML-scraped
+    committee sources (h1_use_display_name=True).  Court sources (Hrd./Lrd./
+    héraðsdómar) use this function unmodified.
+    """
     # First, move any mid-line occurrences onto their own line so the ^-anchored
     # patterns below can find them (rare in older richText docs).
     text = _INLINE_DÓMSORÐ_RE.sub(r'\n\n\1\2', text)
@@ -158,6 +177,19 @@ def _ensure_h2_headings(text: str) -> str:
     # Normalize richText italic-colon artifact: "## Dómsorð_:_" → "## Dómsorð:"
     text = _ITALIC_COLON_RE.sub(r'\1:', text)
     return text
+
+
+def _promote_bold_roman_headings(text: str) -> str:
+    """Promote **IV. Title.** (and **IV.****Title.**) bold headings to ##.
+
+    Only called for HTML-scraped committee/ministry sources (h1_use_display_name=True)
+    where section headings arrive as bold <strong> paragraphs.  Must NOT be applied
+    to court sources where **I. Name** patterns are party names, not section headings.
+    """
+    return _BOLD_ROMAN_HEADING_RE.sub(
+        lambda m: f"## {m.group(1)} {m.group(2).strip()}",
+        text,
+    )
 
 # #{0,6} leyfir að Dómsorð/Úrskurðarorð séu þegar orðin heading á hvaða stigi sem er.
 # Eldri Hrd. PDF-ar nota oft ####/##### fyrir Dómsorð í neðra dómstigstexta.
@@ -176,6 +208,18 @@ _VERDICT_SECTION_PATTERNS = re.compile(
     + _spaced_eth("Ályktunarorð") + r"|"
     + _spaced_eth("Ályktarorð")
     + r")(?:[;:.\s]|$|(?-i:[A-ZÁÐÉÍÓÚÝÞÆÖ]))",
+    re.MULTILINE | re.IGNORECASE,
+)
+
+# Extended pattern for committee/ministry sources (h1_use_display_name=True).
+# Adds Niðurstaða as a verdict-section marker — in committee rulings "IV. Niðurstaða"
+# IS the operative conclusion, whereas in court documents it is a reasoning section
+# that precedes the separate Dómsorð/Úrskurðarorð.  Requires #{1,6} prefix to avoid
+# false matches on the common noun "niðurstaða" in running text.
+_VERDICT_SECTION_PATTERNS_COMMITTEE = re.compile(
+    _VERDICT_SECTION_PATTERNS.pattern
+    + r"|^#{1,6}\s*(?:[IVX]+\.\s+)?N\s*i\s*[ðÐdD]\s*u\s*r\s*s\s*t\s*a\s*[ðÐdD]\s*a\s*n?"
+    r"(?:[;:.\s]|$)",
     re.MULTILINE | re.IGNORECASE,
 )
 
@@ -260,27 +304,22 @@ def _promote_late_akvordun(text: str) -> str:
     return text[:last.start()] + '## Dómsorð:' + text[last.end():]
 
 
-def inject_verdict_marker(text: str, marker: str = VERDICT_MARKER) -> str:
+def inject_verdict_marker(
+    text: str,
+    marker: str = VERDICT_MARKER,
+    *,
+    pattern: "re.Pattern[str] | None" = None,
+) -> str:
     """
     Finnur niðurstöðukafla í texta og setur <!-- NIÐURSTÖÐUR --> rétt á undan.
     Ef ekkert mynstur finnst er textinn skilinn óbreyttur.
 
-    Dæmi — input:
-        ... meginmál dómsins ...
-
-        Dómsorð
-
-        Stefndi greiði ...
-
-    Output:
-        ... meginmál dómsins ...
-
-        <!-- NIÐURSTÖÐUR -->
-        Dómsorð
-
-        Stefndi greiði ...
+    ``pattern`` defaults to ``_VERDICT_SECTION_PATTERNS`` (court sources).
+    Pass ``_VERDICT_SECTION_PATTERNS_COMMITTEE`` for committee/ministry sources
+    where Niðurstaða is the operative conclusion rather than a reasoning section.
     """
-    match = _VERDICT_SECTION_PATTERNS.search(text)
+    pat = pattern if pattern is not None else _VERDICT_SECTION_PATTERNS
+    match = pat.search(text)
     if not match:
         return text
 
@@ -377,9 +416,20 @@ def to_markdown(doc: "Document", config: "SourceConfig") -> str:
     )
 
     # Body — inject niðurstöðumerking í báðum textalögum
+    # Committee sources (h1_use_display_name=True) use the extended pattern so
+    # "## IV. Niðurstaða" is recognised as the verdict section.  Court sources
+    # use the base pattern where Niðurstaða is a reasoning section, not the ruling.
+    _verdict_pat = (
+        _VERDICT_SECTION_PATTERNS_COMMITTEE
+        if config.h1_use_display_name
+        else _VERDICT_SECTION_PATTERNS
+    )
     body_h2 = f"## {vt} {court_egnf}"
     if doc.body_text and doc.body_text.strip():
-        marked_body = inject_verdict_marker(_ensure_h2_headings(doc.body_text.strip()))
+        body_text = doc.body_text.strip()
+        if config.h1_use_display_name:
+            body_text = _promote_bold_roman_headings(body_text)
+        marked_body = inject_verdict_marker(_ensure_h2_headings(body_text), pattern=_verdict_pat)
         body = f"{body_h2}\n\n{marked_body}"
     else:
         body = ""

@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll, afterEach } from "vitest";
 import { server, http, HttpResponse } from "../test/msw";
-import { searchDocuments, fetchDocument, ApiError } from "./client";
+import { searchDocuments, ApiError } from "./client";
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());

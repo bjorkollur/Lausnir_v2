@@ -3,7 +3,12 @@ import type { SearchParams, SearchResponse, FacetsResponse, SourcesResponse, Doc
 const BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8077";
 
 export class ApiError extends Error {
-  constructor(public status: number, message: string) { super(message); this.name = "ApiError"; }
+  status: number;
+  constructor(status: number, message: string) {
+    super(message);
+    this.name = "ApiError";
+    this.status = status;
+  }
 }
 
 async function getJson<T>(path: string, qs?: URLSearchParams): Promise<T> {

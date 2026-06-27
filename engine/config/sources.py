@@ -5,8 +5,11 @@ writing if/elif branches in the pipeline.
 from __future__ import annotations
 
 import os
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
+
+_SLUG_RE = re.compile(r'^[a-z0-9_-]+$')
 
 _DATA_DIR = os.environ.get("DATA_DIR", "/Volumes/RuleOfLaw/Lausnir_Data")
 MARKDOWN_DIR: str = os.path.join(_DATA_DIR, "markdown")
@@ -40,6 +43,15 @@ class SourceConfig:
     case_number_prefix: str = ""   # e.g. 'E-', 'S-', '' — used for validation
     pdf_crop: PdfCrop | None = None
     h1_use_display_name: bool = False  # True → H1 uses full display_name instead of court abbreviation
+    case_number_is_title: bool = False  # True → case_number holds free-text title (theses); skip case-number-shape validation
+    stjornarradid_source: bool = False  # True → source is on stjornarradid.is; sweep via sync_stjornarradid.py
+
+    def __post_init__(self) -> None:
+        if not _SLUG_RE.match(self.short_name):
+            raise ValueError(
+                f"SourceConfig short_name must be lowercase ASCII letters, digits, "
+                f"underscores or hyphens only — got {self.short_name!r}"
+            )
 
     def markdown_path(self, verdict_filename: str) -> Path:
         """Full path to .md file: {MARKDOWN_DIR}/{short_name}/{verdict_filename}.md"""
@@ -329,6 +341,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="knhus",
@@ -340,6 +353,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="urvel",
@@ -351,6 +365,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="kaeruna_utlend",
@@ -362,6 +377,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     # ── Úrskurðarnefnd velferðarmála – undirflokkar ───────────────────────────
     SourceConfig(
@@ -374,6 +390,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="urvel_felag",
@@ -385,6 +402,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="urvel_faed",
@@ -396,6 +414,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="urvel_greid",
@@ -406,6 +425,7 @@ _SOURCES: list[SourceConfig] = [
         parse_parties="gegn",
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
+        stjornarradid_source=True,
         h1_use_display_name=True,
     ),
     SourceConfig(
@@ -418,6 +438,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     # ── Stærri nefndir ────────────────────────────────────────────────────────
     SourceConfig(
@@ -430,6 +451,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="kaeruna_utbod",
@@ -441,6 +463,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit", "Ákvörðun"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="urnefnd_uppl",
@@ -452,6 +475,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="innvida",
@@ -463,6 +487,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="yfirfasteignamat",
@@ -474,6 +499,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="kaeruna_jafnr",
@@ -485,6 +511,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="matsnefnd_eignarnam",
@@ -496,6 +523,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="endurupptakunefnd",
@@ -507,6 +535,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="urnefnd_hollusta",
@@ -518,6 +547,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="urnefnd_verdtryggt",
@@ -529,6 +559,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="urnefnd_raforka",
@@ -540,6 +571,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="urnefnd_kosninga",
@@ -551,6 +583,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="sveitarstj_alit",
@@ -562,6 +595,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Álit",
         verdict_types_allowed=["Álit", "Úrskurður"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="lausn_stundar",
@@ -573,6 +607,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="matsnefnd_lax",
@@ -584,6 +619,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     # ── Ráðuneytaúrskurðir ────────────────────────────────────────────────────
     SourceConfig(
@@ -596,6 +632,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="sjavarutv",
@@ -607,6 +644,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="heilbrigdi_raduneyti",
@@ -618,6 +656,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="stjornsyslu_kaerur",
@@ -629,6 +668,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="umhverfi_raduneyti",
@@ -640,6 +680,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="matvael_land",
@@ -651,6 +692,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="mennta_raduneyti",
@@ -662,6 +704,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="landskjor",
@@ -673,6 +716,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="felag_hus_raduneyti",
@@ -684,6 +728,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="ferdathjod",
@@ -695,6 +740,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="vidskiptamal",
@@ -706,6 +752,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="innanr_utl",
@@ -717,6 +764,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="mnh_raduneyti",
@@ -728,6 +776,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="forseta_raduneyti",
@@ -739,6 +788,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="kosninga_ursk",
@@ -750,6 +800,7 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
     ),
     SourceConfig(
         short_name="utanr_raduneyti",
@@ -761,6 +812,22 @@ _SOURCES: list[SourceConfig] = [
         verdict_type_default="Úrskurður",
         verdict_types_allowed=["Úrskurður", "Álit"],
         h1_use_display_name=True,
+        stjornarradid_source=True,
+    ),
+    # ── Fræðirit (Skemman) ────────────────────────────────────────────────────
+    SourceConfig(
+        short_name="logfraediritgerdir",
+        display_name="Lögfræðiritgerðir (Skemman)",
+        abbreviation="Ritg.",
+        instance_tier=1,           # á ekki við ritgerðir — import skrifar doc.instance_tier=None
+        has_lower_court=False,
+        parse_parties="none",      # Höfundur/Leiðbeinandi → plaintiffs handvirkt í import
+        verdict_type_default="Ritgerð",
+        verdict_types_allowed=["Ritgerð"],
+        case_number_prefix="",     # titill fer í case_number — ekkert forskeyti
+        pdf_crop=None,             # sækjum „Heildartexti"-skrána og tökum hráan texta
+        h1_use_display_name=True,
+        case_number_is_title=True, # titill, ekki málsnúmer — slepptu málsnúmers-validation
     ),
 ]
 

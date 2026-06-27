@@ -79,7 +79,11 @@ def _save_checkpoint(imported_ids: set[str], count: int) -> None:
 # ── Page parser ───────────────────────────────────────────────────────────────
 
 def _parse_page(html: str) -> list[dict]:
-    """Extract all PDF items from the Contentful rich-text page."""
+    """Extract all PDF items from the Contentful rich-text page.
+
+    Each item includes a `year` field taken from the nearest preceding year h3
+    (e.g. "2024", "2023 og eldra"). Used by --new-only to filter by year window.
+    """
     h3_pattern = re.compile(r'<h3[^>]*>(.*?)</h3>', re.DOTALL)
     h3_matches = [
         (m.start(), re.sub(r'<[^>]+>', '', m.group(1)).strip())
@@ -107,12 +111,16 @@ def _parse_page(html: str) -> list[dict]:
         ]
         section = prev_sections[-1] if prev_sections else None
 
+        year_sections = [t for p, t in h3_matches if p < pos and _YEAR_H3_RE.match(t)]
+        item_year = int(year_sections[-1].split()[0]) if year_sections else None
+
         items.append({
             "asset_id": asset_id,
             "pdf_url": pdf_url,
             "title": title,
             "summary": summary,
             "section": section,
+            "year": item_year,
         })
 
     return items
@@ -244,7 +252,7 @@ def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> st
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None) -> None:
+async def main(limit: int | None = None, new_only: bool = False) -> None:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s",
                         datefmt="%H:%M:%S")
 
@@ -272,7 +280,16 @@ async def main(limit: int | None = None) -> None:
     html = resp.text
 
     all_items = _parse_page(html)
-    pending = [it for it in all_items if it["asset_id"] not in imported_ids]
+    if new_only:
+        from datetime import date as _date
+        cutoff_year = _date.today().year - 1
+        pending = [
+            it for it in all_items
+            if it["asset_id"] not in imported_ids and (it["year"] or 0) >= cutoff_year
+        ]
+        log.info("new-only: year ≥ %d, %d to import", cutoff_year, len(pending))
+    else:
+        pending = [it for it in all_items if it["asset_id"] not in imported_ids]
     log.info("Total items: %d, to import: %d", len(all_items), len(pending))
 
     with Progress(
@@ -359,5 +376,6 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="Stop after N documents")
+    parser.add_argument("--new-only", action="store_true", help="Only check items from last 1 year (sequential order)")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit))
+    asyncio.run(main(limit=args.limit, new_only=args.new_only))

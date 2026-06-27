@@ -1,0 +1,191 @@
+"""FastAPI app exposing the Lausnir v2 search API.
+
+Endpoints (all JSON, local-only, no auth):
+  GET /api/sources          → curated groups + flat source list with doc counts
+  GET /api/search           → keyword/regex search with scope + date filters
+  GET /api/document/{id}     → full document incl. body, parties, appeal links, markdown
+
+Run:  uv run uvicorn engine.api.app:app --reload
+      (requires DATABASE_URL in the environment)
+"""
+from __future__ import annotations
+
+from contextlib import asynccontextmanager
+from datetime import date
+from typing import AsyncIterator
+
+from fastapi import Depends, FastAPI, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
+from sqlalchemy.ext.asyncio import AsyncSession
+
+import engine.database.connection as _db_conn
+from engine.config.sources import SOURCE_REGISTRY
+from engine.config.source_groups import catalog
+from engine.database.connection import init_db
+from engine.database.models import Document
+from engine.processors.renderer import to_markdown
+from engine.config.sources import get_config
+from engine.search.queries import (
+    DEFAULT_PAGE_SIZE,
+    REGEX_COLUMNS,
+    SearchError,
+    facet_counts,
+    get_document,
+    search_documents,
+)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+    await init_db()
+    yield
+
+
+app = FastAPI(title="Lausnir Leitar-API", version="1.0", lifespan=lifespan)
+
+# Local-only frontend: allow any localhost origin to call the API.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origin_regex=r"http://(localhost|127\.0\.0\.1)(:\d+)?",
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
+
+
+async def get_session() -> AsyncIterator[AsyncSession]:
+    async with _db_conn.AsyncSessionLocal() as session:
+        yield session
+
+
+@app.get("/api/health")
+async def health() -> dict:
+    return {"status": "ok"}
+
+
+def _annotate(node: dict, by_source: dict, by_source_vt: dict) -> dict:
+    """Copy a scope-tree node with a document count attached."""
+    out = {"key": node["key"], "label": node["label"]}
+    if node.get("verdict_types"):
+        out["count"] = sum(
+            by_source_vt.get((s, vt), 0)
+            for s in node["sources"] for vt in node["verdict_types"]
+        )
+    elif "children" in node:
+        out["children"] = [_annotate(c, by_source, by_source_vt) for c in node["children"]]
+        out["count"] = sum(c["count"] for c in out["children"])
+    else:  # plain single-source leaf
+        out["count"] = sum(by_source.get(s, 0) for s in node["sources"])
+    return out
+
+
+@app.get("/api/sources")
+async def sources(session: AsyncSession = Depends(get_session)) -> dict:
+    """Hierarchical scope catalog (Fons Juris layout) with document counts."""
+    rows = (await session.execute(text("""
+        SELECT s.short_name, d.verdict_type, count(d.id) AS n
+        FROM sources s
+        LEFT JOIN documents d ON d.source_id = s.id
+        GROUP BY s.short_name, d.verdict_type
+    """))).mappings().all()
+    by_source: dict[str, int] = {}
+    by_source_vt: dict[tuple[str, str], int] = {}
+    for r in rows:
+        by_source[r["short_name"]] = by_source.get(r["short_name"], 0) + (r["n"] or 0)
+        if r["verdict_type"] is not None:
+            by_source_vt[(r["short_name"], r["verdict_type"])] = r["n"] or 0
+
+    tree = [_annotate(cat, by_source, by_source_vt) for cat in catalog()]
+
+    # Flat source list (for single-source autocomplete / 'leita í einstaka stofnun').
+    flat = sorted(
+        (
+            {
+                "short_name": sn,
+                "display_name": (cfg := SOURCE_REGISTRY.get(sn)) and cfg.display_name or sn,
+                "abbreviation": cfg.abbreviation if cfg else None,
+                "count": n,
+            }
+            for sn, n in by_source.items()
+        ),
+        key=lambda s: -s["count"],
+    )
+    return {
+        "catalog": tree,
+        "sources": flat,
+        "regex_fields": list(REGEX_COLUMNS.keys()),
+        "total": sum(cat["count"] for cat in tree),
+    }
+
+
+@app.get("/api/search")
+async def search(
+    q: str = Query("", description="Search text (keyword) or regex pattern"),
+    mode: str = Query("keyword", pattern="^(keyword|regex)$"),
+    scope: list[str] | None = Query(None, description="Group labels, source short_names, or 'all'"),
+    date_from: date | None = Query(None),
+    date_to: date | None = Query(None),
+    sort: str = Query("relevance", pattern="^(relevance|newest|oldest)$"),
+    page: int = Query(1, ge=1),
+    page_size: int = Query(DEFAULT_PAGE_SIZE, ge=1, le=100),
+    regex_fields: list[str] | None = Query(None, description="Fields for regex mode"),
+    session: AsyncSession = Depends(get_session),
+) -> dict:
+    try:
+        res = await search_documents(
+            session, q=q, mode=mode, scope=scope,
+            date_from=date_from, date_to=date_to, sort=sort,
+            page=page, page_size=page_size, regex_fields=regex_fields,
+        )
+    except SearchError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    return {
+        "total": res.total,
+        "page": res.page,
+        "page_size": res.page_size,
+        "results": res.results,
+    }
+
+
+@app.get("/api/facets")
+async def facets(
+    q: str = Query("", description="Same query as /api/search"),
+    mode: str = Query("keyword", pattern="^(keyword|regex)$"),
+    date_from: date | None = Query(None),
+    date_to: date | None = Query(None),
+    regex_fields: list[str] | None = Query(None),
+    session: AsyncSession = Depends(get_session),
+) -> dict:
+    """Document counts per scope-tree node for the active query (facet sidebar)."""
+    try:
+        by_source, by_source_vt = await facet_counts(
+            session, q=q, mode=mode, date_from=date_from, date_to=date_to,
+            regex_fields=regex_fields,
+        )
+    except SearchError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    tree = [_annotate(cat, by_source, by_source_vt) for cat in catalog()]
+    return {"catalog": tree, "total": sum(cat["count"] for cat in tree)}
+
+
+@app.get("/api/document/{doc_id}")
+async def document(
+    doc_id: str,
+    markdown: bool = Query(True, description="Include rendered markdown"),
+    session: AsyncSession = Depends(get_session),
+) -> dict:
+    try:
+        doc = await get_document(session, doc_id)
+    except SearchError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    if doc is None:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    if markdown:
+        orm = await session.get(Document, doc["id"])
+        if orm is not None:
+            try:
+                doc["markdown"] = to_markdown(orm, get_config(doc["source"]))
+            except Exception:
+                doc["markdown"] = None
+    return doc

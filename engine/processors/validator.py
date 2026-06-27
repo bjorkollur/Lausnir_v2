@@ -34,7 +34,7 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
         err("case_number", "Missing")
     elif config.case_number_prefix and not doc.case_number.startswith(config.case_number_prefix):
         err("case_number", f"Expected prefix {config.case_number_prefix!r}, got {doc.case_number!r}")
-    else:
+    elif not config.case_number_is_title:
         m_prefix = _CASE_NUM_PREFIX_RE.match(doc.case_number or "")
         if m_prefix:
             num = int(m_prefix.group(1))
@@ -47,7 +47,7 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
         err("document_date", "Missing")
     elif not (_MIN_DATE <= doc.document_date <= _MAX_DATE):
         err("document_date", f"Out of range: {doc.document_date}")
-    elif doc.case_number:
+    elif doc.case_number and not config.case_number_is_title:
         # Year-first format "YYYY/NNN": extract year from prefix, not suffix
         m_yf = _CASE_YEAR_FIRST_RE.match(doc.case_number)
         m = None if m_yf else _CASE_YEAR_RE.search(doc.case_number)

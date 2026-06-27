@@ -84,7 +84,9 @@ class Document(Base):
 
     # ── Search ────────────────────────────────────────────────────────────────
     embedding: Mapped[Any | None] = mapped_column(Vector(3072))
-    # tsvector computed on insert/update via trigger (see migration)
+    # fts: GENERATED ALWAYS AS (to_tsvector('simple', ...)) — exact/keyword
+    # fts_is: BÍN-lemmatized tsvector — Icelandic morphology-aware search
+    fts_is: Mapped[Any | None] = mapped_column(TSVECTOR)
 
     # ── Paths ─────────────────────────────────────────────────────────────────
     verdict_filename: Mapped[str | None] = mapped_column(Text)
@@ -104,6 +106,16 @@ class Document(Base):
         Index("ix_doc_court", "court"),
         Index("ix_doc_date", "document_date"),
         Index("ix_doc_source_id", "source_id"),
+        Index("ix_doc_fts_is", "fts_is", postgresql_using="gin"),
+        # Faceting / scoped-date filters for the search API.
+        Index("ix_doc_source_date", "source_id", "document_date"),
+        Index("ix_doc_verdict_type", "verdict_type"),
+        Index("ix_doc_instance_tier", "instance_tier"),
+        Index("ix_doc_case_type", "case_type"),
+        # NB: the pg_trgm GIN indexes used by regex search — ix_doc_body_trgm,
+        # ix_doc_summary_trgm, ix_doc_case_number_trgm — are created by
+        # scripts/setup_search_indexes.py, NOT here. They need the pg_trgm
+        # extension at DDL time, which create_all() would not install.
     )
 
     def __repr__(self) -> str:
