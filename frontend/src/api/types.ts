@@ -26,10 +26,11 @@ export interface DocumentDetail {
   markdown: string | null;
 }
 
-export type Mode = "keyword" | "regex";
+export type Mode = "keyword" | "exact" | "prefix" | "substring" | "any" | "proximity" | "regex";
 export type Sort = "relevance" | "newest" | "oldest";
 export interface SearchParams {
   q: string; mode: Mode; scope: string[];
   date_from?: string; date_to?: string; sort: Sort;
   page?: number; page_size?: number; regex_fields?: string[];
+  proximity_n?: number;
 }

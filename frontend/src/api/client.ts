@@ -33,18 +33,26 @@ function searchQs(p: SearchParams): URLSearchParams {
   if (p.page) qs.set("page", String(p.page));
   if (p.page_size) qs.set("page_size", String(p.page_size));
   for (const f of p.regex_fields ?? []) qs.append("regex_fields", f);
+  if (p.proximity_n !== undefined && p.proximity_n !== 5) {
+    qs.set("proximity_n", String(p.proximity_n));
+  }
   return qs;
 }
 
 export const searchDocuments = (p: SearchParams) => getJson<SearchResponse>("/api/search", searchQs(p));
 
-export function fetchFacets(p: Omit<SearchParams, "scope" | "sort" | "page" | "page_size">): Promise<FacetsResponse> {
+export function fetchFacets(
+  p: Omit<SearchParams, "scope" | "sort" | "page" | "page_size">
+): Promise<FacetsResponse> {
   const qs = new URLSearchParams();
   if (p.q) qs.set("q", p.q);
   qs.set("mode", p.mode);
   if (p.date_from) qs.set("date_from", p.date_from);
   if (p.date_to) qs.set("date_to", p.date_to);
   for (const f of p.regex_fields ?? []) qs.append("regex_fields", f);
+  if (p.proximity_n !== undefined && p.proximity_n !== 5) {
+    qs.set("proximity_n", String(p.proximity_n));
+  }
   return getJson<FacetsResponse>("/api/facets", qs);
 }
 
