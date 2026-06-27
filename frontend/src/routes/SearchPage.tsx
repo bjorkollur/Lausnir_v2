@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { parseSearchState, toSearchParams, type SearchState } from "../lib/searchState";
 import { useSources } from "../hooks/useSources";
 import { SearchBar } from "../components/SearchBar";
-import { RegexToggle } from "../components/RegexToggle";
+import { ModeDropdown } from "../components/ModeDropdown";
 import { Toolbar } from "../components/Toolbar";
 import { ScopeChips } from "../components/ScopeChips";
 import { ResultsList } from "../components/ResultsList";
@@ -33,7 +33,7 @@ export default function SearchPage() {
       <header className="border-b border-slate-200 px-6 py-3 space-y-2">
         <div className="flex items-center gap-4">
           <SearchBar state={state} onChange={patch} />
-          <RegexToggle state={state} onChange={patch} />
+          <ModeDropdown state={state} onChange={patch} />
           <Toolbar state={state} regexFields={regexFields} onChange={patch} />
         </div>
         <ScopeChips state={state} labelOf={labelOf} onChange={patch} />
