@@ -120,8 +120,8 @@ async def sources(session: AsyncSession = Depends(get_session)) -> dict:
 
 @app.get("/api/search")
 async def search(
-    q: str = Query("", description="Search text (keyword) or regex pattern"),
-    mode: str = Query("keyword", pattern="^(keyword|regex)$"),
+    q: str = Query("", description="Search text or regex pattern"),
+    mode: str = Query("keyword", pattern="^(keyword|exact|prefix|substring|any|proximity|regex)$"),
     scope: list[str] | None = Query(None, description="Group labels, source short_names, or 'all'"),
     date_from: date | None = Query(None),
     date_to: date | None = Query(None),
@@ -129,6 +129,7 @@ async def search(
     page: int = Query(1, ge=1),
     page_size: int = Query(DEFAULT_PAGE_SIZE, ge=1, le=100),
     regex_fields: list[str] | None = Query(None, description="Fields for regex mode"),
+    proximity_n: int = Query(5, ge=1, le=50),
     session: AsyncSession = Depends(get_session),
 ) -> dict:
     try:
@@ -136,31 +137,28 @@ async def search(
             session, q=q, mode=mode, scope=scope,
             date_from=date_from, date_to=date_to, sort=sort,
             page=page, page_size=page_size, regex_fields=regex_fields,
+            proximity_n=proximity_n,
         )
     except SearchError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
-    return {
-        "total": res.total,
-        "page": res.page,
-        "page_size": res.page_size,
-        "results": res.results,
-    }
+    return {"total": res.total, "page": res.page, "page_size": res.page_size, "results": res.results}
 
 
 @app.get("/api/facets")
 async def facets(
-    q: str = Query("", description="Same query as /api/search"),
-    mode: str = Query("keyword", pattern="^(keyword|regex)$"),
+    q: str = Query(""),
+    mode: str = Query("keyword", pattern="^(keyword|exact|prefix|substring|any|proximity|regex)$"),
     date_from: date | None = Query(None),
     date_to: date | None = Query(None),
     regex_fields: list[str] | None = Query(None),
+    proximity_n: int = Query(5, ge=1, le=50),
     session: AsyncSession = Depends(get_session),
 ) -> dict:
     """Document counts per scope-tree node for the active query (facet sidebar)."""
     try:
         by_source, by_source_vt = await facet_counts(
             session, q=q, mode=mode, date_from=date_from, date_to=date_to,
-            regex_fields=regex_fields,
+            regex_fields=regex_fields, proximity_n=proximity_n,
         )
     except SearchError as exc:
         raise HTTPException(status_code=400, detail=str(exc))

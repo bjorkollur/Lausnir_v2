@@ -1,0 +1,82 @@
+"""Unit tests for _build_text_filter and _order_clause."""
+import pytest
+from engine.search.queries import _build_text_filter, _order_clause
+
+
+def test_exact_single_word():
+    frags, params = _build_text_filter("exact", ["gæsluvarðhald"], None, 5)
+    assert len(frags) == 1
+    assert "pat_0" in params
+    assert params["pat_0"] == r"\mgæsluvarðhald\M"
+    assert "~* :pat_0" in frags[0]
+
+
+def test_exact_two_words_ands_both():
+    frags, params = _build_text_filter("exact", ["a", "b"], None, 5)
+    assert len(frags) == 2  # AND of two conditions
+    assert "pat_0" in params and "pat_1" in params
+    assert params["pat_0"] == r"\ma\M"
+    assert params["pat_1"] == r"\mb\M"
+
+
+def test_prefix():
+    frags, params = _build_text_filter("prefix", ["gæslu"], None, 5)
+    assert params["pat_0"] == r"\mgæslu"
+
+
+def test_substring():
+    frags, params = _build_text_filter("substring", ["hald"], None, 5)
+    assert params["pat_0"] == "hald"
+
+
+def test_any_two_words():
+    frags, params = _build_text_filter("any", ["dómur", "úrskurður"], None, 5)
+    assert len(frags) == 1
+    assert params["pattern"] == "(dómur|úrskurður)"
+
+
+def test_proximity_two_words():
+    frags, params = _build_text_filter("proximity", ["gæsluvarðhald", "rannsókn"], None, 5)
+    assert len(frags) == 1
+    assert "prox_q" in params
+    assert "<5>" in params["prox_q"]
+    # Both lemmas present
+    assert "gæsluvarðhald" in params["prox_q"]
+    assert "rannsókn" in params["prox_q"]
+
+
+def test_proximity_custom_n():
+    frags, params = _build_text_filter("proximity", ["a", "b"], None, 10)
+    assert "<10>" in params["prox_q"]
+
+
+def test_proximity_single_word_no_chevron():
+    frags, params = _build_text_filter("proximity", ["gæsluvarðhald"], None, 5)
+    assert "<" not in params["prox_q"]  # single word, no proximity operator
+
+
+def test_empty_words_returns_nothing():
+    frags, params = _build_text_filter("exact", [], None, 5)
+    assert frags == []
+    assert params == {}
+
+
+def test_order_clause_proximity_allows_relevance():
+    result = _order_clause("proximity", True, "relevance", "ts_rank(x,y)")
+    assert "ts_rank" in result
+
+
+def test_order_clause_exact_overrides_relevance_to_newest():
+    result = _order_clause("exact", True, "relevance", "0::real")
+    assert "document_date DESC" in result
+    assert "0::real" not in result
+
+
+def test_order_clause_newest():
+    result = _order_clause("exact", True, "newest", "0::real")
+    assert "document_date DESC" in result
+
+
+def test_order_clause_oldest():
+    result = _order_clause("keyword", True, "oldest", "ts_rank(x,y)")
+    assert "document_date ASC" in result

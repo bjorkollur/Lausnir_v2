@@ -84,10 +84,10 @@ def _citation(short_name: str | None, court, case_number, document_date, verdict
 def _order_clause(mode: str, has_text: bool, sort: str, rank_expr: str) -> str:
     """Return the ORDER BY body (uses real SQL expressions, no output aliases).
 
-    ``relevance`` only applies to keyword search; otherwise we fall back to date.
+    ``relevance`` only applies to keyword and proximity search (both have FTS rank).
     """
-    if sort == "relevance" and not (mode == "keyword" and has_text):
-        sort = "newest"  # relevance is meaningless without a keyword query
+    if sort == "relevance" and not (mode in ("keyword", "proximity") and has_text):
+        sort = "newest"  # relevance is meaningless without FTS rank
     if sort == "relevance":
         return f"{rank_expr} DESC, d.document_date DESC NULLS LAST, d.id"
     if sort == "oldest":
@@ -114,6 +114,65 @@ def _regex_snippet(body_head: str | None, summary: str | None, pattern: str) -> 
     return base + ("…" if len(summary or body_head or "") > 240 else "")
 
 
+VALID_MODES = frozenset({
+    "keyword", "exact", "prefix", "substring", "any", "proximity", "regex"
+})
+
+
+def _build_text_filter(
+    mode: str, words: list[str], fields: list[str] | None, proximity_n: int
+) -> tuple[list[str], dict[str, Any]]:
+    """Return (where_fragments, params) for exact/prefix/substring/any/proximity modes.
+
+    words = [w for w in q.split() if w] — pre-split, filtered empty.
+    Not called for 'keyword' or 'regex' (handled inline in search_documents).
+    """
+    frags: list[str] = []
+    params: dict[str, Any] = {}
+    if not words:
+        return frags, params
+
+    effective_fields = [f for f in (fields or DEFAULT_REGEX_FIELDS) if f in REGEX_COLUMNS]
+
+    if mode == "proximity":
+        lemma_words = [lemmatize_query(w) for w in words]
+        lemma_words = [lw for lw in lemma_words if lw]
+        if not lemma_words:
+            return frags, params
+        if len(lemma_words) == 1:
+            tsq = lemma_words[0]
+        else:
+            tsq = f" <{proximity_n}> ".join(lemma_words)
+        params["prox_q"] = tsq
+        frags.append("d.fts_is @@ to_tsquery('simple', :prox_q)")
+        return frags, params
+
+    if mode == "any":
+        pattern = "(" + "|".join(re.escape(w) for w in words) + ")"
+        params["pattern"] = pattern
+        if effective_fields:
+            ors = " OR ".join(f"{REGEX_COLUMNS[f]} ~* :pattern" for f in effective_fields)
+            frags.append(f"({ors})")
+        return frags, params
+
+    # exact, prefix, substring — one SQL AND-fragment per word
+    templates: dict[str, str] = {
+        "exact": r"\m{w}\M",
+        "prefix": r"\m{w}",
+        "substring": "{w}",
+    }
+    tmpl = templates[mode]
+    for i, w in enumerate(words):
+        pat = tmpl.format(w=re.escape(w))
+        params[f"pat_{i}"] = pat
+        if effective_fields:
+            ors = " OR ".join(
+                f"{REGEX_COLUMNS[f]} ~* :pat_{i}" for f in effective_fields
+            )
+            frags.append(f"({ors})")
+    return frags, params
+
+
 async def search_documents(
     session: AsyncSession,
     *,
@@ -126,9 +185,10 @@ async def search_documents(
     page: int = 1,
     page_size: int = DEFAULT_PAGE_SIZE,
     regex_fields: list[str] | None = None,
+    proximity_n: int = 5,
 ) -> SearchResults:
     """Run a search and return one page of results plus the total match count."""
-    if mode not in ("keyword", "regex"):
+    if mode not in VALID_MODES:
         raise SearchError(f"Unknown mode {mode!r}")
     page = max(1, page)
     page_size = max(1, min(page_size, MAX_PAGE_SIZE))
@@ -157,6 +217,8 @@ async def search_documents(
     has_text = bool(q)
     rank_expr = "0::real"
     regex_pattern: str | None = None
+    snip_pattern: str | None = None  # for Python-side _regex_snippet
+    words = [w for w in q.split() if w] if q else []
 
     if has_text and mode == "keyword":
         lemmas = lemmatize_query(q)
@@ -176,15 +238,30 @@ async def search_documents(
         if unknown:
             raise SearchError(f"Unknown regex field(s): {unknown}")
         regex_pattern = q
+        snip_pattern = q
         params["pattern"] = q
         ors = " OR ".join(f"{REGEX_COLUMNS[f]} ~* :pattern" for f in fields)
         where.append(f"({ors})")
+    elif has_text:
+        # exact, prefix, substring, any, proximity
+        text_frags, text_params = _build_text_filter(mode, words, regex_fields, proximity_n)
+        if text_frags:
+            where.extend(text_frags)
+            params.update(text_params)
+            if mode == "proximity":
+                rank_expr = "ts_rank(d.fts_is, to_tsquery('simple', :prox_q))"
+            elif mode == "any":
+                snip_pattern = text_params.get("pattern")
+            else:
+                snip_pattern = text_params.get("pat_0")  # first word for snippet
+        else:
+            has_text = False
 
     where_sql = (" WHERE " + " AND ".join(where)) if where else ""
     order_sql = _order_clause(mode, has_text, sort, rank_expr)
 
-    # Regex can backtrack badly — bound it. SET LOCAL lives in this txn only.
-    if mode == "regex" and regex_pattern is not None:
+    # Apply timeout to all regex-backed modes.
+    if mode in ("regex", "exact", "prefix", "substring", "any") and has_text:
         await session.execute(text(f"SET LOCAL statement_timeout = {REGEX_TIMEOUT_MS}"))
 
     # ── Total count ────────────────────────────────────────────────────────────
@@ -214,11 +291,19 @@ async def search_documents(
         )
         page_params["hl"] = q
         body_head_select = "NULL AS body_head"
+    elif mode == "proximity" and has_text and "prox_q" in params:
+        snippet_select = (
+            "ts_headline('simple', coalesce(d.body_text, ''), "
+            "to_tsquery('simple', :prox_q), "
+            "'StartSel=<mark>,StopSel=</mark>,MaxFragments=2,MaxWords=28,"
+            "MinWords=8,ShortWord=2') AS snippet"
+        )
+        body_head_select = "NULL AS body_head"
     else:
         snippet_select = "NULL AS snippet"
         body_head_select = (
             f"left(d.body_text, {_REGEX_SNIPPET_SCAN}) AS body_head"
-            if mode == "regex" and regex_pattern else "NULL AS body_head"
+            if snip_pattern else "NULL AS body_head"
         )
 
     rows = (await session.execute(text(f"""
@@ -238,10 +323,10 @@ async def search_documents(
 
     results: list[dict[str, Any]] = []
     for r in rows:
-        if mode == "regex" and regex_pattern:
-            snippet = _regex_snippet(r["body_head"], r["summary"], regex_pattern)
+        if snip_pattern:
+            snippet = _regex_snippet(r.get("body_head"), r.get("summary"), snip_pattern)
         else:
-            snippet = r["snippet"] or (r["summary"] or "")[:240]
+            snippet = r.get("snippet") or ""
         results.append({
             "id": str(r["id"]),
             "urlausn": _citation(r["source"], r["court"], r["case_number"],
@@ -270,6 +355,7 @@ async def facet_counts(
     date_from: date | None = None,
     date_to: date | None = None,
     regex_fields: list[str] | None = None,
+    proximity_n: int = 5,
 ) -> tuple[dict[str, int], dict[tuple[str, str], int]]:
     """Per-source (and per-source+verdict_type) counts for the active query.
 
@@ -278,7 +364,7 @@ async def facet_counts(
     including ones the user has not selected (standard faceted-search behaviour).
     Returns (by_source, by_source_vt) which the caller rolls up onto the scope tree.
     """
-    if mode not in ("keyword", "regex"):
+    if mode not in VALID_MODES:
         raise SearchError(f"Unknown mode {mode!r}")
     q = (q or "").strip()
     where: list[str] = []
@@ -290,6 +376,8 @@ async def facet_counts(
     if date_to is not None:
         where.append("d.document_date <= :date_to")
         params["date_to"] = date_to
+
+    words = [w for w in q.split() if w] if q else []
 
     if q and mode == "keyword":
         lemmas = lemmatize_query(q)
@@ -309,6 +397,13 @@ async def facet_counts(
         ors = " OR ".join(f"{REGEX_COLUMNS[f]} ~* :pattern" for f in fields)
         where.append(f"({ors})")
         await session.execute(text(f"SET LOCAL statement_timeout = {REGEX_TIMEOUT_MS}"))
+    elif q:
+        # exact, prefix, substring, any, proximity
+        text_frags, text_params = _build_text_filter(mode, words, regex_fields, proximity_n)
+        where.extend(text_frags)
+        params.update(text_params)
+        if mode in ("exact", "prefix", "substring", "any"):
+            await session.execute(text(f"SET LOCAL statement_timeout = {REGEX_TIMEOUT_MS}"))
 
     where_sql = (" WHERE " + " AND ".join(where)) if where else ""
     rows = (await session.execute(text(f"""
