@@ -326,7 +326,7 @@ async def search_documents(
         if snip_pattern:
             snippet = _regex_snippet(r.get("body_head"), r.get("summary"), snip_pattern)
         else:
-            snippet = r.get("snippet") or ""
+            snippet = r.get("snippet") or (r.get("summary") or "")[:240]
         results.append({
             "id": str(r["id"]),
             "urlausn": _citation(r["source"], r["court"], r["case_number"],
