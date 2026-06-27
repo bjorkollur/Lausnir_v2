@@ -144,7 +144,18 @@ def _build_text_filter(
         if len(safe_lemmas) == 1:
             tsq = safe_lemmas[0]
         else:
-            tsq = f" <{proximity_n}> ".join(safe_lemmas)
+            # PostgreSQL <N> means EXACTLY N positions apart, not "within N".
+            # Build bidirectional union: (A <1> B)|(B <1> A)|...|(A <N> B)|(B <N> A)
+            # for each consecutive pair, then AND all pairs together.
+            def _within_n(a: str, b: str, n: int) -> str:
+                parts = [f"({a} <{k}> {b}) | ({b} <{k}> {a})" for k in range(1, n + 1)]
+                return "(" + " | ".join(parts) + ")"
+
+            pair_conds = [
+                _within_n(safe_lemmas[i], safe_lemmas[i + 1], proximity_n)
+                for i in range(len(safe_lemmas) - 1)
+            ]
+            tsq = " & ".join(pair_conds)
         params["prox_q"] = tsq
         frags.append("d.fts_is @@ to_tsquery('simple', :prox_q)")
         return frags, params

@@ -39,7 +39,10 @@ def test_proximity_two_words():
     frags, params = _build_text_filter("proximity", ["gæsluvarðhald", "rannsókn"], None, 5)
     assert len(frags) == 1
     assert "prox_q" in params
+    # Union of distances 1..N in both directions
+    assert "<1>" in params["prox_q"]
     assert "<5>" in params["prox_q"]
+    assert "<6>" not in params["prox_q"]  # N=5, so no <6>
     # Both lemmas present
     assert "gæsluvarðhald" in params["prox_q"]
     assert "rannsókn" in params["prox_q"]
@@ -48,6 +51,7 @@ def test_proximity_two_words():
 def test_proximity_custom_n():
     frags, params = _build_text_filter("proximity", ["a", "b"], None, 10)
     assert "<10>" in params["prox_q"]
+    assert "<11>" not in params["prox_q"]  # N=10, so no <11>
 
 
 def test_proximity_single_word_no_chevron():
