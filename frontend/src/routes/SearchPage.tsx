@@ -8,6 +8,7 @@ import { Toolbar } from "../components/Toolbar";
 import { ScopeChips } from "../components/ScopeChips";
 import { ResultsList } from "../components/ResultsList";
 import { FacetSidebar } from "../components/FacetSidebar";
+import { LandingView } from "../components/LandingView";
 import type { CatalogNode } from "../api/types";
 
 function flattenLabels(nodes: CatalogNode[], out: Record<string, string> = {}): Record<string, string> {
@@ -27,6 +28,19 @@ export default function SearchPage() {
   const regexFields = sources.data?.regex_fields ?? ["body_text"];
 
   const patch = (p: Partial<SearchState>) => setSp(toSearchParams({ ...state, ...p }));
+
+  // Show landing page when no active query
+  if (!state.q) {
+    return (
+      <LandingView
+        state={state}
+        catalog={sources.data?.catalog ?? []}
+        total={sources.data?.total ?? 0}
+        sourceCount={sources.data?.sources.length ?? 0}
+        patch={patch}
+      />
+    );
+  }
 
   return (
     <div className="flex h-full flex-col">
