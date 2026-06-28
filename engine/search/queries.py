@@ -16,10 +16,35 @@ This module is pure data access — no FastAPI / HTTP concerns.
 from __future__ import annotations
 
 import re
+import re as _re
 import uuid
 from dataclasses import dataclass
 from datetime import date
 from typing import Any
+
+
+# ── Provision query parser ────────────────────────────────────────────────────
+# Matches "3. gr. 33/1944" or "33/1944 3. gr." or "33/1944, 3. gr."
+# Also handles "12. gr. laga nr. 91/1991" and "nr. 91/1991 12. gr."
+_PROVISION_RE = _re.compile(
+    r'(?:(?P<gr_first>\d+)\.\s*gr\.\s+(?:laga?\s+)?(?:nr\.\s*)?(?P<law_first>\d+/\d{4}))'
+    r'|'
+    r'(?:(?:nr\.\s*)?(?P<law_second>\d+/\d{4})[,\s]+(?P<gr_second>\d+)\.\s*gr\.)',
+    _re.IGNORECASE
+)
+
+
+def parse_provision_query(q: str) -> tuple[str, int] | None:
+    """If q looks like a provision reference, return (case_number, article_num).
+    E.g. '3. gr. 33/1944' → ('33/1944', 3). Returns None if not a provision query."""
+    m = _PROVISION_RE.search(q.strip())
+    if not m:
+        return None
+    law = m.group('law_first') or m.group('law_second')
+    gr = m.group('gr_first') or m.group('gr_second')
+    if law and gr:
+        return (law, int(gr))
+    return None
 
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession

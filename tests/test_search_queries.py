@@ -94,3 +94,23 @@ def test_order_clause_newest():
 def test_order_clause_oldest():
     result = _order_clause("keyword", True, "oldest", "ts_rank(x,y)")
     assert "document_date ASC" in result
+
+
+# ── Provision query parser ────────────────────────────────────────────────────
+
+def test_parse_provision_query_gr_first():
+    from engine.search.queries import parse_provision_query
+    assert parse_provision_query("3. gr. 33/1944") == ("33/1944", 3)
+    assert parse_provision_query("12. gr. laga nr. 91/1991") == ("91/1991", 12)
+
+
+def test_parse_provision_query_law_first():
+    from engine.search.queries import parse_provision_query
+    assert parse_provision_query("33/1944, 3. gr.") == ("33/1944", 3)
+    assert parse_provision_query("nr. 91/1991 12. gr.") == ("91/1991", 12)
+
+
+def test_parse_provision_query_no_match():
+    from engine.search.queries import parse_provision_query
+    assert parse_provision_query("samningur") is None
+    assert parse_provision_query("kaupsamningur 2024") is None

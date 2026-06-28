@@ -20,12 +20,11 @@ from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 import engine.database.connection as _db_conn
-from engine.config.sources import SOURCE_REGISTRY
+from engine.config.sources import SOURCE_REGISTRY, get_config
 from engine.config.source_groups import catalog
 from engine.database.connection import init_db
-from engine.database.models import Document
+from engine.database.models import Document, Source
 from engine.processors.renderer import to_markdown
-from engine.config.sources import get_config
 from engine.search.queries import (
     DEFAULT_PAGE_SIZE,
     REGEX_COLUMNS,
@@ -187,3 +186,42 @@ async def document(
             except Exception:
                 doc["markdown"] = None
     return doc
+
+
+@app.get("/api/provision")
+async def get_provision(
+    law: str = Query(..., description="Law number, e.g. '33/1944'"),
+    gr: int = Query(..., description="Article number"),
+    session: AsyncSession = Depends(get_session),
+) -> dict:
+    """Return the text of a specific article (grein) of a specific law."""
+    from sqlalchemy import select as sa_select
+
+    result = (await session.execute(
+        sa_select(Document)
+        .join(Source, Source.id == Document.source_id)
+        .where(
+            Document.case_number == law,
+            Source.short_name.like("lagasafn_%"),
+        )
+        .limit(1)
+    )).scalar_one_or_none()
+
+    if result is None:
+        raise HTTPException(status_code=404, detail=f"Law {law!r} not found")
+
+    provisions = result.provisions or []
+    prov = next((p for p in provisions if p.get("num") == gr), None)
+    if prov is None:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Article {gr}. gr. not found in law {law!r} (has {len(provisions)} articles)",
+        )
+
+    return {
+        "law": law,
+        "law_name": result.summary,
+        "article": gr,
+        "text": prov["text"],
+        "url": result.url,
+    }
