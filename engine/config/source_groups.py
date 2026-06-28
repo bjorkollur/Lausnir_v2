@@ -25,7 +25,7 @@ from typing import Any
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from engine.config.sources import SOURCE_REGISTRY
+from engine.config.sources import SOURCE_REGISTRY, LAGASAFN_KAFLAR as _LAGASAFN_KAFLAR
 from engine.database.models import Source
 
 # ── Category → source membership (the partition of all sources) ────────────────
@@ -38,10 +38,14 @@ _STJORNSYSLA_SOURCES = [
     "samkeppni", "umbodsmadur", "hugverkastofa",
 ]
 _BAEKUR_SOURCES = ["logfraediritgerdir"]
+_LAGASAFN_SOURCES = [f"lagasafn_{n:02d}" for n, _ in _LAGASAFN_KAFLAR]
 
 # Nefndir = everything else (self-maintaining: a new tribunal source lands here
 # automatically until explicitly reassigned), sorted by display name for the UI.
-_ASSIGNED = set(_DOMSTOLAR_SOURCES) | set(_STJORNSYSLA_SOURCES) | set(_BAEKUR_SOURCES)
+_ASSIGNED = (
+    set(_DOMSTOLAR_SOURCES) | set(_STJORNSYSLA_SOURCES)
+    | set(_BAEKUR_SOURCES) | set(_LAGASAFN_SOURCES)
+)
 _NEFNDIR_SOURCES = sorted(
     (s for s in SOURCE_REGISTRY if s not in _ASSIGNED),
     key=lambda s: SOURCE_REGISTRY[s].display_name,
@@ -101,6 +105,17 @@ SCOPE_TREE: list[dict] = [
     {
         "key": "baekur", "label": "Bækur og fræðiskrif",
         "children": [_source_leaf(s) for s in _BAEKUR_SOURCES],
+    },
+    {
+        "key": "lagasafn", "label": "Lagasafn Alþingis",
+        "children": [
+            {
+                "key": f"lagasafn_{n:02d}",
+                "label": f"{n}. {label}",
+                "sources": [f"lagasafn_{n:02d}"],
+            }
+            for n, label in _LAGASAFN_KAFLAR
+        ],
     },
 ]
 
@@ -179,6 +194,7 @@ def validate_catalog() -> None:
         "stjornsysla": _STJORNSYSLA_SOURCES,
         "nefndir": _NEFNDIR_SOURCES,
         "baekur": _BAEKUR_SOURCES,
+        "lagasafn": _LAGASAFN_SOURCES,
     }
     seen: dict[str, str] = {}
     for cat, shorts in cats.items():

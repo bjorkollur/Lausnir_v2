@@ -835,6 +835,81 @@ _SOURCES: list[SourceConfig] = [
 SOURCE_REGISTRY: dict[str, SourceConfig] = {s.short_name: s for s in _SOURCES}
 
 
+# ── Lagasafn Alþingis (48 chapters) ──────────────────────────────────────────
+
+LAGASAFN_KAFLAR: list[tuple[int, str]] = [
+    (1,  "Stjórnskipunarlög o.fl."),
+    (2,  "Mannréttindi"),
+    (3,  "Forseti Íslands"),
+    (4,  "Alþingi og lagasetning"),
+    (5,  "Dómstólar og réttarfar"),
+    (6,  "Framkvæmdarvaldið"),
+    (7,  "Sveitarfélög"),
+    (8,  "Opinberir starfsmenn"),
+    (9,  "Stjórnsýsla"),
+    (10, "Almannaskráning, hagskýrslur o.fl."),
+    (11, "Ríkisfjármál og ríkisábyrgðir"),
+    (12, "Eignir og framkvæmdir ríkisins"),
+    (13, "Skattar og gjöld"),
+    (14, "Utanríkismál og ýmsar alþjóðastofnanir"),
+    (15, "Öryggismál"),
+    (16, "Ríkisborgararéttur, útlendingar o.fl."),
+    (17, "Löggæsla og almannavarnir"),
+    (18, "Refsilög, fangelsismál o.fl."),
+    (19, "Fjársafnanir, happdrætti o.fl."),
+    (20, "Trúfélög og kirkjumál"),
+    (21, "Menntun, æskulýðsstarfsemi og íþróttir"),
+    (22, "Menningarmál"),
+    (23, "Fjölmiðlun"),
+    (24, "Heilbrigðismál"),
+    (25, "Almannatryggingar, félagsþjónusta o.fl."),
+    (26, "Vinnuréttur"),
+    (27, "Atvinnurekstur"),
+    (28, "Verslun og viðskipti"),
+    (29, "Bankar og fjármálafyrirtæki"),
+    (30, "Vátryggingar"),
+    (31, "Iðnaður"),
+    (32, "Náttúruauðlindir og orkumál"),
+    (33, "Sjávarútvegur, fiskveiðar og fiskirækt"),
+    (34, "Landbúnaður"),
+    (35, "Umhverfismál"),
+    (36, "Mannvirkjagerð, húsnæðismál og brunamál"),
+    (37, "Samgöngur og vöruflutningar"),
+    (38, "Póstur, sími og fjarskipti"),
+    (39, "Ferðaþjónusta, veitingastarfsemi o.fl."),
+    (40, "Persónuréttindi"),
+    (41, "Málefni barna"),
+    (42, "Sifjaréttindi"),
+    (43, "Erfðaréttindi"),
+    (44, "Kröfuréttindi"),
+    (45, "Félög, firmu og stofnanir"),
+    (46, "Hlutaréttindi"),
+    (47, "Hugverka- og einkaréttindi"),
+    (48, "Byggðamál"),
+]
+
+_LAGASAFN_VT_ALLOWED = [
+    "Lög", "Forsetaúrskurður", "Forsetabréf", "Auglýsing",
+    "Reglugerð", "Samþykkt", "Tilskipun", "Bréf",
+]
+
+for _kafli_num, _kafli_label in LAGASAFN_KAFLAR:
+    _sn = f"lagasafn_{_kafli_num:02d}"
+    SOURCE_REGISTRY[_sn] = SourceConfig(
+        short_name=_sn,
+        display_name=f"{_kafli_num}. {_kafli_label}",
+        abbreviation="Lög",
+        instance_tier=0,
+        has_lower_court=False,
+        parse_parties="none",
+        verdict_type_default="Lög",
+        verdict_types_allowed=_LAGASAFN_VT_ALLOWED,
+        case_number_prefix="",
+        pdf_crop=None,
+    )
+del _kafli_num, _kafli_label, _sn
+
+
 def get_config(short_name: str) -> SourceConfig:
     try:
         return SOURCE_REGISTRY[short_name]
