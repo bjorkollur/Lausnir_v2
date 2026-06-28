@@ -81,6 +81,7 @@ class Document(Base):
 
     body_text: Mapped[str | None] = mapped_column(Text)        # current court body
     lower_body_text: Mapped[str | None] = mapped_column(Text)  # embedded lower court
+    provisions: Mapped[list | None] = mapped_column(JSONB, nullable=True)  # [{num, text}] for lagasafn
 
     # ── Search ────────────────────────────────────────────────────────────────
     embedding: Mapped[Any | None] = mapped_column(Vector(3072))
