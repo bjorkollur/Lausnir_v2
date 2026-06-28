@@ -4,7 +4,7 @@ import type { CatalogNode } from "../api/types";
 
 export function FacetNode({ node, selected, depth, onToggle }:
   { node: CatalogNode; selected: Set<string>; depth: number; onToggle: (key: string) => void }) {
-  const [open, setOpen] = useState(depth === 0);
+  const [open, setOpen] = useState(depth <= 1);
   const hasKids = !!node.children?.length;
   return (
     <div>
