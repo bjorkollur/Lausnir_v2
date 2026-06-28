@@ -24,26 +24,39 @@ from typing import Any
 
 
 # ── Provision query parser ────────────────────────────────────────────────────
-# Matches "3. gr. 33/1944" or "33/1944 3. gr." or "33/1944, 3. gr."
-# Also handles "12. gr. laga nr. 91/1991" and "nr. 91/1991 12. gr."
+# Handles patterns like:
+#   "218. gr. 1. mgr. 19/1940"   "3. gr. 33/1944"
+#   "19/1940 218. gr. 1. mgr."   "33/1944, 3. gr."
+#   "12. gr. laga nr. 91/1991"   "nr. 91/1991 12. gr."
 _PROVISION_RE = _re.compile(
-    r'(?:(?P<gr_first>\d+)\.\s*gr\.\s+(?:laga?\s+)?(?:nr\.\s*)?(?P<law_first>\d+/\d{4}))'
+    # Pattern A: gr [mgr] law
+    r'(?:(?P<gr_a>\d+)\.\s*gr\.'
+    r'(?:\s*(?P<mgr_a>\d+)\.\s*mgr\.)?'
+    r'\s*(?:laga?\s+)?(?:nr\.\s*)?(?P<law_a>\d+/\d{4}))'
     r'|'
-    r'(?:(?:nr\.\s*)?(?P<law_second>\d+/\d{4})[,\s]+(?P<gr_second>\d+)\.\s*gr\.)',
+    # Pattern B: law gr [mgr]
+    r'(?:(?:nr\.\s*)?(?P<law_b>\d+/\d{4})[,\s]+'
+    r'(?P<gr_b>\d+)\.\s*gr\.'
+    r'(?:\s*(?P<mgr_b>\d+)\.\s*mgr\.)?)',
     _re.IGNORECASE
 )
 
 
-def parse_provision_query(q: str) -> tuple[str, int] | None:
-    """If q looks like a provision reference, return (case_number, article_num).
-    E.g. '3. gr. 33/1944' → ('33/1944', 3). Returns None if not a provision query."""
+def parse_provision_query(q: str) -> tuple[str, int, int | None] | None:
+    """If q looks like a provision reference, return (case_number, article_num, sub_article|None).
+
+    E.g. '3. gr. 33/1944' → ('33/1944', 3, None)
+         '218. gr. 1. mgr. 19/1940' → ('19/1940', 218, 1)
+    Returns None if q is not a provision reference.
+    """
     m = _PROVISION_RE.search(q.strip())
     if not m:
         return None
-    law = m.group('law_first') or m.group('law_second')
-    gr = m.group('gr_first') or m.group('gr_second')
+    law = m.group('law_a') or m.group('law_b')
+    gr = m.group('gr_a') or m.group('gr_b')
+    mgr = m.group('mgr_a') or m.group('mgr_b')
     if law and gr:
-        return (law, int(gr))
+        return (law, int(gr), int(mgr) if mgr else None)
     return None
 
 from sqlalchemy import text

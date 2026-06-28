@@ -76,34 +76,71 @@ def _strip_html(html_fragment: str) -> str:
     return text.strip()
 
 # ── Article / provision extraction ────────────────────────────────────────────
-_SPAN_GR_RE = re.compile(r'^G(\d+)$')  # matches id="G1", id="G2", not id="G1M1"
+_SPAN_GR_RE = re.compile(r'^G(\d+)$')      # id="G1", not id="G1M1"
+_IMG_MGR_RE = re.compile(r'^G\d+M(\d+)$')  # id="G1M1" → group(1)=1
+
+
+def _sibs_to_text(sibs: list) -> str:
+    parts = []
+    for s in sibs:
+        t = _strip_html(str(s)) if isinstance(s, Tag) else str(s).strip()
+        if t:
+            parts.append(t)
+    return _WS.sub(' ', ' '.join(parts)).strip()
+
 
 def _extract_provisions(soup: BeautifulSoup) -> list[dict[str, Any]]:
-    """Find all <span id="GN"> anchors and collect the article text that follows."""
+    """Find <span id="GN"> anchors. Returns provisions with optional sub-articles.
+
+    Each provision: {"num": N, "text": "...", "sub": [{"num": M, "text": "..."}]}
+    Sub-articles (málsgreinar) present when HTML uses <img id="GNM1">, <img id="GNM2"> etc.
+    """
     provisions: list[dict[str, Any]] = []
+
     for span in soup.find_all('span', id=_SPAN_GR_RE):
         m = _SPAN_GR_RE.match(span.get('id', ''))
         if not m:
             continue
         num = int(m.group(1))
-        # Collect sibling text until next G-span
-        parts: list[str] = []
+
+        # Partition siblings into sub-article buckets: [(mgr_num | None, [sibs])]
+        sub_groups: list[tuple[int | None, list]] = []
+        cur_num: int | None = None
+        cur_sibs: list = []
+        has_subs = False
+
         for sib in span.next_siblings:
             if isinstance(sib, Tag):
                 if sib.name == 'span' and _SPAN_GR_RE.match(sib.get('id', '')):
                     break
-                # Skip the bold "N. gr." label itself (it's already represented by num)
                 if sib.name == 'b' and re.match(r'^\d+\.', sib.get_text(strip=True)):
-                    continue
-                parts.append(_strip_html(str(sib)))
-            else:
-                t = str(sib).strip()
-                if t:
-                    parts.append(t)
-        text = ' '.join(p for p in parts if p).strip()
-        text = _WS.sub(' ', text)
-        if text:
-            provisions.append({"num": num, "text": text})
+                    continue  # skip "N. gr." bold label
+                if sib.name == 'img' and sib.get('id'):
+                    mm = _IMG_MGR_RE.match(sib.get('id', ''))
+                    if mm:
+                        sub_groups.append((cur_num, cur_sibs))
+                        cur_num = int(mm.group(1))
+                        cur_sibs = []
+                        has_subs = True
+                        continue
+            cur_sibs.append(sib)
+
+        sub_groups.append((cur_num, cur_sibs))
+
+        if has_subs:
+            subs = [
+                {"num": sub_num, "text": _sibs_to_text(sb)}
+                for sub_num, sb in sub_groups
+                if sub_num is not None and _sibs_to_text(sb)
+            ]
+            if subs:
+                full_text = ' '.join(s['text'] for s in subs)
+                provisions.append({"num": num, "text": full_text, "sub": subs})
+        else:
+            text = _sibs_to_text(sub_groups[0][1]) if sub_groups else ""
+            if text:
+                provisions.append({"num": num, "text": text})
+
     return provisions
 
 # ── Main parser ───────────────────────────────────────────────────────────────
@@ -148,13 +185,19 @@ def parse_law_html(html_bytes: bytes, filename: str) -> dict[str, Any]:
     # Provisions
     provisions = _extract_provisions(soup)
 
-    # body_text: structured as "N. gr.\n{text}\n\n" per article
+    # body_text: grein-aware and mgr-aware so ts_headline snippets include context
     if provisions:
         body_parts: list[str] = []
         for p in provisions:
-            body_parts.append(f"{p['num']}. gr.")
-            body_parts.append(p['text'])
-            body_parts.append('')
+            if p.get("sub"):
+                for s in p["sub"]:
+                    body_parts.append(f"{p['num']}. gr. {s['num']}. mgr.")
+                    body_parts.append(s['text'])
+                    body_parts.append('')
+            else:
+                body_parts.append(f"{p['num']}. gr.")
+                body_parts.append(p['text'])
+                body_parts.append('')
         body_text = '\n'.join(body_parts).strip()
     else:
         # No greinar found — use full stripped body text

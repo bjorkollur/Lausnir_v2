@@ -191,10 +191,11 @@ async def document(
 @app.get("/api/provision")
 async def get_provision(
     law: str = Query(..., description="Law number, e.g. '33/1944'"),
-    gr: int = Query(..., description="Article number"),
+    gr: int = Query(..., description="Article number (grein)"),
+    mgr: int | None = Query(None, description="Sub-article number (málsgrein), optional"),
     session: AsyncSession = Depends(get_session),
 ) -> dict:
-    """Return the text of a specific article (grein) of a specific law."""
+    """Return the text of a specific article or sub-article of a law."""
     from sqlalchemy import select as sa_select
 
     result = (await session.execute(
@@ -215,13 +216,31 @@ async def get_provision(
     if prov is None:
         raise HTTPException(
             status_code=404,
-            detail=f"Article {gr}. gr. not found in law {law!r} (has {len(provisions)} articles)",
+            detail=f"{gr}. gr. not found in law {law!r} (has {len(provisions)} articles)",
         )
+
+    if mgr is not None:
+        subs = prov.get("sub") or []
+        sub = next((s for s in subs if s.get("num") == mgr), None)
+        if sub is None:
+            raise HTTPException(
+                status_code=404,
+                detail=f"{mgr}. mgr. of {gr}. gr. not found in law {law!r} (has {len(subs)} sub-articles)",
+            )
+        return {
+            "law": law,
+            "law_name": result.summary,
+            "article": gr,
+            "sub_article": mgr,
+            "text": sub["text"],
+            "url": result.url,
+        }
 
     return {
         "law": law,
         "law_name": result.summary,
         "article": gr,
         "text": prov["text"],
+        "sub_articles": prov.get("sub"),
         "url": result.url,
     }

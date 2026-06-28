@@ -52,6 +52,60 @@ def test_md5_present():
     expected = hashlib.md5(_STJORNARSKRA_EXCERPT).hexdigest()
     assert result["md5"] == expected
 
+def test_provisions_have_sub_articles():
+    """Each article in the fixture has one sub-article (G1M1, G2M1)."""
+    result = parse_law_html(_STJORNARSKRA_EXCERPT, "1944033.html")
+    provs = result["provisions"]
+    # Both articles have sub-articles
+    assert "sub" in provs[0]
+    assert provs[0]["sub"][0]["num"] == 1
+    assert "lýðveldi" in provs[0]["sub"][0]["text"]
+    assert "sub" in provs[1]
+    assert provs[1]["sub"][0]["num"] == 1
+    assert "Alþingi" in provs[1]["sub"][0]["text"]
+
+
+def test_body_text_includes_mgr_prefix():
+    """body_text must prefix each sub-article with 'N. gr. M. mgr.'."""
+    result = parse_law_html(_STJORNARSKRA_EXCERPT, "1944033.html")
+    bt = result["body_text"]
+    assert "1. gr. 1. mgr." in bt
+    assert "2. gr. 1. mgr." in bt
+
+
+_TWO_MGR_HTML = b"""<html><body>
+<h2> L\xf6g um hegningar </h2>
+<p><strong>1940  nr. 19  12. februar</strong></p>
+<small><b>T\xf3k gildi 1. januar 1941.</b></small>
+<span id="G218"></span><IMG SRC="sk.jpg"> <b>218. gr.</b><br>
+<IMG SRC="hk.jpg" id="G218M1"> Hafi ma\xf0ur me\xf0 v\xedsvitandi l\xedkams\xe1r\xe1s valdi\xf0 \xf6\xf0rum manni tj\xf3ni.<br>
+<IMG SRC="hk.jpg" id="G218M2"> N\xfa hl\xfdst st\xf3rfellt l\xedkams- e\xf0a heilsutj\xf3n af \xe1r\xe1s.<br>
+</body></html>"""
+
+
+def test_two_sub_articles():
+    """Article with two sub-articles produces sub=[{num:1,...},{num:2,...}]."""
+    result = parse_law_html(_TWO_MGR_HTML, "1940019.html")
+    provs = result["provisions"]
+    assert len(provs) == 1
+    assert provs[0]["num"] == 218
+    subs = provs[0]["sub"]
+    assert len(subs) == 2
+    assert subs[0]["num"] == 1
+    assert subs[1]["num"] == 2
+    assert "líkamsárás" in subs[0]["text"]
+    assert "stórfellt" in subs[1]["text"]
+
+
+def test_body_text_two_mgr_prefixed():
+    result = parse_law_html(_TWO_MGR_HTML, "1940019.html")
+    bt = result["body_text"]
+    assert "218. gr. 1. mgr." in bt
+    assert "218. gr. 2. mgr." in bt
+    assert "líkamsárás" in bt
+    assert "stórfellt" in bt
+
+
 def test_no_provisions_gives_raw_body():
     """A law with no greinar span IDs still gets body_text (the raw stripped text)."""
     html = b"""<html><body>
