@@ -16,9 +16,9 @@ def test_categories_partition_registry():
     validate_catalog()  # raises on duplicate / unknown / missing
 
 
-def test_tree_has_four_categories():
+def test_tree_has_five_categories():
     keys = [c["key"] for c in catalog()]
-    assert keys == ["domstolar", "stjornsysla", "nefndir", "baekur"]
+    assert keys == ["domstolar", "stjornsysla", "nefndir", "baekur", "lagasafn"]
 
 
 def test_every_source_reachable_from_tree():
