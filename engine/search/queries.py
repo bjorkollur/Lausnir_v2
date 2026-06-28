@@ -25,38 +25,44 @@ from typing import Any
 
 # ── Provision query parser ────────────────────────────────────────────────────
 # Handles patterns like:
-#   "218. gr. 1. mgr. 19/1940"   "3. gr. 33/1944"
-#   "19/1940 218. gr. 1. mgr."   "33/1944, 3. gr."
-#   "12. gr. laga nr. 91/1991"   "nr. 91/1991 12. gr."
+#   "218. gr. 1. mgr. 19/1940"     "3. gr. 33/1944"
+#   "218. gr. a. 1. mgr. 19/1940"  "218. gr. a. 19/1940"
+#   "19/1940 218. gr. a. 1. mgr."  "33/1944, 3. gr."
+#   "12. gr. laga nr. 91/1991"
 _PROVISION_RE = _re.compile(
-    # Pattern A: gr [mgr] law
+    # Pattern A: gr [suffix] [mgr] law
     r'(?:(?P<gr_a>\d+)\.\s*gr\.'
+    r'(?:\s*(?P<sfx_a>[a-záðéíóúýþæö])\.)?'
     r'(?:\s*(?P<mgr_a>\d+)\.\s*mgr\.)?'
     r'\s*(?:laga?\s+)?(?:nr\.\s*)?(?P<law_a>\d+/\d{4}))'
     r'|'
-    # Pattern B: law gr [mgr]
+    # Pattern B: law gr [suffix] [mgr]
     r'(?:(?:nr\.\s*)?(?P<law_b>\d+/\d{4})[,\s]+'
     r'(?P<gr_b>\d+)\.\s*gr\.'
+    r'(?:\s*(?P<sfx_b>[a-záðéíóúýþæö])\.)?'
     r'(?:\s*(?P<mgr_b>\d+)\.\s*mgr\.)?)',
     _re.IGNORECASE
 )
 
 
-def parse_provision_query(q: str) -> tuple[str, int, int | None] | None:
-    """If q looks like a provision reference, return (case_number, article_num, sub_article|None).
+def parse_provision_query(q: str) -> tuple[str, int, str | None, int | None] | None:
+    """Parse a provision reference. Returns (law, gr, suffix|None, mgr|None) or None.
 
-    E.g. '3. gr. 33/1944' → ('33/1944', 3, None)
-         '218. gr. 1. mgr. 19/1940' → ('19/1940', 218, 1)
-    Returns None if q is not a provision reference.
+    Examples:
+      '3. gr. 33/1944'              → ('33/1944', 3, None, None)
+      '218. gr. 1. mgr. 19/1940'   → ('19/1940', 218, None, 1)
+      '218. gr. a. 19/1940'         → ('19/1940', 218, 'a', None)
+      '218. gr. a. 1. mgr. 19/1940' → ('19/1940', 218, 'a', 1)
     """
     m = _PROVISION_RE.search(q.strip())
     if not m:
         return None
     law = m.group('law_a') or m.group('law_b')
     gr = m.group('gr_a') or m.group('gr_b')
+    sfx = m.group('sfx_a') or m.group('sfx_b')
     mgr = m.group('mgr_a') or m.group('mgr_b')
     if law and gr:
-        return (law, int(gr), int(mgr) if mgr else None)
+        return (law, int(gr), sfx.lower() if sfx else None, int(mgr) if mgr else None)
     return None
 
 from sqlalchemy import text

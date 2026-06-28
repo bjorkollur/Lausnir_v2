@@ -76,8 +76,10 @@ def _strip_html(html_fragment: str) -> str:
     return text.strip()
 
 # ── Article / provision extraction ────────────────────────────────────────────
-_SPAN_GR_RE = re.compile(r'^G(\d+)$')      # id="G1", not id="G1M1"
-_IMG_MGR_RE = re.compile(r'^G\d+M(\d+)$')  # id="G1M1" → group(1)=1
+# Matches span IDs for articles: G218 and G218A (letter-suffixed, uppercase)
+_SPAN_GR_RE = re.compile(r'^G(\d+)([A-Z]?)$')
+# Matches sub-article IMG IDs: G218M1, G218AM1, G218BM2 etc.
+_IMG_MGR_RE = re.compile(r'^G\d+[A-Z]?M(\d+)$')
 
 
 def _sibs_to_text(sibs: list) -> str:
@@ -89,11 +91,22 @@ def _sibs_to_text(sibs: list) -> str:
     return _WS.sub(' ', ' '.join(parts)).strip()
 
 
-def _extract_provisions(soup: BeautifulSoup) -> list[dict[str, Any]]:
-    """Find <span id="GN"> anchors. Returns provisions with optional sub-articles.
+def _gr_label(num: int, suffix: str | None, mgr: int | None = None) -> str:
+    """Build a human-readable article label for body_text prefixes."""
+    label = f"{num}. gr."
+    if suffix:
+        label += f" {suffix}."
+    if mgr is not None:
+        label += f" {mgr}. mgr."
+    return label
 
-    Each provision: {"num": N, "text": "...", "sub": [{"num": M, "text": "..."}]}
-    Sub-articles (málsgreinar) present when HTML uses <img id="GNM1">, <img id="GNM2"> etc.
+
+def _extract_provisions(soup: BeautifulSoup) -> list[dict[str, Any]]:
+    """Find <span id="GN[A-Z]?"> anchors. Returns provisions with optional sub-articles.
+
+    Each provision: {"num": N, "suffix": "a"|None, "text": "...", "sub": [...]}
+    Letter-suffixed articles (218. gr. a. → G218A) and their sub-articles are
+    stored as separate provisions with suffix="a".
     """
     provisions: list[dict[str, Any]] = []
 
@@ -102,6 +115,7 @@ def _extract_provisions(soup: BeautifulSoup) -> list[dict[str, Any]]:
         if not m:
             continue
         num = int(m.group(1))
+        suffix: str | None = m.group(2).lower() or None  # "A"→"a", ""→None
 
         # Partition siblings into sub-article buckets: [(mgr_num | None, [sibs])]
         sub_groups: list[tuple[int | None, list]] = []
@@ -111,10 +125,12 @@ def _extract_provisions(soup: BeautifulSoup) -> list[dict[str, Any]]:
 
         for sib in span.next_siblings:
             if isinstance(sib, Tag):
+                # Stop at any next G-span (with or without letter suffix)
                 if sib.name == 'span' and _SPAN_GR_RE.match(sib.get('id', '')):
                     break
-                if sib.name == 'b' and re.match(r'^\d+\.', sib.get_text(strip=True)):
-                    continue  # skip "N. gr." bold label
+                # Skip bold article label e.g. "[218. gr. a."
+                if sib.name == 'b' and re.match(r'^\[?\d+\.', sib.get_text(strip=True)):
+                    continue
                 if sib.name == 'img' and sib.get('id'):
                     mm = _IMG_MGR_RE.match(sib.get('id', ''))
                     if mm:
@@ -127,6 +143,10 @@ def _extract_provisions(soup: BeautifulSoup) -> list[dict[str, Any]]:
 
         sub_groups.append((cur_num, cur_sibs))
 
+        prov: dict[str, Any] = {"num": num}
+        if suffix:
+            prov["suffix"] = suffix
+
         if has_subs:
             subs = [
                 {"num": sub_num, "text": _sibs_to_text(sb)}
@@ -134,12 +154,14 @@ def _extract_provisions(soup: BeautifulSoup) -> list[dict[str, Any]]:
                 if sub_num is not None and _sibs_to_text(sb)
             ]
             if subs:
-                full_text = ' '.join(s['text'] for s in subs)
-                provisions.append({"num": num, "text": full_text, "sub": subs})
+                prov["text"] = ' '.join(s['text'] for s in subs)
+                prov["sub"] = subs
+                provisions.append(prov)
         else:
             text = _sibs_to_text(sub_groups[0][1]) if sub_groups else ""
             if text:
-                provisions.append({"num": num, "text": text})
+                prov["text"] = text
+                provisions.append(prov)
 
     return provisions
 
@@ -185,17 +207,18 @@ def parse_law_html(html_bytes: bytes, filename: str) -> dict[str, Any]:
     # Provisions
     provisions = _extract_provisions(soup)
 
-    # body_text: grein-aware and mgr-aware so ts_headline snippets include context
+    # body_text: grein+suffix+mgr-aware so ts_headline snippets include full context
     if provisions:
         body_parts: list[str] = []
         for p in provisions:
+            sfx = p.get("suffix")
             if p.get("sub"):
                 for s in p["sub"]:
-                    body_parts.append(f"{p['num']}. gr. {s['num']}. mgr.")
+                    body_parts.append(_gr_label(p['num'], sfx, s['num']))
                     body_parts.append(s['text'])
                     body_parts.append('')
             else:
-                body_parts.append(f"{p['num']}. gr.")
+                body_parts.append(_gr_label(p['num'], sfx))
                 body_parts.append(p['text'])
                 body_parts.append('')
         body_text = '\n'.join(body_parts).strip()

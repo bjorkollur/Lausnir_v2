@@ -80,6 +80,10 @@ _TWO_MGR_HTML = b"""<html><body>
 <span id="G218"></span><IMG SRC="sk.jpg"> <b>218. gr.</b><br>
 <IMG SRC="hk.jpg" id="G218M1"> Hafi ma\xf0ur me\xf0 v\xedsvitandi l\xedkams\xe1r\xe1s valdi\xf0 \xf6\xf0rum manni tj\xf3ni.<br>
 <IMG SRC="hk.jpg" id="G218M2"> N\xfa hl\xfdst st\xf3rfellt l\xedkams- e\xf0a heilsutj\xf3n af \xe1r\xe1s.<br>
+<span id="G218A"></span><IMG SRC="sk.jpg"> <b>[218. gr. a.</b><br>
+<IMG SRC="hk.jpg" id="G218AM1"> Hver sem me\xf0 l\xedkams\xe1r\xe1s veldur tj\xf3ni \xe1 l\xedkama stj\xf3rnvaldsins.<br>
+<span id="G219"></span><IMG SRC="sk.jpg"> <b>219. gr.</b><br>
+<IMG SRC="hk.jpg" id="G219M1"> N\xe6stu grein.<br>
 </body></html>"""
 
 
@@ -87,9 +91,11 @@ def test_two_sub_articles():
     """Article with two sub-articles produces sub=[{num:1,...},{num:2,...}]."""
     result = parse_law_html(_TWO_MGR_HTML, "1940019.html")
     provs = result["provisions"]
-    assert len(provs) == 1
-    assert provs[0]["num"] == 218
-    subs = provs[0]["sub"]
+    # 218, 218a, 219
+    nums = [p["num"] for p in provs]
+    assert 218 in nums
+    p218 = next(p for p in provs if p["num"] == 218 and not p.get("suffix"))
+    subs = p218["sub"]
     assert len(subs) == 2
     assert subs[0]["num"] == 1
     assert subs[1]["num"] == 2
@@ -97,11 +103,21 @@ def test_two_sub_articles():
     assert "stórfellt" in subs[1]["text"]
 
 
+def test_letter_suffixed_article():
+    """218. gr. a. (G218A span) is parsed as a separate provision with suffix='a'."""
+    result = parse_law_html(_TWO_MGR_HTML, "1940019.html")
+    provs = result["provisions"]
+    p218a = next((p for p in provs if p["num"] == 218 and p.get("suffix") == "a"), None)
+    assert p218a is not None, "218. gr. a. not found in provisions"
+    assert "stjórnvaldsins" in p218a["text"] or "stjórnvaldsins" in p218a["text"]
+
+
 def test_body_text_two_mgr_prefixed():
     result = parse_law_html(_TWO_MGR_HTML, "1940019.html")
     bt = result["body_text"]
     assert "218. gr. 1. mgr." in bt
     assert "218. gr. 2. mgr." in bt
+    assert "218. gr. a." in bt
     assert "líkamsárás" in bt
     assert "stórfellt" in bt
 

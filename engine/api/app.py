@@ -192,10 +192,18 @@ async def document(
 async def get_provision(
     law: str = Query(..., description="Law number, e.g. '33/1944'"),
     gr: int = Query(..., description="Article number (grein)"),
+    gr_suffix: str | None = Query(None, description="Letter suffix for e.g. '218. gr. a.' → gr_suffix=a"),
     mgr: int | None = Query(None, description="Sub-article number (málsgrein), optional"),
     session: AsyncSession = Depends(get_session),
 ) -> dict:
-    """Return the text of a specific article or sub-article of a law."""
+    """Return the text of a specific article or sub-article of a law.
+
+    Examples:
+      /api/provision?law=19/1940&gr=218              → 218. gr. (full)
+      /api/provision?law=19/1940&gr=218&mgr=1        → 218. gr. 1. mgr.
+      /api/provision?law=19/1940&gr=218&gr_suffix=a  → 218. gr. a.
+      /api/provision?law=19/1940&gr=218&gr_suffix=a&mgr=1 → 218. gr. a. 1. mgr.
+    """
     from sqlalchemy import select as sa_select
 
     result = (await session.execute(
@@ -212,25 +220,34 @@ async def get_provision(
         raise HTTPException(status_code=404, detail=f"Law {law!r} not found")
 
     provisions = result.provisions or []
-    prov = next((p for p in provisions if p.get("num") == gr), None)
+    # Match on both num and suffix (None suffix matches provisions without suffix key)
+    sfx = gr_suffix.lower() if gr_suffix else None
+    prov = next(
+        (p for p in provisions
+         if p.get("num") == gr and p.get("suffix") == sfx),
+        None,
+    )
     if prov is None:
+        label = f"{gr}. gr." + (f" {sfx}." if sfx else "")
         raise HTTPException(
             status_code=404,
-            detail=f"{gr}. gr. not found in law {law!r} (has {len(provisions)} articles)",
+            detail=f"{label} not found in law {law!r} (has {len(provisions)} articles)",
         )
 
     if mgr is not None:
         subs = prov.get("sub") or []
         sub = next((s for s in subs if s.get("num") == mgr), None)
         if sub is None:
+            label = f"{gr}. gr." + (f" {sfx}." if sfx else "")
             raise HTTPException(
                 status_code=404,
-                detail=f"{mgr}. mgr. of {gr}. gr. not found in law {law!r} (has {len(subs)} sub-articles)",
+                detail=f"{mgr}. mgr. of {label} not found in law {law!r} (has {len(subs)} sub-articles)",
             )
         return {
             "law": law,
             "law_name": result.summary,
             "article": gr,
+            "article_suffix": sfx,
             "sub_article": mgr,
             "text": sub["text"],
             "url": result.url,
@@ -240,6 +257,7 @@ async def get_provision(
         "law": law,
         "law_name": result.summary,
         "article": gr,
+        "article_suffix": sfx,
         "text": prov["text"],
         "sub_articles": prov.get("sub"),
         "url": result.url,

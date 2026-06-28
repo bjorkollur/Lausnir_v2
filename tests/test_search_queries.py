@@ -100,21 +100,29 @@ def test_order_clause_oldest():
 
 def test_parse_provision_query_gr_first():
     from engine.search.queries import parse_provision_query
-    assert parse_provision_query("3. gr. 33/1944") == ("33/1944", 3, None)
-    assert parse_provision_query("12. gr. laga nr. 91/1991") == ("91/1991", 12, None)
+    assert parse_provision_query("3. gr. 33/1944") == ("33/1944", 3, None, None)
+    assert parse_provision_query("12. gr. laga nr. 91/1991") == ("91/1991", 12, None, None)
 
 
 def test_parse_provision_query_law_first():
     from engine.search.queries import parse_provision_query
-    assert parse_provision_query("33/1944, 3. gr.") == ("33/1944", 3, None)
-    assert parse_provision_query("nr. 91/1991 12. gr.") == ("91/1991", 12, None)
+    assert parse_provision_query("33/1944, 3. gr.") == ("33/1944", 3, None, None)
+    assert parse_provision_query("nr. 91/1991 12. gr.") == ("91/1991", 12, None, None)
 
 
 def test_parse_provision_query_with_mgr():
     from engine.search.queries import parse_provision_query
-    assert parse_provision_query("218. gr. 1. mgr. 19/1940") == ("19/1940", 218, 1)
-    assert parse_provision_query("218. gr. 2. mgr. 19/1940") == ("19/1940", 218, 2)
-    assert parse_provision_query("19/1940 218. gr. 1. mgr.") == ("19/1940", 218, 1)
+    assert parse_provision_query("218. gr. 1. mgr. 19/1940") == ("19/1940", 218, None, 1)
+    assert parse_provision_query("218. gr. 2. mgr. 19/1940") == ("19/1940", 218, None, 2)
+    assert parse_provision_query("19/1940 218. gr. 1. mgr.") == ("19/1940", 218, None, 1)
+
+
+def test_parse_provision_query_with_suffix():
+    from engine.search.queries import parse_provision_query
+    assert parse_provision_query("218. gr. a. 19/1940") == ("19/1940", 218, "a", None)
+    assert parse_provision_query("218. gr. a. 1. mgr. 19/1940") == ("19/1940", 218, "a", 1)
+    assert parse_provision_query("19/1940 218. gr. b. 2. mgr.") == ("19/1940", 218, "b", 2)
+    assert parse_provision_query("218. gr. c. 19/1940") == ("19/1940", 218, "c", None)
 
 
 def test_parse_provision_query_no_match():
