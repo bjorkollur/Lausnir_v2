@@ -243,7 +243,11 @@ async def search_documents(
             has_text = False  # nothing lemmatizable → filter-only browse
     elif has_text and mode == "regex":
         try:
-            re.compile(q)
+            # PostgreSQL's POSIX engine supports \m/\M and POSIX classes that Python re
+            # does not — strip them before Python-validation so they don't raise false errors.
+            _py_test = re.sub(r'\\[mM]|\[\[:<:\]\]|\[\[:>:\]\]|'
+                              r'\[\[:alpha:\]\]|\[\[:digit:\]\]|\[\[:space:\]\]', 'x', q)
+            re.compile(_py_test)
         except re.error as exc:
             raise SearchError(f"Invalid regex: {exc}") from exc
         fields = regex_fields or DEFAULT_REGEX_FIELDS
@@ -296,17 +300,22 @@ async def search_documents(
     """
 
     if mode == "keyword" and has_text:
+        # BUG3 fix: use lemmatized query so ts_headline highlights the forms that actually matched.
+        # BUG2 fix: include lower_body_text so matches there are highlighted too.
+        page_params["hl"] = lemmatize_query(q) or q
         snippet_select = (
-            "ts_headline('simple', coalesce(d.body_text, ''), "
+            "ts_headline('simple', "
+            "coalesce(d.body_text, '') || E'\\n\\n' || coalesce(d.lower_body_text, ''), "
             "plainto_tsquery('simple', :hl), "
             "'StartSel=<mark>,StopSel=</mark>,MaxFragments=2,MaxWords=28,"
             "MinWords=8,ShortWord=2') AS snippet"
         )
-        page_params["hl"] = q
         body_head_select = "NULL AS body_head"
     elif mode == "proximity" and has_text and "prox_q" in params:
+        # BUG2 fix: include lower_body_text in snippet source.
         snippet_select = (
-            "ts_headline('simple', coalesce(d.body_text, ''), "
+            "ts_headline('simple', "
+            "coalesce(d.body_text, '') || E'\\n\\n' || coalesce(d.lower_body_text, ''), "
             "to_tsquery('simple', :prox_q), "
             "'StartSel=<mark>,StopSel=</mark>,MaxFragments=2,MaxWords=28,"
             "MinWords=8,ShortWord=2') AS snippet"
@@ -314,8 +323,10 @@ async def search_documents(
         body_head_select = "NULL AS body_head"
     else:
         snippet_select = "NULL AS snippet"
+        # Include lower_body_text so _regex_snippet can find matches there too.
         body_head_select = (
-            f"left(d.body_text, {_REGEX_SNIPPET_SCAN}) AS body_head"
+            f"left(coalesce(d.body_text, '') || E'\\n\\n' || coalesce(d.lower_body_text, ''), "
+            f"{_REGEX_SNIPPET_SCAN}) AS body_head"
             if snip_pattern else "NULL AS body_head"
         )
 
