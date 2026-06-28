@@ -140,6 +140,28 @@ API: `https://island.is/api/graphql` — `getGenericListItems` (list) + `getGene
 
 ---
 
+## Lagasafn Alþingis
+
+**Uppruni:** https://www.althingi.is/lagasafn/zip/nuna/allt.zip (ZIP, ISO-8859-1)
+**Uppfærsla:** `scripts/sync_lagasafn.py` (MD5-miðað, skoðar Last-Modified haus)
+**Skjöl:** 915 lög, eitt per HTML-skrá í ZIP
+**Greinar:** Geymdar í `provisions JSONB` dálki; `body_text` er sniðinn sem `"N. gr.\n{texti}"` per grein til grein-meðvitaðra snippets
+**Grein-leit:** `GET /api/provision?law=33/1944&gr=1`
+
+| short_name | display_name | Tier | Skjöl |
+|---|---|---|---|
+| lagasafn_01 | 1. Stjórnskipunarlög o.fl. | 0 | 12 |
+| lagasafn_02 | 2. Mannréttindi | 0 | 17 |
+| lagasafn_03 | 3. Forseti Íslands | 0 | 4 |
+| lagasafn_04 | 4. Alþingi og lagasetning | 0 | 6 |
+| lagasafn_05 | 5. Dómstólar og réttarfar | 0 | 28 |
+| … (48 heimildir) | … | 0 | … |
+| lagasafn_48 | 48. Byggðamál | 0 | — |
+
+**Verdict types:** Lög, Forsetaúrskurður, Forsetabréf, Auglýsing, Reglugerð, Samþykkt, Tilskipun, Bréf
+
+---
+
 ## Tæknileg yfirlit
 
 ### API-heimildir
