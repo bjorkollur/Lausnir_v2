@@ -280,11 +280,11 @@ async def _search_by_chunks(
 
     # Sort order for chunk search: only relevance and date make sense
     if sort == "oldest":
-        order_sql = "d.document_date ASC NULLS LAST, d.id"
+        order_sql = "document_date ASC NULLS LAST, id"
     elif sort == "newest":
-        order_sql = "d.document_date DESC NULLS LAST, d.id"
+        order_sql = "document_date DESC NULLS LAST, id"
     else:  # relevance (default)
-        order_sql = "best_rank DESC, d.document_date DESC NULLS LAST, d.id"
+        order_sql = "best_rank DESC, document_date DESC NULLS LAST, id"
 
     base_sql = f"""
         SELECT
