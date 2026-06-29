@@ -162,6 +162,19 @@ VALID_MODES = frozenset({
     "keyword", "exact", "prefix", "substring", "any", "proximity", "regex"
 })
 
+# ── Chunk-aware search routing ────────────────────────────────────────────────
+# Sources whose documents are chunked into document_chunks.
+# When the entire scope resolves to these sources, keyword search routes through
+# the chunk table for better relevance and snippets on long documents.
+CHUNKED_SCOPE_KEYS: frozenset[str] = frozenset({"logfraediritgerdir", "baekur"})
+
+
+def _scope_is_chunked(scope: list[str] | None) -> bool:
+    """True when ALL scope tokens are chunked sources (chunk table search applies)."""
+    if not scope:
+        return False
+    return all(tok in CHUNKED_SCOPE_KEYS for tok in scope)
+
 
 def _build_text_filter(
     mode: str, words: list[str], fields: list[str] | None, proximity_n: int
@@ -230,6 +243,115 @@ def _build_text_filter(
     return frags, params
 
 
+async def _search_by_chunks(
+    session: AsyncSession,
+    *,
+    lemmas: str,
+    scope_filter,  # ScopeFilter | None
+    date_from,     # date | None
+    date_to,       # date | None
+    sort: str,
+    page: int,
+    page_size: int,
+) -> "SearchResults":
+    """Keyword search via document_chunks table; aggregates to document level.
+
+    Returns a SearchResults with the same shape as search_documents.
+    Snippets are built from the best-matching chunk using ts_headline.
+    """
+    offset = (page - 1) * page_size
+
+    # Build document-level WHERE clause (scope + dates) applied before chunk search
+    doc_where: list[str] = []
+    doc_params: dict[str, Any] = {"lemmas": lemmas}
+
+    if scope_filter is not None:
+        frag, sparams = scope_filter.to_sql(prefix="cs")
+        doc_where.append(frag)
+        doc_params.update(sparams)
+    if date_from is not None:
+        doc_where.append("d.document_date >= :cs_date_from")
+        doc_params["cs_date_from"] = date_from
+    if date_to is not None:
+        doc_where.append("d.document_date <= :cs_date_to")
+        doc_params["cs_date_to"] = date_to
+
+    doc_where_sql = (" AND " + " AND ".join(doc_where)) if doc_where else ""
+
+    # Sort order for chunk search: only relevance and date make sense
+    if sort == "oldest":
+        order_sql = "d.document_date ASC NULLS LAST, d.id"
+    elif sort == "newest":
+        order_sql = "d.document_date DESC NULLS LAST, d.id"
+    else:  # relevance (default)
+        order_sql = "best_rank DESC, d.document_date DESC NULLS LAST, d.id"
+
+    base_sql = f"""
+        SELECT
+            d.id,
+            s.short_name AS source,
+            s.display_name AS source_display,
+            d.court, d.case_number, d.document_date, d.verdict_type,
+            d.summary, d.keywords, d.plaintiffs, d.defendants,
+            MAX(ts_rank(c.fts_is, plainto_tsquery('simple', :lemmas))) AS best_rank
+        FROM document_chunks c
+        JOIN documents d ON d.id = c.document_id
+        JOIN sources s ON s.id = d.source_id
+        WHERE c.fts_is @@ plainto_tsquery('simple', :lemmas){doc_where_sql}
+        GROUP BY d.id, s.short_name, s.display_name, d.court, d.case_number,
+                 d.document_date, d.verdict_type, d.summary, d.keywords,
+                 d.plaintiffs, d.defendants
+    """
+
+    total = (await session.execute(
+        text(f"SELECT count(*) FROM ({base_sql}) sub"), doc_params
+    )).scalar() or 0
+
+    if total == 0:
+        return SearchResults(total=0, page=page, page_size=page_size, results=[])
+
+    page_params = {**doc_params, "limit": page_size, "offset": offset}
+    rows = (await session.execute(text(f"""
+        WITH ranked AS ({base_sql})
+        SELECT r.*,
+            (SELECT ts_headline(
+                'simple',
+                c2.chunk_text,
+                plainto_tsquery('simple', :lemmas),
+                'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=35,MinWords=12,ShortWord=2'
+            )
+            FROM document_chunks c2
+            WHERE c2.document_id = r.id
+            ORDER BY ts_rank(c2.fts_is, plainto_tsquery('simple', :lemmas)) DESC
+            LIMIT 1) AS snippet
+        FROM ranked r
+        ORDER BY {order_sql}
+        LIMIT :limit OFFSET :offset
+    """), page_params)).mappings().all()
+
+    results: list[dict[str, Any]] = []
+    for r in rows:
+        snippet = r.get("snippet") or (r.get("summary") or "")[:240]
+        results.append({
+            "id": str(r["id"]),
+            "urlausn": _citation(r["source"], r["court"], r["case_number"],
+                                 r["document_date"], r["verdict_type"]),
+            "source": r["source"],
+            "source_display": r["source_display"],
+            "court": r["court"],
+            "case_number": r["case_number"],
+            "document_date": r["document_date"].isoformat() if r["document_date"] else None,
+            "verdict_type": r["verdict_type"],
+            "keywords": r["keywords"] or [],
+            "plaintiffs": r["plaintiffs"] or [],
+            "defendants": r["defendants"] or [],
+            "snippet": snippet,
+            "has_appeal_links": False,  # theses have no appeal links
+        })
+
+    return SearchResults(total=total, page=page, page_size=page_size, results=results)
+
+
 async def search_documents(
     session: AsyncSession,
     *,
@@ -280,6 +402,21 @@ async def search_documents(
     if has_text and mode == "keyword":
         lemmas = lemmatize_query(q)
         if lemmas:
+            # Route through document_chunks when scope is entirely chunked sources
+            if _scope_is_chunked(scope):
+                scope_filter = await resolve_scope(session, scope)
+                if scope_filter is not None and scope_filter.is_empty:
+                    return SearchResults(total=0, page=page, page_size=page_size, results=[])
+                return await _search_by_chunks(
+                    session,
+                    lemmas=lemmas,
+                    scope_filter=scope_filter,
+                    date_from=date_from,
+                    date_to=date_to,
+                    sort=sort,
+                    page=page,
+                    page_size=page_size,
+                )
             params["lemmas"] = lemmas
             where.append("d.fts_is @@ plainto_tsquery('simple', :lemmas)")
             rank_expr = "ts_rank(d.fts_is, plainto_tsquery('simple', :lemmas))"

@@ -129,3 +129,29 @@ def test_parse_provision_query_no_match():
     from engine.search.queries import parse_provision_query
     assert parse_provision_query("samningur") is None
     assert parse_provision_query("kaupsamningur 2024") is None
+
+
+# ── Chunk routing helpers ─────────────────────────────────────────────────────
+from engine.search.queries import _scope_is_chunked, CHUNKED_SCOPE_KEYS
+
+
+def test_scope_is_chunked_for_logfraediritgerdir():
+    assert _scope_is_chunked(["logfraediritgerdir"]) is True
+
+
+def test_scope_is_chunked_for_baekur():
+    assert _scope_is_chunked(["baekur"]) is True
+
+
+def test_scope_is_chunked_false_for_mixed():
+    assert _scope_is_chunked(["logfraediritgerdir", "haestirettur"]) is False
+
+
+def test_scope_is_chunked_false_for_empty():
+    assert _scope_is_chunked(None) is False
+    assert _scope_is_chunked([]) is False
+
+
+def test_scope_is_chunked_false_for_courts():
+    assert _scope_is_chunked(["haestirettur"]) is False
+    assert _scope_is_chunked(["domstolar"]) is False
