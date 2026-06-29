@@ -13,6 +13,7 @@ from __future__ import annotations
 from contextlib import asynccontextmanager
 from datetime import date
 from typing import AsyncIterator
+import re as _re_law
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -186,6 +187,45 @@ async def document(
             except Exception:
                 doc["markdown"] = None
     return doc
+
+
+_LAW_FOOTNOTE_RE = _re_law.compile(r'^\[|\]\d+\)$')
+
+
+def _clean_law_name(name: str | None) -> str | None:
+    """Strip Alþingi footnote brackets: '[Lög um ...]1)' → 'Lög um ...'"""
+    if not name:
+        return name
+    return _LAW_FOOTNOTE_RE.sub("", name.strip()).strip()
+
+
+@app.get("/api/law/{doc_id}")
+async def get_law(
+    doc_id: str,
+    session: AsyncSession = Depends(get_session),
+) -> dict:
+    """Return a lagasafn document with structured provisions for LawPanel."""
+    orm = await session.get(Document, doc_id)
+    if orm is None:
+        raise HTTPException(status_code=404, detail="Law not found")
+
+    src = await session.get(Source, orm.source_id)
+    if src is None or not src.short_name.startswith("lagasafn_"):
+        raise HTTPException(status_code=404, detail="Document is not a law")
+
+    kafli_num = int(src.short_name.split("_")[1])  # "lagasafn_01" → 1
+
+    return {
+        "id": str(orm.id),
+        "case_number": orm.case_number,
+        "law_name": _clean_law_name(orm.summary),
+        "verdict_type": orm.verdict_type,
+        "document_date": orm.document_date.isoformat() if orm.document_date else None,
+        "url": orm.url,
+        "kafli": kafli_num,
+        "kafli_label": src.display_name,
+        "provisions": orm.provisions or [],
+    }
 
 
 @app.get("/api/provision")
