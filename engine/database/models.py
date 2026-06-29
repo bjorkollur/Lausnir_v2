@@ -156,3 +156,27 @@ class DocumentLink(Base):
 
     def __repr__(self) -> str:
         return f"<DocumentLink {self.from_doc_id} -{self.relation}-> {self.to_doc_id}>"
+
+
+class DocumentChunk(Base):
+    """One chunk of a long document (400–600 words), with its own BÍN-lemmatized FTS."""
+    __tablename__ = "document_chunks"
+
+    id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
+    )
+    document_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("documents.id", ondelete="CASCADE"), nullable=False
+    )
+    chunk_index: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    chunk_text: Mapped[str] = mapped_column(Text, nullable=False)
+    fts_is: Mapped[Any | None] = mapped_column(TSVECTOR)
+
+    __table_args__ = (
+        UniqueConstraint("document_id", "chunk_index", name="uq_chunk_doc_idx"),
+        Index("ix_chunk_doc_id", "document_id"),
+        Index("ix_chunk_fts_is", "fts_is", postgresql_using="gin"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<DocumentChunk doc={self.document_id} idx={self.chunk_index}>"
