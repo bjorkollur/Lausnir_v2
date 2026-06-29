@@ -18,7 +18,7 @@ export default function LagasafnKafliPage() {
         scope: [scope],
         sort: "oldest",
         page: 1,
-        page_size: 200,
+        page_size: 100,
       }),
     enabled: !!n,
     staleTime: 5 * 60 * 1000,
