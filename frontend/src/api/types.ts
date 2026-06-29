@@ -34,3 +34,28 @@ export interface SearchParams {
   page?: number; page_size?: number; regex_fields?: string[];
   proximity_n?: number;
 }
+
+// GET /api/law/:id
+export interface SubProvision {
+  num: number;
+  text: string;
+}
+
+export interface Provision {
+  num: number;
+  suffix?: string;   // "a", "b" etc. — til staðar aðeins í stafliðagreinum (218. gr. a.)
+  text: string;
+  sub?: SubProvision[];
+}
+
+export interface LawDetail {
+  id: string;
+  case_number: string | null;
+  law_name: string | null;
+  verdict_type: string | null;
+  document_date: string | null;
+  url: string | null;
+  kafli: number;
+  kafli_label: string;
+  provisions: Provision[];
+}

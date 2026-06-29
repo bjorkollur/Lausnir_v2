@@ -1,4 +1,4 @@
-import type { SearchParams, SearchResponse, FacetsResponse, SourcesResponse, DocumentDetail } from "./types";
+import type { SearchParams, SearchResponse, FacetsResponse, SourcesResponse, DocumentDetail, LawDetail } from "./types";
 
 const BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8077";
 
@@ -58,3 +58,4 @@ export function fetchFacets(
 
 export const fetchSources = () => getJson<SourcesResponse>("/api/sources");
 export const fetchDocument = (id: string) => getJson<DocumentDetail>(`/api/document/${id}`);
+export const fetchLaw = (id: string) => getJson<LawDetail>(`/api/law/${id}`);
