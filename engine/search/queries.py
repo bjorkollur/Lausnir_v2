@@ -65,6 +65,37 @@ def parse_provision_query(q: str) -> tuple[str, int, str | None, int | None] | N
         return (law, int(gr), sfx.lower() if sfx else None, int(mgr) if mgr else None)
     return None
 
+
+def _build_provision_filter(
+    law: str,
+    gr: int | None,
+    sfx: str | None,
+    mgr: int | None,
+) -> tuple[str, dict]:
+    """Build a JSONB containment WHERE fragment for provision search.
+
+    The containment object includes only the fields the user specified:
+    - law always included
+    - gr included if provided
+    - mgr included if provided (only meaningful when gr is also provided)
+    - sfx included if provided (only meaningful when gr is also provided)
+
+    Returns (sql_fragment, params_dict) where sql_fragment uses :prov_filter.
+    """
+    import json as _json
+    obj: dict = {"law": law}
+    if gr is not None:
+        obj["gr"] = gr
+        if sfx is not None:
+            obj["sfx"] = sfx
+        if mgr is not None:
+            obj["mgr"] = mgr
+    return (
+        "d.cited_provisions @> CAST(:prov_filter AS jsonb)",
+        {"prov_filter": _json.dumps([obj])},
+    )
+
+
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -365,6 +396,7 @@ async def search_documents(
     page_size: int = DEFAULT_PAGE_SIZE,
     regex_fields: list[str] | None = None,
     proximity_n: int = 5,
+    provision: str | None = None,
 ) -> SearchResults:
     """Run a search and return one page of results plus the total match count."""
     if mode not in VALID_MODES:
@@ -392,6 +424,15 @@ async def search_documents(
     if date_to is not None:
         where.append("d.document_date <= :date_to")
         params["date_to"] = date_to
+
+    # Provision filter (independent of text mode)
+    if provision:
+        parsed = parse_provision_query(provision)
+        if parsed:
+            law, gr, sfx, mgr = parsed
+            prov_frag, prov_params = _build_provision_filter(law, gr, sfx, mgr)
+            where.append(prov_frag)
+            params.update(prov_params)
 
     has_text = bool(q)
     rank_expr = "0::real"

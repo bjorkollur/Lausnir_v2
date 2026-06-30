@@ -130,6 +130,7 @@ async def search(
     page_size: int = Query(DEFAULT_PAGE_SIZE, ge=1, le=100),
     regex_fields: list[str] | None = Query(None, description="Fields for regex mode"),
     proximity_n: int = Query(5, ge=1, le=50),
+    provision: str | None = Query(None, description="Provision reference, e.g. '218. gr. 19/1940'"),
     session: AsyncSession = Depends(get_session),
 ) -> dict:
     try:
@@ -137,7 +138,7 @@ async def search(
             session, q=q, mode=mode, scope=scope,
             date_from=date_from, date_to=date_to, sort=sort,
             page=page, page_size=page_size, regex_fields=regex_fields,
-            proximity_n=proximity_n,
+            proximity_n=proximity_n, provision=provision,
         )
     except SearchError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
