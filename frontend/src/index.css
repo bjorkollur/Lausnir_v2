@@ -1,13 +1,59 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@import url("https://rsms.me/inter/inter.css");
 
-:root { --accent: oklch(0.51 0.23 277); } /* indigo-600 */
+/* ── Design tokens ─────────────────────────────────────────────────────────────
+   Warm-monochrome, document-workspace palette. No web-font load: system-native
+   sans for UI/body, system serif for the brand wordmark. These tokens are generic
+   (not landing-page specific) so the rest of the app can reuse them.            */
+
+:root {
+  /* Surfaces */
+  --canvas: #fbfbfa;          /* warm bone page background */
+  --surface: #ffffff;         /* cards / inputs */
+  --border: #e7e6e3;          /* structural 1px dividers (warm neutral) */
+  --border-strong: #d6d4cf;   /* hover / emphasized borders */
+
+  /* Text */
+  --ink: #2f3437;             /* primary body — off-black charcoal, never #000 */
+  --ink-soft: #6b6a66;        /* secondary / muted */
+  --ink-faint: #908e89;       /* tertiary / captions */
+
+  /* Accent — single restrained slate-blue, used only for active/selected state.
+     The primary CTA itself uses solid ink, not the accent (see --cta).         */
+  --accent: #3a5a78;          /* muted slate-blue (replaces indigo-600) */
+  --accent-soft: #eef2f5;     /* washed accent tint for active chips */
+
+  /* Call-to-action — solid dark, white text, no shadow */
+  --cta: #2f3437;
+  --cta-hover: #45494c;
+}
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino,
+    Georgia, "Times New Roman", serif;
+
+  /* Expose semantic tokens to Tailwind utilities (e.g. text-ink, bg-canvas) */
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
 }
 
 html, body, #root { height: 100%; }
-body { @apply bg-white text-slate-900 antialiased; font-family: var(--font-sans); }
-mark { @apply bg-yellow-200 text-slate-900 rounded-sm px-0.5; }
+body {
+  @apply antialiased;
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+mark { @apply rounded-sm px-0.5; background-color: #f6e7a8; color: var(--ink); }
