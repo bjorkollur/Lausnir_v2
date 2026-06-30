@@ -36,6 +36,7 @@ function searchQs(p: SearchParams): URLSearchParams {
   if (p.proximity_n !== undefined && p.proximity_n !== 5) {
     qs.set("proximity_n", String(p.proximity_n));
   }
+  if (p.provision) qs.set("provision", p.provision);
   return qs;
 }
 

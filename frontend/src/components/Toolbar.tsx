@@ -15,12 +15,12 @@ const FTS_MODES = new Set<Mode>(["keyword", "proximity"]);
 export function Toolbar({ state, regexFields, onChange }:
   { state: SearchState; regexFields: string[]; onChange: (p: Partial<SearchState>) => void }) {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex flex-wrap items-center gap-3">
       <select
         aria-label="Röðun"
         value={state.sort}
         onChange={(e) => onChange({ sort: e.target.value as Sort })}
-        className="text-sm border border-slate-300 rounded-full px-3 py-1.5">
+        className="text-sm border border-slate-300 rounded-sm px-3 py-1.5 bg-white outline-none focus:border-[#0a246a] transition-colors">
         <option value="relevance" disabled={!FTS_MODES.has(state.mode)}>
           Bestar niðurstöður
         </option>
@@ -29,7 +29,7 @@ export function Toolbar({ state, regexFields, onChange }:
       </select>
 
       <Popover.Root>
-        <Popover.Trigger className="text-sm border border-slate-300 rounded-full px-3 py-1.5">
+        <Popover.Trigger className="text-sm border border-slate-300 rounded-sm px-3 py-1.5 hover:border-slate-400 transition-colors">
           Tímabil
         </Popover.Trigger>
         <Popover.Portal>
@@ -44,9 +44,11 @@ export function Toolbar({ state, regexFields, onChange }:
         </Popover.Portal>
       </Popover.Root>
 
+      <ProvisionInput value={state.provision ?? ""} onChange={(v) => onChange({ provision: v || undefined })} />
+
       {REGEX_BACKED_MODES.has(state.mode) && (
         <Popover.Root>
-          <Popover.Trigger className="text-sm border border-slate-300 rounded-full px-3 py-1.5">
+          <Popover.Trigger className="text-sm border border-slate-300 rounded-sm px-3 py-1.5 hover:border-slate-400 transition-colors">
             Reitir
           </Popover.Trigger>
           <Popover.Portal>
@@ -71,5 +73,52 @@ export function Toolbar({ state, regexFields, onChange }:
         </Popover.Root>
       )}
     </div>
+  );
+}
+
+// ── ProvisionInput ────────────────────────────────────────────────────────────
+
+import { useState, useEffect, type FormEvent } from "react";
+
+function ProvisionInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  const [draft, setDraft] = useState(value);
+  useEffect(() => setDraft(value), [value]);
+
+  const submit = (e: FormEvent) => { e.preventDefault(); onChange(draft.trim()); };
+  const clear = () => { setDraft(""); onChange(""); };
+
+  return (
+    <form onSubmit={submit} className="flex items-center gap-1">
+      <div className="relative flex items-center">
+        <input
+          type="text"
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+          placeholder="Lagaákvæði…"
+          aria-label="Leita eftir lagaákvæði"
+          className={`text-sm border rounded-sm px-3 py-1.5 w-44 outline-none transition-colors ${
+            value ? "border-indigo-400 bg-indigo-50" : "border-slate-300 bg-white hover:border-slate-400"
+          } focus:border-[#0a246a]`}
+        />
+        {draft && (
+          <button
+            type="button"
+            onClick={clear}
+            aria-label="Hreinsa lagaákvæði"
+            className="absolute right-1.5 text-slate-400 hover:text-slate-600 text-xs leading-none"
+          >
+            ✕
+          </button>
+        )}
+      </div>
+      {draft !== value && (
+        <button
+          type="submit"
+          className="text-xs text-indigo-600 hover:text-indigo-800 px-1"
+        >
+          Leita
+        </button>
+      )}
+    </form>
   );
 }
