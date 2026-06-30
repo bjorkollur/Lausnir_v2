@@ -47,7 +47,7 @@ app = FastAPI(title="Lausnir Leitar-API", version="1.0", lifespan=lifespan)
 # Local-only frontend: allow any localhost origin to call the API.
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"http://(localhost|127\.0\.0\.1)(:\d+)?",
+    allow_origin_regex=r"http://(localhost|127\.0\.0\.1|192\.168\.\d+\.\d+)(:\d+)?",
     allow_methods=["GET"],
     allow_headers=["*"],
 )
@@ -131,6 +131,7 @@ async def search(
     regex_fields: list[str] | None = Query(None, description="Fields for regex mode"),
     proximity_n: int = Query(5, ge=1, le=50),
     provision: str | None = Query(None, description="Provision reference, e.g. '218. gr. 19/1940'"),
+    keyword: str | None = Query(None, description="Filter by keywords/tags column only, substring match"),
     session: AsyncSession = Depends(get_session),
 ) -> dict:
     try:
@@ -138,7 +139,7 @@ async def search(
             session, q=q, mode=mode, scope=scope,
             date_from=date_from, date_to=date_to, sort=sort,
             page=page, page_size=page_size, regex_fields=regex_fields,
-            proximity_n=proximity_n, provision=provision,
+            proximity_n=proximity_n, provision=provision, keyword=keyword,
         )
     except SearchError as exc:
         raise HTTPException(status_code=400, detail=str(exc))

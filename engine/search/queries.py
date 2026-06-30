@@ -115,6 +115,23 @@ def _build_provision_filter(
     )
 
 
+def _build_keyword_filter(keyword: str) -> tuple[str, dict]:
+    """Build a WHERE fragment matching the keywords JSONB tag column only.
+
+    Case-insensitive substring match — `keywords::text` casts the JSONB array
+    to its text representation (e.g. '["forsjá", "skaðabætur"]') and ILIKE
+    matches anywhere in it. Same mechanism the existing regex-mode "Lykilorð"
+    field already uses (REGEX_COLUMNS["keywords"]), just exposed without
+    requiring the user to switch into regex mode.
+
+    Returns (sql_fragment, params_dict) where sql_fragment uses :keyword_pattern.
+    """
+    return (
+        "d.keywords::text ILIKE :keyword_pattern",
+        {"keyword_pattern": f"%{keyword}%"},
+    )
+
+
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -427,6 +444,7 @@ async def search_documents(
     regex_fields: list[str] | None = None,
     proximity_n: int = 5,
     provision: str | None = None,
+    keyword: str | None = None,
 ) -> SearchResults:
     """Run a search and return one page of results plus the total match count."""
     if mode not in VALID_MODES:
@@ -471,6 +489,13 @@ async def search_documents(
                 where.append(prov_frag)
                 params.update(prov_params)
 
+    # Keyword filter (independent of text mode) — matches the keywords JSONB
+    # tag column only, never body text.
+    if keyword and keyword.strip():
+        kw_frag, kw_params = _build_keyword_filter(keyword.strip())
+        where.append(kw_frag)
+        params.update(kw_params)
+
     has_text = bool(q)
     rank_expr = "0::real"
     regex_pattern: str | None = None
@@ -493,25 +518,30 @@ async def search_documents(
                 scope_filter = await resolve_scope(session, scope)
                 if scope_filter is not None and scope_filter.is_empty:
                     return SearchResults(total=0, page=page, page_size=page_size, results=[])
-                # Bug 2 fix: build the provision filter and pass it into the chunk search
-                # so it is not silently dropped when routing through _search_by_chunks.
-                prov_extra_where: list[str] = []
-                prov_extra_params: dict = {}
+                # Build extra WHERE fragments (provision + keyword) and pass them into
+                # the chunk search so neither is silently dropped when routing through
+                # _search_by_chunks (same regression class as the provision "Bug 2" fix).
+                chunk_extra_where: list[str] = []
+                chunk_extra_params: dict = {}
                 if provision:
                     _parsed = parse_provision_query(provision)
                     if _parsed:
                         _law, _gr, _sfx, _mgr = _parsed
                         _prov_frag, _prov_prm = _build_provision_filter(_law, _gr, _sfx, _mgr)
-                        prov_extra_where.append(_prov_frag)
-                        prov_extra_params.update(_prov_prm)
+                        chunk_extra_where.append(_prov_frag)
+                        chunk_extra_params.update(_prov_prm)
                     else:
                         _bare = re.search(r'\b(\d+/\d{4})\b', provision)
                         if _bare:
                             _prov_frag, _prov_prm = _build_provision_filter(
                                 _bare.group(1), None, None, None
                             )
-                            prov_extra_where.append(_prov_frag)
-                            prov_extra_params.update(_prov_prm)
+                            chunk_extra_where.append(_prov_frag)
+                            chunk_extra_params.update(_prov_prm)
+                if keyword and keyword.strip():
+                    _kw_frag, _kw_prm = _build_keyword_filter(keyword.strip())
+                    chunk_extra_where.append(_kw_frag)
+                    chunk_extra_params.update(_kw_prm)
                 return await _search_by_chunks(
                     session,
                     lemmas=lemmas,
@@ -521,8 +551,8 @@ async def search_documents(
                     sort=sort,
                     page=page,
                     page_size=page_size,
-                    extra_where=prov_extra_where or None,
-                    extra_params=prov_extra_params or None,
+                    extra_where=chunk_extra_where or None,
+                    extra_params=chunk_extra_params or None,
                 )
             params["lemmas"] = lemmas
             where.append("d.fts_is @@ plainto_tsquery('simple', :lemmas)")

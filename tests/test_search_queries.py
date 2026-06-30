@@ -155,3 +155,18 @@ def test_scope_is_chunked_false_for_empty():
 def test_scope_is_chunked_false_for_courts():
     assert _scope_is_chunked(["haestirettur"]) is False
     assert _scope_is_chunked(["domstolar"]) is False
+
+
+def test_build_keyword_filter_basic():
+    from engine.search.queries import _build_keyword_filter
+    frag, params = _build_keyword_filter("skaðabætur")
+    assert frag == "d.keywords::text ILIKE :keyword_pattern"
+    assert params == {"keyword_pattern": "%skaðabætur%"}
+
+
+def test_build_keyword_filter_uses_named_param():
+    from engine.search.queries import _build_keyword_filter
+    frag, params = _build_keyword_filter("forsjá")
+    assert ":keyword_pattern" in frag
+    assert "keyword_pattern" in params
+    assert params["keyword_pattern"] == "%forsjá%"
