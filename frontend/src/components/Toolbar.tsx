@@ -20,7 +20,7 @@ export function Toolbar({ state, regexFields, onChange }:
         aria-label="Röðun"
         value={state.sort}
         onChange={(e) => onChange({ sort: e.target.value as Sort })}
-        className="text-sm border border-slate-300 rounded-sm px-3 py-1.5 bg-white outline-none focus:border-[#0a246a] transition-colors">
+        className="text-sm border border-[var(--border)] rounded-md px-3 py-1.5 bg-[var(--surface)] text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors">
         <option value="relevance" disabled={!FTS_MODES.has(state.mode)}>
           Bestar niðurstöður
         </option>
@@ -29,17 +29,23 @@ export function Toolbar({ state, regexFields, onChange }:
       </select>
 
       <Popover.Root>
-        <Popover.Trigger className="text-sm border border-slate-300 rounded-sm px-3 py-1.5 hover:border-slate-400 transition-colors">
+        <Popover.Trigger className="text-sm border border-[var(--border)] rounded-md px-3 py-1.5 bg-[var(--surface)] text-[var(--ink-soft)] hover:border-[var(--border-strong)] hover:text-[var(--ink)] transition-colors">
           Tímabil
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content className="bg-white border border-slate-200 rounded-lg p-3 shadow-md flex flex-col gap-2">
-            <label className="text-sm">Frá <input type="date" value={state.date_from ?? ""}
-              onChange={(e) => onChange({ date_from: e.target.value || undefined })}
-              className="border rounded px-2 py-1" /></label>
-            <label className="text-sm">Til <input type="date" value={state.date_to ?? ""}
-              onChange={(e) => onChange({ date_to: e.target.value || undefined })}
-              className="border rounded px-2 py-1" /></label>
+          <Popover.Content sideOffset={6} className="bg-[var(--surface)] border border-[var(--border)] rounded-md p-3 flex flex-col gap-2 z-50">
+            <label className="text-sm text-[var(--ink-soft)] flex items-center gap-2">
+              <span className="w-7">Frá</span>
+              <input type="date" value={state.date_from ?? ""}
+                onChange={(e) => onChange({ date_from: e.target.value || undefined })}
+                className="border border-[var(--border)] bg-[var(--surface)] rounded-md px-2 py-1 text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors" />
+            </label>
+            <label className="text-sm text-[var(--ink-soft)] flex items-center gap-2">
+              <span className="w-7">Til</span>
+              <input type="date" value={state.date_to ?? ""}
+                onChange={(e) => onChange({ date_to: e.target.value || undefined })}
+                className="border border-[var(--border)] bg-[var(--surface)] rounded-md px-2 py-1 text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors" />
+            </label>
           </Popover.Content>
         </Popover.Portal>
       </Popover.Root>
@@ -50,16 +56,16 @@ export function Toolbar({ state, regexFields, onChange }:
 
       {REGEX_BACKED_MODES.has(state.mode) && (
         <Popover.Root>
-          <Popover.Trigger className="text-sm border border-slate-300 rounded-sm px-3 py-1.5 hover:border-slate-400 transition-colors">
+          <Popover.Trigger className="text-sm border border-[var(--border)] rounded-md px-3 py-1.5 bg-[var(--surface)] text-[var(--ink-soft)] hover:border-[var(--border-strong)] hover:text-[var(--ink)] transition-colors">
             Reitir
           </Popover.Trigger>
           <Popover.Portal>
-            <Popover.Content className="bg-white border border-slate-200 rounded-lg p-3 shadow-md flex flex-col gap-1">
+            <Popover.Content sideOffset={6} className="bg-[var(--surface)] border border-[var(--border)] rounded-md p-3 flex flex-col gap-1 z-50">
               {regexFields.map((f) => {
                 const base = state.regex_fields.length ? state.regex_fields : ["body_text"];
                 const on = base.includes(f);
                 return (
-                  <label key={f} className="text-sm flex items-center gap-2">
+                  <label key={f} className="text-sm text-[var(--ink-soft)] flex items-center gap-2 accent-[var(--accent)]">
                     <input type="checkbox" checked={on} onChange={(e) => {
                       const next = e.target.checked
                         ? [...new Set([...base, f])]
@@ -98,16 +104,16 @@ export function ProvisionInput({ value, onChange }: { value: string; onChange: (
           onChange={(e) => setDraft(e.target.value)}
           placeholder="Lagaákvæði…"
           aria-label="Leita eftir lagaákvæði"
-          className={`text-sm border rounded-sm px-3 py-1.5 w-44 outline-none transition-colors ${
-            value ? "border-indigo-400 bg-indigo-50" : "border-slate-300 bg-white hover:border-slate-400"
-          } focus:border-[#0a246a]`}
+          className={`text-sm border rounded-md px-3 py-1.5 w-44 text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none transition-colors ${
+            value ? "border-[var(--accent)] bg-[var(--accent-soft)]" : "border-[var(--border)] bg-[var(--surface)] hover:border-[var(--border-strong)]"
+          } focus:border-[var(--accent)]`}
         />
         {draft && (
           <button
             type="button"
             onClick={clear}
             aria-label="Hreinsa lagaákvæði"
-            className="absolute right-1.5 text-slate-400 hover:text-slate-600 text-xs leading-none"
+            className="absolute right-1.5 text-[var(--ink-faint)] hover:text-[var(--ink)] text-xs leading-none"
           >
             ✕
           </button>
@@ -116,7 +122,7 @@ export function ProvisionInput({ value, onChange }: { value: string; onChange: (
       {draft !== value && (
         <button
           type="submit"
-          className="text-xs text-indigo-600 hover:text-indigo-800 px-1"
+          className="text-xs text-[var(--accent)] hover:text-[var(--ink)] px-1"
         >
           Leita
         </button>
@@ -143,16 +149,16 @@ export function KeywordInput({ value, onChange }: { value: string; onChange: (v:
           onChange={(e) => setDraft(e.target.value)}
           placeholder="Lykilorð…"
           aria-label="Leita eftir lykilorði"
-          className={`text-sm border rounded-sm px-3 py-1.5 w-44 outline-none transition-colors ${
-            value ? "border-indigo-400 bg-indigo-50" : "border-slate-300 bg-white hover:border-slate-400"
-          } focus:border-[#0a246a]`}
+          className={`text-sm border rounded-md px-3 py-1.5 w-44 text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none transition-colors ${
+            value ? "border-[var(--accent)] bg-[var(--accent-soft)]" : "border-[var(--border)] bg-[var(--surface)] hover:border-[var(--border-strong)]"
+          } focus:border-[var(--accent)]`}
         />
         {draft && (
           <button
             type="button"
             onClick={clear}
             aria-label="Hreinsa lykilorð"
-            className="absolute right-1.5 text-slate-400 hover:text-slate-600 text-xs leading-none"
+            className="absolute right-1.5 text-[var(--ink-faint)] hover:text-[var(--ink)] text-xs leading-none"
           >
             ✕
           </button>
@@ -161,7 +167,7 @@ export function KeywordInput({ value, onChange }: { value: string; onChange: (v:
       {draft !== value && (
         <button
           type="submit"
-          className="text-xs text-indigo-600 hover:text-indigo-800 px-1"
+          className="text-xs text-[var(--accent)] hover:text-[var(--ink)] px-1"
         >
           Leita
         </button>

@@ -13,7 +13,7 @@ export function SearchBar({ state, onChange }:
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder={state.mode === "regex" ? "regex mynstur…" : "Leita…"}
-        className="w-full h-12 rounded-full border border-slate-300 px-5 text-base outline-none focus:border-indigo-500"
+        className="w-full h-12 rounded-md border border-[var(--border)] bg-[var(--surface)] px-5 text-base text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none focus:border-[var(--accent)] transition-colors"
       />
     </form>
   );

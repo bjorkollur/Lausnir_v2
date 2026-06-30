@@ -53,7 +53,7 @@ export function SourceTree({ catalog, scope, onScopeChange }: SourceTreeProps) {
   };
 
   if (catalog.length === 0) {
-    return <div className="h-10 bg-slate-100 rounded animate-pulse" />;
+    return <div className="h-10 bg-[var(--canvas)] border border-[var(--border)] rounded-md animate-pulse" />;
   }
 
   return (
@@ -70,7 +70,7 @@ export function SourceTree({ catalog, scope, onScopeChange }: SourceTreeProps) {
         <button
           type="button"
           onClick={() => onScopeChange([])}
-          className="mt-2 text-xs text-slate-400 hover:text-slate-600 underline"
+          className="mt-2 text-xs text-[var(--ink-faint)] hover:text-[var(--ink)] underline underline-offset-2 transition-colors"
         >
           Hreinsa val
         </button>
@@ -99,11 +99,11 @@ function GroupNode({
   const hasChildren = children.length > 0;
 
   return (
-    <div className="border border-slate-200 rounded-lg overflow-hidden">
+    <div className="border border-[var(--border)] rounded-md overflow-hidden">
       {/* Group header */}
       <div
         className={`flex items-center gap-2 px-3 py-2.5 ${
-          open ? "bg-slate-50" : "bg-white hover:bg-slate-50"
+          open ? "bg-[var(--canvas)]" : "bg-[var(--surface)] hover:bg-[var(--canvas)]"
         } transition-colors`}
       >
         {/* Expand toggle */}
@@ -112,7 +112,7 @@ function GroupNode({
             type="button"
             aria-label={open ? "Fella saman" : "Opna"}
             onClick={() => setOpen(!open)}
-            className="w-4 text-xs text-slate-400 hover:text-slate-600 flex-shrink-0"
+            className="w-4 text-xs text-[var(--ink-faint)] hover:text-[var(--ink)] flex-shrink-0"
           >
             {open ? "▾" : "▸"}
           </button>
@@ -135,12 +135,12 @@ function GroupNode({
         >
           <span
             className={`text-sm font-medium truncate ${
-              isChecked ? "text-indigo-700" : "text-slate-800"
+              isChecked ? "text-[var(--accent)]" : "text-[var(--ink)]"
             }`}
           >
             {node.label}
           </span>
-          <span className="text-xs text-slate-400 tabular-nums ml-2 flex-shrink-0">
+          <span className="text-xs text-[var(--ink-faint)] tabular-nums ml-2 flex-shrink-0">
             {node.count.toLocaleString("is-IS")}
           </span>
         </button>
@@ -149,7 +149,7 @@ function GroupNode({
       {/* Children list */}
       {hasChildren && open && (
         <div
-          className={`border-t border-slate-100 ${
+          className={`border-t border-[var(--border)] ${
             children.length > 8 ? "grid grid-cols-2 gap-x-2" : ""
           } px-2 py-1`}
         >
@@ -181,7 +181,7 @@ function ChildNode({
   const isChecked = selected.has(node.key);
 
   return (
-    <div className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-slate-50 transition-colors">
+    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-[var(--canvas)] transition-colors">
       <span className="w-4 flex-shrink-0" />
       <Checkbox
         checked={isChecked}
@@ -190,12 +190,12 @@ function ChildNode({
       />
       <span
         className={`flex-1 text-sm truncate ${
-          isChecked ? "text-indigo-700 font-medium" : "text-slate-700"
+          isChecked ? "text-[var(--accent)] font-medium" : "text-[var(--ink-soft)]"
         }`}
       >
         {node.label}
       </span>
-      <span className="text-xs text-slate-400 tabular-nums flex-shrink-0">
+      <span className="text-xs text-[var(--ink-faint)] tabular-nums flex-shrink-0">
         {node.count.toLocaleString("is-IS")}
       </span>
     </div>
@@ -220,10 +220,10 @@ function Checkbox({
       aria-checked={checked}
       aria-label={label}
       onClick={onToggle}
-      className={`w-4 h-4 flex-shrink-0 border rounded flex items-center justify-center transition-colors ${
+      className={`w-4 h-4 flex-shrink-0 border rounded-sm flex items-center justify-center transition-colors ${
         checked
-          ? "bg-indigo-600 border-indigo-600"
-          : "border-slate-300 bg-white hover:border-indigo-400"
+          ? "bg-[var(--accent)] border-[var(--accent)]"
+          : "border-[var(--border-strong)] bg-[var(--surface)] hover:border-[var(--accent)]"
       }`}
     >
       {checked && (

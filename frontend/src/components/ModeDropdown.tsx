@@ -38,7 +38,7 @@ export function ModeDropdown({
         aria-label="Leitarstilling"
         value={state.mode}
         onChange={(e) => handleModeChange(e.target.value as Mode)}
-        className="text-sm border border-slate-300 rounded-full px-3 py-1.5 bg-white"
+        className="text-sm border border-[var(--border)] rounded-md px-3 py-1.5 bg-[var(--surface)] text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors"
       >
         {ALL_MODES.map((m) => (
           <option key={m} value={m}>
@@ -48,7 +48,7 @@ export function ModeDropdown({
       </select>
 
       {state.mode === "proximity" && (
-        <label className="flex items-center gap-1 text-sm text-slate-600">
+        <label className="flex items-center gap-1 text-sm text-[var(--ink-soft)]">
           innan
           <input
             type="number"
@@ -59,7 +59,7 @@ export function ModeDropdown({
               const n = parseInt(e.target.value, 10);
               if (Number.isFinite(n) && n >= 1 && n <= 50) onChange({ proximity_n: n });
             }}
-            className="w-14 border border-slate-300 rounded px-2 py-0.5 text-center text-sm"
+            className="w-14 border border-[var(--border)] bg-[var(--surface)] rounded-md px-2 py-0.5 text-center text-sm text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors"
           />
           orða
         </label>
