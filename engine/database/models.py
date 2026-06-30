@@ -88,6 +88,8 @@ class Document(Base):
     # fts: GENERATED ALWAYS AS (to_tsvector('simple', ...)) — exact/keyword
     # fts_is: BÍN-lemmatized tsvector — Icelandic morphology-aware search
     fts_is: Mapped[Any | None] = mapped_column(TSVECTOR)
+    cited_provisions: Mapped[list[Any] | None] = mapped_column(JSONB)
+    # GIN index ix_doc_cited_provisions created by scripts/setup_provision_index.py
 
     # ── Paths ─────────────────────────────────────────────────────────────────
     verdict_filename: Mapped[str | None] = mapped_column(Text)
