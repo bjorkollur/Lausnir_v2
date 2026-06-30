@@ -37,6 +37,7 @@ function searchQs(p: SearchParams): URLSearchParams {
     qs.set("proximity_n", String(p.proximity_n));
   }
   if (p.provision) qs.set("provision", p.provision);
+  if (p.keyword) qs.set("keyword", p.keyword);
   return qs;
 }
 

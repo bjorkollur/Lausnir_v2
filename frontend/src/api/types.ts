@@ -32,7 +32,7 @@ export interface SearchParams {
   q: string; mode: Mode; scope: string[];
   date_from?: string; date_to?: string; sort: Sort;
   page?: number; page_size?: number; regex_fields?: string[];
-  proximity_n?: number; provision?: string;
+  proximity_n?: number; provision?: string; keyword?: string;
 }
 
 // GET /api/law/:id

@@ -3,6 +3,7 @@ import type { CatalogNode } from "../api/types";
 import type { Mode, Sort } from "../api/types";
 import type { SearchState } from "../lib/searchState";
 import { SourceTree } from "./SourceTree";
+import { ProvisionInput, KeywordInput } from "./Toolbar";
 
 // ── Mode labels ───────────────────────────────────────────────────────────────
 
@@ -97,6 +98,18 @@ export function LandingView({
             Leita
           </button>
         </form>
+
+        {/* Structured filters: provision reference + keyword tag */}
+        <div className="flex flex-wrap items-center gap-2">
+          <ProvisionInput
+            value={state.provision ?? ""}
+            onChange={(v) => patch({ provision: v || undefined })}
+          />
+          <KeywordInput
+            value={state.keyword ?? ""}
+            onChange={(v) => patch({ keyword: v || undefined })}
+          />
+        </div>
 
         {/* Stats footer */}
         <p className="text-xs text-slate-400">

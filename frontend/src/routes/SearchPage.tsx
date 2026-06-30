@@ -30,7 +30,7 @@ export default function SearchPage() {
   const patch = (p: Partial<SearchState>) => setSp(toSearchParams({ ...state, ...p }));
 
   // Show landing page when no active query or filter
-  if (!state.q && !state.provision && state.scope.length === 0) {
+  if (!state.q && !state.provision && !state.keyword && state.scope.length === 0) {
     return (
       <LandingView
         state={state}

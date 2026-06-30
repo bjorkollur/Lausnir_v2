@@ -46,6 +46,8 @@ export function Toolbar({ state, regexFields, onChange }:
 
       <ProvisionInput value={state.provision ?? ""} onChange={(v) => onChange({ provision: v || undefined })} />
 
+      <KeywordInput value={state.keyword ?? ""} onChange={(v) => onChange({ keyword: v || undefined })} />
+
       {REGEX_BACKED_MODES.has(state.mode) && (
         <Popover.Root>
           <Popover.Trigger className="text-sm border border-slate-300 rounded-sm px-3 py-1.5 hover:border-slate-400 transition-colors">
@@ -80,7 +82,7 @@ export function Toolbar({ state, regexFields, onChange }:
 
 import { useState, useEffect, type FormEvent } from "react";
 
-function ProvisionInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+export function ProvisionInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   const [draft, setDraft] = useState(value);
   useEffect(() => setDraft(value), [value]);
 
@@ -105,6 +107,51 @@ function ProvisionInput({ value, onChange }: { value: string; onChange: (v: stri
             type="button"
             onClick={clear}
             aria-label="Hreinsa lagaákvæði"
+            className="absolute right-1.5 text-slate-400 hover:text-slate-600 text-xs leading-none"
+          >
+            ✕
+          </button>
+        )}
+      </div>
+      {draft !== value && (
+        <button
+          type="submit"
+          className="text-xs text-indigo-600 hover:text-indigo-800 px-1"
+        >
+          Leita
+        </button>
+      )}
+    </form>
+  );
+}
+
+// ── KeywordInput ──────────────────────────────────────────────────────────────
+
+export function KeywordInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  const [draft, setDraft] = useState(value);
+  useEffect(() => setDraft(value), [value]);
+
+  const submit = (e: FormEvent) => { e.preventDefault(); onChange(draft.trim()); };
+  const clear = () => { setDraft(""); onChange(""); };
+
+  return (
+    <form onSubmit={submit} className="flex items-center gap-1">
+      <div className="relative flex items-center">
+        <input
+          type="text"
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+          placeholder="Lykilorð…"
+          aria-label="Leita eftir lykilorði"
+          className={`text-sm border rounded-sm px-3 py-1.5 w-44 outline-none transition-colors ${
+            value ? "border-indigo-400 bg-indigo-50" : "border-slate-300 bg-white hover:border-slate-400"
+          } focus:border-[#0a246a]`}
+        />
+        {draft && (
+          <button
+            type="button"
+            onClick={clear}
+            aria-label="Hreinsa lykilorð"
             className="absolute right-1.5 text-slate-400 hover:text-slate-600 text-xs leading-none"
           >
             ✕

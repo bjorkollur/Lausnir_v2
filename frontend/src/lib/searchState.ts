@@ -10,6 +10,7 @@ export interface SearchState {
   regex_fields: string[];
   proximity_n: number;
   provision?: string;
+  keyword?: string;
 }
 
 export const DEFAULT_STATE: SearchState = {
@@ -41,6 +42,7 @@ export function parseSearchState(sp: URLSearchParams): SearchState {
     date_to: sp.get("date_to") ?? undefined,
     proximity_n,
     provision: sp.get("provision") ?? undefined,
+    keyword: sp.get("keyword") ?? undefined,
   };
 }
 
@@ -56,6 +58,7 @@ export function toSearchParams(s: SearchState): URLSearchParams {
     sp.set("proximity_n", String(s.proximity_n));
   }
   if (s.provision) sp.set("provision", s.provision);
+  if (s.keyword) sp.set("keyword", s.keyword);
   for (const x of s.scope) sp.append("scope", x);
   for (const f of s.regex_fields) sp.append("regex_fields", f);
   return sp;
