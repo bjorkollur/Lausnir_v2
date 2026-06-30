@@ -37,3 +37,15 @@ def test_returns_sql_fragment():
     frag, params = _build_provision_filter("19/1940", gr=218, sfx=None, mgr=1)
     assert "d.cited_provisions" in frag
     assert ":prov_filter" in frag
+
+
+def test_bare_law_number_parses():
+    """Bare law number '91/1991' should produce a law-only filter."""
+    import re
+    provision = "91/1991"
+    m = re.search(r'\b(\d+/\d{4})\b', provision)
+    assert m is not None
+    frag, params = _build_provision_filter(m.group(1), None, None, None)
+    import json
+    obj = json.loads(params["prov_filter"])
+    assert obj == [{"law": "91/1991"}]

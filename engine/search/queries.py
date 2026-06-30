@@ -15,6 +15,7 @@ This module is pure data access — no FastAPI / HTTP concerns.
 """
 from __future__ import annotations
 
+import json
 import re
 import re as _re
 import uuid
@@ -82,7 +83,6 @@ def _build_provision_filter(
 
     Returns (sql_fragment, params_dict) where sql_fragment uses :prov_filter.
     """
-    import json as _json
     obj: dict = {"law": law}
     if gr is not None:
         obj["gr"] = gr
@@ -92,7 +92,7 @@ def _build_provision_filter(
             obj["mgr"] = mgr
     return (
         "d.cited_provisions @> CAST(:prov_filter AS jsonb)",
-        {"prov_filter": _json.dumps([obj])},
+        {"prov_filter": json.dumps([obj])},
     )
 
 
@@ -433,6 +433,13 @@ async def search_documents(
             prov_frag, prov_params = _build_provision_filter(law, gr, sfx, mgr)
             where.append(prov_frag)
             params.update(prov_params)
+        else:
+            # Fallback: bare law number (e.g. "91/1991" or "laga nr. 91/1991")
+            bare_law = re.search(r'\b(\d+/\d{4})\b', provision)
+            if bare_law:
+                prov_frag, prov_params = _build_provision_filter(bare_law.group(1), None, None, None)
+                where.append(prov_frag)
+                params.update(prov_params)
 
     has_text = bool(q)
     rank_expr = "0::real"
