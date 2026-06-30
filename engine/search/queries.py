@@ -212,6 +212,11 @@ VALID_MODES = frozenset({
     "keyword", "exact", "prefix", "substring", "any", "proximity", "regex"
 })
 
+# Tokens that remain after lemmatizing a provision reference like
+# "2. mgr. 218. gr. laga nr. 19/1940" — numbers are stripped by BÍN so only
+# these abbreviation stems survive. Matching all-noise means FTS is useless.
+_PROVISION_NOISE = frozenset({"mgr", "gr", "lag", "lög", "nr", "sbr"})
+
 # ── Chunk-aware search routing ────────────────────────────────────────────────
 # Sources whose documents are chunked into document_chunks.
 # When the entire scope resolves to these sources, keyword search routes through
@@ -303,6 +308,8 @@ async def _search_by_chunks(
     sort: str,
     page: int,
     page_size: int,
+    extra_where: list[str] | None = None,
+    extra_params: dict | None = None,
 ) -> "SearchResults":
     """Keyword search via document_chunks table; aggregates to document level.
 
@@ -325,6 +332,10 @@ async def _search_by_chunks(
     if date_to is not None:
         doc_where.append("d.document_date <= :cs_date_to")
         doc_params["cs_date_to"] = date_to
+    if extra_where:
+        doc_where.extend(extra_where)
+    if extra_params:
+        doc_params.update(extra_params)
 
     doc_where_sql = (" AND " + " AND ".join(doc_where)) if doc_where else ""
 
@@ -468,12 +479,39 @@ async def search_documents(
 
     if has_text and mode == "keyword":
         lemmas = lemmatize_query(q)
+        # Bug 1 fix: discard FTS when all lemma tokens are provision noise (e.g.
+        # "2. mgr. 218. gr. laga nr. 19/1940" → {"mgr", "gr"}) and the user has
+        # already supplied a provision filter. FTS rank would be ~1.0 everywhere,
+        # making relevance sort meaningless; the provision filter is sufficient.
+        if lemmas and provision:
+            lemma_tokens = set(lemmas.split())
+            if lemma_tokens and lemma_tokens.issubset(_PROVISION_NOISE):
+                lemmas = ""  # discard noise — provision filter alone is sufficient
         if lemmas:
             # Route through document_chunks when scope is entirely chunked sources
             if _scope_is_chunked(scope):
                 scope_filter = await resolve_scope(session, scope)
                 if scope_filter is not None and scope_filter.is_empty:
                     return SearchResults(total=0, page=page, page_size=page_size, results=[])
+                # Bug 2 fix: build the provision filter and pass it into the chunk search
+                # so it is not silently dropped when routing through _search_by_chunks.
+                prov_extra_where: list[str] = []
+                prov_extra_params: dict = {}
+                if provision:
+                    _parsed = parse_provision_query(provision)
+                    if _parsed:
+                        _law, _gr, _sfx, _mgr = _parsed
+                        _prov_frag, _prov_prm = _build_provision_filter(_law, _gr, _sfx, _mgr)
+                        prov_extra_where.append(_prov_frag)
+                        prov_extra_params.update(_prov_prm)
+                    else:
+                        _bare = re.search(r'\b(\d+/\d{4})\b', provision)
+                        if _bare:
+                            _prov_frag, _prov_prm = _build_provision_filter(
+                                _bare.group(1), None, None, None
+                            )
+                            prov_extra_where.append(_prov_frag)
+                            prov_extra_params.update(_prov_prm)
                 return await _search_by_chunks(
                     session,
                     lemmas=lemmas,
@@ -483,6 +521,8 @@ async def search_documents(
                     sort=sort,
                     page=page,
                     page_size=page_size,
+                    extra_where=prov_extra_where or None,
+                    extra_params=prov_extra_params or None,
                 )
             params["lemmas"] = lemmas
             where.append("d.fts_is @@ plainto_tsquery('simple', :lemmas)")

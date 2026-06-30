@@ -1,6 +1,13 @@
 """Tests for provision filter in search_documents."""
 import pytest
-from engine.search.queries import _build_provision_filter
+from engine.search.queries import _build_provision_filter, _PROVISION_NOISE
+
+
+def test_provision_noise_set_exists():
+    """_PROVISION_NOISE must contain the key noise tokens."""
+    assert "mgr" in _PROVISION_NOISE
+    assert "gr" in _PROVISION_NOISE
+    assert "nr" in _PROVISION_NOISE
 
 
 def test_full_provision_filter():
