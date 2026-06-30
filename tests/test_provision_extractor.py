@@ -101,3 +101,37 @@ def test_multiple_laws_in_sentence():
     laws = {p["law"] for p in result}
     assert "68/2023" in laws
     assert "91/1991" in laws
+
+
+# ── I1: long chain doesn't drop early articles ────────────────────────────────
+def test_long_chain_all_articles_get_law():
+    """Long chain: first article gets the law even when it is >150 chars from the law number.
+
+    Old lookahead approach cut off at 150 chars, so 48. gr. was dropped when the
+    chain of connectors pushed it beyond that window.  The backward-scan approach
+    has no distance limit between anchors — only connector content is required.
+    """
+    # Build a chain of repeated "og" connectors so the first gr. anchor sits
+    # well beyond 150 chars from the law number, but the gap is connector-only.
+    # "1. mgr. 48. gr." + 40 * "og, " (~160 chars of connectors) + "1. mgr. 50. gr. ..."
+    connectors = "og, " * 40  # ~160 chars, all connector content
+    text = "1. mgr. 48. gr. " + connectors + "1. mgr. 50. gr. umferðarlaga nr. 77/2019"
+    assert len(text) - text.index("48. gr.") > 150, "sanity: first anchor must be >150 chars from end"
+    result = extract_provisions(text)
+    assert {"law": "77/2019", "gr": 48, "mgr": 1} in result, \
+        f"Expected gr=48 in results but got: {result}"
+    assert {"law": "77/2019", "gr": 50, "mgr": 1} in result
+
+
+# ── I2: orphan anchor doesn't steal neighbour's law ───────────────────────────
+def test_no_false_positive_from_neighbor():
+    """An orphan gr. should NOT steal the law from an adjacent citation."""
+    # "5. gr." is an independent anchor with no law; "12. gr. laga nr. 68/2023" is separate
+    text = "5. gr. einhvers konar greinar og 12. gr. laga nr. 68/2023"
+    result = extract_provisions(text)
+    # 12. gr. should have law 68/2023
+    assert {"law": "68/2023", "gr": 12, "mgr": None} in result
+    # 5. gr. should NOT have law 68/2023 (no connector-only gap between them)
+    false_positive = {"law": "68/2023", "gr": 5, "mgr": None}
+    assert false_positive not in result, \
+        f"False positive: {false_positive} should not be in {result}"

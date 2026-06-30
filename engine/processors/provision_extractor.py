@@ -15,10 +15,17 @@ Strategy
 --------
 Two-pass approach:
 
-Pass 1 — for each article anchor (gr. N), scan ahead up to LOOKAHEAD_CHARS
-          to find the nearest law number (nr. X/YYYY or bare X/YYYY after a
-          law keyword). This naturally handles multi-article chains where
-          several "X. gr." share one law number at the end.
+Pass 1 — backward scan from each law number: find all law numbers in the text,
+          then scan backward to collect the chain of article anchors (gr. N)
+          that directly precede it. The nearest anchor is always admitted (the
+          gap between it and the law number can contain the law name, e.g.
+          "umferðarlaga"). Each additional anchor further back is admitted only
+          if the text between it and the next anchor in the chain consists
+          solely of conjunctions (og, sbr., comma, whitespace). The scan stops
+          as soon as a non-connector gap is encountered.
+
+          This correctly handles multi-article chains of any length (I1) and
+          prevents orphan anchors from stealing a neighbour's law number (I2).
 
 Pass 2 — anaphoric "sömu laga" / "þeirra laga" / "laganna" references:
           propagate the last-seen law number to article anchors followed by
@@ -38,21 +45,7 @@ _LAW_NUM_PAT = r'\d+/\d{4}'
 # Optional tölulið prefix (we capture nothing from it)
 _TOLULID = r'(?:\d+\.\s*tölul\.\s*)?'
 
-# Article anchor: optional mgr before gr, then gr number, optional suffix
-# Named groups: mgr, gr, sfx, mgr2
-_ART_ANCHOR_PAT = (
-    r'(?P<mgr>\d+)\.\s*mgr\.\s*'   # optional mgr (we handle optionality outside)
-    r'(?P<gr>\d+)\.\s*gr\.'
-    r'(?:\s*(?P<sfx>[a-záðéíóúýþæö])\.)?'
-    r'(?:\s*(?P<mgr2>\d+)\.\s*mgr\.)?'
-)
-_ART_ANCHOR_NO_MGR_PAT = (
-    r'(?P<gr>\d+)\.\s*gr\.'
-    r'(?:\s*(?P<sfx>[a-záðéíóúýþæö])\.)?'
-    r'(?:\s*(?P<mgr2>\d+)\.\s*mgr\.)?'
-)
-
-# Combined: optional tölulið, optional mgr, gr, optional suffix
+# Combined: optional tölulið, optional mgr, gr, optional suffix, optional trailing mgr
 _ART_RE = re.compile(
     _TOLULID +
     r'(?:'
@@ -65,7 +58,6 @@ _ART_RE = re.compile(
 )
 
 # Law number reference: "nr. X/YYYY" or bare "laga X/YYYY" etc.
-# This matches a law number after a keyword window.
 _LAW_KEYWORD_PAT = r'(?:laga?|lögum|reglugerðar?)'
 _LAW_NUM_RE = re.compile(
     r'(?:'
@@ -86,8 +78,12 @@ _SOMU_LAGA_RE = re.compile(
     re.IGNORECASE | re.UNICODE,
 )
 
-# How far ahead (in characters) from gr. to look for a law number
-LOOKAHEAD_CHARS = 150
+# Connector-only text that may appear between consecutive article anchors in a chain.
+# A gap that matches this (and only this) keeps the chain going.
+_CHAIN_CONNECTOR_RE = re.compile(
+    r'^\s*(?:og\s+(?:sbr\.\s*)?|sbr\.\s*|,\s*|og,\s*)*$',
+    re.IGNORECASE | re.UNICODE,
+)
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -117,13 +113,6 @@ def _dedup(provisions: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return out
 
 
-def _find_law_in_window(text: str, start: int, end: int) -> str | None:
-    """Search for a law number in text[start:end]. Returns the law string or None."""
-    window = text[start:end]
-    m = _LAW_NUM_RE.search(window)
-    return m.group("law") if m else None
-
-
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
@@ -137,36 +126,62 @@ def extract_provisions(text: str | None) -> list[dict[str, Any]]:
         return []
 
     results: list[dict[str, Any]] = []
-    last_law: str | None = None
-    last_law_pos: int = -1  # position where last_law was found
 
-    # ── Pass 1: article anchors → look ahead for law number ──────────────────
-    for art_m in _ART_RE.finditer(text):
-        art_end = art_m.end()
-        window_end = min(len(text), art_end + LOOKAHEAD_CHARS)
+    # Collect all article anchor matches once (shared by both passes)
+    art_matches = list(_ART_RE.finditer(text))
 
-        law = _find_law_in_window(text, art_end, window_end)
-        if law is None:
-            continue
+    # ── Pass 1: backward scan from each law number ────────────────────────────
+    law_matches = list(_LAW_NUM_RE.finditer(text))
 
-        # Record last seen law (use the position of the law number in original text)
-        law_m = _LAW_NUM_RE.search(text[art_end:window_end])
-        if law_m:
-            last_law = law
-            last_law_pos = art_end + law_m.start()
+    # Track which article anchors have already been claimed to prevent
+    # double-assignment when multiple law numbers are close together.
+    claimed: set[int] = set()  # indices into art_matches
 
-        results.append(_art_to_dict(art_m, law))
+    for law_m in law_matches:
+        law_str = law_m.group("law")
+        law_start = law_m.start()
 
-    # Track all law numbers for anaphora resolution (need global last-seen law)
-    # Re-scan to find all law numbers in document order
-    all_law_positions: list[tuple[int, str]] = []
-    for lm in _LAW_NUM_RE.finditer(text):
-        all_law_positions.append((lm.start(), lm.group("law")))
+        # Article anchors that end before this law number and are still unclaimed,
+        # ordered nearest-first (reversed list of preceding anchors).
+        preceding = [
+            (i, am) for i, am in enumerate(art_matches)
+            if am.end() <= law_start and i not in claimed
+        ]
+        # preceding is in document order; reverse so index 0 = nearest to law
+        preceding_rev = list(reversed(preceding))
+
+        chain: list[tuple[int, re.Match]] = []
+        for idx, (art_idx, art_m) in enumerate(preceding_rev):
+            if idx == 0:
+                # Nearest anchor: always admit it — the gap between the last gr.
+                # and the law number may contain the law name (e.g. "umferðarlaga")
+                # which is already handled by _LAW_NUM_RE's own keyword prefix.
+                chain.append((art_idx, art_m))
+            else:
+                # Further anchors: the gap between this anchor's end and the
+                # previous (nearer) anchor's start must be connector-only.
+                _, prev_art_m = preceding_rev[idx - 1]
+                gap = text[art_m.end():prev_art_m.start()]
+                if _CHAIN_CONNECTOR_RE.match(gap):
+                    chain.append((art_idx, art_m))
+                else:
+                    # Non-connector gap: chain stops here
+                    break
+
+        for art_idx, art_m in chain:
+            claimed.add(art_idx)
+            results.append(_art_to_dict(art_m, law_str))
+
+    # Collect all law positions for anaphora resolution
+    all_law_positions: list[tuple[int, str]] = [
+        (lm.start(), lm.group("law")) for lm in law_matches
+    ]
 
     # ── Pass 2: anaphoric "sömu laga" references ─────────────────────────────
-    for art_m in _ART_RE.finditer(text):
+    for art_m in art_matches:
         art_end = art_m.end()
-        window_end = min(len(text), art_end + LOOKAHEAD_CHARS)
+        # Look ahead up to 150 chars for an anaphoric phrase
+        window_end = min(len(text), art_end + 150)
         window = text[art_end:window_end]
 
         if not _SOMU_LAGA_RE.search(window):

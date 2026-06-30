@@ -17,7 +17,6 @@ from __future__ import annotations
 
 import json
 import re
-import re as _re
 import uuid
 from dataclasses import dataclass
 from datetime import date
@@ -30,7 +29,7 @@ from typing import Any
 #   "218. gr. a. 1. mgr. 19/1940"  "218. gr. a. 19/1940"
 #   "19/1940 218. gr. a. 1. mgr."  "33/1944, 3. gr."
 #   "12. gr. laga nr. 91/1991"
-_PROVISION_RE = _re.compile(
+_PROVISION_RE = re.compile(
     # Pattern A: gr [suffix] [mgr] law
     r'(?:(?P<gr_a>\d+)\.\s*gr\.'
     r'(?:\s*(?P<sfx_a>[a-záðéíóúýþæö])\.)?'
@@ -42,7 +41,7 @@ _PROVISION_RE = _re.compile(
     r'(?P<gr_b>\d+)\.\s*gr\.'
     r'(?:\s*(?P<sfx_b>[a-záðéíóúýþæö])\.)?'
     r'(?:\s*(?P<mgr_b>\d+)\.\s*mgr\.)?)',
-    _re.IGNORECASE
+    re.IGNORECASE
 )
 
 
