@@ -49,3 +49,41 @@ def test_bare_law_number_parses():
     import json
     obj = json.loads(params["prov_filter"])
     assert obj == [{"law": "91/1991"}]
+
+
+# ── parse_provision_query tests ───────────────────────────────────────────────
+
+from engine.search.queries import parse_provision_query
+
+
+def test_parse_mgr_before_gr():
+    result = parse_provision_query("2. mgr. 218. gr. laga nr. 19/1940")
+    assert result == ("19/1940", 218, None, 2)
+
+
+def test_parse_gr_only():
+    result = parse_provision_query("218. gr. laga nr. 19/1940")
+    assert result == ("19/1940", 218, None, None)
+
+
+def test_parse_suffix():
+    result = parse_provision_query("218. gr. a. laga nr. 19/1940")
+    assert result == ("19/1940", 218, "a", None)
+
+
+def test_parse_mgr_suffix():
+    result = parse_provision_query("1. mgr. 218. gr. a. laga nr. 19/1940")
+    assert result == ("19/1940", 218, "a", 1)
+
+
+def test_parse_compound_law_name():
+    result = parse_provision_query("3. mgr. 70. gr. almennra hegningarlaga nr. 19/1940")
+    assert result == ("19/1940", 70, None, 3)
+
+
+def test_parse_bare_law_returns_none():
+    assert parse_provision_query("19/1940") is None
+
+
+def test_parse_empty_returns_none():
+    assert parse_provision_query("") is None

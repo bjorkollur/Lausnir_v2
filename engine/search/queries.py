@@ -25,42 +25,62 @@ from typing import Any
 
 # ── Provision query parser ────────────────────────────────────────────────────
 # Handles patterns like:
-#   "218. gr. 1. mgr. 19/1940"     "3. gr. 33/1944"
-#   "218. gr. a. 1. mgr. 19/1940"  "218. gr. a. 19/1940"
-#   "19/1940 218. gr. a. 1. mgr."  "33/1944, 3. gr."
+#   "2. mgr. 218. gr. laga nr. 19/1940"   (mgr before gr — dominant Icelandic form)
+#   "218. gr. 1. mgr. 19/1940"            (mgr after gr)
+#   "3. gr. 33/1944"                       (gr only)
+#   "218. gr. a. 1. mgr. 19/1940"         (suffix + mgr after gr)
+#   "218. gr. a. 19/1940"                  (suffix only)
+#   "19/1940 218. gr. a. 1. mgr."         (law before gr)
+#   "33/1944, 3. gr."
 #   "12. gr. laga nr. 91/1991"
+#   "3. mgr. 70. gr. almennra hegningarlaga nr. 19/1940"  (compound law name)
 _PROVISION_RE = re.compile(
-    # Pattern A: gr [suffix] [mgr] law
-    r'(?:(?P<gr_a>\d+)\.\s*gr\.'
-    r'(?:\s*(?P<sfx_a>[a-záðéíóúýþæö])\.)?'
-    r'(?:\s*(?P<mgr_a>\d+)\.\s*mgr\.)?'
-    r'\s*(?:laga?\s+)?(?:nr\.\s*)?(?P<law_a>\d+/\d{4}))'
+    # Pattern A: [mgr] gr [suffix] [mgr] ... law   (gr anchors the match)
+    r'(?:'
+    r'(?:(?P<mgr_a1>\d+)\.\s*mgr\.\s*)?'            # optional: mgr before gr
+    r'(?P<gr_a>\d+)\.\s*gr\.'                        # article number (required)
+    r'(?:\s*(?P<sfx_a>[a-záðéíóúýþæö])\.)?'         # optional suffix letter
+    r'(?:\s*(?P<mgr_a2>\d+)\.\s*mgr\.)?'            # optional: mgr after gr
+    r'(?:\s+\w+){0,6}?'                              # 0-6 words (compound law name, non-greedy)
+    r'\s*(?:laga?|lögum|reglugerðar?)?\s*'          # optional law keyword
+    r'(?:nr\.\s*)?'                                  # optional "nr."
+    r'(?P<law_a>\d+/\d{4})'                          # law number (required)
+    r')'
     r'|'
     # Pattern B: law gr [suffix] [mgr]
     r'(?:(?:nr\.\s*)?(?P<law_b>\d+/\d{4})[,\s]+'
     r'(?P<gr_b>\d+)\.\s*gr\.'
     r'(?:\s*(?P<sfx_b>[a-záðéíóúýþæö])\.)?'
     r'(?:\s*(?P<mgr_b>\d+)\.\s*mgr\.)?)',
-    re.IGNORECASE
+    re.IGNORECASE | re.UNICODE,
 )
 
 
 def parse_provision_query(q: str) -> tuple[str, int, str | None, int | None] | None:
     """Parse a provision reference. Returns (law, gr, suffix|None, mgr|None) or None.
 
+    Handles mgr-before-gr (dominant Icelandic form) as well as gr-first and
+    compound law names between the article reference and the law number.
+
     Examples:
-      '3. gr. 33/1944'              → ('33/1944', 3, None, None)
-      '218. gr. 1. mgr. 19/1940'   → ('19/1940', 218, None, 1)
-      '218. gr. a. 19/1940'         → ('19/1940', 218, 'a', None)
-      '218. gr. a. 1. mgr. 19/1940' → ('19/1940', 218, 'a', 1)
+      '2. mgr. 218. gr. laga nr. 19/1940'   → ('19/1940', 218, None, 2)
+      '3. gr. 33/1944'                        → ('33/1944', 3, None, None)
+      '218. gr. 1. mgr. 19/1940'             → ('19/1940', 218, None, 1)
+      '218. gr. a. 19/1940'                   → ('19/1940', 218, 'a', None)
+      '218. gr. a. 1. mgr. 19/1940'          → ('19/1940', 218, 'a', 1)
+      '3. mgr. 70. gr. almennra hegningarlaga nr. 19/1940' → ('19/1940', 70, None, 3)
+      '19/1940'                               → None (bare law, handled by caller)
     """
+    if not q:
+        return None
     m = _PROVISION_RE.search(q.strip())
     if not m:
         return None
     law = m.group('law_a') or m.group('law_b')
     gr = m.group('gr_a') or m.group('gr_b')
     sfx = m.group('sfx_a') or m.group('sfx_b')
-    mgr = m.group('mgr_a') or m.group('mgr_b')
+    # mgr_a1 = before gr, mgr_a2 = after gr; prefer before-gr (dominant form)
+    mgr = (m.group('mgr_a1') or m.group('mgr_a2')) if m.group('gr_a') else m.group('mgr_b')
     if law and gr:
         return (law, int(gr), sfx.lower() if sfx else None, int(mgr) if mgr else None)
     return None
