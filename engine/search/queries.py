@@ -115,6 +115,17 @@ def _build_provision_filter(
     )
 
 
+def _resolve_provision_filter(provision: str) -> tuple[str, dict] | None:
+    """Parse provision string and return (sql_frag, params) or None."""
+    parsed = parse_provision_query(provision)
+    if parsed:
+        return _build_provision_filter(*parsed)
+    bare = re.search(r'\b(\d+/\d{4})\b', provision)
+    if bare:
+        return _build_provision_filter(bare.group(1), None, None, None)
+    return None
+
+
 def _build_keyword_filter(keyword: str) -> tuple[str, dict]:
     """Build a WHERE fragment matching the keywords JSONB tag column only.
 
@@ -475,19 +486,10 @@ async def search_documents(
 
     # Provision filter (independent of text mode)
     if provision:
-        parsed = parse_provision_query(provision)
-        if parsed:
-            law, gr, sfx, mgr = parsed
-            prov_frag, prov_params = _build_provision_filter(law, gr, sfx, mgr)
-            where.append(prov_frag)
-            params.update(prov_params)
-        else:
-            # Fallback: bare law number (e.g. "91/1991" or "laga nr. 91/1991")
-            bare_law = re.search(r'\b(\d+/\d{4})\b', provision)
-            if bare_law:
-                prov_frag, prov_params = _build_provision_filter(bare_law.group(1), None, None, None)
-                where.append(prov_frag)
-                params.update(prov_params)
+        prov = _resolve_provision_filter(provision)
+        if prov:
+            where.append(prov[0])
+            params.update(prov[1])
 
     # Keyword filter (independent of text mode) — matches the keywords JSONB
     # tag column only, never body text.
@@ -524,20 +526,10 @@ async def search_documents(
                 chunk_extra_where: list[str] = []
                 chunk_extra_params: dict = {}
                 if provision:
-                    _parsed = parse_provision_query(provision)
-                    if _parsed:
-                        _law, _gr, _sfx, _mgr = _parsed
-                        _prov_frag, _prov_prm = _build_provision_filter(_law, _gr, _sfx, _mgr)
-                        chunk_extra_where.append(_prov_frag)
-                        chunk_extra_params.update(_prov_prm)
-                    else:
-                        _bare = re.search(r'\b(\d+/\d{4})\b', provision)
-                        if _bare:
-                            _prov_frag, _prov_prm = _build_provision_filter(
-                                _bare.group(1), None, None, None
-                            )
-                            chunk_extra_where.append(_prov_frag)
-                            chunk_extra_params.update(_prov_prm)
+                    _prov = _resolve_provision_filter(provision)
+                    if _prov:
+                        chunk_extra_where.append(_prov[0])
+                        chunk_extra_params.update(_prov[1])
                 if keyword and keyword.strip():
                     _kw_frag, _kw_prm = _build_keyword_filter(keyword.strip())
                     chunk_extra_where.append(_kw_frag)

@@ -123,8 +123,6 @@ SCOPE_TREE: list[dict] = [
 # ── Flatten the tree into key → resolution for O(1) scope lookup ───────────────
 def _leaf_sources(node: dict) -> list[str]:
     """All source short_names reachable under a node."""
-    if "sources" in node and "children" not in node:
-        return list(node["sources"])
     if "sources" in node:
         return list(node["sources"])
     out: list[str] = []

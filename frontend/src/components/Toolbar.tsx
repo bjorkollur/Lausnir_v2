@@ -84,11 +84,10 @@ export function Toolbar({ state, regexFields, onChange }:
   );
 }
 
-// ── ProvisionInput ────────────────────────────────────────────────────────────
-
 import { useState, useEffect, type FormEvent } from "react";
 
-export function ProvisionInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+function FilterInput({ placeholder, ariaLabel, ariaLabelClear, value, onChange }:
+  { placeholder: string; ariaLabel: string; ariaLabelClear: string; value: string; onChange: (v: string) => void }) {
   const [draft, setDraft] = useState(value);
   useEffect(() => setDraft(value), [value]);
 
@@ -102,28 +101,21 @@ export function ProvisionInput({ value, onChange }: { value: string; onChange: (
           type="text"
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
-          placeholder="Lagaákvæði…"
-          aria-label="Leita eftir lagaákvæði"
+          placeholder={placeholder}
+          aria-label={ariaLabel}
           className={`text-sm border rounded-md px-3 py-1.5 w-44 text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none transition-colors ${
             value ? "border-[var(--accent)] bg-[var(--accent-soft)]" : "border-[var(--border)] bg-[var(--surface)] hover:border-[var(--border-strong)]"
           } focus:border-[var(--accent)]`}
         />
         {draft && (
-          <button
-            type="button"
-            onClick={clear}
-            aria-label="Hreinsa lagaákvæði"
-            className="absolute right-1.5 text-[var(--ink-faint)] hover:text-[var(--ink)] text-xs leading-none"
-          >
+          <button type="button" onClick={clear} aria-label={ariaLabelClear}
+            className="absolute right-1.5 text-[var(--ink-faint)] hover:text-[var(--ink)] text-xs leading-none">
             ✕
           </button>
         )}
       </div>
       {draft !== value && (
-        <button
-          type="submit"
-          className="text-xs text-[var(--accent)] hover:text-[var(--ink)] px-1"
-        >
+        <button type="submit" className="text-xs text-[var(--accent)] hover:text-[var(--ink)] px-1">
           Leita
         </button>
       )}
@@ -131,47 +123,12 @@ export function ProvisionInput({ value, onChange }: { value: string; onChange: (
   );
 }
 
-// ── KeywordInput ──────────────────────────────────────────────────────────────
+export function ProvisionInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  return <FilterInput placeholder="Lagaákvæði…" ariaLabel="Leita eftir lagaákvæði"
+    ariaLabelClear="Hreinsa lagaákvæði" value={value} onChange={onChange} />;
+}
 
 export function KeywordInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
-  const [draft, setDraft] = useState(value);
-  useEffect(() => setDraft(value), [value]);
-
-  const submit = (e: FormEvent) => { e.preventDefault(); onChange(draft.trim()); };
-  const clear = () => { setDraft(""); onChange(""); };
-
-  return (
-    <form onSubmit={submit} className="flex items-center gap-1">
-      <div className="relative flex items-center">
-        <input
-          type="text"
-          value={draft}
-          onChange={(e) => setDraft(e.target.value)}
-          placeholder="Lykilorð…"
-          aria-label="Leita eftir lykilorði"
-          className={`text-sm border rounded-md px-3 py-1.5 w-44 text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none transition-colors ${
-            value ? "border-[var(--accent)] bg-[var(--accent-soft)]" : "border-[var(--border)] bg-[var(--surface)] hover:border-[var(--border-strong)]"
-          } focus:border-[var(--accent)]`}
-        />
-        {draft && (
-          <button
-            type="button"
-            onClick={clear}
-            aria-label="Hreinsa lykilorð"
-            className="absolute right-1.5 text-[var(--ink-faint)] hover:text-[var(--ink)] text-xs leading-none"
-          >
-            ✕
-          </button>
-        )}
-      </div>
-      {draft !== value && (
-        <button
-          type="submit"
-          className="text-xs text-[var(--accent)] hover:text-[var(--ink)] px-1"
-        >
-          Leita
-        </button>
-      )}
-    </form>
-  );
+  return <FilterInput placeholder="Lykilorð…" ariaLabel="Leita eftir lykilorði"
+    ariaLabelClear="Hreinsa lykilorð" value={value} onChange={onChange} />;
 }
