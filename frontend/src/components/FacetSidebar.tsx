@@ -45,8 +45,8 @@ export function FacetSidebar({ state, onChange }:
   };
 
   return (
-    <aside className="w-[300px] shrink-0 border-l border-slate-200 p-4 overflow-y-auto">
-      {isPending && <div className="h-40 bg-slate-100 rounded animate-pulse" />}
+    <aside className="w-[300px] shrink-0 border-l border-[var(--border)] p-4 overflow-y-auto">
+      {isPending && <div className="h-40 bg-[var(--border)] rounded animate-pulse" />}
       {data?.catalog.map((node) => (
         <FacetNode key={node.key} node={node} selected={selected} depth={0} onToggle={toggle} />
       ))}

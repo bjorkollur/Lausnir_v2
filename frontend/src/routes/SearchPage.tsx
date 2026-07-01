@@ -44,7 +44,7 @@ export default function SearchPage() {
 
   return (
     <div className="flex h-full flex-col">
-      <header className="border-b border-slate-200 px-6 py-3 space-y-2">
+      <header className="border-b border-[var(--border)] px-6 py-3 space-y-2">
         <div className="flex items-center gap-4">
           <SearchBar state={state} onChange={patch} />
           <ModeDropdown state={state} onChange={patch} />

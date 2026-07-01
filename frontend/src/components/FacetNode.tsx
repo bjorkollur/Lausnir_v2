@@ -10,7 +10,7 @@ export function FacetNode({ node, selected, depth, onToggle }:
     <div>
       <div className="flex items-center gap-2 py-1" style={{ paddingLeft: depth * 14 }}>
         {hasKids ? (
-          <button aria-label={open ? "fella saman" : "opna"} onClick={() => setOpen(!open)} className="w-4 text-slate-400">
+          <button aria-label={open ? "fella saman" : "opna"} onClick={() => setOpen(!open)} className="w-4 text-[var(--ink-faint)]">
             {open ? "▾" : "▸"}
           </button>
         ) : <span className="w-4" />}
@@ -18,11 +18,11 @@ export function FacetNode({ node, selected, depth, onToggle }:
           aria-label={node.label}
           checked={selected.has(node.key)}
           onCheckedChange={() => onToggle(node.key)}
-          className="w-4 h-4 border border-slate-300 rounded data-[state=checked]:bg-indigo-600 data-[state=checked]:border-indigo-600 grid place-items-center">
+          className="w-4 h-4 border border-[var(--border-strong)] rounded data-[state=checked]:bg-[var(--accent)] data-[state=checked]:border-[var(--accent)] grid place-items-center">
           <Checkbox.Indicator className="text-white text-[10px]">✓</Checkbox.Indicator>
         </Checkbox.Root>
-        <span className="flex-1 text-sm text-slate-700">{node.label}</span>
-        <span className="text-xs text-slate-400 tabular-nums">{node.count.toLocaleString("is-IS")}</span>
+        <span className="flex-1 text-sm text-[var(--ink)]">{node.label}</span>
+        <span className="text-xs text-[var(--ink-faint)] tabular-nums">{node.count.toLocaleString("is-IS")}</span>
       </div>
       {hasKids && open && node.children!.map((c) => (
         <FacetNode key={c.key} node={c} selected={selected} depth={depth + 1} onToggle={onToggle} />

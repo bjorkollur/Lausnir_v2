@@ -36,7 +36,7 @@ export function ResultsList({ state }: { state: SearchState }) {
 
   return (
     <div>
-      <p className="text-sm text-slate-500 py-2">{plural(total)}</p>
+      <p className="text-sm text-[var(--ink-soft)] py-2">{plural(total)}</p>
       {items.map((r) => (
         <ResultCard key={r.id} r={r} />
       ))}

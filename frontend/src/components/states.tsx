@@ -4,7 +4,7 @@ export function ResultsSkeleton() {
   return (
     <div className="py-4 space-y-4" aria-label="Hleð…">
       {Array.from({ length: 5 }).map((_, i) => (
-        <div key={i} className="h-20 rounded bg-slate-100 animate-pulse" />
+        <div key={i} className="h-20 rounded bg-[var(--border)] animate-pulse" />
       ))}
     </div>
   );
@@ -12,7 +12,7 @@ export function ResultsSkeleton() {
 
 export function EmptyState() {
   return (
-    <p className="py-10 text-center text-slate-500">
+    <p className="py-10 text-center text-[var(--ink-soft)]">
       Engar niðurstöður. Prófaðu að víkka leitina.
     </p>
   );
