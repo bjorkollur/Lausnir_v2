@@ -8,7 +8,7 @@ import re
 from islenska import Bin
 
 _bin = Bin()
-_WORD_RE = re.compile(r"[a-záéíóúýðþæöÁÉÍÓÚÝÐÞÆÖ]+", re.UNICODE)
+_WORD_RE = re.compile(r"[a-zA-ZáéíóúýðþæöÁÉÍÓÚÝÐÞÆÖ]+", re.UNICODE)
 
 
 def _lemmatize_word(word: str) -> str:
