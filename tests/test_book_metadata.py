@@ -83,3 +83,118 @@ async def test_lookup_openlibrary_handles_missing_authors():
     async with httpx.AsyncClient(transport=transport) as client:
         result = await lookup_openlibrary(client, "9780306406157")
     assert result == {"title": "Ónefnt rit", "author": None, "publish_date": None}
+
+
+from datetime import date
+from pathlib import Path
+from unittest.mock import AsyncMock, patch
+
+from engine.processors.book_metadata import (
+    external_id_from_filename,
+    find_author_llm,
+    find_author_regex,
+    parse_publish_year,
+    resolve_book_metadata,
+    slugify_filename,
+)
+
+
+def test_slugify_filename_replaces_separators():
+    assert slugify_filename(Path("Skadabotarettur_a_Islandi.pdf")) == "Skadabotarettur a Islandi"
+
+
+def test_slugify_filename_strips_extension_only():
+    assert slugify_filename(Path("Bók-með-bandstriki.pdf")) == "Bók með bandstriki"
+
+
+def test_find_author_regex_eftir_pattern():
+    text = "Titill bókar\n\nEftir Pál Sigurðsson\n\nMeiri texti hér."
+    assert find_author_regex(text) == "Pál Sigurðsson"
+
+
+def test_find_author_regex_hofundur_pattern():
+    text = "Höfundur: Sigríður Logadóttir\n\nInngangur."
+    assert find_author_regex(text) == "Sigríður Logadóttir"
+
+
+def test_find_author_regex_returns_none_when_absent():
+    assert find_author_regex("Ekkert höfundarmerki hér, bara texti.") is None
+
+
+def test_parse_publish_year_extracts_four_digit_year():
+    assert parse_publish_year("October 1, 1988") == date(1988, 1, 1)
+    assert parse_publish_year("1985") == date(1985, 1, 1)
+
+
+def test_parse_publish_year_returns_none_for_missing():
+    assert parse_publish_year(None) is None
+    assert parse_publish_year("") is None
+    assert parse_publish_year("n.d.") is None
+
+
+def test_external_id_from_filename_is_ascii_slug():
+    assert external_id_from_filename(Path("Kröfuréttur I.pdf")) == "krofurettur_i"
+
+
+async def test_find_author_llm_parses_json_response():
+    mock_message = AsyncMock()
+    mock_message.content = [type("Block", (), {"text": '{"author": "Páll Sigurðsson"}'})()]
+    with patch("engine.processors.book_metadata.AsyncAnthropic") as MockClient:
+        MockClient.return_value.messages.create = AsyncMock(return_value=mock_message)
+        with patch.dict("os.environ", {"ANTHROPIC_API_KEY": "test-key"}):
+            result = await find_author_llm("einhver texti")
+    assert result == "Páll Sigurðsson"
+
+
+async def test_find_author_llm_returns_none_on_failure():
+    with patch("engine.processors.book_metadata.AsyncAnthropic") as MockClient:
+        MockClient.return_value.messages.create = AsyncMock(side_effect=RuntimeError("boom"))
+        with patch.dict("os.environ", {"ANTHROPIC_API_KEY": "test-key"}):
+            result = await find_author_llm("einhver texti")
+    assert result is None
+
+
+async def test_resolve_book_metadata_uses_isbn_and_openlibrary():
+    body = {
+        "ISBN:9780306406157": {
+            "title": "Kröfuréttur I",
+            "authors": [{"name": "Páll Sigurðsson"}],
+            "publish_date": "1985",
+        }
+    }
+    transport = _Replay(httpx.Response(200, json=body))
+    text = "ISBN 978-0-306-40615-7\n\nKröfuréttur I"
+    async with httpx.AsyncClient(transport=transport) as client:
+        meta = await resolve_book_metadata(client, text, Path("einhver_skra.pdf"))
+    assert meta == {
+        "title": "Kröfuréttur I",
+        "author": "Páll Sigurðsson",
+        "isbn": "9780306406157",
+        "external_id": "9780306406157",
+        "document_date": date(1985, 1, 1),
+    }
+
+
+async def test_resolve_book_metadata_falls_back_to_filename_and_regex():
+    transport = _Replay(httpx.Response(200, json={}))  # ISBN not found on OpenLibrary
+    text = "9780306406157\n\nEftir Jón Jónsson\n\nInngangur."
+    async with httpx.AsyncClient(transport=transport) as client:
+        meta = await resolve_book_metadata(client, text, Path("Skadabotarettur.pdf"))
+    assert meta["title"] == "Skadabotarettur"
+    assert meta["author"] == "Jón Jónsson"
+    assert meta["isbn"] == "9780306406157"
+    assert meta["external_id"] == "9780306406157"
+
+
+async def test_resolve_book_metadata_falls_back_to_llm_when_regex_finds_nothing():
+    mock_message = AsyncMock()
+    mock_message.content = [type("Block", (), {"text": '{"author": "Ásta Ólafsdóttir"}'})()]
+    text = "Engin ISBN hér, ekkert höfundarmerki heldur, bara laus texti."
+    with patch("engine.processors.book_metadata.AsyncAnthropic") as MockClient:
+        MockClient.return_value.messages.create = AsyncMock(return_value=mock_message)
+        with patch.dict("os.environ", {"ANTHROPIC_API_KEY": "test-key"}):
+            async with httpx.AsyncClient() as client:
+                meta = await resolve_book_metadata(client, text, Path("Ohefdbaerabok.pdf"))
+    assert meta["author"] == "Ásta Ólafsdóttir"
+    assert meta["isbn"] is None
+    assert meta["external_id"] == "ohefdbaerabok"
