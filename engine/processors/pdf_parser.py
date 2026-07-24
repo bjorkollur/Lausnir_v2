@@ -405,11 +405,13 @@ def _most_common_size(words: list) -> float:
     return sizes.most_common(1)[0][0] if sizes else 10.5
 
 
-def docling_ocr_pdf(pdf_bytes: bytes) -> str | None:
+def docling_ocr_pdf(pdf_bytes: bytes, timeout: int = 300) -> str | None:
     """OCR an image-based PDF using Docling + Tesseract (Icelandic).
 
     Used for PDFs whose text layer is garbled due to font encoding issues
-    (e.g. Úrskurðarnefnd fjarskipta- og póstmála documents).
+    (e.g. Úrskurðarnefnd fjarskipta- og póstmála documents), or for long
+    scanned books where the default 300 s is too short (pass a larger
+    `timeout` — e.g. `scripts/import_baekur.py` uses 1800).
     Returns plain text with markdown formatting stripped, or None on failure.
     """
     import pathlib
@@ -433,7 +435,7 @@ def docling_ocr_pdf(pdf_bytes: bytes) -> str | None:
                 ],
                 capture_output=True,
                 text=True,
-                timeout=300,
+                timeout=timeout,
                 check=True,
             )
         except (subprocess.CalledProcessError, subprocess.TimeoutExpired, FileNotFoundError):
