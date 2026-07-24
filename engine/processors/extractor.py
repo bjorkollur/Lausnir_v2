@@ -2412,6 +2412,40 @@ def _extract_logfraediritgerdir(raw: dict, config: SourceConfig) -> dict:
     }
 
 
+def _extract_logfraedibaekur(raw: dict, config: SourceConfig) -> dict:
+    """Map a dropfolder law-book raw dict to NORM fields.
+
+    raw comes from scripts/import_baekur.py: title/author/isbn/document_date
+    from resolve_book_metadata(), plus source_filename and pdf_text (full
+    extracted body). No new DB columns: title→case_number, author→
+    plaintiffs[0].name (no advisor field for books).
+    """
+    title = (raw.get("title") or "").strip()
+    author = raw.get("author")
+
+    plaintiffs = None
+    if author:
+        plaintiffs = [{"name": author, "lawyer": None}]
+
+    raw_meta = {k: v for k, v in raw.items() if k != "pdf_text"}
+
+    return {
+        "case_number": title or None,
+        "document_date": raw.get("document_date"),
+        "court": config.abbreviation,
+        "verdict_type": config.verdict_type_default,
+        "instance_tier": None,
+        "case_type": None,
+        "plaintiffs": plaintiffs,
+        "defendants": None,
+        "keywords": None,
+        "summary": None,
+        "body_text": (raw.get("pdf_text") or None),
+        "lower_body_text": None,
+        "raw_api_data": raw_meta,
+    }
+
+
 # ─── Registry ─────────────────────────────────────────────────────────────────
 
 _EXTRACTORS: dict[str, Any] = {
@@ -2464,4 +2498,5 @@ _EXTRACTORS: dict[str, Any] = {
     "kosninga_ursk": _extract_stjornarradid,
     "utanr_raduneyti": _extract_stjornarradid,
     "logfraediritgerdir": _extract_logfraediritgerdir,
+    "logfraedibaekur": _extract_logfraedibaekur,
 }
