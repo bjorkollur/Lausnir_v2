@@ -130,8 +130,8 @@ async def find_author_llm(text: str) -> str | None:
 
     Last resort — only called when regex finds nothing. Returns None on any failure.
     """
-    client = AsyncAnthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     try:
+        client = AsyncAnthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
         resp = await client.messages.create(
             model="claude-haiku-4-5-20251001",
             max_tokens=100,

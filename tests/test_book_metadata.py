@@ -154,6 +154,13 @@ async def test_find_author_llm_returns_none_on_failure():
     assert result is None
 
 
+async def test_find_author_llm_returns_none_when_api_key_missing(monkeypatch):
+    """Verify that missing ANTHROPIC_API_KEY returns None instead of raising KeyError."""
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    result = await find_author_llm("einhver texti")
+    assert result is None
+
+
 async def test_resolve_book_metadata_uses_isbn_and_openlibrary():
     body = {
         "ISBN:9780306406157": {
