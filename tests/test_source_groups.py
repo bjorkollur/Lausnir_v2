@@ -52,4 +52,4 @@ def test_hugverkastofa_in_stjornsysla():
 
 def test_skemman_in_baekur():
     baekur = next(c for c in SCOPE_TREE if c["key"] == "baekur")
-    assert [leaf["key"] for leaf in baekur["children"]] == ["logfraediritgerdir"]
+    assert [leaf["key"] for leaf in baekur["children"]] == ["logfraediritgerdir", "logfraedibaekur"]

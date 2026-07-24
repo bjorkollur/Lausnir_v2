@@ -14,6 +14,7 @@ _SLUG_RE = re.compile(r'^[a-z0-9_-]+$')
 _DATA_DIR = os.environ.get("DATA_DIR", "/Volumes/RuleOfLaw/Lausnir_Data")
 MARKDOWN_DIR: str = os.path.join(_DATA_DIR, "markdown")
 RAW_DIR: str = os.path.join(_DATA_DIR, "raw")
+DROPFOLDER_DIR: str = os.path.join(_DATA_DIR, "dropfolder")
 
 
 @dataclass
@@ -828,6 +829,21 @@ _SOURCES: list[SourceConfig] = [
         pdf_crop=None,             # sækjum „Heildartexti"-skrána og tökum hráan texta
         h1_use_display_name=True,
         case_number_is_title=True, # titill, ekki málsnúmer — slepptu málsnúmers-validation
+    ),
+    # ── Lögfræðibækur (dropfolder) ────────────────────────────────────────────
+    SourceConfig(
+        short_name="logfraedibaekur",
+        display_name="Lögfræðibækur",
+        abbreviation="Bók.",
+        instance_tier=1,           # á ekki við bækur — sama og logfraediritgerdir
+        has_lower_court=False,
+        parse_parties="none",      # höfundur → plaintiffs[0].name handvirkt í import
+        verdict_type_default="Bók",
+        verdict_types_allowed=["Bók"],
+        case_number_prefix="",     # titill fer í case_number — ekkert forskeyti
+        pdf_crop=None,
+        h1_use_display_name=True,
+        case_number_is_title=True, # titill, ekki málsnúmer — sama og logfraediritgerdir
     ),
 ]
 

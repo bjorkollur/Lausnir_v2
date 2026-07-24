@@ -37,7 +37,7 @@ _STJORNSYSLA_SOURCES = [
     "fjarskiptastofa", "fjolmidlanefnd", "personuvernd", "samgongustofa",
     "samkeppni", "umbodsmadur", "hugverkastofa",
 ]
-_BAEKUR_SOURCES = ["logfraediritgerdir"]
+_BAEKUR_SOURCES = ["logfraediritgerdir", "logfraedibaekur"]
 _LAGASAFN_SOURCES = [f"lagasafn_{n:02d}" for n, _ in _LAGASAFN_KAFLAR]
 
 # Nefndir = everything else (self-maintaining: a new tribunal source lands here

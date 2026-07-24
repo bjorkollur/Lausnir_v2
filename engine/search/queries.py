@@ -249,7 +249,7 @@ _PROVISION_NOISE = frozenset({"mgr", "gr", "lag", "lög", "nr", "sbr"})
 # Sources whose documents are chunked into document_chunks.
 # When the entire scope resolves to these sources, keyword search routes through
 # the chunk table for better relevance and snippets on long documents.
-CHUNKED_SCOPE_KEYS: frozenset[str] = frozenset({"logfraediritgerdir", "baekur"})
+CHUNKED_SCOPE_KEYS: frozenset[str] = frozenset({"logfraediritgerdir", "logfraedibaekur", "baekur"})
 
 
 def _scope_is_chunked(scope: list[str] | None) -> bool:
