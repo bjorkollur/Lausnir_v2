@@ -173,9 +173,9 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
     async with make_client() as client:
         for pdf_path in pdfs:
             stats["total"] += 1
-            pdf_bytes = pdf_path.read_bytes()
 
             try:
+                pdf_bytes = pdf_path.read_bytes()
                 body_text = extract_text(pdf_bytes)
                 meta = await resolve_book_metadata(client, body_text[:4000], pdf_path)
                 doc = build_document(meta, body_text, source_id or uuid.uuid4(), config)
@@ -215,7 +215,14 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
             if doc.body_text:
                 vf = unique_verdict_filename(book_stem(doc.case_number or "book"), taken)
                 taken.add(vf)
-                write_markdown(doc, config, vf=vf)
+                try:
+                    write_markdown(doc, config, vf=vf)
+                except Exception as exc:  # noqa: BLE001
+                    log.warning("write_markdown failed for %s: %s", pdf_path.name, exc)
+                    vf = None
+                    stats["errors"] += 1
+
+            if vf:
                 async with _db_conn.AsyncSessionLocal() as session:
                     doc_row = (await session.execute(
                         select(Document).where(Document.id == doc.id)
@@ -225,7 +232,11 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
 
             raw_pdf_path = config.pdf_path(doc.external_id)
             raw_pdf_path.parent.mkdir(parents=True, exist_ok=True)
-            pdf_path.rename(raw_pdf_path)
+            try:
+                pdf_path.rename(raw_pdf_path)
+            except Exception as exc:  # noqa: BLE001
+                log.warning("Failed to move %s to %s: %s", pdf_path.name, raw_pdf_path, exc)
+                stats["errors"] += 1
 
             stats["imported"] += 1
 
