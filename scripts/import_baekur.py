@@ -170,6 +170,8 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
             )).scalars().all()
         taken = set(existing)
 
+    config.pdf_path("_").parent.mkdir(parents=True, exist_ok=True)
+
     async with make_client() as client:
         for pdf_path in pdfs:
             stats["total"] += 1
@@ -235,7 +237,6 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
                     stats["errors"] += 1
 
             raw_pdf_path = config.pdf_path(doc.external_id)
-            raw_pdf_path.parent.mkdir(parents=True, exist_ok=True)
             try:
                 pdf_path.rename(raw_pdf_path)
             except Exception as exc:  # noqa: BLE001
