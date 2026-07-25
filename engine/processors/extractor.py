@@ -2427,11 +2427,14 @@ def _extract_logfraedibaekur(raw: dict, config: SourceConfig) -> dict:
     if author:
         plaintiffs = [{"name": author, "lawyer": None}]
 
+    doc_date = raw.get("document_date")
     raw_meta = {k: v for k, v in raw.items() if k != "pdf_text"}
+    if isinstance(raw_meta.get("document_date"), date):
+        raw_meta["document_date"] = raw_meta["document_date"].isoformat()
 
     return {
         "case_number": title or None,
-        "document_date": raw.get("document_date"),
+        "document_date": doc_date,
         "court": config.abbreviation,
         "verdict_type": config.verdict_type_default,
         "instance_tier": None,

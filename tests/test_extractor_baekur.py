@@ -1,3 +1,4 @@
+import json
 from datetime import date
 
 from engine.config.sources import get_config
@@ -64,3 +65,25 @@ def test_extract_instance_tier_and_defendants_are_none():
     result = Extractor(CONFIG).extract(_raw())
     assert result["instance_tier"] is None
     assert result["defendants"] is None
+
+
+def test_extract_raw_api_data_document_date_is_json_serializable():
+    """raw_api_data goes into a JSONB column — a bare `date` object there crashes the
+    upsert with 'Object of type date is not JSON serializable' (regression: real
+    document_date from resolve_book_metadata() is a `date`, not a string)."""
+    result = Extractor(CONFIG).extract(_raw())
+    json.dumps(result["raw_api_data"])  # must not raise
+    assert result["raw_api_data"]["document_date"] == "1985-01-01"
+
+
+def test_extract_document_date_field_stays_a_date_object():
+    """The top-level document_date (DATE column) must stay a real date, only the
+    JSONB copy inside raw_api_data gets stringified."""
+    result = Extractor(CONFIG).extract(_raw())
+    assert result["document_date"] == date(1985, 1, 1)
+
+
+def test_extract_raw_api_data_handles_missing_document_date():
+    result = Extractor(CONFIG).extract(_raw(document_date=None))
+    json.dumps(result["raw_api_data"])  # must not raise
+    assert result["raw_api_data"]["document_date"] is None
