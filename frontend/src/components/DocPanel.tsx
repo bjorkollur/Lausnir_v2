@@ -1,6 +1,8 @@
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import type { DocumentDetail, Party } from "../api/types";
+import { splitMarkdown, LARGE_DOC_THRESHOLD } from "../lib/splitMarkdown";
+import { LazyMarkdownSection } from "./LazyMarkdownSection";
 
 const partyNames = (ps: Party[]) => ps.map((p) => p.name).join(", ");
 
@@ -51,7 +53,15 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
         )}
 
         <section className="prose prose-slate max-w-none prose-headings:font-bold prose-headings:text-base">
-          <ReactMarkdown>{doc.markdown ?? doc.body_text ?? ""}</ReactMarkdown>
+          {(() => {
+            const content = doc.markdown ?? doc.body_text ?? "";
+            if (content.length <= LARGE_DOC_THRESHOLD) {
+              return <ReactMarkdown>{content}</ReactMarkdown>;
+            }
+            return splitMarkdown(content).map((segment, i) => (
+              <LazyMarkdownSection key={i} text={segment} />
+            ));
+          })()}
         </section>
 
         {doc.appeal_links.length > 0 && (
