@@ -7,7 +7,7 @@ describe("LazyMarkdownSection", () => {
   it("renders an aria-hidden placeholder before becoming visible", () => {
     // Uses the project-wide no-op IntersectionObserver stub from src/test/setup.ts —
     // observe() never fires its callback, so the section never becomes visible.
-    const { container } = render(<LazyMarkdownSection text="## Titill\n\nMeginmál hér." />);
+    const { container } = render(<LazyMarkdownSection text={"## Titill\n\nMeginmál hér."} />);
     expect(screen.queryByRole("heading")).not.toBeInTheDocument();
     const placeholder = container.querySelector('[aria-hidden="true"]');
     expect(placeholder).not.toBeNull();
@@ -34,7 +34,7 @@ describe("LazyMarkdownSection", () => {
     });
 
     it("renders the markdown content once the observer reports intersection", () => {
-      render(<LazyMarkdownSection text="## Titill\n\nMeginmál hér." />);
+      render(<LazyMarkdownSection text={"## Titill\n\nMeginmál hér."} />);
       expect(screen.queryByRole("heading")).not.toBeInTheDocument();
 
       act(() => {
@@ -44,9 +44,8 @@ describe("LazyMarkdownSection", () => {
         );
       });
 
-      expect(screen.getByRole("heading")).toBeInTheDocument();
-      expect(screen.getByText(/Titill/)).toBeInTheDocument();
-      expect(screen.getByText(/Meginmál hér/)).toBeInTheDocument();
+      expect(screen.getByRole("heading", { name: "Titill" })).toBeInTheDocument();
+      expect(screen.getByText("Meginmál hér.")).toBeInTheDocument();
     });
   });
 });
