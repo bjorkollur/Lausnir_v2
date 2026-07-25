@@ -85,6 +85,65 @@ async def test_lookup_openlibrary_handles_missing_authors():
     assert result == {"title": "Ónefnt rit", "author": None, "publish_date": None}
 
 
+from engine.processors.book_metadata import lookup_leitir
+
+
+async def test_lookup_leitir_returns_metadata():
+    body = {
+        "info": {"total": 1},
+        "docs": [{
+            "pnx": {
+                "display": {
+                    "title": ["Afbrot og refsiábyrgð. 1 "],
+                    "creator": ["Jónatan Þórmundsson 1937- höfundur$$QJónatan Þórmundsson"],
+                    "identifier": ["$$CISBN$$V9789935233202"],
+                    "creationdate": ["2023"],
+                }
+            }
+        }],
+    }
+    transport = _Replay(httpx.Response(200, json=body))
+    async with httpx.AsyncClient(transport=transport) as client:
+        result = await lookup_leitir(client, "9789935233202")
+    assert result == {
+        "title": "Afbrot og refsiábyrgð. 1",
+        "author": "Jónatan Þórmundsson",
+        "publish_date": "2023",
+    }
+
+
+async def test_lookup_leitir_returns_none_when_no_docs():
+    transport = _Replay(httpx.Response(200, json={"info": {"total": 0}, "docs": []}))
+    async with httpx.AsyncClient(transport=transport) as client:
+        result = await lookup_leitir(client, "9789935233202")
+    assert result is None
+
+
+async def test_lookup_leitir_returns_none_on_http_error():
+    transport = _Replay(httpx.Response(500))
+    async with httpx.AsyncClient(transport=transport) as client:
+        result = await lookup_leitir(client, "9789935233202")
+    assert result is None
+
+
+async def test_lookup_leitir_handles_missing_creator():
+    body = {"docs": [{"pnx": {"display": {"title": ["Ónefnt rit"]}}}]}
+    transport = _Replay(httpx.Response(200, json=body))
+    async with httpx.AsyncClient(transport=transport) as client:
+        result = await lookup_leitir(client, "9789935233202")
+    assert result == {"title": "Ónefnt rit", "author": None, "publish_date": None}
+
+
+async def test_lookup_leitir_creator_without_qq_marker_uses_raw_value():
+    body = {"docs": [{"pnx": {"display": {
+        "title": ["Rit án Q-merkis"], "creator": ["Jón Jónsson"],
+    }}}]}
+    transport = _Replay(httpx.Response(200, json=body))
+    async with httpx.AsyncClient(transport=transport) as client:
+        result = await lookup_leitir(client, "9789935233202")
+    assert result["author"] == "Jón Jónsson"
+
+
 from datetime import date
 from pathlib import Path
 from unittest.mock import AsyncMock, patch
@@ -180,6 +239,38 @@ async def test_resolve_book_metadata_uses_isbn_and_openlibrary():
         "external_id": "9780306406157",
         "document_date": date(1985, 1, 1),
     }
+
+
+class _HostRouter(httpx.AsyncBaseTransport):
+    """Route responses by request host — for tests exercising two lookup tiers in one call."""
+
+    def __init__(self, responses: dict[str, httpx.Response]):
+        self._responses = responses
+
+    async def handle_async_request(self, request: httpx.Request) -> httpx.Response:
+        resp = self._responses[request.url.host]
+        resp._request = request
+        return resp
+
+
+async def test_resolve_book_metadata_falls_back_to_leitir_when_openlibrary_has_no_title():
+    leitir_body = {"docs": [{"pnx": {"display": {
+        "title": ["Afbrot og refsiábyrgð. 1 "],
+        "creator": ["Jónatan Þórmundsson 1937- höfundur$$QJónatan Þórmundsson"],
+        "creationdate": ["2023"],
+    }}}]}
+    transport = _HostRouter({
+        "openlibrary.org": httpx.Response(200, json={}),
+        "leitir.is": httpx.Response(200, json=leitir_body),
+    })
+    text = "ISBN 978-9935-233-20-2\n\nAfbrot og refsiábyrgð"
+    async with httpx.AsyncClient(transport=transport) as client:
+        meta = await resolve_book_metadata(client, text, Path("Afbrot.pdf"))
+    assert meta["title"] == "Afbrot og refsiábyrgð. 1"
+    assert meta["author"] == "Jónatan Þórmundsson"
+    assert meta["isbn"] == "9789935233202"
+    assert meta["external_id"] == "9789935233202"
+    assert meta["document_date"] == date(2023, 1, 1)
 
 
 async def test_resolve_book_metadata_falls_back_to_filename_and_regex():

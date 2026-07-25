@@ -1,8 +1,9 @@
 """Resolve book metadata (title/author/ISBN) for dropfolder ingestion.
 
 No external API exists for an arbitrary dropped PDF, so metadata is inferred
-via a tiered fallback: ISBN (found in text) -> OpenLibrary lookup, then
-filename + regex author search, then filename + Claude API as a last resort.
+via a tiered fallback: ISBN (found in text) -> OpenLibrary lookup -> leitir.is
+(Icelandic union catalog) lookup, then filename + regex author search, then
+filename + Claude API as a last resort.
 """
 from __future__ import annotations
 
@@ -85,6 +86,42 @@ async def lookup_openlibrary(client: httpx.AsyncClient, isbn: str) -> dict | Non
     }
 
 
+_LEITIR_URL = (
+    "https://leitir.is/primaws/rest/pub/pnxs"
+    "?q=any,contains,{isbn}&scope=10000_MYLIB&tab=Everything"
+    "&vid=354ILC_NETWORK:10000_UNION&inst=354ILC_NETWORK&lang=is&limit=1&offset=0"
+)
+
+
+async def lookup_leitir(client: httpx.AsyncClient, isbn: str) -> dict | None:
+    """Look up title/author/publish_date on leitir.is (Icelandic union catalog, Primo VE).
+
+    Covers Icelandic-only titles OpenLibrary doesn't have. None if not found or on error.
+    """
+    try:
+        resp = await client.get(_LEITIR_URL.format(isbn=isbn), timeout=15.0)
+        resp.raise_for_status()
+    except httpx.HTTPError as exc:
+        log.warning("leitir.is lookup failed for %s: %s", isbn, exc)
+        return None
+    data = resp.json()
+    docs = data.get("docs") or []
+    if not docs:
+        return None
+    disp = docs[0].get("pnx", {}).get("display", {})
+    title = (disp.get("title") or [None])[0]
+    if title:
+        title = title.strip()
+    creator = (disp.get("creator") or [None])[0]
+    author = None
+    if creator:
+        # Primo display format: "Full Name birth- role$$QClean Name" — the
+        # part after "$$Q" is the display-clean name; use it when present.
+        author = (creator.split("$$Q")[-1] if "$$Q" in creator else creator).strip()
+    date_str = (disp.get("creationdate") or [None])[0]
+    return {"title": title, "author": author, "publish_date": date_str}
+
+
 _YEAR_RE = re.compile(r'\b(1[5-9]\d{2}|20\d{2})\b')
 
 _AUTHOR_PATTERNS = [
@@ -157,8 +194,9 @@ async def resolve_book_metadata(
     """Resolve {title, author, isbn, external_id, document_date} for a dropped book PDF.
 
     Tier 1: ISBN found in text -> OpenLibrary lookup.
-    Tier 2: filename -> title, regex on text -> author.
-    Tier 3: regex found nothing -> Claude API on text -> author.
+    Tier 2: ISBN found, OpenLibrary has no title -> leitir.is lookup (Icelandic titles).
+    Tier 3: filename -> title, regex on text -> author.
+    Tier 4: regex found nothing -> Claude API on text -> author.
     """
     isbn = find_isbn(text)
     if isbn:
@@ -170,6 +208,15 @@ async def resolve_book_metadata(
                 "isbn": isbn,
                 "external_id": isbn,
                 "document_date": parse_publish_year(ol.get("publish_date")),
+            }
+        leitir = await lookup_leitir(client, isbn)
+        if leitir and leitir.get("title"):
+            return {
+                "title": leitir["title"],
+                "author": leitir.get("author"),
+                "isbn": isbn,
+                "external_id": isbn,
+                "document_date": parse_publish_year(leitir.get("publish_date")),
             }
 
     title = slugify_filename(pdf_path)
