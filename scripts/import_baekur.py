@@ -253,6 +253,9 @@ async def main(dry_run: bool) -> None:
     dropfolder.mkdir(parents=True, exist_ok=True)
     stats = await process_dropfolder(dropfolder, dry_run=dry_run)
     print(f"DONE {stats}")
+    if not dry_run and stats["imported"] > 0:
+        print("Run this to make the imported books keyword-searchable:")
+        print("  uv run python scripts/backfill_chunks.py --source logfraedibaekur")
 
 
 if __name__ == "__main__":
