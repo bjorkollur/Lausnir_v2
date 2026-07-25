@@ -223,12 +223,16 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
                     stats["errors"] += 1
 
             if vf:
-                async with _db_conn.AsyncSessionLocal() as session:
-                    doc_row = (await session.execute(
-                        select(Document).where(Document.id == doc.id)
-                    )).scalar_one()
-                    doc_row.verdict_filename = vf
-                    await session.commit()
+                try:
+                    async with _db_conn.AsyncSessionLocal() as session:
+                        doc_row = (await session.execute(
+                            select(Document).where(Document.id == doc.id)
+                        )).scalar_one()
+                        doc_row.verdict_filename = vf
+                        await session.commit()
+                except Exception as exc:  # noqa: BLE001
+                    log.warning("Failed to set verdict_filename for %s: %s", pdf_path.name, exc)
+                    stats["errors"] += 1
 
             raw_pdf_path = config.pdf_path(doc.external_id)
             raw_pdf_path.parent.mkdir(parents=True, exist_ok=True)
