@@ -254,7 +254,14 @@ async def main(dry_run: bool) -> None:
     stats = await process_dropfolder(dropfolder, dry_run=dry_run)
     print(f"DONE {stats}")
     if not dry_run and stats["imported"] > 0:
-        print("Run this to make the imported books keyword-searchable:")
+        # Every other source gets this as the final stage of scripts/update_all.py —
+        # without it, new documents.fts_is stays NULL and a scope-less "search
+        # everything" query never finds them (only a scope narrowed to book
+        # sources would, via document_chunks). Run it here so dropfolder imports
+        # aren't a silent search gap the operator has to discover separately.
+        from scripts.backfill_fts_is import backfill as backfill_fts_is
+        await backfill_fts_is(source_name="logfraedibaekur")
+        print("Run this to also improve relevance/snippets for book-scoped search:")
         print("  uv run python scripts/backfill_chunks.py --source logfraedibaekur")
 
 
