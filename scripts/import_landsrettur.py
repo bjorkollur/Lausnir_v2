@@ -30,7 +30,7 @@ from engine.database.connection import init_db
 from engine.database.models import Document, Source
 from engine.processors.extractor import Extractor
 from engine.processors.http_utils import get_with_retry, make_client, post_with_retry
-from engine.processors.renderer import write_markdown
+from engine.processors.renderer import unique_verdict_filename, verdict_filename, write_markdown
 from engine.processors.validator import validate
 
 log = logging.getLogger(__name__)
@@ -153,6 +153,16 @@ def _build_document(
 
 # ── DB helpers ────────────────────────────────────────────────────────────────
 
+async def _get_new_ids(session: AsyncSession, source_id: uuid.UUID, candidate_ids: list[str]) -> set[str]:
+    """Return the subset of candidate_ids not yet in the DB."""
+    from sqlalchemy import text as sa_text
+    rows = (await session.execute(
+        sa_text("SELECT external_id FROM documents WHERE source_id = :sid AND external_id = ANY(:ids)"),
+        {"sid": source_id, "ids": candidate_ids},
+    )).scalars().all()
+    return set(candidate_ids) - set(rows)
+
+
 async def _ensure_source(session: AsyncSession, config: SourceConfig) -> uuid.UUID:
     """SELECT source by short_name; INSERT if absent. Returns the source UUID."""
     result = await session.execute(
@@ -211,31 +221,33 @@ async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
     )
 
 
-def _render_and_save(doc: Document, config: SourceConfig) -> Path | None:
-    """Write .md to disk and decode PDF bytes. Returns markdown Path or None on failure."""
-    data_dir = os.environ.get("DATA_DIR", "/Volumes/RuleOfLaw/Lausnir_Data")
+def _render_and_save(doc: Document, config: SourceConfig, taken: set[str]) -> str | None:
+    """Write .md and PDF to disk. Returns the unique verdict_filename stem or None."""
+    base = verdict_filename(doc, config)
+    vf = unique_verdict_filename(base, taken)
+    taken.add(vf)
 
-    md_path: Path | None = None
     try:
-        md_path = write_markdown(doc, config, data_dir)
+        write_markdown(doc, config, vf=vf)
     except Exception as exc:
         log.warning("write_markdown failed for %s: %s", doc.external_id, exc)
+        return None
 
     try:
         pdf_b64 = (doc.raw_api_data or {}).get("pdfString")
         if pdf_b64:
-            pdf_dir = Path(data_dir) / "raw" / config.short_name
-            pdf_dir.mkdir(parents=True, exist_ok=True)
-            (pdf_dir / f"{doc.external_id}.pdf").write_bytes(base64.b64decode(pdf_b64))
+            pdf_path = config.pdf_path(vf)
+            pdf_path.parent.mkdir(parents=True, exist_ok=True)
+            pdf_path.write_bytes(base64.b64decode(pdf_b64))
     except Exception as exc:
         log.warning("PDF save failed for %s: %s", doc.external_id, exc)
 
-    return md_path
+    return vf
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-async def main(limit: int | None = None) -> None:
+async def main(limit: int | None = None, new_only: bool = False) -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     config = get_config("landsrettur")
@@ -244,7 +256,18 @@ async def main(limit: int | None = None) -> None:
     async with _db_conn.AsyncSessionLocal() as session:
         source_id = await _ensure_source(session, config)
 
-    start_page, saved_total, imported_count = _load_checkpoint()
+    async with _db_conn.AsyncSessionLocal() as session:
+        rows = (await session.execute(
+            select(Document.verdict_filename)
+            .where(Document.source_id == source_id)
+            .where(Document.verdict_filename.isnot(None))
+        )).scalars().all()
+    taken: set[str] = set(rows)
+
+    if new_only:
+        start_page, saved_total, imported_count = 1, 0, 0
+    else:
+        start_page, saved_total, imported_count = _load_checkpoint()
     total_errors = 0
 
     with Progress(
@@ -282,15 +305,26 @@ async def main(limit: int | None = None) -> None:
                     last_page = math.ceil(data["total"] / 10)
                     progress.update(task_id, total=data["total"])
 
+                # In new_only mode: skip detail fetch for existing docs
+                items = data["items"]
+                if new_only:
+                    async with _db_conn.AsyncSessionLocal() as chk:
+                        new_ids = await _get_new_ids(chk, source_id, [v["id"] for v in items])
+                    if not new_ids:
+                        log.info("Page %d: all %d docs already in DB — stopping", page, len(items))
+                        break
+                    items = [v for v in items if v["id"] in new_ids]
+                    log.info("Page %d: %d new / %d total", page, len(items), len(data["items"]))
+
                 # Concurrent GETs — WAF-safe (detail fetches parallelised per page)
                 details = await asyncio.gather(
-                    *[_fetch_detail(client, build_id, v["id"]) for v in data["items"]],
+                    *[_fetch_detail(client, build_id, v["id"]) for v in items],
                     return_exceptions=True,
                 )
 
                 docs = [
                     _build_document(item, detail, source_id, config)
-                    for item, detail in zip(data["items"], details)
+                    for item, detail in zip(items, details)
                 ]
 
                 # Batch upsert — one transaction per page
@@ -299,18 +333,18 @@ async def main(limit: int | None = None) -> None:
                         await _upsert_doc(session, doc)
                     await session.commit()
 
-                # Batch render + markdown_path update — one transaction per page
+                # Batch render + verdict_filename update — one transaction per page
                 async with _db_conn.AsyncSessionLocal() as session:
                     for doc in docs:
-                        md_path = _render_and_save(doc, config)
-                        if md_path:
+                        vf = _render_and_save(doc, config, taken)
+                        if vf:
                             await session.execute(
                                 update(Document)
                                 .where(
                                     Document.source_id == doc.source_id,
                                     Document.external_id == doc.external_id,
                                 )
-                                .values(markdown_path=str(md_path))
+                                .values(verdict_filename=vf)
                             )
                     await session.commit()
 
@@ -318,7 +352,8 @@ async def main(limit: int | None = None) -> None:
                 total_errors += page_errors
                 imported_count += len(docs)
 
-                _save_checkpoint(page, last_page, imported_count)
+                if not new_only:
+                    _save_checkpoint(page, last_page, imported_count)
 
                 if limit is not None and imported_count >= limit:
                     break
@@ -345,5 +380,6 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="Stop after N documents")
+    parser.add_argument("--new-only", action="store_true", help="Only import documents not yet in DB")
     args = parser.parse_args()
-    asyncio.run(main(limit=args.limit))
+    asyncio.run(main(limit=args.limit, new_only=args.new_only))

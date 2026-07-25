@@ -168,7 +168,8 @@ def _extract_with_headings(page, heading_sizes: dict, heading_fonts: dict) -> st
             # Fyrirsögn — alltaf ein lína, án skáletur-merkinga.
             # _collapse_spaced_letters lagar "D Ó M S O R Ð:" → "DÓMSORÐ:"
             heading_text = _collapse_spaced_letters(line_text)
-            blocks.append(f"{prefix}{heading_text}")
+            if heading_text.strip():  # skip empty bold lines (PDF separators)
+                blocks.append(f"{prefix}{heading_text}")
             pending_para_num = None
         else:
             body = _build_line_text(line_words) if use_inline_italic else line_text
@@ -402,3 +403,51 @@ def _most_common_size(words: list) -> float:
     from collections import Counter
     sizes = Counter(round(w["size"], 1) for w in words)
     return sizes.most_common(1)[0][0] if sizes else 10.5
+
+
+def docling_ocr_pdf(pdf_bytes: bytes, timeout: int = 300) -> str | None:
+    """OCR an image-based PDF using Docling + Tesseract (Icelandic).
+
+    Used for PDFs whose text layer is garbled due to font encoding issues
+    (e.g. Úrskurðarnefnd fjarskipta- og póstmála documents), or for long
+    scanned books where the default 300 s is too short (pass a larger
+    `timeout` — e.g. `scripts/import_baekur.py` uses 1800).
+    Returns plain text with markdown formatting stripped, or None on failure.
+    """
+    import pathlib
+    import re
+    import subprocess
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        pdf_path = pathlib.Path(tmpdir) / "input.pdf"
+        pdf_path.write_bytes(pdf_bytes)
+
+        try:
+            subprocess.run(
+                [
+                    "uvx", "docling", str(pdf_path),
+                    "--to", "md",
+                    "--force-ocr",
+                    "--ocr-engine", "tesseract",
+                    "--ocr-lang", "isl",
+                    "--output", tmpdir,
+                ],
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+                check=True,
+            )
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired, FileNotFoundError):
+            return None
+
+        md_path = pathlib.Path(tmpdir) / "input.md"
+        if not md_path.exists():
+            return None
+
+        md_text = md_path.read_text()
+        # Strip markdown heading markers, keep content
+        text = re.sub(r"^#+\s*", "", md_text, flags=re.MULTILINE)
+        # Strip bullet list markers
+        text = re.sub(r"^[-*]\s+", "", text, flags=re.MULTILINE)
+        return text.strip() or None

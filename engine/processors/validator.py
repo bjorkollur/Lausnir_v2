@@ -10,6 +10,7 @@ from datetime import date
 from typing import TYPE_CHECKING
 
 _CASE_YEAR_RE = re.compile(r'/(\d{4})$')
+_CASE_YEAR_FIRST_RE = re.compile(r'^(\d{4})/')  # PV old format: "2017/1453"
 _CASE_NUM_PREFIX_RE = re.compile(r'^(\d+)/')
 _MAX_CASE_NUM_PREFIX = 1500
 
@@ -33,11 +34,12 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
         err("case_number", "Missing")
     elif config.case_number_prefix and not doc.case_number.startswith(config.case_number_prefix):
         err("case_number", f"Expected prefix {config.case_number_prefix!r}, got {doc.case_number!r}")
-    else:
+    elif not config.case_number_is_title:
         m_prefix = _CASE_NUM_PREFIX_RE.match(doc.case_number or "")
         if m_prefix:
             num = int(m_prefix.group(1))
-            if num > _MAX_CASE_NUM_PREFIX:
+            # Skip if the prefix is a 4-digit year (e.g. Persónuvernd "2017/1453")
+            if num > _MAX_CASE_NUM_PREFIX and not (1900 <= num <= 2100):
                 err("case_number", f"Fyrrihluti málsnúmers ({num}) er óvænt hár (> {_MAX_CASE_NUM_PREFIX}) — líklega villa í þáttun")
 
     # document_date
@@ -45,14 +47,21 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
         err("document_date", "Missing")
     elif not (_MIN_DATE <= doc.document_date <= _MAX_DATE):
         err("document_date", f"Out of range: {doc.document_date}")
-    elif doc.case_number:
-        m = _CASE_YEAR_RE.search(doc.case_number)
-        if m:
+    elif doc.case_number and not config.case_number_is_title:
+        # Year-first format "YYYY/NNN": extract year from prefix, not suffix
+        m_yf = _CASE_YEAR_FIRST_RE.match(doc.case_number)
+        m = None if m_yf else _CASE_YEAR_RE.search(doc.case_number)
+        if m_yf:
+            case_year = int(m_yf.group(1))
+        elif m:
             case_year = int(m.group(1))
+        else:
+            case_year = None
+        if case_year:
             doc_year = doc.document_date.year
             if doc_year < case_year:
                 err("document_date", f"Dagsetning ({doc_year}) á undan stofnunarári máls ({case_year})")
-            elif doc_year - case_year >= 4:
+            elif doc_year - case_year >= 6:
                 err("document_date", f"Dagsetning ({doc_year}) er {doc_year - case_year} árum seinna en stofnunarár ({case_year})")
 
     # court
@@ -74,10 +83,15 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
         err("body_text", f"Suspiciously short: {len(doc.body_text)} chars")
 
     # parties (only for adversarial sources)
+    # Flag only when one side is present but the other is missing — that indicates
+    # a parse failure in an adversarial case.  If both are absent the title was
+    # a prose summary (pre-2013 API format) with no structured party data.
     if config.parse_parties != "none":
-        if not doc.plaintiffs:
+        has_plf = bool(doc.plaintiffs)
+        has_dfd = bool(doc.defendants)
+        if has_dfd and not has_plf:
             err("plaintiffs", "Empty")
-        if not doc.defendants:
+        if has_plf and not has_dfd:
             err("defendants", "Empty")
 
     # keywords

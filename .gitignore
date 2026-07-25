@@ -13,3 +13,6 @@ graphify-out/
 .claude/
 checkpoints/
 .graphify_*.json
+.superpowers/
+frontend/node_modules/
+frontend/dist/

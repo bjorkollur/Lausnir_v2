@@ -16,6 +16,7 @@ from typing import Any
 from pgvector.sqlalchemy import Vector
 from sqlalchemy import (
     Date,
+    Float,
     ForeignKey,
     Index,
     SmallInteger,
@@ -80,13 +81,18 @@ class Document(Base):
 
     body_text: Mapped[str | None] = mapped_column(Text)        # current court body
     lower_body_text: Mapped[str | None] = mapped_column(Text)  # embedded lower court
+    provisions: Mapped[list | None] = mapped_column(JSONB, nullable=True)  # [{num, text}] for lagasafn
 
     # ── Search ────────────────────────────────────────────────────────────────
     embedding: Mapped[Any | None] = mapped_column(Vector(3072))
-    # tsvector computed on insert/update via trigger (see migration)
+    # fts: GENERATED ALWAYS AS (to_tsvector('simple', ...)) — exact/keyword
+    # fts_is: BÍN-lemmatized tsvector — Icelandic morphology-aware search
+    fts_is: Mapped[Any | None] = mapped_column(TSVECTOR)
+    cited_provisions: Mapped[list[Any] | None] = mapped_column(JSONB)
+    # GIN index ix_doc_cited_provisions created by scripts/setup_provision_index.py
 
     # ── Paths ─────────────────────────────────────────────────────────────────
-    markdown_path: Mapped[str | None] = mapped_column(Text)
+    verdict_filename: Mapped[str | None] = mapped_column(Text)
 
     # ── Metadata ──────────────────────────────────────────────────────────────
     validation_errors: Mapped[list[Any] | None] = mapped_column(JSONB)
@@ -103,7 +109,76 @@ class Document(Base):
         Index("ix_doc_court", "court"),
         Index("ix_doc_date", "document_date"),
         Index("ix_doc_source_id", "source_id"),
+        Index("ix_doc_fts_is", "fts_is", postgresql_using="gin"),
+        # Faceting / scoped-date filters for the search API.
+        Index("ix_doc_source_date", "source_id", "document_date"),
+        Index("ix_doc_verdict_type", "verdict_type"),
+        Index("ix_doc_instance_tier", "instance_tier"),
+        Index("ix_doc_case_type", "case_type"),
+        # NB: the pg_trgm GIN indexes used by regex search — ix_doc_body_trgm,
+        # ix_doc_summary_trgm, ix_doc_case_number_trgm — are created by
+        # scripts/setup_search_indexes.py, NOT here. They need the pg_trgm
+        # extension at DDL time, which create_all() would not install.
     )
 
     def __repr__(self) -> str:
         return f"<Document {self.case_number or self.external_id!r} ({self.court})>"
+
+
+class DocumentLink(Base):
+    """Appeals-chain edge: a lower-court doc was appealed to a higher-court doc.
+
+    Direction is always lower → higher (from_doc_id → to_doc_id) with
+    relation 'appealed_to'. The chain Hérd → Lrd → Hrd is reconstructed by
+    following edges; instance_tier on each document disambiguates the rungs.
+    Built by matching a higher court's embedded lower_body_text against the
+    lower court's own body_text (see scripts/link_appeals.py).
+    """
+    __tablename__ = "document_links"
+
+    id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
+    )
+    from_doc_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("documents.id", ondelete="CASCADE"), nullable=False
+    )
+    to_doc_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("documents.id", ondelete="CASCADE"), nullable=False
+    )
+    relation: Mapped[str] = mapped_column(Text, nullable=False)  # 'appealed_to'
+    confidence: Mapped[float | None] = mapped_column(Float)       # combined-sim score
+    method: Mapped[str | None] = mapped_column(Text)             # casenum | court_date | court_window
+    created_at: Mapped[datetime] = mapped_column(server_default=func.now())
+
+    __table_args__ = (
+        UniqueConstraint("from_doc_id", "to_doc_id", "relation", name="uq_link_from_to_rel"),
+        Index("ix_link_from", "from_doc_id"),
+        Index("ix_link_to", "to_doc_id"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<DocumentLink {self.from_doc_id} -{self.relation}-> {self.to_doc_id}>"
+
+
+class DocumentChunk(Base):
+    """One chunk of a long document (400–600 words), with its own BÍN-lemmatized FTS."""
+    __tablename__ = "document_chunks"
+
+    id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
+    )
+    document_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("documents.id", ondelete="CASCADE"), nullable=False
+    )
+    chunk_index: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    chunk_text: Mapped[str] = mapped_column(Text, nullable=False)
+    fts_is: Mapped[Any | None] = mapped_column(TSVECTOR)
+
+    __table_args__ = (
+        UniqueConstraint("document_id", "chunk_index", name="uq_chunk_doc_idx"),
+        Index("ix_chunk_doc_id", "document_id"),
+        Index("ix_chunk_fts_is", "fts_is", postgresql_using="gin"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<DocumentChunk doc={self.document_id} idx={self.chunk_index}>"
