@@ -45,6 +45,10 @@ class SourceConfig:
     pdf_crop: PdfCrop | None = None
     h1_use_display_name: bool = False  # True → H1 uses full display_name instead of court abbreviation
     case_number_is_title: bool = False  # True → case_number holds free-text title (theses); skip case-number-shape validation
+    # True → PDFs carry academic footnotes; parse_pdf pairs the superscript marker
+    # with its note text by position and emits GFM footnotes. Court rulings and
+    # tribunal decisions have no footnotes, so this stays off for them.
+    has_footnotes: bool = False
     stjornarradid_source: bool = False  # True → source is on stjornarradid.is; sweep via sync_stjornarradid.py
 
     def __post_init__(self) -> None:
@@ -829,6 +833,7 @@ _SOURCES: list[SourceConfig] = [
         pdf_crop=None,             # sækjum „Heildartexti"-skrána og tökum hráan texta
         h1_use_display_name=True,
         case_number_is_title=True, # titill, ekki málsnúmer — slepptu málsnúmers-validation
+            has_footnotes=True,   # fræðirit með neðanmálsgreinum
     ),
     # ── Lögfræðibækur (dropfolder) ────────────────────────────────────────────
     SourceConfig(
@@ -844,6 +849,7 @@ _SOURCES: list[SourceConfig] = [
         pdf_crop=None,
         h1_use_display_name=True,
         case_number_is_title=True, # titill, ekki málsnúmer — sama og logfraediritgerdir
+            has_footnotes=True,   # fræðirit með neðanmálsgreinum
     ),
 ]
 

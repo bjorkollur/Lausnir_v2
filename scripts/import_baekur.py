@@ -41,7 +41,7 @@ from engine.database.models import Document, Source
 from engine.processors.book_metadata import resolve_book_metadata
 from engine.processors.extractor import Extractor
 from engine.processors.http_utils import make_client
-from engine.processors.pdf_parser import docling_ocr_pdf, parse_pdf
+from engine.processors.pdf_parser import docling_ocr_pdf, is_scanned_pdf, parse_pdf
 from engine.processors.renderer import unique_verdict_filename, write_markdown
 from engine.processors.validator import validate
 
@@ -56,9 +56,38 @@ _TRANSLIT = str.maketrans({
 })
 
 
-def extract_text(pdf_bytes: bytes) -> str:
-    """Extract full text; falls back to OCR (longer timeout) if the text layer is empty."""
-    text = parse_pdf(pdf_bytes)
+# The footnote pass drops any note line it cannot attach to a number. On a long
+# book — hundreds of repeated small-type running headers — that can eat real text,
+# so the result is rejected if it comes back materially shorter than a plain pass.
+_FOOTNOTE_PASS_MIN_RATIO = 0.97
+
+
+def extract_text(pdf_bytes: bytes, *, footnotes: bool = False) -> str:
+    """Extract full text — scanned pages go straight to OCR, native ones through
+    the structured parser; falls back to OCR (longer timeout) for anything that
+    slips past the classifier with an empty text layer regardless.
+
+    A scanned page's text layer is not just sometimes empty — it can be full of
+    text and still wrong (garbled roman numerals, mis-encoded letters), so
+    "text came back" is not enough to trust it. is_scanned_pdf() checks for a
+    full-page image instead of checking whether text exists, and settles the
+    question before parse_pdf ever runs.
+
+    OCR loses the word positions footnote pairing depends on, so that path
+    yields plain text with no footnote markup — the text is still captured.
+    """
+    if is_scanned_pdf(pdf_bytes):
+        return docling_ocr_pdf(pdf_bytes, timeout=_OCR_TIMEOUT) or ""
+
+    text = parse_pdf(pdf_bytes, footnotes=footnotes)
+    if footnotes and text:
+        plain = parse_pdf(pdf_bytes)
+        if plain and len(text) < len(plain) * _FOOTNOTE_PASS_MIN_RATIO:
+            log.warning(
+                "footnote pass lost text (%d vs %d chars) — keeping plain extraction",
+                len(text), len(plain),
+            )
+            text = plain
     if not text:
         text = docling_ocr_pdf(pdf_bytes, timeout=_OCR_TIMEOUT) or ""
     return text
@@ -81,8 +110,9 @@ def build_document(
     """Build a Document from resolved metadata + extracted text. Pure — no I/O."""
     raw = {
         "title": meta["title"],
-        "author": meta["author"],
+        "authors": meta["authors"],
         "isbn": meta["isbn"],
+        "publisher": meta["publisher"],
         "document_date": meta["document_date"],
         "source_filename": None,
         "pdf_text": body_text or None,
@@ -136,6 +166,8 @@ async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
         "summary": _v(doc.summary),
         "body_text": _v(doc.body_text),
         "lower_body_text": _v(doc.lower_body_text),
+        "isbn": _v(doc.isbn),
+        "publisher": _v(doc.publisher),
         "validation_errors": _v(doc.validation_errors),
     }
     update_cols = {k: v for k, v in values.items() if k not in ("id", "source_id", "external_id")}
@@ -178,7 +210,7 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
 
             try:
                 pdf_bytes = pdf_path.read_bytes()
-                body_text = extract_text(pdf_bytes)
+                body_text = extract_text(pdf_bytes, footnotes=config.has_footnotes)
                 meta = await resolve_book_metadata(client, body_text[:4000], pdf_path)
                 doc = build_document(meta, body_text, source_id or uuid.uuid4(), config)
             except Exception as exc:  # noqa: BLE001
@@ -192,10 +224,12 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
                 stats["errors"] += 1
 
             if dry_run:
-                plf = doc.plaintiffs[0] if doc.plaintiffs else {}
+                authors = [p.get("name") for p in (doc.plaintiffs or [])]
                 print(f"{pdf_path.name}:")
                 print(f"  title      : {doc.case_number}")
-                print(f"  author     : {plf.get('name')}")
+                print(f"  authors    : {', '.join(authors) or None}")
+                print(f"  isbn       : {doc.isbn}")
+                print(f"  publisher  : {doc.publisher}")
                 print(f"  external_id: {doc.external_id}")
                 print(f"  body_text  : {len(doc.body_text or '')} chars")
                 if errors:

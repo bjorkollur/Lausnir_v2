@@ -2415,17 +2415,18 @@ def _extract_logfraediritgerdir(raw: dict, config: SourceConfig) -> dict:
 def _extract_logfraedibaekur(raw: dict, config: SourceConfig) -> dict:
     """Map a dropfolder law-book raw dict to NORM fields.
 
-    raw comes from scripts/import_baekur.py: title/author/isbn/document_date
-    from resolve_book_metadata(), plus source_filename and pdf_text (full
-    extracted body). No new DB columns: title→case_number, author→
-    plaintiffs[0].name (no advisor field for books).
+    raw comes from scripts/import_baekur.py: title/authors/isbn/publisher/
+    document_date from resolve_book_metadata(), plus source_filename and
+    pdf_text (full extracted body). title→case_number, authors (list[str])
+    →plaintiffs (one entry per author, lawyer always None — no advisor
+    field for books). isbn/publisher are dedicated columns.
     """
     title = (raw.get("title") or "").strip()
-    author = raw.get("author")
+    authors = raw.get("authors")
 
     plaintiffs = None
-    if author:
-        plaintiffs = [{"name": author, "lawyer": None}]
+    if authors:
+        plaintiffs = [{"name": a, "lawyer": None} for a in authors]
 
     doc_date = raw.get("document_date")
     raw_meta = {k: v for k, v in raw.items() if k != "pdf_text"}
@@ -2445,6 +2446,8 @@ def _extract_logfraedibaekur(raw: dict, config: SourceConfig) -> dict:
         "summary": None,
         "body_text": (raw.get("pdf_text") or None),
         "lower_body_text": None,
+        "isbn": raw.get("isbn"),
+        "publisher": raw.get("publisher"),
         "raw_api_data": raw_meta,
     }
 

@@ -10,8 +10,9 @@ CONFIG = get_config("logfraedibaekur")
 def _raw(**overrides) -> dict:
     base = {
         "title": "Kröfuréttur I",
-        "author": "Páll Sigurðsson",
+        "authors": ["Páll Sigurðsson"],
         "isbn": "9780306406157",
+        "publisher": "Bókaútgáfan Codex",
         "document_date": date(1985, 1, 1),
         "source_filename": "krofurettur.pdf",
         "pdf_text": "Meginmál bókarinnar hér.",
@@ -29,9 +30,23 @@ def test_extract_maps_author_to_plaintiffs():
     assert result["plaintiffs"] == [{"name": "Páll Sigurðsson", "lawyer": None}]
 
 
+def test_extract_maps_multiple_authors_to_plaintiffs():
+    result = Extractor(CONFIG).extract(_raw(authors=["Höfundur Einn", "Höfundur Tveir"]))
+    assert result["plaintiffs"] == [
+        {"name": "Höfundur Einn", "lawyer": None},
+        {"name": "Höfundur Tveir", "lawyer": None},
+    ]
+
+
 def test_extract_no_author_gives_none_plaintiffs():
-    result = Extractor(CONFIG).extract(_raw(author=None))
+    result = Extractor(CONFIG).extract(_raw(authors=None))
     assert result["plaintiffs"] is None
+
+
+def test_extract_maps_isbn_and_publisher_to_dedicated_columns():
+    result = Extractor(CONFIG).extract(_raw())
+    assert result["isbn"] == "9780306406157"
+    assert result["publisher"] == "Bókaútgáfan Codex"
 
 
 def test_extract_uses_config_court_and_verdict_type():

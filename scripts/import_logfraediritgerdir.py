@@ -51,6 +51,7 @@ from engine.database.connection import init_db
 from engine.database.models import Document, Source
 from engine.processors.extractor import Extractor, clean_person_name, degree_to_namsstig
 from engine.processors.http_utils import get_with_retry, make_client
+from engine.processors.pdf_parser import parse_pdf
 from engine.processors.renderer import unique_verdict_filename, write_markdown
 from engine.processors.validator import validate
 
@@ -235,7 +236,7 @@ def clean_body(text: str) -> str:
     return text.strip()
 
 
-def pdf_bytes_to_text(raw: bytes) -> str | None:
+def _poppler_text(raw: bytes) -> str | None:
     """Extract text from PDF bytes via poppler `pdftotext` (reads/writes stdio).
 
     Poppler is markedly more robust than PyMuPDF on Skemman's theses — some PDFs
@@ -251,6 +252,39 @@ def pdf_bytes_to_text(raw: bytes) -> str | None:
         return None
     text = proc.stdout.decode("utf-8", "replace")
     return clean_body(text) or None
+
+
+# A position-aware pass that returns far less text than poppler has misread the
+# layout; fall back rather than storing a truncated thesis for the sake of footnotes.
+_FOOTNOTE_PASS_MIN_RATIO = 0.6
+
+
+def pdf_bytes_to_text(raw: bytes) -> str | None:
+    """Extract thesis text, preferring the footnote-aware parser.
+
+    pdftotext reads the foot-of-page block column-first, which permanently
+    separates each footnote marker from its text, so it cannot produce usable
+    footnotes. parse_pdf(footnotes=True) rebuilds from word positions instead.
+    Poppler stays as the fallback because it still handles some PDFs that
+    pdfplumber renders blank or badly.
+    """
+    poppler = _poppler_text(raw)
+    try:
+        parsed = parse_pdf(raw, footnotes=True)
+    except Exception as exc:  # noqa: BLE001
+        log.warning("footnote-aware parse failed, using pdftotext: %s", exc)
+        return poppler
+
+    parsed = clean_body(parsed or "") or None
+    if not parsed:
+        return poppler
+    if poppler and len(parsed) < len(poppler) * _FOOTNOTE_PASS_MIN_RATIO:
+        log.warning(
+            "footnote pass returned %d chars vs poppler %d — using poppler",
+            len(parsed), len(poppler),
+        )
+        return poppler
+    return parsed
 
 
 async def fetch_pdf(client: httpx.AsyncClient, href: str) -> tuple[str | None, bytes | None]:

@@ -50,6 +50,7 @@ async def test_lookup_openlibrary_returns_metadata():
         "ISBN:9780306406157": {
             "title": "Kröfuréttur I",
             "authors": [{"name": "Páll Sigurðsson"}],
+            "publishers": [{"name": "Bókaútgáfan Codex"}],
             "publish_date": "1985",
         }
     }
@@ -58,9 +59,26 @@ async def test_lookup_openlibrary_returns_metadata():
         result = await lookup_openlibrary(client, "9780306406157")
     assert result == {
         "title": "Kröfuréttur I",
-        "author": "Páll Sigurðsson",
+        "authors": ["Páll Sigurðsson"],
+        "publisher": "Bókaútgáfan Codex",
         "publish_date": "1985",
     }
+
+
+async def test_lookup_openlibrary_returns_multiple_authors_and_publishers():
+    body = {
+        "ISBN:9780306406157": {
+            "title": "Afmælisrit",
+            "authors": [{"name": "Höfundur Einn"}, {"name": "Höfundur Tveir"}],
+            "publishers": [{"name": "Útgefandi Einn"}, {"name": "Útgefandi Tveir"}],
+            "publish_date": "2017",
+        }
+    }
+    transport = _Replay(httpx.Response(200, json=body))
+    async with httpx.AsyncClient(transport=transport) as client:
+        result = await lookup_openlibrary(client, "9780306406157")
+    assert result["authors"] == ["Höfundur Einn", "Höfundur Tveir"]
+    assert result["publisher"] == "Útgefandi Einn; Útgefandi Tveir"
 
 
 async def test_lookup_openlibrary_returns_none_when_isbn_unknown():
@@ -82,7 +100,7 @@ async def test_lookup_openlibrary_handles_missing_authors():
     transport = _Replay(httpx.Response(200, json=body))
     async with httpx.AsyncClient(transport=transport) as client:
         result = await lookup_openlibrary(client, "9780306406157")
-    assert result == {"title": "Ónefnt rit", "author": None, "publish_date": None}
+    assert result == {"title": "Ónefnt rit", "authors": None, "publisher": None, "publish_date": None}
 
 
 from engine.processors.book_metadata import lookup_leitir
@@ -97,6 +115,7 @@ async def test_lookup_leitir_returns_metadata():
                     "title": ["Afbrot og refsiábyrgð. 1 "],
                     "creator": ["Jónatan Þórmundsson 1937- höfundur$$QJónatan Þórmundsson"],
                     "identifier": ["$$CISBN$$V9789935233202"],
+                    "publisher": ["Bókaútgáfan Codex"],
                     "creationdate": ["2023"],
                 }
             }
@@ -107,9 +126,21 @@ async def test_lookup_leitir_returns_metadata():
         result = await lookup_leitir(client, "9789935233202")
     assert result == {
         "title": "Afbrot og refsiábyrgð. 1",
-        "author": "Jónatan Þórmundsson",
+        "authors": ["Jónatan Þórmundsson"],
+        "publisher": "Bókaútgáfan Codex",
         "publish_date": "2023",
     }
+
+
+async def test_lookup_leitir_returns_multiple_creators():
+    body = {"docs": [{"pnx": {"display": {
+        "title": ["Ritnefndarrit"],
+        "creator": ["Höfundur Einn$$QHöfundur Einn", "Höfundur Tveir$$QHöfundur Tveir"],
+    }}}]}
+    transport = _Replay(httpx.Response(200, json=body))
+    async with httpx.AsyncClient(transport=transport) as client:
+        result = await lookup_leitir(client, "9789935233202")
+    assert result["authors"] == ["Höfundur Einn", "Höfundur Tveir"]
 
 
 async def test_lookup_leitir_returns_none_when_no_docs():
@@ -131,7 +162,7 @@ async def test_lookup_leitir_handles_missing_creator():
     transport = _Replay(httpx.Response(200, json=body))
     async with httpx.AsyncClient(transport=transport) as client:
         result = await lookup_leitir(client, "9789935233202")
-    assert result == {"title": "Ónefnt rit", "author": None, "publish_date": None}
+    assert result == {"title": "Ónefnt rit", "authors": None, "publisher": None, "publish_date": None}
 
 
 async def test_lookup_leitir_creator_without_qq_marker_uses_raw_value():
@@ -141,7 +172,7 @@ async def test_lookup_leitir_creator_without_qq_marker_uses_raw_value():
     transport = _Replay(httpx.Response(200, json=body))
     async with httpx.AsyncClient(transport=transport) as client:
         result = await lookup_leitir(client, "9789935233202")
-    assert result["author"] == "Jón Jónsson"
+    assert result["authors"] == ["Jón Jónsson"]
 
 
 from datetime import date
@@ -225,6 +256,7 @@ async def test_resolve_book_metadata_uses_isbn_and_openlibrary():
         "ISBN:9780306406157": {
             "title": "Kröfuréttur I",
             "authors": [{"name": "Páll Sigurðsson"}],
+            "publishers": [{"name": "Bókaútgáfan Codex"}],
             "publish_date": "1985",
         }
     }
@@ -234,11 +266,27 @@ async def test_resolve_book_metadata_uses_isbn_and_openlibrary():
         meta = await resolve_book_metadata(client, text, Path("einhver_skra.pdf"))
     assert meta == {
         "title": "Kröfuréttur I",
-        "author": "Páll Sigurðsson",
+        "authors": ["Páll Sigurðsson"],
         "isbn": "9780306406157",
+        "publisher": "Bókaútgáfan Codex",
         "external_id": "9780306406157",
         "document_date": date(1985, 1, 1),
     }
+
+
+async def test_resolve_book_metadata_keeps_multiple_authors():
+    body = {
+        "ISBN:9780306406157": {
+            "title": "Afmælisrit",
+            "authors": [{"name": "Höfundur Einn"}, {"name": "Höfundur Tveir"}],
+            "publish_date": "2017",
+        }
+    }
+    transport = _Replay(httpx.Response(200, json=body))
+    text = "ISBN 978-0-306-40615-7\n\nAfmælisrit"
+    async with httpx.AsyncClient(transport=transport) as client:
+        meta = await resolve_book_metadata(client, text, Path("einhver_skra.pdf"))
+    assert meta["authors"] == ["Höfundur Einn", "Höfundur Tveir"]
 
 
 class _HostRouter(httpx.AsyncBaseTransport):
@@ -267,7 +315,7 @@ async def test_resolve_book_metadata_falls_back_to_leitir_when_openlibrary_has_n
     async with httpx.AsyncClient(transport=transport) as client:
         meta = await resolve_book_metadata(client, text, Path("Afbrot.pdf"))
     assert meta["title"] == "Afbrot og refsiábyrgð. 1"
-    assert meta["author"] == "Jónatan Þórmundsson"
+    assert meta["authors"] == ["Jónatan Þórmundsson"]
     assert meta["isbn"] == "9789935233202"
     assert meta["external_id"] == "9789935233202"
     assert meta["document_date"] == date(2023, 1, 1)
@@ -279,9 +327,10 @@ async def test_resolve_book_metadata_falls_back_to_filename_and_regex():
     async with httpx.AsyncClient(transport=transport) as client:
         meta = await resolve_book_metadata(client, text, Path("Skadabotarettur.pdf"))
     assert meta["title"] == "Skadabotarettur"
-    assert meta["author"] == "Jón Jónsson"
+    assert meta["authors"] == ["Jón Jónsson"]
     assert meta["isbn"] == "9780306406157"
     assert meta["external_id"] == "9780306406157"
+    assert meta["publisher"] is None
 
 
 async def test_resolve_book_metadata_falls_back_to_llm_when_regex_finds_nothing():
@@ -293,6 +342,6 @@ async def test_resolve_book_metadata_falls_back_to_llm_when_regex_finds_nothing(
         with patch.dict("os.environ", {"ANTHROPIC_API_KEY": "test-key"}):
             async with httpx.AsyncClient() as client:
                 meta = await resolve_book_metadata(client, text, Path("Ohefdbaerabok.pdf"))
-    assert meta["author"] == "Ásta Ólafsdóttir"
+    assert meta["authors"] == ["Ásta Ólafsdóttir"]
     assert meta["isbn"] is None
     assert meta["external_id"] == "ohefdbaerabok"

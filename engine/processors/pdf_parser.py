@@ -21,6 +21,8 @@ def parse_pdf(
     heading_sizes: dict | None = None,
     heading_fonts: dict | None = None,
     extract_tables: bool = False,
+    footnotes: bool = False,
+    _plain_structured: bool = False,
 ) -> str:
     """
     Þáttar PDF í Markdown-texta.
@@ -33,9 +35,14 @@ def parse_pdf(
     extract_tables             : ef True, leita á töflum á hverri síðu og setja
                                  markdown töflu þar á sviðinu þar sem hún birtist.
                                  Texti utan töflu er extracted venjulega.
+    footnotes                  : ef True, para fótnótunúmer við texta eftir
+                                 staðsetningu og skila þeim sem GFM-fótnótum
+                                 ([^1] í meginmáli, [^1]: skýring í lokin).
+                                 Ætlað fræðiritum; dómaskjöl nota þetta ekki.
     """
     with pdfplumber.open(io.BytesIO(content)) as pdf:
         pages = []
+        collected_notes: list[tuple[int, str]] = []
         for i, page in enumerate(pdf.pages):
             apply_header = header_pt and (i > 0 or not skip_header_on_first)
             if apply_header or footer_pt:
@@ -43,7 +50,20 @@ def parse_pdf(
                 y1 = page.height - footer_pt if footer_pt else page.height
                 page = page.crop((0, y0, page.width, y1))
 
-            if extract_tables:
+            if footnotes:
+                text, notes = _extract_page_with_footnotes(page, footnotes=True)
+                if _plain_structured:
+                    # Numbering restarts per contribution, so notes cannot be
+                    # linked document-wide. They are still lifted out of the
+                    # prose and shown under the page they belong to — leaving
+                    # them inline breaks sentences mid-argument.
+                    if notes:
+                        text = f"{text}\n\n" + "\n".join(
+                            f"> {n}. {txt}" for n, txt in notes
+                        )
+                else:
+                    collected_notes.extend(notes)
+            elif extract_tables:
                 text = _extract_with_tables(
                     page,
                     heading_sizes=heading_sizes or {},
@@ -57,7 +77,37 @@ def parse_pdf(
             if text and text.strip():
                 pages.append(text.strip())
 
-    return _join_pages(pages)
+    body = _join_pages(pages)
+    if footnotes and not _plain_structured:
+        if _numbering_restarts(body):
+            # Re-extract with the note block left in place. Still the structured
+            # path — a collection needs its paragraphs and headings as much as
+            # any other book, and the plain path returns one wall of text.
+            return parse_pdf(
+                content,
+                header_pt=header_pt, footer_pt=footer_pt,
+                skip_header_on_first=skip_header_on_first,
+                heading_sizes=heading_sizes, heading_fonts=heading_fonts,
+                extract_tables=extract_tables, footnotes=True,
+                _plain_structured=True,
+            )
+        block = _render_footnotes(collected_notes, body)
+        if block:
+            body = f"{body}\n\n{block}"
+    return body
+
+
+def _numbering_restarts(body: str) -> bool:
+    """True when footnote markers repeat so often that numbering must restart.
+
+    A single-author work uses each number once. A collection of contributions
+    uses `1` once per contribution — so the ratio of distinct markers to total
+    markers collapses.
+    """
+    refs = re.findall(r'\[\^(\d+)\](?!:)', body)
+    if len(refs) < 20:  # too few to judge; a handful of repeats proves nothing
+        return False
+    return len(set(refs)) / len(refs) < _MIN_UNIQUE_MARKER_RATIO
 
 
 def _join_pages(pages: list[str]) -> str:
@@ -403,6 +453,341 @@ def _most_common_size(words: list) -> float:
     from collections import Counter
     sizes = Counter(round(w["size"], 1) for w in words)
     return sizes.most_common(1)[0][0] if sizes else 10.5
+
+
+# ── Footnotes ─────────────────────────────────────────────────────────────────
+# A PDF footnote is three separate things on the page: a superscript digit in the
+# running text, a matching digit in the note block at the foot of the page, and
+# the note's own text. page.extract_text() reads the note block column-first, so
+# the digits arrive detached from their texts ("1\n2\n3\n4" then four sentences)
+# and the pairing is unrecoverable afterwards. Rebuilding from word positions
+# keeps each digit on the same line as its text, which is what makes this work.
+
+_FOOTNOTE_START = re.compile(r'^(\d{1,3})\s+(.+)$')
+# How much smaller than body text a footnote must be before we treat it as one.
+_FOOTNOTE_SIZE_DELTA = 0.5
+# Superscript markers are smaller still — this separates them from note bodies.
+_SUPERSCRIPT_SIZE_DELTA = 1.5
+# A "note block" covering more than this share of the page means the size test
+# misfired — treat the page as ordinary body text rather than delete most of it.
+_MAX_FOOTNOTE_LINE_SHARE = 0.5
+
+# Footnote numbering is only document-wide in a single-author work. Collections —
+# festschrifts, journal issues — restart at 1 for every contribution, so the same
+# marker occurs in many unrelated places and a document-wide [^n] link would send
+# the reader to the wrong note. When markers repeat far more than they should,
+# emitting no footnote markup is better than emitting wrong markup.
+_MIN_UNIQUE_MARKER_RATIO = 0.5
+
+
+# A superscript marker sits a few points above the baseline of the line it
+# annotates, so grouping words by exact `top` strands it on a line of its own —
+# and a lone marker can no longer be told apart from body text. Cluster instead,
+# with a tolerance well under normal line spacing (~10–14pt in these documents).
+_LINE_CLUSTER_TOLERANCE = 5.0
+
+
+def _page_lines(page) -> tuple[dict, list, float]:
+    """Group a page's words into lines, tolerating raised superscripts.
+
+    Returns (line_map keyed by the line's first `top`, ordered keys, body size).
+    """
+    words = page.extract_words(
+        x_tolerance=2, y_tolerance=2, extra_attrs=["size", "fontname"],
+    )
+    if not words:
+        return {}, [], 0.0
+
+    line_map: dict[float, list] = defaultdict(list)
+    keys: list[float] = []
+    for w in sorted(words, key=lambda w: (w["top"], w["x0"])):
+        # Attach to the open line whose top is within tolerance; else start one.
+        if keys and w["top"] - keys[-1] <= _LINE_CLUSTER_TOLERANCE:
+            line_map[keys[-1]].append(w)
+        else:
+            keys.append(w["top"])
+            line_map[w["top"]].append(w)
+    return line_map, keys, _most_common_size(words)
+
+
+# A line set this much larger than body text is a heading.
+_HEADING_SIZE_DELTA = 1.0
+# ...but only if it stands alone. Body size is measured per page, so a page whose
+# dominant type is the note block — or an article opening set in larger type —
+# makes ordinary prose look oversized. A length cap does not separate them: at
+# line level a wrapped sentence is about as long as a heading. What does separate
+# them is that a heading is one or two lines, while mis-sized body text runs on.
+_MAX_HEADING_LINES = 2
+# A vertical gap this much larger than the page's usual line spacing starts a new
+# paragraph. Without this every page collapses into one unreadable block: PDF line
+# breaks are not paragraph breaks, and markdown joins single newlines.
+_PARAGRAPH_GAP_FACTOR = 1.5
+
+
+def _extract_page_with_footnotes(page, *, footnotes: bool = True) -> tuple[str, list[tuple[int, str]]]:
+    """Return (body markdown, [(n, note text), ...]) for one page.
+
+    Kept separate from the heading/table extractors: those serve ~88,000 court
+    documents whose layout has nothing to do with academic footnotes, and there is
+    no reason to put that corpus at risk for this.
+
+    With `footnotes=False` the note block is left in the body untouched — used for
+    documents whose numbering restarts per contribution, which still need the
+    paragraph and heading structure this function reconstructs.
+    """
+    line_map, line_tops, body_size = _page_lines(page)
+    if not line_tops:
+        return "", []
+
+    note_start = (
+        _footnote_block_start(line_map, line_tops, body_size, page.height)
+        if footnotes else None
+    )
+
+    gaps = [line_tops[i] - line_tops[i - 1] for i in range(1, len(line_tops))]
+    typical_gap = sorted(gaps)[len(gaps) // 2] if gaps else 14.0
+
+    heading_idx = _heading_line_indexes(line_map, line_tops, body_size, note_start)
+
+    blocks: list[str] = []       # finished paragraphs / headings
+    current: list[str] = []      # lines of the paragraph being built
+    note_lines: list[tuple[float, str]] = []  # (x0, text)
+    prev_top: float | None = None
+
+    def flush() -> None:
+        if current:
+            blocks.append(" ".join(current))
+            current.clear()
+
+    for idx, top in enumerate(line_tops):
+        line_words = sorted(line_map[top], key=lambda w: w["x0"])
+        sizes = [round(w["size"], 1) for w in line_words]
+
+        if note_start is not None and idx >= note_start:
+            note_lines.append((line_words[0]["x0"], " ".join(w["text"] for w in line_words)))
+            continue
+
+        # Body line: a digit set markedly smaller than the surrounding text is a
+        # footnote reference, not a word — emit it as a GFM footnote marker.
+        parts: list[str] = []
+        for w in line_words:
+            small = round(w["size"], 1) < body_size - _SUPERSCRIPT_SIZE_DELTA
+            if (
+                footnotes and small and w["text"].isdigit()
+                and max(sizes) >= body_size - _FOOTNOTE_SIZE_DELTA
+            ):
+                # Attach to the preceding word so the marker sits tight against
+                # the text it annotates, the way it does in the original.
+                if parts:
+                    parts[-1] = parts[-1] + f"[^{int(w['text'])}]"
+                else:
+                    parts.append(f"[^{int(w['text'])}]")
+            else:
+                parts.append(w["text"])
+        line_text = " ".join(parts).strip()
+        if not line_text:
+            prev_top = top
+            continue
+
+        is_heading = idx in heading_idx
+        started_paragraph = (
+            prev_top is not None and (top - prev_top) >= typical_gap * _PARAGRAPH_GAP_FACTOR
+        )
+
+        if is_heading:
+            flush()
+            blocks.append(f"## {_collapse_spaced_letters(line_text)}")
+        else:
+            if started_paragraph:
+                flush()
+            current.append(line_text)
+        prev_top = top
+
+    flush()
+    notes, leftovers = _parse_footnote_lines(note_lines)
+    if leftovers:
+        # Continuation of a note that began on an earlier page — keep the text.
+        blocks.append(" ".join(leftovers))
+    return "\n\n".join(blocks), notes
+
+
+def _heading_line_indexes(
+    line_map: dict, line_tops: list, body_size: float, note_start: int | None
+) -> set[int]:
+    """Indexes of lines that are genuinely headings.
+
+    Oversized type alone is not enough: when a page's dominant size is misread,
+    whole paragraphs come out "oversized". Only runs of one or two consecutive
+    oversized lines are headings; a longer run is body text.
+    """
+    limit = note_start if note_start is not None else len(line_tops)
+    big = [
+        idx for idx in range(limit)
+        if _most_common_size(line_map[line_tops[idx]]) >= body_size + _HEADING_SIZE_DELTA
+    ]
+    headings: set[int] = set()
+    run: list[int] = []
+    for idx in big:
+        if run and idx == run[-1] + 1:
+            run.append(idx)
+        else:
+            if 0 < len(run) <= _MAX_HEADING_LINES:
+                headings.update(run)
+            run = [idx]
+    if 0 < len(run) <= _MAX_HEADING_LINES:
+        headings.update(run)
+    return headings
+
+
+def _footnote_block_start(
+    line_map: dict, line_tops: list, body_size: float, page_height: float
+) -> int | None:
+    """Index of the first line of the note block, or None if the page has none.
+
+    Footnotes are the run of small-type lines the page *ends* with. Selecting on
+    size alone would also catch block quotations, which Icelandic legal writing
+    routinely sets a point or two smaller than body text — and those sit in the
+    middle of the page with body text after them. Scanning up from the bottom and
+    stopping at the first body-size line keeps quotations where they belong.
+    """
+    idx = len(line_tops) - 1
+    seen_note = False
+    while idx >= 0:
+        line_words = line_map[line_tops[idx]]
+        text = " ".join(w["text"] for w in sorted(line_words, key=lambda w: w["x0"])).strip()
+        # A page number sits below or above the notes and belongs to neither.
+        if text.isdigit():
+            idx -= 1
+            continue
+        if _most_common_size(line_words) < body_size - _FOOTNOTE_SIZE_DELTA:
+            seen_note = True
+            idx -= 1
+            continue
+        break
+
+    if not seen_note:
+        return None
+    start = idx + 1
+    # A note block occupying most of the page means the size test misread the
+    # page (a wholly small-type page, e.g. an appendix); treat none of it as notes.
+    if start < len(line_tops) * _MAX_FOOTNOTE_LINE_SHARE:
+        return None
+    return start
+
+
+def _parse_footnote_lines(
+    note_lines: list[tuple[float, str]],
+) -> tuple[list[tuple[int, str]], list[str]]:
+    """Turn the foot-of-page block into ([(number, text)], leftover lines).
+
+    A note begins on a line that starts with its number at the block's left
+    margin; anything else — an indented line, or one that doesn't start with a
+    number — continues the note above it. A line that is only a number is the
+    page number, not a note.
+
+    Lines that belong to a note which began on the *previous* page have no number
+    here. They are returned as leftovers rather than discarded: silently dropping
+    them cost one 682-page collection 12% of its text, and pushed many theses
+    below the length check that guards this pass.
+    """
+    if not note_lines:
+        return [], []
+    margin = min(x0 for x0, _ in note_lines)
+
+    notes: list[tuple[int, list[str]]] = []
+    leftovers: list[str] = []
+    for x0, text in note_lines:
+        text = text.strip()
+        if not text or text.isdigit():
+            continue  # bare page number
+        m = _FOOTNOTE_START.match(text)
+        if m is not None and x0 <= margin + 2.0:
+            notes.append((int(m.group(1)), [m.group(2).strip()]))
+        elif notes:
+            notes[-1][1].append(text)
+        else:
+            leftovers.append(text)
+    return [(n, " ".join(parts).strip()) for n, parts in notes], leftovers
+
+
+def _render_footnotes(notes: list[tuple[int, str]], body: str) -> str:
+    """Render collected notes, keeping any whose marker we failed to find.
+
+    remark-gfm silently drops a definition that nothing references, so an
+    undetected superscript would delete the note's text from the document
+    entirely. Anything unreferenced is therefore emitted as a plain list instead
+    of a footnote definition — visibly imperfect, but never lost.
+    """
+    if not notes:
+        return ""
+    seen: dict[int, str] = {}
+    for n, text in notes:
+        if n not in seen and text:
+            seen[n] = text
+    if not seen:
+        return ""
+
+    referenced = {int(m) for m in re.findall(r'\[\^(\d+)\](?!:)', body)}
+    linked = [n for n in sorted(seen) if n in referenced]
+    orphans = [n for n in sorted(seen) if n not in referenced]
+
+    out: list[str] = []
+    if linked:
+        out.append("\n\n".join(f"[^{n}]: {seen[n]}" for n in linked))
+    if orphans:
+        out.append(
+            "### Neðanmálsgreinar án tilvísunar\n\n"
+            + "\n".join(f"{n}. {seen[n]}" for n in orphans)
+        )
+    return "\n\n".join(out)
+
+
+# ── Scanned-page detection ──────────────────────────────────────────────────────
+# A scanned page is a photograph of paper with a text layer baked on top by
+# whatever OCR the scanner ran — and that layer has been found to be corrupted in
+# practice (garbled roman numerals, mis-encoded letters in the TOC) even though
+# `parse_pdf`/`extract_words` return plenty of *text*, just not trustworthy text.
+# An empty-text check misses this entirely: the page is not empty, it is wrong.
+# A native PDF places its text directly on the page; even one that also embeds
+# photos or diagrams never covers the *whole* page with a single image the way a
+# scan does. That full-page-image signature is what this checks for instead.
+_SCAN_IMAGE_COVERAGE = 0.9
+
+
+def _page_has_full_page_image(page, threshold: float = _SCAN_IMAGE_COVERAGE) -> bool:
+    """True if any image on `page` covers most of the page area."""
+    area = page.width * page.height
+    if area <= 0:
+        return False
+    for img in page.images:
+        img_area = max(0.0, img["x1"] - img["x0"]) * max(0.0, img["bottom"] - img["top"])
+        if img_area / area >= threshold:
+            return True
+    return False
+
+
+def is_scanned_pdf(pdf_bytes: bytes, sample_pages: int = 5, threshold: float = _SCAN_IMAGE_COVERAGE) -> bool:
+    """True when the PDF should be routed to OCR instead of the structured parser.
+
+    Samples pages spread across the whole document — not just the front, which
+    is often a clean cover even in an otherwise-scanned book — and checks each
+    for a full-page image. One is enough: a book is scanned page-for-page or not
+    at all, so a single hit settles it without opening every page.
+
+    A PDF too broken for pdfplumber to even open is left to the caller's normal
+    parse_pdf/OCR fallback chain rather than raised here — this is a routing
+    decision, not the place to surface a corrupt file.
+    """
+    try:
+        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+            n = len(pdf.pages)
+            if n == 0:
+                return False
+            step = max(1, n // sample_pages)
+            idx = sorted({min(i, n - 1) for i in range(0, n, step)} | {n - 1})
+            return any(_page_has_full_page_image(pdf.pages[i], threshold) for i in idx)
+    except Exception:
+        return False
 
 
 def docling_ocr_pdf(pdf_bytes: bytes, timeout: int = 300) -> str | None:

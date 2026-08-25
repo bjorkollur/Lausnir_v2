@@ -83,6 +83,9 @@ class Document(Base):
     lower_body_text: Mapped[str | None] = mapped_column(Text)  # embedded lower court
     provisions: Mapped[list | None] = mapped_column(JSONB, nullable=True)  # [{num, text}] for lagasafn
 
+    isbn: Mapped[str | None] = mapped_column(Text)        # logfraedibaekur only
+    publisher: Mapped[str | None] = mapped_column(Text)   # logfraedibaekur only
+
     # ── Search ────────────────────────────────────────────────────────────────
     embedding: Mapped[Any | None] = mapped_column(Vector(3072))
     # fts: GENERATED ALWAYS AS (to_tsvector('simple', ...)) — exact/keyword

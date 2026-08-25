@@ -57,8 +57,9 @@ def test_logfraedibaekur_validates_clean_when_complete():
     config = get_config("logfraedibaekur")
     raw = {
         "title": "Kröfuréttur I",
-        "author": "Páll Sigurðsson",
+        "authors": ["Páll Sigurðsson"],
         "isbn": "9780306406157",
+        "publisher": "Bókaútgáfan Codex",
         "document_date": date(1985, 1, 1),
         "source_filename": "krofurettur.pdf",
         "pdf_text": "x" * 300,  # over the 200-char minimum
@@ -81,8 +82,9 @@ def test_logfraedibaekur_flags_missing_document_date_without_blocking():
     config = get_config("logfraedibaekur")
     raw = {
         "title": "Óþekkt bók",
-        "author": None,
+        "authors": None,
         "isbn": None,
+        "publisher": None,
         "document_date": None,
         "source_filename": "ohefdbaerabok.pdf",
         "pdf_text": "x" * 300,

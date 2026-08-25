@@ -65,7 +65,7 @@ def find_isbn(text: str) -> str | None:
 
 
 async def lookup_openlibrary(client: httpx.AsyncClient, isbn: str) -> dict | None:
-    """Look up title/author/publish_date on OpenLibrary. None if not found or on error."""
+    """Look up title/authors/publisher/publish_date on OpenLibrary. None if not found or on error."""
     url = f"https://openlibrary.org/api/books?bibkeys=ISBN:{isbn}&format=json&jscmd=data"
     try:
         resp = await client.get(url, timeout=15.0)
@@ -79,9 +79,11 @@ async def lookup_openlibrary(client: httpx.AsyncClient, isbn: str) -> dict | Non
         return None
     entry = data[key]
     authors = entry.get("authors") or []
+    publishers = entry.get("publishers") or []
     return {
         "title": entry.get("title"),
-        "author": authors[0]["name"] if authors else None,
+        "authors": [a["name"] for a in authors if a.get("name")] or None,
+        "publisher": "; ".join(p["name"] for p in publishers if p.get("name")) or None,
         "publish_date": entry.get("publish_date"),
     }
 
@@ -93,8 +95,14 @@ _LEITIR_URL = (
 )
 
 
+def _clean_primo_name(raw: str) -> str:
+    # Primo display format: "Full Name birth- role$$QClean Name" — the
+    # part after "$$Q" is the display-clean name; use it when present.
+    return (raw.split("$$Q")[-1] if "$$Q" in raw else raw).strip()
+
+
 async def lookup_leitir(client: httpx.AsyncClient, isbn: str) -> dict | None:
-    """Look up title/author/publish_date on leitir.is (Icelandic union catalog, Primo VE).
+    """Look up title/authors/publisher/publish_date on leitir.is (Icelandic union catalog, Primo VE).
 
     Covers Icelandic-only titles OpenLibrary doesn't have. None if not found or on error.
     """
@@ -112,14 +120,13 @@ async def lookup_leitir(client: httpx.AsyncClient, isbn: str) -> dict | None:
     title = (disp.get("title") or [None])[0]
     if title:
         title = title.strip()
-    creator = (disp.get("creator") or [None])[0]
-    author = None
-    if creator:
-        # Primo display format: "Full Name birth- role$$QClean Name" — the
-        # part after "$$Q" is the display-clean name; use it when present.
-        author = (creator.split("$$Q")[-1] if "$$Q" in creator else creator).strip()
+    creators = disp.get("creator") or []
+    authors = [_clean_primo_name(c) for c in creators if c and c.strip()] or None
+    publisher = (disp.get("publisher") or [None])[0]
+    if publisher:
+        publisher = publisher.strip()
     date_str = (disp.get("creationdate") or [None])[0]
-    return {"title": title, "author": author, "publish_date": date_str}
+    return {"title": title, "authors": authors, "publisher": publisher, "publish_date": date_str}
 
 
 _YEAR_RE = re.compile(r'\b(1[5-9]\d{2}|20\d{2})\b')
@@ -191,12 +198,15 @@ async def find_author_llm(text: str) -> str | None:
 async def resolve_book_metadata(
     client: httpx.AsyncClient, text: str, pdf_path: Path,
 ) -> dict:
-    """Resolve {title, author, isbn, external_id, document_date} for a dropped book PDF.
+    """Resolve {title, authors, isbn, publisher, external_id, document_date} for a dropped book PDF.
 
     Tier 1: ISBN found in text -> OpenLibrary lookup.
     Tier 2: ISBN found, OpenLibrary has no title -> leitir.is lookup (Icelandic titles).
     Tier 3: filename -> title, regex on text -> author.
     Tier 4: regex found nothing -> Claude API on text -> author.
+
+    `authors` is a list[str] | None — OpenLibrary/leitir.is may report several;
+    the regex/LLM fallback tiers only ever find one.
     """
     isbn = find_isbn(text)
     if isbn:
@@ -204,8 +214,9 @@ async def resolve_book_metadata(
         if ol and ol.get("title"):
             return {
                 "title": ol["title"],
-                "author": ol.get("author"),
+                "authors": ol.get("authors"),
                 "isbn": isbn,
+                "publisher": ol.get("publisher"),
                 "external_id": isbn,
                 "document_date": parse_publish_year(ol.get("publish_date")),
             }
@@ -213,8 +224,9 @@ async def resolve_book_metadata(
         if leitir and leitir.get("title"):
             return {
                 "title": leitir["title"],
-                "author": leitir.get("author"),
+                "authors": leitir.get("authors"),
                 "isbn": isbn,
+                "publisher": leitir.get("publisher"),
                 "external_id": isbn,
                 "document_date": parse_publish_year(leitir.get("publish_date")),
             }
@@ -226,8 +238,9 @@ async def resolve_book_metadata(
 
     return {
         "title": title,
-        "author": author,
+        "authors": [author] if author else None,
         "isbn": isbn,
+        "publisher": None,
         "external_id": isbn or external_id_from_filename(pdf_path),
         "document_date": None,
     }
