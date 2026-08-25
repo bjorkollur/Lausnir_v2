@@ -768,7 +768,7 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
                d.external_id, d.url, d.court, d.case_number, d.document_date,
                d.verdict_type, d.instance_tier, d.case_type,
                d.plaintiffs, d.defendants, d.keywords, d.summary,
-               d.body_text, d.lower_body_text
+               d.body_text, d.lower_body_text, d.raw_api_data
         FROM documents d JOIN sources s ON s.id = d.source_id
         WHERE d.id = :id
     """), {"id": did})).mappings().first()
@@ -805,12 +805,34 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
                                  L["other_date"], L["other_verdict"]),
         })
 
+    # Access state — why body_text may be absent. Skemman embargoes a third of
+    # all theses; without this the reader just shows a blank page and the user
+    # can't tell a restriction from a bug. Sources that don't publish these keys
+    # get None, which the frontend reads as "no restriction known".
+    raw = row["raw_api_data"] if isinstance(row["raw_api_data"], dict) else {}
+    locked = raw.get("locked")
+    if isinstance(locked, str):  # some importers store "true"/"false" as text
+        locked = locked.lower() == "true"
+
+    cfg = None
+    try:
+        cfg = get_config(row["source"])
+    except Exception:
+        pass
+
     return {
         "id": str(row["id"]),
         "source": row["source"],
         "source_display": row["source_display"],
         "external_id": row["external_id"],
         "url": row["url"],
+        # True for theses/books, where case_number holds a free-text title rather
+        # than a case number — the reader must not label it "Mál nr.".
+        "case_number_is_title": bool(cfg.case_number_is_title) if cfg else False,
+        # True → the original PDF is on disk and /api/document/{id}/pdf will serve it.
+        "has_pdf": bool(cfg and cfg.pdf_path(row["external_id"]).exists()),
+        "locked": locked if isinstance(locked, bool) else None,
+        "embargo_until": raw.get("embargo_until"),
         "urlausn": _citation(row["source"], row["court"], row["case_number"],
                              row["document_date"], row["verdict_type"]),
         "court": row["court"],

@@ -24,6 +24,14 @@ export interface DocumentDetail {
   plaintiffs: Party[]; defendants: Party[]; keywords: string[]; summary: string | null;
   body_text: string | null; lower_body_text: string | null; appeal_links: AppealLink[];
   markdown: string | null;
+  /** True for theses/books, where case_number holds a title, not a case number. */
+  case_number_is_title: boolean;
+  /** Access restriction at the source (Skemman embargo). null = not reported. */
+  locked: boolean | null;
+  /** Icelandic-format date (dd.mm.yyyy) the embargo lifts, when known. */
+  embargo_until: string | null;
+  /** True → GET /api/document/:id/pdf serves the original PDF. */
+  has_pdf: boolean;
 }
 
 export type Mode = "keyword" | "exact" | "prefix" | "substring" | "any" | "proximity" | "regex";

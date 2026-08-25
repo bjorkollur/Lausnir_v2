@@ -57,3 +57,14 @@ body {
   line-height: 1.6;
 }
 mark { @apply rounded-sm px-0.5; background-color: #f6e7a8; color: var(--ink); }
+::highlight(book-search-match) { background-color: #f6e7a8; color: var(--ink); }
+
+/* Footnote references: rendered as ordinary markdown links (see lib/footnotes.ts)
+   so they resolve across lazily-rendered sections, then styled as superscripts. */
+.prose a[href^="#nmg-"] {
+  vertical-align: super;
+  font-size: 0.7em;
+  text-decoration: none;
+  font-weight: 600;
+  padding-inline: 0.1em;
+}

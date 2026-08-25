@@ -60,4 +60,5 @@ export function fetchFacets(
 
 export const fetchSources = () => getJson<SourcesResponse>("/api/sources");
 export const fetchDocument = (id: string) => getJson<DocumentDetail>(`/api/document/${id}`);
+export const documentPdfUrl = (id: string) => `${BASE}/api/document/${id}/pdf`;
 export const fetchLaw = (id: string) => getJson<LawDetail>(`/api/law/${id}`);

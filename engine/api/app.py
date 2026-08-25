@@ -4,6 +4,7 @@ Endpoints (all JSON, local-only, no auth):
   GET /api/sources          → curated groups + flat source list with doc counts
   GET /api/search           → keyword/regex search with scope + date filters
   GET /api/document/{id}     → full document incl. body, parties, appeal links, markdown
+  GET /api/document/{id}/pdf → original PDF, when one is stored for this document
 
 Run:  uv run uvicorn engine.api.app:app --reload
       (requires DATABASE_URL in the environment)
@@ -17,6 +18,7 @@ import re as _re_law
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -189,6 +191,30 @@ async def document(
             except Exception:
                 doc["markdown"] = None
     return doc
+
+
+@app.get("/api/document/{doc_id}/pdf")
+async def document_pdf(
+    doc_id: str,
+    session: AsyncSession = Depends(get_session),
+) -> FileResponse:
+    """Serve the original PDF for a document, for the 'PDF' reader view.
+
+    Renders the exact source page (headers, footers, footnotes) — the frontend
+    falls back to this when markdown reconstruction can't be trusted.
+    """
+    try:
+        doc = await get_document(session, doc_id)
+    except SearchError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    if doc is None:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    cfg = get_config(doc["source"])
+    pdf_path = cfg.pdf_path(doc["external_id"])
+    if not pdf_path.exists():
+        raise HTTPException(status_code=404, detail="No PDF stored for this document")
+    return FileResponse(pdf_path, media_type="application/pdf")
 
 
 _LAW_FOOTNOTE_RE = _re_law.compile(r'^\[|\]\d+\)$')

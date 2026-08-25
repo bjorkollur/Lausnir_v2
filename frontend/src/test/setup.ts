@@ -8,3 +8,8 @@ if (!globalThis.IntersectionObserver) {
     disconnect() {}
   } as unknown as typeof IntersectionObserver;
 }
+
+// scrollIntoView is not implemented in jsdom; provide a no-op stub.
+if (!Element.prototype.scrollIntoView) {
+  Element.prototype.scrollIntoView = () => {};
+}
