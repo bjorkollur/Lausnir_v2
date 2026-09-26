@@ -1,4 +1,6 @@
-from unittest.mock import patch
+from unittest.mock import AsyncMock, MagicMock, patch
+
+import pytest
 
 
 def test_extract_text_uses_parse_pdf_when_text_layer_present():
@@ -82,6 +84,16 @@ def test_book_stem_empty_title_returns_book_fallback():
     assert book_stem("") == "book"
 
 
+def test_find_pdfs_is_case_insensitive(tmp_path):
+    from scripts.import_baekur import find_pdfs
+    (tmp_path / "a.pdf").write_bytes(b"")
+    (tmp_path / "b.PDF").write_bytes(b"")
+    (tmp_path / "c.txt").write_bytes(b"")
+    (tmp_path / "d").mkdir()
+    found = find_pdfs(tmp_path)
+    assert [p.name for p in found] == ["a.pdf", "b.PDF"]
+
+
 def test_build_document_maps_metadata_and_body():
     from datetime import date
     from engine.config.sources import get_config
@@ -143,3 +155,67 @@ def test_build_document_no_author_gives_none_plaintiffs():
     }
     doc = build_document(meta, "texti", __import__("uuid").uuid4(), config)
     assert doc.plaintiffs is None
+
+
+@pytest.mark.asyncio
+async def test_process_dropfolder_skips_same_run_isbn_collision(tmp_path):
+    """Two dropfolder files resolving to the same external_id within one run must
+    not both reach the upsert — the second silently overwrites the first via
+    ON CONFLICT DO UPDATE otherwise (real incident: same ISBN found in two
+    different scans, second one clobbered the first's body_text with no way
+    back, since existing_titles was only a startup snapshot)."""
+    import uuid as uuid_mod
+
+    import engine.database.connection as _db_conn
+    import scripts.import_baekur as mod
+
+    dropfolder = tmp_path / "dropfolder"
+    dropfolder.mkdir()
+    (dropfolder / "a_First_scan.pdf").write_bytes(b"%PDF-fake-a")
+    (dropfolder / "b_Second_scan.pdf").write_bytes(b"%PDF-fake-b")
+
+    class _FakeSessionCM:
+        def __init__(self, session):
+            self._session = session
+
+        async def __aenter__(self):
+            return self._session
+
+        async def __aexit__(self, *exc):
+            return False
+
+    result = MagicMock()
+    result.scalars.return_value.all.return_value = []
+    result.all.return_value = []
+    fake_row = MagicMock(id=None, verdict_filename=None)
+    result.scalar_one.return_value = fake_row
+
+    session = AsyncMock()
+    session.execute = AsyncMock(return_value=result)
+
+    same_isbn_meta = {
+        "title": "Sama bók",
+        "authors": None,
+        "isbn": "9789979000000",
+        "publisher": None,
+        "external_id": "9789979000000",
+        "document_date": None,
+    }
+
+    with (
+        patch.object(mod, "init_db", AsyncMock()),
+        patch.object(_db_conn, "AsyncSessionLocal", MagicMock(side_effect=lambda: _FakeSessionCM(session))),
+        patch.object(mod, "_ensure_source", AsyncMock(return_value=uuid_mod.uuid4())),
+        patch.object(mod, "_upsert_doc", AsyncMock()) as mock_upsert,
+        patch.object(mod, "extract_text", side_effect=["Texti fyrsta skjals", "Texti annars skjals"]),
+        patch.object(mod, "resolve_book_metadata", AsyncMock(return_value=same_isbn_meta)),
+        patch.object(mod, "write_markdown", return_value=tmp_path / "out.md"),
+        patch.object(mod, "is_scanned_pdf", return_value=False),
+        patch("engine.config.sources.RAW_DIR", str(tmp_path / "raw")),
+    ):
+        stats = await mod.process_dropfolder(dropfolder, dry_run=False)
+
+    assert mock_upsert.call_count == 1
+    assert stats["total"] == 2
+    assert (dropfolder / "_duplicates" / "b_Second_scan.pdf").exists()
+    assert not (dropfolder / "b_Second_scan.pdf").exists()

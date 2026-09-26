@@ -27,6 +27,37 @@ def test_docling_ocr_pdf_returns_none_on_timeout_expired():
     assert result is None
 
 
+def test_docling_ocr_pdf_requests_placeholder_images_not_embedded():
+    # Regression: without this flag Docling embeds every figure as a base64
+    # data URI in the markdown — one scanned page reached 3.5 MB and failed
+    # the insert outright (tsvector caps input at 1 MB in Postgres).
+    with patch("subprocess.run") as mock_run:
+        mock_run.side_effect = FileNotFoundError()
+        docling_ocr_pdf(b"%PDF-fake")
+    (cmd,), _ = mock_run.call_args
+    assert "--image-export-mode" in cmd
+    assert cmd[cmd.index("--image-export-mode") + 1] == "placeholder"
+
+
+def test_docling_ocr_pdf_strips_any_embedded_image_data_uri():
+    """Belt-and-suspenders: even if --image-export-mode is ever ignored or a
+    future Docling version behaves differently, no data URI reaches body_text."""
+    from pathlib import Path
+
+    def fake_run(cmd, **kwargs):
+        output_dir = cmd[cmd.index("--output") + 1]
+        (Path(output_dir) / "input.md").write_text(
+            "# Titill\n\n![Image](data:image/png;base64,AAAABBBBCCCC==)\n\nAlvöru texti hér."
+        )
+        return subprocess.CompletedProcess(cmd, 0)
+
+    with patch("subprocess.run", side_effect=fake_run):
+        result = docling_ocr_pdf(b"%PDF-fake")
+    assert "base64" not in result
+    assert "data:image" not in result
+    assert "Titill" in result and "Alvöru texti hér." in result
+
+
 # ── Footnotes ─────────────────────────────────────────────────────────────────
 
 from engine.processors.pdf_parser import _parse_footnote_lines, _render_footnotes
@@ -321,3 +352,93 @@ def test_is_scanned_pdf_false_when_pdfplumber_cannot_open_the_file():
     # A caller passing genuinely broken bytes gets routed to the normal
     # parse_pdf/OCR fallback chain, not an exception from the classifier itself.
     assert is_scanned_pdf(b"not actually a pdf") is False
+
+
+# ── Scan resolution normalization ────────────────────────────────────────────
+
+from engine.processors.pdf_parser import _page_image_dpi, downsample_if_high_res
+
+
+def test_page_image_dpi_computes_from_source_pixel_size():
+    # A 600pt-wide image at 600 px source width is a 72 px/inch * (600/600) = 1x
+    # scale, i.e. exactly 72 DPI at that width; use a realistic scan instead —
+    # a 300pt-wide page region backed by a 1250px image is ~300 DPI.
+    page = _FakePage(300, 400, [{"x0": 0, "top": 0, "x1": 300, "bottom": 400, "srcsize": (1250, 1667)}])
+    assert round(_page_image_dpi(page)) == 300
+
+
+def test_page_image_dpi_none_without_images():
+    assert _page_image_dpi(_FakePage(300, 400, [])) is None
+
+
+def test_page_image_dpi_none_when_source_size_missing():
+    page = _FakePage(300, 400, [{"x0": 0, "top": 0, "x1": 300, "bottom": 400, "srcsize": (None, None)}])
+    assert _page_image_dpi(page) is None
+
+
+def _pdf_bytes_with_dpi(dpi: float) -> bytes:
+    """Not a real PDF — downsample_if_high_res only needs pdfplumber.open to
+    succeed, which is mocked per-test; the bytes value itself is never parsed."""
+    return f"fake-pdf-at-{dpi}dpi".encode()
+
+
+def test_downsample_if_high_res_leaves_a_reasonable_scan_untouched():
+    page = _FakePage(300, 400, [_image(0, 0, 300, 400)])  # coverage math irrelevant here
+    page.images[0]["srcsize"] = (1250, 1667)  # ~300 DPI
+    with patch("pdfplumber.open", return_value=_fake_pdf([page])):
+        original = _pdf_bytes_with_dpi(300)
+        assert downsample_if_high_res(original) is original
+
+
+def test_downsample_if_high_res_rerenders_an_unnecessarily_high_res_scan():
+    page = _FakePage(300, 400, [_image(0, 0, 300, 400)])
+    page.images[0]["srcsize"] = (2500, 3333)  # ~600 DPI
+    fake_output = b"smaller-pdf-bytes"
+
+    fake_src_page = MagicMock()
+    fake_src_page.rect.width, fake_src_page.rect.height = 300, 400
+    fake_src = MagicMock()
+    fake_src.__iter__.return_value = iter([fake_src_page])
+    fake_out = MagicMock()
+    fake_out.tobytes.return_value = fake_output
+    fake_out.new_page.return_value = MagicMock()
+
+    with patch("pdfplumber.open", return_value=_fake_pdf([page])):
+        with patch("fitz.open", side_effect=[fake_src, fake_out]):
+            result = downsample_if_high_res(_pdf_bytes_with_dpi(600))
+    assert result == fake_output
+    fake_out.close.assert_called_once()
+    fake_src.close.assert_called_once()
+
+
+def test_downsample_if_high_res_keeps_original_when_rerender_is_bigger():
+    # Regression: a real book scanned with an efficient bilevel codec (common
+    # for black-and-white text) went from 18 MB to 322 MB after "downsampling"
+    # to RGB JPEG at a lower DPI — the DPI estimate alone can't predict this,
+    # only comparing actual output size can.
+    page = _FakePage(300, 400, [_image(0, 0, 300, 400)])
+    page.images[0]["srcsize"] = (2500, 3333)  # ~600 DPI, triggers the rerender
+    original = _pdf_bytes_with_dpi(600)
+    bigger_output = original + b"-padded-to-be-larger-than-the-input"
+
+    fake_src_page = MagicMock()
+    fake_src_page.rect.width, fake_src_page.rect.height = 300, 400
+    fake_src = MagicMock()
+    fake_src.__iter__.return_value = iter([fake_src_page])
+    fake_out = MagicMock()
+    fake_out.tobytes.return_value = bigger_output
+    fake_out.new_page.return_value = MagicMock()
+
+    with patch("pdfplumber.open", return_value=_fake_pdf([page])):
+        with patch("fitz.open", side_effect=[fake_src, fake_out]):
+            result = downsample_if_high_res(original)
+    assert result is original
+
+
+def test_downsample_if_high_res_returns_original_on_render_failure():
+    page = _FakePage(300, 400, [_image(0, 0, 300, 400)])
+    page.images[0]["srcsize"] = (2500, 3333)
+    with patch("pdfplumber.open", return_value=_fake_pdf([page])):
+        with patch("fitz.open", side_effect=RuntimeError("boom")):
+            original = _pdf_bytes_with_dpi(600)
+            assert downsample_if_high_res(original) is original

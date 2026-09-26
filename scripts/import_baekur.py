@@ -38,23 +38,21 @@ from engine.config.sources import DROPFOLDER_DIR, SourceConfig, get_config
 import engine.database.connection as _db_conn
 from engine.database.connection import init_db
 from engine.database.models import Document, Source
-from engine.processors.book_metadata import resolve_book_metadata
+from engine.processors.book_metadata import _TRANSLIT, resolve_book_metadata
 from engine.processors.extractor import Extractor
 from engine.processors.http_utils import make_client
-from engine.processors.pdf_parser import docling_ocr_pdf, is_scanned_pdf, parse_pdf
+from engine.processors.pdf_parser import (
+    docling_ocr_pdf,
+    downsample_if_high_res,
+    is_scanned_pdf,
+    parse_pdf,
+)
 from engine.processors.renderer import unique_verdict_filename, write_markdown
 from engine.processors.validator import validate
 
 log = logging.getLogger(__name__)
 
 _OCR_TIMEOUT = 1800  # 30 min — books run hundreds of pages, unlike single rulings
-
-_TRANSLIT = str.maketrans({
-    "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u", "ý": "y", "ð": "d",
-    "þ": "th", "æ": "ae", "ö": "o", "Á": "A", "É": "E", "Í": "I", "Ó": "O",
-    "Ú": "U", "Ý": "Y", "Ð": "D", "Þ": "Th", "Æ": "Ae", "Ö": "O",
-})
-
 
 # The footnote pass drops any note line it cannot attach to a number. On a long
 # book — hundreds of repeated small-type running headers — that can eat real text,
@@ -179,18 +177,28 @@ async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
     )
 
 
+def find_pdfs(dropfolder: Path) -> list[Path]:
+    """List PDFs in `dropfolder`, case-insensitively.
+
+    Path.glob is case-sensitive on every platform (it's Python's own matcher,
+    not the filesystem's) — plain "*.pdf" silently drops ".PDF" files, no error.
+    """
+    return sorted({p for p in dropfolder.iterdir() if p.is_file() and p.suffix.lower() == ".pdf"})
+
+
 async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     config = get_config("logfraedibaekur")
     stats = {"total": 0, "imported": 0, "errors": 0}
 
-    pdfs = sorted(dropfolder.glob("*.pdf"))
+    pdfs = find_pdfs(dropfolder)
     if not pdfs:
         log.info("No PDFs found in %s", dropfolder)
         return stats
 
     source_id = None
     taken: set[str] = set()
+    existing_titles: dict[str, str] = {}  # external_id -> case_number, for the skip message
     if not dry_run:
         await init_db()
         async with _db_conn.AsyncSessionLocal() as session:
@@ -200,21 +208,59 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
                 .where(Document.source_id == source_id)
                 .where(Document.verdict_filename.isnot(None))
             )).scalars().all()
-        taken = set(existing)
+            taken = set(existing)
+            existing_titles = dict((await session.execute(
+                select(Document.external_id, Document.case_number)
+                .where(Document.source_id == source_id)
+            )).all())
 
     config.pdf_path("_").parent.mkdir(parents=True, exist_ok=True)
+    duplicates_dir = dropfolder / "_duplicates"
 
-    async with make_client() as client:
+    # A book can take minutes of local OCR/extraction between one metadata
+    # lookup and the next — long enough for a keep-alive HTTP connection to go
+    # stale server-side. httpx doesn't always notice that on reuse (observed:
+    # a pooled OpenLibrary connection sat in CLOSE_WAIT with zero CPU activity
+    # for 10+ minutes, well past the per-request timeout, wedging the whole
+    # batch). A short keepalive_expiry makes the pool drop idle connections
+    # before they can go stale; wait_for below is the backstop regardless.
+    client_limits = httpx.Limits(keepalive_expiry=5.0)
+    async with make_client(limits=client_limits) as client:
         for pdf_path in pdfs:
             stats["total"] += 1
 
             try:
                 pdf_bytes = pdf_path.read_bytes()
                 body_text = extract_text(pdf_bytes, footnotes=config.has_footnotes)
-                meta = await resolve_book_metadata(client, body_text[:4000], pdf_path)
+                meta = await asyncio.wait_for(
+                    resolve_book_metadata(client, body_text[:4000], pdf_path), timeout=60.0,
+                )
                 doc = build_document(meta, body_text, source_id or uuid.uuid4(), config)
             except Exception as exc:  # noqa: BLE001
                 log.error("Failed to process %s: %s", pdf_path.name, exc)
+                stats["errors"] += 1
+                continue
+
+            # Same external_id (ISBN, or filename-derived id) as a document already
+            # imported — almost always a second scan of a book already in the
+            # collection, dropped under a different filename. ON CONFLICT DO
+            # UPDATE would silently overwrite the existing body_text with this
+            # extraction's, discarding whatever the first import produced with no
+            # way back — worse, doc.id here is a *new* uuid never actually
+            # inserted (the conflict path updates the *existing* row instead),
+            # so the later verdict_filename lookup by doc.id finds nothing and
+            # fails. Skip and move aside instead; a human can compare and decide.
+            if not dry_run and doc.external_id in existing_titles:
+                log.warning(
+                    "Skipping %s: external_id %r already imported as %r — moved to %s",
+                    pdf_path.name, doc.external_id, existing_titles[doc.external_id],
+                    duplicates_dir,
+                )
+                duplicates_dir.mkdir(exist_ok=True)
+                try:
+                    pdf_path.rename(duplicates_dir / pdf_path.name)
+                except Exception as exc:  # noqa: BLE001
+                    log.warning("Failed to move duplicate %s aside: %s", pdf_path.name, exc)
                 stats["errors"] += 1
                 continue
 
@@ -247,6 +293,12 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
                     stats["errors"] += 1
                     continue
 
+            # existing_titles is a startup snapshot — without this, two dropfolder
+            # files that collide on external_id with *each other* (not with any
+            # pre-existing row) both pass the check above, and the second one
+            # silently overwrites the first via ON CONFLICT DO UPDATE.
+            existing_titles[doc.external_id] = doc.case_number
+
             vf = None
             if doc.body_text:
                 vf = unique_verdict_filename(book_stem(doc.case_number or "book"), taken)
@@ -272,7 +324,23 @@ async def process_dropfolder(dropfolder: Path, *, dry_run: bool) -> dict:
 
             raw_pdf_path = config.pdf_path(doc.external_id)
             try:
-                pdf_path.rename(raw_pdf_path)
+                # A scanned book's raw copy is a rasterized image per page — worth
+                # normalizing an unnecessarily high-DPI scan down before it becomes
+                # the permanent artifact (see docs/logfraedibaekur-pdf-extraction-
+                # investigation.md). A native-text PDF is never rewritten: it has
+                # no scan resolution to normalize, and rasterizing it would throw
+                # away its selectable text for nothing — plain rename stays exact.
+                if is_scanned_pdf(pdf_bytes):
+                    downsampled = downsample_if_high_res(pdf_bytes)
+                    if len(downsampled) < len(pdf_bytes):
+                        log.info(
+                            "Downsampled %s: %.1f MB -> %.1f MB",
+                            pdf_path.name, len(pdf_bytes) / 1e6, len(downsampled) / 1e6,
+                        )
+                    raw_pdf_path.write_bytes(downsampled)
+                    pdf_path.unlink()
+                else:
+                    pdf_path.rename(raw_pdf_path)
             except Exception as exc:  # noqa: BLE001
                 log.warning("Failed to move %s to %s: %s", pdf_path.name, raw_pdf_path, exc)
                 stats["errors"] += 1

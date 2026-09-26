@@ -226,6 +226,14 @@ def test_external_id_from_filename_is_ascii_slug():
     assert external_id_from_filename(Path("Kröfuréttur I.pdf")) == "krofurettur_i"
 
 
+def test_external_id_from_filename_transliterates_eth_thorn_ae():
+    """ð/þ/æ have no NFKD decomposition — a plain ascii-encode silently drops
+    them (e.g. "Aðfaragerðir" -> "afaragerir") instead of transliterating."""
+    assert external_id_from_filename(Path("Aðfaragerðir.pdf")) == "adfaragerdir"
+    assert external_id_from_filename(Path("Þjóðréttur.pdf")) == "thjodrettur"
+    assert external_id_from_filename(Path("Æskan.pdf")) == "aeskan"
+
+
 async def test_find_author_llm_parses_json_response():
     mock_message = AsyncMock()
     mock_message.content = [type("Block", (), {"text": '{"author": "Páll Sigurðsson"}'})()]

@@ -754,6 +754,18 @@ def _render_footnotes(notes: list[tuple[int, str]], body: str) -> str:
 _SCAN_IMAGE_COVERAGE = 0.9
 
 
+def _sample_page_indices(n: int, sample_pages: int) -> list[int]:
+    """Indexes spread across a document of `n` pages, always including the last.
+
+    Shared by every sampling check in this module — sampling only the front
+    would miss a book whose cover happens to be the one clean page.
+    """
+    if n == 0:
+        return []
+    step = max(1, n // sample_pages)
+    return sorted({min(i, n - 1) for i in range(0, n, step)} | {n - 1})
+
+
 def _page_has_full_page_image(page, threshold: float = _SCAN_IMAGE_COVERAGE) -> bool:
     """True if any image on `page` covers most of the page area."""
     area = page.width * page.height
@@ -780,14 +792,89 @@ def is_scanned_pdf(pdf_bytes: bytes, sample_pages: int = 5, threshold: float = _
     """
     try:
         with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
-            n = len(pdf.pages)
-            if n == 0:
-                return False
-            step = max(1, n // sample_pages)
-            idx = sorted({min(i, n - 1) for i in range(0, n, step)} | {n - 1})
+            idx = _sample_page_indices(len(pdf.pages), sample_pages)
             return any(_page_has_full_page_image(pdf.pages[i], threshold) for i in idx)
     except Exception:
         return False
+
+
+# ── Scan resolution normalization ────────────────────────────────────────────
+# A 600 DPI scan costs real disk space and a slower browser PDF viewer for no
+# benefit — nothing about a screen, or even OCR, needs more than ~300 DPI. Only
+# ever worth calling on a PDF is_scanned_pdf() already confirmed: rasterizing a
+# native PDF's selectable text at any DPI is a straight quality loss for nothing.
+_TARGET_SCAN_DPI = 300
+_DOWNSAMPLE_ABOVE_DPI = 400  # leave a scan already close to target alone
+_JPEG_QUALITY = 80  # visually indistinguishable on a scanned text page, ~25x smaller than raw
+
+
+def _page_image_dpi(page) -> float | None:
+    """Effective DPI of a page's largest embedded image, or None if it has none
+    or pdfplumber couldn't read the source pixel size."""
+    images = page.images
+    if not images:
+        return None
+    img = max(images, key=lambda im: (im["x1"] - im["x0"]) * (im["bottom"] - im["top"]))
+    width_pt = img["x1"] - img["x0"]
+    width_px = img.get("srcsize", (None, None))[0]
+    if width_pt <= 0 or not width_px:
+        return None
+    return width_px / (width_pt / 72)
+
+
+def downsample_if_high_res(
+    pdf_bytes: bytes,
+    target_dpi: int = _TARGET_SCAN_DPI,
+    threshold_dpi: int = _DOWNSAMPLE_ABOVE_DPI,
+    sample_pages: int = 5,
+) -> bytes:
+    """Re-render a scanned PDF at target_dpi when its scan resolution is well
+    above what a screen needs. Returns the input unchanged when the resolution
+    already looks reasonable (or on any failure) — safe to call unconditionally
+    on every PDF already classified as scanned.
+
+    Physical page size is preserved (only the backing image resolution drops),
+    so this doesn't touch layout — the PDF viewer renders it identically, just
+    from a smaller file.
+    """
+    try:
+        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+            idx = _sample_page_indices(len(pdf.pages), sample_pages)
+            dpis = [d for i in idx if (d := _page_image_dpi(pdf.pages[i])) is not None]
+    except Exception:
+        return pdf_bytes
+    if not dpis or max(dpis) <= threshold_dpi:
+        return pdf_bytes
+
+    try:
+        import fitz  # PyMuPDF
+
+        src = fitz.open(stream=pdf_bytes, filetype="pdf")
+        out = fitz.open()
+        try:
+            for page in src:
+                pix = page.get_pixmap(dpi=target_dpi)
+                # insert_image(pixmap=...) embeds the raster essentially
+                # uncompressed — on a real 600 DPI book that produced a *larger*
+                # file than the JPEG-compressed original despite 4x fewer
+                # pixels. Re-encoding as JPEG first is what the pixel-count
+                # reduction actually needs to show up as a smaller file.
+                new_page = out.new_page(width=page.rect.width, height=page.rect.height)
+                new_page.insert_image(new_page.rect, stream=pix.tobytes("jpg", jpg_quality=_JPEG_QUALITY))
+            result = out.tobytes(garbage=4, deflate=True)
+        finally:
+            out.close()
+            src.close()
+    except Exception:
+        return pdf_bytes
+
+    # A source scanned with an efficient bilevel codec (CCITT/JBIG2 — common
+    # for black-and-white text scans) can be *smaller* at its original DPI
+    # than our RGB-JPEG re-render at a lower one: one real book went from
+    # 18 MB to 322 MB this way. The DPI estimate alone can't predict this —
+    # only comparing the actual output can, so always do that before trusting
+    # the "optimization".
+    return result if len(result) < len(pdf_bytes) else pdf_bytes
 
 
 def docling_ocr_pdf(pdf_bytes: bytes, timeout: int = 300) -> str | None:
@@ -816,6 +903,12 @@ def docling_ocr_pdf(pdf_bytes: bytes, timeout: int = 300) -> str | None:
                     "--force-ocr",
                     "--ocr-engine", "tesseract",
                     "--ocr-lang", "isl",
+                    # Without this, Docling embeds every figure/page-picture as a
+                    # base64 data URI right in the markdown — one scanned page
+                    # blew this up to 3.5 MB and failed the insert outright
+                    # (Postgres caps tsvector input at 1 MB). We already have the
+                    # PDF for visual fidelity; body_text only needs the text.
+                    "--image-export-mode", "placeholder",
                     "--output", tmpdir,
                 ],
                 capture_output=True,
@@ -831,8 +924,11 @@ def docling_ocr_pdf(pdf_bytes: bytes, timeout: int = 300) -> str | None:
             return None
 
         md_text = md_path.read_text()
+        # Belt-and-suspenders: strip any embedded image data URI regardless of
+        # source (a stray one elsewhere in the pipeline must never reach the DB).
+        text = re.sub(r"!\[[^\]]*\]\(data:image/[^)]*\)", "", md_text)
         # Strip markdown heading markers, keep content
-        text = re.sub(r"^#+\s*", "", md_text, flags=re.MULTILINE)
+        text = re.sub(r"^#+\s*", "", text, flags=re.MULTILINE)
         # Strip bullet list markers
         text = re.sub(r"^[-*]\s+", "", text, flags=re.MULTILINE)
         return text.strip() or None

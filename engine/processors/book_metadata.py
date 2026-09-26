@@ -20,6 +20,12 @@ from anthropic import AsyncAnthropic
 
 log = logging.getLogger(__name__)
 
+_TRANSLIT = str.maketrans({
+    "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u", "ý": "y", "ð": "d",
+    "þ": "th", "æ": "ae", "ö": "o", "Á": "A", "É": "E", "Í": "I", "Ó": "O",
+    "Ú": "U", "Ý": "Y", "Ð": "D", "Þ": "Th", "Æ": "Ae", "Ö": "O",
+})
+
 _ISBN_RE = re.compile(
     r'(?:ISBN[:\s-]*)?(97[89][-\s]?(?:\d[-\s]?){9}\d|(?:\d[-\s]?){9}[\dXx])'
 )
@@ -163,8 +169,14 @@ def parse_publish_year(s: str | None) -> date | None:
 
 
 def external_id_from_filename(pdf_path: Path) -> str:
-    """Filesystem-safe fallback external_id: lowercase ASCII slug of the filename."""
-    s = unicodedata.normalize("NFKD", pdf_path.stem).encode("ascii", "ignore").decode("ascii")
+    """Filesystem-safe fallback external_id: lowercase ASCII slug of the filename.
+
+    Icelandic-specific letters (ð, þ, æ) have no NFKD decomposition, so a plain
+    normalize+ascii-encode silently drops them instead of transliterating —
+    translate them to their ASCII equivalents first.
+    """
+    s = pdf_path.stem.translate(_TRANSLIT)
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode("ascii")
     s = re.sub(r'[^A-Za-z0-9]+', '_', s).strip('_').lower()
     return s or "book"
 
