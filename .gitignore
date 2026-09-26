@@ -16,3 +16,8 @@ checkpoints/
 .superpowers/
 frontend/node_modules/
 frontend/dist/
+.fn_backfill.log
+MD_Test/
+.playwright-mcp/
+node_modules/
+.env.bak-*
