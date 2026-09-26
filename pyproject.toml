@@ -28,7 +28,7 @@ dependencies = [
     "rich",
     "apscheduler",
     "psycopg2-binary>=2.9.12",
-    "graphifyy>=0.8.14",
+    "graphifyy>=0.9.25",
     "playwright>=1.60.0",
     "reynir>=3.6.1",
 ]
