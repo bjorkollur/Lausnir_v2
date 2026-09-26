@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  Lausnir' own PostgreSQL service, data directory on the RuleOfLaw drive.
+
+	  Deliberately NOT called homebrew.mxcl.postgresql@17: a host Mac may run
+	  its own Postgres under that label, and `brew services` rewrites that
+	  plist from the Homebrew template on every call — which would point our
+	  service back at the internal disk. With a private label, `brew services`
+	  can never touch this file, and both instances coexist.
+
+	  Port 5433 comes from postgresql.conf inside the data directory, so it
+	  travels with the drive.
+
+	  The log path stays on the internal disk, under a distinct filename so it
+	  does not collide with a host instance's log. It cannot live on the drive:
+	  launchd opens this file itself before exec'ing postgres, and launchd has
+	  no Full Disk Access for the external volume, so the job fails to spawn
+	  with exit code 78 (EX_CONFIG).
+	-->
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>LC_ALL</key>
+		<string>en_US.UTF-8</string>
+	</dict>
+	<key>ExitTimeOut</key>
+	<integer>120</integer>
+	<key>KeepAlive</key>
+	<true/>
+	<key>Label</key>
+	<string>is.lausnir.postgres</string>
+	<key>LimitLoadToSessionType</key>
+	<array>
+		<string>Aqua</string>
+		<string>Background</string>
+		<string>LoginWindow</string>
+		<string>StandardIO</string>
+		<string>System</string>
+	</array>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/opt/homebrew/opt/postgresql@17/bin/postgres</string>
+		<string>-D</string>
+		<string>/Volumes/RuleOfLaw/postgresql_data</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/opt/homebrew/var/log/lausnir-postgres.log</string>
+	<key>StandardOutPath</key>
+	<string>/opt/homebrew/var/log/lausnir-postgres.log</string>
+	<key>WorkingDirectory</key>
+	<string>/opt/homebrew</string>
+</dict>
+</plist>
