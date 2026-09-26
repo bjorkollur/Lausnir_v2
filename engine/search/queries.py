@@ -647,8 +647,15 @@ async def search_documents(
                d.summary, d.keywords, d.plaintiffs, d.defendants,
                {snippet_select},
                {body_head_select},
+               -- 'leyfisbeidni_um' is a one-way edge petition → judgment, so it
+               -- counts only from the petition (from) side. Counting it from the
+               -- judgment's side would flag the judgment as having an appeal
+               -- chain it is not part of; the detail query likewise follows only
+               -- from_doc_id, so the judgment never lists the petition either.
                EXISTS (SELECT 1 FROM document_links dl
-                       WHERE dl.from_doc_id = d.id OR dl.to_doc_id = d.id) AS has_appeal_links
+                       WHERE dl.from_doc_id = d.id
+                          OR (dl.to_doc_id = d.id
+                              AND dl.relation <> 'leyfisbeidni_um')) AS has_appeal_links
         FROM hits
         JOIN documents d ON d.id = hits.id
         JOIN sources s ON s.id = d.source_id

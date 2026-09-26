@@ -86,6 +86,10 @@ class Document(Base):
     isbn: Mapped[str | None] = mapped_column(Text)        # logfraedibaekur only
     publisher: Mapped[str | None] = mapped_column(Text)   # logfraedibaekur only
 
+    # malskotsbeidnir only — did Hæstiréttur grant leave to appeal?
+    # 'veitt' | 'hafnað' | NULL (no outcome stated, or not this source)
+    appeal_outcome: Mapped[str | None] = mapped_column(Text)
+
     # ── Search ────────────────────────────────────────────────────────────────
     embedding: Mapped[Any | None] = mapped_column(Vector(3072))
     # fts: GENERATED ALWAYS AS (to_tsvector('simple', ...)) — exact/keyword
