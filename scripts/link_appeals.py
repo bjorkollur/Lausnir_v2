@@ -35,7 +35,7 @@ from dataclasses import dataclass
 from datetime import date, timedelta
 from typing import Callable
 
-from sqlalchemy import and_, delete, select
+from sqlalchemy import and_, delete, or_, select
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 import engine.database.connection as _db_conn
@@ -177,14 +177,20 @@ async def run_mode(
         # Authoritative re-run: clear only the edges THIS mode owns — those whose
         # target is one of these higher docs AND whose source is `lower`. Scoping by
         # both ends keeps hrd_herd and hrd_lrd from wiping each other's links.
+        # Both halves of the pair are cleared: the API reads links by from_doc_id
+        # only, so each document needs its own row, and leaving the mirror behind
+        # would strand it pointing at a link this run no longer makes.
         if not dry_run and not limit:
             higher_ids = [r[0] for r in higher_rows]
             lower_doc_ids = select(Document.id).where(Document.source_id == lower_id)
             deleted = (await session.execute(
-                delete(DocumentLink).where(and_(
-                    DocumentLink.relation == "appealed_to",
-                    DocumentLink.to_doc_id.in_(higher_ids),
-                    DocumentLink.from_doc_id.in_(lower_doc_ids))))).rowcount
+                delete(DocumentLink).where(or_(
+                    and_(DocumentLink.relation == "appealed_to",
+                         DocumentLink.to_doc_id.in_(higher_ids),
+                         DocumentLink.from_doc_id.in_(lower_doc_ids)),
+                    and_(DocumentLink.relation == "appealed_from",
+                         DocumentLink.from_doc_id.in_(higher_ids),
+                         DocumentLink.to_doc_id.in_(lower_doc_ids)))))).rowcount
             await session.commit()
             log.info("[%s] cleared %d existing links", mode.name, deleted)
 
@@ -257,14 +263,21 @@ async def run_mode(
             conf_buckets[min(int(best_combined * 10), 9)] += 1
 
             if not dry_run:
-                await session.execute(
-                    pg_insert(DocumentLink)
-                    .values(from_doc_id=best_id, to_doc_id=higher_doc_id,
-                            relation="appealed_to", confidence=round(best_combined, 4),
-                            method=method)
-                    .on_conflict_do_update(
-                        constraint="uq_link_from_to_rel",
-                        set_={"confidence": round(best_combined, 4), "method": method}))
+                conf = round(best_combined, 4)
+                # Written as a pair: lower→higher 'appealed_to' and the mirror
+                # higher→lower 'appealed_from'. scripts/check_link_orientation.py
+                # asserts both halves exist.
+                for from_id, to_id, rel in (
+                    (best_id, higher_doc_id, "appealed_to"),
+                    (higher_doc_id, best_id, "appealed_from"),
+                ):
+                    await session.execute(
+                        pg_insert(DocumentLink)
+                        .values(from_doc_id=from_id, to_doc_id=to_id,
+                                relation=rel, confidence=conf, method=method)
+                        .on_conflict_do_update(
+                            constraint="uq_link_from_to_rel",
+                            set_={"confidence": conf, "method": method}))
                 if stats["linked"] % 200 == 0:
                     await session.commit()
                     log.info("[%s]   …%d linked", mode.name, stats["linked"])

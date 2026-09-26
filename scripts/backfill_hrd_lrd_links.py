@@ -4,9 +4,12 @@ Hæstiréttur raw_api_data contains a `resolutionLink` field of the form
   https://island.is/domar/<uuid>
 where <uuid> is the external_id of either a Landsréttur or Héraðsdóm document.
 
-Creates:
-  - haestirettur → landsrettur/heradsdomstolar  appealed_to   (resolution_link, 1.0)
-  - landsrettur/heradsdomstolar → haestirettur  appealed_from (resolution_link, 1.0)
+Creates, per the lower → higher convention documented on DocumentLink (this
+script wrote the two relations the other way round until 2026-09-16, which left
+the API labelling 659 edges backwards — "Áfrýjað til: <a district court>" on a
+Hæstiréttur judgment):
+  - landsrettur/heradsdomstolar → haestirettur  appealed_to   (resolution_link, 1.0)
+  - haestirettur → landsrettur/heradsdomstolar  appealed_from (resolution_link, 1.0)
   - chain_inference links if Lrd already has a Hérd → Lrd link
 
 Usage:
@@ -105,11 +108,11 @@ async def backfill(dry_run: bool = False) -> None:
             hrd_id = uuid.UUID(str(hrd_id))
             lower_id = uuid.UUID(str(lower_id))
 
-            # Hrd → lower  appealed_to
+            # Hrd → lower  appealed_from   ("this judgment is the appeal from …")
             if (hrd_id, lower_id) not in existing:
                 await session.execute(text("""
                     INSERT INTO document_links (id, from_doc_id, to_doc_id, relation, confidence, method)
-                    VALUES (:id, :from_id, :to_id, 'appealed_to', 1.0, 'resolution_link')
+                    VALUES (:id, :from_id, :to_id, 'appealed_from', 1.0, 'resolution_link')
                     ON CONFLICT DO NOTHING
                 """), {"id": uuid.uuid4(), "from_id": hrd_id, "to_id": lower_id})
                 existing.add((hrd_id, lower_id))
@@ -117,11 +120,11 @@ async def backfill(dry_run: bool = False) -> None:
             else:
                 skipped += 1
 
-            # lower → Hrd  appealed_from
+            # lower → Hrd  appealed_to     ("this one was appealed to …")
             if (lower_id, hrd_id) not in existing:
                 await session.execute(text("""
                     INSERT INTO document_links (id, from_doc_id, to_doc_id, relation, confidence, method)
-                    VALUES (:id, :from_id, :to_id, 'appealed_from', 1.0, 'resolution_link')
+                    VALUES (:id, :from_id, :to_id, 'appealed_to', 1.0, 'resolution_link')
                     ON CONFLICT DO NOTHING
                 """), {"id": uuid.uuid4(), "from_id": lower_id, "to_id": hrd_id})
                 existing.add((lower_id, hrd_id))
@@ -137,7 +140,7 @@ async def backfill(dry_run: bool = False) -> None:
                 if (hrd_id, herd_id) not in existing:
                     await session.execute(text("""
                         INSERT INTO document_links (id, from_doc_id, to_doc_id, relation, confidence, method)
-                        VALUES (:id, :from_id, :to_id, 'appealed_to', 0.95, 'chain_inference')
+                        VALUES (:id, :from_id, :to_id, 'appealed_from', 0.95, 'chain_inference')
                         ON CONFLICT DO NOTHING
                     """), {"id": uuid.uuid4(), "from_id": hrd_id, "to_id": herd_id})
                     existing.add((hrd_id, herd_id))
@@ -145,7 +148,7 @@ async def backfill(dry_run: bool = False) -> None:
                 if (herd_id, hrd_id) not in existing:
                     await session.execute(text("""
                         INSERT INTO document_links (id, from_doc_id, to_doc_id, relation, confidence, method)
-                        VALUES (:id, :from_id, :to_id, 'appealed_from', 0.95, 'chain_inference')
+                        VALUES (:id, :from_id, :to_id, 'appealed_to', 0.95, 'chain_inference')
                         ON CONFLICT DO NOTHING
                     """), {"id": uuid.uuid4(), "from_id": herd_id, "to_id": hrd_id})
                     existing.add((herd_id, hrd_id))

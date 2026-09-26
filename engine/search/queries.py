@@ -775,12 +775,16 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
     if row is None:
         return None
 
-    # Appeal links. The table stores each relationship as a bidirectional pair
-    # (X→Y appealed_to AND Y→X appealed_from); selecting only the rows where this
+    # Appeal links. The table stores each relationship as a bidirectional pair,
+    # oriented by instance_tier: lower→higher carries 'appealed_to' and
+    # higher→lower carries 'appealed_from'. Selecting only the rows where this
     # doc is the *from* side yields exactly one entry per related document, and
     # the relation then reads naturally from this doc's perspective:
-    #   'appealed_to'   → other is the lower instance this one reviewed
-    #   'appealed_from' → other is the higher instance that reviewed this one
+    #   'appealed_to'   → other is the higher instance this one was appealed to
+    #   'appealed_from' → other is the lower instance this one reviewed
+    # (This comment described the opposite until 2026-09-16, because
+    # backfill_hrd_lrd_links.py wrote the two relations the wrong way round and
+    # the comment was written to match the broken data rather than the model.)
     links = (await session.execute(text("""
         SELECT dl.relation, dl.confidence, dl.method,
                other.id AS other_id, other.case_number AS other_case,
