@@ -462,7 +462,10 @@ def to_urlausn(doc: "Document", config: "SourceConfig") -> str:
     return f"{' '.join(parts)} – {vt}"
 
 
-_VERDICT_CODE = {"Dómur": "D", "Úrskurður": "U", "Álit": "A", "Bréf": "B"}
+# "Um" rather than a single letter: "U" is Úrskurður. samkeppni numbers its
+# umsagnir and its ákvarðanir in separate series that both restart at 1 each
+# year, so without a distinct code their filenames collide.
+_VERDICT_CODE = {"Dómur": "D", "Úrskurður": "U", "Álit": "A", "Bréf": "B", "Umsögn": "Um"}
 
 _ICELAND_TO_ASCII = str.maketrans(
     "áéíóúýðöÁÉÍÓÚÝÐÖ",

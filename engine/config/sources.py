@@ -142,7 +142,10 @@ _SOURCES: list[SourceConfig] = [
         has_lower_court=False,
         parse_parties="none",
         verdict_type_default="Ákvörðun",
-        verdict_types_allowed=["Ákvörðun", "Úrskurður", "Álit"],
+        # Umsögn: the authority's opinion on draft legislation and regulations,
+        # issued under c-lið 1. mgr. 8. gr. samkeppnislaga — not a ruling in a
+        # case, but argued on the same competition-law grounds and cited alike.
+        verdict_types_allowed=["Ákvörðun", "Úrskurður", "Álit", "Umsögn"],
         case_number_prefix="",
         pdf_crop=PdfCrop(
             header_pt=0.0,

@@ -18,6 +18,7 @@ import uuid
 from datetime import date
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin
 
 import httpx
 from bs4 import BeautifulSoup
@@ -37,7 +38,7 @@ import engine.database.connection as _db_conn
 from engine.config.sources import SourceConfig, get_config
 from engine.database.connection import init_db
 from engine.database.models import Document, Source
-from engine.processors.pdf_parser import parse_pdf
+from engine.processors.pdf_parser import docling_ocr_pdf, parse_pdf
 from engine.processors.renderer import unique_verdict_filename, verdict_filename, write_markdown
 from engine.processors.validator import validate
 
@@ -50,7 +51,7 @@ _CHECKPOINT_DIR = Path("checkpoints")
 _CHECKPOINT_FILE = _CHECKPOINT_DIR / "samkeppni.json"
 
 # type_cases taxonomy IDs → verdict_type
-_TYPE_CASES: dict[int, str] = {7: "Ákvörðun", 5: "Úrskurður", 3: "Álit"}
+_TYPE_CASES: dict[int, str] = {7: "Ákvörðun", 5: "Úrskurður", 3: "Álit", 9: "Umsögn"}
 
 _MONTH_MAP = {
     "janúar": 1, "febrúar": 2, "mars": 3, "apríl": 4, "maí": 5, "júní": 6,
@@ -60,7 +61,11 @@ _FIELD_LABELS = {
     "Málsnúmer", "Dagsetning", "Fyrirtæki", "Atvinnuvegir", "Málefni",
     "Sækja skjal", "Reifun", "Staða", "Fasi",
 }
-_TYPE_LABELS = {"Ákvarðanir", "Úrskurðir", "Álit"}
+# The category heading that sits between the Reifun text and the Málsnúmer/
+# Dagsetning fields, and so terminates the Reifun block. Missing "Umsagnir" here
+# made the summary swallow both fields, leaving every umsögn with no case number
+# and no date.
+_TYPE_LABELS = {"Ákvarðanir", "Úrskurðir", "Álit", "Umsagnir"}
 _CASE_NR_RE = re.compile(r"^\d+/\d{4}$")
 
 _HEADERS = {
@@ -183,7 +188,9 @@ def _parse_detail(html: str, title: str, verdict_type: str) -> dict:
     # PDF link
     for a in soup.find_all("a", href=True):
         if ".pdf" in a["href"].lower():
-            pdf_url = a["href"]
+            # site-relative links (e.g. "/media/akvardanir-2021/x.pdf") crash
+            # httpx with UnsupportedProtocol unless resolved to an absolute URL
+            pdf_url = urljoin(_BASE_URL, a["href"])
             break
 
     # Parties
@@ -214,7 +221,7 @@ def _fetch_pdf_text(client: httpx.Client, pdf_url: str, config: SourceConfig) ->
         return None
     r.raise_for_status()
     crop = config.pdf_crop
-    return parse_pdf(
+    text = parse_pdf(
         r.content,
         header_pt=int(crop.header_pt) if crop else 0,
         footer_pt=int(crop.footer_pt) if crop else 0,
@@ -222,6 +229,12 @@ def _fetch_pdf_text(client: httpx.Client, pdf_url: str, config: SourceConfig) ->
         heading_sizes=crop.heading_sizes if crop else {},
         heading_fonts=crop.heading_fonts if crop else {},
     )
+    if not text:
+        # some samkeppni.is PDFs are scanned images with no text layer at all
+        # (confirmed: a 24-page/9.4MB decision that pdftotext reads as 0 chars)
+        log.info("No text layer, running OCR: %s", pdf_url)
+        text = docling_ocr_pdf(r.content)
+    return text
 
 
 # ── Build Document ─────────────────────────────────────────────────────────────
@@ -385,12 +398,16 @@ async def main(limit: int | None = None) -> None:
                     rh.raise_for_status()
                     detail = _parse_detail(rh.text, item["title"]["rendered"], item["_verdict_type"])
 
-                    # Skip pending / legacy cases without a valid decision
+                    # Skip cases with no decision yet — samkeppni.is publishes the
+                    # case page as soon as a merger is notified, showing "Ákvörðun
+                    # er í skrifum – verður birt innan tíðar" with no case number,
+                    # no date and no PDF; the decision follows weeks later.
+                    # Deliberately NOT checkpointed: marking it done here is
+                    # permanent, so the decision would never be picked up once
+                    # published (this had silently stranded 16 cases).
                     if not detail["case_number"] and not detail["document_date"]:
-                        log.debug("SKIP %s — no case_number or date", slug)
+                        log.debug("SKIP %s — no decision published yet", slug)
                         skipped += 1
-                        imported_ids.add(wp_id)
-                        _save_checkpoint(imported_ids)
                         progress.advance(task)
                         await asyncio.sleep(_REQUEST_DELAY)
                         continue
