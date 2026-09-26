@@ -1,7 +1,7 @@
 """Run all import scripts to pick up new documents across every source.
 
 Runs each source's import script sequentially. Stjornarradid sources are
-handled via import_stjornarradid.py with --source (and --cid where needed).
+handled via import_stjornarradid.py with --source.
 Logs each source to a separate file under /tmp/lausnir_update/.
 
 Usage:
@@ -13,10 +13,8 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import asyncio
 import logging
 import os
-import re
 import subprocess
 import sys
 import time
@@ -77,14 +75,6 @@ _DEDICATED_SCRIPTS: dict[str, str] = {
     "urskurdarnefnd_logmanna":"import_urskurdarnefnd_logmanna.py",
     "logfraediritgerdir":     "import_logfraediritgerdir.py",
 }
-
-# CIDs for stjornarradid sources that are identified by UUID (not display_name)
-_STJORNARRADID_CIDS: dict[str, str] = {
-    "afryjunarnefnd_haskoli": "dc04e587-4214-11e7-941a-005056bc530c",
-    "kaeruna_utlend":         "e219adbc-4214-11e7-941a-005056bc530c",
-    "urvel":                  "e219adbc-4214-11e7-941a-005056bc530c",
-}
-
 
 def _stjornarradid_sources() -> list[str]:
     """Return all short_names with stjornarradid_source=True in config."""
@@ -150,14 +140,16 @@ def run_all(
         results.append((short_name, ok, elapsed))
 
     # 2. Stjornarradid sources via import_stjornarradid.py
-    # (these already skip existing docs by default — no extra flag needed)
     stjornarradid_script = str(_SCRIPTS_DIR / "import_stjornarradid.py")
     for short_name in _stjornarradid_sources():
         if not _should_run(short_name):
             continue
+        # No --cid: the 2026 Blazor rewrite dropped the committee-UUID search
+        # entirely, and all three formerly cid-filtered committees resolve from
+        # ?Verkefni=<display_name> like every other one.
         cmd = ["uv", "run", "python", stjornarradid_script, "--source", short_name]
-        if short_name in _STJORNARRADID_CIDS:
-            cmd += ["--cid", _STJORNARRADID_CIDS[short_name]]
+        if new_only:
+            cmd.append("--new-only")
         log_path = _LOG_DIR / f"{short_name}.log"
         ok, elapsed = _run_script(short_name, cmd, log_path)
         results.append((short_name, ok, elapsed))
