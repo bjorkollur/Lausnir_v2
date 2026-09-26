@@ -92,10 +92,7 @@ function GroupNode({
 }) {
   const [open, setOpen] = useState(true);
   const isChecked = selected.has(node.key);
-  // depth-1 children only (not depth-2 verdict subtypes)
-  const children = (node.children ?? []).filter(
-    (c) => !isLeafVerdict(c),
-  );
+  const children = node.children ?? [];
   const hasChildren = children.length > 0;
 
   return (
@@ -251,14 +248,3 @@ function Checkbox({
  * These are identified by having a parent key as prefix + "_".
  * We never show them in the tree.
  */
-function isLeafVerdict(node: CatalogNode): boolean {
-  // Verdict-subtype nodes don't have their own children in the catalog
-  // and their keys look like "{parent}_{type}" — but we can't know the parent here.
-  // Instead, we check: does this node have children? If yes it's a real group.
-  // Verdict subtypes are leaves (no children). But so are small single-source groups.
-  // The spec says: show depth-0 and depth-1 only. GroupNode receives depth-0 children
-  // which are depth-1 nodes. We should NOT filter them out here — they ARE what we want.
-  // So isLeafVerdict is always false at this call site (depth-1 children of the group).
-  // This function is kept as a no-op placeholder for future use.
-  return false;
-}
