@@ -93,7 +93,7 @@ def segment(text: str, *, target_words: int = 250, max_words: int = 400) -> list
 
 ### Reglur, í þessari röð
 
-1. **Blokkir.** Textinn er skipt á `\n\n+` í blokkir. Hnit hverrar blokkar í upprunatextanum eru varðveitt (aldrei unnið með `strip()`-uðum afritum án þess að leiðrétta hnit). Hver blokk er flokkuð:
+1. **Blokkir.** Textinn er skipt á auðum línum (`\n[ \t\r]*\n+`, svo `\r\n` og línur með bilum teljast líka skil) í blokkir. Hnit hverrar blokkar í upprunatextanum eru varðveitt (aldrei unnið með `strip()`-uðum afritum án þess að leiðrétta hnit). Hver blokk er flokkuð:
    - *fyrirsögn*: `^#{1,6}\s+`
    - *númeruð málsgrein*: `^\d{1,3}\.\s+[A-ZÁÉÍÓÚÝÞÆÖ]` (sama regla og `_NEW_PARA` í `pdf_parser.py`; útilokar ártöl og dagsetningar)
    - *annað*
@@ -102,7 +102,7 @@ def segment(text: str, *, target_words: int = 250, max_words: int = 400) -> list
 4. **Yfirstærð.** Ein blokk yfir `max_words` (reglan hjá umboðsmanni og yfirskattanefnd, þar sem allt skjalið er ein blokk) er klofin á setningaskilum (`(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÝÞÆÖ„"])`) í hluta sem hver er undir `max_words`. Setning sem ein er yfir `max_words` er klofin á orðabili. Allir hlutar erfa `section_path`, `section_kind` og málsgreinabil blokkarinnar.
 5. **Málsgreinabil.** `para_from`/`para_to` eru lægsta og hæsta númer númeraðra málsgreina í bútnum. Bútur án númeraðrar málsgreinar hefur `NULL` í báðum.
 6. **Engin skörun.** Bútar eru samliggjandi og ná ekki yfir hvor annan. Bil milli búta (`\n\n`) tilheyrir engum bút.
-7. **Stutt skjal.** Texti undir `target_words` er einn bútur (með fyrirsagnagreiningu samt, svo `section_kind` sé rétt).
+7. **Stutt skjal.** Sömu reglur gilda. Skjal undir `target_words` án fyrirsagna er einn bútur; með fyrirsögnum verða bútarnir jafnmargir og kaflarnir, þótt þeir séu stuttir. Það er viljandi: „Úrskurðarorð“ sem eigin 20 orða bútur er rétta tilvitnunareiningin.
 8. **Tómt.** Tómur eða hvítur texti skilar `[]`.
 
 ### `section_kind`-flokkun
