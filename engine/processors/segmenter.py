@@ -55,7 +55,15 @@ def _word_count(s: str) -> int:
 
 
 def _iter_blocks(text: str):
-    """Yield _Block for each non-blank block, with exact trimmed offsets."""
+    """Yield _Block for each non-blank block, with exact trimmed offsets.
+
+    A heading (``##`` or bold-Roman) glued to following text with no blank
+    line between them — e.g. ``"## Niðurstaða\\n1. Fyrsta..."`` — is split
+    into two blocks: the heading line alone, and the remainder classified
+    normally (para/plain). This keeps ``normalize_heading`` seeing only the
+    heading line, restores paragraph-number tracking for the glued text, and
+    lets an oversize glued remainder still be exploded to ``max_words``.
+    """
     pos = 0
     spans: list[tuple[int, int]] = []
     for m in _BLOCK_SPLIT_RE.finditer(text):
@@ -70,13 +78,30 @@ def _iter_blocks(text: str):
         if s2 >= e2:
             continue
         body = text[s2:e2]
-        first_line = body.split("\n", 1)[0]
-        if _MD_HEADING_RE.match(first_line) or _BOLD_ROMAN_HEADING_RE.match(body):
-            kind, para = "heading", None
-        else:
-            m = _NUMBERED_RE.match(body)
-            kind, para = ("para", int(m.group(1))) if m else ("plain", None)
+        nl = body.find("\n")
+        first_line = body if nl == -1 else body[:nl]
+        if _MD_HEADING_RE.match(first_line) or _BOLD_ROMAN_HEADING_RE.match(first_line):
+            if nl == -1:
+                yield _Block(s2, e2, "heading", None, _word_count(body))
+                continue
+            head_end = s2 + len(first_line.rstrip())
+            yield _Block(s2, head_end, "heading", None, _word_count(text[s2:head_end]))
+            rest_raw = body[nl + 1:]
+            rest_lead = len(rest_raw) - len(rest_raw.lstrip())
+            rest_start = s2 + nl + 1 + rest_lead
+            if rest_start < e2:
+                rest_body = text[rest_start:e2]
+                kind, para = _classify_body(rest_body)
+                yield _Block(rest_start, e2, kind, para, _word_count(rest_body))
+            continue
+        kind, para = _classify_body(body)
         yield _Block(s2, e2, kind, para, _word_count(body))
+
+
+def _classify_body(body: str) -> tuple[str, int | None]:
+    """Classify a non-heading block body as a numbered paragraph or plain text."""
+    m = _NUMBERED_RE.match(body)
+    return ("para", int(m.group(1))) if m else ("plain", None)
 
 
 def _explode(text: str, b: _Block, max_words: int) -> list[_Block]:

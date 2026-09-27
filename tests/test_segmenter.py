@@ -130,3 +130,20 @@ def test_heading_with_colon_and_bold_roman_is_normalised():
     _check_integrity(text, ps)
     assert ps[0].section_path == "IV. Niðurstaða" and ps[0].section_kind == "nidurstada"
     assert ps[1].section_path == "Dómsorð" and ps[1].section_kind == "domsord"
+
+
+def test_heading_glued_to_oversize_text_is_split_and_bounded():
+    text = "## Niðurstaða\n" + ("Orð sem endar. " * 200).strip()
+    ps = segment(text)
+    _check_integrity(text, ps)
+    assert all(p.word_count <= 400 for p in ps)
+    assert ps[0].section_path == "Niðurstaða" and all(p.section_kind == "nidurstada" for p in ps)
+    assert ps[0].text.startswith("## Niðurstaða")
+
+
+def test_heading_glued_to_numbered_paragraph_keeps_para_number():
+    text = "## Niðurstaða\n1. Fyrsta málsgrein hér er nokkuð stutt.\n\n2. Önnur."
+    ps = segment(text)
+    _check_integrity(text, ps)
+    assert ps[0].section_path == "Niðurstaða"
+    assert (ps[0].para_from, ps[0].para_to) == (1, 2)
