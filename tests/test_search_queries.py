@@ -1,5 +1,4 @@
 """Unit tests for _build_text_filter and _order_clause."""
-import pytest
 from engine.search.queries import _build_text_filter, _order_clause
 
 
@@ -131,32 +130,6 @@ def test_parse_provision_query_no_match():
     assert parse_provision_query("kaupsamningur 2024") is None
 
 
-# ── Chunk routing helpers ─────────────────────────────────────────────────────
-from engine.search.queries import _scope_is_chunked, CHUNKED_SCOPE_KEYS
-
-
-def test_scope_is_chunked_for_logfraediritgerdir():
-    assert _scope_is_chunked(["logfraediritgerdir"]) is True
-
-
-def test_scope_is_chunked_for_baekur():
-    assert _scope_is_chunked(["baekur"]) is True
-
-
-def test_scope_is_chunked_false_for_mixed():
-    assert _scope_is_chunked(["logfraediritgerdir", "haestirettur"]) is False
-
-
-def test_scope_is_chunked_false_for_empty():
-    assert _scope_is_chunked(None) is False
-    assert _scope_is_chunked([]) is False
-
-
-def test_scope_is_chunked_false_for_courts():
-    assert _scope_is_chunked(["haestirettur"]) is False
-    assert _scope_is_chunked(["domstolar"]) is False
-
-
 def test_build_keyword_filter_basic():
     from engine.search.queries import _build_keyword_filter
     frag, params = _build_keyword_filter("skaðabætur")
@@ -170,14 +143,6 @@ def test_build_keyword_filter_uses_named_param():
     assert ":keyword_pattern" in frag
     assert "keyword_pattern" in params
     assert params["keyword_pattern"] == "%forsjá%"
-
-
-def test_read_search_impl():
-    from engine.search.queries import _read_search_impl
-    assert _read_search_impl({}) == "documents"
-    assert _read_search_impl({"LAUSNIR_SEARCH_IMPL": "passages"}) == "passages"
-    with pytest.raises(RuntimeError):
-        _read_search_impl({"LAUSNIR_SEARCH_IMPL": "bogus"})
 
 
 def test_provision_noise_query_is_filter_only_in_both_impls():

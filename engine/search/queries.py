@@ -16,7 +16,6 @@ This module is pure data access — no FastAPI / HTTP concerns.
 from __future__ import annotations
 
 import json
-import os
 import re
 import uuid
 from dataclasses import dataclass
@@ -154,18 +153,6 @@ from engine.processors.lemmatizer import lemmatize_query
 from engine.processors.renderer import to_urlausn
 from engine.search.passage_search import search_by_passages, validate_section_kinds
 
-# Which implementation serves keyword/proximity search. 'documents' = legacy
-# whole-document fts_is; 'passages' = passage-level (spec 2026-09-27). Removed
-# once the golden set has confirmed the passages path (plan Task 12).
-def _read_search_impl(env) -> str:
-    impl = env.get("LAUSNIR_SEARCH_IMPL", "documents")
-    if impl not in ("documents", "passages"):
-        raise RuntimeError(f"LAUSNIR_SEARCH_IMPL must be 'documents' or 'passages', got {impl!r}")
-    return impl
-
-
-SEARCH_IMPL = _read_search_impl(os.environ)
-
 # Regex-targetable fields → SQL expression (aliased table d).
 # IMPORTANT: for the pg_trgm-indexed columns (body_text, summary, case_number)
 # the expression must be the *bare* column so the planner can use the GIN index
@@ -259,19 +246,6 @@ VALID_MODES = frozenset({
 # these abbreviation stems survive. Matching all-noise means FTS is useless.
 _PROVISION_NOISE = frozenset({"mgr", "gr", "lag", "lög", "nr", "sbr"})
 
-# ── Chunk-aware search routing ────────────────────────────────────────────────
-# Sources whose documents are chunked into document_chunks.
-# When the entire scope resolves to these sources, keyword search routes through
-# the chunk table for better relevance and snippets on long documents.
-CHUNKED_SCOPE_KEYS: frozenset[str] = frozenset({"logfraediritgerdir", "logfraedibaekur", "baekur"})
-
-
-def _scope_is_chunked(scope: list[str] | None) -> bool:
-    """True when ALL scope tokens are chunked sources (chunk table search applies)."""
-    if not scope:
-        return False
-    return all(tok in CHUNKED_SCOPE_KEYS for tok in scope)
-
 
 def _build_text_filter(
     mode: str, words: list[str], fields: list[str] | None, proximity_n: int
@@ -340,122 +314,6 @@ def _build_text_filter(
     return frags, params
 
 
-async def _search_by_chunks(
-    session: AsyncSession,
-    *,
-    lemmas: str,
-    scope_filter,  # ScopeFilter | None
-    date_from,     # date | None
-    date_to,       # date | None
-    sort: str,
-    page: int,
-    page_size: int,
-    extra_where: list[str] | None = None,
-    extra_params: dict | None = None,
-) -> "SearchResults":
-    """Keyword search via document_chunks table; aggregates to document level.
-
-    Returns a SearchResults with the same shape as search_documents.
-    Snippets are built from the best-matching chunk using ts_headline.
-    """
-    offset = (page - 1) * page_size
-
-    # Build document-level WHERE clause (scope + dates) applied before chunk search
-    doc_where: list[str] = []
-    doc_params: dict[str, Any] = {"lemmas": lemmas}
-
-    if scope_filter is not None:
-        frag, sparams = scope_filter.to_sql(prefix="cs")
-        doc_where.append(frag)
-        doc_params.update(sparams)
-    if date_from is not None:
-        doc_where.append("d.document_date >= :cs_date_from")
-        doc_params["cs_date_from"] = date_from
-    if date_to is not None:
-        doc_where.append("d.document_date <= :cs_date_to")
-        doc_params["cs_date_to"] = date_to
-    if extra_where:
-        doc_where.extend(extra_where)
-    if extra_params:
-        doc_params.update(extra_params)
-
-    doc_where_sql = (" AND " + " AND ".join(doc_where)) if doc_where else ""
-
-    # Sort order for chunk search: only relevance and date make sense
-    if sort == "oldest":
-        order_sql = "document_date ASC NULLS LAST, id"
-    elif sort == "newest":
-        order_sql = "document_date DESC NULLS LAST, id"
-    else:  # relevance (default)
-        order_sql = "best_rank DESC, document_date DESC NULLS LAST, id"
-
-    base_sql = f"""
-        SELECT
-            d.id,
-            s.short_name AS source,
-            s.display_name AS source_display,
-            d.court, d.case_number, d.document_date, d.verdict_type,
-            d.summary, d.keywords, d.plaintiffs, d.defendants,
-            MAX(ts_rank(c.fts_is, plainto_tsquery('simple', :lemmas))) AS best_rank
-        FROM document_chunks c
-        JOIN documents d ON d.id = c.document_id
-        JOIN sources s ON s.id = d.source_id
-        WHERE c.fts_is @@ plainto_tsquery('simple', :lemmas){doc_where_sql}
-        GROUP BY d.id, s.short_name, s.display_name, d.court, d.case_number,
-                 d.document_date, d.verdict_type, d.summary, d.keywords,
-                 d.plaintiffs, d.defendants
-    """
-
-    total = (await session.execute(
-        text(f"SELECT count(*) FROM ({base_sql}) sub"), doc_params
-    )).scalar() or 0
-
-    if total == 0:
-        return SearchResults(total=0, page=page, page_size=page_size, results=[])
-
-    page_params = {**doc_params, "limit": page_size, "offset": offset}
-    rows = (await session.execute(text(f"""
-        WITH ranked AS ({base_sql})
-        SELECT r.*,
-            (SELECT ts_headline(
-                'simple',
-                c2.chunk_text,
-                plainto_tsquery('simple', :lemmas),
-                'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=35,MinWords=12,ShortWord=2'
-            )
-            FROM document_chunks c2
-            WHERE c2.document_id = r.id
-            ORDER BY ts_rank(c2.fts_is, plainto_tsquery('simple', :lemmas)) DESC
-            LIMIT 1) AS snippet
-        FROM ranked r
-        ORDER BY {order_sql}
-        LIMIT :limit OFFSET :offset
-    """), page_params)).mappings().all()
-
-    results: list[dict[str, Any]] = []
-    for r in rows:
-        snippet = r.get("snippet") or (r.get("summary") or "")[:240]
-        results.append({
-            "id": str(r["id"]),
-            "urlausn": _citation(r["source"], r["court"], r["case_number"],
-                                 r["document_date"], r["verdict_type"]),
-            "source": r["source"],
-            "source_display": r["source_display"],
-            "court": r["court"],
-            "case_number": r["case_number"],
-            "document_date": r["document_date"].isoformat() if r["document_date"] else None,
-            "verdict_type": r["verdict_type"],
-            "keywords": r["keywords"] or [],
-            "plaintiffs": r["plaintiffs"] or [],
-            "defendants": r["defendants"] or [],
-            "snippet": snippet,
-            "has_appeal_links": False,  # theses have no appeal links
-            "passage_id": None, "anchor": None, "section_kind": None, "layer": None, "match_count": None,
-        })
-
-    return SearchResults(total=total, page=page, page_size=page_size, results=results)
-
-
 def _text_is_noise_for_provision(q: str, provision: str | None) -> bool:
     """True when the lemmatised query is only provision noise ('mgr','gr','nr'…)
     AND a provision filter is present — then the text part is dropped."""
@@ -492,8 +350,6 @@ async def search_documents(
     if mode not in VALID_MODES:
         raise SearchError(f"Unknown mode {mode!r}")
     section_kinds = validate_section_kinds(section_kind)
-    if section_kinds and SEARCH_IMPL != "passages":
-        raise SearchError("section_kind requires LAUSNIR_SEARCH_IMPL=passages")
     page = max(1, page)
     page_size = max(1, min(page_size, MAX_PAGE_SIZE))
     offset = (page - 1) * page_size
@@ -545,49 +401,12 @@ async def search_documents(
         # making relevance sort meaningless; the provision filter is sufficient.
         lemmas = "" if _text_is_noise_for_provision(q, provision) else lemmatize_query(q)
         if lemmas:
-            # Checked before _scope_is_chunked: the passages impl covers book/thesis
-            # content too, so chunk-table routing below is legacy (documents impl) only.
-            if SEARCH_IMPL == "passages":
-                params["lemmas"] = lemmas
-                params["lemmas_or"] = _or_query(lemmas)
-                return await search_by_passages(
-                    session, tsq_fn="plainto_tsquery", tsq_param="lemmas", where=where, params=params,
-                    sort=sort, page=page, page_size=page_size, section_kinds=section_kinds,
-                    or_tsq_param="lemmas_or")
-            # Route through document_chunks when scope is entirely chunked sources
-            if _scope_is_chunked(scope):
-                scope_filter = await resolve_scope(session, scope)
-                if scope_filter is not None and scope_filter.is_empty:
-                    return SearchResults(total=0, page=page, page_size=page_size, results=[])
-                # Build extra WHERE fragments (provision + keyword) and pass them into
-                # the chunk search so neither is silently dropped when routing through
-                # _search_by_chunks (same regression class as the provision "Bug 2" fix).
-                chunk_extra_where: list[str] = []
-                chunk_extra_params: dict = {}
-                if provision:
-                    _prov = _resolve_provision_filter(provision)
-                    if _prov:
-                        chunk_extra_where.append(_prov[0])
-                        chunk_extra_params.update(_prov[1])
-                if keyword and keyword.strip():
-                    _kw_frag, _kw_prm = _build_keyword_filter(keyword.strip())
-                    chunk_extra_where.append(_kw_frag)
-                    chunk_extra_params.update(_kw_prm)
-                return await _search_by_chunks(
-                    session,
-                    lemmas=lemmas,
-                    scope_filter=scope_filter,
-                    date_from=date_from,
-                    date_to=date_to,
-                    sort=sort,
-                    page=page,
-                    page_size=page_size,
-                    extra_where=chunk_extra_where or None,
-                    extra_params=chunk_extra_params or None,
-                )
             params["lemmas"] = lemmas
-            where.append("d.fts_is @@ plainto_tsquery('simple', :lemmas)")
-            rank_expr = "ts_rank(d.fts_is, plainto_tsquery('simple', :lemmas))"
+            params["lemmas_or"] = _or_query(lemmas)
+            return await search_by_passages(
+                session, tsq_fn="plainto_tsquery", tsq_param="lemmas", where=where, params=params,
+                sort=sort, page=page, page_size=page_size, section_kinds=section_kinds,
+                or_tsq_param="lemmas_or")
         else:
             has_text = False  # nothing lemmatizable → filter-only browse
     elif has_text and mode == "regex":
@@ -612,16 +431,14 @@ async def search_documents(
         # exact, prefix, substring, any, proximity
         text_frags, text_params = _build_text_filter(mode, words, regex_fields, proximity_n)
         if text_frags:
-            if mode == "proximity" and SEARCH_IMPL == "passages":
+            if mode == "proximity":
                 params["prox_q"] = text_params["prox_q"]
                 return await search_by_passages(
                     session, tsq_fn="to_tsquery", tsq_param="prox_q", where=where, params=params,
                     sort=sort, page=page, page_size=page_size, section_kinds=section_kinds)
             where.extend(text_frags)
             params.update(text_params)
-            if mode == "proximity":
-                rank_expr = "ts_rank(d.fts_is, to_tsquery('simple', :prox_q))"
-            elif mode == "any":
+            if mode == "any":
                 snip_pattern = text_params.get("pattern")
             else:
                 snip_pattern = text_params.get("pat_0")  # first word for snippet
@@ -653,36 +470,15 @@ async def search_documents(
         )
     """
 
-    if mode == "keyword" and has_text:
-        # BUG3 fix: use lemmatized query so ts_headline highlights the forms that actually matched.
-        # BUG2 fix: include lower_body_text so matches there are highlighted too.
-        page_params["hl"] = lemmatize_query(q) or q
-        snippet_select = (
-            "ts_headline('simple', "
-            "coalesce(d.body_text, '') || E'\\n\\n' || coalesce(d.lower_body_text, ''), "
-            "plainto_tsquery('simple', :hl), "
-            "'StartSel=<mark>,StopSel=</mark>,MaxFragments=2,MaxWords=28,"
-            "MinWords=8,ShortWord=2') AS snippet"
-        )
-        body_head_select = "NULL AS body_head"
-    elif mode == "proximity" and has_text and "prox_q" in params:
-        # BUG2 fix: include lower_body_text in snippet source.
-        snippet_select = (
-            "ts_headline('simple', "
-            "coalesce(d.body_text, '') || E'\\n\\n' || coalesce(d.lower_body_text, ''), "
-            "to_tsquery('simple', :prox_q), "
-            "'StartSel=<mark>,StopSel=</mark>,MaxFragments=2,MaxWords=28,"
-            "MinWords=8,ShortWord=2') AS snippet"
-        )
-        body_head_select = "NULL AS body_head"
-    else:
-        snippet_select = "NULL AS snippet"
-        # Include lower_body_text so _regex_snippet can find matches there too.
-        body_head_select = (
-            f"left(coalesce(d.body_text, '') || E'\\n\\n' || coalesce(d.lower_body_text, ''), "
-            f"{_REGEX_SNIPPET_SCAN}) AS body_head"
-            if snip_pattern else "NULL AS body_head"
-        )
+    # keyword/proximity always return early via search_by_passages above when
+    # has_text — only regex-backed modes (or a filter-only browse) reach here.
+    snippet_select = "NULL AS snippet"
+    # Include lower_body_text so _regex_snippet can find matches there too.
+    body_head_select = (
+        f"left(coalesce(d.body_text, '') || E'\\n\\n' || coalesce(d.lower_body_text, ''), "
+        f"{_REGEX_SNIPPET_SCAN}) AS body_head"
+        if snip_pattern else "NULL AS body_head"
+    )
 
     rows = (await session.execute(text(f"""
         {hits_sql}

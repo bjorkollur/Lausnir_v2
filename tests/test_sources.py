@@ -41,11 +41,6 @@ def test_logfraedibaekur_in_baekur_category():
     assert "logfraedibaekur" in leaf_keys
 
 
-def test_logfraedibaekur_is_chunked_scope():
-    from engine.search.queries import _scope_is_chunked
-    assert _scope_is_chunked(["logfraedibaekur"]) is True
-
-
 def test_logfraedibaekur_validates_clean_when_complete():
     from datetime import date
     from engine.config.sources import get_config
