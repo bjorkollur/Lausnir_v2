@@ -24,7 +24,7 @@
   scope:
   - domstolar
 - id: g003
-  question: kynferðisbrot notfærsla ölvunar og svefndrunga
+  question: kynferðisbrot með misnotkun ástands þolanda
   expected:
   - source: haestirettur
     case_number: 16/2015
@@ -35,7 +35,7 @@
   scope:
   - domstolar
 - id: g004
-  question: staðfest nálgunarbann sex mánaða skilyrði
+  question: nálgunarbann staðfest þrátt fyrir rannsókn sakamáls
   expected:
   - source: haestirettur
     case_number: 765/2015
@@ -68,7 +68,7 @@
   scope:
   - domstolar
 - id: g009
-  question: heimvísun umgengnisákvörðunar sameiginlegrar forsjár barna
+  question: heimvísun úrlausnar um umgengni við forsjárskiptingu
   expected:
   - source: landsrettur
     case_number: 497/2021
@@ -206,7 +206,7 @@
   scope:
   - domstolar
 - id: g024
-  question: hækkun þóknunar lögmanns vegna gjafsóknar
+  question: hærri gjafsóknarþóknun vegna umfangsmikils máls
   expected:
   - source: haestirettur
     case_number: 41/2016
@@ -253,7 +253,7 @@
   scope:
   - domstolar
 - id: g028
-  question: kæruheimild til Hæstaréttar úrskurðar Landsréttar
+  question: kæruheimild vegna úrskurðar um dómkvaðningu matsmanns
   expected:
   - source: haestirettur
     case_number: 56/2021
@@ -308,7 +308,7 @@
   scope:
   - domstolar
 - id: g036
-  question: árslaunaviðmiðun við útreikning bóta fyrir varanlega örorku
+  question: bótaviðmið vegna varanlegrar örorku tekjur fyrir slys
   expected:
   - source: haestirettur
     case_number: 138/2011
@@ -319,7 +319,7 @@
   scope:
   - domstolar
 - id: g037
-  question: skaðabótaskylda ríkisins vegna úthlutunar aflaheimilda
+  question: ábyrgð ríkisins á tjóni vegna makrílkvóta
   expected:
   - source: haestirettur
     case_number: 10/2025
@@ -405,7 +405,7 @@
   scope:
   - domstolar
 - id: g045
-  question: skilyrði sjálfræðissviptingar ekki uppfyllt
+  question: ógilding úrskurðar um sjálfræðissviptingu einstaklings
   expected:
   - source: landsrettur
     case_number: 496/2020
@@ -563,7 +563,7 @@
   scope:
   - domstolar
 - id: g066
-  question: lögsaga íslenskra dómstóla í skilnaðarmáli útlendinga
+  question: hvort íslenskt dómsvald nái yfir skilnað útlendinga
   expected:
   - source: haestirettur
     case_number: 161/2016
