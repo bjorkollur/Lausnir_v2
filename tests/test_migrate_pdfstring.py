@@ -47,6 +47,17 @@ def test_decode_data_url_without_comma_is_treated_as_plain_base64():
     assert m.decode_pdf_string(encoded) == b"abc"
 
 
+def test_decode_whitespace_only_returns_empty_bytes():
+    # base64.b64decode(..., validate=False) discards non-alphabet chars
+    # (including whitespace), so a whitespace-only string decodes to b"".
+    assert m.decode_pdf_string("   ") == b""
+
+
+def test_decode_bare_data_url_prefix_returns_empty_bytes():
+    # "data:application/pdf;base64," with nothing after the comma.
+    assert m.decode_pdf_string("data:application/pdf;base64,") == b""
+
+
 # ─── sha256_hex ────────────────────────────────────────────────────────────
 
 def test_sha256_hex_matches_hashlib():
@@ -70,6 +81,17 @@ def test_decide_equal_when_hashes_match():
 
 def test_decide_mismatch_when_hashes_differ():
     assert m.decide(True, "abc123", "def456") == "mismatch"
+
+
+def test_decide_empty_takes_priority_over_missing():
+    assert m.decide(False, None, m.sha256_hex(b""), is_empty=True) == "empty"
+
+
+def test_decide_empty_takes_priority_even_when_disk_file_matches():
+    # A 0-byte file already sitting on disk must NOT be treated as "equal" —
+    # empty pdfString has always meant "no PDF", not "a 0-byte PDF".
+    empty_sha = m.sha256_hex(b"")
+    assert m.decide(True, empty_sha, empty_sha, is_empty=True) == "empty"
 
 
 # ─── UPDATE_SQL ────────────────────────────────────────────────────────────
@@ -106,6 +128,17 @@ def test_write_atomic_overwrites_cleanly(tmp_path):
     target.write_bytes(b"old")
     m.write_atomic(target, b"new-bytes")
     assert target.read_bytes() == b"new-bytes"
+
+
+def test_write_atomic_still_round_trips_bytes_with_fsync(tmp_path):
+    # write_atomic now flushes + fsyncs the temp file and best-effort fsyncs
+    # the directory before/after the rename -- confirm it still round-trips
+    # exact bytes and leaves no temp file behind.
+    target = tmp_path / "sub" / "doc.pdf"
+    data = bytes(range(256)) * 100  # non-trivial binary payload
+    m.write_atomic(target, data)
+    assert target.read_bytes() == data
+    assert list(target.parent.glob(".tmp-migrate-*")) == []
 
 
 # ─── process_doc (pure once get_config/pdf_path are real, no network/DB) ───
@@ -170,3 +203,93 @@ def test_process_doc_falls_back_to_external_id_when_verdict_filename_null(tmp_pa
     assert result.outcome == "written"
     written_path = tmp_path / "raw" / "heradsdomstolar" / "ext-fallback.pdf"
     assert written_path.read_bytes() == data
+
+
+# ─── process_doc: empty pdfString means "no PDF", never "missing" ─────────
+
+def test_process_doc_empty_string_writes_no_file_and_nulls_markers(tmp_path, monkeypatch):
+    _use_tmp_raw_dir(monkeypatch, tmp_path)
+    result = m.process_doc("heradsdomstolar", "ext-empty-1", "HerdRvk_E-5-2020_D_01-01-2020", "", dry_run=False)
+    assert result.outcome == "empty"
+    assert result.sql_sha256 is None
+    assert result.sql_rel_path is None
+    written_path = tmp_path / "raw" / "heradsdomstolar" / "HerdRvk_E-5-2020_D_01-01-2020.pdf"
+    assert not written_path.exists()
+
+
+def test_process_doc_whitespace_only_string_is_empty_outcome(tmp_path, monkeypatch):
+    _use_tmp_raw_dir(monkeypatch, tmp_path)
+    result = m.process_doc("heradsdomstolar", "ext-empty-2", "HerdRvk_E-6-2020_D_01-01-2020", "   ", dry_run=False)
+    assert result.outcome == "empty"
+    written_path = tmp_path / "raw" / "heradsdomstolar" / "HerdRvk_E-6-2020_D_01-01-2020.pdf"
+    assert not written_path.exists()
+
+
+def test_process_doc_bare_data_url_prefix_is_empty_outcome(tmp_path, monkeypatch):
+    _use_tmp_raw_dir(monkeypatch, tmp_path)
+    result = m.process_doc("heradsdomstolar", "ext-empty-3", "HerdRvk_E-7-2020_D_01-01-2020",
+                            "data:application/pdf;base64,", dry_run=False)
+    assert result.outcome == "empty"
+    written_path = tmp_path / "raw" / "heradsdomstolar" / "HerdRvk_E-7-2020_D_01-01-2020.pdf"
+    assert not written_path.exists()
+
+
+def test_process_doc_empty_string_with_existing_zero_byte_disk_file_is_still_empty(tmp_path, monkeypatch):
+    # A 0-byte file already on disk must not be treated as "equal" (it would
+    # match the empty json hash) -- it's still the "empty" outcome, and the
+    # migration script must not delete the file itself.
+    _use_tmp_raw_dir(monkeypatch, tmp_path)
+    p = tmp_path / "raw" / "heradsdomstolar" / "HerdRvk_E-8-2020_D_01-01-2020.pdf"
+    p.parent.mkdir(parents=True)
+    p.write_bytes(b"")
+    result = m.process_doc("heradsdomstolar", "ext-empty-4", "HerdRvk_E-8-2020_D_01-01-2020", "", dry_run=False)
+    assert result.outcome == "empty"
+    assert result.zero_byte_disk_file is True
+    assert p.exists()  # migration script never deletes
+
+
+def test_process_doc_empty_dry_run_matches_non_dry_run_outcome(tmp_path, monkeypatch):
+    _use_tmp_raw_dir(monkeypatch, tmp_path)
+    result = m.process_doc("heradsdomstolar", "ext-empty-5", "HerdRvk_E-9-2020_D_01-01-2020", "", dry_run=True)
+    assert result.outcome == "empty"
+
+
+def test_process_doc_json_null_pdf_string_is_empty_outcome(tmp_path, monkeypatch):
+    # raw_api_data->>'pdfString' yields Python None (not "") when the stored
+    # JSON value is literally `null` -- the importer's "no PDF" case. This
+    # must take the exact same "empty" outcome as "" (no file written,
+    # pdfString key stripped, pdf_sha256/pdf_path left None), not "missing"
+    # (which would write a bogus 0-byte file). This is the driver's actual
+    # SELECT-reachable code path: `d.raw_api_data->>'pdfString' AS pdf_string`
+    # in migrate() hands process_doc exactly this None value for such rows.
+    _use_tmp_raw_dir(monkeypatch, tmp_path)
+    result = m.process_doc("heradsdomstolar", "ext-empty-6", "HerdRvk_E-11-2020_D_01-01-2020", None, dry_run=False)
+    assert result.outcome == "empty"
+    assert result.sql_sha256 is None
+    assert result.sql_rel_path is None
+    written_path = tmp_path / "raw" / "heradsdomstolar" / "HerdRvk_E-11-2020_D_01-01-2020.pdf"
+    assert not written_path.exists()
+
+
+# ─── process_doc: read-back verification on the "missing" (write) path ────
+
+def test_process_doc_write_verify_failed_when_disk_read_back_is_corrupted(tmp_path, monkeypatch):
+    _use_tmp_raw_dir(monkeypatch, tmp_path)
+    data = b"%PDF-1.5 real body"
+    encoded = base64.b64encode(data).decode()
+
+    # Simulate a write that silently corrupts the bytes on disk (e.g. a flaky
+    # filesystem) by monkeypatching write_atomic to write something else.
+    def corrupting_write(path, _data):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"corrupted-on-disk")
+
+    monkeypatch.setattr(m, "write_atomic", corrupting_write)
+
+    result = m.process_doc("heradsdomstolar", "ext-corrupt", "HerdRvk_E-10-2020_D_01-01-2020",
+                            encoded, dry_run=False)
+    assert result.outcome == "error"
+    assert "WRITE_VERIFY_FAILED" in result.error
+    # The row must be left untouched -- caller only UPDATEs on non-error outcomes.
+    written_path = tmp_path / "raw" / "heradsdomstolar" / "HerdRvk_E-10-2020_D_01-01-2020.pdf"
+    assert written_path.read_bytes() == b"corrupted-on-disk"  # script never "fixes" it either

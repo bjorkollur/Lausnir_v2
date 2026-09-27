@@ -18,14 +18,19 @@ are byte-identical:
 
   1. Decode the base64 pdfString (tolerating a `data:...;base64,` prefix and
      an empty string) and sha256 the bytes.
-  2. If the on-disk file is MISSING, write it atomically (temp file + rename)
-     from the JSON bytes first — nothing is lost.
-  3. If the on-disk file EXISTS, sha256 it and compare.
+  2. If the decoded bytes are EMPTY, there was never a PDF for this doc —
+     importers have always guarded PDF writes with `if pdf_b64:`. Don't write
+     a file; strip pdfString and store {"pdf_sha256": null, "pdf_path": null}.
+  3. If the on-disk file is MISSING, write it atomically (temp file + fsync +
+     rename) from the JSON bytes first, then re-open and re-hash it — only if
+     the read-back matches does the DB row get updated (WRITE_VERIFY_FAILED
+     otherwise, row left untouched).
+  4. If the on-disk file EXISTS, sha256 it and compare.
      - EQUAL      -> replace pdfString in raw_api_data with pdf_sha256 +
                      pdf_path (relative to DATA_DIR) markers.
      - DIFFERENT  -> log a MISMATCH with both hashes/sizes and leave the row
                      untouched. Never overwrite, never guess.
-  4. Any exception for a document is logged and the run continues.
+  5. Any exception for a document is logged and the run continues.
 
 raw_api_data is otherwise immutable (Layer 1 RAW); this is the one controlled,
 verified exception, applied once on 2026-09-27. See docs/wiki/09-gildrur.md.
@@ -107,12 +112,21 @@ def sha256_hex(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def decide(path_exists: bool, disk_sha256: str | None, json_sha256: str) -> str:
+def decide(path_exists: bool, disk_sha256: str | None, json_sha256: str, *, is_empty: bool = False) -> str:
     """Pure decision function — no I/O.
 
-    Returns "missing" (write the file from JSON), "equal" (safe to drop
+    Returns "empty" (the source never had a PDF for this doc — pdfString
+    decoded to zero bytes; strip it and store null sha/path, don't write a
+    file), "missing" (write the file from JSON), "equal" (safe to drop
     pdfString from JSON), or "mismatch" (leave the row untouched).
+
+    `is_empty` takes priority over everything else: importers have always
+    guarded PDF writes with `if pdf_b64:`, so an empty pdfString has always
+    meant "no PDF" — never "the file is a 0-byte PDF that happens to match
+    a 0-byte disk file".
     """
+    if is_empty:
+        return "empty"
     if not path_exists:
         return "missing"
     if disk_sha256 == json_sha256:
@@ -122,12 +136,18 @@ def decide(path_exists: bool, disk_sha256: str | None, json_sha256: str) -> str:
 
 def write_atomic(path: Path, data: bytes) -> None:
     """Write `data` to `path` via a temp file + rename so a crash mid-write
-    can never leave a truncated PDF on disk."""
+    can never leave a truncated PDF on disk.
+
+    Flushes and fsyncs the temp file before the rename, then best-effort
+    fsyncs the containing directory so the rename itself is durable (some
+    filesystems refuse a directory fsync — that's tolerated)."""
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=".tmp-migrate-", suffix=".pdf")
     try:
         with os.fdopen(fd, "wb") as f:
             f.write(data)
+            f.flush()
+            os.fsync(f.fileno())
         os.replace(tmp, path)
     except BaseException:
         try:
@@ -135,18 +155,30 @@ def write_atomic(path: Path, data: bytes) -> None:
         except OSError:
             pass
         raise
+    else:
+        try:
+            dir_fd = os.open(str(path.parent), os.O_RDONLY)
+            try:
+                os.fsync(dir_fd)
+            finally:
+                os.close(dir_fd)
+        except OSError:
+            pass  # best-effort — some filesystems (or sandboxes) refuse this
 
 
 # ─── Per-document worker (runs in a thread — file I/O bound) ─────────────────
 
 @dataclass
 class DocResult:
-    outcome: str  # "written" | "migrated" | "mismatch" | "error"
+    outcome: str  # "written" | "migrated" | "empty" | "mismatch" | "error"
     json_sha256: str | None = None
     json_size: int | None = None
     disk_sha256: str | None = None
     disk_size: int | None = None
-    rel_path: str | None = None
+    rel_path: str | None = None        # computed on-disk path, for logging — always set when known
+    sql_sha256: str | None = None      # value actually written to pdf_sha256 (None for "empty")
+    sql_rel_path: str | None = None    # value actually written to pdf_path (None for "empty")
+    zero_byte_disk_file: bool = False  # a 0-byte file already exists on disk for an "empty" doc
     error: str | None = None
 
 
@@ -188,7 +220,16 @@ def process_doc(short_name: str, external_id: str, verdict_filename: str | None,
         disk_sha = sha256_hex(disk_bytes)
         disk_size = len(disk_bytes)
 
-    decision = decide(exists, disk_sha, json_sha)
+    decision = decide(exists, disk_sha, json_sha, is_empty=(json_size == 0))
+
+    if decision == "empty":
+        # Importers have always guarded PDF writes with `if pdf_b64:` — an
+        # empty pdfString has always meant "no PDF for this doc". Don't write
+        # a 0-byte file; strip pdfString and record honest null markers.
+        return DocResult(outcome="empty", json_sha256=json_sha, json_size=json_size,
+                          disk_sha256=disk_sha, disk_size=disk_size, rel_path=rel,
+                          sql_sha256=None, sql_rel_path=None,
+                          zero_byte_disk_file=(exists and disk_size == 0))
 
     if decision == "missing":
         if not dry_run:
@@ -196,11 +237,27 @@ def process_doc(short_name: str, external_id: str, verdict_filename: str | None,
                 write_atomic(path, data)
             except OSError as exc:
                 return DocResult(outcome="error", error=f"write failed: {exc}")
-        return DocResult(outcome="written", json_sha256=json_sha, json_size=json_size, rel_path=rel)
+            # Read-back verification: never trust a write blindly — re-open
+            # what was just written and hash it before touching the DB.
+            try:
+                verify_bytes = path.read_bytes()
+            except OSError as exc:
+                return DocResult(outcome="error",
+                                  error=f"WRITE_VERIFY_FAILED: read-back of {path} failed: {exc}")
+            verify_sha = sha256_hex(verify_bytes)
+            if verify_sha != json_sha:
+                return DocResult(
+                    outcome="error",
+                    error=(f"WRITE_VERIFY_FAILED: wrote {path} but read-back sha256 "
+                           f"{verify_sha} != expected {json_sha} — row left untouched"),
+                )
+        return DocResult(outcome="written", json_sha256=json_sha, json_size=json_size, rel_path=rel,
+                          sql_sha256=json_sha, sql_rel_path=rel)
 
     if decision == "equal":
         return DocResult(outcome="migrated", json_sha256=json_sha, json_size=json_size,
-                          disk_sha256=disk_sha, disk_size=disk_size, rel_path=rel)
+                          disk_sha256=disk_sha, disk_size=disk_size, rel_path=rel,
+                          sql_sha256=json_sha, sql_rel_path=rel)
 
     return DocResult(outcome="mismatch", json_sha256=json_sha, json_size=json_size,
                       disk_sha256=disk_sha, disk_size=disk_size, rel_path=rel)
@@ -274,15 +331,21 @@ async def migrate(*, source: str | None, limit: int | None, dry_run: bool, worke
                             r.id, sn, r.external_id, result.json_sha256, f"{result.json_size:,}",
                             result.disk_sha256, f"{result.disk_size:,}", result.rel_path)
                     else:
-                        # "written" or "migrated" both end with the same JSON update.
+                        # "written", "migrated", or "empty" all end with the same JSON
+                        # update — "empty" writes null sha/path (sql_sha256/sql_rel_path
+                        # are None in that case) rather than a real value.
+                        if result.outcome == "empty" and result.zero_byte_disk_file:
+                            log.info("doc %s (%s/%s): EMPTY pdfString and a 0-byte file already "
+                                      "exists on disk at %s (not deleted — not this script's job)",
+                                      r.id, sn, r.external_id, result.rel_path)
                         if dry_run:
                             stats[sn][result.outcome] += 1
                             log.info("doc %s (%s/%s): [dry-run] would %s (sha=%s)",
-                                      r.id, sn, r.external_id, result.outcome, result.json_sha256)
+                                      r.id, sn, r.external_id, result.outcome, result.sql_sha256)
                         else:
                             try:
                                 await conn.execute(text(UPDATE_SQL), {
-                                    "sha": result.json_sha256, "rel": result.rel_path, "id": r.id,
+                                    "sha": result.sql_sha256, "rel": result.sql_rel_path, "id": r.id,
                                 })
                                 stats[sn][result.outcome] += 1
                             except Exception as exc:  # noqa: BLE001 — logged and skipped
@@ -332,14 +395,15 @@ async def migrate(*, source: str | None, limit: int | None, dry_run: bool, worke
             WHERE d.id = ANY(:ids) GROUP BY s.short_name"""), {"ids": list(ids)})).all()
     size_after = {sn: sz for sn, sz in after_rows}
 
-    log.info("%-20s %10s %20s %10s %8s %16s %16s",
-              "source", "migrated", "written-then-migrated", "mismatch", "errors", "size before", "size after")
+    log.info("%-20s %10s %20s %8s %10s %8s %16s %16s",
+              "source", "migrated", "written-then-migrated", "empty", "mismatch", "errors",
+              "size before", "size after")
     for sn in sorted(set(stats) | set(size_before) | set(size_after)):
         c = stats[sn]
         b = size_before.get(sn, 0) or 0
         a = size_after.get(sn, 0) or 0
-        log.info("%-20s %10d %20d %10d %8d %14.1f MB %14.1f MB",
-                  sn, c["migrated"], c["written"], c["mismatch"], c["errors"],
+        log.info("%-20s %10d %20d %8d %10d %8d %14.1f MB %14.1f MB",
+                  sn, c["migrated"], c["written"], c["empty"], c["mismatch"], c["errors"],
                   b / 1e6, a / 1e6)
     if dry_run:
         log.info("(dry-run: 'size after' equals 'size before' — no writes were made)")
