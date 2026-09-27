@@ -28,10 +28,12 @@ from sqlalchemy import text
 from engine.database.connection import init_db, get_engine
 from engine.search.passage_index import STALE_WHERE, build_passage_rows, lemmatize_rows, rebuild_passages
 
-# stdout is fully block-buffered when redirected to a file (e.g. `> log.txt` under
-# nohup), so `tail -f` on a multi-hour background run would show nothing for a
-# long time despite real progress. Force line buffering so each log line lands
-# immediately.
+# Not a buffering issue (logging uses stderr, which Python flushes per record):
+# each of the `workers` worker processes imports engine.processors.lemmatizer at
+# start-up, which loads BÍN (a few hundred MB). With many workers spawned at once
+# this can take on the order of a minute before the first imap_unordered() result
+# comes back, so the log can look idle right after start-up even on a healthy run.
+# Reconfigure stdout to line-buffered regardless, in case anything ever prints.
 try:
     sys.stdout.reconfigure(line_buffering=True)
 except (AttributeError, ValueError):
@@ -78,6 +80,7 @@ async def backfill(*, source: str | None, limit: int | None, all_docs: bool, wor
 
     t0 = time.monotonic()
     done = errors = written = 0
+    conn_dead = False
     with Pool(processes=workers) as pool:
         async with engine.connect() as conn:
             for i in range(0, total, BATCH):
@@ -88,6 +91,10 @@ async def backfill(*, source: str | None, limit: int | None, all_docs: bool, wor
                     WHERE d.id = ANY(:ids)"""), {"ids": list(batch_ids)})).all()
                 items = [tuple(r) for r in rows]
                 for doc_id, lem_rows, err in pool.imap_unordered(_work, items, chunksize=4):
+                    # Count every processed document toward done regardless of
+                    # outcome, so rate/ETA/"Done: N docs" aren't undercounted by
+                    # write failures.
+                    done += 1
                     if err:
                         errors += 1
                         log.warning("doc %s: %s", doc_id, err)
@@ -97,9 +104,21 @@ async def backfill(*, source: str | None, limit: int | None, all_docs: bool, wor
                         except Exception as exc:  # noqa: BLE001
                             errors += 1
                             log.warning("doc %s write failed: %s", doc_id, exc)
-                            await conn.rollback()
-                            continue
-                    done += 1
+                            # Rolling back discards only the up-to-COMMIT_EVERY docs
+                            # written since the last commit; their passage_hash is
+                            # unchanged so they stay stale and are rebuilt next run —
+                            # nothing is lost permanently.
+                            try:
+                                await conn.rollback()
+                            except Exception as rb_exc:  # noqa: BLE001
+                                # Connection is unusable (e.g. server dropped it).
+                                # Stop the run cleanly instead of raising out of an
+                                # unattended background process — remaining stale
+                                # docs are simply picked up by the next run.
+                                log.error("doc %s: rollback failed, connection is dead (%s); stopping run",
+                                          doc_id, rb_exc)
+                                conn_dead = True
+                                break
                     if done % COMMIT_EVERY == 0:
                         await conn.commit()
                 elapsed = time.monotonic() - t0
@@ -108,7 +127,10 @@ async def backfill(*, source: str | None, limit: int | None, all_docs: bool, wor
                 log.info("[%d/%d] %.1f%% — %.1f docs/s — %s passages — ETA %.0f min%s",
                          done, total, 100 * done / total, rate, f"{written:,}", eta / 60,
                          f" ({errors} errors)" if errors else "")
-            await conn.commit()
+                if conn_dead:
+                    break
+            if not conn_dead:
+                await conn.commit()
 
     log.info("Done: %d docs, %s passages, %d errors in %.0fs", done, f"{written:,}", errors, time.monotonic() - t0)
 
