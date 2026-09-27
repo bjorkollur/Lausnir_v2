@@ -152,6 +152,7 @@ from engine.database.models import Document
 from engine.processors.lemmatizer import lemmatize_query
 from engine.processors.renderer import to_urlausn
 from engine.search.passage_search import search_by_passages, validate_section_kinds
+from engine.search.relaxation import build_keyword_queries, should_relax
 
 # Regex-targetable fields → SQL expression (aliased table d).
 # IMPORTANT: for the pg_trgm-indexed columns (body_text, summary, case_number)
@@ -326,18 +327,18 @@ def _text_is_noise_for_provision(q: str, provision: str | None) -> bool:
     return bool(toks) and toks.issubset(_PROVISION_NOISE)
 
 
-def _or_query_or_none(lemmas: str) -> str | None:
-    """Turn space-separated lemmas into an OR tsquery source ('a b' -> 'a | b'),
-    for the passages OR-fallback stage (recall for terms split across passages).
-
-    F5: a single-lemma query has or_tsq == tsq, so hits_or is always empty but
-    still costs a second scan (measured 0.58s -> 0.83-1.28s for a single-term
-    query like "krafa"). Returning None for that case tells search_by_passages
-    to skip the OR-fallback stage entirely."""
-    words = lemmas.split()
-    if len(words) < 2:
-        return None
-    return " | ".join(words)
+async def _strict_doc_count(
+    session: AsyncSession, tsq_sql: str, where: list[str], params: dict[str, Any]
+) -> int:
+    """Exact document count matching ``tsq_sql`` (a ready-made tsquery expression,
+    e.g. ``to_tsquery('simple', :q_strict)``) under ``where`` — the same filters
+    the caller's search/facets query applies. Used as the relaxation decision's
+    input: how many documents match strictly (all lemmas), scoped exactly like
+    the query that will use the result."""
+    doc_where_sql = "".join(f" AND {frag}" for frag in where)
+    return (await session.execute(
+        text(f"SELECT count(*) FROM documents d WHERE d.fts_is @@ {tsq_sql}{doc_where_sql}"), params
+    )).scalar() or 0
 
 
 async def search_documents(
@@ -416,16 +417,27 @@ async def search_documents(
         # making relevance sort meaningless; the provision filter is sufficient.
         lemmas = "" if _text_is_noise_for_provision(q, provision) else lemmatize_query(q)
         if lemmas:
-            params["lemmas"] = lemmas
-            # F5: a single-lemma query has or_tsq == tsq, so the OR-fallback stage
-            # is always empty but still costs a second scan — skip it entirely.
-            or_tsq = _or_query_or_none(lemmas)
-            if or_tsq is not None:
-                params["lemmas_or"] = or_tsq
+            # Relaxed keyword search (spec 2026-09-28): decide up front, from an
+            # exact doc-level strict count under the same filters, whether to
+            # widen the passage prefilter to all-but-one/any-lemma tiers.
+            kq = build_keyword_queries(lemmas)
+            params["q_strict"] = kq.strict
+            strict_total = await _strict_doc_count(
+                session, "to_tsquery('simple', :q_strict)", where, params)
+            relaxed = should_relax(strict_total, kq.n)
+            or_param: str | None = None
+            relax_params: tuple[str, str | None] | None = None
+            if kq.n >= 2:
+                params["q_any"] = kq.any
+                or_param = "q_any"
+            if relaxed:
+                if kq.nminus1:
+                    params["q_nminus1"] = kq.nminus1
+                relax_params = ("q_any", "q_nminus1" if kq.nminus1 else None)
             return await search_by_passages(
-                session, tsq_fn="plainto_tsquery", tsq_param="lemmas", where=where, params=params,
+                session, tsq_fn="to_tsquery", tsq_param="q_strict", where=where, params=params,
                 sort=sort, page=page, page_size=page_size, section_kinds=section_kinds,
-                or_tsq_param="lemmas_or" if or_tsq is not None else None)
+                or_tsq_param=or_param, relax_params=relax_params, strict_total=strict_total)
         else:
             has_text = False  # nothing lemmatizable → filter-only browse
     elif has_text and mode == "regex":
@@ -592,8 +604,20 @@ async def facet_counts(
     if q and mode == "keyword":
         lemmas = lemmatize_query(q)
         if lemmas:
-            params["lemmas"] = lemmas
-            where.append("d.fts_is @@ plainto_tsquery('simple', :lemmas)")
+            kq = build_keyword_queries(lemmas)
+            # Facets carry no scope filter (dates only), while search_documents
+            # scopes by source too — each computes its own strict count against
+            # its own where-clause, so facets and search can land on different
+            # sides of RELAX_BELOW (and thus disagree on relaxing) when the
+            # scope is narrower than the corpus. Intended (spec decision 6).
+            strict_total = await _strict_doc_count(
+                session, "to_tsquery('simple', :q_strict)", where, {**params, "q_strict": kq.strict})
+            if should_relax(strict_total, kq.n):
+                params["q_any"] = kq.any
+                where.append("d.fts_is @@ to_tsquery('simple', :q_any)")
+            else:
+                params["q_strict"] = kq.strict
+                where.append("d.fts_is @@ to_tsquery('simple', :q_strict)")
     elif q and mode == "regex":
         try:
             re.compile(q)

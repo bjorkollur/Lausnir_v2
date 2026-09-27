@@ -2,6 +2,39 @@
 from engine.search.queries import _build_text_filter, _order_clause
 
 
+class FakeResult:
+    """Stand-in for the SQLAlchemy Result returned by session.execute()."""
+
+    def __init__(self, scalar_value=None, mapping_rows=None):
+        self._scalar_value = scalar_value
+        self._mapping_rows = mapping_rows or []
+
+    def scalar(self):
+        return self._scalar_value
+
+    def mappings(self):
+        return self
+
+    def all(self):
+        return self._mapping_rows
+
+
+class FakeSession:
+    """Records every session.execute() call (SQL text + params) and returns a
+    scripted result. Used to test the relaxation dispatch in queries.py without
+    a real database — only .scalar()/.mappings().all() are ever read off the
+    result by the code under test here."""
+
+    def __init__(self, scalar_value=None, mapping_rows=None):
+        self.scalar_value = scalar_value
+        self.mapping_rows = mapping_rows or []
+        self.calls: list[tuple[str, dict]] = []
+
+    async def execute(self, stmt, params=None):
+        self.calls.append((str(stmt), dict(params or {})))
+        return FakeResult(scalar_value=self.scalar_value, mapping_rows=self.mapping_rows)
+
+
 def test_exact_single_word():
     frags, params = _build_text_filter("exact", ["gæsluvarðhald"], None, 5)
     assert len(frags) == 1
@@ -150,20 +183,6 @@ def test_provision_noise_query_is_filter_only_in_both_impls():
     assert not _text_is_noise_for_provision("2. mgr. 218. gr.", provision=None)
 
 
-def test_or_query_or_none_joins_multi_lemma_with_pipe():
-    from engine.search.queries import _or_query_or_none
-    assert _or_query_or_none("gæsluvarðhald rannsókn") == "gæsluvarðhald | rannsókn"
-    assert _or_query_or_none("a b") == "a | b"
-
-
-def test_or_query_or_none_skips_single_lemma():
-    """F5: a single-lemma query has or_tsq == tsq, so the OR-fallback stage is
-    always empty but still costs a second scan — skip it (None means 'no OR')."""
-    from engine.search.queries import _or_query_or_none
-    assert _or_query_or_none("krafa") is None
-    assert _or_query_or_none("gæsluvarðhald") is None
-
-
 # ── F4: section_kind rejected outside passage modes ──────────────────────────
 
 async def test_section_kind_rejected_for_non_passage_mode():
@@ -211,9 +230,126 @@ async def test_section_kind_allowed_for_real_keyword_query():
     orig = queries_mod.search_by_passages
     queries_mod.search_by_passages = _fake_search_by_passages
     try:
+        session = FakeSession(scalar_value=0)  # strict count for the dispatch decision
         result = await queries_mod.search_documents(
-            None, q="gæsluvarðhald", mode="keyword", section_kind=["domsord"])
+            session, q="gæsluvarðhald", mode="keyword", section_kind=["domsord"])
         assert result.total == 0
         assert called["section_kinds"] == ["domsord"]
     finally:
         queries_mod.search_by_passages = orig
+
+
+# ── Relaxation dispatch (spec 2026-09-28) ─────────────────────────────────────
+
+async def test_keyword_dispatch_relaxes_when_strict_count_below_threshold(monkeypatch):
+    """Strict count (3) below RELAX_BELOW (10) with 3 lemmas: relax_params carries
+    both the any- and all-but-one query params, and search_by_passages' params
+    contain all three tsquery strings built from the lemmas."""
+    from engine.search import queries as queries_mod, relaxation
+
+    monkeypatch.setattr(relaxation, "RELAX_BELOW", 10)
+    monkeypatch.setattr(queries_mod, "lemmatize_query", lambda q: "a b c")
+
+    captured = {}
+
+    async def fake_search_by_passages(session, **kwargs):
+        captured.update(kwargs)
+        return queries_mod.SearchResults(total=0, page=1, page_size=20, results=[])
+
+    monkeypatch.setattr(queries_mod, "search_by_passages", fake_search_by_passages)
+
+    session = FakeSession(scalar_value=3)
+    await queries_mod.search_documents(session, q="ignored", mode="keyword")
+
+    assert captured["strict_total"] == 3
+    assert captured["or_tsq_param"] == "q_any"
+    assert captured["relax_params"] == ("q_any", "q_nminus1")
+    params = captured["params"]
+    assert params["q_strict"] == "a & b & c"
+    assert params["q_any"] == "a | b | c"
+    assert params["q_nminus1"] == "(a & b) | (a & c) | (b & c)"
+    # The strict count itself was queried against to_tsquery, not plainto_tsquery.
+    assert "to_tsquery" in session.calls[0][0]
+    assert session.calls[0][1]["q_strict"] == "a & b & c"
+
+
+async def test_keyword_dispatch_no_relax_when_strict_count_at_threshold(monkeypatch):
+    """Strict count exactly at RELAX_BELOW must NOT relax (should_relax is a
+    strict '<'), but the OR-fallback stage is still wired up for n >= 2."""
+    from engine.search import queries as queries_mod, relaxation
+
+    monkeypatch.setattr(relaxation, "RELAX_BELOW", 10)
+    monkeypatch.setattr(queries_mod, "lemmatize_query", lambda q: "a b c")
+
+    captured = {}
+
+    async def fake_search_by_passages(session, **kwargs):
+        captured.update(kwargs)
+        return queries_mod.SearchResults(total=0, page=1, page_size=20, results=[])
+
+    monkeypatch.setattr(queries_mod, "search_by_passages", fake_search_by_passages)
+
+    session = FakeSession(scalar_value=10)
+    await queries_mod.search_documents(session, q="ignored", mode="keyword")
+
+    assert captured["strict_total"] == 10
+    assert captured["relax_params"] is None
+    assert captured["or_tsq_param"] == "q_any"
+    assert "q_nminus1" not in captured["params"]
+
+
+async def test_single_lemma_never_relaxes(monkeypatch):
+    """A single-lemma query never relaxes and never gets an OR-fallback stage,
+    regardless of how low the strict count is."""
+    from engine.search import queries as queries_mod, relaxation
+
+    monkeypatch.setattr(relaxation, "RELAX_BELOW", 10)
+    monkeypatch.setattr(queries_mod, "lemmatize_query", lambda q: "a")
+
+    captured = {}
+
+    async def fake_search_by_passages(session, **kwargs):
+        captured.update(kwargs)
+        return queries_mod.SearchResults(total=0, page=1, page_size=20, results=[])
+
+    monkeypatch.setattr(queries_mod, "search_by_passages", fake_search_by_passages)
+
+    session = FakeSession(scalar_value=0)
+    await queries_mod.search_documents(session, q="ignored", mode="keyword")
+
+    assert captured["or_tsq_param"] is None
+    assert captured["relax_params"] is None
+    assert "q_any" not in captured["params"]
+
+
+async def test_facets_use_any_query_when_relaxed(monkeypatch):
+    """facet_counts makes its own strict-count decision against its own (scope-
+    free) where-clause; below RELAX_BELOW it filters on the any-query."""
+    from engine.search import queries as queries_mod, relaxation
+
+    monkeypatch.setattr(relaxation, "RELAX_BELOW", 10)
+    monkeypatch.setattr(queries_mod, "lemmatize_query", lambda q: "a b")
+
+    session = FakeSession(scalar_value=2)
+    await queries_mod.facet_counts(session, q="ignored", mode="keyword")
+
+    facets_sql = session.calls[-1][0]
+    assert ":q_any" in facets_sql
+    assert ":q_strict" not in facets_sql
+    assert session.calls[-1][1]["q_any"] == "a | b"
+
+
+async def test_facets_use_strict_query_when_not_relaxed(monkeypatch):
+    """At/above RELAX_BELOW, facets filter on the strict (all-lemmas) query."""
+    from engine.search import queries as queries_mod, relaxation
+
+    monkeypatch.setattr(relaxation, "RELAX_BELOW", 10)
+    monkeypatch.setattr(queries_mod, "lemmatize_query", lambda q: "a b")
+
+    session = FakeSession(scalar_value=50)
+    await queries_mod.facet_counts(session, q="ignored", mode="keyword")
+
+    facets_sql = session.calls[-1][0]
+    assert ":q_strict" in facets_sql
+    assert ":q_any" not in facets_sql
+    assert session.calls[-1][1]["q_strict"] == "a & b"
