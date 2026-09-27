@@ -18,6 +18,18 @@ Notaðu `.scalars().all()`, **ekki** `scalar_one_or_none()`, þegar þú spyrð 
 ### `documents.fts_is` og `passages` verða að vera endurbyggð saman
 `rebuild_passages()` (kallað af `backfill_passages.py`) endurnýjar `documents.fts_is` úr sömu lemmum og `passages`-röðunum, í sömu færslu — það er eina leiðin sem `fts_is` uppfærist eftir að skjal er endurunnið. `backfill_fts_is.py` fyllir aðeins `NULL`-gildi og lagar því **ekki** skjal sem átti `fts_is` fyrir en fékk nýjan `body_text` seinna (t.d. eftir endur-extraction). Þangað til `rebuild_passages()` keyrir á því skjali er `passages` p rétt en forsían `d.fts_is @@ tsq` í efnisgreinaleitinni (sjá F3, [05-leit](05-leit.md)) getur útilokað skjalið úr `keyword`/`proximity`-leit þótt efnisgreinarnar sjálfar passi.
 
+### Eftir fulla `backfill_passages.py --all` þarf viðhald á vísum
+Full endurbygging eyðir og setur inn allar 1,78 M `passages`-raðir og endurskrifar hvert `documents.fts_is` — GIN-vísarnir blása út við það (`ix_passage_fts_is` 661 → 1164 MB, `ix_doc_fts_is` 333 → 441 MB, mælt 27.09.2026). Keyrðu strax á eftir:
+
+```sql
+VACUUM (ANALYZE, VERBOSE) passages;
+VACUUM (ANALYZE, VERBOSE) documents;
+REINDEX INDEX CONCURRENTLY ix_passage_fts_is;   -- 1164 → 522 MB, ~1:43
+REINDEX INDEX CONCURRENTLY ix_doc_fts_is;       -- 441 → 228 MB, ~0:38
+```
+
+Annars hægist verulega á leitinni þangað til það er gert — bæði vísarnir tvöfaldast í lestri (diskurinn er á USB, svo kaldir lestrar ráða) og `ANALYZE` eitt og sér lagar það ekki. Athugaðu að `VACUUM ANALYZE`/`REINDEX` lagar **ekki** `plan_cache_mode`-gildruna; þau eru sjálfstæð vandamál.
+
 ### `validation_errors` geymir tvenns konar „ekkert"
 19.554 raðir hafa JSON-gildið `null` (skalar) og 25.546 hafa raunverulegan fylkjalista. SQL sem gerir ráð fyrir fylki springur:
 

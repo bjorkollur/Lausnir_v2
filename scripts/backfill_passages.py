@@ -149,6 +149,18 @@ async def backfill(*, source: str | None, limit: int | None, all_docs: bool, wor
         for sn, wt, wp, np_, st in cov:
             log.info("%-24s %10d %14d %10d %6d", sn, wt, wp, np_, st)
 
+    if all_docs:
+        # A full rebuild deletes and re-inserts every passage row and rewrites every
+        # documents.fts_is, which bloats both GIN indexes (measured 2026-09-27:
+        # ix_passage_fts_is 661 -> 1164 MB, ix_doc_fts_is 333 -> 441 MB). Search stays
+        # slow until this maintenance runs. See docs/wiki/09-gildrur.md.
+        log.info("NEXT: --all rewrote every passage and documents.fts_is — run the "
+                 "post-rebuild maintenance now, or search latency stays degraded:")
+        for stmt in ("VACUUM (ANALYZE) passages;", "VACUUM (ANALYZE) documents;",
+                     "REINDEX INDEX CONCURRENTLY ix_passage_fts_is;",
+                     "REINDEX INDEX CONCURRENTLY ix_doc_fts_is;"):
+            log.info("      psql -p 5433 -d lausnir_v2 -c '%s'", stmt)
+
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
