@@ -19,6 +19,7 @@ from sqlalchemy import (
     Float,
     ForeignKey,
     Index,
+    Integer,
     SmallInteger,
     Text,
     UniqueConstraint,
@@ -97,6 +98,9 @@ class Document(Base):
     fts_is: Mapped[Any | None] = mapped_column(TSVECTOR)
     cited_provisions: Mapped[list[Any] | None] = mapped_column(JSONB)
     # GIN index ix_doc_cited_provisions created by scripts/setup_provision_index.py
+    # md5(summary ‖ \x1f ‖ body_text ‖ \x1f ‖ lower_body_text) as of the last
+    # passages build. NULL or mismatch = passages are stale (see passage_index.py).
+    passage_hash: Mapped[str | None] = mapped_column(Text)
 
     # ── Paths ─────────────────────────────────────────────────────────────────
     verdict_filename: Mapped[str | None] = mapped_column(Text)
@@ -189,3 +193,38 @@ class DocumentChunk(Base):
 
     def __repr__(self) -> str:
         return f"<DocumentChunk doc={self.document_id} idx={self.chunk_index}>"
+
+
+class Passage(Base):
+    """One citable passage of a document (spec: 2026-09-27-passages-design.md).
+
+    layer: 'summary' | 'body' | 'lower_body' — which column char_start/char_end
+    index into. Passages are contiguous, non-overlapping, ordered by ordinal
+    across all three layers. fts_is is BÍN-lemmatised like documents.fts_is.
+    """
+    __tablename__ = "passages"
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    document_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("documents.id", ondelete="CASCADE"), nullable=False)
+    ordinal: Mapped[int] = mapped_column(Integer, nullable=False)
+    layer: Mapped[str] = mapped_column(Text, nullable=False)
+    section_path: Mapped[str | None] = mapped_column(Text)
+    section_kind: Mapped[str] = mapped_column(Text, nullable=False)
+    para_from: Mapped[int | None] = mapped_column(SmallInteger)
+    para_to: Mapped[int | None] = mapped_column(SmallInteger)
+    char_start: Mapped[int] = mapped_column(Integer, nullable=False)
+    char_end: Mapped[int] = mapped_column(Integer, nullable=False)
+    text: Mapped[str] = mapped_column(Text, nullable=False)
+    word_count: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    fts_is: Mapped[Any] = mapped_column(TSVECTOR, nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint("document_id", "ordinal", name="uq_passage_doc_ordinal"),
+        Index("ix_passage_doc", "document_id", "ordinal"),
+        Index("ix_passage_fts_is", "fts_is", postgresql_using="gin"),
+        Index("ix_passage_section_kind", "section_kind"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<Passage doc={self.document_id} #{self.ordinal} {self.layer}/{self.section_kind}>"
