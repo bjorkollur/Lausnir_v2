@@ -15,8 +15,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from engine.processors.sections import SECTION_KINDS
 from engine.search.passage_index import passage_anchor
 
-__all__ = ["SECTION_KINDS", "PASSAGE_CANDIDATE_DOCS", "validate_section_kinds",
-           "build_hits_sql", "order_sql", "search_by_passages"]
+__all__ = ["SECTION_KINDS", "PASSAGE_CANDIDATE_DOCS", "MAX_PASSAGE_WINDOW", "validate_section_kinds",
+           "build_hits_sql", "order_sql", "search_by_passages", "get_passages"]
 
 _HEADLINE_OPTS = ("'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=35,"
                   "MinWords=12,ShortWord=2'")
@@ -197,3 +197,56 @@ async def search_by_passages(
             "section_kind": r["section_kind"], "layer": r["layer"], "match_count": r["match_count"],
         })
     return SearchResults(total=total, page=page, page_size=page_size, results=results)
+
+
+MAX_PASSAGE_WINDOW = 200
+
+
+async def get_passages(session: AsyncSession, doc_id, *, from_ordinal: int, to_ordinal: int,
+                       section_kinds: list[str] | None, layer: str | None) -> dict[str, Any] | None:
+    import uuid
+    from engine.search.queries import SearchError, _citation
+    try:
+        did = uuid.UUID(str(doc_id))
+    except (ValueError, AttributeError):
+        raise SearchError(f"Invalid document id: {doc_id!r}")
+    if to_ordinal < from_ordinal:
+        raise SearchError("'to' must be >= 'from'")
+    if to_ordinal - from_ordinal + 1 > MAX_PASSAGE_WINDOW:
+        raise SearchError(f"at most {MAX_PASSAGE_WINDOW} passages per request")
+    if layer is not None and layer not in ("summary", "body", "lower_body"):
+        raise SearchError(f"Unknown layer {layer!r}")
+    section_kinds = validate_section_kinds(section_kinds)
+
+    doc = (await session.execute(text("""
+        SELECT d.id, s.short_name AS source, d.court, d.case_number, d.document_date, d.verdict_type
+        FROM documents d JOIN sources s ON s.id = d.source_id WHERE d.id = :id"""), {"id": did})).mappings().first()
+    if doc is None:
+        return None
+
+    where = ["p.document_id = :id"]
+    params: dict[str, Any] = {"id": did}
+    if section_kinds:
+        where.append("p.section_kind = ANY(:kinds)"); params["kinds"] = section_kinds
+    if layer:
+        where.append("p.layer = :layer"); params["layer"] = layer
+    w = " AND ".join(where)
+    total = (await session.execute(text(f"SELECT count(*) FROM passages p WHERE {w}"), params)).scalar() or 0
+    rows = (await session.execute(text(f"""
+        SELECT p.id, p.ordinal, p.layer, p.section_path, p.section_kind, p.para_from, p.para_to,
+               p.char_start, p.char_end, p.word_count, p.text
+        FROM passages p WHERE {w} AND p.ordinal BETWEEN :lo AND :hi ORDER BY p.ordinal"""),
+        {**params, "lo": from_ordinal, "hi": to_ordinal})).mappings().all()
+    return {
+        "document_id": str(doc["id"]),
+        "urlausn": _citation(doc["source"], doc["court"], doc["case_number"], doc["document_date"], doc["verdict_type"]),
+        "total": total,
+        "passages": [{
+            "id": str(r["id"]), "ordinal": r["ordinal"], "layer": r["layer"],
+            "anchor": passage_anchor(r["layer"], r["para_from"], r["para_to"], r["section_path"], r["ordinal"]),
+            "section_path": r["section_path"], "section_kind": r["section_kind"],
+            "para_from": r["para_from"], "para_to": r["para_to"],
+            "char_start": r["char_start"], "char_end": r["char_end"],
+            "word_count": r["word_count"], "text": r["text"],
+        } for r in rows],
+    }

@@ -28,6 +28,7 @@ from engine.config.source_groups import catalog
 from engine.database.connection import init_db
 from engine.database.models import Document, Source
 from engine.processors.renderer import to_markdown
+from engine.search.passage_search import get_passages
 from engine.search.queries import (
     DEFAULT_PAGE_SIZE,
     REGEX_COLUMNS,
@@ -134,6 +135,7 @@ async def search(
     proximity_n: int = Query(5, ge=1, le=50),
     provision: str | None = Query(None, description="Provision reference, e.g. '218. gr. 19/1940'"),
     keyword: str | None = Query(None, description="Filter by keywords/tags column only, substring match"),
+    section_kind: list[str] | None = Query(None, description="Restrict to passage section kinds (passages impl only)"),
     session: AsyncSession = Depends(get_session),
 ) -> dict:
     try:
@@ -142,6 +144,7 @@ async def search(
             date_from=date_from, date_to=date_to, sort=sort,
             page=page, page_size=page_size, regex_fields=regex_fields,
             proximity_n=proximity_n, provision=provision, keyword=keyword,
+            section_kind=section_kind,
         )
     except SearchError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
@@ -215,6 +218,28 @@ async def document_pdf(
     if not pdf_path.exists():
         raise HTTPException(status_code=404, detail="No PDF stored for this document")
     return FileResponse(pdf_path, media_type="application/pdf")
+
+
+@app.get("/api/document/{doc_id}/passages")
+async def document_passages(
+    doc_id: str,
+    from_: int = Query(0, alias="from", ge=0),
+    to: int | None = Query(None, ge=0),
+    section_kind: list[str] | None = Query(None),
+    layer: str | None = Query(None),
+    session: AsyncSession = Depends(get_session),
+) -> dict:
+    """Ordered passages of one document — the context primitive for citations and tools."""
+    try:
+        res = await get_passages(
+            session, doc_id, from_ordinal=from_, to_ordinal=to if to is not None else from_ + 49,
+            section_kinds=section_kind, layer=layer,
+        )
+    except SearchError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    if res is None:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return res
 
 
 _LAW_FOOTNOTE_RE = _re_law.compile(r'^\[|\]\d+\)$')
