@@ -204,15 +204,16 @@ def _citation(short_name: str | None, court, case_number, document_date, verdict
         return " ".join(parts) + tail
 
 
-def _order_clause(mode: str, has_text: bool, sort: str, rank_expr: str) -> str:
-    """Return the ORDER BY body (uses real SQL expressions, no output aliases).
-
-    ``relevance`` only applies to keyword and proximity search (both have FTS rank).
+def _order_clause(sort: str) -> str:
+    """Return the ORDER BY body for the regex-family modes (exact/prefix/
+    substring/any/regex) and filter-only browsing — the only cases that reach
+    the page query below. None of them carry an FTS rank: keyword/proximity
+    return early via search_by_passages, which has its own passage-level
+    ORDER BY (see passage_search.order_sql). So ``relevance`` always falls
+    back to ``newest`` here.
     """
-    if sort == "relevance" and not (mode in ("keyword", "proximity") and has_text):
-        sort = "newest"  # relevance is meaningless without FTS rank
     if sort == "relevance":
-        return f"{rank_expr} DESC, d.document_date DESC NULLS LAST, d.id"
+        sort = "newest"  # relevance is meaningless without FTS rank
     if sort == "oldest":
         return "d.document_date ASC NULLS LAST, d.id"
     return "d.document_date DESC NULLS LAST, d.id"
@@ -389,9 +390,11 @@ async def search_documents(
         params.update(kw_params)
 
     has_text = bool(q)
-    rank_expr = "0::real"
     regex_pattern: str | None = None
-    snip_pattern: str | None = None  # for Python-side _regex_snippet
+    # Regex-family modes only (exact/prefix/substring/any/regex) — for
+    # Python-side _regex_snippet. keyword/proximity never set this; they
+    # return early via search_by_passages before reaching the code below.
+    snip_pattern: str | None = None
     words = [w for w in q.split() if w] if q else []
 
     if has_text and mode == "keyword":
@@ -446,7 +449,7 @@ async def search_documents(
             has_text = False
 
     where_sql = (" WHERE " + " AND ".join(where)) if where else ""
-    order_sql = _order_clause(mode, has_text, sort, rank_expr)
+    order_sql = _order_clause(sort)
 
     # Apply timeout to all regex-backed modes.
     if mode in ("regex", "exact", "prefix", "substring", "any") and has_text:

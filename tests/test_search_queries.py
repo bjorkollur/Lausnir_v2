@@ -74,25 +74,21 @@ def test_proximity_hyphenated_word_sanitized():
     assert not re_.search(r'\w \w', prox_q), f"Bare space in tsquery: {prox_q!r}"
 
 
-def test_order_clause_proximity_allows_relevance():
-    result = _order_clause("proximity", True, "relevance", "ts_rank(x,y)")
-    assert "ts_rank" in result
-
-
-def test_order_clause_exact_overrides_relevance_to_newest():
-    result = _order_clause("exact", True, "relevance", "0::real")
-    assert "document_date DESC" in result
-    assert "0::real" not in result
+def test_order_clause_relevance_falls_back_to_newest():
+    """No mode that reaches _order_clause carries an FTS rank (keyword/proximity
+    return early via search_by_passages), so relevance always falls back."""
+    result = _order_clause("relevance")
+    assert result == "d.document_date DESC NULLS LAST, d.id"
 
 
 def test_order_clause_newest():
-    result = _order_clause("exact", True, "newest", "0::real")
-    assert "document_date DESC" in result
+    result = _order_clause("newest")
+    assert result == "d.document_date DESC NULLS LAST, d.id"
 
 
 def test_order_clause_oldest():
-    result = _order_clause("keyword", True, "oldest", "ts_rank(x,y)")
-    assert "document_date ASC" in result
+    result = _order_clause("oldest")
+    assert result == "d.document_date ASC NULLS LAST, d.id"
 
 
 # ── Provision query parser ────────────────────────────────────────────────────
