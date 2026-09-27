@@ -54,17 +54,9 @@ def _court_eignarfall(abbr: str) -> str:
 VERDICT_MARKER = "<!-- VERDICT -->"
 LOWER_COURT_VERDICT_MARKER = "<!-- LOWER COURT VERDICT -->"
 
-def _spaced(word: str) -> str:
-    """Pattern matching a word with optional whitespace between each character."""
-    return r'\s*'.join(re.escape(c) for c in word)
-
-
-def _spaced_eth(word: str) -> str:
-    """Like _spaced but maps ð/Ð → [ðÐdD] for OCR robustness (old PDFs use plain D)."""
-    return r'\s*'.join(
-        r'[ðÐdD]' if c in 'ðÐ' else re.escape(c)
-        for c in word
-    )
+from engine.processors.sections import (  # noqa: F401 — re-exported for existing callers
+    _spaced, _spaced_eth, _VERDICT_SECTION_PATTERNS, _VERDICT_SECTION_PATTERNS_COMMITTEE,
+)
 
 
 # Matches "Dómsorð"/"Úrskurðarorð" when it appears mid-line so it can be moved
@@ -190,38 +182,6 @@ def _promote_bold_roman_headings(text: str) -> str:
         lambda m: f"## {m.group(1)} {m.group(2).strip()}",
         text,
     )
-
-# #{0,6} leyfir að Dómsorð/Úrskurðarorð séu þegar orðin heading á hvaða stigi sem er.
-# Eldri Hrd. PDF-ar nota oft ####/##### fyrir Dómsorð í neðra dómstigstexta.
-# _spaced() variants catch lines where letters have spaces between them
-# (e.g. "## Ú rskurðarorð:" from older PDF encodings).
-# (?-i:[A-Z]) — case-sensitive uppercase lookahead (inside the IGNORECASE pattern)
-# to allow merged "DÓMSORÐStefndi" headings (next char is uppercase) while
-# rejecting inflected forms like "Dómsorðig" (next char is lowercase inflection).
-# Also catches "Ályktunarorð"/"Ályktarorð" — verdict-section words in older formats.
-_VERDICT_SECTION_PATTERNS = re.compile(
-    r"^#{0,6}\s*(?:"
-    + r"D\s*ó\s*m\s*(?:s\s*)?o\s*r\s*(?:[oO]\s*)?[ðÐdD]" + r"|"
-    # Fuzzy Úrskurðarorð: (?:[rRðÐdDaA]\s*)* gleypur miðhlutann og nær yfir
-    # allar þekktar stafsetningarvillur (vantar r/Ð, víxlað, D í stað Ð o.fl.)
-    + r"[ÚúUu]\s*[rR]?\s*(?:[sS]\s*)?[kK]\s*[uU]\s*(?:[rRðÐdDaAsS]\s*)*[oO]\s*[rR]?\s*[ðÐdD]" + r"|"
-    + _spaced_eth("Ályktunarorð") + r"|"
-    + _spaced_eth("Ályktarorð")
-    + r")(?:[;:.\s]|$|(?-i:[A-ZÁÐÉÍÓÚÝÞÆÖ]))",
-    re.MULTILINE | re.IGNORECASE,
-)
-
-# Extended pattern for committee/ministry sources (h1_use_display_name=True).
-# Adds Niðurstaða as a verdict-section marker — in committee rulings "IV. Niðurstaða"
-# IS the operative conclusion, whereas in court documents it is a reasoning section
-# that precedes the separate Dómsorð/Úrskurðarorð.  Requires #{1,6} prefix to avoid
-# false matches on the common noun "niðurstaða" in running text.
-_VERDICT_SECTION_PATTERNS_COMMITTEE = re.compile(
-    _VERDICT_SECTION_PATTERNS.pattern
-    + r"|^#{1,6}\s*(?:[IVX]+\.\s+)?N\s*i\s*[ðÐdD]\s*u\s*r\s*s\s*t\s*a\s*[ðÐdD]\s*a\s*n?"
-    r"(?:[;:.\s]|$)",
-    re.MULTILINE | re.IGNORECASE,
-)
 
 # Passar við "Úrskurður" (með eða án bila á milli stafa, með eða án tvípunkts)
 # sem stendur ein og sér á línu — með eða án heading-merkis.
