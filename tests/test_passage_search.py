@@ -96,3 +96,12 @@ def test_rank_fn_ts_rank_cd_applied(monkeypatch):
                          doc_where=[], section_filter=False)
     assert "ts_rank_cd(" in sql
     assert "ts_rank(p.fts_is" not in sql
+
+
+def test_rank_fn_rejects_unknown_value(monkeypatch):
+    """F6: PASSAGE_RANK_FN must be validated inside build_hits_sql rather than
+    silently interpolated into SQL — a typo or bad config flip should fail loud."""
+    monkeypatch.setattr(passage_search, "PASSAGE_RANK_FN", "drop table")
+    with pytest.raises(ValueError):
+        build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)", or_tsq=None,
+                       doc_where=[], section_filter=False)

@@ -324,10 +324,18 @@ def _text_is_noise_for_provision(q: str, provision: str | None) -> bool:
     return bool(toks) and toks.issubset(_PROVISION_NOISE)
 
 
-def _or_query(lemmas: str) -> str:
+def _or_query_or_none(lemmas: str) -> str | None:
     """Turn space-separated lemmas into an OR tsquery source ('a b' -> 'a | b'),
-    for the passages OR-fallback stage (recall for terms split across passages)."""
-    return " | ".join(lemmas.split())
+    for the passages OR-fallback stage (recall for terms split across passages).
+
+    F5: a single-lemma query has or_tsq == tsq, so hits_or is always empty but
+    still costs a second scan (measured 0.58s -> 0.83-1.28s for a single-term
+    query like "krafa"). Returning None for that case tells search_by_passages
+    to skip the OR-fallback stage entirely."""
+    words = lemmas.split()
+    if len(words) < 2:
+        return None
+    return " | ".join(words)
 
 
 async def search_documents(
@@ -351,6 +359,8 @@ async def search_documents(
     if mode not in VALID_MODES:
         raise SearchError(f"Unknown mode {mode!r}")
     section_kinds = validate_section_kinds(section_kind)
+    if section_kinds and mode not in ("keyword", "proximity"):
+        raise SearchError("section_kind only applies to keyword and proximity modes")
     page = max(1, page)
     page_size = max(1, min(page_size, MAX_PAGE_SIZE))
     offset = (page - 1) * page_size
@@ -405,11 +415,15 @@ async def search_documents(
         lemmas = "" if _text_is_noise_for_provision(q, provision) else lemmatize_query(q)
         if lemmas:
             params["lemmas"] = lemmas
-            params["lemmas_or"] = _or_query(lemmas)
+            # F5: a single-lemma query has or_tsq == tsq, so the OR-fallback stage
+            # is always empty but still costs a second scan — skip it entirely.
+            or_tsq = _or_query_or_none(lemmas)
+            if or_tsq is not None:
+                params["lemmas_or"] = or_tsq
             return await search_by_passages(
                 session, tsq_fn="plainto_tsquery", tsq_param="lemmas", where=where, params=params,
                 sort=sort, page=page, page_size=page_size, section_kinds=section_kinds,
-                or_tsq_param="lemmas_or")
+                or_tsq_param="lemmas_or" if or_tsq is not None else None)
         else:
             has_text = False  # nothing lemmatizable → filter-only browse
     elif has_text and mode == "regex":
@@ -447,6 +461,14 @@ async def search_documents(
                 snip_pattern = text_params.get("pat_0")  # first word for snippet
         else:
             has_text = False
+
+    # Reaching here with mode in (keyword, proximity) means the text degenerated
+    # into a document-level browse (nothing lemmatisable, provision noise, or no
+    # query at all) — search_by_passages was never called, so section_kind (a
+    # passage-only filter) could never be honored. Non-passage modes were already
+    # rejected above; this closes the remaining silent-drop case.
+    if section_kinds and mode in ("keyword", "proximity"):
+        raise SearchError("section_kind only applies to keyword and proximity modes")
 
     where_sql = (" WHERE " + " AND ".join(where)) if where else ""
     order_sql = _order_clause(sort)

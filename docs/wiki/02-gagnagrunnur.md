@@ -98,7 +98,7 @@ Hver skjal er skipt í tilvitnanlegar efnisgreinar (spec `2026-09-27-passages-de
 | `document_id` | uuid FK → documents **ON DELETE CASCADE** | |
 | `ordinal` | integer | Röð innan skjals, yfir öll þrjú lög |
 | `layer` | text | `'summary'` \| `'body'` \| `'lower_body'` |
-| `section_path` | text | T.d. `"II.2"` — heimilisfang innan fyrirsagnaskipulags, NULL ef ekkert |
+| `section_path` | text | Texti næstu fyrirsagnar fyrir ofan, t.d. `"Niðurstaða"`, `"III"`, `"Dómsorð"`, eða fyrir lagasafn `"12. gr"`; NULL ef engin fyrirsögn |
 | `section_kind` | text | Flokkur frá `processors/sections.py`: `reifun`, `malsmedferd`, `malsatvik`, `malsastaedur`, `nidurstada`, `domsord`, `annad` |
 | `para_from` / `para_to` | smallint | Málsgreinabil innan lags (NULL fyrir flatan texta) |
 | `char_start` / `char_end` | integer | Staðsetning í upprunadálki lagsins |

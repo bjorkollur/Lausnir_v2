@@ -150,7 +150,70 @@ def test_provision_noise_query_is_filter_only_in_both_impls():
     assert not _text_is_noise_for_provision("2. mgr. 218. gr.", provision=None)
 
 
-def test_or_query_joins_lemmas_with_pipe():
-    from engine.search.queries import _or_query
-    assert _or_query("gæsluvarðhald rannsókn") == "gæsluvarðhald | rannsókn"
-    assert _or_query("gæsluvarðhald") == "gæsluvarðhald"
+def test_or_query_or_none_joins_multi_lemma_with_pipe():
+    from engine.search.queries import _or_query_or_none
+    assert _or_query_or_none("gæsluvarðhald rannsókn") == "gæsluvarðhald | rannsókn"
+    assert _or_query_or_none("a b") == "a | b"
+
+
+def test_or_query_or_none_skips_single_lemma():
+    """F5: a single-lemma query has or_tsq == tsq, so the OR-fallback stage is
+    always empty but still costs a second scan — skip it (None means 'no OR')."""
+    from engine.search.queries import _or_query_or_none
+    assert _or_query_or_none("krafa") is None
+    assert _or_query_or_none("gæsluvarðhald") is None
+
+
+# ── F4: section_kind rejected outside passage modes ──────────────────────────
+
+async def test_section_kind_rejected_for_non_passage_mode():
+    """mode=exact&section_kind=domsord must 400, not silently ignore the filter.
+    scope=None means resolve_scope never touches the session, so this raises
+    before any DB access."""
+    import pytest
+    from engine.search.queries import SearchError, search_documents
+    with pytest.raises(SearchError):
+        await search_documents(None, q="x", mode="exact", section_kind=["domsord"])
+
+
+async def test_section_kind_rejected_when_keyword_query_is_provision_noise():
+    """A keyword query that lemmatizes to only provision noise ('mgr','gr','nr')
+    with a provision filter present degenerates into a document-level browse
+    (never reaches search_by_passages) — section_kind can't be honored there."""
+    import pytest
+    from engine.search.queries import SearchError, search_documents
+    with pytest.raises(SearchError):
+        await search_documents(
+            None, q="2. mgr. 218. gr. laga nr. 19/1940", mode="keyword",
+            provision="218. gr. 19/1940", section_kind=["domsord"])
+
+
+async def test_section_kind_rejected_when_keyword_query_is_empty():
+    """No query text at all also degenerates keyword into a plain browse."""
+    import pytest
+    from engine.search.queries import SearchError, search_documents
+    with pytest.raises(SearchError):
+        await search_documents(None, q="", mode="keyword", section_kind=["domsord"])
+
+
+async def test_section_kind_allowed_for_real_keyword_query():
+    """Sanity check: a real keyword query with section_kind must reach
+    search_by_passages (and NOT raise) — proves the F4 guard doesn't
+    over-trigger on the normal path."""
+    from engine.search import queries as queries_mod
+
+    called = {}
+
+    async def _fake_search_by_passages(session, **kwargs):
+        called.update(kwargs)
+        return queries_mod.SearchResults(total=0, page=1, page_size=20, results=[])
+
+    orig = queries_mod.search_by_passages
+    queries_mod.search_by_passages = _fake_search_by_passages
+    try:
+        result = await queries_mod.search_documents(
+            None, q="gæsluvarðhald", mode="keyword", section_kind=["domsord"])
+        assert result.total == 0
+        assert called["section_kinds"] == ["domsord"]
+    finally:
+        queries_mod.search_by_passages = orig

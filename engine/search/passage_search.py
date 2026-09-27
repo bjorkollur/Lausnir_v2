@@ -98,6 +98,8 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     and snippet rendering can prefer the precise match.
     """
     rank_fn = PASSAGE_RANK_FN
+    if rank_fn not in ("ts_rank", "ts_rank_cd"):
+        raise ValueError(f"Unknown PASSAGE_RANK_FN: {rank_fn!r}; allowed: ts_rank, ts_rank_cd")
     doc_where_sql = "".join(f" AND {frag}" for frag in doc_where)
     and_rank = f"{rank_fn}(p.fts_is, {tsq})"
     and_where = [f"p.fts_is @@ {tsq}"]

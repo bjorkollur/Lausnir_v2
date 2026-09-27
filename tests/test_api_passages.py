@@ -58,6 +58,14 @@ def test_passages_400_on_bad_uuid():
     assert c.get("/api/document/not-a-uuid/passages").status_code == 400
 
 
+def test_search_section_kind_400_for_non_passage_mode():
+    """F4: mode=exact&section_kind=domsord must reject rather than silently
+    ignore the filter. No DB call happens before the raise."""
+    c = _client([])          # validation must fail before any DB call
+    r = c.get("/api/search?q=x&mode=exact&section_kind=domsord")
+    assert r.status_code == 400
+
+
 def test_passages_happy_path_shape():
     import uuid
     from datetime import date
