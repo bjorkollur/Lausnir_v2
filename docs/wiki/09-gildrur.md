@@ -107,6 +107,7 @@ Staðfest 28.07.2026 með `--listFiles`: `--noEmit` snerti enga skrá úr `src/`
 | `CLAUDE.md:175,220` → `scripts/migrate_v1.py` | Ekki til lengur. |
 | `engine/collectors/` | Mappan er til en **tóm**. Söfnunarrökfræði býr í `scripts/import_*.py`. (CLAUDE.md nefnir hana ekki.) |
 | `CLAUDE.md` skema | Nefnir hvorki `case_type`, `provisions`, `cited_provisions`, `isbn`, `publisher`, `fts_is`, `verdict_filename` né `passages`/`document_links` töflurnar. |
+| `CLAUDE.md` → `SourceConfig.pdf_path(external_id)` | Rangt fyrir heradsdomstolar/haestirettur/landsrettur/endurupptokudomur: `import_*.py` og `backfill_heradsdomstolar_detail.py` kalla alltaf `pdf_path(vf)` þar sem `vf` er `documents.verdict_filename` (t.d. `HerdRvk_E-4047-2018_D_27-11-2020.pdf`, ekki `g-9b7fbb27-....pdf`) — fallback á `external_id` bara ef `verdict_filename` er NULL. `engine/api/app.py:217` og `engine/search/queries.py:710` nota samt `external_id` beint fyrir `has_pdf`/`/api/document/{id}/pdf` hjá þessum heimildum, sem þýðir að sú leið finnur skrána sjaldnast — óskoðað hvort þetta er virkur galli í dag. Uppgötvað 27.09.2026 við `scripts/migrate_pdfstring_to_disk.py`. |
 
 ## Tvíteknar renderer-skrár — önnur er dauður kóði
 
@@ -135,6 +136,28 @@ Rust-bókasafn, engin ML-módel, engir API-lyklar, **23× hraðara** en okkar þ
 **Þar sem það er betra:** raunveruleg töflugreining (475 töflulínur í safnriti þar sem við skilum 0 — sumar ósviknar, aðrar ranglega greindar titilsíður) og hraði. **Vert að muna ef DOCX/EPUB-heimild bætist við** — þar væri það líklega besti kosturinn.
 
 ⚠️ Talning ein og sér var villandi við matið: fyrsta samanburðurinn sýndi anydoc með fleiri fyrirsagnir og töflur, en skoðun úttaksins leiddi í ljós að „töflurnar“ voru ranglega greint tveggja dálka umbrot með meginmáli klemmdu í reiti. **Skoðaðu úttakið, ekki bara tölurnar.**
+
+## `pdfString` fjarlægt úr `raw_api_data` — 27.09.2026
+
+Fjórar heimildir (heradsdomstolar, haestirettur, landsrettur, endurupptokudomur) geymdu PDF-skjalið **tvisvar**: einu sinni sem skrá á diski (`Lausnir_Data/raw/{short_name}/{verdict_filename}.pdf`, sjá athugasemdina í töflunni hér að ofan um `pdf_path`) og aftur sem base64-streng í `raw_api_data->>'pdfString'`. Það tvítekna afrit var ~56 GB af ~76 GB `documents`-töflunni (heradsdomstolar eitt og sér 53 GB / 24.282 skjöl).
+
+`scripts/migrate_pdfstring_to_disk.py` fjarlægði tvítekninguna, en aðeins eftir að hafa sannreynt sha256 samsvörun milli JSON-strengsins og skráarinnar á diski fyrir hverja línu. Niðurstaðan er ein af:
+
+- **Diskskrá vantaði** → skrifuð atomically úr JSON-bætunum fyrst, svo `pdfString` fjarlægt.
+- **Diskskrá er til og er byte-eins** → `pdfString` fjarlægt.
+- **Diskskrá er til en er ólík** → **ekkert breytt**, línan skráð og skilin eftir með `pdfString` óhreyft.
+
+Í staðinn fyrir `pdfString` er nú:
+
+```json
+{"pdf_sha256": "<sha256 hex>", "pdf_path": "raw/heradsdomstolar/HerdRvk_E-4047-2018_D_27-11-2020.pdf"}
+```
+
+`pdf_path` er afstætt við `DATA_DIR` (ekki `RAW_DIR`), svo það er stöðugt óháð því hvar diskurinn er tengdur. `pdf_sha256` er sha256 af skránni sjálfri (staðfest jöfn JSON-bætunum fyrir flutning) og má nota til að greina spillingu í framtíðinni án þess að lesa allt skjalið aftur í JSON.
+
+**Þetta var eina skiptið sem `raw_api_data` var breytt eftir að hafa verið skrifað** — RAW-lagið er annars ósnertanlegt (sjá CLAUDE.md). Breytingin var stýrð, sannreynd byte-fyrir-byte áður en nokkru var eytt úr JSON, og skráð hér til að hún sé ekki misskilin sem brot á RAW-reglunni síðar.
+
+**Taflan minnkar ekki á diski af sjálfu sér.** `UPDATE ... raw_api_data = ...` skilur eftir „dead tuples" — Postgres endurnýtir það pláss innan `documents` en gefur það ekki aftur til stýrikerfisins. Til að taflan taki raunverulega minna pláss á diskinum þarf `VACUUM FULL documents;` (eða samsvarandi, t.d. `pg_repack`) — sem `migrate_pdfstring_to_disk.py` **keyrir ekki sjálft** (læsir töflunni og þarf laust pláss í kringum stærð eftirlifandi töflu, u.þ.b. 20 GB). Sú ákvörðun er hjá þeim sem stýrir keyrslunni, ekki hluti af þessari skriptu.
 
 ## Innviðir
 
