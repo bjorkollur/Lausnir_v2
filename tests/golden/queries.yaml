@@ -1,22 +1,23 @@
-# Draft — pending user review (dagsetning 2026-09-27).
+# Gullsett — 50 handvalin kjarnadæmi (set: core) + 442 sjálfvirkt
+# samsett dæmi (set: auto), sameinuð 2026-09-27 með scripts/golden_merge.py.
 #
-# Þessi 50 spurninga voru valin úr 70 frambjóðendum sem
-# scripts/golden_candidates.py dró (Hæstiréttur/Landsréttur, reifun 300-1500
-# stafir, dreift á ár frá 2010). Fullur frambjóðendalisti með reifunartexta
-# er varðveittur í /tmp/lausnir-dev/golden_candidates.yaml til endurskoðunar.
+# Kjarninn (core) er upprunalegu 50 spurningarnar úr Task 10, allar
+# style: medium. Auto-mengið er dregið úr scripts/golden_candidates.py
+# frambjóðendapottinum (Hæstiréttur/Landsréttur, reifun 200-2000 stafir),
+# spurningarnar samdar af Claude Code undiragentum í þremur stílum
+# (short/medium/term), og hver spurning yfirfarin með
+# scripts/golden_audit.py (afritunarpróf: engin þriggja+ orða runa
+# sameiginleg með reifuninni). Frambjóðendur sem lentu í árekstri við
+# afritunarprófið, voru auðar, tvíteknar eða vísuðu í óþekkt `id` voru
+# felldar úr -- sjá keyrsluúttak scripts/golden_merge.py fyrir ástæður.
 #
-# Aðferð: hverri spurningu var handskrifuð af lesanda reifunarinnar, umorðuð
-# (samheiti/önnur beygingarmynd, ekkert málsnúmer, engin setning tekin beint
-# upp úr reifuninni), 3-10 orð eins og lögfræðingur myndi slá inn í leitarreit,
-# með áherslu á lagalegt álitaefni fremur en tilfallandi staðreyndir málsins.
-# Blanda: 20 einkamál, 11 sakamál (færri í boði meðal frambjóðenda en
-# markmiðið 15), 5 stjórnsýslumál fyrir dómstólum, 14 kærumál/réttarfarsmál
-# — samtals 50, dreift yfir 2009-2026.
-#
-# `note`-sviðið úr frambjóðendaskránni (reifunartextinn) hefur verið fjarlægt
-# hér þar sem það myndi gera prófið að afritunarprófi.
+# `note` (reifunartextinn) er fjarlægt hér -- annars yrði afritunarprófið
+# marklaust á þessa skrá sjálfa.
+
 - id: g002
   question: endurupptaka sakamáls markaðsmisnotkun verðbréfaviðskiptum
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 56/2022
@@ -25,6 +26,8 @@
   - domstolar
 - id: g003
   question: kynferðisbrot með misnotkun ástands þolanda
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 16/2015
@@ -36,6 +39,8 @@
   - domstolar
 - id: g004
   question: nálgunarbann staðfest þrátt fyrir rannsókn sakamáls
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 765/2015
@@ -47,6 +52,8 @@
   - domstolar
 - id: g006
   question: skattalagabrot vanframtaldar fjármagnstekjur frávísun hafnað
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 465/2013
@@ -58,6 +65,8 @@
   - domstolar
 - id: g008
   question: ákvörðun lögheimilis barns vegna vanrækslu skólasóknar
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 795/2024
@@ -69,6 +78,8 @@
   - domstolar
 - id: g009
   question: heimvísun úrlausnar um umgengni við forsjárskiptingu
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 497/2021
@@ -77,6 +88,8 @@
   - domstolar
 - id: g011
   question: tómlæti kröfu um verklaun byggingarframkvæmdir
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 17/2019
@@ -88,6 +101,8 @@
   - domstolar
 - id: g012
   question: sala lyfseðilsskyldra lyfja án leyfis upptaka
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 457/2013
@@ -99,6 +114,8 @@
   - domstolar
 - id: g013
   question: ólögmæt gengistrygging lánssamnings vélbúnaðarkaup
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 22/2017
@@ -110,6 +127,8 @@
   - domstolar
 - id: g014
   question: uppsögn í veikindaleyfi fyrir skurðaðgerð
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 414/2021
@@ -124,6 +143,8 @@
   - domstolar
 - id: g015
   question: frávísun vegna ófullnægjandi birtingar áfrýjunarstefnu erlendis
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 14/2021
@@ -138,6 +159,8 @@
   - domstolar
 - id: g016
   question: óheimil uppfletting lögreglukerfi persónuupplýsingar landamæravörður
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 40/2020
@@ -152,6 +175,8 @@
   - domstolar
 - id: g017
   question: mat á forsjárhæfni foreldris við forsjárdeilu
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 245/2021
@@ -163,6 +188,8 @@
   - domstolar
 - id: g018
   question: réttarfarsleg mistök við nafnbreytingu stefnda
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 54/2022
@@ -177,6 +204,8 @@
   - domstolar
 - id: g019
   question: tvöföld refsing skattaálag og sakamál
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 687/2019
@@ -185,6 +214,8 @@
   - domstolar
 - id: g020
   question: eigin sök við mat á líkamstjóni
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 7/2012
@@ -196,6 +227,8 @@
   - domstolar
 - id: g022
   question: synjun um skipun réttargæslumanns brotaþola
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 460/2020
@@ -207,6 +240,8 @@
   - domstolar
 - id: g024
   question: hærri gjafsóknarþóknun vegna umfangsmikils máls
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 41/2016
@@ -218,6 +253,8 @@
   - domstolar
 - id: g025
   question: lán í erlendri mynt eða gengistryggt
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 208/2016
@@ -229,6 +266,8 @@
   - domstolar
 - id: g026
   question: hlutdeild í leigutekjum af sameiginlegri lóð
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 217/2022
@@ -243,6 +282,8 @@
   - domstolar
 - id: g027
   question: félagsslit vegna brota stjórnarmanns á félagalögum
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 576/2024
@@ -254,6 +295,8 @@
   - domstolar
 - id: g028
   question: kæruheimild vegna úrskurðar um dómkvaðningu matsmanns
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 56/2021
@@ -265,6 +308,8 @@
   - domstolar
 - id: g030
   question: landamerkjadeila frávísun vegna vöntunar aðildar
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 768/2024
@@ -276,6 +321,8 @@
   - domstolar
 - id: g031
   question: forgangskrafa í þrotabú stöðu nákomins
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 78/2019
@@ -287,6 +334,8 @@
   - domstolar
 - id: g033
   question: ágreiningur um staðarmörk sveitarfélaga
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 862/2016
@@ -298,6 +347,8 @@
   - domstolar
 - id: g034
   question: skaðabætur vegna hindrunar fjárhagslegrar endurskipulagningar félags
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 921/2018
@@ -309,6 +360,8 @@
   - domstolar
 - id: g036
   question: bótaviðmið vegna varanlegrar örorku tekjur fyrir slys
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 138/2011
@@ -320,6 +373,8 @@
   - domstolar
 - id: g037
   question: ábyrgð ríkisins á tjóni vegna makrílkvóta
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 10/2025
@@ -331,6 +386,8 @@
   - domstolar
 - id: g038
   question: endurtekin líkamsárás á sambýliskonu hálstak
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 651/2022
@@ -342,6 +399,8 @@
   - domstolar
 - id: g039
   question: aðildarhæfi sjóðs skortir í dómsmáli
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 70/2025
@@ -356,6 +415,8 @@
   - domstolar
 - id: g040
   question: frelsissvipting og kynferðisbrot gegn barni
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 756/2013
@@ -367,6 +428,8 @@
   - domstolar
 - id: g041
   question: fyrning kröfu um frekari bætur eftir fyrirvara
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 604/2012
@@ -378,6 +441,8 @@
   - domstolar
 - id: g043
   question: atvinnurekstrarbann fyrirsvarsmanns eftir gjaldþrot
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 1/2024
@@ -392,6 +457,8 @@
   - domstolar
 - id: g044
   question: fjárnám á grundvelli eldra tryggingarbréfs
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 374/2020
@@ -406,6 +473,8 @@
   - domstolar
 - id: g045
   question: ógilding úrskurðar um sjálfræðissviptingu einstaklings
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 496/2020
@@ -414,6 +483,8 @@
   - domstolar
 - id: g048
   question: vanhæfi dómara vegna fyrri úrskurðar
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 84/2017
@@ -425,6 +496,8 @@
   - domstolar
 - id: g049
   question: innsetningargerð barna samkvæmt erlendri forsjársátt
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 462/2011
@@ -436,6 +509,8 @@
   - domstolar
 - id: g050
   question: breyting leigugreiðslna vegna heimsfaraldurs force majeure
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 33/2023
@@ -450,6 +525,8 @@
   - domstolar
 - id: g051
   question: lækkun viðmiðunartekna vegna eldra vinnuslyss
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 25/2018
@@ -464,6 +541,8 @@
   - domstolar
 - id: g052
   question: innheimta vangoldinnar leigu hótels í faraldri
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 29/2023
@@ -478,6 +557,8 @@
   - domstolar
 - id: g053
   question: nauðgun barns og vörslur barnaníðsefnis
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 16/2020
@@ -492,6 +573,8 @@
   - domstolar
 - id: g056
   question: frávísun kröfu um tjón vegna búferlaflutninga
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 53/2023
@@ -506,6 +589,8 @@
   - domstolar
 - id: g057
   question: tjón af myglusveppi í leiguhúsnæði
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 829/2017
@@ -514,6 +599,8 @@
   - domstolar
 - id: g059
   question: líkamstjón við fall í stiga ábyrgðartrygging
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 228/2018
@@ -525,6 +612,8 @@
   - domstolar
 - id: g063
   question: upplýsingaskylda um kostnað neytendaláns
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 503/2018
@@ -536,6 +625,8 @@
   - domstolar
 - id: g064
   question: ógilding byggingarleyfis vegna brots á deiliskipulagi
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 25/2020
@@ -550,6 +641,8 @@
   - domstolar
 - id: g065
   question: greiðsla vegna taprekstrar hjúkrunarheimilis samkvæmt samningi
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 3/2020
@@ -564,6 +657,8 @@
   - domstolar
 - id: g066
   question: hvort íslenskt dómsvald nái yfir skilnað útlendinga
+  style: medium
+  set: core
   expected:
   - source: haestirettur
     case_number: 161/2016
@@ -575,6 +670,8 @@
   - domstolar
 - id: g068
   question: nauðgun sofandi konu sönnun sýkna
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 763/2025
@@ -586,6 +683,8 @@
   - domstolar
 - id: g070
   question: kynferðisleg áreitni gegn barni í búningsklefa
+  style: medium
+  set: core
   expected:
   - source: landsrettur
     case_number: 58/2024
@@ -593,5 +692,5808 @@
   - source: heradsdomstolar
     case_number: S-2369/2023
     document_date: '2023-12-14'
+  scope:
+  - domstolar
+- id: g1004
+  question: heimild til símhlerunar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 16/2017
+    document_date: '2017-01-12'
+  scope:
+  - domstolar
+- id: g1008
+  question: gæsluvarðhald ómerking gagna
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 295/2024
+    document_date: '2024-04-10'
+  - source: heradsdomstolar
+    case_number: S-523/2024
+    document_date: '2024-04-18'
+  scope:
+  - domstolar
+- id: g1009
+  question: skaðabótaskylda fasteignasala vanmat
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 125/2019
+    document_date: '2019-12-13'
+  - source: heradsdomstolar
+    case_number: E-3910/2017
+    document_date: '2018-10-11'
+  scope:
+  - domstolar
+- id: g1011
+  question: sending nektarmyndar rafrænt
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 167/2025
+    document_date: '2025-12-11'
+  - source: heradsdomstolar
+    case_number: S-287/2024
+    document_date: '2025-02-05'
+  scope:
+  - domstolar
+- id: g1012
+  question: sóttkví lögvarðir hagsmunir
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 230/2021
+    document_date: '2021-04-07'
+  - source: heradsdomstolar
+    case_number: R-1900/2021
+    document_date: '2021-04-05'
+  scope:
+  - domstolar
+- id: g1013
+  question: uppsögn erfðafestusamnings jarðar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 8/2019
+    document_date: '2019-06-12'
+  - source: heradsdomstolar
+    case_number: E-41/2017
+    document_date: '2018-03-21'
+  - source: landsrettur
+    case_number: 349/2018
+    document_date: '2018-12-14'
+  scope:
+  - domstolar
+- id: g1017
+  question: frádráttur örorkubóta sjómanns
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 157/2015
+    document_date: '2016-02-11'
+  - source: heradsdomstolar
+    case_number: E-7328/2010
+    document_date: '2014-10-09'
+  scope:
+  - domstolar
+- id: g1018
+  question: útburður leigutaka riftun
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 195/2022
+    document_date: '2022-05-04'
+  scope:
+  - domstolar
+- id: g1022
+  question: lögvarðir hagsmunir viðurkenningarkröfu
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 399/2022
+    document_date: '2022-09-16'
+  - source: heradsdomstolar
+    case_number: E-441/2021
+    document_date: '2022-06-14'
+  scope:
+  - domstolar
+- id: g1026
+  question: tvöföld saksókn skattbrot
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 444/2022
+    document_date: '2022-12-09'
+  - source: heradsdomstolar
+    case_number: S-303/2013
+    document_date: '2019-06-24'
+  scope:
+  - domstolar
+- id: g1030
+  question: meðdómsmaður vátryggingarmáli nauðsynlegur
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 334/2024
+    document_date: '2024-09-26'
+  - source: heradsdomstolar
+    case_number: E-1058/2023
+    document_date: '2024-03-26'
+  - source: haestirettur
+    case_number: 51/2024
+    document_date: '2024-12-09'
+  scope:
+  - domstolar
+- id: g1033
+  question: forkaupsréttur ábúanda jarðar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 444/2025
+    document_date: '2025-09-19'
+  - source: heradsdomstolar
+    case_number: Q-91/2021
+    document_date: '2025-05-28'
+  scope:
+  - domstolar
+- id: g1035
+  question: áframhaldandi farbann sakbornings
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 55/2020
+    document_date: '2020-01-29'
+  - source: heradsdomstolar
+    case_number: S-426/2019
+    document_date: '2020-01-15'
+  scope:
+  - domstolar
+- id: g1036
+  question: lögheimili barns ágreiningur
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 28/2023
+    document_date: '2023-05-26'
+  scope:
+  - domstolar
+- id: g1037
+  question: misneyting aldraðs manns
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 790/2016
+    document_date: '2017-10-05'
+  - source: heradsdomstolar
+    case_number: S-1/2016
+    document_date: '2016-07-07'
+  scope:
+  - domstolar
+- id: g1038
+  question: höfnun varðhaldskröfu ákæruvalds
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 147/2016
+    document_date: '2016-02-25'
+  scope:
+  - domstolar
+- id: g1039
+  question: sönnun áreksturs bifreiða
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 21/2022
+    document_date: '2023-02-24'
+  - source: heradsdomstolar
+    case_number: E-6377/2020
+    document_date: '2021-12-15'
+  scope:
+  - domstolar
+- id: g1041
+  question: nálgunarbann kærufrestur liðinn
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 247/2017
+    document_date: '2017-04-21'
+  scope:
+  - domstolar
+- id: g1043
+  question: kyrrsetning og aðfarargerð
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 318/2017
+    document_date: '2017-06-14'
+  scope:
+  - domstolar
+- id: g1045
+  question: samhliða málsmeðferð skattaálags
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 277/2018
+    document_date: '2018-06-20'
+  - source: heradsdomstolar
+    case_number: S-657/2017
+    document_date: '2018-03-09'
+  scope:
+  - domstolar
+- id: g1046
+  question: umboð framkvæmdastjóra félags
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 379/2016
+    document_date: '2017-02-02'
+  - source: heradsdomstolar
+    case_number: E-154/2016
+    document_date: '2016-04-28'
+  scope:
+  - domstolar
+- id: g1047
+  question: stórfellt fíkniefnabrot framburður
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 697/2025
+    document_date: '2026-03-12'
+  - source: heradsdomstolar
+    case_number: S-2094/2025
+    document_date: '2025-07-17'
+  scope:
+  - domstolar
+- id: g1051
+  question: endurtekinn vímuefnaakstur
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 282/2018
+    document_date: '2018-11-16'
+  - source: heradsdomstolar
+    case_number: S-447/2017
+    document_date: '2018-02-20'
+  scope:
+  - domstolar
+- id: g1056
+  question: synjun vegabréfsáritunar Schengen
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 69/2021
+    document_date: '2022-10-07'
+  - source: heradsdomstolar
+    case_number: E-5177/2019
+    document_date: '2021-01-07'
+  - source: haestirettur
+    case_number: 25/2022
+    document_date: '2022-05-09'
+  scope:
+  - domstolar
+- id: g1059
+  question: óljós krafa höfundarréttar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 663/2019
+    document_date: '2019-11-11'
+  scope:
+  - domstolar
+- id: g1062
+  question: mistök við jarðvinnu
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 303/2019
+    document_date: '2020-03-20'
+  - source: heradsdomstolar
+    case_number: E-3899/2017
+    document_date: '2019-04-05'
+  scope:
+  - domstolar
+- id: g1063
+  question: vanreifuð stefna fasteignamáli
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 544/2023
+    document_date: '2023-09-12'
+  - source: haestirettur
+    case_number: 45/2023
+    document_date: '2023-10-17'
+  scope:
+  - domstolar
+- id: g1064
+  question: vanhæfi setts dómara
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 563/2022
+    document_date: '2022-09-28'
+  - source: heradsdomstolar
+    case_number: E-5283/2021
+    document_date: '2022-09-06'
+  scope:
+  - domstolar
+- id: g1066
+  question: nauðungarvistun barna
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 489/2020
+    document_date: '2020-08-26'
+  scope:
+  - domstolar
+- id: g1068
+  question: ómerking dóms sökum ófullnægjandi rökstuðnings í húsfélagsmáli
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 701/2022
+    document_date: '2024-01-26'
+  - source: heradsdomstolar
+    case_number: E-2731/2021
+    document_date: '2022-10-17'
+  scope:
+  - domstolar
+- id: g1071
+  question: ógilding ábúðarsamnings
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 647/2017
+    document_date: '2018-06-21'
+  - source: heradsdomstolar
+    case_number: E-66/2015
+    document_date: '2017-07-14'
+  scope:
+  - domstolar
+- id: g1072
+  question: gáleysismanndráp í umferð
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 84/2024
+    document_date: '2024-09-19'
+  - source: heradsdomstolar
+    case_number: S-229/2023
+    document_date: '2023-11-22'
+  scope:
+  - domstolar
+- id: g1077
+  question: ítrekuð brotastarfsemi þjófnaður
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 598/2016
+    document_date: '2017-04-06'
+  - source: heradsdomstolar
+    case_number: S-106/2016
+    document_date: '2016-06-24'
+  scope:
+  - domstolar
+- id: g1078
+  question: ekki framlenging skólastjórastöðu
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 829/2019
+    document_date: '2020-12-11'
+  - source: heradsdomstolar
+    case_number: E-4684/2019
+    document_date: '2019-12-03'
+  scope:
+  - domstolar
+- id: g1086
+  question: brot gegn börnum
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 12/2018
+    document_date: '2018-06-01'
+  - source: heradsdomstolar
+    case_number: S-373/2016
+    document_date: '2016-09-27'
+  scope:
+  - domstolar
+- id: g1089
+  question: fyrnd krafa aðför
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 314/2018
+    document_date: '2018-04-25'
+  scope:
+  - domstolar
+- id: g1093
+  question: hegningarauki vegna kynferðisbrota
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 43/2020
+    document_date: '2021-02-12'
+  - source: heradsdomstolar
+    case_number: S-15/2019
+    document_date: '2019-11-19'
+  scope:
+  - domstolar
+- id: g1094
+  question: gæsluvarðhald samkvæmt útlendingalögum
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 99/2023
+    document_date: '2023-02-09'
+  - source: heradsdomstolar
+    case_number: E-4270/2022
+    document_date: '2023-02-16'
+  scope:
+  - domstolar
+- id: g1101
+  question: vanhæfi saksóknara nálgunarbann
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 756/2019
+    document_date: '2019-11-22'
+  scope:
+  - domstolar
+- id: g1103
+  question: peningaþvætti reiðufé flugstöð
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 21/2025
+    document_date: '2025-12-16'
+  - source: heradsdomstolar
+    case_number: S-593/2024
+    document_date: '2024-12-11'
+  scope:
+  - domstolar
+- id: g1104
+  question: hefð ítaksréttindi æðarvarp
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 14/2016
+    document_date: '2016-09-29'
+  - source: heradsdomstolar
+    case_number: E-69/2014
+    document_date: '2015-10-28'
+  scope:
+  - domstolar
+- id: g1106
+  question: sérstakt mat árslauna
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 17/2023
+    document_date: '2023-11-01'
+  - source: heradsdomstolar
+    case_number: E-57/2021
+    document_date: '2021-10-25'
+  - source: landsrettur
+    case_number: 706/2021
+    document_date: '2023-01-27'
+  scope:
+  - domstolar
+- id: g1107
+  question: ómerking frávísunarúrskurðar vanreifun
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 323/2018
+    document_date: '2018-04-24'
+  - source: heradsdomstolar
+    case_number: E-1150/2017
+    document_date: '2018-03-19'
+  scope:
+  - domstolar
+- id: g1109
+  question: óhófleg valdbeiting lögreglu
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 552/2024
+    document_date: '2025-04-10'
+  - source: heradsdomstolar
+    case_number: S-5998/2023
+    document_date: '2024-06-03'
+  scope:
+  - domstolar
+- id: g1113
+  question: ítrekuð umferðarlagabrot ölvunarakstur
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 845/2016
+    document_date: '2017-09-21'
+  - source: heradsdomstolar
+    case_number: S-506/2016
+    document_date: '2016-11-16'
+  scope:
+  - domstolar
+- id: g1117
+  question: frávísun fullnægðrar leitarheimildar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 202/2018
+    document_date: '2018-02-23'
+  scope:
+  - domstolar
+- id: g1120
+  question: vöntun sérfróðs meðdómsmanns
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 138/2020
+    document_date: '2021-05-07'
+  - source: heradsdomstolar
+    case_number: E-3158/2018
+    document_date: '2021-12-22'
+  scope:
+  - domstolar
+- id: g1123
+  question: upphaf frests forkaupsréttar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 342/2018
+    document_date: '2018-12-07'
+  - source: heradsdomstolar
+    case_number: E-1015/2017
+    document_date: '2018-03-14'
+  scope:
+  - domstolar
+- id: g1124
+  question: fyrnd skaðabótakrafa uppsögn
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 334/2021
+    document_date: '2022-03-18'
+  - source: heradsdomstolar
+    case_number: E-5991/2020
+    document_date: '2021-05-03'
+  scope:
+  - domstolar
+- id: g1125
+  question: kostnaðarábyrgð samkvæmt verksamningi
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 281/2024
+    document_date: '2025-04-10'
+  - source: heradsdomstolar
+    case_number: E-1172/2023
+    document_date: '2024-03-20'
+  scope:
+  - domstolar
+- id: g1126
+  question: brottvikning af heimili
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 377/2019
+    document_date: '2019-05-29'
+  scope:
+  - domstolar
+- id: g1128
+  question: synjun um gjaldþrotaskipti
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 322/2021
+    document_date: '2021-06-22'
+  - source: heradsdomstolar
+    case_number: E-3251/2020
+    document_date: '2021-04-30'
+  scope:
+  - domstolar
+- id: g1129
+  question: innlausn hlutabréfa matsmenn
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 392/2019
+    document_date: '2019-06-26'
+  - source: heradsdomstolar
+    case_number: E-1508/2018
+    document_date: '2019-05-10'
+  scope:
+  - domstolar
+- id: g1130
+  question: ógilding samnings vegna brots á samkeppnislögum
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 409/2018
+    document_date: '2019-03-08'
+  - source: heradsdomstolar
+    case_number: E-1040/2016
+    document_date: '2018-04-17'
+  - source: haestirettur
+    case_number: 22/2019
+    document_date: '2019-11-20'
+  scope:
+  - domstolar
+- id: g1132
+  question: skaðleysisyfirlýsing sjálfskuldarábyrgð handveðs
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 197/2020
+    document_date: '2021-06-11'
+  - source: heradsdomstolar
+    case_number: E-1252/2017
+    document_date: '2018-06-11'
+  scope:
+  - domstolar
+- id: g1133
+  question: eldri eigandi ábyrgð
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 489/2018
+    document_date: '2019-02-15'
+  scope:
+  - domstolar
+- id: g1134
+  question: framsal kröfu aðildarskortur
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 410/2015
+    document_date: '2016-03-17'
+  - source: heradsdomstolar
+    case_number: E-354/2014
+    document_date: '2015-05-18'
+  scope:
+  - domstolar
+- id: g1135
+  question: innsetning barns umgengni
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 67/2025
+    document_date: '2025-02-28'
+  - source: heradsdomstolar
+    case_number: S-122/2024
+    document_date: '2025-01-02'
+  - source: haestirettur
+    case_number: 26/2025
+    document_date: '2025-05-15'
+  scope:
+  - domstolar
+- id: g1138
+  question: ásetningur til manndráps
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 22/2020
+    document_date: '2020-06-12'
+  - source: heradsdomstolar
+    case_number: S-99/2019
+    document_date: '2019-11-28'
+  scope:
+  - domstolar
+- id: g1140
+  question: skipting söluandvirðis sameignar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 273/2022
+    document_date: '2023-10-27'
+  - source: heradsdomstolar
+    case_number: E-63/2021
+    document_date: '2022-04-06'
+  scope:
+  - domstolar
+- id: g1144
+  question: hefðarréttur bifreiðastæði leigubíla
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 330/2025
+    document_date: '2026-05-28'
+  - source: heradsdomstolar
+    case_number: E-2283/2024
+    document_date: '2025-04-03'
+  scope:
+  - domstolar
+- id: g1145
+  question: gengistrygging erlendir gjaldmiðlar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 677/2015
+    document_date: '2016-04-14'
+  - source: heradsdomstolar
+    case_number: E-901/2014
+    document_date: '2015-07-13'
+  scope:
+  - domstolar
+- id: g1150
+  question: svipting forsjár barna
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 82/2021
+    document_date: '2021-06-18'
+  - source: heradsdomstolar
+    case_number: S-2894/2020
+    document_date: '2021-02-09'
+  scope:
+  - domstolar
+- id: g1151
+  question: fjárræðissvipting ómerking
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 156/2023
+    document_date: '2023-03-10'
+  - source: heradsdomstolar
+    case_number: E-5933/2021
+    document_date: '2023-02-07'
+  scope:
+  - domstolar
+- id: g1156
+  question: kærugjald nauðungarsala
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 282/2025
+    document_date: '2025-04-15'
+  scope:
+  - domstolar
+- id: g1160
+  question: blekking við vegabréfaskoðun
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 219/2017
+    document_date: '2017-11-16'
+  scope:
+  - domstolar
+- id: g1161
+  question: dómur utan kröfugerðar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 319/2022
+    document_date: '2023-10-12'
+  - source: heradsdomstolar
+    case_number: E-940/2021
+    document_date: '2024-03-27'
+  scope:
+  - domstolar
+- id: g1164
+  question: tjáningarfrelsi ærumeiðingar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 32/2023
+    document_date: '2024-02-16'
+  - source: heradsdomstolar
+    case_number: E-1296/2022
+    document_date: '2022-12-20'
+  scope:
+  - domstolar
+- id: g1165
+  question: dómkvaðning hæfs matsmanns
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 210/2023
+    document_date: '2023-04-17'
+  - source: heradsdomstolar
+    case_number: E-104/2021
+    document_date: '2022-11-22'
+  scope:
+  - domstolar
+- id: g1166
+  question: ósanngjarn vaxtaskilmáli skuldabréfs
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 429/2023
+    document_date: '2025-02-13'
+  - source: heradsdomstolar
+    case_number: E-5933/2021
+    document_date: '2023-02-07'
+  - source: haestirettur
+    case_number: 35/2025
+    document_date: '2025-12-22'
+  scope:
+  - domstolar
+- id: g1167
+  question: sjúkraskrá persónuvernd miskabætur
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 544/2016
+    document_date: '2017-04-11'
+  - source: heradsdomstolar
+    case_number: E-1675/2015
+    document_date: '2016-05-20'
+  scope:
+  - domstolar
+- id: g1174
+  question: valdsvið dómstóla samkomulagi
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 329/2019
+    document_date: '2019-06-06'
+  - source: heradsdomstolar
+    case_number: E-3250/2018
+    document_date: '2021-11-12'
+  scope:
+  - domstolar
+- id: g1180
+  question: nauðgun sofandi þolanda
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 471/2021
+    document_date: '2022-11-04'
+  - source: heradsdomstolar
+    case_number: S-7746/2020
+    document_date: '2021-06-21'
+  scope:
+  - domstolar
+- id: g1186
+  question: aldursmismunun starfslok
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 866/2024
+    document_date: '2025-11-06'
+  - source: heradsdomstolar
+    case_number: E-4881/2021
+    document_date: '2022-10-03'
+  scope:
+  - domstolar
+- id: g1191
+  question: endurupptaka sakamáls dráttur
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 705/2023
+    document_date: '2024-12-12'
+  - source: heradsdomstolar
+    case_number: S-260/2017
+    document_date: '2017-06-29'
+  scope:
+  - domstolar
+- id: g1193
+  question: akstur undir lyfjaáhrifum
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 152/2025
+    document_date: '2025-12-16'
+  - source: heradsdomstolar
+    case_number: S-295/2024
+    document_date: '2024-12-09'
+  scope:
+  - domstolar
+- id: g1196
+  question: sönnun leigugreiðslu spildu
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 118/2020
+    document_date: '2021-02-12'
+  - source: heradsdomstolar
+    case_number: E-43/2019
+    document_date: '2020-02-06'
+  scope:
+  - domstolar
+- id: g1198
+  question: árekstur sæþotu báts
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 516/2023
+    document_date: '2024-12-12'
+  - source: heradsdomstolar
+    case_number: E-3024/2022
+    document_date: '2023-06-23'
+  scope:
+  - domstolar
+- id: g1201
+  question: starfslok starfsmannaleigu
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 354/2021
+    document_date: '2022-03-11'
+  - source: heradsdomstolar
+    case_number: E-2968/2020
+    document_date: '2021-04-08'
+  scope:
+  - domstolar
+- id: g1202
+  question: gæsluvarðhald handtökuskipun
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 224/2025
+    document_date: '2025-03-26'
+  scope:
+  - domstolar
+- id: g1203
+  question: tekjuskipting rófuræktar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 12/2024
+    document_date: '2025-02-06'
+  scope:
+  - domstolar
+- id: g1204
+  question: gáleysi ölvunarakstur bætur
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 349/2020
+    document_date: '2021-10-08'
+  - source: heradsdomstolar
+    case_number: E-4247/2019
+    document_date: '2020-05-19'
+  scope:
+  - domstolar
+- id: g1206
+  question: uppsögn þungaðrar starfsmanns
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 122/2025
+    document_date: '2026-03-26'
+  - source: heradsdomstolar
+    case_number: S-645/2024
+    document_date: '2025-01-13'
+  scope:
+  - domstolar
+- id: g1207
+  question: ófullnægjandi kæra gæsluvarðhalds
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 645/2025
+    document_date: '2025-09-09'
+  scope:
+  - domstolar
+- id: g1208
+  question: munnleg gjöf fasteignar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 28/2019
+    document_date: '2020-02-21'
+  - source: heradsdomstolar
+    case_number: E-62/2017
+    document_date: '2018-12-14'
+  scope:
+  - domstolar
+- id: g1209
+  question: riftun ráðningarsamnings sviksemi
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 112/2024
+    document_date: '2025-03-31'
+  - source: heradsdomstolar
+    case_number: E-1781/2023
+    document_date: '2024-01-16'
+  scope:
+  - domstolar
+- id: g1212
+  question: ábyrgð framkvæmdastjóra búrekstrar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 594/2018
+    document_date: '2019-04-05'
+  - source: heradsdomstolar
+    case_number: E-127/2016
+    document_date: '2018-07-04'
+  scope:
+  - domstolar
+- id: g1215
+  question: hagsmunaágreiningur utan félagsdóms
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 17/2018
+    document_date: '2018-09-17'
+  scope:
+  - domstolar
+- id: g1216
+  question: eigin sök þvingunarráðstafanir
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 363/2024
+    document_date: '2024-12-12'
+  - source: heradsdomstolar
+    case_number: E-2923/2023
+    document_date: '2024-02-14'
+  scope:
+  - domstolar
+- id: g1218
+  question: hæfi yfirmatsmanns sakamáli
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 776/2019
+    document_date: '2019-11-26'
+  - source: heradsdomstolar
+    case_number: S-3650/2019
+    document_date: '2019-10-31'
+  scope:
+  - domstolar
+- id: g1222
+  question: slit fyrningar gjaldþrot
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 730/2016
+    document_date: '2017-11-02'
+  - source: heradsdomstolar
+    case_number: E-3172/2015
+    document_date: '2016-10-05'
+  scope:
+  - domstolar
+- id: g1224
+  question: afturvirk skattlagning samsköttun
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 531/2015
+    document_date: '2016-06-02'
+  - source: heradsdomstolar
+    case_number: E-2025/2014
+    document_date: '2015-05-21'
+  scope:
+  - domstolar
+- id: g1227
+  question: skaðabótaskylda fasteignasala uppgjör
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 351/2017
+    document_date: '2018-06-14'
+  - source: heradsdomstolar
+    case_number: E-2053/2016
+    document_date: '2017-03-08'
+  scope:
+  - domstolar
+- id: g1232
+  question: niðurlagning stöðu ríkisstofnunar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 393/2022
+    document_date: '2023-11-10'
+  - source: heradsdomstolar
+    case_number: E-2967/2021
+    document_date: '2022-06-02'
+  scope:
+  - domstolar
+- id: g1234
+  question: uppgreiðslugjald húsnæðisláns lagastoð
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 3/2021
+    document_date: '2021-05-27'
+  - source: heradsdomstolar
+    case_number: E-3141/2020
+    document_date: '2020-12-04'
+  scope:
+  - domstolar
+- id: g1238
+  question: skuldajöfnun innstæðu gengislán
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 118/2019
+    document_date: '2019-11-29'
+  - source: heradsdomstolar
+    case_number: E-2239/2016
+    document_date: '2019-02-05'
+  scope:
+  - domstolar
+- id: g1247
+  question: gjaldtaka sveitarfélags lóðarréttindi
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 468/2020
+    document_date: '2021-11-26'
+  - source: heradsdomstolar
+    case_number: E-5634/2019
+    document_date: '2020-06-29'
+  - source: haestirettur
+    case_number: 3/2022
+    document_date: '2022-06-01'
+  scope:
+  - domstolar
+- id: g1248
+  question: lögbann arkitekta samkeppni
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 243/2018
+    document_date: '2018-12-21'
+  - source: heradsdomstolar
+    case_number: E-1330/2017
+    document_date: '2018-02-15'
+  scope:
+  - domstolar
+- id: g1250
+  question: afpöntun ferðar farsótt
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 558/2021
+    document_date: '2022-11-11'
+  - source: heradsdomstolar
+    case_number: E-3281/2020
+    document_date: '2021-07-14'
+  - source: haestirettur
+    case_number: 4/2023
+    document_date: '2023-06-28'
+  scope:
+  - domstolar
+- id: g1253
+  question: leki hitaveitulögn bótaskylda
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 200/2019
+    document_date: '2020-01-31'
+  - source: heradsdomstolar
+    case_number: E-2126/2018
+    document_date: '2019-02-20'
+  scope:
+  - domstolar
+- id: g1257
+  question: ferðaskrifstofa án leyfis
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 607/2015
+    document_date: '2016-06-16'
+  - source: heradsdomstolar
+    case_number: E-1152/2014
+    document_date: '2015-05-06'
+  scope:
+  - domstolar
+- id: g1263
+  question: rán og líkamsárás
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 226/2019
+    document_date: '2020-03-13'
+  - source: heradsdomstolar
+    case_number: S-120/2018
+    document_date: '2019-02-06'
+  scope:
+  - domstolar
+- id: g1264
+  question: haldsréttur á lyftara
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 190/2023
+    document_date: '2024-03-08'
+  - source: heradsdomstolar
+    case_number: E-5877/2021
+    document_date: '2023-02-13'
+  scope:
+  - domstolar
+- id: g1266
+  question: ítrekuð kynferðisbrot refsiákvörðun
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 346/2019
+    document_date: '2020-05-29'
+  - source: heradsdomstolar
+    case_number: S-122/2019
+    document_date: '2019-04-05'
+  scope:
+  - domstolar
+- id: g1267
+  question: hestaslys óhappatilvik
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 382/2019
+    document_date: '2020-01-24'
+  - source: heradsdomstolar
+    case_number: E-1087/2018
+    document_date: '2019-05-02'
+  scope:
+  - domstolar
+- id: g1268
+  question: veðsetning ógilding samnings
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 721/2018
+    document_date: '2019-10-11'
+  - source: heradsdomstolar
+    case_number: E-658/2016
+    document_date: '2018-09-04'
+  scope:
+  - domstolar
+- id: g1269
+  question: vanefndir leiguafsláttar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 92/2016
+    document_date: '2016-11-10'
+  - source: heradsdomstolar
+    case_number: E-5215/2013
+    document_date: '2015-12-22'
+  scope:
+  - domstolar
+- id: g1271
+  question: eignarráð fasteignar ágreiningur
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 556/2023
+    document_date: '2023-09-04'
+  - source: heradsdomstolar
+    case_number: E-109/2023
+    document_date: '2023-07-14'
+  scope:
+  - domstolar
+- id: g1273
+  question: áminning starfsmanns sveitarfélags
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 555/2021
+    document_date: '2022-12-09'
+  - source: heradsdomstolar
+    case_number: E-182/2020
+    document_date: '2021-06-10'
+  scope:
+  - domstolar
+- id: g1274
+  question: túlkun tryggingarbréfs
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 274/2016
+    document_date: '2017-01-19'
+  scope:
+  - domstolar
+- id: g1277
+  question: fjárslit sambúðarslit ágreiningur
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 733/2021
+    document_date: '2022-01-31'
+  - source: heradsdomstolar
+    case_number: E-4962/2014
+    document_date: '2021-11-08'
+  scope:
+  - domstolar
+- id: g1279
+  question: frádráttur slysabóta fyrning
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 535/2015
+    document_date: '2016-05-19'
+  - source: heradsdomstolar
+    case_number: E-3528/2014
+    document_date: '2015-06-08'
+  scope:
+  - domstolar
+- id: g1280
+  question: galli á jarðarkaupum
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 798/2019
+    document_date: '2021-03-05'
+  - source: heradsdomstolar
+    case_number: E-3373/2018
+    document_date: '2019-11-05'
+  - source: haestirettur
+    case_number: 26/2021
+    document_date: '2021-12-02'
+  scope:
+  - domstolar
+- id: g1285
+  question: hlutdeild kynferðisbroti sýkna
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 862/2018
+    document_date: '2020-02-14'
+  - source: heradsdomstolar
+    case_number: S-13/2018
+    document_date: '2018-10-10'
+  - source: haestirettur
+    case_number: 15/2020
+    document_date: '2020-10-01'
+  scope:
+  - domstolar
+- id: g1287
+  question: lágmarkslaun eða árslaun
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 398/2020
+    document_date: '2021-10-29'
+  - source: heradsdomstolar
+    case_number: E-7424/2019
+    document_date: '2020-06-03'
+  scope:
+  - domstolar
+- id: g1288
+  question: ærumeiðing og tjáningarfrelsi
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 498/2022
+    document_date: '2024-02-09'
+  - source: heradsdomstolar
+    case_number: E-2148/2021
+    document_date: '2022-03-22'
+  - source: haestirettur
+    case_number: 55/2023
+    document_date: '2023-12-21'
+  scope:
+  - domstolar
+- id: g1289
+  question: starfsverndartrygging örorka sendibílstjóra
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 24/2020
+    document_date: '2021-06-11'
+  - source: heradsdomstolar
+    case_number: E-4348/2018
+    document_date: '2019-12-20'
+  scope:
+  - domstolar
+- id: g1290
+  question: trúnaðarskylda eftir starfslok
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 371/2019
+    document_date: '2021-02-19'
+  - source: heradsdomstolar
+    case_number: E-998/2018
+    document_date: '2019-04-30'
+  - source: haestirettur
+    case_number: 18/2021
+    document_date: '2021-11-03'
+  scope:
+  - domstolar
+- id: g1291
+  question: aflétting haldlagningar þrotabús
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 774/2024
+    document_date: '2024-10-10'
+  scope:
+  - domstolar
+- id: g1293
+  question: fyrning leigugreiðslna
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 96/2016
+    document_date: '2016-11-17'
+  - source: heradsdomstolar
+    case_number: E-915/2015
+    document_date: '2015-11-23'
+  scope:
+  - domstolar
+- id: g1296
+  question: fjárdráttur og bókhaldsbrot
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 738/2015
+    document_date: '2016-11-03'
+  - source: heradsdomstolar
+    case_number: S-174/2015
+    document_date: '2015-10-15'
+  scope:
+  - domstolar
+- id: g1299
+  question: riftun leigusamnings útburður
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 21/2019
+    document_date: '2019-02-04'
+  - source: heradsdomstolar
+    case_number: E-61/2017
+    document_date: '2018-12-18'
+  scope:
+  - domstolar
+- id: g1307
+  question: vinnuslys ólæstur pallur
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 183/2020
+    document_date: '2021-06-23'
+  scope:
+  - domstolar
+- id: g1312
+  question: túlkun samningsákvæðis um hópmeðferð
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 610/2016
+    document_date: '2017-10-05'
+  - source: heradsdomstolar
+    case_number: E-3169/2015
+    document_date: '2016-06-10'
+  scope:
+  - domstolar
+- id: g1314
+  question: fyrirvari við skaðabótauppgjör
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 533/2018
+    document_date: '2019-02-08'
+  - source: heradsdomstolar
+    case_number: E-2474/2015
+    document_date: '2018-06-01'
+  scope:
+  - domstolar
+- id: g1318
+  question: skattlagning söluhagnaðar af kauprétti
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 39/2025
+    document_date: '2026-02-26'
+  - source: heradsdomstolar
+    case_number: E-4086/2023
+    document_date: '2024-12-18'
+  scope:
+  - domstolar
+- id: g1319
+  question: vangreiddur virðisaukaskattur fyrirtækja
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 47/2018
+    document_date: '2018-06-22'
+  - source: heradsdomstolar
+    case_number: S-68/2017
+    document_date: '2017-11-10'
+  scope:
+  - domstolar
+- id: g1320
+  question: gáleysi við bifhjólaakstur
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 37/2021
+    document_date: '2022-02-09'
+  - source: heradsdomstolar
+    case_number: E-3882/2016
+    document_date: '2020-03-18'
+  - source: landsrettur
+    case_number: 228/2020
+    document_date: '2021-06-04'
+  scope:
+  - domstolar
+- id: g1323
+  question: meiðyrðamál og tjáningarfrelsi
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 210/2018
+    document_date: '2018-10-12'
+  - source: heradsdomstolar
+    case_number: E-608/2017
+    document_date: '2018-01-31'
+  scope:
+  - domstolar
+- id: g1324
+  question: tollflokkun öryggishanska
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 689/2016
+    document_date: '2017-11-02'
+  - source: heradsdomstolar
+    case_number: E-117/2015
+    document_date: '2016-05-26'
+  scope:
+  - domstolar
+- id: g1329
+  question: farbann í stað gæsluvarðhalds
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 481/2023
+    document_date: '2023-06-28'
+  - source: heradsdomstolar
+    case_number: S-3046/2023
+    document_date: '2023-06-21'
+  scope:
+  - domstolar
+- id: g1331
+  question: vátryggingarbætur og skattafrádráttur
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 4/2022
+    document_date: '2022-06-22'
+  - source: landsrettur
+    case_number: 384/2020
+    document_date: '2021-11-12'
+  - source: heradsdomstolar
+    case_number: E-1738/2018
+    document_date: '2020-05-29'
+  scope:
+  - domstolar
+- id: g1335
+  question: gerðardómsákvæði um matsmenn
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 268/2015
+    document_date: '2015-04-24'
+  scope:
+  - domstolar
+- id: g1336
+  question: vanreifað mál frávísað
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 153/2018
+    document_date: '2018-09-28'
+  - source: haestirettur
+    case_number: 22/2018
+    document_date: '2018-10-30'
+  scope:
+  - domstolar
+- id: g1340
+  question: skaðabótaábyrgð vegna synjunar skipulagsbreytingar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 284/2018
+    document_date: '2018-11-02'
+  - source: heradsdomstolar
+    case_number: E-1094/2016
+    document_date: '2017-12-20'
+  scope:
+  - domstolar
+- id: g1344
+  question: fyrning ábyrgðarskuldbindingar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 365/2022
+    document_date: '2023-10-12'
+  - source: heradsdomstolar
+    case_number: E-1718/2021
+    document_date: '2022-05-11'
+  - source: haestirettur
+    case_number: 56/2023
+    document_date: '2024-05-22'
+  scope:
+  - domstolar
+- id: g1346
+  question: tilkynning um nauðungarsölu
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 115/2017
+    document_date: '2018-03-22'
+  - source: heradsdomstolar
+    case_number: E-455/2016
+    document_date: '2016-11-21'
+  scope:
+  - domstolar
+- id: g1347
+  question: innflutningur amfetamíns
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 723/2018
+    document_date: '2019-12-20'
+  - source: heradsdomstolar
+    case_number: S-741/2017
+    document_date: '2018-04-25'
+  scope:
+  - domstolar
+- id: g1353
+  question: uppgjör söluandvirðis skulda
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 431/2017
+    document_date: '2018-05-09'
+  - source: heradsdomstolar
+    case_number: E-1739/2016
+    document_date: '2017-04-06'
+  scope:
+  - domstolar
+- id: g1358
+  question: óréttmæt auðgun leiðréttingarfé
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 217/2017
+    document_date: '2018-03-15'
+  scope:
+  - domstolar
+- id: g1359
+  question: dráttarvextir greiðsluaðlögun frestun
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 159/2017
+    document_date: '2018-03-08'
+  - source: heradsdomstolar
+    case_number: E-203/2016
+    document_date: '2016-10-26'
+  scope:
+  - domstolar
+- id: g1360
+  question: verðtollur kartöflur stjórnarskrá
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 666/2016
+    document_date: '2018-01-18'
+  - source: heradsdomstolar
+    case_number: E-1130/2014
+    document_date: '2016-09-12'
+  scope:
+  - domstolar
+- id: g1361
+  question: afhending upptekinna muna
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 191/2026
+    document_date: '2026-04-20'
+  - source: heradsdomstolar
+    case_number: S-6842/2023
+    document_date: '2026-02-17'
+  scope:
+  - domstolar
+- id: g1362
+  question: brottvikning án rannsóknar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 637/2017
+    document_date: '2018-06-26'
+  - source: heradsdomstolar
+    case_number: E-279/2016
+    document_date: '2017-07-07'
+  scope:
+  - domstolar
+- id: g1366
+  question: tvöföld refsing starfsleyfissvipting
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 618/2026
+    document_date: '2026-08-27'
+  - source: heradsdomstolar
+    case_number: S-965/2026
+    document_date: '2026-07-21'
+  scope:
+  - domstolar
+- id: g1367
+  question: tímamörk örorkumats slysatryggingar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 604/2017
+    document_date: '2018-06-07'
+  - source: heradsdomstolar
+    case_number: E-23/2017
+    document_date: '2017-06-26'
+  scope:
+  - domstolar
+- id: g1370
+  question: vanreifuð matsgerð aflaheimilda
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 5/2025
+    document_date: '2025-07-02'
+  - source: landsrettur
+    case_number: 487/2023
+    document_date: '2024-11-07'
+  - source: heradsdomstolar
+    case_number: E-7169/2019
+    document_date: '2023-06-06'
+  scope:
+  - domstolar
+- id: g1372
+  question: höfnun á vitnaleiðslubeiðni
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 209/2026
+    document_date: '2026-04-30'
+  - source: heradsdomstolar
+    case_number: E-2753/2025
+    document_date: '2026-03-24'
+  scope:
+  - domstolar
+- id: g1374
+  question: yfirskot arfleiðsluheimildar jarðar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 40/2023
+    document_date: '2023-12-13'
+  - source: heradsdomstolar
+    case_number: E-3018/2022
+    document_date: '2023-04-13'
+  - source: landsrettur
+    case_number: 312/2023
+    document_date: '2023-06-28'
+  scope:
+  - domstolar
+- id: g1375
+  question: trúnaðarskylda lánveitanda söluandvirði
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 53/2019
+    document_date: '2020-05-25'
+  - source: heradsdomstolar
+    case_number: E-2536/2017
+    document_date: '2018-10-12'
+  - source: landsrettur
+    case_number: 825/2018
+    document_date: '2019-10-04'
+  scope:
+  - domstolar
+- id: g1377
+  question: skuldajöfnuður við slitameðferð
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 478/2017
+    document_date: '2018-05-03'
+  - source: heradsdomstolar
+    case_number: E-2743/2012
+    document_date: '2017-05-04'
+  scope:
+  - domstolar
+- id: g1379
+  question: skattaleg heimilisfesti erlendis
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 1025/2024
+    document_date: '2026-02-05'
+  - source: heradsdomstolar
+    case_number: E-2666/2020
+    document_date: '2024-12-02'
+  scope:
+  - domstolar
+- id: g1382
+  question: málskostnaður eftir afturköllun
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 615/2017
+    document_date: '2018-06-21'
+  - source: heradsdomstolar
+    case_number: E-2229/2016
+    document_date: '2017-06-26'
+  scope:
+  - domstolar
+- id: g1383
+  question: friðhelgi einkalífs viðmælanda
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 35/2022
+    document_date: '2022-12-14'
+  - source: heradsdomstolar
+    case_number: E-1364/2020
+    document_date: '2021-05-12'
+  - source: landsrettur
+    case_number: 376/2021
+    document_date: '2022-04-08'
+  scope:
+  - domstolar
+- id: g1386
+  question: bótaskylda vegna veiðireglugerðar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 50/2019
+    document_date: '2020-05-04'
+  - source: heradsdomstolar
+    case_number: E-2962/2017
+    document_date: '2018-10-03'
+  - source: landsrettur
+    case_number: 802/2018
+    document_date: '2019-10-25'
+  scope:
+  - domstolar
+- id: g1391
+  question: bindandi sönnunargildi sýknudóms
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 21/2024
+    document_date: '2024-12-04'
+  - source: heradsdomstolar
+    case_number: S-3458/2022
+    document_date: '2022-11-09'
+  - source: landsrettur
+    case_number: 807/2022
+    document_date: '2024-03-01'
+  - source: heradsdomstolar
+    case_number: S-3773/2022
+    document_date: '2022-11-09'
+  scope:
+  - domstolar
+- id: g1393
+  question: atvinnurekstrarbann vegna misnotkunar
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 417/2026
+    document_date: '2026-06-23'
+  - source: heradsdomstolar
+    case_number: X-5847/2024
+    document_date: '2026-04-30'
+  scope:
+  - domstolar
+- id: g1396
+  question: mótbárur skuldara við framsal viðskiptabréfs
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 51/2019
+    document_date: '2020-05-04'
+  - source: heradsdomstolar
+    case_number: E-1684/2017
+    document_date: '2018-11-26'
+  scope:
+  - domstolar
+- id: g1398
+  question: ómerking dóms hurðagalli
+  style: short
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 890/2025
+    document_date: '2026-09-17'
+  scope:
+  - domstolar
+- id: g1401
+  question: aukameðalganga félagasamtaka
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 56/2024
+    document_date: '2025-04-04'
+  scope:
+  - domstolar
+- id: g1405
+  question: sjálfsþvætti fyrningarfrestur
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 29/2020
+    document_date: '2021-03-25'
+  - source: landsrettur
+    case_number: 20/2019
+    document_date: '2020-05-08'
+  - source: heradsdomstolar
+    case_number: S-486/2018
+    document_date: '2018-12-18'
+  scope:
+  - domstolar
+- id: g1406
+  question: brottfelling af virðisaukaskattsskrá
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 22/2024
+    document_date: '2024-12-20'
+  - source: heradsdomstolar
+    case_number: E-73/2022
+    document_date: '2022-11-30'
+  - source: landsrettur
+    case_number: 801/2022
+    document_date: '2024-03-01'
+  scope:
+  - domstolar
+- id: g1407
+  question: ómerking dóms uppgreiðslugjald
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 4/2021
+    document_date: '2021-05-27'
+  - source: heradsdomstolar
+    case_number: E-3061/2020
+    document_date: '2021-09-22'
+  scope:
+  - domstolar
+- id: g1408
+  question: kæra á ensku
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 6/2022
+    document_date: '2022-02-09'
+  - source: heradsdomstolar
+    case_number: E-4962/2014
+    document_date: '2021-11-08'
+  - source: landsrettur
+    case_number: 711/2021
+    document_date: '2022-01-04'
+  scope:
+  - domstolar
+- id: g1409
+  question: starfslok samkvæmt kjarasamningi
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 27/2025
+    document_date: '2026-02-04'
+  - source: heradsdomstolar
+    case_number: E-1612/2022
+    document_date: '2023-11-24'
+  - source: landsrettur
+    case_number: 848/2023
+    document_date: '2026-05-21'
+  scope:
+  - domstolar
+- id: g1416
+  question: ofbeldi gegn stjúpbarni
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 42/2021
+    document_date: '2022-03-09'
+  - source: heradsdomstolar
+    case_number: S-6550/2019
+    document_date: '2020-06-03'
+  - source: landsrettur
+    case_number: 486/2020
+    document_date: '2021-06-04'
+  scope:
+  - domstolar
+- id: g1417
+  question: fjárnám án boðunar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 20/2024
+    document_date: '2024-06-12'
+  - source: landsrettur
+    case_number: 66/2024
+    document_date: '2024-02-27'
+  - source: heradsdomstolar
+    case_number: S-7052/2023
+    document_date: '2024-01-24'
+  scope:
+  - domstolar
+- id: g1419
+  question: ófullnægjandi sáttameðferð forsjármáli
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 40/2021
+    document_date: '2021-10-13'
+  - source: landsrettur
+    case_number: 478/2021
+    document_date: '2021-09-08'
+  - source: heradsdomstolar
+    case_number: S-2299/2021
+    document_date: '2021-07-05'
+  scope:
+  - domstolar
+- id: g1421
+  question: óljóst verðmat fjárskipta
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 53/2022
+    document_date: '2022-12-08'
+  - source: heradsdomstolar
+    case_number: S-57/2022
+    document_date: '2022-06-30'
+  - source: landsrettur
+    case_number: 479/2022
+    document_date: '2022-10-17'
+  scope:
+  - domstolar
+- id: g1422
+  question: þyngri refsing endurupptöku
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 6/2023
+    document_date: '2023-06-06'
+  - source: landsrettur
+    case_number: 60/2022
+    document_date: '2022-11-04'
+  - source: heradsdomstolar
+    case_number: S-330/2017
+    document_date: '2017-06-21'
+  scope:
+  - domstolar
+- id: g1428
+  question: hefðarréttur til beitar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 24/2020
+    document_date: '2020-12-22'
+  - source: heradsdomstolar
+    case_number: E-81/2017
+    document_date: '2019-04-08'
+  - source: landsrettur
+    case_number: 261/2019
+    document_date: '2020-03-06'
+  scope:
+  - domstolar
+- id: g1429
+  question: brottfallnir hagsmunir þinglýsingar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 37/2024
+    document_date: '2024-09-03'
+  - source: landsrettur
+    case_number: 456/2024
+    document_date: '2024-06-25'
+  scope:
+  - domstolar
+- id: g1433
+  question: tekjutengd skerðing fjárhagsaðstoðar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 13/2020
+    document_date: '2020-10-08'
+  - source: heradsdomstolar
+    case_number: E-3811/2017
+    document_date: '2018-12-21'
+  scope:
+  - domstolar
+- id: g1437
+  question: óhófleg gæsluvarðhaldsvist bætur
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 48/2022
+    document_date: '2023-03-29'
+  - source: heradsdomstolar
+    case_number: E-578/2020
+    document_date: '2021-03-17'
+  - source: landsrettur
+    case_number: 247/2021
+    document_date: '2022-06-10'
+  scope:
+  - domstolar
+- id: g1439
+  question: vöruval ÁTVR framlegð
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 19/2024
+    document_date: '2024-12-04'
+  - source: heradsdomstolar
+    case_number: E-3343/2021
+    document_date: '2022-06-30'
+  - source: landsrettur
+    case_number: 460/2022
+    document_date: '2024-02-09'
+  scope:
+  - domstolar
+- id: g1441
+  question: bréferfð lífeyrissparnaðar
+  style: short
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 47/2025
+    document_date: '2026-04-29'
+  - source: heradsdomstolar
+    case_number: E-1066/2024
+    document_date: '2025-06-06'
+  scope:
+  - domstolar
+- id: g1002
+  question: riftun greiðslna til kröfuhafa við gjaldþrot
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 573/2018
+    document_date: '2018-10-03'
+  - source: heradsdomstolar
+    case_number: X-61/2013
+    document_date: '2018-06-25'
+  scope:
+  - domstolar
+- id: g1005
+  question: fyrning og ábyrgð farmflytjanda á tjóni
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 837/2015
+    document_date: '2016-09-22'
+  - source: heradsdomstolar
+    case_number: E-168/2013
+    document_date: '2015-11-25'
+  scope:
+  - domstolar
+- id: g1007
+  question: leynileg myndataka af kynlífi án samþykkis
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 617/2020
+    document_date: '2021-11-12'
+  - source: heradsdomstolar
+    case_number: S-127/2020
+    document_date: '2020-09-28'
+  scope:
+  - domstolar
+- id: g1010
+  question: endurtekin málshöfðun um sama sakarefni eftir frávísun
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 844/2019
+    document_date: '2020-01-10'
+  - source: heradsdomstolar
+    case_number: Z-711/2019
+    document_date: '2019-12-09'
+  scope:
+  - domstolar
+- id: g1014
+  question: vanhæfi dómara vegna opinberra ummæla
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 285/2017
+    document_date: '2017-05-30'
+  - source: heradsdomstolar
+    case_number: E-4218/2015
+    document_date: '2017-04-18'
+  scope:
+  - domstolar
+- id: g1016
+  question: ófullnægjandi rök fyrir gæsluvarðhaldskröfu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 617/2024
+    document_date: '2024-07-29'
+  - source: heradsdomstolar
+    case_number: S-7752/2023
+    document_date: '2024-07-24'
+  scope:
+  - domstolar
+- id: g1019
+  question: kynferðisleg áreitni á vinnustað
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 638/2024
+    document_date: '2025-05-22'
+  scope:
+  - domstolar
+- id: g1020
+  question: gæsluvarðhald útlendings og meðalhóf
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 24/2025
+    document_date: '2025-01-10'
+  - source: heradsdomstolar
+    case_number: S-122/2024
+    document_date: '2025-01-02'
+  scope:
+  - domstolar
+- id: g1023
+  question: endurtekinn ölvunarakstur og ævilöng svipting
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 809/2022
+    document_date: '2023-12-15'
+  - source: heradsdomstolar
+    case_number: S-1424/2022
+    document_date: '2022-10-19'
+  scope:
+  - domstolar
+- id: g1024
+  question: framlenging farbanns vegna evrópskrar handtökuskipunar
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 258/2023
+    document_date: '2023-04-14'
+  - source: heradsdomstolar
+    case_number: S-4987/2022
+    document_date: '2023-04-05'
+  scope:
+  - domstolar
+- id: g1025
+  question: ólögmæt uppsögn opinbers starfsmanns bætur
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 13/2020
+    document_date: '2021-05-28'
+  - source: heradsdomstolar
+    case_number: E-4338/2018
+    document_date: '2019-12-11'
+  scope:
+  - domstolar
+- id: g1027
+  question: slysatrygging ökumanns og þörf á meðdómanda
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 193/2024
+    document_date: '2025-05-22'
+  - source: heradsdomstolar
+    case_number: S-7048/2023
+    document_date: '2023-12-13'
+  scope:
+  - domstolar
+- id: g1028
+  question: skortur á sáttatilraun fyrir forsjármál
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 441/2017
+    document_date: '2017-08-14'
+  scope:
+  - domstolar
+- id: g1029
+  question: sýkna í kynferðisbroti barns vegna vafa
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 601/2022
+    document_date: '2023-10-20'
+  - source: heradsdomstolar
+    case_number: S-19/2022
+    document_date: '2022-08-18'
+  scope:
+  - domstolar
+- id: g1032
+  question: tómlæti verktaka við kröfu um tafabætur
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 664/2016
+    document_date: '2017-09-21'
+  - source: heradsdomstolar
+    case_number: E-1673/2015
+    document_date: '2016-06-28'
+  scope:
+  - domstolar
+- id: g1040
+  question: kynferðisbrot gegn sofandi og ölvaðri konu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 464/2020
+    document_date: '2021-03-26'
+  - source: heradsdomstolar
+    case_number: S-3752/2019
+    document_date: '2020-06-29'
+  scope:
+  - domstolar
+- id: g1044
+  question: tollflokkun drykkjarefnis og jafnræðisregla
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 838/2018
+    document_date: '2019-09-27'
+  scope:
+  - domstolar
+- id: g1048
+  question: harkaleg líkamsárás með spyrnu í höfuð
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 5/2018
+    document_date: '2018-06-22'
+  - source: heradsdomstolar
+    case_number: S-182/2016
+    document_date: '2017-01-04'
+  scope:
+  - domstolar
+- id: g1049
+  question: ábyrgð á tjóni af völdum lausra hrossa
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 918/2018
+    document_date: '2019-10-18'
+  - source: heradsdomstolar
+    case_number: E-904/2018
+    document_date: '2018-11-29'
+  scope:
+  - domstolar
+- id: g1052
+  question: gæsluvarðhald vegna hættu á flótta fyrir framsal
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 843/2024
+    document_date: '2024-10-30'
+  - source: heradsdomstolar
+    case_number: S-5125/2024
+    document_date: '2024-10-16'
+  scope:
+  - domstolar
+- id: g1054
+  question: óljós málatilbúnaður leiðir til frávísunar riftunarkröfu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 691/2022
+    document_date: '2022-12-14'
+  - source: heradsdomstolar
+    case_number: E-30/2019
+    document_date: '2022-10-28'
+  scope:
+  - domstolar
+- id: g1055
+  question: líkamsárás gagnvart maka í viðurvist barns
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 511/2020
+    document_date: '2021-10-01'
+  - source: heradsdomstolar
+    case_number: S-5095/2019
+    document_date: '2020-07-01'
+  scope:
+  - domstolar
+- id: g1057
+  question: framlenging gæsluvarðhalds um skemmri tíma
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 681/2021
+    document_date: '2021-11-11'
+  - source: heradsdomstolar
+    case_number: S-1006/2020
+    document_date: '2021-11-08'
+  scope:
+  - domstolar
+- id: g1058
+  question: ómerking dóms vegna vangreindra málsástæðna
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 264/2021
+    document_date: '2022-06-03'
+  scope:
+  - domstolar
+- id: g1065
+  question: riftun greiðslu til nákominna aðila
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 687/2016
+    document_date: '2017-11-16'
+  scope:
+  - domstolar
+- id: g1067
+  question: ófullnægjandi rök fyrir kröfu um gæsluvarðhald
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 581/2025
+    document_date: '2025-07-31'
+  - source: heradsdomstolar
+    case_number: S-1688/2025
+    document_date: '2025-07-17'
+  scope:
+  - domstolar
+- id: g1069
+  question: frávísun staðfest og kæruheimild ekki fallin niður
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 711/2023
+    document_date: '2023-11-24'
+  scope:
+  - domstolar
+- id: g1070
+  question: gæsluvarðhald og einangrun stytt frá héraðsdómi
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 220/2025
+    document_date: '2025-03-24'
+  scope:
+  - domstolar
+- id: g1073
+  question: gilt ákæruform þrátt fyrir vafa á refsinæmi
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 256/2016
+    document_date: '2016-04-12'
+  - source: heradsdomstolar
+    case_number: S-300/2013
+    document_date: '2016-03-23'
+  scope:
+  - domstolar
+- id: g1074
+  question: brostnar forsendur hlutafjársamkomulags hafna bótaskyldu
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 378/2015
+    document_date: '2016-02-18'
+  - source: heradsdomstolar
+    case_number: E-5162/2013
+    document_date: '2015-03-04'
+  scope:
+  - domstolar
+- id: g1075
+  question: aðgangur matsmanns að gögnum ekki persónuverndarbrot
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 101/2020
+    document_date: '2020-04-03'
+  scope:
+  - domstolar
+- id: g1076
+  question: barns andstaða stöðvar innsetningargerð á grundvelli haagsamnings
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 411/2020
+    document_date: '2020-07-31'
+  scope:
+  - domstolar
+- id: g1079
+  question: ákvörðun málskostnaðar í tveimur skyldum málum
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 288/2023
+    document_date: '2023-06-06'
+  - source: heradsdomstolar
+    case_number: S-4987/2022
+    document_date: '2023-04-05'
+  scope:
+  - domstolar
+- id: g1080
+  question: ósiðlegt athæfi gagnvart börnum við glugga
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 736/2021
+    document_date: '2023-02-03'
+  - source: heradsdomstolar
+    case_number: S-3196/2020
+    document_date: '2021-10-19'
+  scope:
+  - domstolar
+- id: g1081
+  question: frávísun kæru þar sem rannsóknaraðgerð þegar framkvæmd
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 288/2025
+    document_date: '2025-04-14'
+  scope:
+  - domstolar
+- id: g1084
+  question: gæsluvarðhaldi breytt í farbann
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 597/2019
+    document_date: '2019-08-23'
+  - source: heradsdomstolar
+    case_number: E-3035/2018
+    document_date: '2019-08-09'
+  scope:
+  - domstolar
+- id: g1085
+  question: skilyrði endurupptöku kyrrsetningargerðar ekki uppfyllt
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 357/2020
+    document_date: '2020-09-07'
+  scope:
+  - domstolar
+- id: g1087
+  question: engin kæruheimild til Hæstaréttar í nálgunarbannsmáli
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 1/2019
+    document_date: '2019-01-11'
+  - source: landsrettur
+    case_number: 922/2018
+    document_date: '2018-12-21'
+  scope:
+  - domstolar
+- id: g1088
+  question: slys á súlu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 730/2021
+    document_date: '2023-02-10'
+  - source: heradsdomstolar
+    case_number: E-4068/2020
+    document_date: '2021-11-10'
+  scope:
+  - domstolar
+- id: g1090
+  question: óljós ákæra fyrir peningaþvætti
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 499/2020
+    document_date: '2022-05-20'
+  - source: heradsdomstolar
+    case_number: S-3272/2020
+    document_date: '2020-06-24'
+  scope:
+  - domstolar
+- id: g1091
+  question: mistök við þinglýsingu vatnsréttinda fasteignar
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 734/2022
+    document_date: '2024-05-10'
+  - source: heradsdomstolar
+    case_number: E-4189/2021
+    document_date: '2022-11-02'
+  scope:
+  - domstolar
+- id: g1095
+  question: uppgreiðslugjald löglegt þrátt fyrir skuldaraskipti
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 258/2024
+    document_date: '2025-04-03'
+  - source: heradsdomstolar
+    case_number: E-3707/2023
+    document_date: '2024-02-28'
+  scope:
+  - domstolar
+- id: g1096
+  question: sakfelling þrátt fyrir sýknu í héraði líkamsárásarmáli
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 117/2020
+    document_date: '2021-05-28'
+  scope:
+  - domstolar
+- id: g1097
+  question: sjálfskuldarábyrgð stendur þrátt fyrir breytt tryggingarbréf
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 720/2023
+    document_date: '2024-05-31'
+  - source: heradsdomstolar
+    case_number: E-2271/2021
+    document_date: '2023-09-29'
+  scope:
+  - domstolar
+- id: g1098
+  question: ummæli um hinsegin fræðslu ekki hatursorðræða
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 354/2017
+    document_date: '2017-12-14'
+  - source: heradsdomstolar
+    case_number: S-834/2016
+    document_date: '2017-04-28'
+  scope:
+  - domstolar
+- id: g1099
+  question: afréttur talinn þjóðlenda vegna sögulegra heimilda
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 323/2016
+    document_date: '2016-11-10'
+  - source: heradsdomstolar
+    case_number: E-197/2012
+    document_date: '2016-02-05'
+  scope:
+  - domstolar
+- id: g1100
+  question: frávísun vegna varnarþings felld úr gildi
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 517/2016
+    document_date: '2016-09-07'
+  - source: heradsdomstolar
+    case_number: E-37/2016
+    document_date: '2016-07-01'
+  scope:
+  - domstolar
+- id: g1102
+  question: takmörkun á söluverði samkvæmt eldri félagssamþykktum
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 884/2018
+    document_date: '2019-06-07'
+  - source: heradsdomstolar
+    case_number: E-1111/2017
+    document_date: '2018-11-09'
+  scope:
+  - domstolar
+- id: g1105
+  question: trúverðugleiki framburðar um hver ók bifreið
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 278/2023
+    document_date: '2024-03-22'
+  - source: heradsdomstolar
+    case_number: S-3419/2022
+    document_date: '2023-03-07'
+  scope:
+  - domstolar
+- id: g1108
+  question: skylda til að leggja fram sönnunargögn lögreglu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 586/2021
+    document_date: '2021-10-12'
+  scope:
+  - domstolar
+- id: g1110
+  question: framlenging gæsluvarðhalds og einangrunar sakbornings
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 505/2023
+    document_date: '2023-07-06'
+  - source: heradsdomstolar
+    case_number: S-2994/2023
+    document_date: '2023-07-12'
+  scope:
+  - domstolar
+- id: g1114
+  question: birting höfundarverks án leyfis í fjölmiðli
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 471/2023
+    document_date: '2024-11-07'
+  - source: heradsdomstolar
+    case_number: E-942/2022
+    document_date: '2023-02-22'
+  scope:
+  - domstolar
+- id: g1115
+  question: gæsluvarðhald til að tryggja framsal samkvæmt handtökuskipun
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 744/2022
+    document_date: '2022-11-30'
+  scope:
+  - domstolar
+- id: g1116
+  question: ágreiningur um eignarhlutdeild félagsmanna í jörð
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 125/2017
+    document_date: '2018-03-01'
+  - source: heradsdomstolar
+    case_number: E-95/2013
+    document_date: '2016-11-21'
+  scope:
+  - domstolar
+- id: g1119
+  question: krafa um fjárnám vegna ólögmætrar gengistryggingar láns
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 623/2017
+    document_date: '2018-06-21'
+  scope:
+  - domstolar
+- id: g1121
+  question: leyfi til að fá annað sérfræðimat í aðfararmáli
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 23/2020
+    document_date: '2020-03-09'
+  - source: heradsdomstolar
+    case_number: E-33/2017
+    document_date: '2018-01-16'
+  scope:
+  - domstolar
+- id: g1122
+  question: frávísun vegna vöntunar á samaðild í landamerkjamáli
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 44/2023
+    document_date: '2024-04-17'
+  - source: landsrettur
+    case_number: 25/2022
+    document_date: '2023-06-16'
+  - source: heradsdomstolar
+    case_number: E-294/2020
+    document_date: '2021-12-14'
+  scope:
+  - domstolar
+- id: g1127
+  question: sýkna vegna aðildarskorts að reikningskröfu
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 342/2017
+    document_date: '2018-05-09'
+  - source: heradsdomstolar
+    case_number: E-2548/2015
+    document_date: '2017-03-20'
+  scope:
+  - domstolar
+- id: g1131
+  question: vinnsla persónuupplýsinga í vísindarannsókn án samþykkis
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 274/2023
+    document_date: '2024-11-14'
+  - source: heradsdomstolar
+    case_number: E-1863/2022
+    document_date: '2023-03-16'
+  - source: haestirettur
+    case_number: 6/2025
+    document_date: '2025-11-05'
+  scope:
+  - domstolar
+- id: g1136
+  question: hvað telst slys í vátryggingarétti sjómanna
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 210/2021
+    document_date: '2022-06-16'
+  - source: heradsdomstolar
+    case_number: E-3260/2020
+    document_date: '2021-03-05'
+  scope:
+  - domstolar
+- id: g1137
+  question: vanskil skatta og launagreiðslna til ríkis
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 213/2019
+    document_date: '2020-05-15'
+  - source: heradsdomstolar
+    case_number: S-444/2018
+    document_date: '2019-02-15'
+  scope:
+  - domstolar
+- id: g1139
+  question: sértökuréttur fellur niður vegna vanrækslu þinglýsingar
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 156/2024
+    document_date: '2024-03-15'
+  - source: heradsdomstolar
+    case_number: X-3149/2023
+    document_date: '2024-02-14'
+  scope:
+  - domstolar
+- id: g1141
+  question: skýrleiki kröfugerðar um viðurkenningu skaðabótaskyldu
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 38/2023
+    document_date: '2023-08-18'
+  - source: heradsdomstolar
+    case_number: E-4307/2020
+    document_date: '2021-11-26'
+  - source: landsrettur
+    case_number: 121/2022
+    document_date: '2023-12-01'
+  scope:
+  - domstolar
+- id: g1142
+  question: sönnun fyrir samþykki viðbótarverks í verksamningi
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 418/2022
+    document_date: '2024-12-17'
+  - source: heradsdomstolar
+    case_number: E-8254/2020
+    document_date: '2022-06-02'
+  - source: haestirettur
+    case_number: 4/2024
+    document_date: '2024-06-19'
+  scope:
+  - domstolar
+- id: g1143
+  question: ógilding hjúskapar vegna skorts á hæfi til samþykkis
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 619/2017
+    document_date: '2018-06-07'
+  - source: heradsdomstolar
+    case_number: E-2876/2016
+    document_date: '2017-07-10'
+  scope:
+  - domstolar
+- id: g1146
+  question: skaðabótakrafa vegna lögmætra rannsóknaraðgerða stjórnvalda
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 18/2016
+    document_date: '2016-12-15'
+  - source: heradsdomstolar
+    case_number: E-1382/2014
+    document_date: '2015-10-09'
+  scope:
+  - domstolar
+- id: g1147
+  question: skilorðsbinding refsingar vegna dráttar í tollalagabroti
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 138/2025
+    document_date: '2026-05-21'
+  - source: heradsdomstolar
+    case_number: S-2075/2024
+    document_date: '2025-02-03'
+  scope:
+  - domstolar
+- id: g1148
+  question: iðgjaldagreiðslur eftir niðurlagningu starfs hjá lífeyrissjóði
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 307/2023
+    document_date: '2024-05-03'
+  - source: heradsdomstolar
+    case_number: E-1611/2022
+    document_date: '2023-03-31'
+  scope:
+  - domstolar
+- id: g1153
+  question: refsiþynging vegna ítrekaðra auðgunarbrota
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 621/2021
+    document_date: '2022-11-11'
+  - source: heradsdomstolar
+    case_number: S-276/2021
+    document_date: '2021-09-22'
+  scope:
+  - domstolar
+- id: g1154
+  question: varnir gegn kröfu í skuldabréfamáli
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 433/2020
+    document_date: '2021-11-26'
+  - source: heradsdomstolar
+    case_number: E-4171/2018
+    document_date: '2020-06-25'
+  scope:
+  - domstolar
+- id: g1155
+  question: frestur til að skila frávísunargreinargerð
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 624/2020
+    document_date: '2020-12-18'
+  - source: heradsdomstolar
+    case_number: E-1381/2020
+    document_date: '2021-03-05'
+  scope:
+  - domstolar
+- id: g1157
+  question: endurgreiðsla fyrirframgreidds arfs við skipti
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 595/2024
+    document_date: '2024-09-04'
+  - source: heradsdomstolar
+    case_number: S-1391/2024
+    document_date: '2024-07-02'
+  - source: haestirettur
+    case_number: 50/2024
+    document_date: '2025-04-02'
+  scope:
+  - domstolar
+- id: g1158
+  question: vöntun á sérfróðum meðdómara
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 745/2019
+    document_date: '2020-11-20'
+  - source: heradsdomstolar
+    case_number: E-471/2018
+    document_date: '2021-02-25'
+  scope:
+  - domstolar
+- id: g1159
+  question: krafa um hlutagreiðslu vegna verksamnings
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 714/2023
+    document_date: '2024-12-12'
+  - source: heradsdomstolar
+    case_number: E-1174/2023
+    document_date: '2023-09-22'
+  scope:
+  - domstolar
+- id: g1163
+  question: ásetningsleysi leiddi til hlutasýknu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 19/2020
+    document_date: '2021-02-12'
+  - source: heradsdomstolar
+    case_number: S-109/2019
+    document_date: '2019-11-28'
+  scope:
+  - domstolar
+- id: g1169
+  question: tómlæti við að andmæla veðsetningu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 480/2021
+    document_date: '2022-11-04'
+  - source: heradsdomstolar
+    case_number: E-1757/2019
+    document_date: '2021-06-24'
+  scope:
+  - domstolar
+- id: g1170
+  question: skaðabótaskylda vegna rangrar afgreiðslu byggðakvótaumsóknar
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 375/2025
+    document_date: '2026-06-18'
+  - source: heradsdomstolar
+    case_number: E-2341/2024
+    document_date: '2025-04-22'
+  scope:
+  - domstolar
+- id: g1171
+  question: ofrukkun fyrir akstursþjónustu samkvæmt samningi
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 946/2024
+    document_date: '2025-12-16'
+  - source: heradsdomstolar
+    case_number: E-5927/2023
+    document_date: '2024-11-12'
+  scope:
+  - domstolar
+- id: g1173
+  question: skaðabætur vegna brots á jafnræðisreglu útboðs
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 619/2016
+    document_date: '2017-09-21'
+  - source: heradsdomstolar
+    case_number: E-4425/2012
+    document_date: '2016-06-16'
+  scope:
+  - domstolar
+- id: g1175
+  question: uppsögn kennara vegna nemendafækkunar
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 530/2021
+    document_date: '2022-11-04'
+  - source: heradsdomstolar
+    case_number: E-1926/2020
+    document_date: '2021-07-20'
+  scope:
+  - domstolar
+- id: g1177
+  question: dómsúrlausn umfram fjárkröfu í stefnu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 311/2022
+    document_date: '2023-10-12'
+  - source: heradsdomstolar
+    case_number: E-902/2021
+    document_date: '2024-02-20'
+  scope:
+  - domstolar
+- id: g1179
+  question: ólögmæt gengistrygging lánssamnings og skuldajöfnunarréttur
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 499/2016
+    document_date: '2017-04-06'
+  - source: heradsdomstolar
+    case_number: E-1180/2015
+    document_date: '2016-04-20'
+  scope:
+  - domstolar
+- id: g1181
+  question: skaðabætur vegna vanúthlutunar aflaheimilda fiskiskips
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 486/2023
+    document_date: '2024-11-07'
+  - source: heradsdomstolar
+    case_number: E-3225/2019
+    document_date: '2023-06-06'
+  - source: haestirettur
+    case_number: 4/2025
+    document_date: '2025-07-02'
+  scope:
+  - domstolar
+- id: g1182
+  question: kæruheimild úrskurðar um nálgunarbann til hæstaréttar
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 1/2021
+    document_date: '2021-01-15'
+  scope:
+  - domstolar
+- id: g1183
+  question: niðurlagning prestsembættis og krafa um skaðabætur
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 826/2024
+    document_date: '2025-11-27'
+  - source: heradsdomstolar
+    case_number: E-1404/2023
+    document_date: '2024-07-04'
+  scope:
+  - domstolar
+- id: g1184
+  question: sönnun ásetnings við tilraun til fíkniefnainnflutnings
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 686/2024
+    document_date: '2025-10-16'
+  - source: heradsdomstolar
+    case_number: S-1440/2024
+    document_date: '2024-06-07'
+  scope:
+  - domstolar
+- id: g1188
+  question: skortur á lögvörðum hagsmunum í viðurkenningarmáli
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 40/2024
+    document_date: '2024-11-20'
+  - source: heradsdomstolar
+    case_number: E-3264/2023
+    document_date: '2024-05-08'
+  - source: landsrettur
+    case_number: 454/2024
+    document_date: '2024-06-26'
+  scope:
+  - domstolar
+- id: g1189
+  question: ágreiningur um eignarrétt vegna eignarnáms jarðar
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 121/2016
+    document_date: '2016-03-16'
+  - source: heradsdomstolar
+    case_number: E-971/2011
+    document_date: '2014-01-17'
+  scope:
+  - domstolar
+- id: g1190
+  question: myntbreytt lán ekki ólögmæt gengistrygging
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 592/2015
+    document_date: '2016-04-14'
+  - source: heradsdomstolar
+    case_number: E-930/2014
+    document_date: '2015-06-16'
+  scope:
+  - domstolar
+- id: g1192
+  question: sýkna skráðs framkvæmdastjóra af skattalagabrotum
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 2/2018
+    document_date: '2018-04-20'
+  - source: heradsdomstolar
+    case_number: S-153/2016
+    document_date: '2016-11-07'
+  scope:
+  - domstolar
+- id: g1194
+  question: vitneskja um aldur brotaþola í kynferðisbrotum
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 478/2025
+    document_date: '2026-03-05'
+  - source: heradsdomstolar
+    case_number: S-1672/2024
+    document_date: '2025-05-12'
+  scope:
+  - domstolar
+- id: g1195
+  question: kynferðisleg áreitni samhliða líkamsárás gagnvart öðrum
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 197/2019
+    document_date: '2020-02-07'
+  - source: heradsdomstolar
+    case_number: S-582/2018
+    document_date: '2019-02-20'
+  scope:
+  - domstolar
+- id: g1197
+  question: óljóst umfang forkaupsréttar meðal systkina
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 749/2021
+    document_date: '2022-01-10'
+  - source: heradsdomstolar
+    case_number: E-762/2021
+    document_date: '2022-05-11'
+  scope:
+  - domstolar
+- id: g1199
+  question: ágreiningur um munnlegt starfslokasamkomulag og hlutabréf
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 34/2024
+    document_date: '2025-02-27'
+  - source: heradsdomstolar
+    case_number: S-4696/2023
+    document_date: '2023-10-16'
+  scope:
+  - domstolar
+- id: g1200
+  question: réttmæti höfnunar allra tilboða í útboði
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 758/2015
+    document_date: '2016-09-15'
+  - source: heradsdomstolar
+    case_number: E-2316/2014
+    document_date: '2015-10-30'
+  scope:
+  - domstolar
+- id: g1205
+  question: endurheimt þrotabús á ofteknum fasteignagjöldum
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 52/2020
+    document_date: '2020-03-24'
+  - source: heradsdomstolar
+    case_number: E-109/2019
+    document_date: '2020-01-07'
+  scope:
+  - domstolar
+- id: g1211
+  question: yfirfærsla starfsmannaréttinda við aðilaskipti fyrirtækis
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 322/2015
+    document_date: '2016-06-09'
+  scope:
+  - domstolar
+- id: g1213
+  question: ágreiningur um hækkun leigugjalds erfðafestulóðar
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 500/2015
+    document_date: '2016-03-22'
+  - source: heradsdomstolar
+    case_number: E-151/2013
+    document_date: '2015-05-20'
+  scope:
+  - domstolar
+- id: g1214
+  question: endurmat á alvarleika líkamsárásar og refsiheimfærslu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 438/2022
+    document_date: '2023-05-19'
+  - source: heradsdomstolar
+    case_number: S-233/2021
+    document_date: '2022-04-20'
+  scope:
+  - domstolar
+- id: g1217
+  question: réttur til bóta úr ökutækjatryggingu vegna munatjóns
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 148/2019
+    document_date: '2019-11-08'
+  - source: heradsdomstolar
+    case_number: E-650/2018
+    document_date: '2018-12-18'
+  scope:
+  - domstolar
+- id: g1219
+  question: val á framkvæmdakosti fyrir háspennulínu í eignarnámi
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 238/2025
+    document_date: '2025-10-23'
+  - source: heradsdomstolar
+    case_number: E-4348/2024
+    document_date: '2025-03-13'
+  - source: haestirettur
+    case_number: 67/2025
+    document_date: '2026-05-27'
+  scope:
+  - domstolar
+- id: g1223
+  question: sönnun um umfang unninnar jarðvinnu í verksamningi
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 343/2019
+    document_date: '2020-10-23'
+  scope:
+  - domstolar
+- id: g1226
+  question: skilyrði fyrir endurupptöku á skiptum dánarbús
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 787/2021
+    document_date: '2022-01-21'
+  scope:
+  - domstolar
+- id: g1229
+  question: lækkun vátryggingarbóta vegna gáleysis og samsömunarreglu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 127/2018
+    document_date: '2018-11-02'
+  - source: heradsdomstolar
+    case_number: E-1113/2017
+    document_date: '2017-11-14'
+  scope:
+  - domstolar
+- id: g1230
+  question: varðhald útlendings til að tryggja frávísun
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 569/2016
+    document_date: '2016-08-10'
+  scope:
+  - domstolar
+- id: g1231
+  question: aflýsing þinglýsingar vegna skorts á samþykki maka
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 178/2025
+    document_date: '2025-05-05'
+  - source: heradsdomstolar
+    case_number: T-2915/2024
+    document_date: '2025-02-27'
+  scope:
+  - domstolar
+- id: g1233
+  question: áhrif fullnaðarkvittunar á frekari bótakröfu vegna vátryggingar
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 454/2018
+    document_date: '2019-02-08'
+  - source: heradsdomstolar
+    case_number: Y-9/2016
+    document_date: '2016-11-23'
+  scope:
+  - domstolar
+- id: g1236
+  question: ábyrgð á víxli án tilskilins umboðs
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 349/2015
+    document_date: '2016-06-02'
+  - source: heradsdomstolar
+    case_number: E-6/2014
+    document_date: '2015-02-17'
+  scope:
+  - domstolar
+- id: g1237
+  question: endurupptaka bóta og frádráttur vegna almannatrygginga
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 598/2017
+    document_date: '2018-06-21'
+  - source: heradsdomstolar
+    case_number: E-1276/2016
+    document_date: '2017-06-16'
+  scope:
+  - domstolar
+- id: g1239
+  question: endurgreiðsla innviðagjalds vegna meintrar ólögmætrar gjaldtöku sveitarfélags
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 3/2022
+    document_date: '2022-06-01'
+  - source: landsrettur
+    case_number: 468/2020
+    document_date: '2021-11-26'
+  - source: heradsdomstolar
+    case_number: E-5634/2019
+    document_date: '2020-06-29'
+  scope:
+  - domstolar
+- id: g1240
+  question: áframhaldandi gæsluvarðhald með ákveðnum tímamörkum
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 450/2018
+    document_date: '2018-05-28'
+  - source: heradsdomstolar
+    case_number: E-550/2016
+    document_date: '2018-05-16'
+  scope:
+  - domstolar
+- id: g1241
+  question: bótakrafa mótmælanda vegna handtöku lögreglu við framkvæmdir
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 107/2016
+    document_date: '2016-12-08'
+  - source: heradsdomstolar
+    case_number: E-2828/2014
+    document_date: '2015-11-12'
+  scope:
+  - domstolar
+- id: g1242
+  question: réttur til endurgreiðslu pakkaferðar vegna farsóttar
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 557/2021
+    document_date: '2022-11-11'
+  - source: heradsdomstolar
+    case_number: E-3284/2020
+    document_date: '2021-07-14'
+  - source: haestirettur
+    case_number: 3/2023
+    document_date: '2023-06-28'
+  scope:
+  - domstolar
+- id: g1244
+  question: ábyrgð lögmanns vegna vanrækslu í hagsmunagæslu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 786/2018
+    document_date: '2019-06-21'
+  - source: heradsdomstolar
+    case_number: E-240/2018
+    document_date: '2018-09-27'
+  scope:
+  - domstolar
+- id: g1245
+  question: miskabætur vegna birtingar persónuupplýsinga án samþykkis
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 376/2021
+    document_date: '2022-04-08'
+  - source: heradsdomstolar
+    case_number: E-1364/2020
+    document_date: '2021-05-12'
+  - source: haestirettur
+    case_number: 35/2022
+    document_date: '2022-12-14'
+  scope:
+  - domstolar
+- id: g1249
+  question: sakfelling fyrir að skemma vinnuvél með grjóti
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 70/2018
+    document_date: '2018-06-22'
+  - source: heradsdomstolar
+    case_number: S-318/2016
+    document_date: '2017-10-20'
+  scope:
+  - domstolar
+- id: g1251
+  question: krafa um framlagningu gagna frá fyrirtæki í sakamáli
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 198/2018
+    document_date: '2018-02-27'
+  - source: heradsdomstolar
+    case_number: E-3434/2017
+    document_date: '2018-02-02'
+  scope:
+  - domstolar
+- id: g1252
+  question: nálgunarbann brotið með hótunum í smáskilaboðum
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 682/2019
+    document_date: '2020-03-17'
+  - source: heradsdomstolar
+    case_number: S-449/2019
+    document_date: '2019-09-03'
+  scope:
+  - domstolar
+- id: g1254
+  question: ágreiningur um mörk leigulóðar og jarðar
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 39/2021
+    document_date: '2022-04-13'
+  - source: landsrettur
+    case_number: 799/2019
+    document_date: '2021-06-11'
+  - source: heradsdomstolar
+    case_number: E-114/2018
+    document_date: '2019-11-01'
+  scope:
+  - domstolar
+- id: g1255
+  question: bann við tvöfaldri refsingu vegna skattalagabrota
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 168/2021
+    document_date: '2022-06-24'
+  - source: heradsdomstolar
+    case_number: S-1819/2020
+    document_date: '2021-02-17'
+  scope:
+  - domstolar
+- id: g1256
+  question: húftrygging synjað vegna venjulegs slits á gír
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 158/2019
+    document_date: '2019-11-29'
+  - source: heradsdomstolar
+    case_number: E-136/2018
+    document_date: '2019-02-06'
+  scope:
+  - domstolar
+- id: g1258
+  question: endurupptaka skaðabóta vegna versnandi heilsufars eftir slys
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 5/2019
+    document_date: '2020-02-07'
+  - source: heradsdomstolar
+    case_number: E-2189/2018
+    document_date: '2018-12-07'
+  scope:
+  - domstolar
+- id: g1259
+  question: skattsvik og þvætti á ávinningi í félagsrekstri
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 328/2021
+    document_date: '2022-11-04'
+  - source: heradsdomstolar
+    case_number: S-2689/2020
+    document_date: '2020-05-25'
+  scope:
+  - domstolar
+- id: g1260
+  question: hótað að dreifa nektarmyndum af barnsmóður
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 515/2025
+    document_date: '2026-05-28'
+  scope:
+  - domstolar
+- id: g1265
+  question: frávísun skilnaðarmáls vegna ólokinna fjárskipta hjóna
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 765/2017
+    document_date: '2018-01-08'
+  - source: heradsdomstolar
+    case_number: E-2998/2016
+    document_date: '2017-11-14'
+  scope:
+  - domstolar
+- id: g1272
+  question: greiðsla fyrir bakvaktir samkvæmt kjarasamningi
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 364/2020
+    document_date: '2021-11-05'
+  - source: heradsdomstolar
+    case_number: E-155/2019
+    document_date: '2020-05-20'
+  scope:
+  - domstolar
+- id: g1275
+  question: tilkynningarskylda útlendings og haldlagning farsíma
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 185/2023
+    document_date: '2023-03-15'
+  - source: heradsdomstolar
+    case_number: S-450/2023
+    document_date: '2023-03-24'
+  scope:
+  - domstolar
+- id: g1276
+  question: vefenging erfðaskrár vegna skorts á hæfi
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 278/2026
+    document_date: '2026-05-27'
+  - source: heradsdomstolar
+    case_number: E-2753/2025
+    document_date: '2026-03-24'
+  scope:
+  - domstolar
+- id: g1281
+  question: akstur sviptur réttindum og vörslur skotvopns
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 807/2019
+    document_date: '2020-12-04'
+  - source: heradsdomstolar
+    case_number: S-188/2019
+    document_date: '2019-11-21'
+  scope:
+  - domstolar
+- id: g1282
+  question: heimvísun vegna vanrökstuddrar niðurstöðu um verktíma
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 510/2016
+    document_date: '2017-06-01'
+  - source: heradsdomstolar
+    case_number: E-1670/2014
+    document_date: '2016-02-03'
+  scope:
+  - domstolar
+- id: g1283
+  question: skylda bílaleigu til að standa skil á stöðugjaldi
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 571/2022
+    document_date: '2023-11-17'
+  - source: heradsdomstolar
+    case_number: E-5103/2021
+    document_date: '2022-05-17'
+  - source: haestirettur
+    case_number: 7/2024
+    document_date: '2024-10-09'
+  scope:
+  - domstolar
+- id: g1284
+  question: sjálfskuldarábyrgð og fyrning yfirdráttarskuldar
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 89/2017
+    document_date: '2018-03-08'
+  - source: heradsdomstolar
+    case_number: E-891/2015
+    document_date: '2016-11-15'
+  scope:
+  - domstolar
+- id: g1286
+  question: endurupptaka kröfu sem vísað var frá vegna vanreifunar
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 61/2023
+    document_date: '2023-03-14'
+  - source: heradsdomstolar
+    case_number: E-5418/2021
+    document_date: '2023-01-03'
+  scope:
+  - domstolar
+- id: g1294
+  question: umboð til að semja um verklaun
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 343/2017
+    document_date: '2018-04-20'
+  - source: heradsdomstolar
+    case_number: E-318/2016
+    document_date: '2017-03-02'
+  scope:
+  - domstolar
+- id: g1297
+  question: ágreiningur um greiðslustað víxils
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 538/2016
+    document_date: '2017-03-09'
+  - source: heradsdomstolar
+    case_number: E-2049/2015
+    document_date: '2016-04-29'
+  scope:
+  - domstolar
+- id: g1298
+  question: skilyrði fyrir flýtimeðferð einkamáls
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 378/2021
+    document_date: '2021-06-22'
+  - source: heradsdomstolar
+    case_number: E-466/2020
+    document_date: '2021-06-04'
+  scope:
+  - domstolar
+- id: g1300
+  question: frávísun vegna ágalla á kærugögnum
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 28/2023
+    document_date: '2023-06-28'
+  - source: landsrettur
+    case_number: 268/2023
+    document_date: '2023-05-23'
+  scope:
+  - domstolar
+- id: g1301
+  question: lækkun fjárnáms vegna eignaleysis gerðarþola
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 823/2017
+    document_date: '2018-01-17'
+  - source: heradsdomstolar
+    case_number: Y-4/2017
+    document_date: '2017-12-12'
+  scope:
+  - domstolar
+- id: g1302
+  question: starfslok trúnaðarmanns í ráðuneyti
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 331/2016
+    document_date: '2017-01-26'
+  - source: heradsdomstolar
+    case_number: E-28/2015
+    document_date: '2016-02-10'
+  scope:
+  - domstolar
+- id: g1303
+  question: ófullnægjandi kæra í framsalsmáli
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 728/2018
+    document_date: '2018-09-26'
+  - source: heradsdomstolar
+    case_number: S-511/2018
+    document_date: '2018-09-11'
+  scope:
+  - domstolar
+- id: g1304
+  question: ómerking úrskurðar um lögræðissviptingu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 36/2024
+    document_date: '2024-01-22'
+  - source: heradsdomstolar
+    case_number: E-3459/2023
+    document_date: '2024-01-04'
+  scope:
+  - domstolar
+- id: g1305
+  question: sakartæming milli fjárdráttar og peningaþvættis
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 331/2020
+    document_date: '2021-06-04'
+  - source: heradsdomstolar
+    case_number: S-651/2020
+    document_date: '2020-04-29'
+  - source: haestirettur
+    case_number: 33/2021
+    document_date: '2022-04-13'
+  scope:
+  - domstolar
+- id: g1306
+  question: gæsluvarðhald vegna hættu á sönnunarspjöllum
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 245/2018
+    document_date: '2018-03-09'
+  - source: heradsdomstolar
+    case_number: S-16/2018
+    document_date: '2018-03-06'
+  scope:
+  - domstolar
+- id: g1309
+  question: skuldbinding vegna afnota af bílastæði
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 7/2024
+    document_date: '2024-10-09'
+  - source: heradsdomstolar
+    case_number: E-5103/2021
+    document_date: '2022-05-17'
+  - source: landsrettur
+    case_number: 571/2022
+    document_date: '2023-11-17'
+  scope:
+  - domstolar
+- id: g1310
+  question: skattalagabrot og ákvörðun sektarfjárhæðar
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 347/2022
+    document_date: '2023-03-31'
+  - source: heradsdomstolar
+    case_number: S-5686/2021
+    document_date: '2022-04-28'
+  scope:
+  - domstolar
+- id: g1311
+  question: tafabætur og kostnaðarauki í verksamningi
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 824/2022
+    document_date: '2024-05-31'
+  - source: heradsdomstolar
+    case_number: E-386/2022
+    document_date: '2022-11-21'
+  scope:
+  - domstolar
+- id: g1316
+  question: staða kröfu í réttindaröð þrotabús
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 36/2020
+    document_date: '2021-01-28'
+  - source: landsrettur
+    case_number: 410/2020
+    document_date: '2020-10-07'
+  scope:
+  - domstolar
+- id: g1317
+  question: fjárskipti sambúðarfólks og bætur fyrir örorku
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 864/2023
+    document_date: '2024-02-09'
+  - source: heradsdomstolar
+    case_number: S-7043/2023
+    document_date: '2023-12-13'
+  scope:
+  - domstolar
+- id: g1321
+  question: skattaleg heimilisfesti við búsetu erlendis
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 418/2017
+    document_date: '2018-05-03'
+  - source: heradsdomstolar
+    case_number: E-2231/2016
+    document_date: '2017-03-31'
+  scope:
+  - domstolar
+- id: g1322
+  question: lögmæti yfirmatsgjalds á sláturafurðir
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 73/2020
+    document_date: '2021-03-12'
+  - source: heradsdomstolar
+    case_number: E-3435/2018
+    document_date: '2020-01-24'
+  scope:
+  - domstolar
+- id: g1325
+  question: bráðabirgðaforsjá og lögheimili barns
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 5/2017
+    document_date: '2017-01-17'
+  - source: heradsdomstolar
+    case_number: E-171/2016
+    document_date: '2016-12-22'
+  scope:
+  - domstolar
+- id: g1326
+  question: aðstoð við ólöglega komu útlendinga
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 183/2018
+    document_date: '2018-10-26'
+  - source: heradsdomstolar
+    case_number: S-359/2017
+    document_date: '2018-01-19'
+  scope:
+  - domstolar
+- id: g1327
+  question: vanhæfi dómara eftir fyrri frávísun
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 82/2017
+    document_date: '2017-02-28'
+  - source: heradsdomstolar
+    case_number: E-3540/2015
+    document_date: '2016-03-09'
+  scope:
+  - domstolar
+- id: g1330
+  question: gáleysisakstur og áverkar í hálku
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 17/2018
+    document_date: '2018-04-20'
+  - source: heradsdomstolar
+    case_number: S-171/2016
+    document_date: '2016-11-25'
+  scope:
+  - domstolar
+- id: g1332
+  question: ruglingshætta milli auðkenna gistiþjónustu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 112/2022
+    document_date: '2023-03-24'
+  - source: heradsdomstolar
+    case_number: E-3983/2021
+    document_date: '2022-02-11'
+  scope:
+  - domstolar
+- id: g1333
+  question: fyrirvaralaus riftun vegna trúnaðarbrots
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 22/2025
+    document_date: '2026-02-19'
+  - source: heradsdomstolar
+    case_number: E-1355/2024
+    document_date: '2024-12-11'
+  scope:
+  - domstolar
+- id: g1334
+  question: aðild húsfélags að dómsmáli
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 463/2018
+    document_date: '2018-09-07'
+  - source: heradsdomstolar
+    case_number: E-227/2018
+    document_date: '2019-02-11'
+  scope:
+  - domstolar
+- id: g1337
+  question: svik við sölu einingahúss
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 25/2025
+    document_date: '2026-02-05'
+  - source: heradsdomstolar
+    case_number: E-1810/2024
+    document_date: '2024-12-19'
+  scope:
+  - domstolar
+- id: g1339
+  question: sönnunarbyrði fyrir greiðslum úr sjúkrasjóði
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 248/2018
+    document_date: '2018-11-23'
+  - source: heradsdomstolar
+    case_number: E-964/2016
+    document_date: '2017-02-22'
+  scope:
+  - domstolar
+- id: g1341
+  question: ómerking dóms vegna sönnunarmats
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 28/2025
+    document_date: '2026-03-11'
+  - source: heradsdomstolar
+    case_number: S-6091/2022
+    document_date: '2024-03-12'
+  - source: landsrettur
+    case_number: 324/2024
+    document_date: '2025-03-06'
+  scope:
+  - domstolar
+- id: g1342
+  question: tómlæti við kröfu um galla
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 642/2016
+    document_date: '2017-11-23'
+  - source: heradsdomstolar
+    case_number: E-1572/2013
+    document_date: '2016-06-24'
+  scope:
+  - domstolar
+- id: g1350
+  question: deilt um efni munnlegs búfjárkaupasamnings
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 874/2018
+    document_date: '2019-10-11'
+  - source: heradsdomstolar
+    case_number: E-39/2017
+    document_date: '2018-10-29'
+  scope:
+  - domstolar
+- id: g1351
+  question: vafi um andlega getu arfleifanda
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 75/2019
+    document_date: '2019-02-28'
+  - source: heradsdomstolar
+    case_number: Q-1/2018
+    document_date: '2019-01-09'
+  scope:
+  - domstolar
+- id: g1352
+  question: orsakasamband slyss og undirliggjandi sjúkdóms sjómanns
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 23/2019
+    document_date: '2019-09-25'
+  scope:
+  - domstolar
+- id: g1354
+  question: fyrning kröfu um verktökurétt samkvæmt rammasamningi
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 47/2022
+    document_date: '2023-05-10'
+  - source: heradsdomstolar
+    case_number: E-2662/2020
+    document_date: '2021-03-04'
+  - source: landsrettur
+    case_number: 203/2021
+    document_date: '2022-06-03'
+  scope:
+  - domstolar
+- id: g1355
+  question: túlkun landamerkjabréfs milli tveggja jarða
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 657/2025
+    document_date: '2026-09-23'
+  scope:
+  - domstolar
+- id: g1357
+  question: ákvörðun málskostnaðar eftir dómsátt aðila
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 256/2026
+    document_date: '2026-05-29'
+  - source: heradsdomstolar
+    case_number: E-2753/2025
+    document_date: '2026-03-24'
+  scope:
+  - domstolar
+- id: g1363
+  question: upptaka ökutækis vegna endurtekinna hraðakstursbrota
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 230/2018
+    document_date: '2019-04-05'
+  - source: heradsdomstolar
+    case_number: S-522/2016
+    document_date: '2017-02-20'
+  scope:
+  - domstolar
+- id: g1365
+  question: sönnun um samkomulag um yfirvinnugreiðslu starfsmanns
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 440/2017
+    document_date: '2018-05-09'
+  - source: heradsdomstolar
+    case_number: E-978/2016
+    document_date: '2017-04-10'
+  scope:
+  - domstolar
+- id: g1368
+  question: endurtekin innbrotstilraun og refsiþyngd
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 36/2001
+    document_date: '2001-03-29'
+  scope:
+  - domstolar
+- id: g1369
+  question: áhrif vísitölubreytingar á verklaun samkvæmt staðli
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 7/2025
+    document_date: '2025-07-02'
+  - source: heradsdomstolar
+    case_number: E-4045/2021
+    document_date: '2023-07-07'
+  - source: landsrettur
+    case_number: 584/2023
+    document_date: '2024-11-14'
+  scope:
+  - domstolar
+- id: g1371
+  question: endurfjármögnun láns og lögmæti gengistryggingar
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 597/2017
+    document_date: '2018-06-07'
+  - source: heradsdomstolar
+    case_number: E-1276/2016
+    document_date: '2017-06-16'
+  scope:
+  - domstolar
+- id: g1373
+  question: ósönnuð krafa um endurgreiðslu lánveitingar til félags
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 847/2017
+    document_date: '2018-10-04'
+  - source: heradsdomstolar
+    case_number: E-1268/2017
+    document_date: '2017-09-26'
+  scope:
+  - domstolar
+- id: g1376
+  question: skerðing lífeyris vegna tekna maka
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 795/2017
+    document_date: '2018-11-15'
+  - source: heradsdomstolar
+    case_number: E-3482/2016
+    document_date: '2017-09-29'
+  scope:
+  - domstolar
+- id: g1378
+  question: hvort lífeyrisskuldbinding fellur undir lögsögu félagsdóms
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 46/2019
+    document_date: '2019-10-30'
+  scope:
+  - domstolar
+- id: g1380
+  question: brottfall veðréttar við endurfjármögnun skuldar
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 8/2026
+    document_date: '2026-02-16'
+  scope:
+  - domstolar
+- id: g1381
+  question: ómerking dóms vegna vöntunar á málskostnaðarákvörðun
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 55/2021
+    document_date: '2022-05-04'
+  - source: landsrettur
+    case_number: 199/2020
+    document_date: '2022-09-16'
+  scope:
+  - domstolar
+- id: g1384
+  question: gildi fjárskiptasamnings við lögskilnað hjóna
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 357/2025
+    document_date: '2026-06-04'
+  scope:
+  - domstolar
+- id: g1385
+  question: lögsaga félagsdóms um vernd trúnaðarmanns
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 12/2022
+    document_date: '2022-03-09'
+  scope:
+  - domstolar
+- id: g1387
+  question: slys á heimleið telst vinnuslys
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 434/2017
+    document_date: '2018-10-04'
+  - source: heradsdomstolar
+    case_number: E-2766/2012
+    document_date: '2017-04-11'
+  scope:
+  - domstolar
+- id: g1388
+  question: endurskoðunarheimild dómstóla á ákvörðun um rannsóknarhlé
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 30/2018
+    document_date: '2018-12-20'
+  - source: heradsdomstolar
+    case_number: E-767/2017
+    document_date: '2018-03-05'
+  - source: landsrettur
+    case_number: 275/2018
+    document_date: '2018-11-16'
+  scope:
+  - domstolar
+- id: g1389
+  question: annmarkar á málatilbúnaði réttlæta ekki frávísun
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 55/2023
+    document_date: '2023-12-21'
+  - source: heradsdomstolar
+    case_number: E-2148/2021
+    document_date: '2022-03-22'
+  - source: landsrettur
+    case_number: 498/2022
+    document_date: '2024-02-09'
+  scope:
+  - domstolar
+- id: g1390
+  question: frávísun ákæru vegna vöntunar á refsikröfu
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 364/2025
+    document_date: '2026-02-19'
+  - source: heradsdomstolar
+    case_number: S-362/2024
+    document_date: '2025-02-17'
+  scope:
+  - domstolar
+- id: g1395
+  question: lágmarksverð nær ekki til umframmjólkur
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 423/2025
+    document_date: '2026-09-17'
+  scope:
+  - domstolar
+- id: g1397
+  question: gáleysismat starfsmanns í útleigðri vinnu
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 55/2019
+    document_date: '2020-06-04'
+  - source: heradsdomstolar
+    case_number: E-405/2018
+    document_date: '2018-12-05'
+  - source: landsrettur
+    case_number: 930/2018
+    document_date: '2019-10-18'
+  scope:
+  - domstolar
+- id: g1399
+  question: áframhaldandi gæsluvarðhald með styttum tíma
+  style: medium
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 334/2026
+    document_date: '2026-04-24'
+  - source: heradsdomstolar
+    case_number: S-6970/2025
+    document_date: '2026-04-30'
+  scope:
+  - domstolar
+- id: g1400
+  question: valdmörk persónuverndar gagnvart vísindarannsóknum heilbrigðissviðs
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 6/2025
+    document_date: '2025-11-05'
+  - source: heradsdomstolar
+    case_number: E-1863/2022
+    document_date: '2023-03-16'
+  - source: landsrettur
+    case_number: 274/2023
+    document_date: '2024-11-14'
+  scope:
+  - domstolar
+- id: g1402
+  question: ógilding ákvörðunar aganefndar félags um viðurlög
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 37/2025
+    document_date: '2026-04-15'
+  - source: heradsdomstolar
+    case_number: E-395/2023
+    document_date: '2024-02-14'
+  - source: landsrettur
+    case_number: 197/2024
+    document_date: '2025-04-10'
+  scope:
+  - domstolar
+- id: g1411
+  question: skráningarskylda erlends aðila og virðisaukaskattsendurgreiðsla
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 9/2025
+    document_date: '2025-11-18'
+  - source: landsrettur
+    case_number: 594/2023
+    document_date: '2024-11-28'
+  - source: heradsdomstolar
+    case_number: E-5787/2022
+    document_date: '2023-07-12'
+  scope:
+  - domstolar
+- id: g1412
+  question: brotthvarf lögvarinna hagsmuna eftir að undanþága rann út
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 3/2026
+    document_date: '2026-06-24'
+  - source: heradsdomstolar
+    case_number: E-5164/2025
+    document_date: '2025-11-25'
+  scope:
+  - domstolar
+- id: g1414
+  question: höfnun á afléttingu frystingar vegna nafnaruglings
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 2/2026
+    document_date: '2026-06-24'
+  - source: heradsdomstolar
+    case_number: E-5581/2025
+    document_date: '2025-11-25'
+  scope:
+  - domstolar
+- id: g1415
+  question: vanreifun kröfu um óskipta bótaábyrgð lögmanns
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 55/2022
+    document_date: '2022-12-19'
+  - source: landsrettur
+    case_number: 384/2021
+    document_date: '2022-10-28'
+  - source: heradsdomstolar
+    case_number: E-2862/2020
+    document_date: '2021-05-19'
+  scope:
+  - domstolar
+- id: g1418
+  question: bundinn samþykktum húsfélags þrátt fyrir vanþinglýsingu
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 8/2025
+    document_date: '2025-10-29'
+  - source: heradsdomstolar
+    case_number: E-3017/2022
+    document_date: '2023-07-07'
+  - source: landsrettur
+    case_number: 575/2023
+    document_date: '2024-11-14'
+  scope:
+  - domstolar
+- id: g1420
+  question: kynferðisbrot gegn stjúpdóttur
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 47/2024
+    document_date: '2025-03-26'
+  - source: heradsdomstolar
+    case_number: S-418/2023
+    document_date: '2023-06-21'
+  - source: landsrettur
+    case_number: 577/2023
+    document_date: '2024-06-27'
+  scope:
+  - domstolar
+- id: g1423
+  question: brottfall leiguréttinda við útgáfu afsals
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 43/2021
+    document_date: '2022-03-30'
+  - source: landsrettur
+    case_number: 186/2020
+    document_date: '2021-06-23'
+  - source: heradsdomstolar
+    case_number: E-56/2019
+    document_date: '2020-03-04'
+  scope:
+  - domstolar
+- id: g1424
+  question: sérregla um vexti atvinnuleysisbóta framar dráttarvöxtum
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 38/2020
+    document_date: '2021-03-25'
+  - source: heradsdomstolar
+    case_number: E-4339/2018
+    document_date: '2019-06-05'
+  - source: landsrettur
+    case_number: 496/2019
+    document_date: '2020-09-25'
+  scope:
+  - domstolar
+- id: g1425
+  question: réttur félagsmanna til aðgangs að gögnum sameignarfélags
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 29/2021
+    document_date: '2021-06-28'
+  - source: landsrettur
+    case_number: 541/2019
+    document_date: '2019-09-03'
+  scope:
+  - domstolar
+- id: g1426
+  question: skilyrði minjaverndar við breytingu deiliskipulags friðaðs húss
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 41/2019
+    document_date: '2020-01-22'
+  - source: heradsdomstolar
+    case_number: E-1091/2017
+    document_date: '2018-07-24'
+  - source: landsrettur
+    case_number: 763/2018
+    document_date: '2019-06-21'
+  scope:
+  - domstolar
+- id: g1430
+  question: bótaréttur sjómanns vegna uppsagnar með fullum launum
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 6/2024
+    document_date: '2024-10-14'
+  - source: heradsdomstolar
+    case_number: E-286/2022
+    document_date: '2022-07-19'
+  - source: landsrettur
+    case_number: 501/2022
+    document_date: '2023-11-17'
+  scope:
+  - domstolar
+- id: g1431
+  question: heimild til að greiða miskabætur samkvæmt sjúklingatryggingalögum
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 9/2024
+    document_date: '2024-11-06'
+  - source: landsrettur
+    case_number: 782/2021
+    document_date: '2023-12-01'
+  - source: heradsdomstolar
+    case_number: E-6235/2019
+    document_date: '2021-11-25'
+  scope:
+  - domstolar
+- id: g1434
+  question: áritun um fullnustuhæfi erlends dóms samkvæmt Lúganósamningi
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 63/2025
+    document_date: '2026-09-09'
+  - source: heradsdomstolar
+    case_number: Y-2722/2024
+    document_date: '2025-11-26'
+  scope:
+  - domstolar
+- id: g1436
+  question: endurgjald ríkisins fyrir húsnæði hjúkrunarheimila
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 17/2020
+    document_date: '2021-02-04'
+  - source: heradsdomstolar
+    case_number: E-3246/2017
+    document_date: '2019-03-27'
+  scope:
+  - domstolar
+- id: g1438
+  question: brottrekstur kennara vegna valdbeitingar gagnvart nemanda
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 42/2023
+    document_date: '2024-04-10'
+  - source: heradsdomstolar
+    case_number: E-394/2021
+    document_date: '2022-02-17'
+  - source: landsrettur
+    case_number: 127/2022
+    document_date: '2023-05-26'
+  scope:
+  - domstolar
+- id: g1442
+  question: vanreifað verðmæti ágreiningsefnis við áfrýjun
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 17/2024
+    document_date: '2024-04-11'
+  - source: landsrettur
+    case_number: 176/2023
+    document_date: '2024-03-15'
+  - source: heradsdomstolar
+    case_number: E-583/2022
+    document_date: '2022-11-30'
+  scope:
+  - domstolar
+- id: g1443
+  question: brottfall réttar til óskipts bús við sambúð
+  style: medium
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 36/2021
+    document_date: '2021-09-15'
+  - source: landsrettur
+    case_number: 209/2021
+    document_date: '2021-05-20'
+  - source: heradsdomstolar
+    case_number: E-750/2019
+    document_date: '2021-03-05'
+  scope:
+  - domstolar
+- id: g1001
+  question: fasteignakaupalög rýrnun eða viðgerðarkostnaður galla
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 109/2025
+    document_date: '2026-03-05'
+  - source: heradsdomstolar
+    case_number: E-925/2024
+    document_date: '2025-01-17'
+  scope:
+  - domstolar
+- id: g1003
+  question: 2. mgr. 218. gr. hgl. líkamsárás vopni
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 178/2016
+    document_date: '2016-11-24'
+  - source: heradsdomstolar
+    case_number: S-404/2015
+    document_date: '2016-01-07'
+  scope:
+  - domstolar
+- id: g1006
+  question: kæruheimild skv. 143. gr. eml málskostnaður
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 305/2026
+    document_date: '2026-05-15'
+  - source: heradsdomstolar
+    case_number: S-3226/2025
+    document_date: '2026-03-24'
+  scope:
+  - domstolar
+- id: g1015
+  question: þjófnaður fjársvik hegningarauki greiðslukort
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 768/2025
+    document_date: '2026-06-11'
+  - source: heradsdomstolar
+    case_number: S-1155/2025
+    document_date: '2025-06-20'
+  scope:
+  - domstolar
+- id: g1021
+  question: skaðabætur vegna ólögmætrar brottvikningar nefndarmanns
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 11/2024
+    document_date: '2024-11-28'
+  - source: heradsdomstolar
+    case_number: E-1767/2023
+    document_date: '2023-12-12'
+  scope:
+  - domstolar
+- id: g1031
+  question: 169. gr. hgl. vanræksla afstýra eldsvoða
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 577/2016
+    document_date: '2017-02-16'
+  - source: heradsdomstolar
+    case_number: S-428/2016
+    document_date: '2016-07-06'
+  scope:
+  - domstolar
+- id: g1034
+  question: óskilorðsbundin fangelsisrefsing samkvæmt dómvenju
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 467/2021
+    document_date: '2022-12-16'
+  - source: heradsdomstolar
+    case_number: S-8184/2020
+    document_date: '2021-06-10'
+  scope:
+  - domstolar
+- id: g1042
+  question: tilskipun 2005/36/EB um viðurkenningu starfsmenntunar
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 212/2022
+    document_date: '2023-11-03'
+  - source: heradsdomstolar
+    case_number: E-4237/2019
+    document_date: '2022-03-17'
+  scope:
+  - domstolar
+- id: g1050
+  question: samaðild skv. 18. gr. eml lóðarmál
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 291/2020
+    document_date: '2020-06-24'
+  - source: heradsdomstolar
+    case_number: E-2188/2019
+    document_date: '2020-04-27'
+  scope:
+  - domstolar
+- id: g1053
+  question: brottvikning án andmælaréttar sbr. 13. gr. stjórnsýslulaga
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 127/2022
+    document_date: '2023-05-26'
+  - source: heradsdomstolar
+    case_number: E-394/2021
+    document_date: '2022-02-17'
+  - source: haestirettur
+    case_number: 42/2023
+    document_date: '2024-04-10'
+  scope:
+  - domstolar
+- id: g1060
+  question: ítrekunarákvæði umferðarlaga vegna sjöunda brots
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 497/2023
+    document_date: '2024-06-14'
+  - source: heradsdomstolar
+    case_number: S-325/2023
+    document_date: '2023-05-22'
+  scope:
+  - domstolar
+- id: g1061
+  question: farbanni beitt í stað gæsluvarðhalds skv. 100. gr.
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 613/2022
+    document_date: '2022-10-13'
+  - source: heradsdomstolar
+    case_number: E-47/2020
+    document_date: '2022-10-17'
+  scope:
+  - domstolar
+- id: g1082
+  question: lögvarðir hagsmunir skv. 2. mgr. 25. gr. eml.
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 50/2021
+    document_date: '2022-05-04'
+  - source: landsrettur
+    case_number: 226/2021
+    document_date: '2021-10-08'
+  - source: heradsdomstolar
+    case_number: E-8237/2020
+    document_date: '2021-03-24'
+  scope:
+  - domstolar
+- id: g1083
+  question: lögvarðir hagsmunir til staðar sbr. 25. gr. eml.
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 432/2025
+    document_date: '2025-07-02'
+  - source: heradsdomstolar
+    case_number: E-2471/2024
+    document_date: '2025-09-16'
+  scope:
+  - domstolar
+- id: g1092
+  question: hvort um gagnkvæma erfðaskrá sé að ræða
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 743/2024
+    document_date: '2024-11-28'
+  scope:
+  - domstolar
+- id: g1111
+  question: sönnunarbyrði samkvæmt 6. gr. sjómannalaga
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 536/2015
+    document_date: '2016-03-22'
+  - source: heradsdomstolar
+    case_number: E-3609/2014
+    document_date: '2015-06-03'
+  scope:
+  - domstolar
+- id: g1112
+  question: orsakatengsl tjóns og saknæmrar háttsemi
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 266/2016
+    document_date: '2016-05-09'
+  - source: heradsdomstolar
+    case_number: E-1545/2013
+    document_date: '2016-03-11'
+  scope:
+  - domstolar
+- id: g1118
+  question: brottfall lögvarinna hagsmuna af áfrýjun
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 661/2015
+    document_date: '2016-06-09'
+  - source: heradsdomstolar
+    case_number: E-4732/2014
+    document_date: '2015-07-02'
+  scope:
+  - domstolar
+- id: g1149
+  question: sönnunarbyrði fyrir leyndum galla fasteignar
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 367/2024
+    document_date: '2025-06-05'
+  - source: heradsdomstolar
+    case_number: E-2167/2023
+    document_date: '2024-04-09'
+  scope:
+  - domstolar
+- id: g1152
+  question: trúnaðarskylda og samkeppnisbann starfsmanns
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 630/2019
+    document_date: '2020-10-16'
+  - source: heradsdomstolar
+    case_number: E-1758/2018
+    document_date: '2019-05-29'
+  scope:
+  - domstolar
+- id: g1162
+  question: lagaskil samkvæmt 2. gr. hegningarlaga
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 40/2020
+    document_date: '2021-06-23'
+  - source: heradsdomstolar
+    case_number: S-134/2019
+    document_date: '2019-12-17'
+  scope:
+  - domstolar
+- id: g1168
+  question: riftun samkvæmt 60. gr. húsaleigulaga
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 83/2016
+    document_date: '2016-10-27'
+  - source: heradsdomstolar
+    case_number: E-4820/2013
+    document_date: '2015-11-04'
+  scope:
+  - domstolar
+- id: g1172
+  question: stöðvun nauðungarsölu samkvæmt 9. gr. ábyrgðarmannalaga
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 328/2018
+    document_date: '2018-05-18'
+  scope:
+  - domstolar
+- id: g1176
+  question: kynferðisbrot samkvæmt 194. gr. hegningarlaga
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 428/2019
+    document_date: '2020-04-07'
+  scope:
+  - domstolar
+- id: g1178
+  question: nálgunarbann og brottvísun sbr. lög 85/2011
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 400/2021
+    document_date: '2021-06-22'
+  - source: heradsdomstolar
+    case_number: S-57/2021
+    document_date: '2021-06-28'
+  scope:
+  - domstolar
+- id: g1185
+  question: refsiákvörðun samkvæmt 6. tölulið 70. gr. hgl
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 717/2024
+    document_date: '2025-04-10'
+  - source: heradsdomstolar
+    case_number: S-1771/2024
+    document_date: '2024-08-20'
+  scope:
+  - domstolar
+- id: g1187
+  question: manndrápstilraun heimfærð til 20. gr. hgl
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 717/2021
+    document_date: '2022-12-09'
+  - source: heradsdomstolar
+    case_number: S-1087/2021
+    document_date: '2021-10-27'
+  scope:
+  - domstolar
+- id: g1210
+  question: skilyrði hefðar samkvæmt hefðarlögum nr. 46/1905
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 686/2020
+    document_date: '2022-03-25'
+  - source: haestirettur
+    case_number: 33/2022
+    document_date: '2022-12-21'
+  scope:
+  - domstolar
+- id: g1220
+  question: gæsluvarðhald á grundvelli d-liðar 95. gr.
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 111/2022
+    document_date: '2022-03-07'
+  - source: heradsdomstolar
+    case_number: S-3653/2019
+    document_date: '2022-03-15'
+  scope:
+  - domstolar
+- id: g1221
+  question: manndrápstilraun samkvæmt 211. gr. hgl
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 685/2020
+    document_date: '2021-10-01'
+  - source: heradsdomstolar
+    case_number: S-245/2020
+    document_date: '2020-11-10'
+  scope:
+  - domstolar
+- id: g1225
+  question: kærugjald og undanþága skv. lögum nr. 88/1991
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 302/2026
+    document_date: '2026-04-30'
+  - source: heradsdomstolar
+    case_number: E-3257/2025
+    document_date: '2026-04-08'
+  - source: haestirettur
+    case_number: 23/2026
+    document_date: '2026-06-08'
+  - source: haestirettur
+    case_number: 40/2026
+    document_date: '2026-08-25'
+  scope:
+  - domstolar
+- id: g1228
+  question: aðgengi fatlaðra skv. 34. gr. laga nr. 59/1992
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 106/2017
+    document_date: '2018-10-25'
+  - source: heradsdomstolar
+    case_number: E-1204/2015
+    document_date: '2016-11-24'
+  scope:
+  - domstolar
+- id: g1235
+  question: aflétting halds á gögnum í skattrannsókn
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 494/2018
+    document_date: '2018-06-20'
+  scope:
+  - domstolar
+- id: g1243
+  question: réttur til efndabóta við riftun verksamnings
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 91/2017
+    document_date: '2018-03-22'
+  - source: heradsdomstolar
+    case_number: E-144/2011
+    document_date: '2016-11-16'
+  scope:
+  - domstolar
+- id: g1246
+  question: sönnunarbyrði um lán eða örlætisgerning
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 485/2018
+    document_date: '2019-04-12'
+  - source: heradsdomstolar
+    case_number: E-2466/2017
+    document_date: '2018-05-16'
+  scope:
+  - domstolar
+- id: g1261
+  question: kæruheimild samkvæmt h-lið 143. gr. eml
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 88/2020
+    document_date: '2020-03-10'
+  scope:
+  - domstolar
+- id: g1262
+  question: misbeiting á ráðandi stöðu og 11. gr. samkeppnislaga
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 273/2015
+    document_date: '2017-02-02'
+  - source: heradsdomstolar
+    case_number: E-3598/2013
+    document_date: '2015-01-16'
+  scope:
+  - domstolar
+- id: g1270
+  question: bótaskylda vegna ólögmætrar nauðungarsölu eignar
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 397/2019
+    document_date: '2020-03-06'
+  scope:
+  - domstolar
+- id: g1278
+  question: skaðabótaábyrgð sérfræðings skv. 37. gr. hlutafélagalaga
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 181/2021
+    document_date: '2023-05-19'
+  - source: heradsdomstolar
+    case_number: E-3800/2018
+    document_date: '2021-02-25'
+  scope:
+  - domstolar
+- id: g1292
+  question: sjálfkrafa frávísun vegna skorts á hagsmunum
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 418/2026
+    document_date: '2026-06-18'
+  scope:
+  - domstolar
+- id: g1295
+  question: fjársvik samkvæmt 248. gr. hgl og peningaþvætti
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 36/2024
+    document_date: '2025-03-12'
+  - source: heradsdomstolar
+    case_number: S-7363/2020
+    document_date: '2022-04-08'
+  - source: landsrettur
+    case_number: 305/2022
+    document_date: '2024-03-22'
+  scope:
+  - domstolar
+- id: g1308
+  question: 122. gr. vvl. um innherjaupplýsingar
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 416/2018
+    document_date: '2019-06-21'
+  - source: heradsdomstolar
+    case_number: E-1931/2017
+    document_date: '2018-04-18'
+  scope:
+  - domstolar
+- id: g1313
+  question: 211. gr. hgl. um manndráp
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 51/2018
+    document_date: '2018-11-23'
+  - source: heradsdomstolar
+    case_number: S-127/2017
+    document_date: '2017-09-29'
+  scope:
+  - domstolar
+- id: g1315
+  question: ógilding samningsákvæðis samkvæmt 36. gr. samningalaga
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 565/2018
+    document_date: '2019-04-12'
+  - source: heradsdomstolar
+    case_number: E-769/2017
+    document_date: '2018-06-12'
+  scope:
+  - domstolar
+- id: g1328
+  question: tómlæti við kröfu um orlofsgreiðslu
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 357/2016
+    document_date: '2017-01-26'
+  - source: heradsdomstolar
+    case_number: E-1795/2015
+    document_date: '2016-02-10'
+  scope:
+  - domstolar
+- id: g1338
+  question: tjáningarfrelsi í opinberri þjóðfélagsumræðu
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 66/2025
+    document_date: '2026-03-12'
+  - source: heradsdomstolar
+    case_number: E-960/2024
+    document_date: '2024-12-27'
+  scope:
+  - domstolar
+- id: g1343
+  question: manndráp af gáleysi við akstur
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 249/2016
+    document_date: '2017-01-19'
+  - source: heradsdomstolar
+    case_number: S-6/2016
+    document_date: '2016-03-16'
+  scope:
+  - domstolar
+- id: g1348
+  question: brot gegn EES-reglum um fæðingarorlof
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 50/2025
+    document_date: '2026-09-23'
+  - source: heradsdomstolar
+    case_number: E-6483/2024
+    document_date: '2025-06-04'
+  scope:
+  - domstolar
+- id: g1349
+  question: húsbrot og árás á heimili
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 8/2018
+    document_date: '2018-06-15'
+  - source: heradsdomstolar
+    case_number: S-288/2016
+    document_date: '2016-12-28'
+  scope:
+  - domstolar
+- id: g1356
+  question: sjónarmið um vilja barns í forsjárdeilu
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 25/2019
+    document_date: '2019-05-10'
+  - source: heradsdomstolar
+    case_number: E-766/2017
+    document_date: '2018-10-24'
+  scope:
+  - domstolar
+- id: g1364
+  question: brottfall lögvarinna hagsmuna við sölu eignar
+  style: term
+  set: auto
+  expected:
+  - source: landsrettur
+    case_number: 101/2018
+    document_date: '2018-06-15'
+  scope:
+  - domstolar
+- id: g1392
+  question: 1. mgr. 69. gr. stjórnarskrár refsiheimild
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 29/2022
+    document_date: '2022-12-21'
+  - source: landsrettur
+    case_number: 391/2021
+    document_date: '2022-02-18'
+  - source: heradsdomstolar
+    case_number: S-212/2020
+    document_date: '2021-05-11'
+  scope:
+  - domstolar
+- id: g1394
+  question: 60. gr. hgl. rof skilorðs
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 193/2014
+    document_date: '2014-10-16'
+  - source: heradsdomstolar
+    case_number: S-1378/2013
+    document_date: '2014-02-13'
+  scope:
+  - domstolar
+- id: g1403
+  question: mótbárumissir veðþola við skuldauppgjör
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 19/2019
+    document_date: '2020-02-05'
+  - source: heradsdomstolar
+    case_number: E-2263/2017
+    document_date: '2018-06-21'
+  - source: landsrettur
+    case_number: 590/2018
+    document_date: '2019-02-22'
+  scope:
+  - domstolar
+- id: g1404
+  question: birting innherjaupplýsinga skv. 122. gr. verðbréfaviðskiptalaga
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 40/2019
+    document_date: '2019-12-16'
+  - source: heradsdomstolar
+    case_number: E-1931/2017
+    document_date: '2018-04-18'
+  scope:
+  - domstolar
+- id: g1410
+  question: ráðgefandi álit um vinnutímahugtak EES
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 52/2023
+    document_date: '2024-05-15'
+  - source: landsrettur
+    case_number: 197/2022
+    document_date: '2023-09-15'
+  - source: heradsdomstolar
+    case_number: E-967/2019
+    document_date: '2022-02-11'
+  scope:
+  - domstolar
+- id: g1413
+  question: undanþága æðstu stjórnenda frá lágmarkshvíld
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 27/2019
+    document_date: '2019-09-30'
+  - source: heradsdomstolar
+    case_number: E-658/2017
+    document_date: '2018-07-06'
+  - source: landsrettur
+    case_number: 602/2018
+    document_date: '2019-04-12'
+  scope:
+  - domstolar
+- id: g1427
+  question: mat á umhverfisáhrifum valkosta við háspennulínu
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 41/2025
+    document_date: '2026-05-27'
+  - source: heradsdomstolar
+    case_number: E-1741/2024
+    document_date: '2025-04-23'
+  scope:
+  - domstolar
+- id: g1432
+  question: aðildarhæfi deildar í veiðifélagi
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 54/2024
+    document_date: '2025-02-26'
+  - source: heradsdomstolar
+    case_number: E-3922/2021
+    document_date: '2023-05-04'
+  - source: landsrettur
+    case_number: 489/2023
+    document_date: '2024-11-28'
+  scope:
+  - domstolar
+- id: g1435
+  question: skriflegt form samnings um byggingarstjórn
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 36/2019
+    document_date: '2019-12-20'
+  - source: heradsdomstolar
+    case_number: E-160/2018
+    document_date: '2018-10-05'
+  - source: landsrettur
+    case_number: 819/2018
+    document_date: '2019-05-31'
+  scope:
+  - domstolar
+- id: g1440
+  question: lögvarðir hagsmunir kæruheimildar til Hæstaréttar
+  style: term
+  set: auto
+  expected:
+  - source: haestirettur
+    case_number: 1/2023
+    document_date: '2023-02-07'
+  - source: landsrettur
+    case_number: 550/2021
+    document_date: '2022-12-16'
+  - source: heradsdomstolar
+    case_number: E-4324/2020
+    document_date: '2021-05-31'
   scope:
   - domstolar
