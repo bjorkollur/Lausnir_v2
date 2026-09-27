@@ -11,8 +11,9 @@ export const SEARCHABLE_THRESHOLD = 8_000;
 
 /** Split markdown into non-overlapping, paragraph-safe segments of ~targetWords each.
  *
- * Unlike the backend's document_chunks (which overlap by design for FTS relevance
- * context), a reader must never show the same text twice, so this carries no overlap.
+ * Unlike the backend's passages (which are structure-aware and non-overlapping by
+ * design for citation), a reader must never show the same text twice either way,
+ * but this split is purely word-count-based and knows nothing of section structure.
  *
  * Footnote markup is expected to have been resolved already (see lib/footnotes.ts);
  * this function only divides text.

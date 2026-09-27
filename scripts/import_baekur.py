@@ -356,10 +356,9 @@ async def main(dry_run: bool) -> None:
     print(f"DONE {stats}")
     if not dry_run and stats["imported"] > 0:
         # Every other source gets this as the final stage of scripts/update_all.py —
-        # without it, new documents.fts_is stays NULL and a scope-less "search
-        # everything" query never finds them (only a scope narrowed to book
-        # sources would, via document_chunks). Run it here so dropfolder imports
-        # aren't a silent search gap the operator has to discover separately.
+        # without it, new documents.fts_is stays NULL and a search never finds
+        # them. Run it here so dropfolder imports aren't a silent search gap
+        # the operator has to discover separately.
         from scripts.backfill_fts_is import backfill as backfill_fts_is
         await backfill_fts_is(source_name="logfraedibaekur")
 

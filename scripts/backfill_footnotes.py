@@ -170,7 +170,7 @@ async def main(source: str, dry_run: bool, limit: int | None, redo: bool) -> Non
     if not dry_run and stats["updated"]:
         print("Keyrðu svo:")
         print(f"  uv run python scripts/backfill_fts_is.py --source {source}")
-        print(f"  uv run python scripts/backfill_chunks.py --source {source}")
+        print(f"  uv run python scripts/backfill_passages.py --source {source}")
 
 
 if __name__ == "__main__":
