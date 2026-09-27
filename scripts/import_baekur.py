@@ -9,9 +9,8 @@ PDF into {DATA_DIR}/dropfolder/ and this script:
   3. Builds + validates + upserts the Document, writes .md, moves the PDF
      to {DATA_DIR}/raw/logfraedibaekur/{external_id}.pdf
 
-Chunking (document_chunks + fts_is) is NOT done here — run
-    uv run python scripts/backfill_chunks.py --source logfraedibaekur
-afterwards, same as for logfraediritgerdir.
+Passages (segmentation + fts_is per passage) are rebuilt automatically at the
+end via scripts/backfill_passages.py.
 
 Usage:
     set -a; . ./.env; set +a
@@ -363,8 +362,9 @@ async def main(dry_run: bool) -> None:
         # aren't a silent search gap the operator has to discover separately.
         from scripts.backfill_fts_is import backfill as backfill_fts_is
         await backfill_fts_is(source_name="logfraedibaekur")
-        print("Run this to also improve relevance/snippets for book-scoped search:")
-        print("  uv run python scripts/backfill_chunks.py --source logfraedibaekur")
+
+        from scripts.backfill_passages import backfill as backfill_passages
+        await backfill_passages(source="logfraedibaekur", limit=None, all_docs=False, workers=4)
 
 
 if __name__ == "__main__":

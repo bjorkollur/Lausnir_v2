@@ -166,6 +166,16 @@ def run_all(
             ok, elapsed = _run_script("fts_refresh", cmd, log_path)
             results.append(("fts_refresh", ok, elapsed))
 
+    # 4. Rebuild passages for documents whose text changed (passage_hash stale).
+    # Cheap when nothing is new; see engine/search/passage_index.py.
+    if not (skip and "passages" in skip):
+        pass_script = _SCRIPTS_DIR / "backfill_passages.py"
+        if pass_script.exists():
+            cmd = ["uv", "run", "python", str(pass_script)]
+            log_path = _LOG_DIR / "passages_refresh.log"
+            ok, elapsed = _run_script("passages_refresh", cmd, log_path)
+            results.append(("passages_refresh", ok, elapsed))
+
     # Summary
     total = len(results)
     failed = [(n, e) for n, ok, e in results if not ok]
@@ -191,7 +201,8 @@ if __name__ == "__main__":
     parser.add_argument("--only", nargs="+", metavar="SOURCE",
                         help="Run only these sources")
     parser.add_argument("--skip", nargs="+", metavar="SOURCE",
-                        help="Skip these sources")
+                        help="Skip these sources (also accepts 'fts' and 'passages' "
+                             "to skip the respective post-import refresh steps)")
     parser.add_argument("--new-only", action="store_true",
                         help="Only fetch documents not yet in DB (fast incremental update)")
     args = parser.parse_args()
