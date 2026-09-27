@@ -41,11 +41,9 @@ def passage_anchor(layer: str, para_from: int | None, para_to: int | None,
     return f"hluti {ordinal + 1}"
 
 
-def build_passage_rows(summary: str | None, body: str | None, lower: str | None,
-                       *, is_lagasafn: bool = False) -> list[dict[str, Any]]:
+def build_passage_rows(summary: str | None, body: str | None,
+                       lower: str | None) -> list[dict[str, Any]]:
     """Segment all three layers into insert-ready rows (without lemmas)."""
-    if is_lagasafn:
-        return []
     rows: list[dict[str, Any]] = []
     for layer, src in zip(LAYERS, (summary, body, lower)):
         if not src or not src.strip():
@@ -94,15 +92,13 @@ async def rebuild_passages(conn, doc_id: uuid.UUID | str, *,
     """
     did = uuid.UUID(str(doc_id))
     row = (await conn.execute(text("""
-        SELECT d.summary, d.body_text, d.lower_body_text, s.short_name
-        FROM documents d JOIN sources s ON s.id = d.source_id WHERE d.id = :id
+        SELECT d.summary, d.body_text, d.lower_body_text FROM documents d WHERE d.id = :id
     """), {"id": did})).first()
     if row is None:
         raise ValueError(f"document {did} not found")
-    summary, body, lower, short_name = row
+    summary, body, lower = row
     if rows_with_lemmas is None:
-        rows_with_lemmas = lemmatize_rows(
-            build_passage_rows(summary, body, lower, is_lagasafn=short_name.startswith("lagasafn_")))
+        rows_with_lemmas = lemmatize_rows(build_passage_rows(summary, body, lower))
 
     await conn.execute(text("DELETE FROM passages WHERE document_id = :id"), {"id": did})
     if rows_with_lemmas:

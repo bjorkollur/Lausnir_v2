@@ -36,8 +36,14 @@ def test_rows_no_text_at_all():
     assert build_passage_rows("", "  ", None) == []
 
 
-def test_rows_lagasafn_is_skipped():
-    assert build_passage_rows("Lög um x", "1. gr. Texti", None, is_lagasafn=True) == []
+def test_rows_lagasafn_shaped_text_is_segmented_too():
+    """F1: lagasafn documents are no longer excluded — their body_text has
+    '## N. gr.' headings the segmenter already handles, and their summary
+    (the law's name) becomes a 'reifun' passage like any other document."""
+    rows = build_passage_rows(None, "## 1. gr.\n\nTexti.\n\n## 2. gr.\n\nMeira.", None)
+    assert len(rows) == 2
+    assert [r["section_path"] for r in rows] == ["1. gr", "2. gr"]
+    assert [r["layer"] for r in rows] == ["body", "body"]
 
 
 def test_long_summary_is_segmented_too():

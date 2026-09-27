@@ -68,13 +68,19 @@ async def test_summary_only_document_gets_one_reifun_passage():
         await conn.rollback(); await eng.dispose()
 
 
-async def test_lagasafn_gets_hash_but_no_passages():
+async def test_lagasafn_gets_passages():
+    """F1: lagasafn is segmented like any other source — its summary (law name)
+    becomes a 'reifun' passage and its body_text (## N. gr. headings) is segmented."""
     eng, conn = await _conn()
     try:
         doc_id = (await conn.execute(text("""
             SELECT d.id FROM documents d JOIN sources s ON s.id=d.source_id
-            WHERE s.short_name LIKE 'lagasafn_%' LIMIT 1"""))).scalar()
-        assert await rebuild_passages(conn, doc_id) == 0
+            WHERE s.short_name LIKE 'lagasafn_%'
+              AND (d.body_text IS NOT NULL OR d.summary IS NOT NULL) LIMIT 1"""))).scalar()
+        if doc_id is None:
+            pytest.skip("no lagasafn document with text in this DB")
+        n = await rebuild_passages(conn, doc_id)
+        assert n >= 1
         h = (await conn.execute(text("SELECT passage_hash FROM documents WHERE id=:id"), {"id": doc_id})).scalar()
         assert h and len(h) == 32
     finally:

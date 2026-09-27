@@ -132,9 +132,11 @@ Kallandinn (`passage_index.rebuild_passages`) byggir efnisgreinar í þessari r�
 
 Hnit vísa alltaf í dálkinn sem `layer` segir til um.
 
+Lagasafn (`lagasafn_*`, 915 skjöl) fær efnisgreinar eins og öll önnur skjöl: `summary` (heiti laganna) verður `reifun`-efnisgrein og `body_text` (`## N. gr.`-fyrirsagnir) er segmenterað eins og hvert annað skipulagt skjal. **(Breytt 2026-09-27 eftir lokayfirferð: að undanskilja lagasafn skildi lögin eftir talin með í `documents.fts_is` en óaðgengileg í orðaleit — `search_documents(scope=["lagasafn"])` skilaði `total` en engum röðum. Sjá F1 í fixwave-skýrslunni.)** Ákvæðið er eftir sem áður eiginlega einingin fyrir `/api/provision`; efnisgreinar bæta orðaleit ofan á það, þær breyta ekki því flæði.
+
 ### Undanskilið
 
-Lagasafn (`lagasafn_*`, 915 skjöl) fær engar efnisgreinar. Einingin þar er ákvæðið, þegar skipulagt í `documents.provisions` og þjónað af `/api/provision`. `rebuild_passages` setur samt `passage_hash` fyrir þau svo þau teljist ekki úrelt.
+Ekkert skjal er undanskilið `passages`-smíð lengur (sjá breytinguna hér að ofan).
 
 ## Leit — `engine/search/queries.py`
 
@@ -242,8 +244,8 @@ Ein breyting: `ResultCard` sýnir `anchor` sem lítið merki við hlið útdrát
 ```python
 async def rebuild_passages(conn, doc_id: uuid.UUID) -> int:
     """Eyðir og endurbyggir efnisgreinar eins skjals í sömu færslu.
-    Setur documents.passage_hash. Skilar fjölda efnisgreina.
-    Lagasafn: engar efnisgreinar, hash samt sett."""
+    Setur documents.passage_hash og endurnýjar documents.fts_is úr sömu lemmum.
+    Skilar fjölda efnisgreina. Lagasafn fær efnisgreinar eins og önnur skjöl."""
 
 def stale_documents_sql(source: str | None) -> tuple[str, dict]:
     """WHERE passage_hash IS DISTINCT FROM md5(...) [AND s.short_name = :sn]"""
@@ -316,7 +318,7 @@ Sömu tölur ráða síðan vali á `ts_rank`/`ts_rank_cd`, vægi `match_count` 
 
 - `tests/test_segmenter.py`: númeraðar málsgreinar með fyrirsögnum (Landsréttarsnið), fyrirsagnir án númera (héraðsdómssnið), flatur texti yfir 400 orðum (yfirskattanefndarsnið), ein málsgrein yfir hámarki, stutt skjal, tómt skjal, ártal/dagsetning sem ekki telst málsgreinanúmer, fyrirsögn fremst í bút, `para_from/para_to`, **hnitaheild** (`source[start:end] == text`) fyrir hvern bút í öllum tilvikum, engin skörun og engin eyða nema hvítt bil.
 - `tests/test_sections.py`: `classify_section` fyrir öll sex kind, rómverskt forskeyti, bil milli stafa, `None`.
-- `tests/test_passage_index.py`: `rebuild_passages` er idempotent, setur hash, þrjú lög í réttri ordinal-röð, lagasafn fær hash en engar efnisgreinar. (Krefst DB; merkt eins og önnur DB-próf í verkefninu.)
+- `tests/test_passage_index.py`: `rebuild_passages` er idempotent, setur hash, þrjú lög í réttri ordinal-röð, lagasafn fær efnisgreinar eins og önnur skjöl. (Krefst DB; merkt eins og önnur DB-próf í verkefninu.)
 - `tests/test_search_queries.py`: viðbætur fyrir efnisgreinaleiðina — SQL-form, `section_kind`-sía, 400 á ógilt gildi, `match_count` og `anchor` í svari, `provision` og `keyword` síur berast áfram (sama aðhvarfsflokkur og „Bug 2“ í `_search_by_chunks`).
 - `tests/test_api_passages.py`: samningspróf á `/api/document/{id}/passages` — sjálfgefið bil, síur, 404, 400.
 - `tests/test_passage_anchor.py`: fjögur tilvik `passage_anchor`.

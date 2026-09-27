@@ -48,9 +48,9 @@ COMMIT_EVERY = 50
 
 def _work(item: tuple) -> tuple:
     """Runs in a worker process. item = (doc_id, summary, body, lower, short_name)."""
-    doc_id, summary, body, lower, short_name = item
+    doc_id, summary, body, lower, _short_name = item
     try:
-        rows = build_passage_rows(summary, body, lower, is_lagasafn=short_name.startswith("lagasafn_"))
+        rows = build_passage_rows(summary, body, lower)
         return doc_id, lemmatize_rows(rows), None
     except Exception as exc:  # noqa: BLE001 — reported and skipped, never aborts the run
         return doc_id, None, f"{type(exc).__name__}: {exc}"
