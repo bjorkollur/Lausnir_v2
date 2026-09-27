@@ -539,6 +539,8 @@ async def search_documents(
         # making relevance sort meaningless; the provision filter is sufficient.
         lemmas = "" if _text_is_noise_for_provision(q, provision) else lemmatize_query(q)
         if lemmas:
+            # Checked before _scope_is_chunked: the passages impl covers book/thesis
+            # content too, so chunk-table routing below is legacy (documents impl) only.
             if SEARCH_IMPL == "passages":
                 params["lemmas"] = lemmas
                 return await search_by_passages(

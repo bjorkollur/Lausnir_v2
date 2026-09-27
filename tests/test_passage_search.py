@@ -1,7 +1,9 @@
 """SQL shape of the passage search path (no DB)."""
 import pytest
 from engine.search.queries import SearchError
-from engine.search.passage_search import build_hits_sql, order_sql, validate_section_kinds
+from engine.search.passage_search import (
+    PASSAGE_CANDIDATE_DOCS, build_hits_sql, order_sql, validate_section_kinds,
+)
 
 
 def test_validate_section_kinds_accepts_known_rejects_unknown():
@@ -11,15 +13,19 @@ def test_validate_section_kinds_accepts_known_rejects_unknown():
         validate_section_kinds(["nidurstada", "foo"])
 
 
+def test_candidate_cap_constant():
+    assert PASSAGE_CANDIDATE_DOCS == 2000
+
+
 def test_hits_sql_prefilters_on_document_fts_and_groups_by_document():
     sql = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)",
                          doc_where=["d.document_date >= :date_from"], section_filter=False)
-    assert "d.fts_is @@ plainto_tsquery('simple', :lemmas)" in sql
-    assert "p.fts_is @@ plainto_tsquery('simple', :lemmas)" in sql
-    assert "d.document_date >= :date_from" in sql
+    assert "LIMIT :cand_limit" in sql
+    assert "JOIN cand c ON c.id = p.document_id" in sql
+    assert "ORDER BY doc_rank DESC" in sql
     assert "GROUP BY p.document_id" in sql
     assert "count(*) AS match_count" in sql and "best_passage_id" in sql
-    assert "section_kind" not in sql
+    assert "d.document_date >= :date_from" in sql
 
 
 def test_hits_sql_adds_section_filter_when_requested():
