@@ -187,3 +187,9 @@ def test_provision_noise_query_is_filter_only_in_both_impls():
     assert _text_is_noise_for_provision("2. mgr. 218. gr. laga nr. 19/1940", provision="218. gr. 19/1940")
     assert not _text_is_noise_for_provision("líkamsárás 218. gr.", provision="218. gr. 19/1940")
     assert not _text_is_noise_for_provision("2. mgr. 218. gr.", provision=None)
+
+
+def test_or_query_joins_lemmas_with_pipe():
+    from engine.search.queries import _or_query
+    assert _or_query("gæsluvarðhald rannsókn") == "gæsluvarðhald | rannsókn"
+    assert _or_query("gæsluvarðhald") == "gæsluvarðhald"

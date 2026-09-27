@@ -18,7 +18,7 @@ def test_candidate_cap_constant():
 
 
 def test_hits_sql_prefilters_on_document_fts_and_groups_by_document():
-    sql = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)",
+    sql = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)", or_tsq=None,
                          doc_where=["d.document_date >= :date_from"], section_filter=False)
     assert "LIMIT :cand_limit" in sql
     assert "JOIN cand c ON c.id = p.document_id" in sql
@@ -29,12 +29,27 @@ def test_hits_sql_prefilters_on_document_fts_and_groups_by_document():
 
 
 def test_hits_sql_adds_section_filter_when_requested():
-    sql = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)", doc_where=[], section_filter=True)
+    sql = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)", or_tsq=None,
+                         doc_where=[], section_filter=True)
     assert "p.section_kind = ANY(:section_kinds)" in sql
 
 
+def test_hits_sql_or_fallback_present_only_for_keyword():
+    sql_with = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)",
+                              or_tsq="to_tsquery('simple', :lemmas_or)",
+                              doc_where=[], section_filter=False)
+    assert "hits_or" in sql_with
+    assert "NOT EXISTS" in sql_with
+    assert "UNION ALL" in sql_with
+    assert "colocated" in sql_with
+
+    sql_without = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)", or_tsq=None,
+                                 doc_where=[], section_filter=False)
+    assert "hits_or" not in sql_without
+
+
 @pytest.mark.parametrize("sort,first", [
-    ("relevance", "h.best_rank DESC, h.match_count DESC"),
+    ("relevance", "h.colocated DESC, h.best_rank DESC, h.match_count DESC"),
     ("newest", "d.document_date DESC NULLS LAST, h.best_rank DESC"),
     ("oldest", "d.document_date ASC NULLS LAST, h.best_rank DESC"),
 ])

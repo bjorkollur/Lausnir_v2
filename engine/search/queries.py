@@ -465,6 +465,12 @@ def _text_is_noise_for_provision(q: str, provision: str | None) -> bool:
     return bool(toks) and toks.issubset(_PROVISION_NOISE)
 
 
+def _or_query(lemmas: str) -> str:
+    """Turn space-separated lemmas into an OR tsquery source ('a b' -> 'a | b'),
+    for the passages OR-fallback stage (recall for terms split across passages)."""
+    return " | ".join(lemmas.split())
+
+
 async def search_documents(
     session: AsyncSession,
     *,
@@ -543,9 +549,11 @@ async def search_documents(
             # content too, so chunk-table routing below is legacy (documents impl) only.
             if SEARCH_IMPL == "passages":
                 params["lemmas"] = lemmas
+                params["lemmas_or"] = _or_query(lemmas)
                 return await search_by_passages(
                     session, tsq_fn="plainto_tsquery", tsq_param="lemmas", where=where, params=params,
-                    sort=sort, page=page, page_size=page_size, section_kinds=section_kinds)
+                    sort=sort, page=page, page_size=page_size, section_kinds=section_kinds,
+                    or_tsq_param="lemmas_or")
             # Route through document_chunks when scope is entirely chunked sources
             if _scope_is_chunked(scope):
                 scope_filter = await resolve_scope(session, scope)
