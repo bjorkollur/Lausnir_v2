@@ -70,12 +70,20 @@ def validate_section_kinds(kinds: list[str] | None) -> list[str] | None:
     return list(dict.fromkeys(kinds))
 
 
-def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], section_filter: bool) -> str:
+def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], section_filter: bool,
+                   sort: str = "relevance") -> str:
     """Two- or three-stage CTE list (no leading ``WITH`` — callers prepend it).
 
     Stage 1 (``cand``) ranks documents by ``ts_rank(d.fts_is, tsq)`` (the doc-level
     AND match) and caps the candidate set at :cand_limit (PASSAGE_CANDIDATE_DOCS) so
     later stages never aggregate passages for more documents than that.
+
+    F2: when ``sort`` is ``newest``/``oldest``, ``cand`` is ordered by
+    ``d.document_date`` instead of ``doc_rank`` — otherwise the date sort only ever
+    picks among the :cand_limit best-*ranked* documents, not the newest/oldest
+    overall (a 2000-document rank cap silently overriding an explicit date sort).
+    ``doc_rank`` is still computed and selected either way, since ``hits``/ordering
+    downstream (``order_sql``) uses it as a tiebreaker.
 
     Stage 2 (``hits_and``) finds, within those candidates, passages where all query
     terms co-occur in the *same* passage — the precise, well-ranked match.
@@ -96,12 +104,19 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     if section_filter:
         and_where.append("p.section_kind = ANY(:section_kinds)")
 
+    if sort == "newest":
+        cand_order = "d.document_date DESC NULLS LAST, d.id"
+    elif sort == "oldest":
+        cand_order = "d.document_date ASC NULLS LAST, d.id"
+    else:
+        cand_order = "doc_rank DESC, d.id"
+
     ctes = f"""
         cand AS (
             SELECT d.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank
             FROM documents d
             WHERE d.fts_is @@ {tsq}{doc_where_sql}
-            ORDER BY doc_rank DESC, d.id
+            ORDER BY {cand_order}
             LIMIT :cand_limit
         ),
         hits_and AS (
@@ -173,7 +188,7 @@ async def search_by_passages(
     tsq = f"{tsq_fn}('simple', :{tsq_param})"
     # OR-fallback recall stage, keyword mode only (proximity passes or_tsq_param=None).
     or_tsq = f"to_tsquery('simple', :{or_tsq_param})" if or_tsq_param else None
-    ctes = build_hits_sql(tsq=tsq, or_tsq=or_tsq, doc_where=where, section_filter=bool(section_kinds))
+    ctes = build_hits_sql(tsq=tsq, or_tsq=or_tsq, doc_where=where, section_filter=bool(section_kinds), sort=sort)
     p = dict(params)
     p["cand_limit"] = PASSAGE_CANDIDATE_DOCS
     if section_kinds:

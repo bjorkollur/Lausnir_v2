@@ -85,3 +85,29 @@ async def test_lagasafn_gets_passages():
         assert h and len(h) == 32
     finally:
         await conn.rollback(); await eng.dispose()
+
+
+async def test_rebuild_refreshes_fts_is_from_passage_lemmas():
+    """F3: rebuild_passages must refresh documents.fts_is in the same transaction,
+    from the same lemmas used to build the passages, so the candidate prefilter
+    (d.fts_is @@ tsq) never gates on a stale index."""
+    from engine.processors.lemmatizer import lemmatize_text
+    eng, conn = await _conn()
+    try:
+        doc_id = (await conn.execute(text("""
+            SELECT d.id FROM documents d JOIN sources s ON s.id=d.source_id
+            WHERE s.short_name='landsrettur' AND d.body_text IS NOT NULL LIMIT 1"""))).scalar()
+        # Stomp fts_is with something clearly stale first, so a real refresh is provable.
+        await conn.execute(text("UPDATE documents SET fts_is = to_tsvector('simple', 'placeholder') WHERE id=:id"),
+                           {"id": doc_id})
+        await rebuild_passages(conn, doc_id)
+        body = (await conn.execute(text("SELECT body_text FROM documents WHERE id=:id"), {"id": doc_id})).scalar()
+        lemmas = lemmatize_text(body or "").split()
+        assert lemmas, "expected lemmas in body_text"
+        lemma = lemmas[len(lemmas) // 2]  # a lemma that only appears deep in the body
+        matched = (await conn.execute(text(
+            "SELECT d.fts_is @@ plainto_tsquery('simple', :w) FROM documents d WHERE d.id=:id"),
+            {"w": lemma, "id": doc_id})).scalar()
+        assert matched is True
+    finally:
+        await conn.rollback(); await eng.dispose()

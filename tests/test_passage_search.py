@@ -72,6 +72,24 @@ def test_rank_strategies_all_produce_order_sql():
         order_sql("relevance", "not-a-strategy")
 
 
+@pytest.mark.parametrize("sort,expected_cand_order", [
+    ("relevance", "ORDER BY doc_rank DESC, d.id"),
+    ("newest", "ORDER BY d.document_date DESC NULLS LAST, d.id"),
+    ("oldest", "ORDER BY d.document_date ASC NULLS LAST, d.id"),
+])
+def test_cand_order_by_follows_sort(sort, expected_cand_order):
+    """F2: 'cand' must not always rank by doc_rank — newest/oldest need the
+    candidate cap itself ordered by date, otherwise the sort only ever picks
+    among the best-ranked :cand_limit documents, not the newest/oldest overall."""
+    sql = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)", or_tsq=None,
+                         doc_where=[], section_filter=False, sort=sort)
+    cand_cte = sql.split("hits_and AS")[0]
+    assert expected_cand_order in cand_cte
+    # doc_rank is still computed/selected regardless of sort (used as a tiebreaker
+    # downstream in order_sql).
+    assert "AS doc_rank" in cand_cte
+
+
 def test_rank_fn_ts_rank_cd_applied(monkeypatch):
     monkeypatch.setattr(passage_search, "PASSAGE_RANK_FN", "ts_rank_cd")
     sql = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)", or_tsq=None,

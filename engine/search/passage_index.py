@@ -84,7 +84,10 @@ _INSERT_SQL = text("""
 
 async def rebuild_passages(conn, doc_id: uuid.UUID | str, *,
                            rows_with_lemmas: list[dict[str, Any]] | None = None) -> int:
-    """Delete + insert this document's passages and set passage_hash.
+    """Delete + insert this document's passages, set passage_hash, and refresh
+    documents.fts_is from the same lemmas (F3: keeps the two indexes in sync —
+    fts_is is the candidate prefilter for passage search, so it must never be
+    staler than the passages it gates).
 
     Runs in the caller's transaction (no commit here). If rows_with_lemmas is
     None, the document's text is read and lemmatised in-process.
@@ -92,17 +95,31 @@ async def rebuild_passages(conn, doc_id: uuid.UUID | str, *,
     """
     did = uuid.UUID(str(doc_id))
     row = (await conn.execute(text("""
-        SELECT d.summary, d.body_text, d.lower_body_text FROM documents d WHERE d.id = :id
+        SELECT d.summary, d.body_text, d.lower_body_text,
+               d.case_number, d.court, d.verdict_type
+        FROM documents d WHERE d.id = :id
     """), {"id": did})).first()
     if row is None:
         raise ValueError(f"document {did} not found")
-    summary, body, lower = row
+    summary, body, lower, case_number, court, verdict_type = row
     if rows_with_lemmas is None:
         rows_with_lemmas = lemmatize_rows(build_passage_rows(summary, body, lower))
 
     await conn.execute(text("DELETE FROM passages WHERE document_id = :id"), {"id": did})
     if rows_with_lemmas:
         await conn.execute(_INSERT_SQL, [{**r, "doc_id": did} for r in rows_with_lemmas])
-    await conn.execute(text("UPDATE documents SET passage_hash = :h WHERE id = :id"),
-                       {"h": passage_hash(summary, body, lower), "id": did})
+
+    # fts_is = structured tokens (as backfill_fts_is.py._build_fts_text builds them)
+    # + the concatenation of all passage lemmas in ordinal order. The passages cover
+    # summary/body/lower_body contiguously, so this equals the old whole-text
+    # lemmatisation up to boundary tokens.
+    structured = " ".join(filter(None, [case_number, court, verdict_type]))
+    lemmas_joined = " ".join(
+        r["lemmas"] for r in sorted(rows_with_lemmas, key=lambda r: r["ordinal"]) if r.get("lemmas"))
+    fts_text = f"{structured} {lemmas_joined}".strip()
+
+    await conn.execute(text("""
+        UPDATE documents SET passage_hash = :h, fts_is = to_tsvector('simple', :fts_text)
+        WHERE id = :id
+    """), {"h": passage_hash(summary, body, lower), "fts_text": fts_text, "id": did})
     return len(rows_with_lemmas)

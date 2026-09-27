@@ -15,6 +15,9 @@ Notaðu `.scalars().all()`, **ekki** `scalar_one_or_none()`, þegar þú spyrð 
 ### `passage_hash` er ekki trigger
 Ólíkt `fts`/`fts_is` er `passages`-taflan aldrei uppfærð sjálfkrafa við skrift á `documents`. `documents.passage_hash` geymir `md5()` af textalögunum eins og þau voru við síðustu `passages`-smíð; NULL eða misræmi þýðir úreltar/vantandi efnisgreinar fyrir það skjal. `scripts/backfill_passages.py` (keyrt sjálfkrafa af `update_all.py` sem `passages_refresh`-þrepið) ber saman og endursmíðar aðeins það sem er úrelt. Nýtt skjal án þessa finnst **ekki** í `keyword`/`proximity` leit — sama gildruflokkur og `fts_is`.
 
+### `documents.fts_is` og `passages` verða að vera endurbyggð saman
+`rebuild_passages()` (kallað af `backfill_passages.py`) endurnýjar `documents.fts_is` úr sömu lemmum og `passages`-röðunum, í sömu færslu — það er eina leiðin sem `fts_is` uppfærist eftir að skjal er endurunnið. `backfill_fts_is.py` fyllir aðeins `NULL`-gildi og lagar því **ekki** skjal sem átti `fts_is` fyrir en fékk nýjan `body_text` seinna (t.d. eftir endur-extraction). Þangað til `rebuild_passages()` keyrir á því skjali er `passages` p rétt en forsían `d.fts_is @@ tsq` í efnisgreinaleitinni (sjá F3, [05-leit](05-leit.md)) getur útilokað skjalið úr `keyword`/`proximity`-leit þótt efnisgreinarnar sjálfar passi.
+
 ### `validation_errors` geymir tvenns konar „ekkert"
 19.554 raðir hafa JSON-gildið `null` (skalar) og 25.546 hafa raunverulegan fylkjalista. SQL sem gerir ráð fyrir fylki springur:
 
