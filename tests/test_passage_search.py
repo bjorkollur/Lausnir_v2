@@ -3,7 +3,8 @@ import pytest
 from engine.search.queries import SearchError
 from engine.search import passage_search
 from engine.search.passage_search import (
-    PASSAGE_CANDIDATE_DOCS, RANK_STRATEGIES, build_hits_sql, order_sql, validate_section_kinds,
+    PASSAGE_CANDIDATE_DOCS, PASSAGE_RANK_FN, PASSAGE_RANK_STRATEGY, RANK_STRATEGIES,
+    build_hits_sql, order_sql, validate_section_kinds,
 )
 
 
@@ -50,12 +51,17 @@ def test_hits_sql_or_fallback_present_only_for_keyword():
 
 
 @pytest.mark.parametrize("sort,first", [
-    ("relevance", "h.colocated DESC, h.best_rank DESC, h.match_count DESC"),
+    ("relevance", "h.doc_rank DESC, h.best_rank DESC"),
     ("newest", "d.document_date DESC NULLS LAST, h.best_rank DESC"),
     ("oldest", "d.document_date ASC NULLS LAST, h.best_rank DESC"),
 ])
 def test_order_sql(sort, first):
     assert order_sql(sort).startswith(first)
+
+
+def test_default_rank_settings():
+    assert PASSAGE_RANK_FN == "ts_rank_cd"
+    assert PASSAGE_RANK_STRATEGY == "doc"
 
 
 def test_rank_strategies_all_produce_order_sql():

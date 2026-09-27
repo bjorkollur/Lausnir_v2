@@ -33,11 +33,19 @@ PASSAGE_CANDIDATE_DOCS = 2000
 # Postgres text-search rank function used for both doc_rank (in `cand`) and
 # passage-level rank (in `hits_and`/`hits_or`); PASSAGE_RANK_STRATEGY selects the
 # relevance ORDER BY. Read as module attributes at call time (not bound at import)
-# so scripts/eval_search.py --rank-sweep can flip them between evaluations. Do not
-# change these defaults in this round -- the controller picks the winner from the
-# sweep.
-PASSAGE_RANK_FN = "ts_rank"
-PASSAGE_RANK_STRATEGY = "tiered"
+# so scripts/eval_search.py --rank-sweep can flip them between evaluations.
+#
+# Defaults set in fix round 4, measured on the 50-query draft golden set on
+# 2026-09-27 (`scripts/eval_search.py --rank-sweep`): ts_rank_cd/doc scored
+# recall@10 .360, MRR .228, hit@1 .180, vs legacy `documents` impl .340/.206/.160
+# and vs the prior `tiered` default .300/.214/.180. Passage-led strategies
+# (`passage`, `blend`, `breadth`, and their `_coloc` variants) did not beat plain
+# document-level ranking on this set, so `doc` orders results by document-level
+# cover-density rank alone and passages only supply the best passage (anchor,
+# snippet) and the section_kind filter. Re-run the sweep once the golden set has
+# been reviewed, since this choice is provisional on a draft 50-query set.
+PASSAGE_RANK_FN = "ts_rank_cd"
+PASSAGE_RANK_STRATEGY = "doc"
 
 # strategy -> relevance ORDER BY prefix; order_sql() appends
 # ", d.document_date DESC NULLS LAST, d.id" to whichever is selected.
