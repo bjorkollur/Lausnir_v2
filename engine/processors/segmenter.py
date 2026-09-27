@@ -26,6 +26,11 @@ _BOLD_ROMAN_HEADING_RE = re.compile(r'^\*\*[IVX]+\.(?:\*\*\*\*|\s+)[^*\n]{1,80}?
 _NUMBERED_RE = re.compile(r'^(\d{1,3})\.\s+[A-ZÁÉÍÓÚÝÞÆÖ]')
 _SENTENCE_END_RE = re.compile(r'(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÝÞÆÖ„"(])')
 _WORD_RE = re.compile(r'\S+')
+# Headings are short by construction. Some OCR-garbled paragraphs happen to start
+# with "# " (a stray hash from scan noise) and run for hundreds of words on one
+# line; without this cap that whole paragraph would be classified as a heading
+# and bypass the max_words guard below.
+MAX_HEADING_WORDS = 30
 
 
 @dataclass(frozen=True)
@@ -80,7 +85,11 @@ def _iter_blocks(text: str):
         body = text[s2:e2]
         nl = body.find("\n")
         first_line = body if nl == -1 else body[:nl]
-        if _MD_HEADING_RE.match(first_line) or _BOLD_ROMAN_HEADING_RE.match(first_line):
+        is_heading = (
+            _word_count(first_line) <= MAX_HEADING_WORDS
+            and (_MD_HEADING_RE.match(first_line) or _BOLD_ROMAN_HEADING_RE.match(first_line))
+        )
+        if is_heading:
             if nl == -1:
                 yield _Block(s2, e2, "heading", None, _word_count(body))
                 continue

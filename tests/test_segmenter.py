@@ -147,3 +147,19 @@ def test_heading_glued_to_numbered_paragraph_keeps_para_number():
     _check_integrity(text, ps)
     assert ps[0].section_path == "Niðurstaða"
     assert (ps[0].para_from, ps[0].para_to) == (1, 2)
+
+
+def test_long_line_starting_with_hash_is_not_a_heading():
+    """OCR-garbled paragraphs sometimes start with '# '. A heading must be short;
+    a 500-word line is body text and must respect max_words."""
+    text = "# " + ("orð sem endar. " * 170).strip()      # one long line, ~510 words
+    ps = segment(text, target_words=250, max_words=400)
+    _check_integrity(text, ps)
+    assert all(p.word_count <= 400 for p in ps)
+    assert all(p.section_path is None for p in ps)
+
+
+def test_short_hash_heading_is_still_a_heading():
+    text = "## Niðurstaða\n\nTexti."
+    ps = segment(text)
+    assert ps[0].section_path == "Niðurstaða" and ps[0].section_kind == "nidurstada"
