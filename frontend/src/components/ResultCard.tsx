@@ -30,7 +30,16 @@ export function ResultCard({ r }: { r: SearchResult }) {
           </p>
         );
       })()}
-      <p className="text-sm text-[var(--ink)] mt-2 leading-relaxed" dangerouslySetInnerHTML={markHtml(r.snippet)} />
+      <div className="mt-2 flex items-start gap-2">
+        {r.anchor && (
+          <span data-testid="passage-anchor"
+                className="shrink-0 text-xs font-medium text-[var(--ink-soft)] bg-[var(--canvas)] border border-[var(--border)] rounded-md px-2 py-0.5"
+                title={r.section_kind ?? undefined}>
+            {r.anchor}
+          </span>
+        )}
+        <p className="text-sm text-[var(--ink)] leading-relaxed" dangerouslySetInnerHTML={markHtml(r.snippet)} />
+      </div>
       {r.keywords.length > 0 && (
         <div className="flex flex-wrap gap-1.5 mt-2">
           {r.keywords.map((k) => (

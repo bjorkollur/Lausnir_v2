@@ -8,6 +8,9 @@ export interface SearchResult {
   court: string | null; case_number: string | null; document_date: string | null;
   verdict_type: string | null; keywords: string[]; plaintiffs: Party[]; defendants: Party[];
   snippet: string; has_appeal_links: boolean;
+  /** Passage-level fields (null when the API runs the legacy document path). */
+  passage_id: string | null; anchor: string | null; section_kind: string | null;
+  layer: "summary" | "body" | "lower_body" | null; match_count: number | null;
 }
 // GET /api/facets?q&mode&date_from&date_to&regex_fields  → {catalog, total}
 export interface CatalogNode { key: string; label: string; count: number; children?: CatalogNode[]; }
