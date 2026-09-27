@@ -1,8 +1,9 @@
 """SQL shape of the passage search path (no DB)."""
 import pytest
 from engine.search.queries import SearchError
+from engine.search import passage_search
 from engine.search.passage_search import (
-    PASSAGE_CANDIDATE_DOCS, build_hits_sql, order_sql, validate_section_kinds,
+    PASSAGE_CANDIDATE_DOCS, RANK_STRATEGIES, build_hits_sql, order_sql, validate_section_kinds,
 )
 
 
@@ -55,3 +56,19 @@ def test_hits_sql_or_fallback_present_only_for_keyword():
 ])
 def test_order_sql(sort, first):
     assert order_sql(sort).startswith(first)
+
+
+def test_rank_strategies_all_produce_order_sql():
+    for strategy in RANK_STRATEGIES:
+        sql = order_sql("relevance", strategy)
+        assert sql.endswith("d.document_date DESC NULLS LAST, d.id")
+    with pytest.raises(ValueError):
+        order_sql("relevance", "not-a-strategy")
+
+
+def test_rank_fn_ts_rank_cd_applied(monkeypatch):
+    monkeypatch.setattr(passage_search, "PASSAGE_RANK_FN", "ts_rank_cd")
+    sql = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)", or_tsq=None,
+                         doc_where=[], section_filter=False)
+    assert "ts_rank_cd(" in sql
+    assert "ts_rank(p.fts_is" not in sql

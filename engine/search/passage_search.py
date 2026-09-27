@@ -15,7 +15,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from engine.processors.sections import SECTION_KINDS
 from engine.search.passage_index import passage_anchor
 
-__all__ = ["SECTION_KINDS", "PASSAGE_CANDIDATE_DOCS", "MAX_PASSAGE_WINDOW", "validate_section_kinds",
+__all__ = ["SECTION_KINDS", "PASSAGE_CANDIDATE_DOCS", "MAX_PASSAGE_WINDOW", "PASSAGE_RANK_FN",
+           "PASSAGE_RANK_STRATEGY", "RANK_STRATEGIES", "validate_section_kinds",
            "build_hits_sql", "order_sql", "search_by_passages", "get_passages"]
 
 _HEADLINE_OPTS = ("'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=35,"
@@ -27,6 +28,28 @@ _HEADLINE_OPTS = ("'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=35,"
 # documents (the overwhelming majority); for very common terms that match more,
 # only pagination beyond the cap is affected — see search_by_passages.
 PASSAGE_CANDIDATE_DOCS = 2000
+
+# Ranking experiment knobs (Task 7 fix round 3). PASSAGE_RANK_FN selects the
+# Postgres text-search rank function used for both doc_rank (in `cand`) and
+# passage-level rank (in `hits_and`/`hits_or`); PASSAGE_RANK_STRATEGY selects the
+# relevance ORDER BY. Read as module attributes at call time (not bound at import)
+# so scripts/eval_search.py --rank-sweep can flip them between evaluations. Do not
+# change these defaults in this round -- the controller picks the winner from the
+# sweep.
+PASSAGE_RANK_FN = "ts_rank"
+PASSAGE_RANK_STRATEGY = "tiered"
+
+# strategy -> relevance ORDER BY prefix; order_sql() appends
+# ", d.document_date DESC NULLS LAST, d.id" to whichever is selected.
+RANK_STRATEGIES: dict[str, str] = {
+    "tiered": "h.colocated DESC, h.best_rank DESC, h.match_count DESC",
+    "passage": "h.best_rank DESC, h.match_count DESC",
+    "doc": "h.doc_rank DESC, h.best_rank DESC",
+    "blend": "(h.doc_rank + h.best_rank) DESC, h.match_count DESC",
+    "blend_coloc": "(h.doc_rank + h.best_rank + CASE WHEN h.colocated THEN 0.25 ELSE 0 END) DESC, h.match_count DESC",
+    "breadth": "(h.doc_rank + h.best_rank * ln(1 + h.match_count)) DESC",
+    "breadth_coloc": "(h.doc_rank + h.best_rank * ln(1 + h.match_count) + CASE WHEN h.colocated THEN 0.25 ELSE 0 END) DESC",
+}
 
 
 def validate_section_kinds(kinds: list[str] | None) -> list[str] | None:
@@ -58,15 +81,16 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     there's no fallback), tagging provenance via ``colocated`` so relevance ordering
     and snippet rendering can prefer the precise match.
     """
+    rank_fn = PASSAGE_RANK_FN
     doc_where_sql = "".join(f" AND {frag}" for frag in doc_where)
-    and_rank = f"ts_rank(p.fts_is, {tsq})"
+    and_rank = f"{rank_fn}(p.fts_is, {tsq})"
     and_where = [f"p.fts_is @@ {tsq}"]
     if section_filter:
         and_where.append("p.section_kind = ANY(:section_kinds)")
 
     ctes = f"""
         cand AS (
-            SELECT d.id, ts_rank(d.fts_is, {tsq}) AS doc_rank
+            SELECT d.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank
             FROM documents d
             WHERE d.fts_is @@ {tsq}{doc_where_sql}
             ORDER BY doc_rank DESC, d.id
@@ -76,7 +100,8 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
             SELECT p.document_id,
                    max({and_rank}) AS best_rank,
                    count(*) AS match_count,
-                   (array_agg(p.id ORDER BY {and_rank} DESC, p.ordinal))[1] AS best_passage_id
+                   (array_agg(p.id ORDER BY {and_rank} DESC, p.ordinal))[1] AS best_passage_id,
+                   max(c.doc_rank) AS doc_rank
             FROM passages p
             JOIN cand c ON c.id = p.document_id
             WHERE {" AND ".join(and_where)}
@@ -84,7 +109,7 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
         )"""
 
     if or_tsq is not None:
-        or_rank = f"ts_rank(p.fts_is, {or_tsq})"
+        or_rank = f"{rank_fn}(p.fts_is, {or_tsq})"
         or_where = [
             f"p.fts_is @@ {or_tsq}",
             "NOT EXISTS (SELECT 1 FROM hits_and ha WHERE ha.document_id = p.document_id)",
@@ -96,7 +121,8 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
             SELECT p.document_id,
                    max({or_rank}) AS best_rank,
                    count(*) AS match_count,
-                   (array_agg(p.id ORDER BY {or_rank} DESC, p.ordinal))[1] AS best_passage_id
+                   (array_agg(p.id ORDER BY {or_rank} DESC, p.ordinal))[1] AS best_passage_id,
+                   max(c.doc_rank) AS doc_rank
             FROM passages p
             JOIN cand c ON c.id = p.document_id
             WHERE {" AND ".join(or_where)}
@@ -116,12 +142,17 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     return ctes
 
 
-def order_sql(sort: str) -> str:
+def order_sql(sort: str, strategy: str | None = None) -> str:
     if sort == "oldest":
         return "d.document_date ASC NULLS LAST, h.best_rank DESC, d.id"
     if sort == "newest":
         return "d.document_date DESC NULLS LAST, h.best_rank DESC, d.id"
-    return "h.colocated DESC, h.best_rank DESC, h.match_count DESC, d.document_date DESC NULLS LAST, d.id"
+    key = strategy or PASSAGE_RANK_STRATEGY
+    try:
+        prefix = RANK_STRATEGIES[key]
+    except KeyError:
+        raise ValueError(f"Unknown passage rank strategy: {key!r}; allowed: {sorted(RANK_STRATEGIES)}")
+    return f"{prefix}, d.document_date DESC NULLS LAST, d.id"
 
 
 async def search_by_passages(
