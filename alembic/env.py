@@ -30,6 +30,9 @@ def _include_object(obj, name, type_, reflected, compare_to):
         return False
     if type_ == "column" and (obj.table.name, name) in _DB_ONLY_COLUMNS:
         return False
+    # Manual backup tables (e.g. document_links_backup_20260916) are not managed by migrations.
+    if type_ == "table" and "_backup_" in name:
+        return False
     return True
 
 
