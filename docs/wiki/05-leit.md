@@ -2,7 +2,7 @@
 
 ← [Wiki-forsíða](README.md)
 
-Öll leitarrökfræði er í `engine/search/queries.py` (829 línur, hrátt SQL — ekki ORM, vegna `ts_rank`/`ts_headline`/trigram-krafna).
+Öll leitarrökfræði er í `engine/search/queries.py` (hrátt SQL — ekki ORM, vegna `ts_rank`/`ts_headline`/trigram-krafna), með `keyword`/`proximity` framkvæmd í `engine/search/passage_search.py` yfir `passages`-töfluna.
 
 ## Leitarhamir — 7 talsins
 
@@ -10,8 +10,8 @@
 
 | Hamur | Útfærsla | Vísir | Röðun eftir vægi? |
 |---|---|---|---|
-| `keyword` | `fts_is @@ to_tsquery('simple', <lemmað>)` | `ix_doc_fts_is` (GIN) | ✅ `ts_rank` |
-| `proximity` | `fts_is @@` með tvíátta `<N>` samsetningu | `ix_doc_fts_is` (GIN) | ✅ `ts_rank` |
+| `keyword` | `passages.fts_is @@ to_tsquery('simple', <lemmað>)` | `ix_passage_fts_is` (GIN) | ✅ `ts_rank` |
+| `proximity` | `passages.fts_is @@` með tvíátta `<N>` samsetningu | `ix_passage_fts_is` (GIN) | ✅ `ts_rank` |
 | `exact` | regex `\m{orð}\M` | trigram | ❌ → dagsetning |
 | `prefix` | regex `\m{orð}` | trigram | ❌ |
 | `substring` | regex `{orð}` | trigram | ❌ |
@@ -25,6 +25,8 @@ Ef `sort=relevance` er valið í ham án FTS-vægis fellur það sjálfkrafa í 
 Aðal-hamurinn. Fyrirspurnin er lemmuð með BÍN (`processors/lemmatizer.py`, pakkinn `islenska`) áður en hún fer í `to_tsquery`. Þannig finnur *„gæsluvarðhald"* líka *„gæsluvarðhaldi"*, *„gæsluvarðhaldsins"*.
 
 Orð sem BÍN þekkir ekki (málsnúmer, sérnöfn) fara óbreytt í gegn, lágstöfuð.
+
+Leitin sjálf keyrir í tveimur þrepum í `passage_search.search_by_passages` — sjá „Efnisgreinaleit" hér að neðan.
 
 ### `proximity` — orð nálægt hvert öðru
 
@@ -47,15 +49,26 @@ Regex-fyrirspurnir eru varðar með `SET LOCAL statement_timeout = '10s'` (`REGE
 
 Útdrættir (snippets) fyrir regex eru byggðir Python-megin (`_regex_snippet`), aðeins fyrir raðir síðunnar, og aðeins fyrstu 100.000 stafir meginmáls eru sóttir (`_REGEX_SNIPPET_SCAN`).
 
-## Chunk-leið fyrir langan texta
+## Efnisgreinaleit (`passages`)
 
-```python
-CHUNKED_SCOPE_KEYS = {"logfraediritgerdir", "logfraedibaekur", "baekur"}
-```
+`keyword` og `proximity` leita alltaf í `passages`, aldrei í heilu `documents.body_text` — sjá `engine/search/passage_search.py`. Ástæðan er sú sama og gamla chunk-leiðin (felld í Task 12) leysti: `ts_rank`/`ts_headline` á 1,4M stafa bók gefa ónothæft vægi og hræðilega útdrætti. `passages` leysir þetta almennt fyrir öll 93.000 skjölin, ekki bara langar heimildir.
 
-Þegar **allt** leitarsviðið fellur innan þessara heimilda fer `keyword`-leit í gegnum `document_chunks` í stað `documents` (`_search_by_chunks`). Ástæðan: `ts_rank` og `ts_headline` á 1,4M stafa bók gefa ónothæft vægi og hræðilega útdrætti; á 500-orða bút gefa þau rétta niðurstöðu.
+**Bútun** (`processors/segmenter.py`): skjal er skipt á `##`-fyrirsögnum og númeruðum málsgreinum, 250 orð að markmiði (hámark 400); flatur texti án skila er klofinn á setningaskilum. Þrjú lög — `summary`, `body`, `lower_body` — hvert með sínar efnisgreinar, engin skörun. Hver efnisgrein fær `section_kind` (`processors/sections.py`: `reifun`, `malsmedferd`, `malsatvik`, `malsastaedur`, `nidurstada`, `domsord`, `annad`) og tilvitnanlegt, afleitt `anchor` (`passage_index.passage_anchor()`, aldrei geymt): `"Reifun"` fyrir samantektarlagið, `"12. mgr."` / `"12.–14. mgr."` þegar málsgreinabil er þekkt, annars `section_path` eða `"hluti N"`.
 
-Skilyrðið er `all()` — blandað svið (t.d. bækur + Hæstiréttur) fer í venjulegu leiðina.
+**`section_kind`-sía**: `section_kind` viðfangið í `/api/search` þrengir leitina við tilteknar tegundir efnisgreina (t.d. aðeins `nidurstada`), gagnlegt þegar spurningin snýst um niðurstöðu frekar en málsatvik.
+
+**Fyrirspurnin er tveggja þrepa** (`build_hits_sql` í `passage_search.py`):
+1. **Forsía á `documents.fts_is`** — `ts_rank` velur bestu allt að `PASSAGE_CANDIDATE_DOCS` (2000) skjölin sem innihalda öll leitarorðin, áður en efnisgreinar eru skoðaðar yfirhöfuð. Fyrir langflestar fyrirspurnir (sem passa í ≤2000 skjöl) er `total` nákvæm; fyrir mjög algeng stök orð sem passa í fleiri skjöl nær síðufletting aðeins yfir efstu 2000 (sjá gildru að neðan).
+2. **Efnisgreinaleit meðal frambjóðendaskjalanna** — nákvæm samtenging (`hits_and`, öll orð í sömu efnisgrein) og, fyrir `keyword` ham, **OR-vararleið** (`hits_or`) sem finnur skjöl þar sem leitarorðin lifa í *ólíkum* efnisgreinum (t.d. eitt í `malsatvik`, annað í `nidurstada`) — annars myndi tveggja orða fyrirspurn missa af skjölum þar sem orðin eru sannarlega bæði til staðar en aldrei í sömu efnisgrein.
+
+**Röðun** (sjálfgefið `ts_rank` / `breadth_coloc`, stillt í `PASSAGE_RANK_FN`/`PASSAGE_RANK_STRATEGY`): `doc_rank + best_rank·ln(1+match_count) + 0,25 ef samstaðsett`, svo dagsetning. Mælt á 492 spurninga gullsetti (`scripts/eval_search.py --rank-sweep`):
+
+| impl | n | recall@10 | MRR | hit@1 | p50 ms | p95 ms | 0-hit |
+|---|---|---|---|---|---|---|---|
+| documents (fyrri leið) | 492 | 0.309 | 0.186 | 0.140 | 20 | 63 | 81 |
+| passages (ts_rank / breadth_coloc) | 492 | 0.319 | 0.208 | 0.163 | 11 | 149 | 81 |
+
+`total`-merkingin utan hámarksins: þegar `section_kind` er ekki sett kemur `total` beint af GIN-vísinum á `documents.fts_is` (nákvæm, óháð hámarki); með `section_kind`-síu kemur `total` úr efnisgreina-CTE-inu og er þá takmarkað við sömu 2000 frambjóðendaskjölin.
 
 ## Lagaákvæðaleit
 

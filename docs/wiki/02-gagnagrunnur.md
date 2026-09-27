@@ -55,6 +55,7 @@ Fjórar töflur + `alembic_version`.
 | `fts_is` | tsvector | **Venjulegur dálkur** — BÍN-lemmaður. Uppfærist **EKKI** sjálfkrafa; krefst `backfill_fts_is.py`. 100% fyllt í dag. |
 | `embedding` | vector(3072) | Ætlað `text-embedding-3-large`. **0 skjöl fyllt** — merkingarleit er ekki byggð. |
 | `cited_provisions` | jsonb | Lagatilvísanir fundnar í texta (83.638 skjöl) |
+| `passage_hash` | text | `md5(summary ‖ \x1f ‖ body_text ‖ \x1f ‖ lower_body_text)` frá síðustu `passages`-smíð. NULL eða misræmi = úreltar efnisgreinar (sjá [09-gildrur](09-gildrur.md)) — **ekki trigger**, uppfært af `backfill_passages.py` |
 
 ### Umsýsla
 | Dálkur | Tegund | Athugasemd |
@@ -81,21 +82,41 @@ Fjórar töflur + `alembic_version`.
 
 **Mikilvægt:** trigram-vísarnir eru **ekki** í `models.py` heldur búnir til af `scripts/setup_search_indexes.py`, því þeir krefjast `pg_trgm` viðbótarinnar við DDL-tíma sem `create_all()` setur ekki upp. `ix_doc_cited_provisions` kemur frá `scripts/setup_provision_index.py`.
 
-## `document_chunks` — 160.521 rað
+## `passages` — 1.769.259 raðir
 
-Langur texti klipptur í ~500 orða búta með ~50 orða skörun (`processors/chunker.py`). Til þess að `ts_rank` og `ts_headline` virki skynsamlega á 1,4M stafa bókum.
+Hver skjal er skipt í tilvitnanlegar efnisgreinar (spec `2026-09-27-passages-design.md`), byggt af `processors/segmenter.py` (bútar á `##`-fyrirsögnum og númeruðum málsgreinum, 250 orð að markmiði, hámark 400; flatur texti klofinn á setningaskilum) og flokkað eftir `processors/sections.py`. Þrjú lög: `summary` / `body` / `lower_body`, hvert vísandi í `char_start`/`char_end` upprunadálksins. Engin skörun (ólíkt gamla `document_chunks`) — hver efnisgrein er sjálfstæð tilvitnun með `anchor`.
 
-| Dálkur | Tegund |
+| Layer | Fjöldi |
 |---|---|
-| `id` | uuid PK |
-| `document_id` | uuid FK → documents **ON DELETE CASCADE** |
-| `chunk_index` | smallint |
-| `chunk_text` | text |
-| `fts_is` | tsvector (GIN: `ix_chunk_fts_is`) |
+| `body` | 1.409.465 |
+| `lower_body` | 268.039 |
+| `summary` | 91.755 |
 
-`UNIQUE (document_id, chunk_index)`.
+| Dálkur | Tegund | Athugasemd |
+|---|---|---|
+| `id` | uuid PK | |
+| `document_id` | uuid FK → documents **ON DELETE CASCADE** | |
+| `ordinal` | integer | Röð innan skjals, yfir öll þrjú lög |
+| `layer` | text | `'summary'` \| `'body'` \| `'lower_body'` |
+| `section_path` | text | T.d. `"II.2"` — heimilisfang innan fyrirsagnaskipulags, NULL ef ekkert |
+| `section_kind` | text | Flokkur frá `processors/sections.py`: `reifun`, `malsmedferd`, `malsatvik`, `malsastaedur`, `nidurstada`, `domsord`, `annad` |
+| `para_from` / `para_to` | smallint | Málsgreinabil innan lags (NULL fyrir flatan texta) |
+| `char_start` / `char_end` | integer | Staðsetning í upprunadálki lagsins |
+| `text` | text | Efnisgreinartextinn sjálfur |
+| `word_count` | smallint | |
+| `fts_is` | tsvector | BÍN-lemmað, sama aðferð og `documents.fts_is` |
 
-Notað fyrir heimildir í `CHUNKED_SCOPE_KEYS` = `{logfraediritgerdir, logfraedibaekur, baekur}`. Fyllt með `scripts/backfill_chunks.py --source X`.
+`UNIQUE (document_id, ordinal)`.
+
+### Vísar á `passages`
+
+| Vísir | Tegund | Til hvers |
+|---|---|---|
+| `ix_passage_doc` | btree (document_id, ordinal) | Sækja allar efnisgreinar eins skjals í röð |
+| `ix_passage_fts_is` | GIN | Aðal-leitarvísir fyrir `keyword`/`proximity` |
+| `ix_passage_section_kind` | btree | `section_kind`-sían |
+
+Fyllt/uppfært af `scripts/backfill_passages.py --source X` (eða `update_all.py`, sem keyrir það sjálfkrafa á öll skjöl með úreltan/vantandi `documents.passage_hash`).
 
 ## `document_links` — 23.824 raðir
 

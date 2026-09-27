@@ -54,8 +54,8 @@ Alltaf afleiðanlegt úr NORM, aldrei geymt sem sannleikur:
                           │
           ┌───────────────┼──────────────────┬─────────────────┐
           ▼               ▼                  ▼                 ▼
-   renderer.py     backfill_fts_is    backfill_chunks   backfill_cited_
-   (.md, LAG 3)    (BÍN-lemmun)       (document_chunks)  provisions
+   renderer.py     backfill_fts_is    backfill_passages  backfill_cited_
+   (.md, LAG 3)    (BÍN-lemmun)       (passages)         provisions
                           │                  │                 │
                           └──────────────────┴─────────────────┘
                                              ▼
@@ -76,27 +76,31 @@ engine/                       Bakendi-bókasafn (ekkert keyranlegt sjálft)
     source_groups.py          Flokkunartré fyrir leitarsvið (243 línur)
   database/
     connection.py             Async engine + AsyncSessionLocal
-    models.py                 ORM: Source, Document, DocumentLink, DocumentChunk
+    models.py                 ORM: Source, Document, DocumentLink, Passage
     renderer.py               ⚠️ DAUÐUR KÓÐI — enginn flytur hann inn (sjá 09-gildrur)
   processors/
     extractor.py              Hráugögn → NORM-dálkar, ein fall per heimild (2508 línur)
     validator.py              Staðfesting, skilar villulista (101 lína)
     renderer.py               NORM → markdown/urlausn (548 línur)
     pdf_parser.py             PDF → texti með fyrirsagna-/töfluskynjun (453 línur)
-    chunker.py                Langur texti → 500-orða chunks með skörun (69 línur)
+    segmenter.py              Skjal → efnisgreinar á fyrirsögnum/málsgreinum, 250–400 orð (194 línur)
+    sections.py               `section_kind` flokkun efnisgreina (101 lína)
     lemmatizer.py             BÍN-lemmun fyrir íslenska fulltextaleit (34 línur)
     provision_extractor.py    Finnur lagatilvísanir í texta (204 línur)
     lagasafn_parser.py        Alþingis-lagasafn HTML → skipulögð ákvæði (258 línur)
     book_metadata.py          ISBN → OpenLibrary/leitir.is/Claude (246 línur)
     court_names.py            Dómstólaskammstafanir
     http_utils.py             Endurtekningar, WAF-örugg sókn
-  search/queries.py           Öll leitarrökfræði, hrátt SQL (829 línur)
+  search/
+    queries.py                Öll leitarrökfræði, hrátt SQL (703 línur)
+    passage_index.py          Byggir/heldur `passages` uppfærðum (`passage_hash`) (112 línur)
+    passage_search.py         `keyword`/`proximity` leit í `passages` (291 lína)
 
 scripts/                      50 keyranlegar skriptur (import_*, backfill_*, migrate_*, sync_*)
 frontend/                     React + Vite appið
 tests/                        18 pytest-skrár
 docs/                         Skjöl (þ.m.t. þetta wiki)
-alembic/                      Uppsett en versions/ er TÓM (sjá 09-gildrur)
+alembic/                      `0001_baseline` → `0002_passages` → `0003_drop_document_chunks`
 checkpoints/                  21 JSON-skrá með framvindu innflutnings
 ```
 

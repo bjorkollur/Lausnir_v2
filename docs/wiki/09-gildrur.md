@@ -12,6 +12,9 @@ Notaðu `.scalars().all()`, **ekki** `scalar_one_or_none()`, þegar þú spyrð 
 ### `fts_is` uppfærist ekki sjálfkrafa
 Ólíkt `fts` (sem er `GENERATED ALWAYS`) er `fts_is` venjulegur dálkur sem krefst `backfill_fts_is.py`. Nýtt skjal án þess finnst **ekki** í venjulegri leit. Sjá [05-leit](05-leit.md).
 
+### `passage_hash` er ekki trigger
+Ólíkt `fts`/`fts_is` er `passages`-taflan aldrei uppfærð sjálfkrafa við skrift á `documents`. `documents.passage_hash` geymir `md5()` af textalögunum eins og þau voru við síðustu `passages`-smíð; NULL eða misræmi þýðir úreltar/vantandi efnisgreinar fyrir það skjal. `scripts/backfill_passages.py` (keyrt sjálfkrafa af `update_all.py` sem `passages_refresh`-þrepið) ber saman og endursmíðar aðeins það sem er úrelt. Nýtt skjal án þessa finnst **ekki** í `keyword`/`proximity` leit — sama gildruflokkur og `fts_is`.
+
 ### `validation_errors` geymir tvenns konar „ekkert"
 19.554 raðir hafa JSON-gildið `null` (skalar) og 25.546 hafa raunverulegan fylkjalista. SQL sem gerir ráð fyrir fylki springur:
 
@@ -23,6 +26,9 @@ where validation_errors is not null;
 -- ✓ verður að verja sig
 ... where jsonb_typeof(validation_errors) = 'array'
 ```
+
+### `keyword`-leit nær aðeins yfir efstu 2000 frambjóðendaskjölin
+`passage_search.PASSAGE_CANDIDATE_DOCS = 2000` takmarkar hversu mörg skjöl Stig 1 (`ts_rank` á `documents.fts_is`) skilar áfram í efnisgreinaleitina. Fyrir venjulegar fyrirspurnir er þetta ósýnilegt — færri en 2000 skjöl passa hvort eð er. En fyrir mjög algeng stök orð sem passa í fleiri en 2000 skjöl nær síðufletting umfram það aldrei niðurstöðum, þótt fleiri skjöl séu til sem innihalda orðið. Sjá [05-leit](05-leit.md).
 
 ### Regex verður að vera á berum dálki
 `coalesce(body_text, '')` eyðileggur trigram-vísinn og þvingar seq-scan yfir 1,7 GB. Skjalfest í `REGEX_COLUMNS` í `queries.py`.
@@ -80,7 +86,7 @@ Staðfest 28.07.2026 með `--listFiles`: `--noEmit` snerti enga skrá úr `src/`
 | `CLAUDE.md:205` → `scripts/backfill_render.py` | Rangt skráarnafn — heitir `backfill_render_all.py`. |
 | `CLAUDE.md:175,220` → `scripts/migrate_v1.py` | Ekki til lengur. |
 | `engine/collectors/` | Mappan er til en **tóm**. Söfnunarrökfræði býr í `scripts/import_*.py`. (CLAUDE.md nefnir hana ekki.) |
-| `CLAUDE.md` skema | Nefnir hvorki `case_type`, `provisions`, `cited_provisions`, `isbn`, `publisher`, `fts_is`, `verdict_filename` né `document_chunks`/`document_links` töflurnar. |
+| `CLAUDE.md` skema | Nefnir hvorki `case_type`, `provisions`, `cited_provisions`, `isbn`, `publisher`, `fts_is`, `verdict_filename` né `passages`/`document_links` töflurnar. |
 
 ## Tvíteknar renderer-skrár — önnur er dauður kóði
 
@@ -111,11 +117,6 @@ Rust-bókasafn, engin ML-módel, engir API-lyklar, **23× hraðara** en okkar þ
 ⚠️ Talning ein og sér var villandi við matið: fyrsta samanburðurinn sýndi anydoc með fleiri fyrirsagnir og töflur, en skoðun úttaksins leiddi í ljós að „töflurnar“ voru ranglega greint tveggja dálka umbrot með meginmáli klemmdu í reiti. **Skoðaðu úttakið, ekki bara tölurnar.**
 
 ## Innviðir
-
-### Alembic er uppsett en ónotað
-`alembic/versions/` er **tómt**. Engin migration-saga, þar með engin `downgrade()` leið til að afturkalla skemabreytingu. Skemabreytingar eru gerðar með einnota `scripts/migrate_*.py` skriptum sem keyra hrátt `ALTER TABLE ... ADD COLUMN IF NOT EXISTS`.
-
-→ TODO úr `READINESS_PLAYBOOK.md`: búa til grunnlínu með `alembic revision --autogenerate -m "baseline"`.
 
 ### Engin gagnagrunnsafritun
 Meðvituð ákvörðun (sjá [08-þróun](08-throun.md)) — endurheimt með endurinnflutningi.

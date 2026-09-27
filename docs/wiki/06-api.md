@@ -48,6 +48,7 @@ Flokkunartréð með skjalatölum + flatur heimildalisti.
 | `proximity_n` | 5 | 1–50, aðeins `proximity` |
 | `provision` | — | T.d. `"218. gr. 19/1940"` |
 | `keyword` | — | Sía eingöngu á `keywords`-dálkinn, hlutastrengur |
+| `section_kind` | — | Endurtekið. Þrengir `keyword`/`proximity` við tilteknar efnisgreinategundir: `reifun`, `malsmedferd`, `malsatvik`, `malsastaedur`, `nidurstada`, `domsord`, `annad`. Óþekkt gildi → HTTP 400. |
 
 ```json
 {
@@ -58,10 +59,14 @@ Flokkunartréð með skjalatölum + flatur heimildalisti.
     "court": "Hrd.", "case_number": "59/2025", "document_date": "2026-06-10",
     "verdict_type": "Dómur", "keywords": ["Börn"],
     "plaintiffs": [{"name": "A", "lawyer": null}], "defendants": [...],
-    "snippet": "…texti með <mark>áherslu</mark>…", "has_appeal_links": true
+    "snippet": "…texti með <mark>áherslu</mark>…", "has_appeal_links": true,
+    "passage_id": "uuid", "anchor": "12. mgr.", "section_kind": "nidurstada",
+    "layer": "body", "match_count": 3
   }]
 }
 ```
+
+Fimm síðustu svæðin (`passage_id`, `anchor`, `section_kind`, `layer`, `match_count`) koma frá efnisgreininni sem gaf besta samsvörun í `keyword`/`proximity` leit (sjá [05-leit](05-leit.md)) — öll `null` fyrir hina hamina, þar sem samsvörunin er á skjalstigi.
 
 Ógilt regex eða óþekkt svæði → **HTTP 400** með `{"detail": "..."}`.
 
@@ -77,6 +82,32 @@ Sömu síuviðföng og `/api/search` (án `scope`, `sort`, `page`). Skilar flokk
 `?markdown=true` (sjálfgefið) bætir við `markdown` sviði sem er reiknað á staðnum með `renderer.to_markdown()` — RENDER-lagið, aldrei geymt.
 
 Skilar öllum NORM-gildum auk `appeal_links` (úr `document_links`, með `urlausn` tilvitnun hins skjalsins). 404 ef ekki finnst.
+
+### `GET /api/document/{doc_id}/passages`
+
+Raðaðar efnisgreinar eins skjals — samhengisfrumeining fyrir tilvitnanir og verkfæri (LLM-samhengissókn o.fl.), óháð leit.
+
+| Viðfang | Sjálfgefið | Athugasemd |
+|---|---|---|
+| `from` | 0 | Upphafs-`ordinal` |
+| `to` | `from + 49` | Loka-`ordinal`, að hámarki 200 efnisgreinar í einu (`MAX_PASSAGE_WINDOW`) |
+| `section_kind` | — | Endurtekið, sama gildissvið og í `/api/search` |
+| `layer` | — | `summary` \| `body` \| `lower_body` |
+
+```json
+{
+  "document_id": "uuid", "urlausn": "Hrd. 59/2025 10. júní 2026 – Dómur",
+  "total": 42,
+  "passages": [{
+    "id": "uuid", "ordinal": 12, "layer": "body", "anchor": "12. mgr.",
+    "section_path": null, "section_kind": "nidurstada",
+    "para_from": 12, "para_to": 12, "char_start": 4210, "char_end": 4532,
+    "word_count": 61, "text": "…"
+  }]
+}
+```
+
+404 ef skjalið finnst ekki. HTTP 400 ef `to < from`, glugginn er of stór, eða `layer`/`section_kind` er ógilt.
 
 ### `GET /api/law/{doc_id}`
 Lagasafnsskjal með skipulögðum ákvæðum. 404 ef skjalið er ekki úr `lagasafn_*` heimild.

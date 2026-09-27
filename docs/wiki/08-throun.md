@@ -59,7 +59,7 @@ psql "postgresql://geiri@localhost/lausnir_v2" -c "select count(*) from document
 | `test_sources.py` | `SourceConfig` réttmæti |
 | `test_extractor_*.py` | Útdráttur per heimild |
 | `test_book_metadata.py` / `test_import_baekur.py` | Bókapípan |
-| `test_pdf_parser.py`, `test_chunker.py`, `test_lagasafn_parser.py`, `test_provision_extractor.py` | Vinnslueiningar |
+| `test_pdf_parser.py`, `test_segmenter.py`, `test_lagasafn_parser.py`, `test_provision_extractor.py` | Vinnslueiningar |
 | `test_models_*.py` | ORM |
 | `test_http_utils.py` | Endurtekningarrökfræði |
 

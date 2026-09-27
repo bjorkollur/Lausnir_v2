@@ -18,7 +18,7 @@ Síðast yfirfarið: 2026-07-23.
 |---|---|
 | Gagnagrunnsafritun | Ekki notuð — endurheimt fer fram með endurinnflutningi frá heimildum (sjá að ofan) |
 | Afrit af `Lausnir_Data/` (PDF, markdown) | Sama stefna — `.md`/`urlausn` eru hvort eð er af RENDER-lagi og endurgerð sjálfkrafa úr NORM (`Renderer.rebuild_all`); PDF-bætin má sækja aftur frá heimild |
-| Rollback á DB-skema | ❌ `alembic/versions/` er tómt — Alembic er uppsett en engin migration-saga er skráð, því engin `downgrade()` til að afturkalla skemabreytingu. Óháð afritunarstefnu — vert að laga óháð |
+| Rollback á DB-skema | ✅ Alembic-grunnlína til (`0001_baseline` → `0002_passages` → `0003_drop_document_chunks`), hver migration með `downgrade()`. Sjá `alembic/versions/`. |
 | Rollback á kóða/uppfærslum | Handvirkt í gegnum `git revert`/`git reset` — dugar fyrir einkaverkefni |
 | `scripts/supervised.sh` | ❌ Nefnt í `CLAUDE.md` en er **ekki til á diski** — dauð tilvísun sem þarf annaðhvort að útbúa eða fjarlægja úr CLAUDE.md |
 | Import checkpoints | ✅ `checkpoints/*.json` geymir framvindu fyrir hverja heimild — nýtist til að halda áfram eftir crash |
@@ -27,7 +27,7 @@ Síðast yfirfarið: 2026-07-23.
 
 ### TODO — Neyðar- og endurheimtaráætlun
 
-- [ ] Búa til fyrstu Alembic-grunnlínuna (`alembic revision --autogenerate -m "baseline"`) svo framtíðar skemabreytingar hafi raunverulega `downgrade()` leið
+- [x] Búa til fyrstu Alembic-grunnlínuna — lokið 2026-09-27 (`0001_baseline`, síðan `0002_passages`, `0003_drop_document_chunks`, hver með raunverulegri `downgrade()`)
 - [ ] Annaðhvort útbúa `scripts/supervised.sh` (nefnt í CLAUDE.md, notað í `## Running` fyrirmælum) eða fjarlægja tilvísunina úr CLAUDE.md
 
 ---

@@ -51,7 +51,7 @@ Snyrtimennska: `proximity_n` er aðeins skrifað í URL þegar það er annað e
 | `Toolbar` | Röðun, dagsetningarsíur |
 | `ScopeChips` | Virk leitarsvið sem hægt er að fjarlægja |
 | `FacetSidebar` / `FacetNode` | Flokkunartréð með tölum |
-| `ResultsList` / `ResultCard` | Niðurstöður með útdráttum |
+| `ResultsList` / `ResultCard` | Niðurstöður með útdráttum og `anchor` (efnisgreinar-heimilisfang, t.d. „12. mgr.") þegar leitin skilar einni |
 | `DocPanel` | Skjalabirting (dómar **og** bækur) |
 | `LawPanel` | Lagabirting með ákvæðum |
 | `CatalogTree` / `SourceTree` | Heimildatré |
@@ -81,7 +81,7 @@ SEARCHABLE_THRESHOLD =  8_000   // leitarreitur (notagildi)
 
 Án hennar tók 15+ sekúndur með auðri síðu að opna bók.
 
-Yfir `LARGE_DOC_THRESHOLD`: `splitMarkdown()` klippir í ~500-orða búta á málsgreinaskilum (**engin skörun** — lesandi má aldrei sjá sama texta tvisvar, ólíkt `document_chunks` sem skarast viljandi), og hver bútur er `LazyMarkdownSection`.
+Yfir `LARGE_DOC_THRESHOLD`: `splitMarkdown()` klippir í ~500-orða búta á málsgreinaskilum (**engin skörun** — lesandi má aldrei sjá sama texta tvisvar), og hver bútur er `LazyMarkdownSection`. Þetta er hrein orðatalning án tillits til efnisgreinaskipulags — óskylt bakenda-`passages`-töflunni, sem er byggð fyrir tilvitnun/leit, ekki lata birtingu.
 
 `LazyMarkdownSection` notar innbyggt `IntersectionObserver` (rootMargin 600px) + CSS `content-visibility: auto`. **Engin ný pakkaháð** — meðvitað val í stað virtualization-bókasafns.
 

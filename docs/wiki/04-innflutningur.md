@@ -40,7 +40,7 @@ write_markdown(doc, config, vf=verdict_filename)
 | Skripta | Hvað hún gerir | Hvenær þarf að keyra |
 |---|---|---|
 | `backfill_fts_is.py` | BÍN-lemmar `body_text` → `fts_is` | **Eftir hvern innflutning** — annars finnst skjalið ekki í leit |
-| `backfill_chunks.py --source X` | Klippir texta í `document_chunks` | Fyrir langar heimildir (ritgerðir, bækur) |
+| `backfill_passages.py --source X` | Sníður `passages` fyrir skjöl með úreltan/vantandi `passage_hash` | **Eftir hvern innflutning** — keyrt sjálfkrafa af `update_all.py` (`passages_refresh`) |
 | `backfill_cited_provisions.py` | Finnur lagatilvísanir í texta | Eftir innflutning ef lagaákvæðaleit á að virka |
 | `backfill_render_all.py --source X` | Endurgerir allar `.md` skrár | Eftir breytingu á renderer |
 | `backfill_book_metadata.py` | Sækir ISBN/útgefanda/höfunda aftur | Eftir 2026-07-27 skemabreytinguna |
@@ -143,8 +143,6 @@ Pípan:
 2. `resolve_book_metadata()` — þrepaskipt: **ISBN úr texta** (með checksum-staðfestingu) → **OpenLibrary** → **leitir.is** (Primo VE) → **skráarnafn + regex** → **Claude API**
 3. `build_document()` → `Extractor` → `validate` → upsert
 4. Skrifar `.md`, færir PDF í `raw/logfraedibaekur/{external_id}.pdf`
-5. Keyrir `backfill_fts_is` sjálfkrafa í lokin
+5. Keyrir `backfill_fts_is` og `backfill_passages` sjálfkrafa í lokin
 
 Kortlagning bókagilda (sjá [02-gagnagrunnur](02-gagnagrunnur.md)): titill → `case_number`, höfundar → `plaintiffs` (ein færsla per höfund), ISBN → `isbn`, útgefandi → `publisher`.
-
-Eftir á þarf handvirkt: `backfill_chunks.py --source logfraedibaekur`.

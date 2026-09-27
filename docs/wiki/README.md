@@ -12,24 +12,24 @@ Uppflettirit yfir uppbyggingu kerfisins. Skrifað út frá raunverulegum kóða 
 | [02 — Gagnagrunnur](02-gagnagrunnur.md) | Töflur, dálkar, vísar, raunverulegar tölur |
 | [03 — Heimildir](03-heimildir.md) | `SourceConfig`, heimildaskrá, flokkunartréð |
 | [04 — Innflutningur](04-innflutningur.md) | Import-pípan, skriptur, checkpoints, `update_all.py` |
-| [05 — Leit](05-leit.md) | Leitarhamir, `fts_is`, chunks, regex, lagaákvæði |
+| [05 — Leit](05-leit.md) | Leitarhamir, `fts_is`, efnisgreinar (`passages`), regex, lagaákvæði |
 | [06 — API](06-api.md) | FastAPI endapunktar og svarform |
 | [07 — Framendi](07-framendi.md) | React-appið, síður, íhlutir, leit í bók |
 | [08 — Þróun](08-throun.md) | Umhverfi, skipanir, próf, verkflæði |
 | [09 — Gildrur og staða](09-gildrur.md) | Þekktar gildrur, ólokið, ósamræmi |
 
-## Kerfið í tölum (28.07.2026)
+## Kerfið í tölum (27.09.2026)
 
 | | |
 |---|---|
-| Skjöl | **91.152** |
+| Skjöl | **93.048** |
 | Heimildir | **111** (63 efnisheimildir + 48 lagasafnskaflar) |
-| Chunks | 160.521 |
+| Efnisgreinar | 1.769.259 |
 | Tengingar (áfrýjanir) | 23.824 |
-| Stærð gagnagrunns | 70 GB |
+| Stærð gagnagrunns | 76 GB |
 | Stærð `Lausnir_Data/` | 49 GB |
-| Fulltextaleit (`fts_is`) | 91.152 / 91.152 (100%) |
-| Merkingarleit (`embedding`) | 0 / 91.152 (ekki byggt) |
+| Fulltextaleit (`fts_is`) | 93.048 / 93.048 (100%) |
+| Merkingarleit (`embedding`) | 0 / 93.048 (ekki byggt) |
 
 ## Tæknistafli
 
