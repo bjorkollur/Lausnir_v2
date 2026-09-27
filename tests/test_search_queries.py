@@ -170,3 +170,20 @@ def test_build_keyword_filter_uses_named_param():
     assert ":keyword_pattern" in frag
     assert "keyword_pattern" in params
     assert params["keyword_pattern"] == "%forsjá%"
+
+
+def test_read_search_impl():
+    from engine.search.queries import _read_search_impl
+    assert _read_search_impl({}) == "documents"
+    assert _read_search_impl({"LAUSNIR_SEARCH_IMPL": "passages"}) == "passages"
+    with pytest.raises(RuntimeError):
+        _read_search_impl({"LAUSNIR_SEARCH_IMPL": "bogus"})
+
+
+def test_provision_noise_query_is_filter_only_in_both_impls():
+    """'2. mgr. 218. gr. laga nr. 19/1940' lemmatises to noise only; with a provision
+    filter present the text part must be dropped, whichever impl is active."""
+    from engine.search.queries import _text_is_noise_for_provision
+    assert _text_is_noise_for_provision("2. mgr. 218. gr. laga nr. 19/1940", provision="218. gr. 19/1940")
+    assert not _text_is_noise_for_provision("líkamsárás 218. gr.", provision="218. gr. 19/1940")
+    assert not _text_is_noise_for_provision("2. mgr. 218. gr.", provision=None)

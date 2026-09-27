@@ -16,6 +16,7 @@ This module is pure data access — no FastAPI / HTTP concerns.
 from __future__ import annotations
 
 import json
+import os
 import re
 import uuid
 from dataclasses import dataclass
@@ -151,6 +152,19 @@ from engine.config.sources import get_config
 from engine.database.models import Document
 from engine.processors.lemmatizer import lemmatize_query
 from engine.processors.renderer import to_urlausn
+from engine.search.passage_search import search_by_passages, validate_section_kinds
+
+# Which implementation serves keyword/proximity search. 'documents' = legacy
+# whole-document fts_is; 'passages' = passage-level (spec 2026-09-27). Removed
+# once the golden set has confirmed the passages path (plan Task 12).
+def _read_search_impl(env) -> str:
+    impl = env.get("LAUSNIR_SEARCH_IMPL", "documents")
+    if impl not in ("documents", "passages"):
+        raise RuntimeError(f"LAUSNIR_SEARCH_IMPL must be 'documents' or 'passages', got {impl!r}")
+    return impl
+
+
+SEARCH_IMPL = _read_search_impl(os.environ)
 
 # Regex-targetable fields → SQL expression (aliased table d).
 # IMPORTANT: for the pg_trgm-indexed columns (body_text, summary, case_number)
@@ -436,9 +450,19 @@ async def _search_by_chunks(
             "defendants": r["defendants"] or [],
             "snippet": snippet,
             "has_appeal_links": False,  # theses have no appeal links
+            "passage_id": None, "anchor": None, "section_kind": None, "layer": None, "match_count": None,
         })
 
     return SearchResults(total=total, page=page, page_size=page_size, results=results)
+
+
+def _text_is_noise_for_provision(q: str, provision: str | None) -> bool:
+    """True when the lemmatised query is only provision noise ('mgr','gr','nr'…)
+    AND a provision filter is present — then the text part is dropped."""
+    if not provision:
+        return False
+    toks = set(lemmatize_query(q).split())
+    return bool(toks) and toks.issubset(_PROVISION_NOISE)
 
 
 async def search_documents(
@@ -456,10 +480,14 @@ async def search_documents(
     proximity_n: int = 5,
     provision: str | None = None,
     keyword: str | None = None,
+    section_kind: list[str] | None = None,
 ) -> SearchResults:
     """Run a search and return one page of results plus the total match count."""
     if mode not in VALID_MODES:
         raise SearchError(f"Unknown mode {mode!r}")
+    section_kinds = validate_section_kinds(section_kind)
+    if section_kinds and SEARCH_IMPL != "passages":
+        raise SearchError("section_kind requires LAUSNIR_SEARCH_IMPL=passages")
     page = max(1, page)
     page_size = max(1, min(page_size, MAX_PAGE_SIZE))
     offset = (page - 1) * page_size
@@ -505,16 +533,17 @@ async def search_documents(
     words = [w for w in q.split() if w] if q else []
 
     if has_text and mode == "keyword":
-        lemmas = lemmatize_query(q)
         # Bug 1 fix: discard FTS when all lemma tokens are provision noise (e.g.
         # "2. mgr. 218. gr. laga nr. 19/1940" → {"mgr", "gr"}) and the user has
         # already supplied a provision filter. FTS rank would be ~1.0 everywhere,
         # making relevance sort meaningless; the provision filter is sufficient.
-        if lemmas and provision:
-            lemma_tokens = set(lemmas.split())
-            if lemma_tokens and lemma_tokens.issubset(_PROVISION_NOISE):
-                lemmas = ""  # discard noise — provision filter alone is sufficient
+        lemmas = "" if _text_is_noise_for_provision(q, provision) else lemmatize_query(q)
         if lemmas:
+            if SEARCH_IMPL == "passages":
+                params["lemmas"] = lemmas
+                return await search_by_passages(
+                    session, tsq_fn="plainto_tsquery", tsq_param="lemmas", where=where, params=params,
+                    sort=sort, page=page, page_size=page_size, section_kinds=section_kinds)
             # Route through document_chunks when scope is entirely chunked sources
             if _scope_is_chunked(scope):
                 scope_filter = await resolve_scope(session, scope)
@@ -573,6 +602,11 @@ async def search_documents(
         # exact, prefix, substring, any, proximity
         text_frags, text_params = _build_text_filter(mode, words, regex_fields, proximity_n)
         if text_frags:
+            if mode == "proximity" and SEARCH_IMPL == "passages":
+                params["prox_q"] = text_params["prox_q"]
+                return await search_by_passages(
+                    session, tsq_fn="to_tsquery", tsq_param="prox_q", where=where, params=params,
+                    sort=sort, page=page, page_size=page_size, section_kinds=section_kinds)
             where.extend(text_frags)
             params.update(text_params)
             if mode == "proximity":
@@ -683,6 +717,7 @@ async def search_documents(
             "defendants": r["defendants"] or [],
             "snippet": snippet,
             "has_appeal_links": r["has_appeal_links"],
+            "passage_id": None, "anchor": None, "section_kind": None, "layer": None, "match_count": None,
         })
 
     return SearchResults(total=total, page=page, page_size=page_size, results=results)
