@@ -35,17 +35,17 @@ PASSAGE_CANDIDATE_DOCS = 2000
 # relevance ORDER BY. Read as module attributes at call time (not bound at import)
 # so scripts/eval_search.py --rank-sweep can flip them between evaluations.
 #
-# Defaults set in fix round 4, measured on the 50-query draft golden set on
-# 2026-09-27 (`scripts/eval_search.py --rank-sweep`): ts_rank_cd/doc scored
-# recall@10 .360, MRR .228, hit@1 .180, vs legacy `documents` impl .340/.206/.160
-# and vs the prior `tiered` default .300/.214/.180. Passage-led strategies
-# (`passage`, `blend`, `breadth`, and their `_coloc` variants) did not beat plain
-# document-level ranking on this set, so `doc` orders results by document-level
-# cover-density rank alone and passages only supply the best passage (anchor,
-# snippet) and the section_kind filter. Re-run the sweep once the golden set has
-# been reviewed, since this choice is provisional on a draft 50-query set.
-PASSAGE_RANK_FN = "ts_rank_cd"
-PASSAGE_RANK_STRATEGY = "doc"
+# Defaults set in fix round 5, measured on the 492-question golden set (50
+# hand-curated core + 442 drafted, three query styles) on 2026-09-27
+# (`scripts/eval_search.py --rank-sweep --set all`): ts_rank/breadth_coloc scored
+# recall@10 .319, MRR .208, hit@1 .163, vs legacy `documents` impl .309/.186/.140
+# and vs the fix-round-4 default ts_rank_cd/doc .297/.191/.144. On the smaller
+# 50-query set ts_rank_cd/doc had looked best; the larger set showed that was
+# noise — every `ts_rank` row beat every `ts_rank_cd` row here. `breadth_coloc`
+# blends document-level rank with the best passage weighted by breadth
+# (ln(1+match_count)) plus a small bonus for co-located terms.
+PASSAGE_RANK_FN = "ts_rank"
+PASSAGE_RANK_STRATEGY = "breadth_coloc"
 
 # strategy -> relevance ORDER BY prefix; order_sql() appends
 # ", d.document_date DESC NULLS LAST, d.id" to whichever is selected.

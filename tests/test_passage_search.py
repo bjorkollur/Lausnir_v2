@@ -51,7 +51,7 @@ def test_hits_sql_or_fallback_present_only_for_keyword():
 
 
 @pytest.mark.parametrize("sort,first", [
-    ("relevance", "h.doc_rank DESC, h.best_rank DESC"),
+    ("relevance", "(h.doc_rank + h.best_rank * ln(1 + h.match_count) + CASE WHEN h.colocated THEN 0.25 ELSE 0 END) DESC"),
     ("newest", "d.document_date DESC NULLS LAST, h.best_rank DESC"),
     ("oldest", "d.document_date ASC NULLS LAST, h.best_rank DESC"),
 ])
@@ -60,8 +60,8 @@ def test_order_sql(sort, first):
 
 
 def test_default_rank_settings():
-    assert PASSAGE_RANK_FN == "ts_rank_cd"
-    assert PASSAGE_RANK_STRATEGY == "doc"
+    assert PASSAGE_RANK_FN == "ts_rank"
+    assert PASSAGE_RANK_STRATEGY == "breadth_coloc"
 
 
 def test_rank_strategies_all_produce_order_sql():
