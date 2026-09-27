@@ -28,6 +28,15 @@ from sqlalchemy import text
 from engine.database.connection import init_db, get_engine
 from engine.search.passage_index import STALE_WHERE, build_passage_rows, lemmatize_rows, rebuild_passages
 
+# stdout is fully block-buffered when redirected to a file (e.g. `> log.txt` under
+# nohup), so `tail -f` on a multi-hour background run would show nothing for a
+# long time despite real progress. Force line buffering so each log line lands
+# immediately.
+try:
+    sys.stdout.reconfigure(line_buffering=True)
+except (AttributeError, ValueError):
+    pass
+
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 log = logging.getLogger(__name__)
 
