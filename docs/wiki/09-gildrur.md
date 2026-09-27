@@ -30,6 +30,11 @@ REINDEX INDEX CONCURRENTLY ix_doc_fts_is;       -- 441 → 228 MB, ~0:38
 
 Annars hægist verulega á leitinni þangað til það er gert — bæði vísarnir tvöfaldast í lestri (diskurinn er á USB, svo kaldir lestrar ráða) og `ANALYZE` eitt og sér lagar það ekki. Athugaðu að `VACUUM ANALYZE`/`REINDEX` lagar **ekki** `plan_cache_mode`-gildruna; þau eru sjálfstæð vandamál.
 
+### `plan_cache_mode`: almennt plan drepur efnisgreinaleitina
+asyncpg keyrir allt um prepared statements, svo PostgreSQL skiptir hverri setningu yfir í **almennt plan** (generic plan) eftir 5. keyrslu á tengingu. Fyrir efnisgreinaleitina er það hörmung: `tsquery`-ið kemur úr bindibreytu (`plainto_tsquery('simple', $1)`), svo almennt plan hefur engar upplýsingar um valkvæmni — hvert þrep er áætlað á ~1 röð og áætlarinn velur að endurskanna `ix_passage_fts_is` GIN-vísinn **einu sinni fyrir hvert frambjóðendaskjal** (2000 lykkjur × ~550 þús. TID) í stað eins GIN-skanns hash-joinaðs við `cand`. Mælt á g017 (492-spurninga gullmengið, 27.09.2026): 25 ms í keyrslum 1–5, **9.745 ms** frá keyrslu 6. Sama fyrirspurn í `psql` með bókstöflum er alltaf hröð, svo gildran sést ekki nema hún sé keyrð oftar en 5× í sömu tengingu.
+
+Vörnin er `plan_cache_mode = force_custom_plan`, sett í `connect_args` í `engine/database/connection.py`. Endurplönun kostar ~0,5–7 ms á setningu, hverfandi í samanburði. Ef sú stilling er fjarlægð (eða ný `create_async_engine`-kallstöð bætist við án hennar) kemur regressjónin aftur og lítur út eins og I/O-vandamál þótt hún sé 100% CPU (`pg_stat_activity.wait_event` er NULL í öllum sýnum).
+
 ### `validation_errors` geymir tvenns konar „ekkert"
 19.554 raðir hafa JSON-gildið `null` (skalar) og 25.546 hafa raunverulegan fylkjalista. SQL sem gerir ráð fyrir fylki springur:
 
