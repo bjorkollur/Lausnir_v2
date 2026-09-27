@@ -71,7 +71,7 @@ def validate_section_kinds(kinds: list[str] | None) -> list[str] | None:
 
 
 def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], section_filter: bool,
-                   sort: str = "relevance") -> str:
+                   sort: str = "relevance", relax: tuple[str, str | None] | None = None) -> str:
     """Two- or three-stage CTE list (no leading ``WITH`` — callers prepend it).
 
     Stage 1 (``cand``) ranks documents by ``ts_rank(d.fts_is, tsq)`` (the doc-level
@@ -96,6 +96,13 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     somewhere in the document. ``hits`` unions the two (or is just ``hits_and`` when
     there's no fallback), tagging provenance via ``colocated`` so relevance ordering
     and snippet rendering can prefer the precise match.
+
+    ``relax`` (``(any_tsq, nminus1_tsq_or_None)``) switches ``cand`` to a tiered
+    prefilter for relaxed keyword search (spec 2026-09-28): the candidate set is
+    widened to documents matching ``any_tsq`` (any query lemma), tagged with a
+    ``tier`` (0 = all lemmas, 1 = all-but-one, 2 = any) so strict matches still
+    sort first. ``relax=None`` (the default) keeps today's behaviour exactly:
+    prefilter on ``tsq`` alone, constant ``tier = 0``.
     """
     rank_fn = PASSAGE_RANK_FN
     if rank_fn not in ("ts_rank", "ts_rank_cd"):
@@ -113,12 +120,23 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     else:
         cand_order = "doc_rank DESC, d.id"
 
+    if relax is None:
+        cand_where = f"d.fts_is @@ {tsq}"
+        tier_expr = "0"
+        cand_order_sql = cand_order
+    else:
+        any_tsq, nminus1_tsq = relax
+        cand_where = f"d.fts_is @@ {any_tsq}"
+        mid = f"WHEN d.fts_is @@ {nminus1_tsq} THEN 1 " if nminus1_tsq else ""
+        tier_expr = f"CASE WHEN d.fts_is @@ {tsq} THEN 0 {mid}ELSE 2 END"
+        cand_order_sql = f"tier ASC, {cand_order}"
+
     ctes = f"""
         cand AS (
-            SELECT d.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank
+            SELECT d.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank, {tier_expr} AS tier
             FROM documents d
-            WHERE d.fts_is @@ {tsq}{doc_where_sql}
-            ORDER BY {cand_order}
+            WHERE {cand_where}{doc_where_sql}
+            ORDER BY {cand_order_sql}
             LIMIT :cand_limit
         ),
         hits_and AS (
@@ -126,7 +144,8 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
                    max({and_rank}) AS best_rank,
                    count(*) AS match_count,
                    (array_agg(p.id ORDER BY {and_rank} DESC, p.ordinal))[1] AS best_passage_id,
-                   max(c.doc_rank) AS doc_rank
+                   max(c.doc_rank) AS doc_rank,
+                   max(c.tier) AS tier
             FROM passages p
             JOIN cand c ON c.id = p.document_id
             WHERE {" AND ".join(and_where)}
@@ -147,7 +166,8 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
                    max({or_rank}) AS best_rank,
                    count(*) AS match_count,
                    (array_agg(p.id ORDER BY {or_rank} DESC, p.ordinal))[1] AS best_passage_id,
-                   max(c.doc_rank) AS doc_rank
+                   max(c.doc_rank) AS doc_rank,
+                   max(c.tier) AS tier
             FROM passages p
             JOIN cand c ON c.id = p.document_id
             WHERE {" AND ".join(or_where)}
@@ -169,28 +189,40 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
 
 def order_sql(sort: str, strategy: str | None = None) -> str:
     if sort == "oldest":
-        return "d.document_date ASC NULLS LAST, h.best_rank DESC, d.id"
+        return "h.tier ASC, d.document_date ASC NULLS LAST, h.best_rank DESC, d.id"
     if sort == "newest":
-        return "d.document_date DESC NULLS LAST, h.best_rank DESC, d.id"
+        return "h.tier ASC, d.document_date DESC NULLS LAST, h.best_rank DESC, d.id"
     key = strategy or PASSAGE_RANK_STRATEGY
     try:
         prefix = RANK_STRATEGIES[key]
     except KeyError:
         raise ValueError(f"Unknown passage rank strategy: {key!r}; allowed: {sorted(RANK_STRATEGIES)}")
-    return f"{prefix}, d.document_date DESC NULLS LAST, d.id"
+    return f"h.tier ASC, {prefix}, d.document_date DESC NULLS LAST, d.id"
 
 
 async def search_by_passages(
     session: AsyncSession, *, tsq_fn: str, tsq_param: str, where: list[str], params: dict[str, Any],
     sort: str, page: int, page_size: int, section_kinds: list[str] | None,
-    or_tsq_param: str | None = None,
+    or_tsq_param: str | None = None, relax_params: tuple[str, str | None] | None = None,
+    strict_total: int | None = None,
 ):
     from engine.search.queries import SearchResults, _citation  # local import (cycle)
 
     tsq = f"{tsq_fn}('simple', :{tsq_param})"
     # OR-fallback recall stage, keyword mode only (proximity passes or_tsq_param=None).
     or_tsq = f"to_tsquery('simple', :{or_tsq_param})" if or_tsq_param else None
-    ctes = build_hits_sql(tsq=tsq, or_tsq=or_tsq, doc_where=where, section_filter=bool(section_kinds), sort=sort)
+    # Relaxed keyword search (spec 2026-09-28): relax_params=(any_param, nminus1_param_or_None)
+    # names the bind params for the widened prefilter; build the SQL fragments build_hits_sql
+    # expects from them.
+    relax: tuple[str, str | None] | None = None
+    if relax_params is not None:
+        any_param, nminus1_param = relax_params
+        relax = (
+            f"to_tsquery('simple', :{any_param})",
+            f"to_tsquery('simple', :{nminus1_param})" if nminus1_param else None,
+        )
+    ctes = build_hits_sql(tsq=tsq, or_tsq=or_tsq, doc_where=where, section_filter=bool(section_kinds),
+                          sort=sort, relax=relax)
     p = dict(params)
     p["cand_limit"] = PASSAGE_CANDIDATE_DOCS
     if section_kinds:
@@ -201,13 +233,19 @@ async def search_by_passages(
         # matching documents) — a section filter can only be evaluated per-passage.
         total = (await session.execute(text(f"WITH {ctes} SELECT count(*) FROM hits"), p)).scalar() or 0
     else:
-        # Exact document total straight off the GIN index — no rank, no cap.
+        # Exact document total straight off the GIN index — no rank, no cap. In
+        # relaxed mode, 'total' counts the widest (any-lemma) query; unrelaxed it's
+        # the strict query, same as before.
         doc_where_sql = "".join(f" AND {frag}" for frag in where)
+        total_tsq = relax[0] if relax is not None else tsq
         total = (await session.execute(
-            text(f"SELECT count(*) FROM documents d WHERE d.fts_is @@ {tsq}{doc_where_sql}"), p
+            text(f"SELECT count(*) FROM documents d WHERE d.fts_is @@ {total_tsq}{doc_where_sql}"), p
         )).scalar() or 0
+    if strict_total is None:
+        strict_total = total
     if total == 0:
-        return SearchResults(total=0, page=page, page_size=page_size, results=[])
+        return SearchResults(total=0, page=page, page_size=page_size, results=[],
+                             strict_total=strict_total, relaxed=relax_params is not None)
 
     # A page beyond PASSAGE_CANDIDATE_DOCS documents simply comes back empty here
     # (the 'hits' CTE never contains more than the capped candidate set), while
@@ -221,7 +259,7 @@ async def search_by_passages(
         SELECT d.id, s.short_name AS source, s.display_name AS source_display,
                d.court, d.case_number, d.document_date, d.verdict_type,
                d.summary, d.keywords, d.plaintiffs, d.defendants,
-               h.best_rank, h.match_count,
+               h.best_rank, h.match_count, h.tier,
                bp.id AS passage_id, bp.layer, bp.section_kind, bp.section_path,
                bp.para_from, bp.para_to, bp.ordinal,
                ts_headline('simple', bp.text, {snippet_query}, {_HEADLINE_OPTS}) AS snippet,
@@ -251,8 +289,10 @@ async def search_by_passages(
             "passage_id": str(r["passage_id"]),
             "anchor": passage_anchor(r["layer"], r["para_from"], r["para_to"], r["section_path"], r["ordinal"]),
             "section_kind": r["section_kind"], "layer": r["layer"], "match_count": r["match_count"],
+            "match_tier": r["tier"],
         })
-    return SearchResults(total=total, page=page, page_size=page_size, results=results)
+    return SearchResults(total=total, page=page, page_size=page_size, results=results,
+                         strict_total=strict_total, relaxed=relax_params is not None)
 
 
 MAX_PASSAGE_WINDOW = 200

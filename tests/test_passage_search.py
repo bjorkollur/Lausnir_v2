@@ -51,9 +51,9 @@ def test_hits_sql_or_fallback_present_only_for_keyword():
 
 
 @pytest.mark.parametrize("sort,first", [
-    ("relevance", "(h.doc_rank + h.best_rank * ln(1 + h.match_count) + CASE WHEN h.colocated THEN 0.25 ELSE 0 END) DESC"),
-    ("newest", "d.document_date DESC NULLS LAST, h.best_rank DESC"),
-    ("oldest", "d.document_date ASC NULLS LAST, h.best_rank DESC"),
+    ("relevance", "h.tier ASC, (h.doc_rank + h.best_rank * ln(1 + h.match_count) + CASE WHEN h.colocated THEN 0.25 ELSE 0 END) DESC"),
+    ("newest", "h.tier ASC, d.document_date DESC NULLS LAST, h.best_rank DESC"),
+    ("oldest", "h.tier ASC, d.document_date ASC NULLS LAST, h.best_rank DESC"),
 ])
 def test_order_sql(sort, first):
     assert order_sql(sort).startswith(first)
@@ -105,3 +105,31 @@ def test_rank_fn_rejects_unknown_value(monkeypatch):
     with pytest.raises(ValueError):
         build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)", or_tsq=None,
                        doc_where=[], section_filter=False)
+
+
+def test_hits_sql_unrelaxed_has_constant_tier_and_strict_prefilter():
+    sql = build_hits_sql(tsq="to_tsquery('simple', :q_strict)", or_tsq=None, doc_where=[], section_filter=False)
+    assert "0 AS tier" in sql and "CASE WHEN d.fts_is" not in sql
+    assert "WHERE d.fts_is @@ to_tsquery('simple', :q_strict)" in sql
+    assert "max(c.tier) AS tier" in sql
+
+
+def test_hits_sql_relaxed_uses_any_prefilter_and_tier_case_before_limit():
+    sql = build_hits_sql(tsq="to_tsquery('simple', :q_strict)", or_tsq="to_tsquery('simple', :q_any)",
+                         doc_where=["d.document_date >= :date_from"], section_filter=False,
+                         relax=("to_tsquery('simple', :q_any)", "to_tsquery('simple', :q_nminus1)"))
+    assert "WHERE d.fts_is @@ to_tsquery('simple', :q_any) AND d.document_date >= :date_from" in sql
+    assert "WHEN d.fts_is @@ to_tsquery('simple', :q_strict) THEN 0" in sql
+    assert "WHEN d.fts_is @@ to_tsquery('simple', :q_nminus1) THEN 1" in sql
+    cand = sql.split("hits_and")[0]
+    assert cand.index("ORDER BY tier ASC") < cand.index("LIMIT :cand_limit")
+
+
+def test_hits_sql_relaxed_without_nminus1_has_two_tiers():
+    sql = build_hits_sql(tsq="T", or_tsq="A", doc_where=[], section_filter=False, relax=("A", None))
+    assert "THEN 1" not in sql and "ELSE 2 END AS tier" in sql
+
+
+@pytest.mark.parametrize("sort", ["relevance", "newest", "oldest"])
+def test_order_sql_puts_tier_first(sort):
+    assert order_sql(sort).startswith("h.tier ASC, ")

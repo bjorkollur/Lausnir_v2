@@ -183,6 +183,8 @@ class SearchResults:
     page: int
     page_size: int
     results: list[dict[str, Any]]
+    strict_total: int = 0
+    relaxed: bool = False
 
 
 class SearchError(ValueError):
@@ -549,6 +551,7 @@ async def search_documents(
             "snippet": snippet,
             "has_appeal_links": r["has_appeal_links"],
             "passage_id": None, "anchor": None, "section_kind": None, "layer": None, "match_count": None,
+            "match_tier": 0,
         })
 
     return SearchResults(total=total, page=page, page_size=page_size, results=results)
