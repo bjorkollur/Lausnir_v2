@@ -46,6 +46,35 @@ def score(expected: list[dict], results: list[dict], k: int) -> tuple[bool, floa
     return False, 0.0
 
 
+def filter_set(golden: list[dict], name: str) -> list[dict]:
+    """Filter golden entries by their `set` field (default "core" when absent).
+
+    name="all" returns everything unfiltered.
+    """
+    if name == "all":
+        return golden
+    return [g for g in golden if g.get("set", "core") == name]
+
+
+def by_style(per_query: dict, golden: list[dict]) -> dict[str, dict]:
+    """Group an evaluate() result's per_query dict by each entry's `style`
+    field (default "medium" when absent), returning {style: {n, recall, mrr}}.
+    """
+    style_of = {g["id"]: g.get("style", "medium") for g in golden}
+    groups: dict[str, list[dict]] = {}
+    for qid, p in per_query.items():
+        groups.setdefault(style_of.get(qid, "medium"), []).append(p)
+    out = {}
+    for style, ps in groups.items():
+        n = len(ps)
+        out[style] = {
+            "n": n,
+            "recall": sum(p["hit"] for p in ps) / n,
+            "mrr": sum(p["rr"] for p in ps) / n,
+        }
+    return out
+
+
 async def evaluate(impl: str, golden: list[dict], k: int, pre_run: Callable[[], None] | None = None) -> dict:
     os.environ["LAUSNIR_SEARCH_IMPL"] = impl
     import engine.search.queries as q
@@ -117,13 +146,18 @@ async def rank_sweep(golden: list[dict], k: int) -> None:
               f"{r['p50_ms']:7.0f} {r['zero']:5d}")
 
 
-async def main(impls: list[str], k: int) -> None:
-    golden = yaml.safe_load(GOLDEN.read_text(encoding="utf-8"))
+async def main(impls: list[str], k: int, set_name: str = "all") -> None:
+    all_golden = yaml.safe_load(GOLDEN.read_text(encoding="utf-8"))
+    golden = filter_set(all_golden, set_name)
     reports = [await evaluate(i, golden, k) for i in impls]
     print(f"{'impl':10s} {'n':>3s} {'recall@'+str(k):>10s} {'MRR':>6s} {'hit@1':>6s} {'p50 ms':>7s} {'p95 ms':>7s} {'0-hit':>5s}")
     for r in reports:
         print(f"{r['impl']:10s} {r['n']:3d} {r['recall']:10.3f} {r['mrr']:6.3f} {r['hit1']:6.3f} "
               f"{r['p50_ms']:7.0f} {r['p95_ms']:7.0f} {r['zero']:5d}")
+    print()
+    for r in reports:
+        for style, s in sorted(by_style(r["per_query"], golden).items()):
+            print(f"{r['impl']+'/'+style:16s} {s['n']:3d} {s['recall']:10.3f} {s['mrr']:6.3f}")
     if len(reports) == 2:
         a, b = reports
         diff = [(qid, a["per_query"][qid]["hit"], b["per_query"][qid]["hit"])
@@ -135,8 +169,8 @@ async def main(impls: list[str], k: int) -> None:
     print(f"\nCoverage: {wp:,}/{wt:,} documents with text have passages ({100*wp/wt:.1f}%)")
 
 
-async def _run_sweep_entrypoint(k: int) -> None:
-    golden = yaml.safe_load(GOLDEN.read_text(encoding="utf-8"))
+async def _run_sweep_entrypoint(k: int, set_name: str = "all") -> None:
+    golden = filter_set(yaml.safe_load(GOLDEN.read_text(encoding="utf-8")), set_name)
     await rank_sweep(golden, k)
 
 
@@ -144,11 +178,14 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--impl", choices=["documents", "passages", "both"], default="both")
     ap.add_argument("--k", type=int, default=10)
+    ap.add_argument("--set", choices=["core", "auto", "all"], default="all",
+                     help="Restrict the golden set to entries with this `set` field "
+                          "(default all). Applies to --rank-sweep too.")
     ap.add_argument("--rank-sweep", action="store_true",
                      help="Sweep PASSAGE_RANK_FN x PASSAGE_RANK_STRATEGY against the "
                           "documents baseline; implies --impl passages and ignores --impl.")
     a = ap.parse_args()
     if a.rank_sweep:
-        asyncio.run(_run_sweep_entrypoint(a.k))
+        asyncio.run(_run_sweep_entrypoint(a.k, a.set))
     else:
-        asyncio.run(main(["documents", "passages"] if a.impl == "both" else [a.impl], a.k))
+        asyncio.run(main(["documents", "passages"] if a.impl == "both" else [a.impl], a.k, a.set))
