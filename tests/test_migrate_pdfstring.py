@@ -77,7 +77,15 @@ def test_decide_mismatch_when_hashes_differ():
 def test_update_sql_drops_pdfstring_and_adds_markers():
     sql = m.UPDATE_SQL
     assert "raw_api_data - 'pdfString'" in sql
-    assert "jsonb_build_object('pdf_sha256', :sha, 'pdf_path', :rel)" in sql
+    # Explicit text casts are required — asyncpg can't infer a bind parameter's
+    # type when it's only ever used as a jsonb_build_object() argument
+    # (IndeterminateDatatypeError). CAST(:x AS text), not :x::text: SQLAlchemy's
+    # text() bind-parameter regex has a negative lookahead on a following ':'
+    # specifically so postgres `::type` casts in raw SQL aren't misparsed as
+    # bind params — which means `:sha::text` is silently NOT bound at all and
+    # asyncpg then chokes on the literal ":sha::text" left in the SQL. Both
+    # failure modes were hit running the real migration before this fix.
+    assert "jsonb_build_object('pdf_sha256', CAST(:sha AS text), 'pdf_path', CAST(:rel AS text))" in sql
     assert "WHERE id = :id AND raw_api_data ? 'pdfString'" in sql
     assert sql.strip().startswith("UPDATE documents")
 

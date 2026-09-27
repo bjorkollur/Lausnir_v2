@@ -80,7 +80,7 @@ COMMIT_EVERY = 50
 UPDATE_SQL = (
     "UPDATE documents "
     "SET raw_api_data = (raw_api_data - 'pdfString') "
-    "|| jsonb_build_object('pdf_sha256', :sha, 'pdf_path', :rel) "
+    "|| jsonb_build_object('pdf_sha256', CAST(:sha AS text), 'pdf_path', CAST(:rel AS text)) "
     "WHERE id = :id AND raw_api_data ? 'pdfString'"
 )
 
@@ -242,6 +242,7 @@ async def migrate(*, source: str | None, limit: int | None, dry_run: bool, worke
     stats: dict[str, Counter] = defaultdict(Counter)
     t0 = time.monotonic()
     done = 0
+    conn_dead = False
     with ThreadPoolExecutor(max_workers=workers) as pool:
         loop = asyncio.get_running_loop()
         async with engine.connect() as conn:
@@ -287,9 +288,26 @@ async def migrate(*, source: str | None, limit: int | None, dry_run: bool, worke
                             except Exception as exc:  # noqa: BLE001 — logged and skipped
                                 stats[sn]["errors"] += 1
                                 log.warning("doc %s: DB update failed: %s", r.id, exc)
+                                # A failed statement aborts the whole transaction on this
+                                # connection — every later UPDATE would raise
+                                # InFailedSQLTransactionError until we roll back. Rolling
+                                # back only discards the up-to-COMMIT_EVERY docs written
+                                # since the last commit; their raw_api_data is unchanged so
+                                # they still match the predicate and are retried next run.
+                                try:
+                                    await conn.rollback()
+                                except Exception as rb_exc:  # noqa: BLE001
+                                    log.error("doc %s: rollback failed, connection is dead (%s); stopping run",
+                                              r.id, rb_exc)
+                                    conn_dead = True
 
+                    if conn_dead:
+                        break
                     if not dry_run and done % COMMIT_EVERY == 0:
                         await conn.commit()
+
+                if conn_dead:
+                    break
 
                 elapsed = time.monotonic() - t0
                 rate = done / elapsed if elapsed else 0
@@ -300,9 +318,11 @@ async def migrate(*, source: str | None, limit: int | None, dry_run: bool, worke
                           done, total, 100 * done / total, rate, eta / 60,
                           f" ({errs} errors, {mism} mismatches)" if errs or mism else "")
 
-            if not dry_run:
+            if not dry_run and not conn_dead:
                 await conn.commit()
 
+    if conn_dead:
+        log.error("Run stopped early after a dead connection — remaining stale docs are picked up next run.")
     log.info("Done: %d docs in %.0fs", done, time.monotonic() - t0)
 
     async with engine.connect() as conn:
