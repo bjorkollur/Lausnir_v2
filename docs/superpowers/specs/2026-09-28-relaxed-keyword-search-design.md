@@ -201,6 +201,30 @@ hann er breiður (mörg treff) er LATERAL-formið augljóslega betra. Sjá einni
 leit: víðasta fyrirspurnin getur verið dýr" í [09-gildrur](../../wiki/09-gildrur.md), sem nú er
 uppfærð með þessum tölum.
 
+> **Uppfært 2026-09-28 síðar (grein perf/strict-lateral):** lagað. Óslakaða greinin í `build_hits_sql`
+> notar nú `_lateral_hits_sql` fyrir `hits_and`/`hits_or` og `cand AS MATERIALIZED`. Mælingin sem
+> vantaði: LATERAL tapaði hvergi — sjaldgæf orð (13 treff) 4 ms í báðum formum, algeng orð 3–20×
+> hraðar kalt (19,4 s → 0,86 s á `krafa dómur skaðabót`, 31,5 s Seq Scan yfir `passages` horfinn),
+> sömu efstu 5 á öllum átta prófunarfyrirspurnum. Ný gildra fannst um leið: innfelld `cand` getur
+> fengið Parallel Seq Scan á `documents` sem aftoastar 5 GB af `fts_is` (10,5 s kalt) — þess vegna
+> MATERIALIZED. Gullsett fyrir/eftir: sjá töflu hér fyrir neðan og `docs/wiki/09-gildrur.md`.
+>
+> Gullsett n=492, sama lota, keyrt til skiptis (new1, old1, new2, old2), heitar tölur = seinni umferð:
+>
+> | | GROUP BY (main) | LATERAL + MATERIALIZED |
+> |---|---|---|
+> | recall@10 / MRR / hit@1 | .402 / .244 / .181 | .402 / .244 / .181 |
+> | 0-treff | 0 | 0 |
+> | p50 | 112 ms | 44 ms |
+> | p90 | 744 ms | 657 ms |
+> | p95 | 808 ms | 689 ms |
+> | hámark | 28.209 ms (g1086 „brot gegn börnum“) | 886 ms |
+> | samtals 492 leitir | 191 s | 110 s |
+> | >20 % og >50 ms hraðari / hægari | — | 126 / 2 (mest +117 ms, g020) |
+>
+> Halinn (p90–p95, 600–700 ms) er nú nær eingöngu slakaðar leitir (300 frambjóðendur × LATERAL);
+> það er næsta hagræðingarefni, ekki þetta.
+
 **(b) Slökuð niðurstaða er bundin við `strict_total + RELAX_CAND_LIMIT` skjöl,** og `total`
 tilkynnir núna nákvæmlega þá tölu (sjá „`total` og `strict_total`" hér að ofan) — ekki lengur
 doc-level fjölda víðustu fyrirspurnarinnar, sem gat verið tugþúsundir þótt síðuflettingin gæti

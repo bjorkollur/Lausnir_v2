@@ -23,7 +23,7 @@ _HEADLINE_OPTS = ("'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=35,"
                   "MinWords=12,ShortWord=2'")
 
 # Stage 1 caps candidate documents by document-level rank (ts_rank on d.fts_is)
-# before Stage 2 aggregates passages, so the passage GROUP BY never runs over more
+# before Stage 2 aggregates passages, so the per-candidate LATERAL never runs over more
 # than this many documents. Exact for queries matching <= PASSAGE_CANDIDATE_DOCS
 # documents (the overwhelming majority); for very common terms that match more,
 # only pagination beyond the cap is affected — see search_by_passages.
@@ -149,7 +149,7 @@ def _relaxed_cand_sql(*, rank_fn: str, tsq: str, any_tsq: str, nminus1_tsq: str 
 
 def _lateral_hits_sql(*, rank_fn: str, hit_tsq: str, section_filter: bool,
                       extra_where: str | None) -> str:
-    """Body of ``hits_and``/``hits_or`` for relaxed search: per-candidate LATERAL.
+    """Body of ``hits_and``/``hits_or`` (both modes since 2026-09-28): per-candidate LATERAL.
 
     Perf fix 2026-09-28 (round 2). The shared shape — ``FROM passages p JOIN cand c
     ON c.id = p.document_id WHERE p.fts_is @@ … GROUP BY p.document_id`` — is planned
@@ -167,8 +167,8 @@ def _lateral_hits_sql(*, rank_fn: str, hit_tsq: str, section_filter: bool,
     ``WHERE x.match_count > 0`` restores the semantics of the GROUP BY form.
 
     Column names and their order (``document_id, best_rank, match_count,
-    best_passage_id, doc_rank, tier``) match the unrelaxed CTEs exactly — ``hits``
-    unions the two and downstream SQL reads them by name.
+    best_passage_id, doc_rank, tier``) match what the former GROUP BY CTEs
+    produced — ``hits`` unions the two and downstream SQL reads them by name.
     """
     rank = f"{rank_fn}(p.fts_is, {hit_tsq})"
     inner_where = ["p.document_id = c.id", f"p.fts_is @@ {hit_tsq}"]
@@ -232,19 +232,27 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     ``relax=None`` (the default) keeps today's behaviour exactly: prefilter on
     ``tsq`` alone, constant ``tier = 0``.
 
-    Relaxed mode also swaps ``hits_and``/``hits_or`` for the per-candidate LATERAL
-    form (see ``_lateral_hits_sql``) — the corpus-wide passage bitmap the GROUP BY
-    shape plans is the one thing a wide OR tsquery cannot afford. The unrelaxed
-    branch is byte-identical to the pre-2026-09-28 SQL; existing tests pin it.
+    Both modes aggregate passages per candidate through ``CROSS JOIN LATERAL``
+    (see ``_lateral_hits_sql``). Until 2026-09-28 (perf/strict-lateral) the
+    unrelaxed branch still used ``FROM passages p JOIN cand c … GROUP BY``, which
+    the planner turns into a corpus-wide scan of ``passages`` for the OR tsquery —
+    a Seq Scan over 743k passages, 31.5 s, for `krafa dómur skaðabót` (10,502
+    strict hits, so relaxation never kicks in). With LATERAL the same query takes
+    0.3–0.9 s and returns the identical ranking.
+
+    The unrelaxed ``cand`` is ``MATERIALIZED`` on purpose: when it is inlined under
+    the LATERAL nested loop, the planner may pick a Parallel Seq Scan of
+    ``documents`` instead of ``ix_doc_fts_is``. The main heap is small (121 MB),
+    so the scan looks cheap, but the ``@@`` filter detoasts ``fts_is`` (5 GB of
+    TOAST) for every row — measured 10.5 s cold for a scope-less single-lemma
+    query. Materializing the CTE makes the planner cost it on its own, where the
+    GIN bitmap always wins (136 ms). ``t0``/``t1`` in ``_relaxed_cand_sql`` are
+    materialized for the same family of reasons.
     """
     rank_fn = PASSAGE_RANK_FN
     if rank_fn not in ("ts_rank", "ts_rank_cd"):
         raise ValueError(f"Unknown PASSAGE_RANK_FN: {rank_fn!r}; allowed: ts_rank, ts_rank_cd")
     doc_where_sql = "".join(f" AND {frag}" for frag in doc_where)
-    and_rank = f"{rank_fn}(p.fts_is, {tsq})"
-    and_where = [f"p.fts_is @@ {tsq}"]
-    if section_filter:
-        and_where.append("p.section_kind = ANY(:section_kinds)")
 
     if sort == "newest":
         cand_order = "d.document_date DESC NULLS LAST, d.id"
@@ -255,7 +263,7 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
 
     if relax is None:
         cand_cte = f"""
-        cand AS (
+        cand AS MATERIALIZED (
             SELECT d.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank, 0 AS tier
             FROM documents d
             WHERE d.fts_is @@ {tsq}{doc_where_sql}
@@ -268,50 +276,15 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
             rank_fn=rank_fn, tsq=tsq, any_tsq=any_tsq, nminus1_tsq=nminus1_tsq,
             doc_where_sql=doc_where_sql, date_dir="ASC" if sort == "oldest" else "DESC")
 
-    if relax is None:
-        ctes = f"""{cand_cte},
-        hits_and AS (
-            SELECT p.document_id,
-                   max({and_rank}) AS best_rank,
-                   count(*) AS match_count,
-                   (array_agg(p.id ORDER BY {and_rank} DESC, p.ordinal))[1] AS best_passage_id,
-                   max(c.doc_rank) AS doc_rank,
-                   max(c.tier) AS tier
-            FROM passages p
-            JOIN cand c ON c.id = p.document_id
-            WHERE {" AND ".join(and_where)}
-            GROUP BY p.document_id
-        )"""
-    else:
-        ctes = f"""{cand_cte},
+    ctes = f"""{cand_cte},
         hits_and AS ({_lateral_hits_sql(rank_fn=rank_fn, hit_tsq=tsq,
                                         section_filter=section_filter, extra_where=None)}
         )"""
 
     if or_tsq is not None:
-        or_rank = f"{rank_fn}(p.fts_is, {or_tsq})"
-        or_where = [
-            f"p.fts_is @@ {or_tsq}",
-            "NOT EXISTS (SELECT 1 FROM hits_and ha WHERE ha.document_id = p.document_id)",
-        ]
-        if section_filter:
-            or_where.append("p.section_kind = ANY(:section_kinds)")
-        if relax is None:
-            hits_or_body = f"""
-            SELECT p.document_id,
-                   max({or_rank}) AS best_rank,
-                   count(*) AS match_count,
-                   (array_agg(p.id ORDER BY {or_rank} DESC, p.ordinal))[1] AS best_passage_id,
-                   max(c.doc_rank) AS doc_rank,
-                   max(c.tier) AS tier
-            FROM passages p
-            JOIN cand c ON c.id = p.document_id
-            WHERE {" AND ".join(or_where)}
-            GROUP BY p.document_id"""
-        else:
-            hits_or_body = _lateral_hits_sql(
-                rank_fn=rank_fn, hit_tsq=or_tsq, section_filter=section_filter,
-                extra_where="NOT EXISTS (SELECT 1 FROM hits_and ha WHERE ha.document_id = c.id)")
+        hits_or_body = _lateral_hits_sql(
+            rank_fn=rank_fn, hit_tsq=or_tsq, section_filter=section_filter,
+            extra_where="NOT EXISTS (SELECT 1 FROM hits_and ha WHERE ha.document_id = c.id)")
         ctes += f""",
         hits_or AS ({hits_or_body}
         ),

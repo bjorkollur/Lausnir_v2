@@ -42,15 +42,42 @@ def test_candidate_cap_constant():
     assert PASSAGE_CANDIDATE_DOCS == 2000
 
 
-def test_hits_sql_prefilters_on_document_fts_and_groups_by_document():
+def test_hits_sql_prefilters_on_document_fts_and_aggregates_per_candidate():
     sql = build_hits_sql(tsq="plainto_tsquery('simple', :lemmas)", or_tsq=None,
                          doc_where=["d.document_date >= :date_from"], section_filter=False)
     assert "LIMIT :cand_limit" in sql
-    assert "JOIN cand c ON c.id = p.document_id" in sql
     assert "ORDER BY doc_rank DESC" in sql
-    assert "GROUP BY p.document_id" in sql
+    assert "CROSS JOIN LATERAL" in sql and "p.document_id = c.id" in sql
     assert "count(*) AS match_count" in sql and "best_passage_id" in sql
     assert "d.document_date >= :date_from" in sql
+
+
+def test_hits_sql_unrelaxed_uses_materialized_cand_and_lateral_hits():
+    """perf/strict-lateral (2026-09-28): the unrelaxed branch must not fall back to
+    the corpus-wide `FROM passages p JOIN cand c … GROUP BY` shape — the planner
+    turns it into a Seq Scan of all passages for the OR tsquery (31.5 s for
+    `krafa dómur skaðabót`). And `cand` must be MATERIALIZED: inlined under the
+    LATERAL nested loop the planner may choose a Parallel Seq Scan of `documents`
+    whose `@@` filter detoasts 5 GB of fts_is (10.5 s cold for a scope-less
+    single-lemma query) instead of the GIN bitmap (136 ms)."""
+    sql = build_hits_sql(tsq="to_tsquery('simple', :q_strict)", or_tsq="to_tsquery('simple', :q_any)",
+                         doc_where=[], section_filter=False)
+    assert "cand AS MATERIALIZED (" in sql
+    assert "JOIN cand c ON c.id = p.document_id" not in sql
+    assert "GROUP BY p.document_id" not in sql
+    hits = sql.split("hits_and AS")[1]
+    assert hits.count("CROSS JOIN LATERAL") == 2          # hits_and and hits_or
+    assert hits.count("WHERE x.match_count > 0") == 2
+    assert "NOT EXISTS (SELECT 1 FROM hits_and ha WHERE ha.document_id = c.id)" in hits
+    assert "SELECT ha.*, TRUE AS colocated FROM hits_and ha" in sql
+    assert "SELECT ho.*, FALSE AS colocated FROM hits_or ho" in sql
+
+
+def test_hits_sql_unrelaxed_date_sort_keeps_materialized_cand():
+    for sort in ("newest", "oldest"):
+        sql = build_hits_sql(tsq="T", or_tsq=None, doc_where=[], section_filter=False, sort=sort)
+        assert "cand AS MATERIALIZED (" in sql
+        assert "GROUP BY p.document_id" not in sql
 
 
 def test_hits_sql_adds_section_filter_when_requested():
@@ -134,7 +161,8 @@ def test_hits_sql_unrelaxed_has_constant_tier_and_strict_prefilter():
     sql = build_hits_sql(tsq="to_tsquery('simple', :q_strict)", or_tsq=None, doc_where=[], section_filter=False)
     assert "0 AS tier" in sql and "CASE WHEN d.fts_is" not in sql
     assert "WHERE d.fts_is @@ to_tsquery('simple', :q_strict)" in sql
-    assert "max(c.tier) AS tier" in sql
+    # tier is carried through from cand by the lateral projection (no aggregate needed)
+    assert "c.tier" in sql.split("hits_and AS")[1]
 
 
 def test_hits_sql_relaxed_selects_candidates_per_tier_without_detoasting_any_set():
