@@ -148,7 +148,10 @@ async def search(
         )
     except SearchError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
-    return {"total": res.total, "page": res.page, "page_size": res.page_size, "results": res.results}
+    return {
+        "total": res.total, "page": res.page, "page_size": res.page_size,
+        "strict_total": res.strict_total, "relaxed": res.relaxed, "results": res.results,
+    }
 
 
 @app.get("/api/facets")

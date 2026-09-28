@@ -4,8 +4,29 @@ from engine.search.queries import SearchError
 from engine.search import passage_search
 from engine.search.passage_search import (
     PASSAGE_CANDIDATE_DOCS, PASSAGE_RANK_FN, PASSAGE_RANK_STRATEGY, RANK_STRATEGIES,
-    build_hits_sql, order_sql, validate_section_kinds,
+    build_hits_sql, order_sql, search_by_passages, validate_section_kinds,
 )
+
+
+class _EmptyRowsResult:
+    """Stand-in for the rows query result — returns no rows."""
+    def mappings(self):
+        return self
+    def all(self):
+        return []
+    def scalar(self):
+        return None
+
+
+class _RecordingSession:
+    """Records every executed SQL statement; used to prove a query was (or was
+    not) issued, without a real database."""
+    def __init__(self):
+        self.calls: list[str] = []
+
+    async def execute(self, stmt, params=None):
+        self.calls.append(str(stmt))
+        return _EmptyRowsResult()
 
 
 def test_validate_section_kinds_accepts_known_rejects_unknown():
@@ -133,3 +154,51 @@ def test_hits_sql_relaxed_without_nminus1_has_two_tiers():
 @pytest.mark.parametrize("sort", ["relevance", "newest", "oldest"])
 def test_order_sql_puts_tier_first(sort):
     assert order_sql(sort).startswith("h.tier ASC, ")
+
+
+# ── Duplicate strict-count elision (spec 2026-09-28, Task 3 review) ──────────
+
+async def test_unrelaxed_strict_total_skips_duplicate_count_query():
+    """When strict_total is already known (unrelaxed keyword dispatch always
+    computes it up front) and there's no section_kind filter, search_by_passages
+    must reuse it as 'total' instead of re-running the identical strict count
+    query against documents.fts_is."""
+    session = _RecordingSession()
+    res = await search_by_passages(
+        session, tsq_fn="to_tsquery", tsq_param="q_strict",
+        where=[], params={"q_strict": "a & b"},
+        sort="relevance", page=1, page_size=20, section_kinds=None,
+        strict_total=7,
+    )
+    assert len(session.calls) == 1  # only the page/rows query — no count query
+    assert not any("FROM documents d WHERE d.fts_is @@" in c for c in session.calls)
+    assert res.total == 7
+    assert res.strict_total == 7
+    assert res.relaxed is False
+
+
+async def test_relaxed_path_still_runs_its_own_total_query():
+    """Sanity check that the elision is specific to the unrelaxed case: with
+    relax_params set, the any-lemma total query still runs."""
+    session = _RecordingSession()
+    await search_by_passages(
+        session, tsq_fn="to_tsquery", tsq_param="q_strict",
+        where=[], params={"q_strict": "a & b", "q_any": "a | b"},
+        sort="relevance", page=1, page_size=20, section_kinds=None,
+        or_tsq_param="q_any", relax_params=("q_any", None), strict_total=2,
+    )
+    assert any("FROM documents d WHERE d.fts_is @@" in c for c in session.calls)
+
+
+async def test_section_kind_path_still_runs_its_own_total_query():
+    """Sanity check that the elision doesn't apply when a section_kind filter
+    is present, even with strict_total given — that count is capped by the
+    candidate set and can't be assumed equal to strict_total."""
+    session = _RecordingSession()
+    await search_by_passages(
+        session, tsq_fn="to_tsquery", tsq_param="q_strict",
+        where=[], params={"q_strict": "a & b"},
+        sort="relevance", page=1, page_size=20, section_kinds=["nidurstada"],
+        strict_total=7,
+    )
+    assert any("SELECT count(*) FROM hits" in c for c in session.calls)

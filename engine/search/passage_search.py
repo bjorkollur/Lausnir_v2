@@ -232,6 +232,11 @@ async def search_by_passages(
         # Bounded by the candidate cap (exact only up to PASSAGE_CANDIDATE_DOCS
         # matching documents) — a section filter can only be evaluated per-passage.
         total = (await session.execute(text(f"WITH {ctes} SELECT count(*) FROM hits"), p)).scalar() or 0
+    elif strict_total is not None and relax_params is None:
+        # Unrelaxed keyword search: the caller already ran this exact strict
+        # count (to decide whether to relax) — reuse it instead of re-running
+        # the identical query against documents.fts_is.
+        total = strict_total
     else:
         # Exact document total straight off the GIN index — no rank, no cap. In
         # relaxed mode, 'total' counts the widest (any-lemma) query; unrelaxed it's
