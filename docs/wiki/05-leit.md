@@ -120,7 +120,7 @@ Athygli: `_PROVISION_NOISE = {mgr, gr, lag, lög, nr, sbr}` — eftir BÍN-lemmu
 
 ## Facets
 
-`facet_counts()` keyrir sömu síu og leitin en `GROUP BY source, verdict_type`, og skilar tölum fyrir hvern hnút í flokkunartrénu. Notað af hliðarstikunni í framendanum. Fyrir `keyword`-leit tekur hún sína eigin slökunarákvörðun — sjá „Slökuð leit" hér að ofan.
+`facet_counts()` keyrir sömu síu og leitin en `GROUP BY source, verdict_type`, og skilar tölum fyrir hvern hnút í flokkunartrénu. Notað af hliðarstikunni í framendanum. Fyrir `keyword`-leit telur hún alltaf ströng treff (`q_strict`), líka þegar leitin sjálf er slökuð — sjá „Slökuð leit" hér að ofan.
 
 ## Tvö `fts` — hvað er munurinn?
 

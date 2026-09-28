@@ -236,18 +236,24 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     (see ``_lateral_hits_sql``). Until 2026-09-28 (perf/strict-lateral) the
     unrelaxed branch still used ``FROM passages p JOIN cand c … GROUP BY``, which
     the planner turns into a corpus-wide scan of ``passages`` for the OR tsquery —
-    a Seq Scan over 743k passages, 31.5 s, for `krafa dómur skaðabót` (10,502
-    strict hits, so relaxation never kicks in). With LATERAL the same query takes
-    0.3–0.9 s and returns the identical ranking.
+    a Seq Scan of the whole table (1.78 M rows, 743k of them matching), 31.5 s,
+    for `krafa dómur skaðabót` (10,502 strict hits, so relaxation never kicks
+    in). With LATERAL the same query takes 0.3–0.9 s and returns the identical
+    ranking.
 
     The unrelaxed ``cand`` is ``MATERIALIZED`` on purpose: when it is inlined under
     the LATERAL nested loop, the planner may pick a Parallel Seq Scan of
     ``documents`` instead of ``ix_doc_fts_is``. The main heap is small (121 MB),
     so the scan looks cheap, but the ``@@`` filter detoasts ``fts_is`` (5 GB of
     TOAST) for every row — measured 10.5 s cold for a scope-less single-lemma
-    query. Materializing the CTE makes the planner cost it on its own, where the
-    GIN bitmap always wins (136 ms). ``t0``/``t1`` in ``_relaxed_cand_sql`` are
-    materialized for the same family of reasons.
+    query. Materializing the CTE stops it being inlined under the nested loop,
+    so it is costed on its own; for a selective strict tsquery the GIN bitmap then
+    wins (`gæsluvarðhald`: 136 ms vs 10.5 s cold). It is not a guarantee: for an
+    unselective strict tsquery (`krafa dómur`, ~48k documents) the planner still
+    chooses a seq scan inside the materialized CTE, and with a warm cache the
+    seq scan can even be the faster plan. The decision is about the worst case.
+    (``t0``/``t1`` in ``_relaxed_cand_sql`` are materialized for a different
+    reason — see its docstring.)
     """
     rank_fn = PASSAGE_RANK_FN
     if rank_fn not in ("ts_rank", "ts_rank_cd"):

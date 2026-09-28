@@ -73,6 +73,15 @@ def test_hits_sql_unrelaxed_uses_materialized_cand_and_lateral_hits():
     assert "SELECT ho.*, FALSE AS colocated FROM hits_or ho" in sql
 
 
+def test_hits_sql_unrelaxed_section_filter_lives_inside_the_lateral():
+    sql = build_hits_sql(tsq="T", or_tsq="A", doc_where=[], section_filter=True)
+    hits = " ".join(sql.split("hits_and AS")[1].split())
+    assert hits.count("p.section_kind = ANY(:section_kinds)") == 2
+    for lateral in hits.split("CROSS JOIN LATERAL (")[1:]:
+        inner = lateral.split(") x")[0]
+        assert "p.section_kind = ANY(:section_kinds)" in inner
+
+
 def test_hits_sql_unrelaxed_date_sort_keeps_materialized_cand():
     for sort in ("newest", "oldest"):
         sql = build_hits_sql(tsq="T", or_tsq=None, doc_where=[], section_filter=False, sort=sort)
@@ -162,7 +171,9 @@ def test_hits_sql_unrelaxed_has_constant_tier_and_strict_prefilter():
     assert "0 AS tier" in sql and "CASE WHEN d.fts_is" not in sql
     assert "WHERE d.fts_is @@ to_tsquery('simple', :q_strict)" in sql
     # tier is carried through from cand by the lateral projection (no aggregate needed)
-    assert "c.tier" in sql.split("hits_and AS")[1]
+    hits = " ".join(sql.split("hits_and AS")[1].split())
+    assert "c.doc_rank, c.tier FROM cand c" in hits
+    assert "max(c.tier)" not in hits
 
 
 def test_hits_sql_relaxed_selects_candidates_per_tier_without_detoasting_any_set():
