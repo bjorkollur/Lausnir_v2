@@ -61,3 +61,82 @@ def test_by_style_defaults_missing_style_to_medium():
     per_query = {"a": {"id": "a", "hit": True, "rr": 1.0, "total": 1}}
     grouped = m.by_style(per_query, golden)
     assert set(grouped.keys()) == {"medium"}
+
+
+def test_relax_sweep_values():
+    assert m.RELAX_SWEEP_VALUES == (0, 5, 10, 20, 50)
+
+
+def test_evaluate_per_query_record_includes_relaxed(monkeypatch):
+    """evaluate()'s per-query record must carry `relaxed` from res.relaxed so
+    --relax-sweep can count how many queries relaxed at each threshold."""
+    import asyncio
+    from types import SimpleNamespace
+
+    golden = [{"id": "a", "question": "q", "expected": []}]
+
+    class FakeResults:
+        def __init__(self, relaxed):
+            self.results = []
+            self.total = 0
+            self.relaxed = relaxed
+
+    async def fake_search_documents(session, q, mode, scope=None, page_size=10):
+        return FakeResults(relaxed=True)
+
+    class FakeSession:
+        async def __aenter__(self):
+            return self
+
+        async def __aexit__(self, *a):
+            return False
+
+    monkeypatch.setattr(
+        "engine.search.queries.search_documents", fake_search_documents
+    )
+    monkeypatch.setattr(
+        "engine.database.connection.init_db", lambda: asyncio.sleep(0)
+    )
+    monkeypatch.setattr(
+        "engine.database.connection.AsyncSessionLocal", lambda: FakeSession()
+    )
+
+    result = asyncio.run(m.evaluate(golden, k=10))
+    assert result["per_query"]["a"]["relaxed"] is True
+
+
+def test_relax_cand_limit_flag_is_parsed():
+    a = m.build_parser().parse_args(["--relax-sweep", "--k", "10", "--set", "all",
+                                     "--relax-cand-limit", "300"])
+    assert a.relax_cand_limit == 300
+    assert a.relax_sweep is True
+    # Usable on a plain run too, and absent by default.
+    assert m.build_parser().parse_args([]).relax_cand_limit is None
+    assert m.build_parser().parse_args(["--relax-cand-limit", "1000"]).relax_cand_limit == 1000
+
+
+def test_relax_cand_limit_sets_and_restores_the_module_attribute():
+    import engine.search.relaxation as rx
+    orig = rx.RELAX_CAND_LIMIT
+    with m.relax_cand_limit(1000):
+        assert rx.RELAX_CAND_LIMIT == 1000
+    assert rx.RELAX_CAND_LIMIT == orig
+
+
+def test_relax_cand_limit_none_is_a_noop():
+    import engine.search.relaxation as rx
+    orig = rx.RELAX_CAND_LIMIT
+    with m.relax_cand_limit(None):
+        assert rx.RELAX_CAND_LIMIT == orig
+    assert rx.RELAX_CAND_LIMIT == orig
+
+
+def test_relax_cand_limit_restores_on_exception():
+    import engine.search.relaxation as rx
+    orig = rx.RELAX_CAND_LIMIT
+    try:
+        with m.relax_cand_limit(42):
+            raise RuntimeError("boom")
+    except RuntimeError:
+        pass
+    assert rx.RELAX_CAND_LIMIT == orig

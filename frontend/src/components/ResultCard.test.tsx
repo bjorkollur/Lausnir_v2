@@ -10,6 +10,7 @@ const r: SearchResult = {
   keywords: ["Gæsluvarðhald"], plaintiffs: [{ name: "Ríkið", lawyer: null }], defendants: [{ name: "A", lawyer: null }],
   snippet: "texti <mark>gæsluvarðhald</mark> meira", has_appeal_links: true,
   passage_id: null, anchor: null, section_kind: null, layer: null, match_count: null,
+  match_tier: 0,
 };
 
 describe("ResultCard", () => {
@@ -28,5 +29,20 @@ describe("ResultCard", () => {
   it("renders no anchor chip when anchor is null", () => {
     renderWithProviders(<ResultCard r={{ ...r, anchor: null, section_kind: null, layer: null, passage_id: null, match_count: null }} />);
     expect(screen.queryByTestId("passage-anchor")).toBeNull();
+  });
+
+  it("shows a match-tier chip for tier 1 (flest orðin)", () => {
+    renderWithProviders(<ResultCard r={{ ...r, match_tier: 1 }} />);
+    expect(screen.getByTestId("match-tier")).toHaveTextContent("flest orðin");
+  });
+
+  it("shows a match-tier chip for tier 2 (sum orðin)", () => {
+    renderWithProviders(<ResultCard r={{ ...r, match_tier: 2 }} />);
+    expect(screen.getByTestId("match-tier")).toHaveTextContent("sum orðin");
+  });
+
+  it("renders no match-tier chip for tier 0", () => {
+    renderWithProviders(<ResultCard r={{ ...r, match_tier: 0 }} />);
+    expect(screen.queryByTestId("match-tier")).toBeNull();
   });
 });

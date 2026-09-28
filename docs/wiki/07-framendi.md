@@ -51,12 +51,22 @@ Snyrtimennska: `proximity_n` er aðeins skrifað í URL þegar það er annað e
 | `Toolbar` | Röðun, dagsetningarsíur |
 | `ScopeChips` | Virk leitarsvið sem hægt er að fjarlægja |
 | `FacetSidebar` / `FacetNode` | Flokkunartréð með tölum |
-| `ResultsList` / `ResultCard` | Niðurstöður með útdráttum og `anchor` (efnisgreinar-heimilisfang, t.d. „12. mgr.") þegar leitin skilar einni |
+| `ResultsList` / `ResultCard` | Niðurstöður með útdráttum og `anchor` (efnisgreinar-heimilisfang, t.d. „12. mgr.") þegar leitin skilar einni; sjá „Slökuð leit" hér að neðan |
 | `DocPanel` | Skjalabirting (dómar **og** bækur) |
 | `LawPanel` | Lagabirting með ákvæðum |
 | `CatalogTree` / `SourceTree` | Heimildatré |
 | `states.tsx` | Hleðslu-, villu- og tómleikaástand |
 | `LandingView` | Upphafssýn áður en leitað er |
+
+## Slökuð leit — tilkynning og merki
+
+Bakendarök í [05-leit](05-leit.md); þetta er eingöngu birtingin. `types.ts` ber `SearchResponse.strict_total`/`.relaxed` og `SearchResult.match_tier`.
+
+`ResultsList` sýnir eina tilkynningarlínu fyrir ofan listann þegar `relaxed` er satt:
+- `strict_total > 0`: „**{strict_total}** skjöl innihalda öll leitarorðin. Sýni einnig **{total − strict_total}** skjöl sem innihalda flest eða sum þeirra."
+- `strict_total == 0`: „Engin skjöl innihalda öll leitarorðin. Sýni skjöl sem innihalda flest eða sum þeirra."
+
+`ResultCard` sýnir lítið merki við hlið `anchor`-merkisins þegar `match_tier` er 1 eða 2: „flest orðin" (þrep 1) eða „sum orðin" (þrep 2). Ekkert merki fyrir þrep 0 (og aldrei fyrir hina hamina, þar sem `match_tier` er alltaf 0).
 
 ## Langur lestur — `DocPanel`
 

@@ -70,6 +70,41 @@ Regex-fyrirspurnir eru varðar með `SET LOCAL statement_timeout = '10s'` (`REGE
 
 `total`-merkingin utan hámarksins: þegar `section_kind` er ekki sett kemur `total` beint af GIN-vísinum á `documents.fts_is` (nákvæm, óháð hámarki); með `section_kind`-síu kemur `total` úr efnisgreina-CTE-inu og er þá takmarkað við sömu 2000 frambjóðendaskjölin.
 
+## Slökuð leit (relaxation)
+
+`keyword`-leit með tveimur eða fleiri lemmum getur „slakað" á kröfunni um öll orðin þegar strangt treff er af skornum skammti. Rökfræðin er í `engine/search/relaxation.py`, hrein — engin gagnagrunnsaðgerð, engin DB-tenging.
+
+Forsían (`cand` í `build_hits_sql`) fær þrjú þrep þegar slakað er:
+
+| Þrep | Skilyrði | Athugasemd |
+|---|---|---|
+| 0 | öll orðin (`a & b & c`) | ströng fyrirspurn, óbreytt frá óslökuðu leitinni |
+| 1 | öll nema eitt | sameining allra samsetninga, `(a&b)\|(a&c)\|(b&c)`; sleppt yfir `MAX_NMINUS1_LEMMAS` (8) lemmum, og einnig fyrir nákvæmlega tvær lemmur (þrep 1 væri þá orðrétt sama fyrirspurn og þrep 2 — breytt 28.09.2026 eftir lokayfirferð, sjá M5) |
+| 2 | eitthvert orðanna (`a\|b\|c`) | víðasta fyrirspurnin |
+
+**Kveikjan** (`should_relax()`): slökun kviknar þegar strangi fjöldinn — skjöl sem uppfylla þrep 0, með sömu síum og leitin (`scope`, dagsetningar, …) — er **undir `RELAX_BELOW`**. Þessi ákvörðunartalning er hrein doc-level talning á `where` (leiðrétt 28.09.2026 eftir lokayfirferð: hún tekur **ekki** `section_kind` með, því sú sía er eingöngu efnisgreinastigs og er aldrei hluti af `where`-listanum sem `search_documents` sendir í ákvörðunina — sjá M3 fyrir hvernig `section_kind` engu að síður hefur áhrif á `SearchResults.strict_total`, sem er reiknuð sér, síðar). `RELAX_BELOW` er einingareigind í `relaxation.py`, lesin á kalltíma. **`RELAX_BELOW = 10`, fest 28.09.2026** eftir mælingu á 492 spurninga gullsettinu (`scripts/eval_search.py --relax-sweep`, `RELAX_CAND_LIMIT = 300`):
+
+| K | recall@10 | MRR | hit@1 | núll-treff | p50 ms | p95 ms |
+|---|---|---|---|---|---|---|
+| 0 | 0,327 | 0,210 | 0,161 | 78 | 23 | 216 |
+| 10 | 0,402 | 0,244 | 0,181 | 0 | 91 | 707 |
+
+Gæðin ná hámarki við K=10 (eins og K=20/K=50 á öllum mælikvörðum) — hærra gildi fjölgar bara slökuðum fyrirspurnum án ávinnings. Full tafla (K=0/5/10/20/50) í „Niðurstöður mælinga" í `docs/superpowers/plans/2026-09-28-relaxed-keyword-search.md`. `RELAX_BELOW = 0` slekkur alveg á slökun; ein lemma (`n < 2`) slekkur alltaf á henni, óháð `RELAX_BELOW`.
+
+Slökuð leit fær sitt eigið, lægra frambjóðendaþak: `RELAX_CAND_LIMIT = 300` (óslökuð heldur `PASSAGE_CANDIDATE_DOCS = 2000`). Kandidötum er safnað þrep fyrir þrep beint af GIN-vísinum og samantekt á efnisgreinum keyrir sem `CROSS JOIN LATERAL` á hvern frambjóðanda (í stað `GROUP BY` yfir alla `passages`-töfluna) — sjá `_relaxed_cand_sql`/`_lateral_hits_sql` í `engine/search/passage_search.py`. Cap 1000 gaf sömu gæðatölur í mælingunni, bara hægar; 300 er valið.
+
+Ströng treff (þrep 0) koma alltaf fyrst, svo þrep 1, svo þrep 2; innan hvers þreps gildir venjuleg röðun (`breadth_coloc` eða dagsetning eftir `sort`). Efnisgreinaþrepið sjálft er **óbreytt** hvort sem slakað er eða ekki: `hits_and` notar áfram strönga fyrirspurn (öll orð í sömu efnisgrein), `hits_or` notar „eitthvert"-vararleiðina sem er nú þegar til fyrir tveggja+ orða `keyword`-leit — nákvæmlega það sem slökuðu skjölin þurfa.
+
+**`SearchResults`-svæði:**
+- `strict_total` — fjöldi skjala sem uppfylla þrep 0 (með sömu síum). **`relaxed == false` ⇒ `strict_total == total`, án undantekninga, fyrir alla hami** (leiðrétt 28.09.2026 eftir lokayfirferð, I1) — ekki bara óslakaða `keyword`-leit, heldur líka `regex`/`exact`/`prefix`/`substring`/`any`/`proximity` og síu-eingöngu vafur. Með `section_kind`-síu (M3, leiðrétt 28.09.2026) er `strict_total` reiknuð úr sömu efnisgreina-bundnu `hits`-CTE og `total` (`count(*) FILTER (WHERE tier = 0)`), ekki lengur úr doc-level talningunni sem ákvörðunin notaði — sú tala hefur enga `section_kind`-síu og gat því verið hærri en `total` um leið og `section_kind` þrengdi niðurstöðurnar frekar.
+- `total` — **í slökuðum ham er þetta fjöldi þeirra skjala sem raunverulega er hægt að fletta að** (`count(*) FROM hits`, sömu CTE-ir og niðurstöðurnar), sem er bundið af `RELAX_CAND_LIMIT` — **ekki** doc-level fjöldi skjala sem uppfylla víðustu (þrep 2) fyrirspurnina, sem getur verið tugir þúsunda þótt síðuflettingin geti aldrei náð nema broti af því (breytt 28.09.2026 — sjá gildru í [09-gildrur](09-gildrur.md)). Óslakað er `total` áfram strangi doc-level fjöldinn, sama og áður.
+- `relaxed: bool` — hvort slökun kviknaði fyrir þessa fyrirspurn.
+- Hver niðurstaða fær `match_tier: int` (0/1/2; alltaf 0 fyrir hina hamina og fyrir óslakaða `keyword`-leit; fyrir nákvæmlega tvær lemmur kemur `1` aldrei fyrir, sjá M5 hér að ofan).
+
+**Facets telja alltaf strangt (breytt 28.09.2026 eftir lokayfirferð, I2).** `facet_counts()` slakar **aldrei** — hún síar alltaf með ströngu fyrirspurninni (`to_tsquery('simple', :q_strict)`), nákvæmlega eins og fyrir slökunarbreytinguna, og gerir enga eigin `should_relax()`-ákvörðun lengur (ein gagnagrunnstalning færri á hverja `keyword`-leit). Ástæðan: hliðarspjaldið sýnir dreifingu skjala sem innihalda **öll** orðin — sömu tölu og niðurstöðuhausinn kallar `strict_total` — á meðan sjálfur listinn að auki sýnir slökuðu (þrep 1/2) treffin. Að telja víðustu fyrirspurnina í hliðarspjaldinu skilaði tugum þúsunda við hliðina á lista með ≤ `RELAX_CAND_LIMIT` niðurstöðum. Sjá [09-gildrur](09-gildrur.md) fyrir gömlu (nú úreltu) gildruna um að facets og leit gætu verið ósammála um slökun.
+
+Utan gildissviðs: stafsetningarleiðrétting, samheiti, slökun í `proximity`/`regex`, og slökun á kröfunni um að orðin standi í sömu efnisgrein.
+
 ## Lagaákvæðaleit
 
 Sérstakt `provision` viðfang. Þáttar íslenskar tilvísanir:
@@ -85,7 +120,7 @@ Athygli: `_PROVISION_NOISE = {mgr, gr, lag, lög, nr, sbr}` — eftir BÍN-lemmu
 
 ## Facets
 
-`facet_counts()` keyrir sömu síu og leitin en `GROUP BY source, verdict_type`, og skilar tölum fyrir hvern hnút í flokkunartrénu. Notað af hliðarstikunni í framendanum.
+`facet_counts()` keyrir sömu síu og leitin en `GROUP BY source, verdict_type`, og skilar tölum fyrir hvern hnút í flokkunartrénu. Notað af hliðarstikunni í framendanum. Fyrir `keyword`-leit tekur hún sína eigin slökunarákvörðun — sjá „Slökuð leit" hér að ofan.
 
 ## Tvö `fts` — hvað er munurinn?
 

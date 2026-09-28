@@ -53,6 +53,7 @@ Flokkunartréð með skjalatölum + flatur heimildalisti.
 ```json
 {
   "total": 1234, "page": 1, "page_size": 20,
+  "strict_total": 1234, "relaxed": false,
   "results": [{
     "id": "uuid", "urlausn": "Hrd. 59/2025 10. júní 2026 – Dómur",
     "source": "haestirettur", "source_display": "Hæstiréttur",
@@ -61,12 +62,17 @@ Flokkunartréð með skjalatölum + flatur heimildalisti.
     "plaintiffs": [{"name": "A", "lawyer": null}], "defendants": [...],
     "snippet": "…texti með <mark>áherslu</mark>…", "has_appeal_links": true,
     "passage_id": "uuid", "anchor": "12. mgr.", "section_kind": "nidurstada",
-    "layer": "body", "match_count": 3
+    "layer": "body", "match_count": 3, "match_tier": 0
   }]
 }
 ```
 
-Fimm síðustu svæðin (`passage_id`, `anchor`, `section_kind`, `layer`, `match_count`) koma frá efnisgreininni sem gaf besta samsvörun í `keyword`/`proximity` leit (sjá [05-leit](05-leit.md)) — öll `null` fyrir hina hamina, þar sem samsvörunin er á skjalstigi.
+Fimm svæðin `passage_id`…`match_count` koma frá efnisgreininni sem gaf besta samsvörun í `keyword`/`proximity` leit (sjá [05-leit](05-leit.md)) — öll `null` fyrir hina hamina, þar sem samsvörunin er á skjalstigi.
+
+**Slökuð leit** (sjá [05-leit](05-leit.md) „Slökuð leit"), aðeins `keyword` með ≥2 lemmum:
+- `strict_total` — fjöldi skjala sem uppfylla ströngu fyrirspurnina (öll orðin). **`relaxed == false` ⇒ `strict_total == total`, án undantekninga, fyrir alla hami** (`keyword` óslakað jafnt sem `regex`/`exact`/`prefix`/`substring`/`any`/`proximity` og síu-eingöngu vafur — leiðrétt 2026-09-28 eftir lokayfirferð, sjá I1 í breytingaskránni).
+- `relaxed` — `true` þegar strangi fjöldinn var undir `RELAX_BELOW` og leitin var víkkuð út. Þegar `relaxed` er satt er `total` fjöldi **raunverulega fáanlegra** niðurstaðna (bundinn af `RELAX_CAND_LIMIT`), ekki doc-level fjöldi skjala sem uppfylla víðustu fyrirspurnina.
+- Hver niðurstaða: `match_tier` — `0` (öll orðin), `1` (öll nema eitt) eða `2` (eitthvert orðanna); alltaf `0` fyrir óslakaða leit og fyrir hina hamina.
 
 Ógilt regex eða óþekkt svæði → **HTTP 400** með `{"detail": "..."}`.
 

@@ -38,6 +38,12 @@ export function ResultCard({ r }: { r: SearchResult }) {
             {r.anchor}
           </span>
         )}
+        {(r.match_tier === 1 || r.match_tier === 2) && (
+          <span data-testid="match-tier"
+                className="shrink-0 text-xs font-medium text-[var(--ink-soft)] bg-[var(--canvas)] border border-[var(--border)] rounded-md px-2 py-0.5">
+            {r.match_tier === 1 ? "flest orðin" : "sum orðin"}
+          </span>
+        )}
         <p className="text-sm text-[var(--ink)] leading-relaxed" dangerouslySetInnerHTML={markHtml(r.snippet)} />
       </div>
       {r.keywords.length > 0 && (

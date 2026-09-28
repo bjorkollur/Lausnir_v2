@@ -4,6 +4,7 @@ from fastapi.testclient import TestClient
 
 import engine.api.app as appmod
 from engine.api.app import app, get_session
+from engine.search.queries import SearchResults
 
 
 class _Result:
@@ -87,3 +88,55 @@ def test_search_rejects_unknown_section_kind():
     c = _client([])
     r = c.get("/api/search?q=x&section_kind=foo")
     assert r.status_code == 400
+
+
+def _minimal_result(**overrides):
+    row = {
+        "id": "doc-1", "urlausn": "Hrd. 1/2024", "source": "hrd", "source_display": "Hæstiréttur",
+        "court": "Hrd.", "case_number": "1/2024", "document_date": "2024-01-01", "verdict_type": "Dómur",
+        "keywords": [], "plaintiffs": [], "defendants": [], "snippet": "...", "has_appeal_links": False,
+        "passage_id": "p-1", "anchor": None, "section_kind": None, "layer": None, "match_count": 1,
+        "match_tier": 0,
+    }
+    row.update(overrides)
+    return row
+
+
+def test_search_exposes_strict_total_and_relaxed_when_relaxed(monkeypatch):
+    """T4: relaxed keyword search shape — strict_total/relaxed/match_tier pass through."""
+    async def _fake_search_documents(*a, **k):
+        return SearchResults(
+            total=5, page=1, page_size=20,
+            results=[_minimal_result(match_tier=1)],
+            strict_total=2, relaxed=True,
+        )
+    monkeypatch.setattr(appmod, "search_documents", _fake_search_documents)
+    c = _client([])
+    r = c.get("/api/search?q=x")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["strict_total"] == 2
+    assert body["relaxed"] is True
+    assert body["results"][0]["match_tier"] == 1
+
+
+def test_search_api_passes_through_strict_total_and_relaxed_shape(monkeypatch):
+    """API-shape test only: proves /api/search passes SearchResults.strict_total
+    and .relaxed straight through to the JSON body, unmodified. This mocks
+    search_documents, so it says nothing about whether strict_total actually
+    equals total on any real (non-relaxed) code path — that contract is
+    covered against the real search_documents regex path by
+    tests/test_search_queries.py::test_regex_mode_strict_total_equals_total."""
+    async def _fake_search_documents(*a, **k):
+        return SearchResults(
+            total=5, page=1, page_size=20,
+            results=[_minimal_result()],
+            strict_total=5,
+        )
+    monkeypatch.setattr(appmod, "search_documents", _fake_search_documents)
+    c = _client([])
+    r = c.get("/api/search?q=x&mode=regex")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["strict_total"] == body["total"]
+    assert body["relaxed"] is False

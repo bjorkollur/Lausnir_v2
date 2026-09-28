@@ -70,8 +70,133 @@ def validate_section_kinds(kinds: list[str] | None) -> list[str] | None:
     return list(dict.fromkeys(kinds))
 
 
+def _relaxed_cand_sql(*, rank_fn: str, tsq: str, any_tsq: str, nminus1_tsq: str | None,
+                      doc_where_sql: str, date_dir: str) -> str:
+    """The ``cand`` CTE (plus its ``t0``/``t1``/``t2``/``tiers`` helpers) for relaxed search.
+
+    Perf fix 2026-09-28. The first implementation selected candidates with a
+    single scan over the widest (any-lemma) set, computing ``ts_rank(d.fts_is, …)``
+    and rechecking two ``@@`` predicates in a ``CASE`` for *every* matching row
+    before the top-N sort. That forces the heap scan to detoast each row's
+    ``fts_is`` tsvector: 870 ms and ~190k buffers for an any-set of 7,927
+    documents, 10–30 s for common lemmas (60–90k matches) — unusable.
+
+    Instead each tier is selected on its own, straight off the GIN index, and
+    capped by ``document_date`` (a cheap non-toasted column):
+
+    * ``t0`` — strict matches. Uncapped: relaxation only happens when the strict
+      count is below ``RELAX_BELOW``, so this is a handful of rows by definition.
+    * ``t1`` — all-but-one-lemma matches not already in ``t0`` (omitted entirely
+      when ``nminus1_tsq`` is None), capped at ``:cand_limit`` by date.
+    * ``t2`` — any-lemma matches in neither, same cap.
+
+    ``tiers`` unions them, the cut to ``:cand_limit`` runs on ``(tier, date, id)``
+    only, and ``doc_rank`` is computed last, for the surviving rows alone — at
+    most ``:cand_limit`` tsvector detoasts instead of the whole any-set.
+
+    Trade-off: for very common lemmas the tier-1/2 candidates are the *newest*
+    matches, not the highest-ranked ones (the rank isn't known before selection).
+    Ordering *within* a tier is unchanged — ``order_sql`` still ranks the page.
+    ``t0``/``t1`` are marked MATERIALIZED so the NOT EXISTS probes reuse one
+    result rather than re-running the tsquery.
+    """
+    cut_order = f"tier ASC, document_date {date_dir} NULLS LAST, id"
+    tier_order = f"ORDER BY d.document_date {date_dir} NULLS LAST, d.id\n            LIMIT :cand_limit"
+    sql = f"""
+        t0 AS MATERIALIZED (
+            SELECT d.id, d.document_date
+            FROM documents d
+            WHERE d.fts_is @@ {tsq}{doc_where_sql}
+        ),"""
+    not_exists = ["NOT EXISTS (SELECT 1 FROM t0 WHERE t0.id = d.id)"]
+    tier_unions = ["SELECT id, 0 AS tier, document_date FROM t0"]
+    if nminus1_tsq:
+        sql += f"""
+        t1 AS MATERIALIZED (
+            SELECT d.id, d.document_date
+            FROM documents d
+            WHERE d.fts_is @@ {nminus1_tsq}{doc_where_sql}
+              AND {not_exists[0]}
+            {tier_order}
+        ),"""
+        not_exists.append("NOT EXISTS (SELECT 1 FROM t1 WHERE t1.id = d.id)")
+        tier_unions.append("SELECT id, 1, document_date FROM t1")
+    tier_unions.append("SELECT id, 2, document_date FROM t2")
+    not_exists_sql = "\n              AND ".join(not_exists)
+    tiers_sql = "\n            UNION ALL ".join(tier_unions)
+    sql += f"""
+        t2 AS (
+            SELECT d.id, d.document_date
+            FROM documents d
+            WHERE d.fts_is @@ {any_tsq}{doc_where_sql}
+              AND {not_exists_sql}
+            {tier_order}
+        ),
+        tiers AS (
+            {tiers_sql}
+        ),
+        cand AS (
+            SELECT c.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank, c.tier
+            FROM (
+                SELECT id, tier, document_date FROM tiers
+                ORDER BY {cut_order}
+                LIMIT :cand_limit
+            ) c
+            JOIN documents d ON d.id = c.id
+        )"""
+    return sql
+
+
+def _lateral_hits_sql(*, rank_fn: str, hit_tsq: str, section_filter: bool,
+                      extra_where: str | None) -> str:
+    """Body of ``hits_and``/``hits_or`` for relaxed search: per-candidate LATERAL.
+
+    Perf fix 2026-09-28 (round 2). The shared shape — ``FROM passages p JOIN cand c
+    ON c.id = p.document_id WHERE p.fts_is @@ … GROUP BY p.document_id`` — is planned
+    as a Bitmap Heap Scan on ``ix_passage_fts_is`` for the whole corpus, joined to
+    ``cand`` only afterwards. For common lemmas the (OR) tsquery matches hundreds of
+    thousands of passages, each detoasted to compute ``ts_rank``: ``hits`` alone took
+    43.6 s for `krafa dómur skaðabót`. Relaxation is exactly the case where the OR
+    query is wide, so the work has to be bounded by the candidates instead.
+
+    Driving the aggregate from ``cand`` through ``CROSS JOIN LATERAL`` makes the
+    planner walk ``ix_passage_doc (document_id, ordinal)`` once per candidate — at
+    most ``RELAX_CAND_LIMIT`` short index scans — and the ``@@`` recheck then only
+    touches that document's passages. The lateral aggregate always yields one row
+    (``count(*) = 0``, the rest NULL, for a candidate with no matching passage), so
+    ``WHERE x.match_count > 0`` restores the semantics of the GROUP BY form.
+
+    Column names and their order (``document_id, best_rank, match_count,
+    best_passage_id, doc_rank, tier``) match the unrelaxed CTEs exactly — ``hits``
+    unions the two and downstream SQL reads them by name.
+    """
+    rank = f"{rank_fn}(p.fts_is, {hit_tsq})"
+    inner_where = ["p.document_id = c.id", f"p.fts_is @@ {hit_tsq}"]
+    if section_filter:
+        inner_where.append("p.section_kind = ANY(:section_kinds)")
+    outer_where = ["x.match_count > 0"]
+    if extra_where:
+        outer_where.append(extra_where)
+    return f"""
+            SELECT c.id AS document_id,
+                   x.best_rank,
+                   x.match_count,
+                   x.best_passage_id,
+                   c.doc_rank,
+                   c.tier
+            FROM cand c
+            CROSS JOIN LATERAL (
+                SELECT max({rank}) AS best_rank,
+                       count(*) AS match_count,
+                       (array_agg(p.id ORDER BY {rank} DESC, p.ordinal))[1] AS best_passage_id
+                FROM passages p
+                WHERE {" AND ".join(inner_where)}
+            ) x
+            WHERE {" AND ".join(outer_where)}"""
+
+
 def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], section_filter: bool,
-                   sort: str = "relevance") -> str:
+                   sort: str = "relevance", relax: tuple[str, str | None] | None = None) -> str:
     """Two- or three-stage CTE list (no leading ``WITH`` — callers prepend it).
 
     Stage 1 (``cand``) ranks documents by ``ts_rank(d.fts_is, tsq)`` (the doc-level
@@ -96,6 +221,21 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     somewhere in the document. ``hits`` unions the two (or is just ``hits_and`` when
     there's no fallback), tagging provenance via ``colocated`` so relevance ordering
     and snippet rendering can prefer the precise match.
+
+    ``relax`` (``(any_tsq, nminus1_tsq_or_None)``) switches ``cand`` to a tiered
+    prefilter for relaxed keyword search (spec 2026-09-28): the candidate set is
+    widened to documents matching ``any_tsq`` (any query lemma), tagged with a
+    ``tier`` (0 = all lemmas, 1 = all-but-one, 2 = any) so strict matches still
+    sort first. Each tier is selected and capped separately — see
+    ``_relaxed_cand_sql`` for why (detoasting ``fts_is`` across the whole
+    any-set was the original implementation's 10–30 s bottleneck).
+    ``relax=None`` (the default) keeps today's behaviour exactly: prefilter on
+    ``tsq`` alone, constant ``tier = 0``.
+
+    Relaxed mode also swaps ``hits_and``/``hits_or`` for the per-candidate LATERAL
+    form (see ``_lateral_hits_sql``) — the corpus-wide passage bitmap the GROUP BY
+    shape plans is the one thing a wide OR tsquery cannot afford. The unrelaxed
+    branch is byte-identical to the pre-2026-09-28 SQL; existing tests pin it.
     """
     rank_fn = PASSAGE_RANK_FN
     if rank_fn not in ("ts_rank", "ts_rank_cd"):
@@ -113,24 +253,39 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     else:
         cand_order = "doc_rank DESC, d.id"
 
-    ctes = f"""
+    if relax is None:
+        cand_cte = f"""
         cand AS (
-            SELECT d.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank
+            SELECT d.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank, 0 AS tier
             FROM documents d
             WHERE d.fts_is @@ {tsq}{doc_where_sql}
             ORDER BY {cand_order}
             LIMIT :cand_limit
-        ),
+        )"""
+    else:
+        any_tsq, nminus1_tsq = relax
+        cand_cte = _relaxed_cand_sql(
+            rank_fn=rank_fn, tsq=tsq, any_tsq=any_tsq, nminus1_tsq=nminus1_tsq,
+            doc_where_sql=doc_where_sql, date_dir="ASC" if sort == "oldest" else "DESC")
+
+    if relax is None:
+        ctes = f"""{cand_cte},
         hits_and AS (
             SELECT p.document_id,
                    max({and_rank}) AS best_rank,
                    count(*) AS match_count,
                    (array_agg(p.id ORDER BY {and_rank} DESC, p.ordinal))[1] AS best_passage_id,
-                   max(c.doc_rank) AS doc_rank
+                   max(c.doc_rank) AS doc_rank,
+                   max(c.tier) AS tier
             FROM passages p
             JOIN cand c ON c.id = p.document_id
             WHERE {" AND ".join(and_where)}
             GROUP BY p.document_id
+        )"""
+    else:
+        ctes = f"""{cand_cte},
+        hits_and AS ({_lateral_hits_sql(rank_fn=rank_fn, hit_tsq=tsq,
+                                        section_filter=section_filter, extra_where=None)}
         )"""
 
     if or_tsq is not None:
@@ -141,17 +296,24 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
         ]
         if section_filter:
             or_where.append("p.section_kind = ANY(:section_kinds)")
-        ctes += f""",
-        hits_or AS (
+        if relax is None:
+            hits_or_body = f"""
             SELECT p.document_id,
                    max({or_rank}) AS best_rank,
                    count(*) AS match_count,
                    (array_agg(p.id ORDER BY {or_rank} DESC, p.ordinal))[1] AS best_passage_id,
-                   max(c.doc_rank) AS doc_rank
+                   max(c.doc_rank) AS doc_rank,
+                   max(c.tier) AS tier
             FROM passages p
             JOIN cand c ON c.id = p.document_id
             WHERE {" AND ".join(or_where)}
-            GROUP BY p.document_id
+            GROUP BY p.document_id"""
+        else:
+            hits_or_body = _lateral_hits_sql(
+                rank_fn=rank_fn, hit_tsq=or_tsq, section_filter=section_filter,
+                extra_where="NOT EXISTS (SELECT 1 FROM hits_and ha WHERE ha.document_id = c.id)")
+        ctes += f""",
+        hits_or AS ({hits_or_body}
         ),
         hits AS (
             SELECT ha.*, TRUE AS colocated FROM hits_and ha
@@ -169,45 +331,98 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
 
 def order_sql(sort: str, strategy: str | None = None) -> str:
     if sort == "oldest":
-        return "d.document_date ASC NULLS LAST, h.best_rank DESC, d.id"
+        return "h.tier ASC, d.document_date ASC NULLS LAST, h.best_rank DESC, d.id"
     if sort == "newest":
-        return "d.document_date DESC NULLS LAST, h.best_rank DESC, d.id"
+        return "h.tier ASC, d.document_date DESC NULLS LAST, h.best_rank DESC, d.id"
     key = strategy or PASSAGE_RANK_STRATEGY
     try:
         prefix = RANK_STRATEGIES[key]
     except KeyError:
         raise ValueError(f"Unknown passage rank strategy: {key!r}; allowed: {sorted(RANK_STRATEGIES)}")
-    return f"{prefix}, d.document_date DESC NULLS LAST, d.id"
+    return f"h.tier ASC, {prefix}, d.document_date DESC NULLS LAST, d.id"
 
 
 async def search_by_passages(
     session: AsyncSession, *, tsq_fn: str, tsq_param: str, where: list[str], params: dict[str, Any],
     sort: str, page: int, page_size: int, section_kinds: list[str] | None,
-    or_tsq_param: str | None = None,
+    or_tsq_param: str | None = None, relax_params: tuple[str, str | None] | None = None,
+    strict_total: int | None = None,
 ):
     from engine.search.queries import SearchResults, _citation  # local import (cycle)
 
     tsq = f"{tsq_fn}('simple', :{tsq_param})"
     # OR-fallback recall stage, keyword mode only (proximity passes or_tsq_param=None).
     or_tsq = f"to_tsquery('simple', :{or_tsq_param})" if or_tsq_param else None
-    ctes = build_hits_sql(tsq=tsq, or_tsq=or_tsq, doc_where=where, section_filter=bool(section_kinds), sort=sort)
+    # Relaxed keyword search (spec 2026-09-28): relax_params=(any_param, nminus1_param_or_None)
+    # names the bind params for the widened prefilter; build the SQL fragments build_hits_sql
+    # expects from them.
+    relax: tuple[str, str | None] | None = None
+    if relax_params is not None:
+        any_param, nminus1_param = relax_params
+        relax = (
+            f"to_tsquery('simple', :{any_param})",
+            f"to_tsquery('simple', :{nminus1_param})" if nminus1_param else None,
+        )
+    ctes = build_hits_sql(tsq=tsq, or_tsq=or_tsq, doc_where=where, section_filter=bool(section_kinds),
+                          sort=sort, relax=relax)
     p = dict(params)
-    p["cand_limit"] = PASSAGE_CANDIDATE_DOCS
+    # Relaxed search aggregates passages per candidate (LATERAL, see
+    # _lateral_hits_sql), so its cost is linear in the candidate count and the
+    # any-lemma tsquery it walks is wide. It gets its own, much smaller cap;
+    # the unrelaxed path keeps PASSAGE_CANDIDATE_DOCS. Read at call time so
+    # --relax-cand-limit can flip it.
+    if relax_params is not None:
+        import engine.search.relaxation as _rx
+        p["cand_limit"] = _rx.RELAX_CAND_LIMIT
+    else:
+        p["cand_limit"] = PASSAGE_CANDIDATE_DOCS
     if section_kinds:
         p["section_kinds"] = section_kinds
 
     if section_kinds:
-        # Bounded by the candidate cap (exact only up to PASSAGE_CANDIDATE_DOCS
-        # matching documents) — a section filter can only be evaluated per-passage.
+        # M3 fix (2026-09-28 final review): with a section_kind filter, both
+        # total and strict_total must come from the same passage-bounded 'hits'
+        # CTE — the doc-level strict_total the caller precomputed (unrelaxed
+        # keyword dispatch always does, from `where` alone, with no section
+        # filter) can exceed total once section_kind narrows the passage-level
+        # result further, which broke the strict_total <= total contract.
+        # Unrelaxed, every row's tier is 0, so this equals `total` exactly —
+        # same as the branch below, just computed together to avoid a second
+        # query. One query returns both counts.
+        row = (await session.execute(text(
+            f"WITH {ctes} SELECT count(*) AS total, "
+            f"count(*) FILTER (WHERE tier = 0) AS strict_total FROM hits"), p)).mappings().first()
+        total = (row and row["total"]) or 0
+        strict_total = (row and row["strict_total"]) or 0
+    elif relax_params is not None:
+        # Bounded by the candidate cap — exact only up to that many matching
+        # documents ('hits' never contains more rows than the cand CTE fed it).
+        # Relaxed mode (spec update 2026-09-28): this is *reachable* results —
+        # at most strict_total + RELAX_CAND_LIMIT documents can ever be paged
+        # to, regardless of how many match the far wider any-lemma query, so
+        # 'total' now reports exactly what the pager can reach instead of the
+        # doc-level any-count (which could be tens of thousands while only a
+        # few hundred more than strict are ever visitable).
         total = (await session.execute(text(f"WITH {ctes} SELECT count(*) FROM hits"), p)).scalar() or 0
+        if strict_total is None:
+            strict_total = total
+    elif strict_total is not None:
+        # Unrelaxed keyword search: the caller already ran this exact strict
+        # count (to decide whether to relax) — reuse it instead of re-running
+        # the identical query against documents.fts_is.
+        total = strict_total
     else:
         # Exact document total straight off the GIN index — no rank, no cap.
+        # Only reached unrelaxed (relax_params is None here), e.g. proximity
+        # search, which doesn't pre-compute strict_total.
         doc_where_sql = "".join(f" AND {frag}" for frag in where)
         total = (await session.execute(
             text(f"SELECT count(*) FROM documents d WHERE d.fts_is @@ {tsq}{doc_where_sql}"), p
         )).scalar() or 0
+        strict_total = total
     if total == 0:
-        return SearchResults(total=0, page=page, page_size=page_size, results=[])
+        return SearchResults(total=0, page=page, page_size=page_size, results=[],
+                             strict_total=strict_total, relaxed=relax_params is not None)
 
     # A page beyond PASSAGE_CANDIDATE_DOCS documents simply comes back empty here
     # (the 'hits' CTE never contains more than the capped candidate set), while
@@ -221,7 +436,7 @@ async def search_by_passages(
         SELECT d.id, s.short_name AS source, s.display_name AS source_display,
                d.court, d.case_number, d.document_date, d.verdict_type,
                d.summary, d.keywords, d.plaintiffs, d.defendants,
-               h.best_rank, h.match_count,
+               h.best_rank, h.match_count, h.tier,
                bp.id AS passage_id, bp.layer, bp.section_kind, bp.section_path,
                bp.para_from, bp.para_to, bp.ordinal,
                ts_headline('simple', bp.text, {snippet_query}, {_HEADLINE_OPTS}) AS snippet,
@@ -251,8 +466,10 @@ async def search_by_passages(
             "passage_id": str(r["passage_id"]),
             "anchor": passage_anchor(r["layer"], r["para_from"], r["para_to"], r["section_path"], r["ordinal"]),
             "section_kind": r["section_kind"], "layer": r["layer"], "match_count": r["match_count"],
+            "match_tier": r["tier"],
         })
-    return SearchResults(total=total, page=page, page_size=page_size, results=results)
+    return SearchResults(total=total, page=page, page_size=page_size, results=results,
+                         strict_total=strict_total, relaxed=relax_params is not None)
 
 
 MAX_PASSAGE_WINDOW = 200
