@@ -70,6 +70,83 @@ def validate_section_kinds(kinds: list[str] | None) -> list[str] | None:
     return list(dict.fromkeys(kinds))
 
 
+def _relaxed_cand_sql(*, rank_fn: str, tsq: str, any_tsq: str, nminus1_tsq: str | None,
+                      doc_where_sql: str, date_dir: str) -> str:
+    """The ``cand`` CTE (plus its ``t0``/``t1``/``t2``/``tiers`` helpers) for relaxed search.
+
+    Perf fix 2026-09-28. The first implementation selected candidates with a
+    single scan over the widest (any-lemma) set, computing ``ts_rank(d.fts_is, …)``
+    and rechecking two ``@@`` predicates in a ``CASE`` for *every* matching row
+    before the top-N sort. That forces the heap scan to detoast each row's
+    ``fts_is`` tsvector: 870 ms and ~190k buffers for an any-set of 7,927
+    documents, 10–30 s for common lemmas (60–90k matches) — unusable.
+
+    Instead each tier is selected on its own, straight off the GIN index, and
+    capped by ``document_date`` (a cheap non-toasted column):
+
+    * ``t0`` — strict matches. Uncapped: relaxation only happens when the strict
+      count is below ``RELAX_BELOW``, so this is a handful of rows by definition.
+    * ``t1`` — all-but-one-lemma matches not already in ``t0`` (omitted entirely
+      when ``nminus1_tsq`` is None), capped at ``:cand_limit`` by date.
+    * ``t2`` — any-lemma matches in neither, same cap.
+
+    ``tiers`` unions them, the cut to ``:cand_limit`` runs on ``(tier, date, id)``
+    only, and ``doc_rank`` is computed last, for the surviving rows alone — at
+    most ``:cand_limit`` tsvector detoasts instead of the whole any-set.
+
+    Trade-off: for very common lemmas the tier-1/2 candidates are the *newest*
+    matches, not the highest-ranked ones (the rank isn't known before selection).
+    Ordering *within* a tier is unchanged — ``order_sql`` still ranks the page.
+    ``t0``/``t1`` are marked MATERIALIZED so the NOT EXISTS probes reuse one
+    result rather than re-running the tsquery.
+    """
+    cut_order = f"tier ASC, document_date {date_dir} NULLS LAST, id"
+    tier_order = f"ORDER BY d.document_date {date_dir} NULLS LAST, d.id\n            LIMIT :cand_limit"
+    sql = f"""
+        t0 AS MATERIALIZED (
+            SELECT d.id, d.document_date
+            FROM documents d
+            WHERE d.fts_is @@ {tsq}{doc_where_sql}
+        ),"""
+    not_exists = ["NOT EXISTS (SELECT 1 FROM t0 WHERE t0.id = d.id)"]
+    tier_unions = ["SELECT id, 0 AS tier, document_date FROM t0"]
+    if nminus1_tsq:
+        sql += f"""
+        t1 AS MATERIALIZED (
+            SELECT d.id, d.document_date
+            FROM documents d
+            WHERE d.fts_is @@ {nminus1_tsq}{doc_where_sql}
+              AND {not_exists[0]}
+            {tier_order}
+        ),"""
+        not_exists.append("NOT EXISTS (SELECT 1 FROM t1 WHERE t1.id = d.id)")
+        tier_unions.append("SELECT id, 1, document_date FROM t1")
+    tier_unions.append("SELECT id, 2, document_date FROM t2")
+    not_exists_sql = "\n              AND ".join(not_exists)
+    tiers_sql = "\n            UNION ALL ".join(tier_unions)
+    sql += f"""
+        t2 AS (
+            SELECT d.id, d.document_date
+            FROM documents d
+            WHERE d.fts_is @@ {any_tsq}{doc_where_sql}
+              AND {not_exists_sql}
+            {tier_order}
+        ),
+        tiers AS (
+            {tiers_sql}
+        ),
+        cand AS (
+            SELECT c.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank, c.tier
+            FROM (
+                SELECT id, tier, document_date FROM tiers
+                ORDER BY {cut_order}
+                LIMIT :cand_limit
+            ) c
+            JOIN documents d ON d.id = c.id
+        )"""
+    return sql
+
+
 def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], section_filter: bool,
                    sort: str = "relevance", relax: tuple[str, str | None] | None = None) -> str:
     """Two- or three-stage CTE list (no leading ``WITH`` — callers prepend it).
@@ -101,8 +178,11 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
     prefilter for relaxed keyword search (spec 2026-09-28): the candidate set is
     widened to documents matching ``any_tsq`` (any query lemma), tagged with a
     ``tier`` (0 = all lemmas, 1 = all-but-one, 2 = any) so strict matches still
-    sort first. ``relax=None`` (the default) keeps today's behaviour exactly:
-    prefilter on ``tsq`` alone, constant ``tier = 0``.
+    sort first. Each tier is selected and capped separately — see
+    ``_relaxed_cand_sql`` for why (detoasting ``fts_is`` across the whole
+    any-set was the original implementation's 10–30 s bottleneck).
+    ``relax=None`` (the default) keeps today's behaviour exactly: prefilter on
+    ``tsq`` alone, constant ``tier = 0``.
     """
     rank_fn = PASSAGE_RANK_FN
     if rank_fn not in ("ts_rank", "ts_rank_cd"):
@@ -121,24 +201,21 @@ def build_hits_sql(*, tsq: str, or_tsq: str | None, doc_where: list[str], sectio
         cand_order = "doc_rank DESC, d.id"
 
     if relax is None:
-        cand_where = f"d.fts_is @@ {tsq}"
-        tier_expr = "0"
-        cand_order_sql = cand_order
+        cand_cte = f"""
+        cand AS (
+            SELECT d.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank, 0 AS tier
+            FROM documents d
+            WHERE d.fts_is @@ {tsq}{doc_where_sql}
+            ORDER BY {cand_order}
+            LIMIT :cand_limit
+        )"""
     else:
         any_tsq, nminus1_tsq = relax
-        cand_where = f"d.fts_is @@ {any_tsq}"
-        mid = f"WHEN d.fts_is @@ {nminus1_tsq} THEN 1 " if nminus1_tsq else ""
-        tier_expr = f"CASE WHEN d.fts_is @@ {tsq} THEN 0 {mid}ELSE 2 END"
-        cand_order_sql = f"tier ASC, {cand_order}"
+        cand_cte = _relaxed_cand_sql(
+            rank_fn=rank_fn, tsq=tsq, any_tsq=any_tsq, nminus1_tsq=nminus1_tsq,
+            doc_where_sql=doc_where_sql, date_dir="ASC" if sort == "oldest" else "DESC")
 
-    ctes = f"""
-        cand AS (
-            SELECT d.id, {rank_fn}(d.fts_is, {tsq}) AS doc_rank, {tier_expr} AS tier
-            FROM documents d
-            WHERE {cand_where}{doc_where_sql}
-            ORDER BY {cand_order_sql}
-            LIMIT :cand_limit
-        ),
+    ctes = f"""{cand_cte},
         hits_and AS (
             SELECT p.document_id,
                    max({and_rank}) AS best_rank,

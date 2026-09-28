@@ -135,20 +135,63 @@ def test_hits_sql_unrelaxed_has_constant_tier_and_strict_prefilter():
     assert "max(c.tier) AS tier" in sql
 
 
-def test_hits_sql_relaxed_uses_any_prefilter_and_tier_case_before_limit():
+def test_hits_sql_relaxed_selects_candidates_per_tier_without_detoasting_any_set():
+    """Perf fix 2026-09-28: the CASE-based `cand` had to detoast d.fts_is for
+    every document in the widest (any-lemma) set just to compute doc_rank and
+    recheck the tier predicates before the top-N sort (870 ms / 190k buffers for
+    a 7,927-document any-set; 10-30 s for common lemmas). Candidates are now
+    picked per tier straight off the GIN index, ordered by date, and doc_rank is
+    computed only for the <= :cand_limit rows that survive."""
     sql = build_hits_sql(tsq="to_tsquery('simple', :q_strict)", or_tsq="to_tsquery('simple', :q_any)",
                          doc_where=["d.document_date >= :date_from"], section_filter=False,
                          relax=("to_tsquery('simple', :q_any)", "to_tsquery('simple', :q_nminus1)"))
-    assert "WHERE d.fts_is @@ to_tsquery('simple', :q_any) AND d.document_date >= :date_from" in sql
-    assert "WHEN d.fts_is @@ to_tsquery('simple', :q_strict) THEN 0" in sql
-    assert "WHEN d.fts_is @@ to_tsquery('simple', :q_nminus1) THEN 1" in sql
     cand = sql.split("hits_and")[0]
-    assert cand.index("ORDER BY tier ASC") < cand.index("LIMIT :cand_limit")
+    # Per-tier CTEs, each a plain GIN probe with the caller's doc filters applied.
+    assert "t0 AS" in cand and "t1 AS" in cand and "t2 AS" in cand
+    assert "WHERE d.fts_is @@ to_tsquery('simple', :q_strict) AND d.document_date >= :date_from" in cand
+    assert "WHERE d.fts_is @@ to_tsquery('simple', :q_nminus1) AND d.document_date >= :date_from" in cand
+    assert "WHERE d.fts_is @@ to_tsquery('simple', :q_any) AND d.document_date >= :date_from" in cand
+    # Lower tiers exclude documents already claimed by a higher tier.
+    assert "NOT EXISTS (SELECT 1 FROM t0 WHERE t0.id = d.id)" in cand
+    assert "NOT EXISTS (SELECT 1 FROM t1 WHERE t1.id = d.id)" in cand
+    # Tier 1/2 are capped by date, not by rank - no fts_is access for the cap.
+    flat = " ".join(cand.split())
+    t2 = flat.split("t2 AS")[1].split("tiers AS")[0]
+    assert "ORDER BY d.document_date DESC NULLS LAST, d.id LIMIT :cand_limit" in t2
+    # No CASE over d.fts_is anywhere any more.
+    assert "CASE WHEN d.fts_is" not in sql
+    # The union of the tiers is cut to :cand_limit with tier first, and doc_rank
+    # is only computed after that cut (join back to documents).
+    assert "ORDER BY tier ASC, document_date DESC NULLS LAST, id LIMIT :cand_limit" in flat
+    assert flat.index("ORDER BY tier ASC") < flat.rindex("LIMIT :cand_limit")
+    assert "to_tsquery('simple', :q_strict)) AS doc_rank" in flat
+    assert "JOIN documents d ON d.id = c.id" in flat
+
+
+@pytest.mark.parametrize("sort,expected", [
+    ("relevance", "ORDER BY tier ASC, document_date DESC NULLS LAST, id"),
+    ("newest", "ORDER BY tier ASC, document_date DESC NULLS LAST, id"),
+    ("oldest", "ORDER BY tier ASC, document_date ASC NULLS LAST, id"),
+])
+def test_hits_sql_relaxed_cand_cut_follows_sort(sort, expected):
+    """Relevance can't order the cut by rank (doc_rank isn't known before the
+    tier CTEs run), so it falls back to newest-first like `newest`; `oldest`
+    flips the direction so a date sort isn't picking among the newest 2000."""
+    sql = build_hits_sql(tsq="T", or_tsq="A", doc_where=[], section_filter=False,
+                         relax=("A", "N"), sort=sort)
+    cand = " ".join(sql.split("hits_and")[0].split())
+    assert expected in cand
 
 
 def test_hits_sql_relaxed_without_nminus1_has_two_tiers():
     sql = build_hits_sql(tsq="T", or_tsq="A", doc_where=[], section_filter=False, relax=("A", None))
-    assert "THEN 1" not in sql and "ELSE 2 END AS tier" in sql
+    cand = sql.split("hits_and")[0]
+    assert "t1 AS" not in cand
+    assert "FROM t1" not in cand
+    assert "1, document_date FROM t1" not in cand
+    assert "t0 AS" in cand and "t2 AS" in cand
+    assert "NOT EXISTS (SELECT 1 FROM t0 WHERE t0.id = d.id)" in cand
+    assert "0 AS tier, document_date FROM t0" in cand and "2, document_date FROM t2" in cand
 
 
 @pytest.mark.parametrize("sort", ["relevance", "newest", "oldest"])

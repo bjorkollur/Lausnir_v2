@@ -48,17 +48,41 @@ Lemmur koma úr `lemmatize_query` (aðeins `[a-záéíóúýðþæö]+` tákn, b
 Nýtt viðfang `relax: tuple[str, str|None] | None` = (`any_tsq`, `nminus1_tsq`) þegar slakað er, annars `None`. Í slökuðum ham:
 
 ```sql
-cand AS (
-  SELECT d.id, {rank_fn}(d.fts_is, {strict_tsq}) AS doc_rank,
-         CASE WHEN d.fts_is @@ {strict_tsq} THEN 0
-              WHEN d.fts_is @@ {nminus1_tsq} THEN 1      -- sleppt ef nminus1 er None
-              ELSE 2 END AS tier
-  FROM documents d
+t0 AS MATERIALIZED (                      -- ströng treff; ≤ RELAX_BELOW raðir þegar slakað er
+  SELECT d.id, d.document_date FROM documents d
+  WHERE d.fts_is @@ {strict_tsq}{doc_where_sql}
+),
+t1 AS MATERIALIZED (                      -- sleppt alveg ef nminus1 er None
+  SELECT d.id, d.document_date FROM documents d
+  WHERE d.fts_is @@ {nminus1_tsq}{doc_where_sql}
+    AND NOT EXISTS (SELECT 1 FROM t0 WHERE t0.id = d.id)
+  ORDER BY d.document_date DESC NULLS LAST, d.id LIMIT :cand_limit
+),
+t2 AS (
+  SELECT d.id, d.document_date FROM documents d
   WHERE d.fts_is @@ {any_tsq}{doc_where_sql}
-  ORDER BY tier ASC, {cand_order}
-  LIMIT :cand_limit
+    AND NOT EXISTS (SELECT 1 FROM t0 WHERE t0.id = d.id)
+    AND NOT EXISTS (SELECT 1 FROM t1 WHERE t1.id = d.id)
+  ORDER BY d.document_date DESC NULLS LAST, d.id LIMIT :cand_limit
+),
+tiers AS (
+  SELECT id, 0 AS tier, document_date FROM t0
+  UNION ALL SELECT id, 1, document_date FROM t1
+  UNION ALL SELECT id, 2, document_date FROM t2
+),
+cand AS (
+  SELECT c.id, {rank_fn}(d.fts_is, {strict_tsq}) AS doc_rank, c.tier
+  FROM (SELECT id, tier, document_date FROM tiers
+        ORDER BY tier ASC, {cand_cut_order} LIMIT :cand_limit) c
+  JOIN documents d ON d.id = c.id
 )
 ```
+
+`{cand_cut_order}` er `document_date DESC NULLS LAST, id` (`ASC` þegar `sort = oldest`); röðunin getur ekki byggt á `doc_rank` af því hann er ekki til fyrr en eftir valið. Innri `ORDER BY` í `t1`/`t2` fylgir sömu átt.
+
+**Breytt 2026-09-28 eftir mælingu**: CASE-útgáfan þurfti að afþjappa `fts_is` fyrir öll skjöl í víðasta menginu (870 ms fyrir 7.927 skjöl, 10–30 s fyrir algeng orð); nú eru þrep 1–2 valin eftir dagsetningu án þess að snerta `fts_is` og `doc_rank` aðeins reiknað fyrir valin ≤ 2.000 skjöl.
+
+Málamiðlun: fyrir mjög algengar lemmur eru þrep-1/2 frambjóðendurnir *nýjustu* treffin, ekki þau hæst skoruðu — skorið er ekki þekkt fyrir valið. Röðun *innan* þreps er óbreytt (`order_sql` raðar síðunni áfram með `h.tier ASC, <breadth_coloc>…`), og þrep 0 er óskert því `t0` er ekki þakskorið.
 
 Óslakað: `tier` er fasti `0` og `WHERE d.fts_is @@ {strict_tsq}` eins og í dag. `hits_and`/`hits_or` bæta við `max(c.tier) AS tier`; `hits` ber það áfram. `order_sql` fær `h.tier ASC` fremst í öllum þremur röðunum (relevance, newest, oldest). `doc_rank` með ströngu fyrirspurninni er 0 fyrir þrep 1–2 (engin samstæða), svo innan þreps ræður efnisgreinaskorið; það er ásættanlegt og mælt.
 
@@ -107,7 +131,7 @@ Víðasta fyrirspurnin getur passað við tugþúsundir skjala þegar eitt orða
 ## Próf
 
 - `tests/test_relaxation.py`: `build_keyword_queries` fyrir n = 1, 2, 3, 4, 9 (þrep 1 `None`), táknform strengja; `should_relax` með mörkum (`strict_total == RELAX_BELOW` → ósatt), n = 1 → ósatt, threshold 0 → ósatt.
-- `tests/test_passage_search.py`: `build_hits_sql(relax=…)` inniheldur `CASE WHEN d.fts_is @@` og `ORDER BY tier ASC`, `WHERE d.fts_is @@ {any}`; óslakað óbreytt (engin `tier`-CASE, `WHERE … strict`); `order_sql` byrjar á `h.tier ASC` í öllum sorts.
+- `tests/test_passage_search.py`: `build_hits_sql(relax=…)` inniheldur `t0`/`t1`/`t2` með `NOT EXISTS`-útilokun, dagsetningarþak á `t1`/`t2` (`ORDER BY d.document_date … LIMIT :cand_limit`), `ORDER BY tier ASC` á sameiningunni og **enga** `CASE WHEN d.fts_is`; `t1` sleppt þegar `nminus1` er `None`; óslakað byte-óbreytt (fasti `0 AS tier`, `WHERE … strict`); `order_sql` byrjar á `h.tier ASC` í öllum sorts.
 - `tests/test_search_queries.py`: dispatch reiknar strangan fjölda einu sinni; `relaxed` satt/ósatt eftir `RELAX_BELOW`; facets nota `q_any` þegar slakað.
 - `tests/test_api_passages.py`: svarið hefur `strict_total`, `relaxed`, og `match_tier` á niðurstöðum.
 - Framendi: `ResultsList.test.tsx` sýnir tilkynninguna aðeins þegar `relaxed`; `ResultCard.test.tsx` sýnir þrepamerki fyrir 1 og 2, ekkert fyrir 0.
