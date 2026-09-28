@@ -379,23 +379,29 @@ async def search_by_passages(
     if section_kinds:
         p["section_kinds"] = section_kinds
 
-    if section_kinds:
-        # Bounded by the candidate cap (exact only up to PASSAGE_CANDIDATE_DOCS
-        # matching documents) — a section filter can only be evaluated per-passage.
+    if section_kinds or relax_params is not None:
+        # Bounded by the candidate cap — exact only up to that many matching
+        # documents ('hits' never contains more rows than the cand CTE fed it).
+        # A section filter can only be evaluated per-passage (as before).
+        # Relaxed mode (spec update 2026-09-28): this is *reachable* results —
+        # at most strict_total + RELAX_CAND_LIMIT documents can ever be paged
+        # to, regardless of how many match the far wider any-lemma query, so
+        # 'total' now reports exactly what the pager can reach instead of the
+        # doc-level any-count (which could be tens of thousands while only a
+        # few hundred more than strict are ever visitable).
         total = (await session.execute(text(f"WITH {ctes} SELECT count(*) FROM hits"), p)).scalar() or 0
-    elif strict_total is not None and relax_params is None:
+    elif strict_total is not None:
         # Unrelaxed keyword search: the caller already ran this exact strict
         # count (to decide whether to relax) — reuse it instead of re-running
         # the identical query against documents.fts_is.
         total = strict_total
     else:
-        # Exact document total straight off the GIN index — no rank, no cap. In
-        # relaxed mode, 'total' counts the widest (any-lemma) query; unrelaxed it's
-        # the strict query, same as before.
+        # Exact document total straight off the GIN index — no rank, no cap.
+        # Only reached unrelaxed (relax_params is None here), e.g. proximity
+        # search, which doesn't pre-compute strict_total.
         doc_where_sql = "".join(f" AND {frag}" for frag in where)
-        total_tsq = relax[0] if relax is not None else tsq
         total = (await session.execute(
-            text(f"SELECT count(*) FROM documents d WHERE d.fts_is @@ {total_tsq}{doc_where_sql}"), p
+            text(f"SELECT count(*) FROM documents d WHERE d.fts_is @@ {tsq}{doc_where_sql}"), p
         )).scalar() or 0
     if strict_total is None:
         strict_total = total

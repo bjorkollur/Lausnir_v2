@@ -309,9 +309,11 @@ async def test_unrelaxed_strict_total_skips_duplicate_count_query():
     assert res.relaxed is False
 
 
-async def test_relaxed_path_still_runs_its_own_total_query():
-    """Sanity check that the elision is specific to the unrelaxed case: with
-    relax_params set, the any-lemma total query still runs."""
+async def test_relaxed_path_reports_reachable_total_not_the_any_count():
+    """Relaxed mode's 'total' must be the count(*) FROM hits (reachable via the
+    candidate-capped CTEs — at most strict_total + RELAX_CAND_LIMIT documents),
+    not a doc-level any-lemma count against documents.fts_is (which could be
+    far larger than anything the pager can ever reach)."""
     session = _RecordingSession()
     await search_by_passages(
         session, tsq_fn="to_tsquery", tsq_param="q_strict",
@@ -319,7 +321,8 @@ async def test_relaxed_path_still_runs_its_own_total_query():
         sort="relevance", page=1, page_size=20, section_kinds=None,
         or_tsq_param="q_any", relax_params=("q_any", None), strict_total=2,
     )
-    assert any("FROM documents d WHERE d.fts_is @@" in c for c in session.calls)
+    assert any(c.startswith("WITH") and "SELECT count(*) FROM hits" in c for c in session.calls)
+    assert not any("FROM documents d WHERE d.fts_is @@" in c for c in session.calls)
 
 
 async def test_section_kind_path_still_runs_its_own_total_query():

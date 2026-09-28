@@ -1,7 +1,7 @@
 # Slökuð orðaleit (relaxation) — design spec
 
 **Dagsetning:** 2026-09-28
-**Staða:** Hönnun samþykkt munnlega (notandi valdi „slaka líka þegar treff eru fá“), spec til yfirferðar.
+**Staða:** Innleitt 2026-09-28. `RELAX_BELOW = 10` og `RELAX_CAND_LIMIT = 300` valin af notanda út frá mælingu (sjá „Framhald / þekkt takmörk“ og `docs/superpowers/plans/2026-09-28-relaxed-keyword-search.md`).
 **Bakgrunnur:** `docs/superpowers/specs/2026-09-27-passages-design.md` og mælingar í `docs/superpowers/plans/2026-09-27-passages.md` („Niðurstöður mælinga“).
 
 ## Samhengi
@@ -16,7 +16,7 @@ Efnisgreinaleitin er þegar tveggja þrepa: `cand` (skjöl sem uppfylla strönga
 2. **Þrjú þrep, ekki tvö.** Í slökuðum ham fá skjöl þrep: `0` = öll orðin, `1` = öll nema eitt, `2` = eitthvert orðanna. Ströng treff koma alltaf fyrst, síðan þrep 1, svo þrep 2, og innan þreps gildir venjuleg röðun (`breadth_coloc` eða dagsetning). Þannig er „slaka þegar treff eru fá“ og „slaka þegar ekkert finnst“ sama vélin.
 3. **„Öll nema eitt“** er sameining allra samsetninga þar sem eina lemmu vantar, hver samsetning AND-uð: fyrir `a b c` → `(a & b) | (a & c) | (b & c)`; fyrir tvær lemmur er það sama og „eitthvert“. Yfir **8 lemmum** er þrepi 1 sleppt (samsetningafjöldi) og aðeins þrep 0 og 2 notuð.
 4. **Efnisgreinaþrepið er óbreytt.** `hits_and` notar áfram strönga fyrirspurn (öll orð í sömu efnisgrein); `hits_or` notar „eitthvert“ fyrir frambjóðendur án samstæðs treffs — sem er nákvæmlega það sem slökuðu skjölin þurfa. Útdráttur fylgir sömu reglu og í dag.
-5. **`total` og `strict_total`.** Í slökuðum ham er `total` fjöldi skjala sem uppfylla víðustu fyrirspurnina („eitthvert“) með síum, og `strict_total` fjöldi þeirra sem uppfylla ströngu. Óslakað: `strict_total == total`. Með `section_kind`-síu eru báðar tölur takmarkaðar af frambjóðendaþakinu eins og í dag.
+5. **`total` og `strict_total`.** `strict_total` er fjöldi skjala sem uppfylla ströngu fyrirspurnina (öll orðin), með síum. Óslakað: `strict_total == total`, `total` beint af GIN-vísinum (engin þaksetning). **Uppfært 2026-09-28** (Task 6b): í slökuðum ham er `total` **ekki** lengur doc-level fjöldi þeirra sem uppfylla víðustu fyrirspurnina — sá fjöldi getur verið tugir þúsunda þótt síðuflettingin geti aldrei náð nema `strict_total + RELAX_CAND_LIMIT` skjölum (`cand`-þakið). Í staðinn er `total = count(*) FROM hits` (sömu CTE-ir og niðurstöðurnar sjálfar) — nákvæmlega sá fjöldi sem hægt er að fletta að. Með `section_kind`-síu var þetta þegar svona (talan er bundin af frambjóðendaþakinu af því sían verkar aðeins á efnisgreinar).
 6. **Facets fylgja.** `facet_counts` tekur sömu ákvörðun með sínum eigin síum (dagsetningar, án sviðs): ef strangi fjöldinn er undir `RELAX_BELOW` telur hún með víðustu fyrirspurninni. Ákvörðunin er eitt fall sem bæði nota.
 7. **Viðmót.** Ein tilkynningarlína yfir niðurstöðum þegar `relaxed` er satt, og lítið merki á niðurstöðum með þrep > 0. Ekkert annað breytist.
 8. **Utan þessa spec:** stafsetningarleiðrétting, samheiti, slökun í nálægðarleit, og að slaka á kröfu um orð innan efnisgreinar.
@@ -128,7 +128,7 @@ Raunleiðin `search_documents(..., scope=["domstolar"], page_size=10)`: versta t
 
 Óslakað: `tier` er fasti `0` og `WHERE d.fts_is @@ {strict_tsq}` eins og í dag. `hits_and`/`hits_or` bæta við `max(c.tier) AS tier`; `hits` ber það áfram. `order_sql` fær `h.tier ASC` fremst í öllum þremur röðunum (relevance, newest, oldest). `doc_rank` með ströngu fyrirspurninni er 0 fyrir þrep 1–2 (engin samstæða), svo innan þreps ræður efnisgreinaskorið; það er ásættanlegt og mælt.
 
-`total` í slökuðum ham: `count(*) FROM documents d WHERE d.fts_is @@ {any_tsq}{doc_where}`; `strict_total` er talan sem ákvörðunin byggði á (þegar reiknuð).
+**Uppfært 2026-09-28** (Task 6b): `total` í slökuðum ham er `count(*) FROM hits` (sjá kaflann um `total`/`strict_total` hér að ofan) — ekki lengur `count(*) FROM documents d WHERE d.fts_is @@ {any_tsq}{doc_where}`, sem taldi doc-level víðustu fyrirspurnina óháð frambjóðendaþakinu. `strict_total` er áfram talan sem ákvörðunin byggði á (þegar reiknuð).
 
 ## `search_documents` (queries.py)
 
@@ -180,3 +180,35 @@ Víðasta fyrirspurnin getur passað við tugþúsundir skjala þegar eitt orða
 - `tests/test_api_passages.py`: svarið hefur `strict_total`, `relaxed`, og `match_tier` á niðurstöðum.
 - Framendi: `ResultsList.test.tsx` sýnir tilkynninguna aðeins þegar `relaxed`; `ResultCard.test.tsx` sýnir þrepamerki fyrir 1 og 2, ekkert fyrir 0.
 - Gullsett: `--relax-sweep` keyrt og taflan skráð í plan-skjalið; sjálfgefið `RELAX_BELOW` valið af notanda.
+
+## Framhald / þekkt takmörk
+
+Skráð 2026-09-28 (Task 6b) þegar `RELAX_BELOW` var fest og `total` breytt:
+
+**(a) Óslakaða leiðin er sá hægi kaflinn núna, ekki sá slakaði.** `krafa dómur skaðabót`
+(strangt treff 10.502 skjöl, scope `domstolar`) slakar ekki (`RELAX_BELOW = 10`, langt undir
+strangri tölunni) og keyrir samt gamla `JOIN cand … GROUP BY`-formið yfir alla `passages`-töfluna
+— mælt 2,8–32 s köldu/heitu (sjá task-2c-report.md). Þetta er sami galli og slökuðu leiðin hafði
+fyrir LATERAL-lagfæringuna, en hann snertir *fleiri* fyrirspurnir en slökunin gerði (hverja
+óslakaða `keyword`-leit með algengu orði). Ekki lagað hér — dæmt utan gildissviðs þessa spec
+(aðeins slökuð leið). Næsta skref væri sama LATERAL-hugmynd fyrir `hits_and`/`hits_or` í
+óslökuðum ham, en það þarf eigin mælingu: 2000 frambjóðendur × einn vísisskann hver vinnur ekki
+endilega betur en bitmap-skannið þegar strangi tsquery-inn er valkvæmur (fá treff) — aðeins þegar
+hann er breiður (mörg treff) er LATERAL-formið augljóslega betra. Sjá einnig gildruna „Slökuð
+leit: víðasta fyrirspurnin getur verið dýr" í [09-gildrur](../../wiki/09-gildrur.md), sem nú er
+uppfærð með þessum tölum.
+
+**(b) Slökuð niðurstaða er bundin við `strict_total + RELAX_CAND_LIMIT` skjöl,** og `total`
+tilkynnir núna nákvæmlega þá tölu (sjá „`total` og `strict_total`" hér að ofan) — ekki lengur
+doc-level fjölda víðustu fyrirspurnarinnar, sem gat verið tugþúsundir þótt síðuflettingin gæti
+aldrei náð nema broti af þeim. Notandinn getur því ekki flett lengra en það, jafnvel þótt fleiri
+skjöl innihaldi eitthvert leitarorðanna — sami háttur og `PASSAGE_CANDIDATE_DOCS`-þakið hefur
+alltaf haft á óslakaðri leit (sjá gildru „`keyword`-leit nær aðeins yfir efstu 2000
+frambjóðendaskjölin"), bara við lægra þak (300) og eingöngu í slökuðum ham.
+
+**(c) `RELAX_BELOW = 10` valið af notanda 28.09.2026** út frá `--relax-sweep`-töflunni með
+`RELAX_CAND_LIMIT = 300` (sjá `RELAX_BELOW`-athugasemdina í `engine/search/relaxation.py` og
+„Niðurstöður mælinga" í plan-skjalinu): gæðin (recall@10/MRR/hit@1/núll-treff) eru nákvæmlega
+eins frá K=10 og upp úr, svo hærra gildi hefði aðeins fjölgað slökuðum fyrirspurnum án ávinnings,
+og p95 vex hægt en jafnt með K (91 ms → 707 ms milli K=0 og K=10 er stökkið sem skiptir máli;
+eftir það er ábatinn núll).

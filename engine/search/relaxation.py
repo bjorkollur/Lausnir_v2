@@ -14,7 +14,20 @@ from itertools import combinations
 MAX_NMINUS1_LEMMAS = 8
 
 # Relax when the strict document count is below this. 0 disables relaxation.
-# Provisional; the final value is chosen with `scripts/eval_search.py --relax-sweep`.
+#
+# Fixed 2026-09-28 by user decision, from `scripts/eval_search.py --relax-sweep
+# --k 10 --set all` on the 492-question golden set with RELAX_CAND_LIMIT = 300:
+#
+#   K   recall@10   MRR   hit@1  0-hit  p50 ms  p95 ms
+#    0      0.327  0.210  0.161     78      23     216
+#    5      0.396  0.243  0.181      0      57     713
+#   10      0.402  0.244  0.181      0      91     707
+#   20      0.402  0.244  0.181      0     146     702
+#   50      0.402  0.244  0.181      0     529     803
+#
+# Quality saturates at K=10 (identical to K=20 on every metric); K=50 only
+# costs more p50 latency for no further gain. RELAX_CAND_LIMIT = 1000 gave the
+# same quality at every K, just slower — 300 stays the default (see below).
 RELAX_BELOW = 10
 
 # Candidate cap for relaxed search only (unrelaxed keeps
@@ -23,6 +36,12 @@ RELAX_BELOW = 10
 # 2000 candidates x an any-lemma tsquery was the remaining latency problem
 # (p95 8.7 s on the golden set). Read as a module attribute at call time so
 # `scripts/eval_search.py --relax-cand-limit N` can flip it for a measurement.
+#
+# 300 vs. 1000 measured 2026-09-28 (same --relax-sweep run as RELAX_BELOW
+# above): recall@10/MRR/hit@1/zero-hit are identical at every K for both caps
+# — the extra 700 candidates never reach the top 10 — while 1000 is
+# consistently slower (e.g. K=10 p95 707 ms at 300 vs. 881 ms at 1000; K=50
+# p50 529 ms at 300 vs. 625 ms at 1000). 300 is the better default.
 RELAX_CAND_LIMIT = 300
 
 
