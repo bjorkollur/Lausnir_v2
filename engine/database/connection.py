@@ -20,7 +20,7 @@ def _get_db_url() -> str:
 # asyncpg runs everything through prepared statements, so PostgreSQL switches a
 # statement to a *generic* plan after its 5th execution on a connection. For the
 # passage search that is catastrophic: its tsquery comes from a bind parameter
-# (``plainto_tsquery('simple', $1)``), so a generic plan has no selectivity
+# (``to_tsquery('simple', $1)``), so a generic plan has no selectivity
 # information at all — every stage is estimated at ~1 row and the planner picks
 # a per-candidate-document rescan of the ``ix_passage_fts_is`` GIN index
 # (2000 loops x ~550k TIDs) instead of one GIN scan hash-joined to ``cand``.

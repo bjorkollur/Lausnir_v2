@@ -325,15 +325,79 @@ async def test_relaxed_path_reports_reachable_total_not_the_any_count():
     assert not any("FROM documents d WHERE d.fts_is @@" in c for c in session.calls)
 
 
+class _SectionCountResult:
+    """Stand-in for the combined total/strict_total count row (M3)."""
+    def __init__(self, total, strict_total):
+        self._row = {"total": total, "strict_total": strict_total}
+    def mappings(self):
+        return self
+    def first(self):
+        return self._row
+    def all(self):
+        return []
+    def scalar(self):
+        return None
+
+
+class _SectionCountSession(_RecordingSession):
+    """Like _RecordingSession, but answers the combined count query for the
+    section_kind path with a scripted (total, strict_total) pair, and any
+    other query (the rows query) with empty rows."""
+    def __init__(self, total, strict_total):
+        super().__init__()
+        self._total, self._strict_total = total, strict_total
+
+    async def execute(self, stmt, params=None):
+        s = str(stmt)
+        self.calls.append(s)
+        self.params.append(dict(params or {}))
+        if "FILTER (WHERE tier = 0)" in s:
+            return _SectionCountResult(self._total, self._strict_total)
+        return _EmptyRowsResult()
+
+
 async def test_section_kind_path_still_runs_its_own_total_query():
     """Sanity check that the elision doesn't apply when a section_kind filter
     is present, even with strict_total given — that count is capped by the
-    candidate set and can't be assumed equal to strict_total."""
-    session = _RecordingSession()
+    candidate set and can't be assumed equal to a doc-level strict_total."""
+    session = _SectionCountSession(total=3, strict_total=3)
     await search_by_passages(
         session, tsq_fn="to_tsquery", tsq_param="q_strict",
         where=[], params={"q_strict": "a & b"},
         sort="relevance", page=1, page_size=20, section_kinds=["nidurstada"],
         strict_total=7,
     )
-    assert any("SELECT count(*) FROM hits" in c for c in session.calls)
+    assert any("FROM hits" in c and "count(*)" in c for c in session.calls)
+
+
+async def test_section_kind_strict_total_comes_from_hits_tier_zero_not_doc_level():
+    """M3: with section_kind set, strict_total must be computed from the same
+    passage-bounded hits CTE as total (count(*) FILTER (WHERE tier = 0)), never
+    from the precomputed doc-level strict_total passed in by the caller — which
+    has no section filter and can exceed total once section_kind narrows it.
+    Here the stale doc-level number (999) must be ignored in favour of the
+    section-bounded count (3)."""
+    session = _SectionCountSession(total=3, strict_total=3)
+    res = await search_by_passages(
+        session, tsq_fn="to_tsquery", tsq_param="q_strict",
+        where=[], params={"q_strict": "a & b"},
+        sort="relevance", page=1, page_size=20, section_kinds=["nidurstada"],
+        strict_total=999,
+    )
+    assert any("count(*) FILTER (WHERE tier = 0) AS strict_total" in c for c in session.calls)
+    assert res.total == 3
+    assert res.strict_total == 3
+
+
+async def test_section_kind_relaxed_strict_total_also_comes_from_hits():
+    """Same M3 fix, relaxed case: strict_total must reflect the section-bounded
+    tier-0 count, not the doc-level count the relaxation decision used."""
+    session = _SectionCountSession(total=12, strict_total=2)
+    res = await search_by_passages(
+        session, tsq_fn="to_tsquery", tsq_param="q_strict",
+        where=[], params={"q_strict": "a & b", "q_any": "a | b"},
+        sort="relevance", page=1, page_size=20, section_kinds=["nidurstada"],
+        or_tsq_param="q_any", relax_params=("q_any", None), strict_total=999,
+    )
+    assert res.total == 12
+    assert res.strict_total == 2

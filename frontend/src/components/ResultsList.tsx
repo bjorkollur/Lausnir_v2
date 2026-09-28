@@ -40,10 +40,18 @@ export function ResultsList({ state }: { state: SearchState }) {
       {page0.relaxed && (
         <p data-testid="relaxed-notice" className="text-sm text-[var(--ink-soft)] mb-2">
           {page0.strict_total > 0 ? (
-            <>
-              <strong>{page0.strict_total}</strong> skjöl innihalda öll leitarorðin. Sýni einnig{" "}
-              <strong>{total - page0.strict_total}</strong> skjöl sem innihalda flest eða sum þeirra.
-            </>
+            total - page0.strict_total === 0 ? (
+              // M5: relaxation fired on the pre-search estimate but found no
+              // additional reachable matches — don't claim "Sýni einnig 0 skjöl".
+              <>
+                <strong>{page0.strict_total}</strong> skjöl innihalda öll leitarorðin.
+              </>
+            ) : (
+              <>
+                <strong>{page0.strict_total}</strong> skjöl innihalda öll leitarorðin. Sýni einnig{" "}
+                <strong>{total - page0.strict_total}</strong> skjöl sem innihalda flest eða sum þeirra.
+              </>
+            )
           ) : (
             <>Engin skjöl innihalda öll leitarorðin. Sýni skjöl sem innihalda flest eða sum þeirra.</>
           )}

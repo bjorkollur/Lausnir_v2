@@ -379,10 +379,24 @@ async def search_by_passages(
     if section_kinds:
         p["section_kinds"] = section_kinds
 
-    if section_kinds or relax_params is not None:
+    if section_kinds:
+        # M3 fix (2026-09-28 final review): with a section_kind filter, both
+        # total and strict_total must come from the same passage-bounded 'hits'
+        # CTE — the doc-level strict_total the caller precomputed (unrelaxed
+        # keyword dispatch always does, from `where` alone, with no section
+        # filter) can exceed total once section_kind narrows the passage-level
+        # result further, which broke the strict_total <= total contract.
+        # Unrelaxed, every row's tier is 0, so this equals `total` exactly —
+        # same as the branch below, just computed together to avoid a second
+        # query. One query returns both counts.
+        row = (await session.execute(text(
+            f"WITH {ctes} SELECT count(*) AS total, "
+            f"count(*) FILTER (WHERE tier = 0) AS strict_total FROM hits"), p)).mappings().first()
+        total = (row and row["total"]) or 0
+        strict_total = (row and row["strict_total"]) or 0
+    elif relax_params is not None:
         # Bounded by the candidate cap — exact only up to that many matching
         # documents ('hits' never contains more rows than the cand CTE fed it).
-        # A section filter can only be evaluated per-passage (as before).
         # Relaxed mode (spec update 2026-09-28): this is *reachable* results —
         # at most strict_total + RELAX_CAND_LIMIT documents can ever be paged
         # to, regardless of how many match the far wider any-lemma query, so
@@ -390,6 +404,8 @@ async def search_by_passages(
         # doc-level any-count (which could be tens of thousands while only a
         # few hundred more than strict are ever visitable).
         total = (await session.execute(text(f"WITH {ctes} SELECT count(*) FROM hits"), p)).scalar() or 0
+        if strict_total is None:
+            strict_total = total
     elif strict_total is not None:
         # Unrelaxed keyword search: the caller already ran this exact strict
         # count (to decide whether to relax) — reuse it instead of re-running
@@ -403,7 +419,6 @@ async def search_by_passages(
         total = (await session.execute(
             text(f"SELECT count(*) FROM documents d WHERE d.fts_is @@ {tsq}{doc_where_sql}"), p
         )).scalar() or 0
-    if strict_total is None:
         strict_total = total
     if total == 0:
         return SearchResults(total=0, page=page, page_size=page_size, results=[],

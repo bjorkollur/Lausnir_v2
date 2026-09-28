@@ -113,6 +113,25 @@ describe("ResultsList", () => {
     expect(notice).toHaveTextContent("Engin skjöl innihalda öll leitarorðin");
   });
 
+  it("shows only the first sentence when relaxed finds no additional matches", async () => {
+    server.use(
+      http.get("http://localhost:8077/api/search", () =>
+        HttpResponse.json({
+          total: 2,
+          page: 1,
+          page_size: 20,
+          strict_total: 2,
+          relaxed: true,
+          results: [{ ...resultStub, match_tier: 0 }],
+        })
+      )
+    );
+    renderWithProviders(<ResultsList state={{ ...DEFAULT_STATE, q: "x" }} />);
+    const notice = await screen.findByTestId("relaxed-notice");
+    expect(notice).toHaveTextContent("2 skjöl innihalda öll leitarorðin.");
+    expect(notice.textContent).not.toMatch(/Sýni einnig/);
+  });
+
   it("shows no relaxed notice when relaxed is false", async () => {
     server.use(
       http.get("http://localhost:8077/api/search", () =>

@@ -120,9 +120,13 @@ def test_search_exposes_strict_total_and_relaxed_when_relaxed(monkeypatch):
     assert body["results"][0]["match_tier"] == 1
 
 
-def test_search_strict_total_matches_total_when_not_relaxed(monkeypatch):
-    """Non-relaxed shape (regex mode and unrelaxed keyword mode alike): strict_total
-    equals total and relaxed is False."""
+def test_search_api_passes_through_strict_total_and_relaxed_shape(monkeypatch):
+    """API-shape test only: proves /api/search passes SearchResults.strict_total
+    and .relaxed straight through to the JSON body, unmodified. This mocks
+    search_documents, so it says nothing about whether strict_total actually
+    equals total on any real (non-relaxed) code path — that contract is
+    covered against the real search_documents regex path by
+    tests/test_search_queries.py::test_regex_mode_strict_total_equals_total."""
     async def _fake_search_documents(*a, **k):
         return SearchResults(
             total=5, page=1, page_size=20,

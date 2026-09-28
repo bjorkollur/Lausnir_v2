@@ -322,9 +322,13 @@ async def test_single_lemma_never_relaxes(monkeypatch):
     assert "q_any" not in captured["params"]
 
 
-async def test_facets_use_any_query_when_relaxed(monkeypatch):
-    """facet_counts makes its own strict-count decision against its own (scope-
-    free) where-clause; below RELAX_BELOW it filters on the any-query."""
+async def test_facets_always_count_strict(monkeypatch):
+    """I2 ruling (2026-09-28, spec decision 6 amended): facet_counts no longer
+    relaxes, ever — it always filters with the strict (all-lemmas) query,
+    exactly like before relaxed search existed. Even a strict count of 2 (well
+    below RELAX_BELOW) must not switch to the any-lemma query, and no separate
+    strict-count query is run any more (one call total: the facets query
+    itself)."""
     from engine.search import queries as queries_mod, relaxation
 
     monkeypatch.setattr(relaxation, "RELAX_BELOW", 10)
@@ -333,14 +337,16 @@ async def test_facets_use_any_query_when_relaxed(monkeypatch):
     session = FakeSession(scalar_value=2)
     await queries_mod.facet_counts(session, q="ignored", mode="keyword")
 
+    assert len(session.calls) == 1
     facets_sql = session.calls[-1][0]
-    assert ":q_any" in facets_sql
-    assert ":q_strict" not in facets_sql
-    assert session.calls[-1][1]["q_any"] == "a | b"
+    assert ":q_strict" in facets_sql
+    assert ":q_any" not in facets_sql
+    assert session.calls[-1][1]["q_strict"] == "a & b"
 
 
-async def test_facets_use_strict_query_when_not_relaxed(monkeypatch):
-    """At/above RELAX_BELOW, facets filter on the strict (all-lemmas) query."""
+async def test_facets_use_strict_query_regardless_of_count(monkeypatch):
+    """Same as above with a large strict count — behaviour is identical either
+    way now, since facets never relax."""
     from engine.search import queries as queries_mod, relaxation
 
     monkeypatch.setattr(relaxation, "RELAX_BELOW", 10)
@@ -353,3 +359,36 @@ async def test_facets_use_strict_query_when_not_relaxed(monkeypatch):
     assert ":q_strict" in facets_sql
     assert ":q_any" not in facets_sql
     assert session.calls[-1][1]["q_strict"] == "a & b"
+
+
+# ── I1: strict_total == total on every non-relaxed path ──────────────────────
+
+async def test_regex_mode_strict_total_equals_total():
+    """I1: regex/exact/prefix/substring/any/proximity and filter-only browse are
+    all non-relaxed paths — strict_total must equal total and relaxed must be
+    False. Exercised against the real search_documents regex path (not a mock)
+    with a FakeSession returning a count and an empty page."""
+    from engine.search.queries import search_documents
+
+    session = FakeSession(scalar_value=3, mapping_rows=[])
+    res = await search_documents(session, q="gæsluvarðhald", mode="regex")
+    assert res.total == 3
+    assert res.strict_total == res.total
+    assert res.relaxed is False
+
+
+# ── M6: token hygiene — search_documents falls into filter-only browse ───────
+
+async def test_keyword_search_falls_back_to_browse_when_lemmas_are_all_operators(monkeypatch):
+    """build_keyword_queries raises ValueError when every token strips down to
+    nothing; search_documents must catch it and degrade to a filter-only
+    browse, exactly like an empty/non-lemmatisable query — not propagate."""
+    from engine.search import queries as queries_mod
+
+    monkeypatch.setattr(queries_mod, "lemmatize_query", lambda q: "& | (")
+
+    session = FakeSession(scalar_value=0, mapping_rows=[])
+    res = await queries_mod.search_documents(session, q="ignored", mode="keyword")
+    assert res.total == 0
+    assert res.strict_total == 0
+    assert res.relaxed is False

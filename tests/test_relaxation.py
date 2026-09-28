@@ -10,9 +10,12 @@ def test_single_lemma():
 
 
 def test_two_lemmas_nminus1_equals_any():
+    """Ruling 2026-09-28 (M5): for n == 2, tier 1 (all-but-one) is identical to
+    tier 2 (any) — nminus1 is None so there is no separate tier-1 stage; a
+    two-lemma relaxed result only ever shows tier 0/2 ('sum orðin')."""
     kq = build_keyword_queries("gæsluvarðhald rannsókn")
     assert kq.strict == "gæsluvarðhald & rannsókn"
-    assert kq.nminus1 == "gæsluvarðhald | rannsókn"
+    assert kq.nminus1 is None
     assert kq.any == "gæsluvarðhald | rannsókn"
     assert kq.n == 2
 
@@ -51,3 +54,41 @@ def test_should_relax_boundaries(monkeypatch):
     assert should_relax(0, 1) is False
     assert should_relax(0, 2, threshold=0) is False
     assert should_relax(3, 3, threshold=5) is True
+
+
+# ── M4: RELAX_BELOW / RELAX_CAND_LIMIT guard ──────────────────────────────────
+
+def test_should_relax_raises_when_relax_below_not_less_than_cand_limit(monkeypatch):
+    """t0 (strict matches) is uncapped by design; relaxation must imply
+    strict_total < RELAX_CAND_LIMIT, which only holds if RELAX_BELOW is
+    strictly less than RELAX_CAND_LIMIT. A misconfiguration (or an eval-sweep
+    override that only flips one of the two) must fail loud, not silently
+    relax past the cap."""
+    monkeypatch.setattr(relaxation, "RELAX_BELOW", 300)
+    monkeypatch.setattr(relaxation, "RELAX_CAND_LIMIT", 300)
+    with pytest.raises(ValueError):
+        should_relax(5, 2)
+
+
+def test_should_relax_guard_passes_for_default_configuration():
+    assert relaxation.RELAX_BELOW < relaxation.RELAX_CAND_LIMIT
+    should_relax(5, 2)  # must not raise
+
+
+# ── M6: token hygiene ──────────────────────────────────────────────────────
+
+def test_build_keyword_queries_strips_tsquery_operator_chars():
+    kq = build_keyword_queries("kr(a)fa d&óm|ur")
+    assert kq.strict == "krafa & dómur"
+    assert kq.n == 2
+
+
+def test_build_keyword_queries_drops_tokens_that_become_empty():
+    kq = build_keyword_queries("krafa & dómur")
+    assert kq.strict == "krafa & dómur"
+    assert kq.n == 2
+
+
+def test_build_keyword_queries_raises_when_nothing_remains_after_stripping():
+    with pytest.raises(ValueError):
+        build_keyword_queries("&&& |||")

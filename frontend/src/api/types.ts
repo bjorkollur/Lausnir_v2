@@ -1,5 +1,6 @@
 // GET /api/search?q&mode&scope(repeatable)&date_from&date_to&sort&page&page_size&regex_fields(repeatable)
 export interface SearchResponse {
+  /** total: reachable results; when relaxed, strict_total + relaxed matches up to the cap. */
   total: number; page: number; page_size: number; results: SearchResult[];
   /** Count of documents matching every keyword (tier 0). */
   strict_total: number;

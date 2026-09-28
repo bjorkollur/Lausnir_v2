@@ -79,10 +79,10 @@ Forsían (`cand` í `build_hits_sql`) fær þrjú þrep þegar slakað er:
 | Þrep | Skilyrði | Athugasemd |
 |---|---|---|
 | 0 | öll orðin (`a & b & c`) | ströng fyrirspurn, óbreytt frá óslökuðu leitinni |
-| 1 | öll nema eitt | sameining allra samsetninga, `(a&b)\|(a&c)\|(b&c)`; sleppt yfir `MAX_NMINUS1_LEMMAS` (8) lemmum |
+| 1 | öll nema eitt | sameining allra samsetninga, `(a&b)\|(a&c)\|(b&c)`; sleppt yfir `MAX_NMINUS1_LEMMAS` (8) lemmum, og einnig fyrir nákvæmlega tvær lemmur (þrep 1 væri þá orðrétt sama fyrirspurn og þrep 2 — breytt 28.09.2026 eftir lokayfirferð, sjá M5) |
 | 2 | eitthvert orðanna (`a\|b\|c`) | víðasta fyrirspurnin |
 
-**Kveikjan** (`should_relax()`): slökun kviknar þegar strangi fjöldinn — skjöl sem uppfylla þrep 0, með sömu síum og leitin (`scope`, dagsetningar, `section_kind`, …) — er **undir `RELAX_BELOW`**, einingareigind í `relaxation.py` lesin á kalltíma. **`RELAX_BELOW = 10`, fest 28.09.2026** eftir mælingu á 492 spurninga gullsettinu (`scripts/eval_search.py --relax-sweep`, `RELAX_CAND_LIMIT = 300`):
+**Kveikjan** (`should_relax()`): slökun kviknar þegar strangi fjöldinn — skjöl sem uppfylla þrep 0, með sömu síum og leitin (`scope`, dagsetningar, …) — er **undir `RELAX_BELOW`**. Þessi ákvörðunartalning er hrein doc-level talning á `where` (leiðrétt 28.09.2026 eftir lokayfirferð: hún tekur **ekki** `section_kind` með, því sú sía er eingöngu efnisgreinastigs og er aldrei hluti af `where`-listanum sem `search_documents` sendir í ákvörðunina — sjá M3 fyrir hvernig `section_kind` engu að síður hefur áhrif á `SearchResults.strict_total`, sem er reiknuð sér, síðar). `RELAX_BELOW` er einingareigind í `relaxation.py`, lesin á kalltíma. **`RELAX_BELOW = 10`, fest 28.09.2026** eftir mælingu á 492 spurninga gullsettinu (`scripts/eval_search.py --relax-sweep`, `RELAX_CAND_LIMIT = 300`):
 
 | K | recall@10 | MRR | hit@1 | núll-treff | p50 ms | p95 ms |
 |---|---|---|---|---|---|---|
@@ -96,12 +96,12 @@ Slökuð leit fær sitt eigið, lægra frambjóðendaþak: `RELAX_CAND_LIMIT = 3
 Ströng treff (þrep 0) koma alltaf fyrst, svo þrep 1, svo þrep 2; innan hvers þreps gildir venjuleg röðun (`breadth_coloc` eða dagsetning eftir `sort`). Efnisgreinaþrepið sjálft er **óbreytt** hvort sem slakað er eða ekki: `hits_and` notar áfram strönga fyrirspurn (öll orð í sömu efnisgrein), `hits_or` notar „eitthvert"-vararleiðina sem er nú þegar til fyrir tveggja+ orða `keyword`-leit — nákvæmlega það sem slökuðu skjölin þurfa.
 
 **`SearchResults`-svæði:**
-- `strict_total` — fjöldi skjala sem uppfylla þrep 0 (með sömu síum). Óslakað er `total == strict_total`.
+- `strict_total` — fjöldi skjala sem uppfylla þrep 0 (með sömu síum). **`relaxed == false` ⇒ `strict_total == total`, án undantekninga, fyrir alla hami** (leiðrétt 28.09.2026 eftir lokayfirferð, I1) — ekki bara óslakaða `keyword`-leit, heldur líka `regex`/`exact`/`prefix`/`substring`/`any`/`proximity` og síu-eingöngu vafur. Með `section_kind`-síu (M3, leiðrétt 28.09.2026) er `strict_total` reiknuð úr sömu efnisgreina-bundnu `hits`-CTE og `total` (`count(*) FILTER (WHERE tier = 0)`), ekki lengur úr doc-level talningunni sem ákvörðunin notaði — sú tala hefur enga `section_kind`-síu og gat því verið hærri en `total` um leið og `section_kind` þrengdi niðurstöðurnar frekar.
 - `total` — **í slökuðum ham er þetta fjöldi þeirra skjala sem raunverulega er hægt að fletta að** (`count(*) FROM hits`, sömu CTE-ir og niðurstöðurnar), sem er bundið af `RELAX_CAND_LIMIT` — **ekki** doc-level fjöldi skjala sem uppfylla víðustu (þrep 2) fyrirspurnina, sem getur verið tugir þúsunda þótt síðuflettingin geti aldrei náð nema broti af því (breytt 28.09.2026 — sjá gildru í [09-gildrur](09-gildrur.md)). Óslakað er `total` áfram strangi doc-level fjöldinn, sama og áður.
 - `relaxed: bool` — hvort slökun kviknaði fyrir þessa fyrirspurn.
-- Hver niðurstaða fær `match_tier: int` (0/1/2; alltaf 0 fyrir hina hamina og fyrir óslakaða `keyword`-leit).
+- Hver niðurstaða fær `match_tier: int` (0/1/2; alltaf 0 fyrir hina hamina og fyrir óslakaða `keyword`-leit; fyrir nákvæmlega tvær lemmur kemur `1` aldrei fyrir, sjá M5 hér að ofan).
 
-**Facets fylgja með eigin ákvörðun.** `facet_counts()` keyrir sömu `should_relax()`-ákvörðun með **sínum eigin síum** (dagsetningar, ekkert `scope`) og skiptir yfir í víðustu fyrirspurnina (þrep 2) þegar hún slakar — óháð því hvort sjálf leitin slakaði, því síurnar (og þar með strangi fjöldinn) geta verið ólíkar. Sjá gildru um þetta í [09-gildrur](09-gildrur.md).
+**Facets telja alltaf strangt (breytt 28.09.2026 eftir lokayfirferð, I2).** `facet_counts()` slakar **aldrei** — hún síar alltaf með ströngu fyrirspurninni (`to_tsquery('simple', :q_strict)`), nákvæmlega eins og fyrir slökunarbreytinguna, og gerir enga eigin `should_relax()`-ákvörðun lengur (ein gagnagrunnstalning færri á hverja `keyword`-leit). Ástæðan: hliðarspjaldið sýnir dreifingu skjala sem innihalda **öll** orðin — sömu tölu og niðurstöðuhausinn kallar `strict_total` — á meðan sjálfur listinn að auki sýnir slökuðu (þrep 1/2) treffin. Að telja víðustu fyrirspurnina í hliðarspjaldinu skilaði tugum þúsunda við hliðina á lista með ≤ `RELAX_CAND_LIMIT` niðurstöðum. Sjá [09-gildrur](09-gildrur.md) fyrir gömlu (nú úreltu) gildruna um að facets og leit gætu verið ósammála um slökun.
 
 Utan gildissviðs: stafsetningarleiðrétting, samheiti, slökun í `proximity`/`regex`, og slökun á kröfunni um að orðin standi í sömu efnisgrein.
 
