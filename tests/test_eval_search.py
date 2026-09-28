@@ -103,3 +103,40 @@ def test_evaluate_per_query_record_includes_relaxed(monkeypatch):
 
     result = asyncio.run(m.evaluate(golden, k=10))
     assert result["per_query"]["a"]["relaxed"] is True
+
+
+def test_relax_cand_limit_flag_is_parsed():
+    a = m.build_parser().parse_args(["--relax-sweep", "--k", "10", "--set", "all",
+                                     "--relax-cand-limit", "300"])
+    assert a.relax_cand_limit == 300
+    assert a.relax_sweep is True
+    # Usable on a plain run too, and absent by default.
+    assert m.build_parser().parse_args([]).relax_cand_limit is None
+    assert m.build_parser().parse_args(["--relax-cand-limit", "1000"]).relax_cand_limit == 1000
+
+
+def test_relax_cand_limit_sets_and_restores_the_module_attribute():
+    import engine.search.relaxation as rx
+    orig = rx.RELAX_CAND_LIMIT
+    with m.relax_cand_limit(1000):
+        assert rx.RELAX_CAND_LIMIT == 1000
+    assert rx.RELAX_CAND_LIMIT == orig
+
+
+def test_relax_cand_limit_none_is_a_noop():
+    import engine.search.relaxation as rx
+    orig = rx.RELAX_CAND_LIMIT
+    with m.relax_cand_limit(None):
+        assert rx.RELAX_CAND_LIMIT == orig
+    assert rx.RELAX_CAND_LIMIT == orig
+
+
+def test_relax_cand_limit_restores_on_exception():
+    import engine.search.relaxation as rx
+    orig = rx.RELAX_CAND_LIMIT
+    try:
+        with m.relax_cand_limit(42):
+            raise RuntimeError("boom")
+    except RuntimeError:
+        pass
+    assert rx.RELAX_CAND_LIMIT == orig

@@ -1,7 +1,7 @@
 """SQL shape of the passage search path (no DB)."""
 import pytest
 from engine.search.queries import SearchError
-from engine.search import passage_search
+from engine.search import passage_search, relaxation
 from engine.search.passage_search import (
     PASSAGE_CANDIDATE_DOCS, PASSAGE_RANK_FN, PASSAGE_RANK_STRATEGY, RANK_STRATEGIES,
     build_hits_sql, order_sql, search_by_passages, validate_section_kinds,
@@ -23,9 +23,11 @@ class _RecordingSession:
     not) issued, without a real database."""
     def __init__(self):
         self.calls: list[str] = []
+        self.params: list[dict] = []
 
     async def execute(self, stmt, params=None):
         self.calls.append(str(stmt))
+        self.params.append(dict(params or {}))
         return _EmptyRowsResult()
 
 
@@ -192,6 +194,93 @@ def test_hits_sql_relaxed_without_nminus1_has_two_tiers():
     assert "t0 AS" in cand and "t2 AS" in cand
     assert "NOT EXISTS (SELECT 1 FROM t0 WHERE t0.id = d.id)" in cand
     assert "0 AS tier, document_date FROM t0" in cand and "2, document_date FROM t2" in cand
+
+
+def test_hits_sql_relaxed_aggregates_passages_per_candidate_with_lateral():
+    """Perf fix 2026-09-28 (round 2): the corpus-wide `FROM passages p JOIN cand c`
+    GROUP BY is planned as a bitmap heap scan on ix_passage_fts_is for the whole
+    (OR) tsquery — 43.6 s for `krafa dómur skaðabót`. Relaxed mode must drive the
+    aggregate from `cand` through a LATERAL so the planner walks ix_passage_doc
+    once per candidate instead."""
+    sql = build_hits_sql(tsq="to_tsquery('simple', :q_strict)", or_tsq="to_tsquery('simple', :q_any)",
+                         doc_where=[], section_filter=False,
+                         relax=("to_tsquery('simple', :q_any)", "to_tsquery('simple', :q_nminus1)"))
+    hits = sql.split("hits_and AS")[1]
+    assert hits.count("CROSS JOIN LATERAL") == 2          # hits_and and hits_or
+    assert hits.count("p.document_id = c.id") == 2
+    assert hits.count("WHERE x.match_count > 0") == 2
+    # No corpus-wide passage scan / GROUP BY left in the relaxed hits stages.
+    assert "JOIN cand c ON c.id = p.document_id" not in hits
+    assert "GROUP BY p.document_id" not in hits
+    # hits_or still only covers candidates hits_and didn't claim — now keyed on
+    # the candidate, not on a passage row.
+    assert "NOT EXISTS (SELECT 1 FROM hits_and ha WHERE ha.document_id = c.id)" in hits
+    # Column names/positions consumed downstream are unchanged.
+    for cte in hits.split("hits_or AS")[0], hits.split("hits_or AS")[1]:
+        flat = " ".join(cte.split())
+        assert ("SELECT c.id AS document_id, x.best_rank, x.match_count, "
+                "x.best_passage_id, c.doc_rank, c.tier") in flat
+    assert "SELECT ha.*, TRUE AS colocated FROM hits_and ha" in sql
+    assert "SELECT ho.*, FALSE AS colocated FROM hits_or ho" in sql
+
+
+def test_hits_sql_relaxed_section_filter_lives_inside_the_lateral():
+    """The section filter selects which passages count, so it belongs to the
+    per-document lateral subquery, not to the outer candidate scan."""
+    sql = build_hits_sql(tsq="T", or_tsq="A", doc_where=[], section_filter=True, relax=("A", None))
+    hits = " ".join(sql.split("hits_and AS")[1].split())
+    assert hits.count("p.section_kind = ANY(:section_kinds)") == 2
+    for lateral in hits.split("CROSS JOIN LATERAL (")[1:]:
+        inner = lateral.split(") x")[0]
+        assert "p.section_kind = ANY(:section_kinds)" in inner
+
+
+def test_hits_sql_relaxed_without_or_fallback_has_only_hits_and():
+    sql = build_hits_sql(tsq="T", or_tsq=None, doc_where=[], section_filter=False, relax=("A", None))
+    assert "hits_or" not in sql
+    assert "CROSS JOIN LATERAL" in sql
+    assert "SELECT ha.*, TRUE AS colocated FROM hits_and ha" in sql
+
+
+def test_relax_cand_limit_constant():
+    assert relaxation.RELAX_CAND_LIMIT == 300
+
+
+async def test_relaxed_search_binds_the_relaxed_candidate_cap():
+    """Relaxed search walks ix_passage_doc once per candidate, so its cost is
+    linear in :cand_limit — it gets RELAX_CAND_LIMIT, not PASSAGE_CANDIDATE_DOCS."""
+    session = _RecordingSession()
+    await search_by_passages(
+        session, tsq_fn="to_tsquery", tsq_param="q_strict",
+        where=[], params={"q_strict": "a & b", "q_any": "a | b"},
+        sort="relevance", page=1, page_size=20, section_kinds=None,
+        or_tsq_param="q_any", relax_params=("q_any", None), strict_total=2,
+    )
+    assert session.params
+    assert all(p["cand_limit"] == relaxation.RELAX_CAND_LIMIT for p in session.params)
+
+
+async def test_relaxed_cand_limit_is_read_at_call_time(monkeypatch):
+    monkeypatch.setattr(relaxation, "RELAX_CAND_LIMIT", 77)
+    session = _RecordingSession()
+    await search_by_passages(
+        session, tsq_fn="to_tsquery", tsq_param="q_strict",
+        where=[], params={"q_strict": "a & b", "q_any": "a | b"},
+        sort="relevance", page=1, page_size=20, section_kinds=None,
+        or_tsq_param="q_any", relax_params=("q_any", None), strict_total=2,
+    )
+    assert all(p["cand_limit"] == 77 for p in session.params)
+
+
+async def test_unrelaxed_search_keeps_the_full_candidate_cap():
+    session = _RecordingSession()
+    await search_by_passages(
+        session, tsq_fn="to_tsquery", tsq_param="q_strict",
+        where=[], params={"q_strict": "a & b"},
+        sort="relevance", page=1, page_size=20, section_kinds=None,
+        strict_total=7,
+    )
+    assert all(p["cand_limit"] == PASSAGE_CANDIDATE_DOCS for p in session.params)
 
 
 @pytest.mark.parametrize("sort", ["relevance", "newest", "oldest"])

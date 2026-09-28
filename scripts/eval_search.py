@@ -17,11 +17,16 @@ afterwards and never touches them when the flag isn't given.
 50), setting engine.search.relaxation.RELAX_BELOW for each run (restored
 afterwards), and prints one table with recall@k, MRR, hit@1, zero-hit count,
 the number of queries that relaxed, and p50/p95 latency.
+
+--relax-cand-limit N overrides engine.search.relaxation.RELAX_CAND_LIMIT (the
+candidate cap used by relaxed search only) for the duration of the run,
+restoring it afterwards. Works with --relax-sweep, --rank-sweep and plain runs.
 """
 from __future__ import annotations
 
 import argparse
 import asyncio
+import contextlib
 import statistics
 import sys
 import time
@@ -36,6 +41,26 @@ GOLDEN = Path(__file__).parent.parent / "tests" / "golden" / "queries.yaml"
 
 # RELAX_BELOW values swept by --relax-sweep (0 = relaxation disabled).
 RELAX_SWEEP_VALUES = (0, 5, 10, 20, 50)
+
+
+@contextlib.contextmanager
+def relax_cand_limit(n: int | None):
+    """Set engine.search.relaxation.RELAX_CAND_LIMIT to `n` for the duration.
+
+    search_by_passages reads the attribute at call time, so this is enough to
+    change the relaxed candidate cap for a whole evaluation run. `n=None` is a
+    no-op (the flag wasn't given). Always restored, including on exceptions.
+    """
+    import engine.search.relaxation as rx
+    if n is None:
+        yield
+        return
+    orig = rx.RELAX_CAND_LIMIT
+    rx.RELAX_CAND_LIMIT = n
+    try:
+        yield
+    finally:
+        rx.RELAX_CAND_LIMIT = orig
 
 
 def _key(d: dict) -> tuple:
@@ -161,6 +186,7 @@ async def relax_sweep(golden: list[dict], k: int) -> None:
     finally:
         rx.RELAX_BELOW = orig
 
+    print(f"RELAX_CAND_LIMIT = {rx.RELAX_CAND_LIMIT}")
     print(f"{'K':>4s} {'recall@'+str(k):>10s} {'MRR':>6s} {'hit@1':>6s} {'0-hit':>5s} "
           f"{'relaxed':>7s} {'p50 ms':>7s} {'p95 ms':>7s}")
     for r in rows:
@@ -192,7 +218,7 @@ async def _run_relax_sweep_entrypoint(k: int, set_name: str = "all") -> None:
     await relax_sweep(golden, k)
 
 
-if __name__ == "__main__":
+def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser()
     ap.add_argument("--k", type=int, default=10)
     ap.add_argument("--set", choices=["core", "auto", "all"], default="all",
@@ -204,10 +230,18 @@ if __name__ == "__main__":
     ap.add_argument("--relax-sweep", action="store_true",
                      help="Sweep engine.search.relaxation.RELAX_BELOW over "
                           f"{RELAX_SWEEP_VALUES} and print one table.")
-    a = ap.parse_args()
-    if a.rank_sweep:
-        asyncio.run(_run_sweep_entrypoint(a.k, a.set))
-    elif a.relax_sweep:
-        asyncio.run(_run_relax_sweep_entrypoint(a.k, a.set))
-    else:
-        asyncio.run(main(a.k, a.set))
+    ap.add_argument("--relax-cand-limit", type=int, default=None, metavar="N",
+                     help="Override engine.search.relaxation.RELAX_CAND_LIMIT (the "
+                          "candidate cap for relaxed search) for this run only.")
+    return ap
+
+
+if __name__ == "__main__":
+    a = build_parser().parse_args()
+    with relax_cand_limit(a.relax_cand_limit):
+        if a.rank_sweep:
+            asyncio.run(_run_sweep_entrypoint(a.k, a.set))
+        elif a.relax_sweep:
+            asyncio.run(_run_relax_sweep_entrypoint(a.k, a.set))
+        else:
+            asyncio.run(main(a.k, a.set))

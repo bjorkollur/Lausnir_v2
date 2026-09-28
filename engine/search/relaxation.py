@@ -17,6 +17,14 @@ MAX_NMINUS1_LEMMAS = 8
 # Provisional; the final value is chosen with `scripts/eval_search.py --relax-sweep`.
 RELAX_BELOW = 10
 
+# Candidate cap for relaxed search only (unrelaxed keeps
+# passage_search.PASSAGE_CANDIDATE_DOCS = 2000). Relaxed queries aggregate passages
+# per candidate through a LATERAL index walk, so the cost is linear in this number;
+# 2000 candidates x an any-lemma tsquery was the remaining latency problem
+# (p95 8.7 s on the golden set). Read as a module attribute at call time so
+# `scripts/eval_search.py --relax-cand-limit N` can flip it for a measurement.
+RELAX_CAND_LIMIT = 300
+
 
 @dataclass(frozen=True)
 class KeywordQueries:
