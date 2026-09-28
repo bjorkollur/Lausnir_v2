@@ -12,6 +12,11 @@ per-style breakdown.
 PASSAGE_RANK_STRATEGY) combination in engine.search.passage_search, printing
 one table sorted by recall@k then MRR. It restores the module's rank defaults
 afterwards and never touches them when the flag isn't given.
+
+--relax-sweep evaluates the golden set for every RELAX_BELOW in (0, 5, 10, 20,
+50), setting engine.search.relaxation.RELAX_BELOW for each run (restored
+afterwards), and prints one table with recall@k, MRR, hit@1, zero-hit count,
+the number of queries that relaxed, and p50/p95 latency.
 """
 from __future__ import annotations
 
@@ -28,6 +33,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import yaml
 
 GOLDEN = Path(__file__).parent.parent / "tests" / "golden" / "queries.yaml"
+
+# RELAX_BELOW values swept by --relax-sweep (0 = relaxation disabled).
+RELAX_SWEEP_VALUES = (0, 5, 10, 20, 50)
 
 
 def _key(d: dict) -> tuple:
@@ -88,7 +96,8 @@ async def evaluate(golden: list[dict], k: int, pre_run: Callable[[], None] | Non
                                            scope=g.get("scope"), page_size=k)
             lat.append((time.perf_counter() - t0) * 1000)
             hit, rr = score(g["expected"], res.results, k)
-            per.append({"id": g["id"], "hit": hit, "rr": rr, "total": res.total})
+            per.append({"id": g["id"], "hit": hit, "rr": rr, "total": res.total,
+                        "relaxed": res.relaxed})
     n = len(per)
     return {
         "n": n,
@@ -136,6 +145,29 @@ async def rank_sweep(golden: list[dict], k: int) -> None:
               f"{r['p50_ms']:7.0f} {r['zero']:5d}")
 
 
+async def relax_sweep(golden: list[dict], k: int) -> None:
+    import engine.search.relaxation as rx
+
+    rows = []
+    orig = rx.RELAX_BELOW
+    try:
+        for threshold in RELAX_SWEEP_VALUES:
+            def _set(threshold=threshold) -> None:
+                import engine.search.relaxation as rx2
+                rx2.RELAX_BELOW = threshold
+            r = await evaluate(golden, k, pre_run=_set)
+            relaxed_n = sum(p["relaxed"] for p in r["per_query"].values())
+            rows.append({"threshold": threshold, "relaxed_n": relaxed_n, **r})
+    finally:
+        rx.RELAX_BELOW = orig
+
+    print(f"{'K':>4s} {'recall@'+str(k):>10s} {'MRR':>6s} {'hit@1':>6s} {'0-hit':>5s} "
+          f"{'relaxed':>7s} {'p50 ms':>7s} {'p95 ms':>7s}")
+    for r in rows:
+        print(f"{r['threshold']:4d} {r['recall']:10.3f} {r['mrr']:6.3f} {r['hit1']:6.3f} "
+              f"{r['zero']:5d} {r['relaxed_n']:7d} {r['p50_ms']:7.0f} {r['p95_ms']:7.0f}")
+
+
 async def main(k: int, set_name: str = "all") -> None:
     all_golden = yaml.safe_load(GOLDEN.read_text(encoding="utf-8"))
     golden = filter_set(all_golden, set_name)
@@ -155,17 +187,27 @@ async def _run_sweep_entrypoint(k: int, set_name: str = "all") -> None:
     await rank_sweep(golden, k)
 
 
+async def _run_relax_sweep_entrypoint(k: int, set_name: str = "all") -> None:
+    golden = filter_set(yaml.safe_load(GOLDEN.read_text(encoding="utf-8")), set_name)
+    await relax_sweep(golden, k)
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--k", type=int, default=10)
     ap.add_argument("--set", choices=["core", "auto", "all"], default="all",
                      help="Restrict the golden set to entries with this `set` field "
-                          "(default all). Applies to --rank-sweep too.")
+                          "(default all). Applies to --rank-sweep and --relax-sweep too.")
     ap.add_argument("--rank-sweep", action="store_true",
                      help="Sweep PASSAGE_RANK_FN x PASSAGE_RANK_STRATEGY and print one "
                           "table sorted by recall@k then MRR.")
+    ap.add_argument("--relax-sweep", action="store_true",
+                     help="Sweep engine.search.relaxation.RELAX_BELOW over "
+                          f"{RELAX_SWEEP_VALUES} and print one table.")
     a = ap.parse_args()
     if a.rank_sweep:
         asyncio.run(_run_sweep_entrypoint(a.k, a.set))
+    elif a.relax_sweep:
+        asyncio.run(_run_relax_sweep_entrypoint(a.k, a.set))
     else:
         asyncio.run(main(a.k, a.set))

@@ -61,3 +61,45 @@ def test_by_style_defaults_missing_style_to_medium():
     per_query = {"a": {"id": "a", "hit": True, "rr": 1.0, "total": 1}}
     grouped = m.by_style(per_query, golden)
     assert set(grouped.keys()) == {"medium"}
+
+
+def test_relax_sweep_values():
+    assert m.RELAX_SWEEP_VALUES == (0, 5, 10, 20, 50)
+
+
+def test_evaluate_per_query_record_includes_relaxed(monkeypatch):
+    """evaluate()'s per-query record must carry `relaxed` from res.relaxed so
+    --relax-sweep can count how many queries relaxed at each threshold."""
+    import asyncio
+    from types import SimpleNamespace
+
+    golden = [{"id": "a", "question": "q", "expected": []}]
+
+    class FakeResults:
+        def __init__(self, relaxed):
+            self.results = []
+            self.total = 0
+            self.relaxed = relaxed
+
+    async def fake_search_documents(session, q, mode, scope=None, page_size=10):
+        return FakeResults(relaxed=True)
+
+    class FakeSession:
+        async def __aenter__(self):
+            return self
+
+        async def __aexit__(self, *a):
+            return False
+
+    monkeypatch.setattr(
+        "engine.search.queries.search_documents", fake_search_documents
+    )
+    monkeypatch.setattr(
+        "engine.database.connection.init_db", lambda: asyncio.sleep(0)
+    )
+    monkeypatch.setattr(
+        "engine.database.connection.AsyncSessionLocal", lambda: FakeSession()
+    )
+
+    result = asyncio.run(m.evaluate(golden, k=10))
+    assert result["per_query"]["a"]["relaxed"] is True
