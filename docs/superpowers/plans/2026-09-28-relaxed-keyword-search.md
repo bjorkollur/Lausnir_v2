@@ -327,3 +327,37 @@ async def test_facets_use_any_query_when_relaxed(monkeypatch): ...  # where cont
 - [ ] **Step 3: NOTANDI VELUR `RELAX_BELOW`** út frá töflunni (gæði á móti p95). Controller ber töfluna undir notanda; þar til svar berst stendur 10.
 - [ ] **Step 4:** Festa gildið með athugasemd (dagsetning, tölur), wiki: 05-leit (nýr kafli „Slökuð leit“: þrep, kveikja, `strict_total`), 06-api (nýju sviðin), 07-framendi (tilkynning og merki), 09-gildrur (facets og leit geta verið ósammála um slökun þegar svið er þrengra; kostnaður víðustu fyrirspurnar).
 - [ ] **Step 5:** `uv run pytest -q`, `npx vitest run`, `npx tsc -b`; commit `feat(eval): --relax-sweep; set RELAX_BELOW from measurement; docs`.
+
+---
+
+## Niðurstöður mælinga
+
+Mælt 28.09.2026 á 492 spurninga gullsettinu (`--set all`), eftir að `5ce20d6` (perf(search): select relaxed candidates per tier without detoasting the whole any-set) var lent — fyrir þá lagfæringu hafði fyrsta tilraun til `--relax-sweep` verið stöðvuð eftir að einstakar slakaðar fyrirspurnir tóku allt að 30 s hver (upprunalega `cand` afþjappaði `fts_is` fyrir hvert skjal í víðasta menginu áður en það var raðað/þreps-merkt).
+
+`uv run python scripts/eval_search.py --relax-sweep --k 10 --set all`:
+
+```
+   K  recall@10    MRR  hit@1 0-hit relaxed  p50 ms  p95 ms
+   0      0.327  0.210  0.161    78       0      27     299
+   5      0.396  0.243  0.181     0     136      77    4463
+  10      0.402  0.244  0.181     0     183     130    8660
+  20      0.402  0.244  0.181     0     238     307   14644
+  50      0.402  0.244  0.181     0     309     860   20401
+```
+
+`uv run python scripts/eval_search.py --k 10 --set all` (núverandi sjálfgefið `RELAX_BELOW = 10`):
+
+```
+  n  recall@10    MRR  hit@1  p50 ms  p95 ms 0-hit
+492      0.402  0.244  0.181     178   10454     0
+
+medium           255      0.408  0.255
+short            176      0.420  0.260
+term              61      0.328  0.154
+
+Coverage: 92,926/92,926 documents with text have passages (100.0%)
+```
+
+**Gæði á móti seinkun.** Nánast allur gæðaábatinn kemur strax við `K=5`: núll-treff fara úr 78 í 0, recall@10 hækkar úr 0,327 í 0,396, og hit@1/MRR hækka sambærilega. Frá `K=5` upp í `K=50` er gæðataflan **algjörlega flöt** (recall/MRR/hit@1 óbreytt frá og með `K=10`) — hærri þröskuldur bætir engu við gæðin á þessu gullsetti, hann fjölgar bara fyrirspurnum sem fara í slökuðu leiðina (136 → 183 → 238 → 309 af 492). Á móti vex `p95` nánast línulega með `K`: 0,3 s óslakað, svo 4,5 s / 8,7 s / 14,6 s / 20,4 s fyrir `K = 5/10/20/50`. Þetta er í samræmi við viðvörunina í specinu um að víðasta þrepið („eitthvert orðanna") geti passað við tugþúsundir skjala fyrir algengt orð AND-að sjaldgæfu orði — fyrri útgáfan af `cand` gerði þetta miklu verra (allt að 30 s á staka fyrirspurn) og `5ce20d6` minnkaði það verulega, en versta tilfellið er samt langt yfir specsins ~1,5 s viðmiðunarmörk við hærri `K`-gildi. `p50` er hóflegt á öllum stigum (27–860 ms) — það er `p95`-halinn sem stækkar, drifinn af fáum en mjög dýrum orðasamsetningum, ekki dæmigerðri fyrirspurn. Sjálfgefna keyrslan (`RELAX_BELOW=10`, engin `--relax-sweep`-stýring) staðfestir sömu tölur óháð sópinu: `recall@10 0,402`, `p95 10.454 ms` — aðeins hærra en `K=10`-röðin í sópinu, sennilega vegna kaldari skyndiminnis í sjálfstæðri keyrslu á eftir sópinu heldur en röð sem naut upphitunar frá `K=0`.
+
+**Sjálfgefið gildi: valið af notanda eftir þessa töflu (bíður).**

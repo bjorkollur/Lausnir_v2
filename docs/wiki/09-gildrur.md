@@ -47,6 +47,12 @@ where validation_errors is not null;
 ... where jsonb_typeof(validation_errors) = 'array'
 ```
 
+### Facets og leit geta verið ósammála um slökun
+`facet_counts()` og sjálf leitin taka `should_relax()`-ákvörðunina hvor í sínu lagi, með sínum eigin síum (sjá „Slökuð leit" í [05-leit](05-leit.md)). Facets sleppa `scope` en leitin notar það. Ef `scope` er þrengra en heildarumfangið sem facets sjá getur strangi fjöldinn verið undir `RELAX_BELOW` fyrir leitina en yfir honum fyrir facets (eða öfugt) — leitin slakar þá en flokkunartréð sýnir tölur miðað við óslakaða talningu, eða öfugt. Þetta er ætluð hegðun, ekki villa: hvor ákvörðun er rétt fyrir sitt eigið síusvið.
+
+### Slökuð leit: víðasta fyrirspurnin getur verið dýr
+Þrep 2 (`a | b | c`) getur passað við tugþúsundir skjala þegar eitt orðanna er algengt en er samt AND-að við sjaldgæft orð í ströngu fyrirspurninni (t.d. „krafa" + sjaldgæft sérnafn). Kostnaðurinn er doc-level talning með OR (GIN-skann, mælt upp í ~1 s í versta falli) og `cand`-CTE-ið með `ORDER BY tier` yfir stórt mengi áður en `PASSAGE_CANDIDATE_DOCS`-hámarkið klippir. Mælt í `--relax-sweep` með p50/p95 — sjá „Niðurstöður mælinga" í `docs/superpowers/plans/2026-09-28-relaxed-keyword-search.md`. Ef p95 fer yfir ~1,5 s í slökuðum leitum er lækkun `RELAX_BELOW` eða takmörkun þreps 2 við sjaldgæfustu lemmurnar næsta skref (ekki innleitt).
+
 ### `keyword`-leit nær aðeins yfir efstu 2000 frambjóðendaskjölin
 `passage_search.PASSAGE_CANDIDATE_DOCS = 2000` takmarkar hversu mörg skjöl Stig 1 (`ts_rank` á `documents.fts_is`) skilar áfram í efnisgreinaleitina. Fyrir venjulegar fyrirspurnir er þetta ósýnilegt — færri en 2000 skjöl passa hvort eð er. En fyrir mjög algeng stök orð sem passa í fleiri en 2000 skjöl nær síðufletting umfram það aldrei niðurstöðum, þótt fleiri skjöl séu til sem innihalda orðið. Sjá [05-leit](05-leit.md).
 

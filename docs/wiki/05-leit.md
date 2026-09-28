@@ -70,6 +70,32 @@ Regex-fyrirspurnir eru varðar með `SET LOCAL statement_timeout = '10s'` (`REGE
 
 `total`-merkingin utan hámarksins: þegar `section_kind` er ekki sett kemur `total` beint af GIN-vísinum á `documents.fts_is` (nákvæm, óháð hámarki); með `section_kind`-síu kemur `total` úr efnisgreina-CTE-inu og er þá takmarkað við sömu 2000 frambjóðendaskjölin.
 
+## Slökuð leit (relaxation)
+
+`keyword`-leit með tveimur eða fleiri lemmum getur „slakað" á kröfunni um öll orðin þegar strangt treff er af skornum skammti. Rökfræðin er í `engine/search/relaxation.py`, hrein — engin gagnagrunnsaðgerð, engin DB-tenging.
+
+Forsían (`cand` í `build_hits_sql`) fær þrjú þrep þegar slakað er:
+
+| Þrep | Skilyrði | Athugasemd |
+|---|---|---|
+| 0 | öll orðin (`a & b & c`) | ströng fyrirspurn, óbreytt frá óslökuðu leitinni |
+| 1 | öll nema eitt | sameining allra samsetninga, `(a&b)\|(a&c)\|(b&c)`; sleppt yfir `MAX_NMINUS1_LEMMAS` (8) lemmum |
+| 2 | eitthvert orðanna (`a\|b\|c`) | víðasta fyrirspurnin |
+
+**Kveikjan** (`should_relax()`): slökun kviknar þegar strangi fjöldinn — skjöl sem uppfylla þrep 0, með sömu síum og leitin (`scope`, dagsetningar, `section_kind`, …) — er **undir `RELAX_BELOW`**, einingareigind í `relaxation.py` lesin á kalltíma. Mæld með `scripts/eval_search.py --relax-sweep` á gullsettinu — sjá „Niðurstöður mælinga" í `docs/superpowers/plans/2026-09-28-relaxed-keyword-search.md`. `RELAX_BELOW = 0` slekkur alveg á slökun; ein lemma (`n < 2`) slekkur alltaf á henni, óháð `RELAX_BELOW`.
+
+Ströng treff (þrep 0) koma alltaf fyrst, svo þrep 1, svo þrep 2; innan hvers þreps gildir venjuleg röðun (`breadth_coloc` eða dagsetning eftir `sort`). Efnisgreinaþrepið sjálft er **óbreytt** hvort sem slakað er eða ekki: `hits_and` notar áfram strönga fyrirspurn (öll orð í sömu efnisgrein), `hits_or` notar „eitthvert"-vararleiðina sem er nú þegar til fyrir tveggja+ orða `keyword`-leit — nákvæmlega það sem slökuðu skjölin þurfa.
+
+**`SearchResults`-svæði:**
+- `strict_total` — fjöldi skjala sem uppfylla þrep 0 (með sömu síum). Óslakað er `total == strict_total`.
+- `total` — í slökuðum ham fjöldi skjala sem uppfylla víðustu (þrep 2) fyrirspurnina; annars sama og `strict_total`.
+- `relaxed: bool` — hvort slökun kviknaði fyrir þessa fyrirspurn.
+- Hver niðurstaða fær `match_tier: int` (0/1/2; alltaf 0 fyrir hina hamina og fyrir óslakaða `keyword`-leit).
+
+**Facets fylgja með eigin ákvörðun.** `facet_counts()` keyrir sömu `should_relax()`-ákvörðun með **sínum eigin síum** (dagsetningar, ekkert `scope`) og skiptir yfir í víðustu fyrirspurnina (þrep 2) þegar hún slakar — óháð því hvort sjálf leitin slakaði, því síurnar (og þar með strangi fjöldinn) geta verið ólíkar. Sjá gildru um þetta í [09-gildrur](09-gildrur.md).
+
+Utan gildissviðs: stafsetningarleiðrétting, samheiti, slökun í `proximity`/`regex`, og slökun á kröfunni um að orðin standi í sömu efnisgrein.
+
 ## Lagaákvæðaleit
 
 Sérstakt `provision` viðfang. Þáttar íslenskar tilvísanir:
@@ -85,7 +111,7 @@ Athygli: `_PROVISION_NOISE = {mgr, gr, lag, lög, nr, sbr}` — eftir BÍN-lemmu
 
 ## Facets
 
-`facet_counts()` keyrir sömu síu og leitin en `GROUP BY source, verdict_type`, og skilar tölum fyrir hvern hnút í flokkunartrénu. Notað af hliðarstikunni í framendanum.
+`facet_counts()` keyrir sömu síu og leitin en `GROUP BY source, verdict_type`, og skilar tölum fyrir hvern hnút í flokkunartrénu. Notað af hliðarstikunni í framendanum. Fyrir `keyword`-leit tekur hún sína eigin slökunarákvörðun — sjá „Slökuð leit" hér að ofan.
 
 ## Tvö `fts` — hvað er munurinn?
 
