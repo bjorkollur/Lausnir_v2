@@ -1,6 +1,10 @@
 // GET /api/search?q&mode&scope(repeatable)&date_from&date_to&sort&page&page_size&regex_fields(repeatable)
 export interface SearchResponse {
   total: number; page: number; page_size: number; results: SearchResult[];
+  /** Count of documents matching every keyword (tier 0). */
+  strict_total: number;
+  /** True when the result set includes relaxed (tier 1/2) matches below strict_total. */
+  relaxed: boolean;
 }
 export interface Party { name: string; lawyer: string | null; }
 export interface SearchResult {
@@ -11,6 +15,8 @@ export interface SearchResult {
   /** Passage-level fields (null when the API runs the legacy document path). */
   passage_id: string | null; anchor: string | null; section_kind: string | null;
   layer: "summary" | "body" | "lower_body" | null; match_count: number | null;
+  /** Relaxed keyword search tier: 0 = all keywords, 1 = most, 2 = some. */
+  match_tier: number;
 }
 // GET /api/facets?q&mode&date_from&date_to&regex_fields  → {catalog, total}
 export interface CatalogNode { key: string; label: string; count: number; children?: CatalogNode[]; }

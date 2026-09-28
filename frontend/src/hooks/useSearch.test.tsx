@@ -22,6 +22,8 @@ describe("useSearch", () => {
           total: 2,
           page: 1,
           page_size: 20,
+          strict_total: 2,
+          relaxed: false,
           results: [
             {
               id: "a",
@@ -37,6 +39,7 @@ describe("useSearch", () => {
               defendants: [],
               snippet: "x",
               has_appeal_links: false,
+              match_tier: 0,
             },
           ],
         })

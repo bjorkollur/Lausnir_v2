@@ -29,13 +29,26 @@ export function ResultsList({ state }: { state: SearchState }) {
   if (q.isPending) return <ResultsSkeleton />;
   if (q.isError) return <ErrorState error={q.error} />;
 
-  const total = q.data.pages[0].total;
+  const page0 = q.data.pages[0];
+  const total = page0.total;
   if (total === 0) return <EmptyState />;
 
   const items = q.data.pages.flatMap((p) => p.results);
 
   return (
     <div>
+      {page0.relaxed && (
+        <p data-testid="relaxed-notice" className="text-sm text-[var(--ink-soft)] mb-2">
+          {page0.strict_total > 0 ? (
+            <>
+              <strong>{page0.strict_total}</strong> skjöl innihalda öll leitarorðin. Sýni einnig{" "}
+              <strong>{total - page0.strict_total}</strong> skjöl sem innihalda flest eða sum þeirra.
+            </>
+          ) : (
+            <>Engin skjöl innihalda öll leitarorðin. Sýni skjöl sem innihalda flest eða sum þeirra.</>
+          )}
+        </p>
+      )}
       <p className="text-sm text-[var(--ink-soft)] py-2">{plural(total)}</p>
       {items.map((r) => (
         <ResultCard key={r.id} r={r} />

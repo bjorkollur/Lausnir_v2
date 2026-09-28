@@ -17,10 +17,10 @@ describe("SearchPage", () => {
       http.get("http://localhost:8077/api/sources", () => HttpResponse.json(sources)),
       http.get("http://localhost:8077/api/facets", () => HttpResponse.json(facets)),
       http.get("http://localhost:8077/api/search", () =>
-        HttpResponse.json({ total: 1, page: 1, page_size: 20, results: [{
+        HttpResponse.json({ total: 1, page: 1, page_size: 20, strict_total: 1, relaxed: false, results: [{
           id: "a", urlausn: "Hrd. 1/2020", source: "haestirettur", source_display: "Hæstiréttur",
           court: "Hrd.", case_number: "1/2020", document_date: "2020-01-01", verdict_type: "Dómur",
-          keywords: [], plaintiffs: [], defendants: [], snippet: "s", has_appeal_links: false }] })),
+          keywords: [], plaintiffs: [], defendants: [], snippet: "s", has_appeal_links: false, match_tier: 0 }] })),
     );
     renderWithProviders(<SearchPage />, "/?q=test");
     await waitFor(() => expect(screen.getByRole("link", { name: /Hrd\. 1\/2020/ })).toBeInTheDocument());
