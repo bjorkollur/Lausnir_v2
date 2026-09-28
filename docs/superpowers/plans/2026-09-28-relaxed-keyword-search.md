@@ -332,24 +332,39 @@ async def test_facets_use_any_query_when_relaxed(monkeypatch): ...  # where cont
 
 ## Niðurstöður mælinga
 
-Mælt 28.09.2026 á 492 spurninga gullsettinu (`--set all`), eftir að `5ce20d6` (perf(search): select relaxed candidates per tier without detoasting the whole any-set) var lent — fyrir þá lagfæringu hafði fyrsta tilraun til `--relax-sweep` verið stöðvuð eftir að einstakar slakaðar fyrirspurnir tóku allt að 30 s hver (upprunalega `cand` afþjappaði `fts_is` fyrir hvert skjal í víðasta menginu áður en það var raðað/þreps-merkt).
+Fyrsta mælingin (skráð hér áður) var gerð eftir `5ce20d6` (select relaxed candidates per
+tier without detoasting the whole any-set), sem lagaði `cand`-þrepið en skildi `hits`-þrepið
+eftir sem flöskuháls: p95 við K=10 mældist **8.660 ms**. Rótargreining (task-2c-report.md)
+fann að `hits_and`/`hits_or` áætluðust sem Bitmap Heap Scan yfir alla `passages`-töfluna fyrir
+hverja (OR-)fyrirspurn, tengt við `cand` fyrst á eftir — 43,6 s mælt stakt fyrir
+`krafa dómur skaðabót`. Tvær lagfæringar á eftir (`7ef0885`+ ólent WIP, síðan lent):
+per-frambjóðanda `CROSS JOIN LATERAL` samantekt í stað `GROUP BY`, og eigið, lægra þak
+`RELAX_CAND_LIMIT = 300` fyrir slökuð leit (óslökuð heldur `PASSAGE_CANDIDATE_DOCS = 2000`).
+Sópið hér að neðan er endurmælt eftir þær lagfæringar — þetta er endanlega taflan sem
+`RELAX_BELOW`-gildið er valið út frá.
 
-`uv run python scripts/eval_search.py --relax-sweep --k 10 --set all`:
+`uv run python scripts/eval_search.py --relax-sweep --k 10 --set all` með `RELAX_CAND_LIMIT = 300`:
 
 ```
    K  recall@10    MRR  hit@1 0-hit relaxed  p50 ms  p95 ms
-   0      0.327  0.210  0.161    78       0      27     299
-   5      0.396  0.243  0.181     0     136      77    4463
-  10      0.402  0.244  0.181     0     183     130    8660
-  20      0.402  0.244  0.181     0     238     307   14644
-  50      0.402  0.244  0.181     0     309     860   20401
+   0      0.327  0.210  0.161    78       0      23     216
+   5      0.396  0.243  0.181     0     136      57     713
+  10      0.402  0.244  0.181     0     183      91     707
+  20      0.402  0.244  0.181     0     238     146     702
+  50      0.402  0.244  0.181     0     309     529     803
 ```
 
-`uv run python scripts/eval_search.py --k 10 --set all` (núverandi sjálfgefið `RELAX_BELOW = 10`):
+Sama sóp með `RELAX_CAND_LIMIT = 1000` (`--relax-cand-limit 1000`) gaf **nákvæmlega sömu gæðatölur**
+(recall@10/MRR/hit@1/núll-treff/fjöldi slakaðra fyrirspurna eins á öllum K-gildum) en hærri
+seinkun alls staðar (t.d. K=10 p95 881 ms á móti 707 ms, K=50 p50 625 ms á móti 529 ms) — auka
+frambjóðendurnir ná aldrei inn í efstu tíu. `RELAX_CAND_LIMIT = 300` er því valið, ekki 1000.
+
+`uv run python scripts/eval_search.py --k 10 --set all` (sjálfgefið `RELAX_BELOW = 10`,
+endurmælt 28.09.2026 eftir að `total`-breytingin (Task 6b) var lent):
 
 ```
   n  recall@10    MRR  hit@1  p50 ms  p95 ms 0-hit
-492      0.402  0.244  0.181     178   10454     0
+492      0.402  0.244  0.181     124     793     0
 
 medium           255      0.408  0.255
 short            176      0.420  0.260
@@ -358,6 +373,20 @@ term              61      0.328  0.154
 Coverage: 92,926/92,926 documents with text have passages (100.0%)
 ```
 
-**Gæði á móti seinkun.** Nánast allur gæðaábatinn kemur strax við `K=5`: núll-treff fara úr 78 í 0, recall@10 hækkar úr 0,327 í 0,396, og hit@1/MRR hækka sambærilega. Frá `K=5` upp í `K=50` er gæðataflan **algjörlega flöt** (recall/MRR/hit@1 óbreytt frá og með `K=10`) — hærri þröskuldur bætir engu við gæðin á þessu gullsetti, hann fjölgar bara fyrirspurnum sem fara í slökuðu leiðina (136 → 183 → 238 → 309 af 492). Á móti vex `p95` nánast línulega með `K`: 0,3 s óslakað, svo 4,5 s / 8,7 s / 14,6 s / 20,4 s fyrir `K = 5/10/20/50`. Þetta er í samræmi við viðvörunina í specinu um að víðasta þrepið („eitthvert orðanna") geti passað við tugþúsundir skjala fyrir algengt orð AND-að sjaldgæfu orði — fyrri útgáfan af `cand` gerði þetta miklu verra (allt að 30 s á staka fyrirspurn) og `5ce20d6` minnkaði það verulega, en versta tilfellið er samt langt yfir specsins ~1,5 s viðmiðunarmörk við hærri `K`-gildi. `p50` er hóflegt á öllum stigum (27–860 ms) — það er `p95`-halinn sem stækkar, drifinn af fáum en mjög dýrum orðasamsetningum, ekki dæmigerðri fyrirspurn. Sjálfgefna keyrslan (`RELAX_BELOW=10`, engin `--relax-sweep`-stýring) staðfestir sömu tölur óháð sópinu: `recall@10 0,402`, `p95 10.454 ms` — aðeins hærra en `K=10`-röðin í sópinu, sennilega vegna kaldari skyndiminnis í sjálfstæðri keyrslu á eftir sópinu heldur en röð sem naut upphitunar frá `K=0`.
+**Gæði á móti seinkun.** Nánast allur gæðaábatinn kemur strax við `K=5`: núll-treff fara úr 78 í 0,
+recall@10 hækkar úr 0,327 í 0,396, og hit@1/MRR hækka sambærilega. Frá `K=5` upp í `K=50` er
+gæðataflan **algjörlega flöt** (recall/MRR/hit@1 óbreytt frá og með `K=10`) — hærri þröskuldur
+bætir engu við gæðin á þessu gullsetti, hann fjölgar bara fyrirspurnum sem fara í slökuðu leiðina
+(136 → 183 → 238 → 309 af 492). Eftir LATERAL+cap-300-lagfæringuna er `p95` líka nánast flatt frá
+K=5 og upp úr (713 → 707 → 702 → 803 ms) — engin línuleg vöxtur lengur; það sem hækkar er `p50`
+við K=50 (529 ms), af því 309 af 492 fyrirspurnum fara þá í gegnum slökuðu leiðina í stað 183 við
+K=10. `K=10` er því rétta valið: sömu gæði og K=20/K=50, lægsta p50 þeirra þriggja. Sjálfgefna
+keyrslan staðfestir sömu gæðatölur óháð sópinu (`recall@10 0,402`) og liggur nálægt K=10-röðinni í
+sópinu á seinkun (p50 124 ms, p95 793 ms hér á móti 91/707 ms í sópinu) — muninn má rekja til
+hversu heitt skyndiminnið er í hvorri keyrslu fyrir sig, ekki til nýrrar hegðunar. Þetta gullsett
+lendir sjaldan eða aldrei í versta tilviki óslökuðu leiðarinnar (sjá „Framhald / þekkt takmörk" í
+specinu og gildruna „Óslökuð `keyword`-leit með algengum lemmum er enn hæg" í
+[09-gildrur](../../wiki/09-gildrur.md)) — sá galli er staðfestur og skjalfestur, en er sjaldgæfur
+og orðasamsetningasértækur (t.d. `krafa dómur skaðabót`) frekar en dæmigerður fyrir gullsettið.
 
-**Sjálfgefið gildi: valið af notanda eftir þessa töflu (bíður).**
+**Sjálfgefið gildi: `RELAX_BELOW = 10`, valið af notanda 28.09.2026.**

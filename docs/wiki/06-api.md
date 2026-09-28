@@ -71,7 +71,7 @@ Fimm svæðin `passage_id`…`match_count` koma frá efnisgreininni sem gaf best
 
 **Slökuð leit** (sjá [05-leit](05-leit.md) „Slökuð leit"), aðeins `keyword` með ≥2 lemmum:
 - `strict_total` — fjöldi skjala sem uppfylla ströngu fyrirspurnina (öll orðin). Óslakað: `strict_total == total`.
-- `relaxed` — `true` þegar strangi fjöldinn var undir `RELAX_BELOW` og leitin var víkkuð út.
+- `relaxed` — `true` þegar strangi fjöldinn var undir `RELAX_BELOW` og leitin var víkkuð út. Þegar `relaxed` er satt er `total` fjöldi **raunverulega fáanlegra** niðurstaðna (bundinn af `RELAX_CAND_LIMIT`), ekki doc-level fjöldi skjala sem uppfylla víðustu fyrirspurnina.
 - Hver niðurstaða: `match_tier` — `0` (öll orðin), `1` (öll nema eitt) eða `2` (eitthvert orðanna); alltaf `0` fyrir óslakaða leit og fyrir hina hamina.
 
 Ógilt regex eða óþekkt svæði → **HTTP 400** með `{"detail": "..."}`.

@@ -82,13 +82,22 @@ Forsían (`cand` í `build_hits_sql`) fær þrjú þrep þegar slakað er:
 | 1 | öll nema eitt | sameining allra samsetninga, `(a&b)\|(a&c)\|(b&c)`; sleppt yfir `MAX_NMINUS1_LEMMAS` (8) lemmum |
 | 2 | eitthvert orðanna (`a\|b\|c`) | víðasta fyrirspurnin |
 
-**Kveikjan** (`should_relax()`): slökun kviknar þegar strangi fjöldinn — skjöl sem uppfylla þrep 0, með sömu síum og leitin (`scope`, dagsetningar, `section_kind`, …) — er **undir `RELAX_BELOW`**, einingareigind í `relaxation.py` lesin á kalltíma. Mæld með `scripts/eval_search.py --relax-sweep` á gullsettinu — sjá „Niðurstöður mælinga" í `docs/superpowers/plans/2026-09-28-relaxed-keyword-search.md`. `RELAX_BELOW = 0` slekkur alveg á slökun; ein lemma (`n < 2`) slekkur alltaf á henni, óháð `RELAX_BELOW`.
+**Kveikjan** (`should_relax()`): slökun kviknar þegar strangi fjöldinn — skjöl sem uppfylla þrep 0, með sömu síum og leitin (`scope`, dagsetningar, `section_kind`, …) — er **undir `RELAX_BELOW`**, einingareigind í `relaxation.py` lesin á kalltíma. **`RELAX_BELOW = 10`, fest 28.09.2026** eftir mælingu á 492 spurninga gullsettinu (`scripts/eval_search.py --relax-sweep`, `RELAX_CAND_LIMIT = 300`):
+
+| K | recall@10 | MRR | hit@1 | núll-treff | p50 ms | p95 ms |
+|---|---|---|---|---|---|---|
+| 0 | 0,327 | 0,210 | 0,161 | 78 | 23 | 216 |
+| 10 | 0,402 | 0,244 | 0,181 | 0 | 91 | 707 |
+
+Gæðin ná hámarki við K=10 (eins og K=20/K=50 á öllum mælikvörðum) — hærra gildi fjölgar bara slökuðum fyrirspurnum án ávinnings. Full tafla (K=0/5/10/20/50) í „Niðurstöður mælinga" í `docs/superpowers/plans/2026-09-28-relaxed-keyword-search.md`. `RELAX_BELOW = 0` slekkur alveg á slökun; ein lemma (`n < 2`) slekkur alltaf á henni, óháð `RELAX_BELOW`.
+
+Slökuð leit fær sitt eigið, lægra frambjóðendaþak: `RELAX_CAND_LIMIT = 300` (óslökuð heldur `PASSAGE_CANDIDATE_DOCS = 2000`). Kandidötum er safnað þrep fyrir þrep beint af GIN-vísinum og samantekt á efnisgreinum keyrir sem `CROSS JOIN LATERAL` á hvern frambjóðanda (í stað `GROUP BY` yfir alla `passages`-töfluna) — sjá `_relaxed_cand_sql`/`_lateral_hits_sql` í `engine/search/passage_search.py`. Cap 1000 gaf sömu gæðatölur í mælingunni, bara hægar; 300 er valið.
 
 Ströng treff (þrep 0) koma alltaf fyrst, svo þrep 1, svo þrep 2; innan hvers þreps gildir venjuleg röðun (`breadth_coloc` eða dagsetning eftir `sort`). Efnisgreinaþrepið sjálft er **óbreytt** hvort sem slakað er eða ekki: `hits_and` notar áfram strönga fyrirspurn (öll orð í sömu efnisgrein), `hits_or` notar „eitthvert"-vararleiðina sem er nú þegar til fyrir tveggja+ orða `keyword`-leit — nákvæmlega það sem slökuðu skjölin þurfa.
 
 **`SearchResults`-svæði:**
 - `strict_total` — fjöldi skjala sem uppfylla þrep 0 (með sömu síum). Óslakað er `total == strict_total`.
-- `total` — í slökuðum ham fjöldi skjala sem uppfylla víðustu (þrep 2) fyrirspurnina; annars sama og `strict_total`.
+- `total` — **í slökuðum ham er þetta fjöldi þeirra skjala sem raunverulega er hægt að fletta að** (`count(*) FROM hits`, sömu CTE-ir og niðurstöðurnar), sem er bundið af `RELAX_CAND_LIMIT` — **ekki** doc-level fjöldi skjala sem uppfylla víðustu (þrep 2) fyrirspurnina, sem getur verið tugir þúsunda þótt síðuflettingin geti aldrei náð nema broti af því (breytt 28.09.2026 — sjá gildru í [09-gildrur](09-gildrur.md)). Óslakað er `total` áfram strangi doc-level fjöldinn, sama og áður.
 - `relaxed: bool` — hvort slökun kviknaði fyrir þessa fyrirspurn.
 - Hver niðurstaða fær `match_tier: int` (0/1/2; alltaf 0 fyrir hina hamina og fyrir óslakaða `keyword`-leit).
 
