@@ -33,3 +33,37 @@ def test_build_rows_per_layer_and_resolution():
 
 def test_build_rows_empty_document():
     assert build_rows(uuid.UUID(int=1), summary=None, body=None, lower=None, doc_date=None, index=IDX) == []
+
+
+# --- scripts/build_citations.py: the pure selection builder --------------------
+
+from scripts.build_citations import selection  # noqa: E402
+from engine.processors.citation_build import STALE_WHERE  # noqa: E402
+
+
+def test_selection_since_is_bound_as_a_date():
+    """asyncpg binds documents.document_date strictly — a str is a DataError."""
+    _, params = selection(force=False, source=None, doc=None, since="2020-01-01", has_col=True)
+    assert params["since"] == dt.date(2020, 1, 1)
+    assert isinstance(params["since"], dt.date) and not isinstance(params["since"], str)
+    _, params = selection(force=False, source=None, doc=None, since=dt.date(2020, 1, 1), has_col=True)
+    assert params["since"] == dt.date(2020, 1, 1)
+
+
+def test_selection_staleness_predicate_follows_has_col_and_force():
+    stale, _ = selection(force=False, source=None, doc=None, since=None, has_col=True)
+    assert STALE_WHERE in stale
+    # Without documents.citation_hash (0004 not applied) there is no staleness to
+    # read — every document counts as stale rather than the query erroring.
+    no_col, _ = selection(force=False, source=None, doc=None, since=None, has_col=False)
+    assert STALE_WHERE not in no_col
+    forced, _ = selection(force=True, source=None, doc=None, since=None, has_col=True)
+    assert STALE_WHERE not in forced
+
+
+def test_selection_doc_wins_and_source_is_bound():
+    where, params = selection(force=False, source="haestirettur", doc="abc", since="2020-01-01", has_col=True)
+    assert where == "d.id = :doc" and params == {"doc": "abc"}
+    where, params = selection(force=True, source="felagsdomur", doc=None, since=None, has_col=True)
+    assert "s.short_name = :sn" in where and params["sn"] == "felagsdomur"
+    assert "s.short_name = ANY(:sources)" in where

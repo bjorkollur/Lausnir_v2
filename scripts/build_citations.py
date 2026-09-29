@@ -29,6 +29,7 @@ import re
 import sys
 import time
 from collections import Counter, defaultdict
+from datetime import date
 from multiprocessing import Pool
 from pathlib import Path
 
@@ -38,7 +39,7 @@ from sqlalchemy import text
 
 from engine.database.connection import init_db, get_engine
 from engine.processors.citation_build import (
-    STALE_WHERE, build_rows, citation_hash, relink_unresolved, write_citations,
+    STALE_WHERE, build_rows, citation_hash, count_relinkable, relink_unresolved, write_citations,
 )
 from engine.processors.citation_resolver import COURT_SOURCES, INDEX_SQL, CitationIndex
 
@@ -116,23 +117,31 @@ class _Stats:
                 log.info("    %6d  %s", n, shape[:100])
 
 
-def _selection(*, force: bool, source: str | None, doc: str | None,
-               since: str | None, dry_run: bool) -> tuple[str, dict]:
-    """WHERE clause + params for the documents to (re)build."""
-    params: dict = {"sources": list(COURT_SOURCES)}
+def selection(*, force: bool, source: str | None, doc: str | None,
+              since: str | date | None, has_col: bool) -> tuple[str, dict]:
+    """WHERE clause + bind params for the documents to (re)build.
+
+    Pure, so the predicate choice is unit-testable. `has_col` says whether
+    documents.citation_hash exists: without it there is no staleness to speak
+    of (migration 0004 has not run), so every document counts as stale.
+    """
     if doc:
         return "d.id = :doc", {"doc": doc}
+    params: dict = {"sources": list(COURT_SOURCES)}
     where = ["s.short_name = ANY(:sources)"]
-    # --dry-run writes nothing, so staleness is meaningless for it — and reading
-    # d.citation_hash would make the dry run fail before migration 0004.
-    if not (force or dry_run):
+    if force:
+        pass                                   # --force: staleness ignored on purpose
+    elif has_col:
         where.append(STALE_WHERE)
+    else:
+        log.warning("citation_hash missing — treating every document as stale (apply alembic 0004)")
     if source:
         where.append("s.short_name = :sn")
         params["sn"] = source
     if since:
         where.append("d.document_date >= :since")
-        params["since"] = since
+        # asyncpg binds a DATE column strictly: a str here is a DataError.
+        params["since"] = date.fromisoformat(since) if isinstance(since, str) else since
     return " AND ".join(where), params
 
 
@@ -140,20 +149,32 @@ async def _load_index_rows(conn) -> list[tuple]:
     return [tuple(r) for r in (await conn.execute(text(INDEX_SQL), {"sources": list(COURT_SOURCES)})).all()]
 
 
+_HAS_COL_SQL = text("SELECT 1 FROM information_schema.columns "
+                    "WHERE table_name = 'documents' AND column_name = 'citation_hash'")
+
+
+async def _has_citation_hash(conn) -> bool:
+    return bool((await conn.execute(_HAS_COL_SQL)).scalar())
+
+
 async def build(*, all_docs: bool, force: bool, source: str | None, doc: str | None, since: str | None,
                 limit: int | None, workers: int, dry_run: bool) -> None:
     if not (all_docs or source or doc or since):
         raise SystemExit("nothing selected: pass --all, --source, --doc or --since "
                          "(--all alone means every stale document in the court sources)")
+    if source and source not in COURT_SOURCES:
+        log.warning("source %r is not one of the court sources (%s) — 0 documents",
+                    source, ", ".join(COURT_SOURCES))
+        return
     # create_tables=False: alembic owns the schema. create_all here would make an
     # empty `citations` table behind the migration's back, leaving the DB half
     # built (table without documents.citation_hash).
     await init_db(create_tables=False)
     engine = await get_engine()
 
-    where_sql, params = _selection(force=force, source=source, doc=doc,
-                                   since=since, dry_run=dry_run)
     async with engine.connect() as conn:
+        where_sql, params = selection(force=force, source=source, doc=doc, since=since,
+                                      has_col=await _has_citation_hash(conn))
         index_rows = await _load_index_rows(conn)
         ids = (await conn.execute(text(f"""
             SELECT d.id FROM documents d JOIN sources s ON s.id = d.source_id
@@ -237,7 +258,9 @@ async def relink(*, limit: int | None, dry_run: bool) -> None:
     async with engine.connect() as conn:
         index = await CitationIndex.load(conn)
         if dry_run:
-            log.info("[dry run] index loaded; no rows relinked")
+            would, total = await count_relinkable(conn, index, limit=limit)
+            log.info("[dry run] would resolve %s of %s unresolved/ambiguous citation(s) in %.0fs",
+                     f"{would:,}", f"{total:,}", time.monotonic() - t0)
             await conn.rollback()
             return
         fixed = await relink_unresolved(conn, index, limit=limit)
@@ -251,7 +274,8 @@ if __name__ == "__main__":
     ap.add_argument("--force", action="store_true", help="with --all/--source: also non-stale documents")
     ap.add_argument("--source", help="restrict to one source short_name")
     ap.add_argument("--doc", help="one document id")
-    ap.add_argument("--since", help="only documents with document_date >= YYYY-MM-DD")
+    ap.add_argument("--since", type=date.fromisoformat, metavar="YYYY-MM-DD",
+                    help="only documents with document_date >= YYYY-MM-DD")
     ap.add_argument("--relink-unresolved", action="store_true",
                     help="re-resolve unresolved/ambiguous rows without re-extracting")
     ap.add_argument("--dry-run", action="store_true", help="extract+resolve, print the summary, write nothing")

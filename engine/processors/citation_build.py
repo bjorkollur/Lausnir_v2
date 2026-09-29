@@ -24,9 +24,6 @@ STALE_WHERE = ("(d.citation_hash IS NULL OR d.citation_hash <> encode(sha256(con
                "coalesce(d.summary,'') || chr(31) || coalesce(d.body_text,'') || chr(31) || coalesce(d.lower_body_text,''),"
                " 'UTF8')), 'hex'))")
 EDGE_LAYERS = ("summary", "body")           # lower_body cites nothing (spec §4.3)
-# Not used here: the display layer reads these to mark a `cites` pair `also_appeal`
-# when the same pair carries an appeal relation in either direction (spec §4.3).
-APPEAL_RELATIONS = ("appealed_to", "appealed_from", "leyfisbeidni_um", "leiddi_til_doms")
 
 
 def citation_hash(summary: str | None, body: str | None, lower: str | None) -> str:
@@ -104,18 +101,39 @@ async def rebuild_citations(conn, doc_id, *, summary, body, lower, doc_date, ind
                                  write_edges=write_edges)
 
 
+_UNRESOLVED_SQL = (
+    "SELECT c.id, c.from_doc_id, c.layer, c.char_start, c.char_end, c.raw_text, c.target_court, c.target_case_number, "
+    "c.target_date, c.target_verdict, d.document_date FROM citations c JOIN documents d ON d.id = c.from_doc_id "
+    "WHERE c.status IN ('unresolved','ambiguous') ORDER BY c.from_doc_id, c.layer, c.char_start")
+
+
+async def _unresolved_rows(conn, limit: int | None):
+    """The rows relink_unresolved works on. Ordered, so --limit takes a stable
+    prefix instead of whatever the planner happens to emit."""
+    return (await conn.execute(text(_UNRESOLVED_SQL + (f" LIMIT {int(limit)}" if limit else "")))).all()
+
+
+def _as_raw(r):
+    from engine.processors.citations import RawCitation
+    return RawCitation(r.char_start, r.char_end, r.raw_text, r.target_court, r.target_case_number,
+                       r.target_date, r.target_verdict, "prose")
+
+
+async def count_relinkable(conn, index: CitationIndex, *, limit: int | None = None) -> tuple[int, int]:
+    """Dry run for relink_unresolved: (rows that would resolve, rows examined). Writes nothing."""
+    rows = await _unresolved_rows(conn, limit)
+    would = sum(1 for r in rows
+                if resolve(_as_raw(r), index=index, from_doc_id=r.from_doc_id,
+                           from_date=r.document_date).status == "resolved")
+    return would, len(rows)
+
+
 async def relink_unresolved(conn, index: CitationIndex, *, limit: int | None = None) -> int:
     """Re-run resolve() on unresolved/ambiguous rows without re-extracting (spec §7)."""
-    from engine.processors.citations import RawCitation
-    q = ("SELECT c.id, c.from_doc_id, c.layer, c.char_start, c.char_end, c.raw_text, c.target_court, c.target_case_number, "
-         "c.target_date, c.target_verdict, d.document_date FROM citations c JOIN documents d ON d.id = c.from_doc_id "
-         "WHERE c.status IN ('unresolved','ambiguous')" + (f" LIMIT {int(limit)}" if limit else ""))
-    rows = (await conn.execute(text(q))).all()
+    rows = await _unresolved_rows(conn, limit)
     fixed = 0
     for r in rows:
-        raw = RawCitation(r.char_start, r.char_end, r.raw_text, r.target_court, r.target_case_number,
-                          r.target_date, r.target_verdict, "prose")
-        res = resolve(raw, index=index, from_doc_id=r.from_doc_id, from_date=r.document_date)
+        res = resolve(_as_raw(r), index=index, from_doc_id=r.from_doc_id, from_date=r.document_date)
         if res.status == "resolved":
             await conn.execute(text("UPDATE citations SET to_doc_id=:t, status='resolved', method=:m, confidence=:c WHERE id=:id"),
                                {"t": res.to_doc_id, "m": res.method, "c": res.confidence, "id": r.id})

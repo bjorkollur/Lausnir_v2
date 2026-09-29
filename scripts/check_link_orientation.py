@@ -67,7 +67,7 @@ _CHECKS = {
 
 
 async def main() -> int:
-    await _db_conn.init_db()
+    await _db_conn.init_db(create_tables=False)
     failures = 0
     async with _db_conn.AsyncSessionLocal() as session:
         for label, sql in _CHECKS.items():

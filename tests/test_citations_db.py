@@ -34,11 +34,14 @@ async def _conn():
 
 
 async def _pick_doc(conn):
-    return (await conn.execute(text("""
+    row = (await conn.execute(text("""
         SELECT d.id, d.summary, d.body_text, d.lower_body_text, d.document_date
         FROM documents d JOIN sources s ON s.id = d.source_id
         WHERE s.short_name = 'haestirettur' AND d.body_text ILIKE '%í máli nr.%'
           AND d.document_date >= '2019-01-01' ORDER BY d.id LIMIT 1"""))).first()
+    if row is None:
+        pytest.skip("no haestirettur document containing 'í máli nr.'")
+    return row
 
 
 async def test_rebuild_writes_rows_and_edges_and_is_idempotent():
@@ -76,9 +79,18 @@ async def test_rebuild_is_scoped():
         d = await _pick_doc(conn)
         before_links = (await conn.execute(text("SELECT count(*) FROM document_links WHERE relation <> 'cites'"))).scalar()
         other = (await conn.execute(text("SELECT count(*) FROM citations WHERE from_doc_id <> :id"), {"id": d.id})).scalar()
+        # A sentinel row owned by a DIFFERENT document: rebuild_citations must not
+        # see it, let alone delete it. Rolled back with the rest of the transaction.
+        sentinel_doc = (await conn.execute(text("SELECT id FROM documents WHERE id <> :id LIMIT 1"), {"id": d.id})).scalar()
+        sentinel_id = uuid.uuid4()
+        await conn.execute(text("""
+            INSERT INTO citations (id, from_doc_id, layer, char_start, char_end, raw_text, target_court, status)
+            VALUES (:cid, :did, 'body', 0, 1, 'x', 'Hrd.', 'unresolved')"""),
+            {"cid": sentinel_id, "did": sentinel_doc})
         await rebuild_citations(conn, d.id, summary=d.summary, body=d.body_text, lower=d.lower_body_text, doc_date=d.document_date, index=idx)
         assert (await conn.execute(text("SELECT count(*) FROM document_links WHERE relation <> 'cites'"))).scalar() == before_links
-        assert (await conn.execute(text("SELECT count(*) FROM citations WHERE from_doc_id <> :id"), {"id": d.id})).scalar() == other
+        assert (await conn.execute(text("SELECT count(*) FROM citations WHERE from_doc_id <> :id"), {"id": d.id})).scalar() == other + 1
+        assert (await conn.execute(text("SELECT count(*) FROM citations WHERE id = :cid"), {"cid": sentinel_id})).scalar() == 1
     finally:
         await conn.rollback(); await conn.close(); await eng.dispose()
 
