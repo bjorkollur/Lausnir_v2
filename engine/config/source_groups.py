@@ -241,3 +241,24 @@ async def resolve_scope(
     if not matched:
         return ScopeFilter(clauses=[])
     return ScopeFilter(clauses=clauses)
+
+
+def annotate_counts(node: dict, by_source: dict, by_source_vt: dict) -> dict:
+    """Copy a scope-tree node with a document count attached.
+
+    ``by_source`` maps short_name → count; ``by_source_vt`` maps
+    (short_name, verdict_type) → count. Used by /api/sources, /api/facets and
+    the MCP tools ``list_sources``/``facets``.
+    """
+    out = {"key": node["key"], "label": node["label"]}
+    if node.get("verdict_types"):
+        out["count"] = sum(
+            by_source_vt.get((s, vt), 0)
+            for s in node["sources"] for vt in node["verdict_types"]
+        )
+    elif "children" in node:
+        out["children"] = [annotate_counts(c, by_source, by_source_vt) for c in node["children"]]
+        out["count"] = sum(c["count"] for c in out["children"])
+    else:  # plain single-source leaf
+        out["count"] = sum(by_source.get(s, 0) for s in node["sources"])
+    return out

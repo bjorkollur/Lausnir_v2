@@ -17,6 +17,7 @@ Uppflettirit yfir uppbyggingu kerfisins. Skrifað út frá raunverulegum kóða 
 | [07 — Framendi](07-framendi.md) | React-appið, síður, íhlutir, leit í bók |
 | [08 — Þróun](08-throun.md) | Umhverfi, skipanir, próf, verkflæði |
 | [09 — Gildrur og staða](09-gildrur.md) | Þekktar gildrur, ólokið, ósamræmi |
+| [10 — MCP-þjónn](10-mcp.md) | Read-only MCP fyrir LLM-viðskiptavini: leit, efnisgreinar, skjöl, SQL með lesaðgangi |
 
 ## Kerfið í tölum (27.09.2026)
 
