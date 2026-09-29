@@ -87,6 +87,27 @@ Aðeins **4** eru ólæstar en textalausar; þær eru raunverulegar eyður:
 
 Athugið að `locked` er geymt sem strengurinn `"true"`/`"false"` í `raw_api_data`, ekki JSON-boolean.
 
+### `verdict_type` má aldrei lesa úr tilvísun í annan úrskurð (lagað 29.09.2026)
+Gamla reglan í `extractor.py::_detect_verdict_type` skilaði `'Úrskurður'` ef `Úrskurðarorð|úrskurðar` stóð **hvar sem er** í meginmálinu. Hvert einasta kærumál nefnir „úrskurð héraðsdóms" — þann sem kærður var — svo **5.368 Hæstaréttardómar, 151 Landsréttarmál og 1.071 héraðsdómur** voru skráðir sem úrskurðir. Hæstiréttur átti eftir það enga úrskurði í grunninum: heimildin birtir aðeins dóma (líka í kærumálum, fyrir og eftir 2018).
+
+Nýja reglan les það sem skjalið segir um **sjálft sig**, í þessari röð:
+1. Eigin fyrirsögn með dómstólsheiti — `Dómur Hæstaréttar`, `Úrskurður Landsréttar`. Fyrsta treffið vinnur: ~98 Hæstaréttarsíður bera dóminn og EFTA-álitsúrskurðinn í sömu skrá, og dómurinn er aðalskjalið.
+2. Stök fyrirsögn (`## ÚRSKURÐUR`) — **aðeins** heimildir sem fella ekki undirréttartexta inn í `body_text`.
+3. Lokaformúlan („kveður upp dóm **þennan**", „Úrskurð**inn** kveður upp …"). Ábendingarfornafnið/greinirinn er það sem bindur formúluna við þetta skjal: „Tjónanefndin kvað upp úrskurð" er annars aðila úrskurður. Síðasta treffið vinnur — formúlan lokar skjalinu.
+4. Fyrsta dómsorðs-/úrskurðarorðsfyrirsögn.
+5. „tekið til dóms/úrskurðar", „dómtekið".
+
+**Tvær gildrur sem bitu:**
+- `has_lower_court`-heimildir (Hæstiréttur, Landsréttur) fá aðeins þrep 1 og 4. Þegar `_split_lower_court` missir skiptinguna (t.d. `ÚrskurðurHéraðsdóms` án bils) hangir úrskurður héraðsdóms aftan í `body_text` með sinni eigin fyrirsögn, lokaformúlu og „tekið til úrskurðar" — Hrd. 411/2000 og 412/2000 urðu að úrskurðum af þeim sökum í fyrstu útgáfu reglunnar. Aðeins **fyrsta** úrskurðarorðið er örugglega okkar.
+- Fyrirsagnir gamalla dóma eru bókstafaglesnar (`Ú r s k u r ð a r o r ð`) og lifa það af úr PDF-inum; `_spaced()` leyfir bil milli allra bókstafa.
+
+41 héraðsdómar segja tvennt jafn afdráttarlaust (t.d. „kveður upp úrskurð þennan" undir fyrirsögninni `## DÓMSORÐ`). Fallið skilar `None` fyrir þá og `scripts/backfill_verdict_type.py` lætur röðina ósnerta — ekkert giskað, sbr. tilvitnanaleysarann.
+
+### `verdict_type` dregur skráarnafnið og `fts_is` með sér
+`verdict_filename` ber kóðann `_D_`/`_U_` (`renderer._VERDICT_CODE`) og `.md`-hausinn segir „# Úrskurður Landsréttar – 184/2022", svo lagfærð tegund þýðir endurnefnd `.md`+`.pdf`, endurgerð markdown, færð `raw_api_data->>'pdf_path'`-vísun og `passage_hash = NULL` svo `backfill_passages.py` endurbyggi `documents.fts_is` (verdict_type er í strúktúr-forskeytinu, sjá `passage_index.py`). `backfill_verdict_type.py` gerir allt fjögur í sömu færslu.
+
+**Skrá sem enga röð á bak við sig er jafn frátekin og röð.** Landsréttur ber ~6.000 munaðarlausar `.md`/`.pdf` frá endurinnflutningi þar sem `unique_verdict_filename` taldi skjalið sitt eigið nafn frátekið og gaf öllum `_2`-viðskeyti. Endurnefning á slíkt nafn eyðir eina afritinu, svo skriftan tekur bæði DB-nöfn **og** skráarnöfn á disknum í `taken`-mengið.
+
 ### Héraðsdómur birtir ekki alla dóma
 ~30% „no-candidate" hlutfall í `hrd_herd` tengingum er væntanlegt, ekki bilun.
 

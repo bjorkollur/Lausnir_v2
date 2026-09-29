@@ -29,26 +29,18 @@ def test_html_to_plain_blank_input():
 
 
 # ── _detect_verdict_type ─────────────────────────────────────────────────────
+# The full ladder is covered in test_extractor_verdict_type.py; these two pin
+# the haestirettur path, where an appended lower court makes the first
+# operative clause the only safe signal.
 
-def test_detect_urskurdaford_heading():
-    assert _detect_verdict_type("Málsatvik\n\nÚrskurðarorð\n\nHafnað.", []) == "Úrskurður"
-
-
-def test_detect_urskurdar_verb():
-    assert _detect_verdict_type("Dómurinn úrskurðar að kröfunni sé hafnað.", []) == "Úrskurður"
-
-
-def test_detect_case_insensitive():
-    assert _detect_verdict_type("úrskurðarorð\n\nHafnað.", []) == "Úrskurður"
-
-
-def test_detect_returns_none_for_domur():
-    assert _detect_verdict_type("Dómsorð\n\nStefndi greiði 500.000 kr.", []) is None
+def test_detect_operative_clause_decides_when_no_heading():
+    assert _detect_verdict_type("Málsatvik\n\nÚrskurðarorð\n\nHafnað.", CONFIG) == "Úrskurður"
+    assert _detect_verdict_type("Dómsorð\n\nStefndi greiði 500.000 kr.", CONFIG) == "Dómur"
 
 
 def test_detect_returns_none_for_empty():
-    assert _detect_verdict_type(None, []) is None
-    assert _detect_verdict_type("", []) is None
+    assert _detect_verdict_type(None, CONFIG) is None
+    assert _detect_verdict_type("", CONFIG) is None
 
 
 # ── _extract_haestirettur ─────────────────────────────────────────────────────

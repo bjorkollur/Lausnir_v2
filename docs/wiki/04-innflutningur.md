@@ -24,16 +24,16 @@ await session.execute(pg_insert(Document).values(...).on_conflict_do_update(...)
 write_markdown(doc, config, vf=verdict_filename)
 ```
 
-## Skriptuflokkar (50 alls í `scripts/`)
+## Skriptuflokkar (61 alls í `scripts/`)
 
 | Forskeyti | Fjöldi | Hlutverk |
 |---|---|---|
-| `import_*` | 24 | Sækja og flytja inn eina heimild |
-| `backfill_*` | 10 | Endurvinna skjöl sem þegar eru í DB |
-| `migrate_*` | 4 | Skemabreytingar (`ALTER TABLE`) |
+| `import_*` | 23 | Sækja og flytja inn eina heimild |
+| `backfill_*` | 13 | Endurvinna skjöl sem þegar eru í DB |
+| `migrate_*` | 5 | Skemabreytingar (`ALTER TABLE`) |
 | `sync_*` | 2 | Samstilla lagasafn / stjornarradid |
 | `setup_*` | 2 | Búa til vísa (trigram, provisions) |
-| Annað | 8 | `update_all`, `link_appeals`, greiningartól |
+| Annað | 16 | `update_all`, `link_appeals`, greiningartól |
 
 ### Mikilvægustu backfill-skripturnar
 
@@ -43,6 +43,7 @@ write_markdown(doc, config, vf=verdict_filename)
 | `backfill_passages.py --source X` | Sníður `passages` fyrir skjöl með úreltan/vantandi `passage_hash` | **Eftir hvern innflutning** — keyrt sjálfkrafa af `update_all.py` (`passages_refresh`) |
 | `backfill_cited_provisions.py` | Finnur lagatilvísanir í texta | Eftir innflutning ef lagaákvæðaleit á að virka |
 | `backfill_render_all.py --source X` | Endurgerir allar `.md` skrár | Eftir breytingu á renderer |
+| `backfill_verdict_type.py` | Les `verdict_type` upp á nýtt úr orðalagi skjalsins sjálfs (Hæstiréttur, Landsréttur, héraðsdómstólar) og lagfærir röðina: tegund, `verdict_filename`, endurnefnd `.md`/`.pdf`, `pdf_path`-vísun og `passage_hash = NULL` | Einu sinni (keyrt 29.09.2026, 6.590 skjöl). Aftur aðeins ef reglan í `_detect_verdict_type` breytist — `--dry-run` og `--report` fyrst |
 | `backfill_book_metadata.py` | Sækir ISBN/útgefanda/höfunda aftur | Eftir 2026-07-27 skemabreytinguna |
 | `link_appeals.py` | Byggir `document_links` áfrýjunarkeðjuna | Eftir innflutning á dómstólum |
 | `build_citations.py --all` | Dregur út og leysir tilvitnanir milli dóma (`citations` + afleiddar `cites`-brýr) fyrir öll úrelt skjöl (`citation_hash` vantar/stemmir ekki) | **Eftir hvern innflutning á dómstólaheimildunum sjö** — keyrt sjálfkrafa af `update_all.py` sem skref 5 (`citations_refresh`), sjá „Keyrsluröð" hér að neðan |

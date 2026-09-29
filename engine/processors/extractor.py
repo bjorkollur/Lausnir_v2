@@ -316,12 +316,127 @@ def _html_to_plain(html: str | None) -> str | None:
     return text or None
 
 
-def _detect_verdict_type(plain_text: str | None, keywords: list) -> str | None:
-    """Return 'Úrskurður' if body text signals an úrskurður, else None."""
-    if not plain_text:
+def _spaced(word: str) -> str:
+    """'DÓMUR' → 'D[ \t]*Ó[ \t]*M[ \t]*U[ \t]*R'.
+
+    Older verdicts letter-space their headings ('Ú r s k u r ð a r o r ð'),
+    which survives PDF extraction as real spaces.
+    """
+    return r"[ \t]*".join(re.escape(c) for c in word)
+
+
+# A heading may be prefixed by markdown hashes and/or bold markers.
+_HEAD_LEAD = r"^[ \t]*#{0,4}[ \t]*(?:\*\*|__)?[ \t]*"
+_HEAD_TAIL = r"(?:\*\*|__)?"
+
+# The court naming itself: 'Dómur Hæstaréttar', 'Úrskurður Landsréttar'.
+_COURT_GENITIVE = {
+    "haestirettur": r"H[æÆ]star[ée]ttar",
+    "landsrettur": r"Landsr[ée]ttar",
+    "heradsdomstolar": r"H[ée]ra[ðd]sd[óÓ]ms",
+}
+_SELF_HEADING_RE = {
+    short_name: re.compile(
+        _HEAD_LEAD + r"(DÓMUR|Dómur|ÚRSKURÐUR|Úrskurður)" + _HEAD_TAIL + r"[ \t]+" + genitive,
+        re.MULTILINE,
+    )
+    for short_name, genitive in _COURT_GENITIVE.items()
+}
+
+# A heading that names no court — héraðsdómar only (see _detect_verdict_type).
+_BARE_HEADING_RE = re.compile(
+    _HEAD_LEAD
+    + r"(?:(" + _spaced("DÓMUR") + r"|" + _spaced("Dómur") + r")"
+    + r"|(" + _spaced("ÚRSKURÐUR") + r"|" + _spaced("Úrskurður") + r"))"
+    + _HEAD_TAIL + r"[ \t]*:?[ \t]*$",
+    re.MULTILINE,
+)
+
+# 'X héraðsdómari kveður upp dóm þennan' / 'Úrskurðinn kveður upp X'.  The
+# demonstrative or the definite article is what ties the phrase to *this*
+# document — 'nefndin kvað upp úrskurð' is someone else's ruling.
+_PRONOUNCE_RE = re.compile(r"kve[ðd]\w*[ \t]+upp|kva[ðd][ \t]+upp", re.IGNORECASE)
+_THIS_JUDGMENT_RE = re.compile(r"d[óo]m(?:inn|[ \t]+þennan|[ \t]+þetta)|þennan[ \t]+d[óo]m", re.IGNORECASE)
+_THIS_RULING_RE = re.compile(r"[úu]rskur[ðd](?:inn|[ \t]+þennan|[ \t]+þetta)|þennan[ \t]+[úu]rskur[ðd]", re.IGNORECASE)
+_PRONOUNCE_WINDOW = 70
+
+_OPERATIVE_RE = re.compile(
+    _HEAD_LEAD + r"(" + "|".join(
+        _spaced(w) for w in ("DÓMSORÐ", "Dómsorð", "ÚRSKURÐARORÐ", "Úrskurðarorð")
+    ) + r")",
+    re.MULTILINE,
+)
+
+# 'tekið til dóms' and 'tekið var til úrskurðar' are both written.
+_SUBMITTED_RE = re.compile(
+    r"tekið[ \t]+(?:var[ \t]+)?til[ \t]+(dóms|úrskurðar)|(dómtek\w+)", re.IGNORECASE
+)
+
+
+def _is_judgment(word: str) -> bool:
+    return re.sub(r"\s", "", word).lower().startswith(("dóm", "dom"))
+
+
+def _pronounced_verdict(plain_text: str) -> str | None:
+    """Read the sign-off formula.  Last one wins — it closes the document."""
+    found = None
+    for m in _PRONOUNCE_RE.finditer(plain_text):
+        window = plain_text[max(0, m.start() - _PRONOUNCE_WINDOW): m.end() + _PRONOUNCE_WINDOW]
+        judgment = _THIS_JUDGMENT_RE.search(window)
+        ruling = _THIS_RULING_RE.search(window)
+        if judgment and not ruling:
+            found = "Dómur"
+        elif ruling and not judgment:
+            found = "Úrskurður"
+    return found
+
+
+def _detect_verdict_type(plain_text: str | None, config: "SourceConfig") -> str | None:
+    """Return 'Dómur' or 'Úrskurður' as the document itself states it, else None.
+
+    Read in order of directness: the court's own heading, a bare heading, the
+    sign-off formula, the operative clause, and finally how the case was taken
+    up.  A mention of someone else's ruling never counts — every verdict in a
+    kærumál discusses the úrskurður under appeal, which is what the old keyword
+    rule mistook for the document's own type (5.368 Hæstaréttardómar were filed
+    as úrskurðir because of it).
+
+    None means the text does not say, and the caller falls back to
+    ``config.verdict_type_default``.  Two equally direct statements that
+    contradict each other also return None: those 41 héraðsdómar are for a
+    human to read, not for this function to guess at.
+    """
+    if not plain_text or not plain_text.strip():
         return None
-    if re.search(r"Úrskurðarorð|úrskurðar\b", plain_text, re.IGNORECASE):
-        return "Úrskurður"
+
+    self_heading = _SELF_HEADING_RE.get(config.short_name)
+    if self_heading:
+        m = self_heading.search(plain_text)
+        if m:
+            return "Dómur" if _is_judgment(m.group(1)) else "Úrskurður"
+
+    if config.has_lower_court:
+        # The lower court's text is appended when the split misses it, carrying
+        # its own bare heading, sign-off and 'tekið til úrskurðar'.  Only the
+        # first operative clause is reliably this court's.
+        m = _OPERATIVE_RE.search(plain_text)
+        return ("Dómur" if _is_judgment(m.group(1)) else "Úrskurður") if m else None
+
+    m = _BARE_HEADING_RE.search(plain_text)
+    if m:
+        return "Dómur" if m.group(1) else "Úrskurður"
+
+    pronounced = _pronounced_verdict(plain_text)
+    m = _OPERATIVE_RE.search(plain_text)
+    operative = ("Dómur" if _is_judgment(m.group(1)) else "Úrskurður") if m else None
+    if pronounced and operative:
+        return pronounced if pronounced == operative else None
+    if pronounced or operative:
+        return pronounced or operative
+
+    m = _SUBMITTED_RE.search(plain_text)
+    if m:
+        return "Dómur" if (m.group(2) or (m.group(1) or "").lower() == "dóms") else "Úrskurður"
     return None
 
 
@@ -1790,7 +1905,7 @@ def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
         "document_date": document_date,
         "court": config.abbreviation,
         "verdict_type": (
-            _detect_verdict_type(plain_body, raw.get("keywords") or [])
+            _detect_verdict_type(plain_body, config)
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,
@@ -1888,7 +2003,7 @@ def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
         "document_date": document_date,
         "court": config.abbreviation,
         "verdict_type": (
-            _detect_verdict_type(plain_body, raw.get("keywords") or [])
+            _detect_verdict_type(plain_body, config)
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,
@@ -2028,7 +2143,7 @@ def _extract_heradsdomstolar(raw: dict, config: SourceConfig) -> dict:
         "document_date": document_date,
         "court": abbr,
         "verdict_type": (
-            _detect_verdict_type(plain_body, raw.get("keywords") or [])
+            _detect_verdict_type(plain_body, config)
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,
