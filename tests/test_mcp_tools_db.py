@@ -71,10 +71,15 @@ async def test_get_document_no_text_by_default_and_short_text_not_truncated():
 
         # Pick a document whose markdown is comfortably under max_chars, so
         # "not truncated" is a deterministic assertion rather than a coin flip.
+        # to_markdown() renders summary + body_text + lower_body_text, so
+        # bounding body_text alone was not enough: a short body with a long
+        # embedded lower-court text still blew past max_chars.
         row = (await s.execute(text("""
             SELECT id FROM documents
             WHERE length(body_text) BETWEEN 300 AND 1500
+              AND length(coalesce(summary, '')) + length(coalesce(lower_body_text, '')) < 2000
               AND id IN (SELECT document_id FROM passages)
+            ORDER BY id
             LIMIT 1"""))).first()
         if row is None:
             pytest.skip("no short-bodied document in the corpus")
@@ -179,8 +184,22 @@ async def test_list_sources_and_facets():
 async def test_citations_tool_both_directions_on_a_resolved_pair():
     eng, s = await _session()
     try:
-        row = (await s.execute(text(
-            "SELECT from_doc_id, to_doc_id FROM citations WHERE status = 'resolved' LIMIT 1"))).first()
+        # The pair must be findable on page 1 in *both* directions, so both
+        # endpoints are constrained to at most one page of `cites` edges
+        # (page_size defaults to 10). lower_body rows are excluded because the
+        # tool only ever pages over the summary/body layers — 38 % of resolved
+        # rows are lower_body, so an unfiltered LIMIT 1 picked one at random.
+        row = (await s.execute(text("""
+            SELECT c.from_doc_id, c.to_doc_id
+            FROM citations c
+            WHERE c.status = 'resolved'
+              AND c.layer IN ('summary', 'body')
+              AND (SELECT count(*) FROM document_links dl
+                   WHERE dl.relation = 'cites' AND dl.from_doc_id = c.from_doc_id) <= 10
+              AND (SELECT count(*) FROM document_links dl
+                   WHERE dl.relation = 'cites' AND dl.to_doc_id = c.to_doc_id) <= 10
+            ORDER BY c.from_doc_id, c.char_start
+            LIMIT 1"""))).first()
         if row is None:
             pytest.skip("no resolved citation in the corpus yet")
         from_id, to_id = str(row[0]), str(row[1])
