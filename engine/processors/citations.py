@@ -12,8 +12,8 @@ from datetime import date
 
 from engine.processors.citation_resolver import norm_case_number
 
-MAX_RAW = 240
-WINDOW = 120          # preferred look-back distance for a court word (§5.3)
+MAX_RAW = 240         # safety cap on raw_text length
+WINDOW = 120          # hard look-back distance for a court word (§5.3)
 DATE_AFTER = 30       # chars after the number in which 'frá …' may introduce a date
 
 MONTHS = {m: i + 1 for i, m in enumerate(
@@ -44,8 +44,11 @@ _COURT_ALT = "|".join(f"(?:{pat})" for pat in COURT_WORDS)
 # Words that carry the last court named earlier in the same sentence (§5.3).
 _INHERIT_RX = re.compile(r"\b(réttarins|réttinum|dómstólsins|dómstóllinn|sama\s+dómstóls|sama\s+réttar)\b")
 # A non-court adjudicator standing nearer than the court word cancels the citation (§5.3).
+# The spec's broad stems ('stofn\w*', 'stjórn\w*') are narrowed here: they swallowed
+# ordinary legal vocabulary ('stofnað', 'stjórnarskrárinnar') and killed real citations.
 _OTHER_BODY_RX = re.compile(
-    r"\b(nefnd\w*|sýslumann\w*|ráðuneyt\w*|stofn\w*|Persónuvernd\w*|stjórn\w*|dómstól\w*)\b")
+    r"\b(nefnd\w*|nefndarinnar|sýslumann\w*|sýslumanns\w*|ráðuneyt\w*|stofnun\w*"
+    r"|Persónuvernd\w*|stjórnvald\w*|stjórnsýslu\w*|úrskurðaraðil\w*|dómstól\w*)\b")
 _LAW_RX = re.compile(
     r"\b(?:l(?:ög|aga|ögum|ögunum)|reglugerð\w*|auglýsing\w*|samþykkt\w*)\s+nr\.\s*\d{1,4}/\d{4}", re.I)
 
@@ -166,20 +169,11 @@ def _court_for(text: str, num_pos: int, *, sent_start: int,
                last_court: tuple[int, str] | None) -> tuple[int, str] | None:
     """Find the court that owns the number at num_pos, looking back within the sentence.
 
-    Returns (court_pos, abbr) or None. `last_court` is the previous court found in
-    this sentence, inherited through 'réttarins' etc. We prefer a court word within
-    WINDOW chars and widen to the whole sentence only if that yields nothing; the
-    sentence itself is the hard boundary.
+    Returns (court_pos, abbr) or None. Both limits are hard (§5.3): never past the
+    sentence start, and never more than WINDOW chars back. `last_court` is the
+    previous court found in this sentence, inherited through 'réttarins' etc.
     """
-    for lo in dict.fromkeys((max(sent_start, num_pos - WINDOW), sent_start)):
-        found = _court_in(text, lo, num_pos, last_court)
-        if found is not None:
-            return found
-    return None
-
-
-def _court_in(text: str, lo: int, num_pos: int,
-              last_court: tuple[int, str] | None) -> tuple[int, str] | None:
+    lo = max(sent_start, num_pos - WINDOW)
     seg = text[lo:num_pos]
     courts = list(_COURT_RX.finditer(seg))
     inherits = list(_INHERIT_RX.finditer(seg))

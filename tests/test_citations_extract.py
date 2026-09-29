@@ -145,9 +145,13 @@ def test_empty_and_garbage():
     assert extract_citations("nr. nr. máli nr. /2020 Hæstaréttar", doc_date=D) == []
 
 
+def test_court_beyond_the_window_is_not_used():
+    # court word ~423 chars before the number, same sentence → outside the 120-char look-back
+    assert extract_citations(f"dómi Hæstaréttar {'sem ' * 100}í máli nr. 1/2020.", doc_date=D) == []
+
+
 def test_raw_text_capped():
-    filler = "sem " * 100
-    c = one(f"dómi Hæstaréttar {filler}í máli nr. 1/2020.")
+    c = one(f"dómi Hæstaréttar {'sem ' * 20}í máli nr. 1/2020.")
     assert len(c.raw_text) <= 240 and c.raw_text.endswith("1/2020")
 
 
@@ -180,3 +184,10 @@ def test_extra_reporter_and_abbrev_can_coexist():
     """'Hrd. 15/1983' is a case number, 'Hrd.1983/1538' is a reporter reference."""
     out = extract_citations("sjá Hrd. 15/1983 og Hrd.1983/1538.", doc_date=D)
     assert [(c.form, c.target_case_number) for c in out] == [("abbrev", "15/1983"), ("reporter", None)]
+
+
+def test_extra_narrowed_other_body_words():
+    """'stjórnarskrárinnar' must not cancel a citation; a real 'nefnd' still must."""
+    c = one("Með dómi Hæstaréttar um túlkun stjórnarskrárinnar í máli nr. 12/2019 var deilt um það.")
+    assert c.target_court == "Hrd."
+    assert extract_citations("Vísað er til úrskurðar nefndarinnar í máli nr. 2/2010.", doc_date=D) == []
