@@ -1528,3 +1528,14 @@ Sjálfstæð úttekt (`scripts/audit_citations.py`), 200 `status='resolved'` ra�
 - **1** dagsetningarfrávik reyndist innsláttarvilla (rangt ár) í frumtexta heimildarinnar sjálfrar, ekki í útdrættinum.
 
 **Keyrsla #2 (2026-09-29):** sama sjálfstæða úttektarskripta keyrð aftur á 200 fersk lagskipt sýni eftir að öll fimm atriðin í kafla 15 höfðu verið löguð. Manneskjulegi lesturinn á ±250 stafa samhengi þeirra 200 sýna (er þetta yfirhöfuð tilvísun í úrlausn; á dómstólsorðið við þetta númer) er skráður hér af stjórnandanum eftir yfirferð, ekki af innleiðingaraðilanum.
+
+### Lokaúttekt á keyrslu #2 (200 leystar tilvitnanir, nýtt lagskipt úrtak, 2026-09-29)
+
+| Þrep | Niðurstaða |
+|---|---|
+| Vélrænar athuganir (númer, dómstóll, dagsetning, tímaröð, textabil) | 200/200 í lagi |
+| Dómsorð í texta vs. skráð `verdict_type` | 29/200 misræmi — allt raðir þar sem grunnurinn skráir „Úrskurður“ en textinn segir „dómur“; 8 þeirra eru „Áfrýjað er dómi Héraðsdóms … E-…“ (áfrýjuð E-mál eru dómar), svo skráningin er röng, ekki tengingin. Sérstakt lagfæringarefni: `verdict_type` kærumála Hæstaréttar fyrir 2018 og nokkurra héraðsdóma. |
+| Mannlegur lestur í samhengi | **196 réttar, 0 rangar, 4 óljósar** |
+| Nákvæmni | 196/196 = **100 %** (réttar af réttum+röngum); íhaldssamt 196/200 = **98,0 %** → viðmið ≥ 98 % **stenst** |
+
+Óljósu fjórar vísa allar á rétt mál en textinn vísar til málsmeðferðar frekar en úrlausnarinnar: `4191eb2f` („héraðsdómara í máli nr. Z-9/2013“, ekkert dómstólsorð, leyst milli héraða með einkvæmni), `3e515abf` (greinargerð í E-151/2020), `42ebfe82` (ákæra vísar til fyrri meðferðar í S-114/2018), `b1c85081` (Landsdómur kom saman í máli 1/2011). Sérstaklega athugað og ekki fundið: rangt erft dómstólsorð í upptalningum, lögnúmer lesin sem málsnúmer, sjálfstilvísanir, villur í afstæðum dagsetningum. Eina eftirstandandi áhættan sem lesarinn nefndi: bert „héraðsdóm(ara)“ án staðar leyst milli héraða með einkvæmni í safninu (1 af 200).
