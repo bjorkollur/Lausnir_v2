@@ -1,8 +1,10 @@
 """sql_query / describe_schema against the live DB. Skipped without a URL.
 Uses DATABASE_URL_READONLY when set, else DATABASE_URL."""
 import os
+import tracemalloc
 
 import pytest
+from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
 import engine.mcp.tools as tools
@@ -79,6 +81,81 @@ async def test_sql_query_sql_error_is_tool_error():
         await s.close(); await eng.dispose()
 
 
+async def test_sql_query_error_message_has_no_class_repr():
+    """MINOR 4: the wrapped asyncpg exception's own message, not the wrapper's
+    class-repr str() (`"<class '...'>: column ..."`)."""
+    eng, s = await _session()
+    try:
+        with pytest.raises(tools.ToolInputError) as ei:
+            await tools.sql_query(s, sql="SELECT nope_col FROM sources")
+        msg = str(ei.value)
+        assert msg.startswith("Villa í fyrirspurn: column")
+        assert "<class" not in msg
+    finally:
+        await s.close(); await eng.dispose()
+
+
+async def test_sql_query_streams_large_result_with_low_memory():
+    """The old `.execute().fetchmany()` path buffered the whole result
+    client-side before slicing it; streaming must not. Measured with
+    tracemalloc: an unbounded `SELECT text FROM passages` should stay well
+    under buffering ~100k passage texts (~208 MB observed with the old
+    code)."""
+    eng, s = await _session()
+    try:
+        tracemalloc.start()
+        try:
+            out = await tools.sql_query(s, sql="SELECT text FROM passages", max_rows=5)
+        finally:
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+        assert out["row_count"] == 5 and out["truncated_rows"] is True
+        assert peak < 30 * 1024 * 1024, f"peak allocation {peak / 1e6:.1f} MB, expected < 30 MB"
+    finally:
+        await s.close(); await eng.dispose()
+
+
+@pytest.mark.parametrize("sql", [
+    "SHOW server_version",
+    "EXPLAIN SELECT 1",
+    "VALUES (1, 2)",
+    "TABLE sources",
+])
+async def test_sql_query_non_select_statement_forms_still_work(sql):
+    """These statement forms go through the same server-side-cursor path as
+    SELECT; if a given form can't be streamed, sql_query falls back to a
+    buffered execute for that statement only (inside the same transaction) —
+    either way it must still return columns/rows."""
+    eng, s = await _session()
+    try:
+        out = await tools.sql_query(s, sql=sql, max_rows=3)
+        assert out["columns"] and out["rows"]
+    finally:
+        await s.close(); await eng.dispose()
+
+
+async def test_sql_query_after_describe_schema_same_session():
+    """MINOR/IMPORTANT 2: describe_schema then sql_query on the SAME session
+    must not raise 'A transaction is already begun on this Session'."""
+    eng, s = await _session()
+    try:
+        await tools.describe_schema(s)
+        out = await tools.sql_query(s, sql="SELECT 1 AS one")
+        assert out["rows"] == [[1]]
+    finally:
+        await s.close(); await eng.dispose()
+
+
+async def test_sql_query_after_bare_session_execute_same_session():
+    eng, s = await _session()
+    try:
+        await s.execute(text("SELECT 1"))
+        out = await tools.sql_query(s, sql="SELECT 1 AS one")
+        assert out["rows"] == [[1]]
+    finally:
+        await s.close(); await eng.dispose()
+
+
 async def test_describe_schema():
     eng, s = await _session()
     try:
@@ -87,6 +164,7 @@ async def test_describe_schema():
         assert {"documents", "passages", "sources"} <= names
         docs = next(t for t in all_["tables"] if t["name"] == "documents")
         assert docs["approx_rows"] > 0 and docs["description"]
+        assert docs["kind"] == "table"
         one = await tools.describe_schema(s, table="passages")
         cols = {c["name"]: c for c in one["columns"]}
         assert cols["fts_is"]["type"] == "tsvector" and cols["ordinal"]["nullable"] is False

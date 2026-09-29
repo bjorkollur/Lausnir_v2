@@ -8,8 +8,10 @@ testable without a protocol layer.
 from __future__ import annotations
 
 import datetime as _dt
+import re
 import time as _time
 import uuid
+from contextlib import asynccontextmanager
 from typing import Any
 
 from sqlalchemy import text
@@ -311,52 +313,153 @@ _TABLE_NOTES = {
     "documents": "raw_api_data er stórt JSONB (öll API-svörin); veldu einstaka lykla (raw_api_data->>'x') en aldrei dálkinn í heild. body_text/lower_body_text eru fullir textar; notaðu passages fyrir lesanleg brot.",
     "passages": "text getur verið langt; sía fyrst á document_id eða fts_is @@ to_tsquery('simple', …).",
 }
+_RELKIND_NAMES = {"r": "table", "p": "partitioned", "v": "view", "m": "matview"}
+
+# SQLSTATEs asyncpg can raise when a statement form cannot be opened as a
+# server-side cursor (e.g. some utility statements) — as opposed to the
+# query simply failing. Belt-and-braces text fallback for anything else
+# that comes through with the same shape but a different code.
+_CURSOR_UNSUPPORTED_CODES = {"42601", "0A000"}
+_TIMEOUT_SQLSTATE = "57014"
+_PRIVILEGE_SQLSTATES = {"42501", "25006"}
+
+
+def _sqlstate(exc: Exception) -> str | None:
+    orig = getattr(exc, "orig", exc)
+    cause = getattr(orig, "__cause__", None)
+    return getattr(cause, "sqlstate", None) or getattr(orig, "sqlstate", None)
+
+
+def _db_error_message(exc: Exception) -> str:
+    """Best-effort human-readable message from a wrapped asyncpg/DBAPI error.
+
+    SQLAlchemy's asyncpg dialect wraps the driver exception as ``.orig``,
+    whose ``str()`` leaks the class repr (``"<class '...'>: msg"``); the
+    real message lives on ``.orig.__cause__`` (the asyncpg exception
+    itself). Fall back to ``.orig`` and strip the class-repr prefix if it
+    shows up there too.
+    """
+    orig = getattr(exc, "orig", exc)
+    msg = str(getattr(orig, "__cause__", None) or orig)
+    return re.sub(r"^<class '[^']+'>:\s*", "", msg)
+
+
+def _is_cursor_unsupported(exc: Exception) -> bool:
+    if _sqlstate(exc) in _CURSOR_UNSUPPORTED_CODES:
+        return True
+    msg = _db_error_message(exc).lower()
+    return "cannot be declared" in msg or "cursor" in msg
+
+
+def _wrap_db_error(exc: Exception) -> ToolInputError:
+    """Classify a DB-layer exception into an Icelandic ToolInputError.
+
+    SQLSTATE is the primary signal (stable across message wording/locale);
+    the substring checks are only a fallback for whatever doesn't carry one.
+    """
+    code = _sqlstate(exc)
+    msg = _db_error_message(exc)
+    low = msg.lower()
+    if code == _TIMEOUT_SQLSTATE or "canceling statement due to statement timeout" in low or "querycancelederror" in low:
+        return ToolInputError(f"Fyrirspurn féll á {SQL_TIMEOUT} tímamörkum.")
+    if code in _PRIVILEGE_SQLSTATES or "permission denied" in low or "read-only transaction" in low or "insufficientprivilege" in low:
+        return ToolInputError("Lesaðgangshlutverkið má ekki gera þetta.")
+    first_line = msg.splitlines()[0] if msg else exc.__class__.__name__
+    return ToolInputError(f"Villa í fyrirspurn: {first_line}")
+
+
+@asynccontextmanager
+async def _read_only_tx(session: AsyncSession):
+    """Start a fresh read-only, timeout-bounded transaction on ``session``.
+
+    ``session`` may already have an open (autobegun) transaction — e.g. a
+    prior ``describe_schema``/``sql_query`` call on the same session, or a
+    bare ``session.execute()`` by the caller. Nothing this module does is
+    ever left pending across a tool call, so rolling back whatever is
+    already open is safe: it only ever discards an autobegin with no writes
+    in it, never work this call is responsible for.
+    """
+    if session.in_transaction():
+        await session.rollback()
+    async with session.begin():
+        await session.execute(text("SET TRANSACTION READ ONLY"))
+        await session.execute(text(f"SET LOCAL statement_timeout = '{SQL_TIMEOUT}'"))
+        yield
+
+
+async def _stream_or_buffer(session: AsyncSession, clean: str, max_rows: int) -> tuple[list[str], list]:
+    """Run ``clean`` through a server-side cursor so a large result set is
+    never buffered client-side first (measured ~208 MB client-side for
+    ~100k passage texts; a full ``SELECT text FROM passages`` would pull
+    ~3.7 GB before the 15 s timeout could even stop it). ``yield_per``
+    tells the driver to fetch in ``max_rows + 1``-sized chunks instead of
+    prefetching everything.
+
+    A few statement forms the guard allows (SHOW/EXPLAIN/VALUES/TABLE
+    variants) may not support a server-side cursor; that failure is
+    contained in a SAVEPOINT so it can't abort the outer read-only
+    transaction, and we retry with a plain buffered execute for that one
+    statement only.
+    """
+    try:
+        async with session.begin_nested():
+            result = await session.stream(text(clean), execution_options={"yield_per": max_rows + 1})
+            columns = list(result.keys())
+            raw = await result.fetchmany(max_rows + 1)
+            await result.close()
+        return columns, raw
+    except Exception as exc:
+        if not _is_cursor_unsupported(exc):
+            raise
+        async with session.begin_nested():
+            result = await session.execute(text(clean))
+            columns = list(result.keys())
+            raw = result.fetchmany(max_rows + 1)
+        return columns, raw
 
 
 async def describe_schema(session: AsyncSession, *, table: str | None = None) -> dict:
-    if table is None:
-        rows = (await session.execute(text("""
-            SELECT c.relname AS name, c.reltuples::bigint AS approx_rows
-            FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace
-            WHERE n.nspname = 'public' AND c.relkind = 'r' ORDER BY c.relname"""))).mappings().all()
-        return {"tables": [{"name": r["name"], "approx_rows": max(0, int(r["approx_rows"])),
-                            "description": _TABLE_DESCRIPTIONS.get(r["name"], "")} for r in rows]}
-    cols = (await session.execute(text("""
-        SELECT column_name AS name, udt_name AS type, is_nullable = 'YES' AS nullable
-        FROM information_schema.columns
-        WHERE table_schema = 'public' AND table_name = :t ORDER BY ordinal_position"""), {"t": table})).mappings().all()
-    if not cols:
-        raise ToolInputError(f"Tafla fannst ekki: {table!r}. Kallaðu á describe_schema án table til að sjá lista.")
-    idx = (await session.execute(text(
-        "SELECT indexname AS name, indexdef AS definition FROM pg_indexes WHERE schemaname = 'public' AND tablename = :t ORDER BY indexname"),
-        {"t": table})).mappings().all()
-    return {"table": table, "description": _TABLE_DESCRIPTIONS.get(table, ""),
-            "columns": [dict(c) for c in cols], "indexes": [dict(i) for i in idx],
-            "notes": _TABLE_NOTES.get(table, "")}
+    try:
+        async with _read_only_tx(session):
+            if table is None:
+                rows = (await session.execute(text("""
+                    SELECT c.relname AS name, c.reltuples::bigint AS approx_rows, c.relkind::text AS relkind
+                    FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace
+                    WHERE n.nspname = 'public' AND c.relkind IN ('r', 'p', 'v', 'm')
+                    ORDER BY c.relname"""))).mappings().all()
+                return {"tables": [{"name": r["name"], "approx_rows": max(0, int(r["approx_rows"])),
+                                    "kind": _RELKIND_NAMES.get(r["relkind"], r["relkind"]),
+                                    "description": _TABLE_DESCRIPTIONS.get(r["name"], "")} for r in rows]}
+            cols = (await session.execute(text("""
+                SELECT column_name AS name, udt_name AS type, is_nullable = 'YES' AS nullable
+                FROM information_schema.columns
+                WHERE table_schema = 'public' AND table_name = :t ORDER BY ordinal_position"""), {"t": table})).mappings().all()
+            if not cols:
+                raise ToolInputError(f"Tafla fannst ekki: {table!r}. Kallaðu á describe_schema án table til að sjá lista.")
+            idx = (await session.execute(text(
+                "SELECT indexname AS name, indexdef AS definition FROM pg_indexes WHERE schemaname = 'public' AND tablename = :t ORDER BY indexname"),
+                {"t": table})).mappings().all()
+            return {"table": table, "description": _TABLE_DESCRIPTIONS.get(table, ""),
+                    "columns": [dict(c) for c in cols], "indexes": [dict(i) for i in idx],
+                    "notes": _TABLE_NOTES.get(table, "")}
+    except ToolInputError:
+        raise
+    except Exception as exc:
+        raise _wrap_db_error(exc) from None
 
 
 async def sql_query(session: AsyncSession, *, sql: str, max_rows: int = SQL_DEFAULT_ROWS) -> dict:
     try:
         clean = validate_sql(sql)
     except SqlRejected as exc:
-        raise ToolInputError(str(exc))
+        raise ToolInputError(str(exc)) from None
     max_rows = _clamp(max_rows, 1, SQL_MAX_ROWS, SQL_DEFAULT_ROWS)
     t0 = _time.perf_counter()
     try:
-        async with session.begin():
-            await session.execute(text("SET TRANSACTION READ ONLY"))
-            await session.execute(text(f"SET LOCAL statement_timeout = '{SQL_TIMEOUT}'"))
-            result = await session.execute(text(clean))
-            columns = list(result.keys())
-            raw = result.fetchmany(max_rows + 1)
+        async with _read_only_tx(session):
+            columns, raw = await _stream_or_buffer(session, clean, max_rows)
     except Exception as exc:  # asyncpg errors arrive wrapped in sqlalchemy DBAPIError
-        msg = str(getattr(exc, "orig", exc))
-        low = msg.lower()
-        if "canceling statement due to statement timeout" in low or "querycancelederror" in low:
-            raise ToolInputError(f"Fyrirspurn féll á {SQL_TIMEOUT} tímamörkum.")
-        if "permission denied" in low or "read-only transaction" in low or "insufficientprivilege" in low:
-            raise ToolInputError("Lesaðgangshlutverkið má ekki gera þetta.")
-        raise ToolInputError(f"Villa í fyrirspurn: {msg.splitlines()[0] if msg else exc.__class__.__name__}")
+        raise _wrap_db_error(exc) from None
     elapsed = int((_time.perf_counter() - t0) * 1000)
     truncated_rows = len(raw) > max_rows
     raw = raw[:max_rows]
