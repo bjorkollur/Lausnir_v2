@@ -96,6 +96,100 @@ async def test_passage_context_and_get_passages_clamp_args():
     assert tools.CONTEXT_MAX == 10 and tools.PASSAGES_COUNT_MAX == 50 and tools.DOC_TEXT_MAX_CHARS == 40_000
 
 
+def _fake_citation_ref(n: int) -> dict:
+    return {
+        "document_id": str(uuid.UUID(int=n)), "urlausn": f"U{n}", "source": "haestirettur",
+        "document_date": dt.date(2020, 1, n), "layer": "body",
+        "passage_id": str(uuid.UUID(int=n + 100)), "anchor": f"A{n}",
+        "raw_text": f"vitnað í mál {n}", "confidence": 0.9, "also_appeal": n % 2 == 0,
+        "same_case": False,
+    }
+
+
+async def test_citations_tool_rejects_bad_direction():
+    with pytest.raises(ToolInputError) as ei:
+        await tools.citations_tool(_Sess(), doc_id=str(uuid.UUID(int=1)), direction="sideways")
+    assert "direction" in str(ei.value)
+
+
+async def test_citations_tool_clamps_page_size(monkeypatch):
+    seen = {}
+
+    async def fake_get_citations(session, did, *, direction, page, page_size):
+        seen["page_size"] = page_size
+        return {"direction": direction, "total": 0, "page": page, "page_size": page_size, "items": []}
+
+    monkeypatch.setattr(tools, "get_citations", fake_get_citations)
+    await tools.citations_tool(_Sess(), doc_id=str(uuid.UUID(int=1)), page_size=999)
+    assert seen["page_size"] == tools.PAGE_SIZE_MAX == 25
+
+
+async def test_citations_tool_compacts_items_and_unknown_doc(monkeypatch):
+    async def fake_get_citations(session, did, *, direction, page, page_size):
+        return {"direction": direction, "total": 1, "page": page, "page_size": page_size,
+                "items": [_fake_citation_ref(1)]}
+
+    monkeypatch.setattr(tools, "get_citations", fake_get_citations)
+    out = await tools.citations_tool(_Sess(), doc_id=str(uuid.UUID(int=1)))
+    assert out["doc_id"] == str(uuid.UUID(int=1))
+    assert out["direction"] == "out" and out["total"] == 1
+    item = out["items"][0]
+    assert set(item) == {"document_id", "urlausn", "date", "layer", "passage_id", "anchor",
+                         "raw_text", "also_appeal", "same_case"}
+    assert item["date"] == "2020-01-01"
+    assert "source" not in item and "confidence" not in item
+
+    async def fake_missing(session, did, *, direction, page, page_size):
+        return None
+
+    monkeypatch.setattr(tools, "get_citations", fake_missing)
+    with pytest.raises(ToolInputError) as ei:
+        await tools.citations_tool(_Sess(), doc_id=str(uuid.UUID(int=1)))
+    assert "Skjal fannst ekki" in str(ei.value)
+
+
+async def test_citations_tool_wraps_search_error(monkeypatch):
+    from engine.search.queries import SearchError
+
+    async def boom(session, did, *, direction, page, page_size):
+        raise SearchError("boom")
+
+    monkeypatch.setattr(tools, "get_citations", boom)
+    with pytest.raises(ToolInputError) as ei:
+        await tools.citations_tool(_Sess(), doc_id=str(uuid.UUID(int=1)))
+    assert str(ei.value).startswith("Ógilt inntak")
+
+
+async def test_get_document_tool_truncates_and_compacts_citations(monkeypatch):
+    items_out = [_fake_citation_ref(n) for n in range(1, 8)]
+
+    async def fake_get_document(session, did):
+        return {
+            "id": str(did), "source": "haestirettur", "raw_api_data": {}, "body_text": "x",
+            "lower_body_text": None, "citations_out": items_out, "citations_out_total": 7,
+            "cited_by": [], "cited_by_total": 0, "citations_unresolved_total": 0,
+        }
+
+    async def fake_execute(*a, **kw):
+        class _R:
+            def mappings(self):
+                return self
+            def all(self):
+                return []
+        return _R()
+
+    monkeypatch.setattr(tools, "get_document", fake_get_document)
+    session = _Sess()
+    session.execute = fake_execute
+    session.get = None
+    out = await tools.get_document_tool(session, doc_id=str(uuid.UUID(int=1)))
+    assert len(out["citations_out"]) == tools.CITATIONS_TOP_N == 5
+    assert out["citations_out_total"] == 7
+    assert out["cited_by"] == [] and out["cited_by_total"] == 0
+    assert set(out["citations_out"][0]) == {"document_id", "urlausn", "date", "layer", "passage_id",
+                                            "anchor", "raw_text", "also_appeal", "same_case"}
+
+
 async def test_sql_query_rejects_before_touching_db():
     class _Boom:
         def begin(self): raise AssertionError("must not reach the DB")

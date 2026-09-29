@@ -176,6 +176,29 @@ async def test_list_sources_and_facets():
         await s.close(); await eng.dispose()
 
 
+async def test_citations_tool_both_directions_on_a_resolved_pair():
+    eng, s = await _session()
+    try:
+        row = (await s.execute(text(
+            "SELECT from_doc_id, to_doc_id FROM citations WHERE status = 'resolved' LIMIT 1"))).first()
+        if row is None:
+            pytest.skip("no resolved citation in the corpus yet")
+        from_id, to_id = str(row[0]), str(row[1])
+
+        out = await tools.citations_tool(s, doc_id=from_id, direction="out")
+        assert out["doc_id"] == from_id and out["direction"] == "out" and out["total"] >= 1
+        assert any(item["document_id"] == to_id for item in out["items"])
+        item = next(i for i in out["items"] if i["document_id"] == to_id)
+        assert set(item) == {"document_id", "urlausn", "date", "layer", "passage_id", "anchor",
+                             "raw_text", "also_appeal", "same_case"}
+
+        incoming = await tools.citations_tool(s, doc_id=to_id, direction="in")
+        assert incoming["doc_id"] == to_id and incoming["direction"] == "in" and incoming["total"] >= 1
+        assert any(i["document_id"] == from_id for i in incoming["items"])
+    finally:
+        await s.close(); await eng.dispose()
+
+
 async def test_unknown_document_and_passage():
     eng, s = await _session()
     try:

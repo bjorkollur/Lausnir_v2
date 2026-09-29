@@ -30,9 +30,10 @@ log = logging.getLogger("lausnir.mcp")
 SearchMode = Literal["keyword", "exact", "prefix", "substring", "any", "proximity", "regex"]
 SortOrder = Literal["relevance", "newest", "oldest"]
 PassageLayer = Literal["summary", "body", "lower_body"]
+CitationDirection = Literal["out", "in"]
 
 TOOL_NAMES = ("search", "passage_context", "get_passages", "get_document",
-              "list_sources", "facets", "describe_schema", "sql_query")
+              "list_sources", "facets", "describe_schema", "sql_query", "citations")
 
 INSTRUCTIONS = (
     "Lausnir er safn íslenskra dóma, úrskurða og stjórnsýsluákvarðana. Byrjaðu á `search` "
@@ -42,14 +43,16 @@ INSTRUCTIONS = (
     "reifun. Vitnaðu alltaf með `urlausn` og `anchor` (t.d. „Hrd. 123/2020, mgr. 14“). "
     "`relaxed: true` þýðir að færri en 10 skjöl innihéldu öll leitarorðin; `match_tier` 1–2 "
     "innihalda aðeins hluta þeirra. `sql_query` er fyrir tölfræði og gagnaathuganir sem "
-    "leitarverkfærin svara ekki; það er read-only og skilar mest 1000 röðum.\n\n"
+    "leitarverkfærin svara ekki; það er read-only og skilar mest 1000 röðum. Notaðu `citations` "
+    "til að sjá í hvaða dóma er vitnað og hverjir vitna í dóm.\n\n"
     "English: Lausnir is a corpus of Icelandic court rulings and administrative decisions. Start "
     "with `search` (lemmatised keyword search; `scope` narrows by court tier or source, see "
     "`list_sources`). Each hit points at its best passage (`passage_id`, `anchor`); use "
     "`passage_context` to read around it and `get_document` for metadata, parties and summary. "
     "Always cite with `urlausn` plus `anchor`. `relaxed: true` means fewer than 10 documents "
     "contained all query terms; `match_tier` 1–2 hits contain only some of them. `sql_query` is "
-    "read-only SQL for statistics the search tools cannot answer (max 1000 rows)."
+    "read-only SQL for statistics the search tools cannot answer (max 1000 rows). Use `citations` "
+    "to see which rulings a document cites and which cite it."
 )
 
 _RO = ToolAnnotations(read_only_hint=True)
@@ -177,6 +180,17 @@ def build_server() -> MCPServer:
         "reitir styttir í 500 stafi. Notaðu describe_schema fyrst."))
     async def sql_query(sql: str, max_rows: int = 200) -> dict:
         return await _run(tools.sql_query, sql=sql, max_rows=max_rows)
+
+    @server.tool(annotations=_RO, description=(
+        "Tilvitnanir skjals. direction='out' (sjálfgefið): dómar sem þetta skjal vitnar til; "
+        "'in': dómar sem vitna til þessa skjals. Hver færsla ber raw_text (setningin sem vitnar), "
+        "anchor (efnisgreinin sem vitnað er úr/í, sjá passage_context), also_appeal (hitt skjalið er "
+        "í sömu áfrýjunarkeðju) og same_case (sama málsnúmer hjá sama dómstól, ekki fordæmi). "
+        "page_size ≤ 25."))
+    async def citations(doc_id: str, direction: CitationDirection = "out", page: int = 1,
+                        page_size: int = 10) -> dict:
+        return await _run(tools.citations_tool, doc_id=doc_id, direction=direction, page=page,
+                          page_size=page_size)
 
     return server
 

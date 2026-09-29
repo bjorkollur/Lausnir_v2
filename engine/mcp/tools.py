@@ -24,7 +24,7 @@ from engine.mcp.shaping import cell_value, compact_passage, compact_search_resul
 from engine.mcp.sqlguard import SqlRejected, validate_sql
 from engine.processors.renderer import to_markdown
 from engine.search.passage_search import get_passages, validate_section_kinds
-from engine.search.queries import SearchError, facet_counts, get_document, search_documents
+from engine.search.queries import SearchError, facet_counts, get_citations, get_document, search_documents
 
 PAGE_SIZE_MAX = 25
 PAGE_SIZE_DEFAULT = 10
@@ -32,6 +32,7 @@ CONTEXT_MAX = 10
 PASSAGES_COUNT_MAX = 50
 DOC_TEXT_MAX_CHARS = 40_000
 PASSAGE_LAYERS = ("summary", "body", "lower_body")
+CITATIONS_TOP_N = 5
 
 RELAXED_HINT = ("Færri en 10 skjöl innihalda öll orðin; niðurstöður með match_tier 1–2 "
                 "innihalda aðeins hluta þeirra.")
@@ -221,6 +222,22 @@ _OUTLINE_SQL = text("""
 """)
 
 
+def _compact_citation(item: dict) -> dict:
+    """One CitationRef, trimmed of fields the MCP surface doesn't need
+    (``source``, ``confidence``) and with ``document_date`` renamed to ``date``."""
+    return {
+        "document_id": item["document_id"],
+        "urlausn": item["urlausn"],
+        "date": item["document_date"],
+        "layer": item["layer"],
+        "passage_id": item["passage_id"],
+        "anchor": item["anchor"],
+        "raw_text": item["raw_text"],
+        "also_appeal": item["also_appeal"],
+        "same_case": item["same_case"],
+    }
+
+
 async def get_document_tool(session: AsyncSession, *, doc_id: str, max_chars: int = 0) -> dict:
     did = _uuid(doc_id, "doc_id")
     max_chars = _clamp(max_chars, 0, DOC_TEXT_MAX_CHARS, 0)
@@ -232,6 +249,8 @@ async def get_document_tool(session: AsyncSession, *, doc_id: str, max_chars: in
         raise ToolInputError("Skjal fannst ekki.")
     for k in ("raw_api_data", "body_text", "lower_body_text", "markdown"):
         doc.pop(k, None)
+    doc["citations_out"] = [_compact_citation(c) for c in doc["citations_out"][:CITATIONS_TOP_N]]
+    doc["cited_by"] = [_compact_citation(c) for c in doc["cited_by"][:CITATIONS_TOP_N]]
     rows = (await session.execute(_OUTLINE_SQL, {"id": did})).mappings().all()
     doc["outline"] = [dict(r) for r in rows]
     doc["total_passages"] = sum(r["passages"] for r in rows)
@@ -247,6 +266,29 @@ async def get_document_tool(session: AsyncSession, *, doc_id: str, max_chars: in
                 doc["text_error"] = f"{exc.__class__.__name__}: {str(exc)[:200]}"
         doc["text"], doc["text_truncated"] = truncate_text(md, max_chars)
     return jsonable(doc)
+
+
+async def citations_tool(session: AsyncSession, *, doc_id: str, direction: str = "out",
+                         page: int = 1, page_size: int = PAGE_SIZE_DEFAULT) -> dict:
+    did = _uuid(doc_id, "doc_id")
+    if direction not in ("out", "in"):
+        raise ToolInputError("direction verður að vera 'out' eða 'in'.")
+    page = _clamp(page, 1, 10_000, 1)
+    page_size = _clamp(page_size, 1, PAGE_SIZE_MAX, PAGE_SIZE_DEFAULT)
+    try:
+        res = await get_citations(session, did, direction=direction, page=page, page_size=page_size)
+    except SearchError as exc:
+        raise ToolInputError(f"Ógilt inntak: {exc}")
+    if res is None:
+        raise ToolInputError("Skjal fannst ekki.")
+    return jsonable({
+        "doc_id": str(did),
+        "direction": res["direction"],
+        "total": res["total"],
+        "page": res["page"],
+        "page_size": res["page_size"],
+        "items": [_compact_citation(c) for c in res["items"]],
+    })
 
 
 # ── sources / facets ───────────────────────────────────────────────────────────
