@@ -17,6 +17,15 @@ class _FakeEngine:
     def begin(self): return _FakeConn(self.log)
 
 
+@pytest.fixture(autouse=True)
+def _restore_module_globals(monkeypatch):
+    """init_db rebinds the module-level `_engine`/`AsyncSessionLocal`; leaving a
+    fake engine behind there leaks into every later test in the session.
+    monkeypatch.setattr restores both when the test ends."""
+    monkeypatch.setattr(conn, "_engine", conn._engine, raising=False)
+    monkeypatch.setattr(conn, "AsyncSessionLocal", conn.AsyncSessionLocal, raising=False)
+
+
 async def test_init_db_explicit_url_and_no_create_tables(monkeypatch):
     log: list = []
     created: dict = {}

@@ -1,5 +1,7 @@
-"""sql_query / describe_schema against the live DB. Skipped without a URL.
-Uses DATABASE_URL_READONLY when set, else DATABASE_URL."""
+"""sql_query / describe_schema against the live DB.
+
+Requires DATABASE_URL_READONLY: these tests are about what the SELECT-only
+role can and cannot do, so running them as the read-write role would be a lie."""
 import os
 import tracemalloc
 
@@ -9,13 +11,23 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
 import engine.mcp.tools as tools
 
-_URL = os.environ.get("DATABASE_URL_READONLY") or os.environ.get("DATABASE_URL")
-pytestmark = pytest.mark.skipif(not _URL, reason="needs DATABASE_URL_READONLY or DATABASE_URL")
+_URL = os.environ.get("DATABASE_URL_READONLY")
+pytestmark = pytest.mark.skipif(not _URL, reason="needs DATABASE_URL_READONLY")
 
 
 async def _session():
     eng = create_async_engine(_URL)
     return eng, AsyncSession(eng, expire_on_commit=False)
+
+
+async def test_tests_run_as_the_read_only_role():
+    """Honesty guard: no silent fallback to the read-write URL."""
+    eng, s = await _session()
+    try:
+        out = await tools.sql_query(s, sql="SELECT current_user AS u")
+        assert out["rows"] == [["lausnir_ro"]]
+    finally:
+        await s.close(); await eng.dispose()
 
 
 async def test_sql_query_count():
@@ -53,17 +65,14 @@ async def test_sql_query_serializes_special_types():
         await s.close(); await eng.dispose()
 
 
-async def test_sql_query_timeout_message():
+async def test_sql_query_timeout_message(monkeypatch):
+    monkeypatch.setattr(tools, "SQL_TIMEOUT", "200ms")
     eng, s = await _session()
     try:
-        tools.SQL_TIMEOUT = "200ms"
-        try:
-            with pytest.raises(tools.ToolInputError) as ei:
-                # cross join big enough to exceed 200 ms but cheap to cancel
-                await tools.sql_query(s, sql="SELECT count(*) FROM passages a, passages b WHERE a.ordinal = b.ordinal")
-            assert "tímamörk" in str(ei.value)
-        finally:
-            tools.SQL_TIMEOUT = "15s"
+        with pytest.raises(tools.ToolInputError) as ei:
+            # cross join big enough to exceed 200 ms but cheap to cancel
+            await tools.sql_query(s, sql="SELECT count(*) FROM passages a, passages b WHERE a.ordinal = b.ordinal")
+        assert "tímamörk" in str(ei.value)
         # connection still usable afterwards
         out = await tools.sql_query(s, sql="SELECT 1 AS one")
         assert out["rows"] == [[1]]
@@ -173,5 +182,32 @@ async def test_describe_schema():
         assert "raw_api_data" in d["notes"]
         with pytest.raises(tools.ToolInputError):
             await tools.describe_schema(s, table="nope")
+    finally:
+        await s.close(); await eng.dispose()
+
+
+async def test_sql_query_savepoint_fallback_when_cursor_unsupported(monkeypatch):
+    """The server-side cursor path is wrapped in a SAVEPOINT so a statement
+    form that cannot be streamed (SQLSTATE 0A000) can be retried with a plain
+    buffered execute without aborting the outer read-only transaction. Forced
+    here by making `session.stream` raise that error for every call."""
+    from sqlalchemy.exc import DBAPIError
+
+    class _Orig(Exception):
+        sqlstate = "0A000"
+
+    async def boom(self, *a, **kw):
+        raise DBAPIError("SELECT 1", {}, _Orig("cursor not supported for this statement"))
+
+    monkeypatch.setattr(AsyncSession, "stream", boom)
+
+    eng, s = await _session()
+    try:
+        out = await tools.sql_query(s, sql="SELECT short_name FROM sources ORDER BY short_name",
+                                    max_rows=2)
+        assert out["row_count"] == 2 and out["truncated_rows"] is True
+        # The savepoint rollback must leave the session usable for the next call.
+        again = await tools.sql_query(s, sql="SELECT 1 AS one")
+        assert again["rows"] == [[1]]
     finally:
         await s.close(); await eng.dispose()
