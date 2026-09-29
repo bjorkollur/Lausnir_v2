@@ -18,6 +18,12 @@ from engine.mcp.sqlguard import SqlRejected, validate_sql
     "SELECT 'a;b' AS s",                          # semicolon inside string literal ok
     "SELECT * FROM documents WHERE summary LIKE '%delete%'",   # keyword inside literal ok
     "SELECT into_col FROM t",                     # 'into' as part of an identifier ok
+    "(SELECT 1) UNION ALL (SELECT 2)",            # parenthesised top-level query ok
+    "  (SELECT id FROM documents LIMIT 1)",       # leading whitespace + paren ok
+    "SELECT $$a;b$$ AS s",                        # semicolon inside dollar-quoted string ok
+    "SELECT E'it\\'s' AS s",                      # backslash-escaped quote in E-string ok
+    'SELECT "update" FROM t',                     # quoted identifier matching a keyword ok
+    'SELECT t."copy" FROM t',                     # quoted identifier matching a keyword ok
 ])
 def test_accepts(sql):
     assert validate_sql(sql)
@@ -42,6 +48,10 @@ def test_accepts(sql):
     ("COPY documents TO '/tmp/x'", "SELECT"),
     ("SELECT * FROM dblink('x', 'y')", "dblink"),
     ("EXPLAIN ANALYZE DELETE FROM documents", "breyt"),
+    ("SELECT $$--$$; DROP TABLE documents", "ein setning"),
+    ("SELECT $$it's$$; DROP TABLE documents; SELECT $$'$$", "ein setning"),
+    ("SELECT E'\\''; DROP TABLE documents; SELECT '1'", "ein setning"),
+    ("SELECT pg_advisory_lock(42)", "pg_advisory_lock"),
 ])
 def test_rejects(sql, needle):
     with pytest.raises(SqlRejected) as ei:
@@ -52,3 +62,8 @@ def test_rejects(sql, needle):
 def test_returns_sql_without_trailing_semicolon():
     assert validate_sql("SELECT 1;") == "SELECT 1"
     assert validate_sql("  SELECT 1  ") == "SELECT 1"
+
+
+def test_trailing_comment_after_semicolon_is_stripped():
+    result = validate_sql("SELECT 1; -- note")
+    assert ";" not in result
