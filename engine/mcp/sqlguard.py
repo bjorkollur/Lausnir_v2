@@ -19,6 +19,12 @@ _DOLLAR_TAG = re.compile(r"\$[A-Za-z_][A-Za-z0-9_]*\$|\$\$")
 # Leading keyword, allowing a run of opening parens/whitespace first so that
 # `(SELECT 1) UNION ALL (SELECT 2)` and `  (SELECT ...)` are recognised.
 _LEADING_KEYWORD = re.compile(r"[(\s]*([A-Za-z]+)")
+# Non-space filler for literal/identifier *content*. Comments are blanked to
+# spaces (so a trailing comment reads as trailing whitespace and gets
+# trimmed); literal bodies must NOT be spaces, or a query that ends in a
+# literal (`... WHERE x = 'foo'`) would look like it ends in whitespace and
+# get truncated. Delimiters (quotes, dollar-tags) are always kept as-is.
+_FILL = "_"
 
 
 class SqlRejected(ValueError):
@@ -29,10 +35,12 @@ def _strip_comments_and_literals(sql: str) -> str:
     """Blank out comments, string/dollar-quoted literals and quoted-identifier
     bodies so keywords or semicolons inside them ('%delete%', 'a;b', "update")
     don't trigger the structural checks. Every blanked span is replaced with
-    same-length filler (spaces, plus the original quote characters for
-    quoted identifiers) so the result stays index-aligned with `sql` — this
+    same-length filler so the result stays index-aligned with `sql` — this
     lets callers slice the *original* text using boundaries computed here
-    without corrupting literal content.
+    without corrupting literal content. Comments become spaces (trailing
+    comments then look like trailing whitespace); literal/identifier bodies
+    become `_FILL` with their delimiters kept, so a literal at the very end
+    of the query is never mistaken for trimmable trailing whitespace.
     """
     out, i, n = [], 0, len(sql)
     while i < n:
@@ -50,14 +58,19 @@ def _strip_comments_and_literals(sql: str) -> str:
         elif ch == "$" and _DOLLAR_TAG.match(sql, i):
             tag = _DOLLAR_TAG.match(sql, i).group(0)
             close = sql.find(tag, i + len(tag))
-            end = n if close == -1 else close + len(tag)
-            out.append(" " * (end - i))
-            i = end
+            if close == -1:
+                out.append(tag + _FILL * (n - i - len(tag)))
+                i = n
+            else:
+                content_len = close - (i + len(tag))
+                out.append(tag + _FILL * content_len + tag)
+                i = close + len(tag)
         elif ch == "'":
             # A literal immediately preceded by E/e (e.g. E'\'') is a
             # Postgres escape-string: backslash escapes the next character.
             is_e_string = i > 0 and sql[i - 1] in "Ee"
             j = i + 1
+            closed = False
             while j < n:
                 if is_e_string and sql[j] == "\\" and j + 1 < n:
                     j += 2
@@ -67,9 +80,15 @@ def _strip_comments_and_literals(sql: str) -> str:
                     continue
                 if sql[j] == "'":
                     j += 1
+                    closed = True
                     break
                 j += 1
-            out.append(" " * (j - i))
+            span_len = j - i
+            if closed and span_len >= 2:
+                out.append("'" + _FILL * (span_len - 2) + "'")
+            else:
+                # Unterminated literal: keep the opening quote, fill the rest.
+                out.append("'" + _FILL * (span_len - 1))
             i = j
         elif ch == '"':
             j = sql.find('"', i + 1)
