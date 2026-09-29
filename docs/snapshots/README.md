@@ -42,3 +42,18 @@ SQL
 ```
 
 Afritið liggur á sama diski og grunnurinn; git-fjarlagið er eina eintakið utan hans, svo `git push` er hluti af vörninni.
+
+## `dedupe_2026-09-29.json.gz`
+
+Tíu raðir sem `scripts/dedupe_documents.py` eyddi 29.09.2026 — allir dálkar, þar með `body_text`, `lower_body_text` og `raw_api_data`. Þetta voru sömu dómar fluttir inn tvisvar: island.is endurbirtir dóm undir nýju GUID-i, upsertið keyrir á `(source_id, external_id)`, og nýja GUID-ið verður ný röð.
+
+Fimm af tíu GUID-um sem eyddust eru **dauð hjá heimildinni** (HTTP 404 á `_next/data`-slóðinni), svo fyrir þau er þetta afrit eina eintakið sem eftir er. Hin fimm lifa enn — island.is birtir þá dóma undir tveimur GUID-um.
+
+Reglan var: **yngsti innflutningurinn heldur sér.** Hún er ekki smekksatriði — í öllum fimm pörunum sem heimildin gat skorið úr var eldri röðin dauð og yngri lifandi. Níu pör af tíu höfðu bætaeins meginmál; Lrd. 353/2022 var 16 bætum ólíkt af 40.706 og yngri röðin bar 15 bætum meiri lykilorð.
+
+| Heimild | Mál |
+|---|---|
+| landsrettur | 249/2019, 262/2019, 353/2022, 418/2019, 419/2019, 562/2026, 564/2019, 592/2026 |
+| heradsdomstolar | S-1300/2026, S-3991/2026 |
+
+Tvær `leyfisbeidni_um`-tengingar (frá málskotsbeiðnum 2024-92 og 2020-118) hengu aðeins á eyddu röðunum; `link_malskotsbeidnir.py` var keyrð á eftir og festi þær á eftirlifendurna.

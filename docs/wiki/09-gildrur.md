@@ -87,6 +87,19 @@ Aðeins **4** eru ólæstar en textalausar; þær eru raunverulegar eyður:
 
 Athugið að `locked` er geymt sem strengurinn `"true"`/`"false"` í `raw_api_data`, ekki JSON-boolean.
 
+### Sami dómur tvisvar: nýtt GUID býr til nýja röð (hreinsað 29.09.2026)
+island.is endurbirtir dóm undir nýju GUID-i. Upsertið keyrir á `(source_id, external_id)`, svo nýja GUID-ið verður **ný röð** — sami dómstóll, sama málsnúmer, sami dagur, sama tegund, og í 9 af 10 tilvikum bætaeins meginmál. Tvær raðir á einn dóm tvítelja í flokkunartrénu og í `cited_by_count`.
+
+`scripts/dedupe_documents.py` eyddi tíu slíkum (átta Landsréttar, tveir héraðsdóma; sjá [docs/snapshots/README.md](../snapshots/README.md)). Reglan er **yngsti innflutningurinn heldur sér**, og hún er mæld: könnun á öllum 20 GUID-um gegn `https://island.is/_next/data/{buildId}/domar/{id}.json` gaf eldri röðina dauða (404) og yngri lifandi í öllum fimm pörunum sem heimildin gat skorið úr. Fyrir hin fimm birtir island.is báða. **Athugið að `/domar/{id}` (án `_next/data`) skilar 404 fyrir lifandi dóma líka** — sú slóð er ekki nothæf til könnunar.
+
+**Lykillinn `(court, case_number, document_date, verdict_type)` gildir EKKI almennt.** Sama fyrirspurn án heimildarsíu finnur 618 „tvítekin" mál og 912 raðir þvert á allar heimildir — og þau eru að stórum hluta raunveruleg, ólík skjöl:
+- `heilbrigdi_raduneyti 008/2020` eru **fjórir ólíkir úrskurðir** undir sama málsnúmeri, þrír með sama dagsetningu og sama `verdict_filename`, en 4.192 / 4.935 / 5.348 bæti af ólíkum texta.
+- `hugverkastofa` dagsetur allt `01-01-<ár>`, svo dagsetningin afmarkar ekkert.
+
+Skriftan afmarkast því við dómstólaheimildirnar þrjár (`DEFAULT_SOURCES`) og neitar að eyða röð sem hefur annan texta en sú sem heldur sér nema `--allow-text-diff` sé gefið. Aðrar heimildir þarfnast eigin greiningar á því hvað auðkennir skjal þar — óunnið.
+
+**Eyðing tekur afleidd gögn með sér.** `passages`, `citations` og `document_links` eru öll `ON DELETE CASCADE` (`citations.to_doc_id` er `SET NULL`). Eftirlifandinn bar sín eigin afrit af öllu nema tveimur `leyfisbeidni_um`-tengingum, svo `link_malskotsbeidnir.py` verður að keyra á eftir — hún er sjálfsömul (`ON CONFLICT DO NOTHING`).
+
 ### `case_type` er ekki `verdict_type` — og hann var aldrei skrifaður við innflutning (lagað 29.09.2026)
 Tvær ólíkar víddir sem er auðvelt að blanda: `verdict_type` er **hvað dómstóllinn kvað upp** (dómur eða úrskurður), `case_type` er **hvernig málið kom til hans** (kært eða áfrýjað) og hvers kyns það er (einkamál eða sakamál). Þær eru sjálfstæðar:
 
