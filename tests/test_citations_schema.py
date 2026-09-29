@@ -34,6 +34,8 @@ def test_migration_0004_declares_objects():
     assert 'revision = "0004"' in src and 'down_revision = "0003"' in src
     for needle in ('"citations"', "citation_hash", "ix_link_to_rel", "ix_cit_to", "ix_cit_target", "uq_cit_doc_layer_start"):
         assert needle in src, needle
+    assert "timezone=True" not in src
+    assert '"created_at", sa.DateTime(), server_default=sa.text("now()"), nullable=False' in src
     spec = importlib.util.spec_from_file_location("m0004", p)
     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
     assert callable(mod.upgrade) and callable(mod.downgrade)
