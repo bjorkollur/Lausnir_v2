@@ -270,6 +270,17 @@ def test_route_rejects_page_size_above_100_with_422():
     assert c.get(f"/api/document/{DOC_ID}/citations?page_size=500").status_code == 422
 
 
+def test_route_rejects_page_above_10000_with_422():
+    """Upper bound on `page` matches the MCP tool's clamp: an absurd page is a
+    422 rather than a full-table OFFSET scan."""
+    c, _ = _client()          # validation must fail before any DB call
+    assert c.get(f"/api/document/{DOC_ID}/citations?page=10001").status_code == 422
+    # …and the boundary itself is still allowed through to the handler.
+    c, _ = _client(me=_Result(first=ME), out=_Result(rows=[]), count=_Result(first=7))
+    r = c.get(f"/api/document/{DOC_ID}/citations?page=10000")
+    assert r.status_code == 200 and r.json()["page"] == 10_000
+
+
 def test_route_400_on_bad_uuid():
     c, _ = _client()
     assert c.get("/api/document/not-a-uuid/citations").status_code == 400

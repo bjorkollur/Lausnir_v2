@@ -235,7 +235,9 @@ async def document_citations(
     doc_id: str,
     direction: str = Query("out", pattern="^(out|in)$",
                            description="'out' = cases this one cites, 'in' = cases citing it"),
-    page: int = Query(1, ge=1),
+    # le=10_000 matches the MCP tool's clamp (engine/mcp/tools.py): an absurd
+    # page is a 422 here rather than a full-table OFFSET scan.
+    page: int = Query(1, ge=1, le=10_000),
     page_size: int = Query(50, ge=1, le=100),
     session: AsyncSession = Depends(get_session),
 ) -> dict:
