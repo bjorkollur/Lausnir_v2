@@ -32,13 +32,22 @@ def _get_db_url() -> str:
 _CONNECT_ARGS = {"server_settings": {"plan_cache_mode": "force_custom_plan"}}
 
 
-async def init_db() -> None:
+async def init_db(url: str | None = None, *, create_tables: bool = True) -> None:
+    """Create the engine and session factory.
+
+    ``url`` overrides ``DATABASE_URL`` (the MCP server passes
+    ``DATABASE_URL_READONLY``). ``create_tables=False`` skips
+    ``Base.metadata.create_all`` — required for a SELECT-only role, which may
+    not run DDL, and correct for any process that is not the owner of the
+    schema (alembic owns it; create_all here is a dev convenience).
+    """
     global _engine, AsyncSessionLocal
-    _engine = create_async_engine(_get_db_url(), echo=False, pool_size=5, max_overflow=10,
+    _engine = create_async_engine(url or _get_db_url(), echo=False, pool_size=5, max_overflow=10,
                                   connect_args=_CONNECT_ARGS)
     AsyncSessionLocal = async_sessionmaker(_engine, expire_on_commit=False)
-    async with _engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+    if create_tables:
+        async with _engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
 
 
 async def get_engine():

@@ -21,6 +21,9 @@ dependencies = [
     # API
     "fastapi",
     "uvicorn",
+    # MCP
+    "mcp>=2.2,<3",
+    "python-dotenv",
     # Utils
     "pydantic",
     "pydantic-settings",
