@@ -76,6 +76,16 @@ async def test_search_rejects_bad_date_and_wraps_search_error(monkeypatch):
     with pytest.raises(ToolInputError) as ei:
         await tools.search(_Sess(), q="x", section_kind=["x"])
     assert "section_kind" in str(ei.value)
+    assert str(ei.value).startswith("Ógilt inntak")
+
+
+async def test_get_passages_rejects_unknown_layer_and_section_kind():
+    with pytest.raises(ToolInputError) as ei:
+        await tools.get_passages_tool(_Sess(), doc_id=str(uuid.UUID(int=1)), layer="miðja")
+    assert str(ei.value).startswith("Ógilt inntak") and "layer" in str(ei.value)
+    with pytest.raises(ToolInputError) as ei:
+        await tools.get_passages_tool(_Sess(), doc_id=str(uuid.UUID(int=1)), section_kind=["ekki-til"])
+    assert str(ei.value).startswith("Ógilt inntak") and "section_kind" in str(ei.value)
 
 
 async def test_passage_context_and_get_passages_clamp_args():

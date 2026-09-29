@@ -68,6 +68,11 @@ def _jsonable(v: Any) -> Any:
     return _scalar(v)
 
 
+# Public alias: tools.py returns whole DB rows and needs the same hardening
+# (Decimal, bytes, NaN/Inf, unknown types) that the compactors get.
+jsonable = _jsonable
+
+
 def cell_value(v: Any, max_chars: int = CELL_MAX_CHARS) -> tuple[Any, bool]:
     if isinstance(v, (dict, list, tuple, set)):
         converted = _jsonable(v)
