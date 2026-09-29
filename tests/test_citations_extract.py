@@ -2,7 +2,7 @@ import datetime as dt
 
 import pytest
 
-from engine.processors.citations import RawCitation, extract_citations
+from engine.processors.citations import extract_citations
 
 D = dt.date(2022, 3, 15)
 
@@ -74,8 +74,9 @@ def test_law_numbers_are_not_citations():
 
 
 def test_other_adjudicator_nearer_than_court_is_dropped():
-    text = ("Hæstiréttur féllst á kröfuna. Þeir kröfðust þess að fellt yrði úr gildi ákvæði í úrskurði "
-            "óbyggðanefndar 29. maí 2007 í máli nr. 4/2005 um að …")
+    # the court word and the nefnd are in the SAME sentence, so only the
+    # 'nearer body wins' rule can reject this — not the sentence boundary
+    text = "Í dómi Hæstaréttar var fjallað um úrskurð óbyggðanefndar í máli nr. 4/2005."
     assert extract_citations(text, doc_date=D) == []
     assert extract_citations("Vísað er til úrskurðar nefndarinnar í máli nr. 2/2010.", doc_date=D) == []
 
@@ -191,3 +192,38 @@ def test_extra_narrowed_other_body_words():
     c = one("Með dómi Hæstaréttar um túlkun stjórnarskrárinnar í máli nr. 12/2019 var deilt um það.")
     assert c.target_court == "Hrd."
     assert extract_citations("Vísað er til úrskurðar nefndarinnar í máli nr. 2/2010.", doc_date=D) == []
+
+
+def test_extra_compound_adjudicator_names_cancel():
+    """'nefnd' and 'dómstóll' are compound tails, so neither may be \\b-anchored."""
+    for body in ("úrskurð áfrýjunarnefndar samkeppnismála", "úrskurð matsnefndar eignarnámsbóta",
+                 "úrskurð kærunefndar útlendingamála", "úrskurð yfirskattanefndar"):
+        text = f"Í dómi Hæstaréttar var vísað til {body} í máli nr. 1/2012."
+        assert extract_citations(text, doc_date=D) == [], text
+    assert extract_citations(
+        "Hæstiréttur vísaði til dóms Mannréttindadómstóls Evrópu í máli nr. 22/2011.", doc_date=D) == []
+
+
+def test_extra_nefnd_adjectives_do_not_cancel():
+    """'áðurnefndu máli' is an adjective, not an adjudicator."""
+    c = one("sbr. dóm Hæstaréttar í áðurnefndu máli nr. 12/2019.")
+    assert c.target_court == "Hrd."
+    for adj in ("fyrrnefnda", "síðarnefnda", "svonefnda", "margnefnda"):
+        out = extract_citations(f"sbr. dóm Hæstaréttar í {adj} máli nr. 12/2019.", doc_date=D)
+        assert [c.target_court for c in out] == ["Hrd."], adj
+
+
+def test_extra_date_is_claimed_by_the_first_number_only():
+    out = extract_citations(
+        "Í dómi Hæstaréttar 8. nóvember 2017 í máli nr. 700/2017, sbr. einnig mál nr. 701/2017.", doc_date=D)
+    assert [(c.target_case_number, c.target_date) for c in out] == [
+        ("700/2017", dt.date(2017, 11, 8)), ("701/2017", None)]
+
+
+def test_extra_comma_before_the_date_introducer():
+    assert one("sbr. dóm Hæstaréttar í máli nr. 5/2021, dags. 3. mars 2021.").target_date == dt.date(2021, 3, 3)
+    assert one("sbr. dóm Hæstaréttar í máli nr. 5/2021, frá 3. mars 2021.").target_date == dt.date(2021, 3, 3)
+
+
+def test_extra_year_range_is_not_a_malskotsbeidni():
+    assert extract_citations("sbr. dóm Hæstaréttar í máli nr. 2010-2015.", doc_date=D) == []

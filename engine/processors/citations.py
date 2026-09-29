@@ -46,21 +46,31 @@ _INHERIT_RX = re.compile(r"\b(réttarins|réttinum|dómstólsins|dómstóllinn|s
 # A non-court adjudicator standing nearer than the court word cancels the citation (§5.3).
 # The spec's broad stems ('stofn\w*', 'stjórn\w*') are narrowed here: they swallowed
 # ordinary legal vocabulary ('stofnað', 'stjórnarskrárinnar') and killed real citations.
+#
+# 'nefnd' and 'dómstóll' are almost always the tail of a compound — óbyggðanefnd,
+# áfrýjunarnefnd samkeppnismála, matsnefnd eignarnámsbóta, kærunefnd, yfirskattanefnd,
+# Mannréttindadómstóll Evrópu — so neither may be anchored with \b. The lookbehinds keep
+# the ordinary adjectives ('áðurnefndu máli') from cancelling a real citation, and a
+# 'dómstól*' token that is itself one of our court words is filtered out by the caller.
+_NEFND = (r"\w*(?<!fyrr)(?<!áður)(?<!síðar)(?<!ofan)(?<!framan)(?<!hér)(?<!þar)"
+          r"(?<!svo)(?<!sam)(?<!títt)(?<!marg)nefnd\w*")
 _OTHER_BODY_RX = re.compile(
-    r"\b(nefnd\w*|nefndarinnar|sýslumann\w*|sýslumanns\w*|ráðuneyt\w*|stofnun\w*"
-    r"|Persónuvernd\w*|stjórnvald\w*|stjórnsýslu\w*|úrskurðaraðil\w*|dómstól\w*)\b")
+    "(?:" + _NEFND + r"|\b(?:sýslumann\w*|sýslumanns\w*|ráðuneyt\w*|stofnun\w*"
+    r"|Persónuvernd\w*|stjórnvald\w*|stjórnsýslu\w*|úrskurðaraðil\w*)\b|dómstól\w*)")
 _LAW_RX = re.compile(
     r"\b(?:l(?:ög|aga|ögum|ögunum)|reglugerð\w*|auglýsing\w*|samþykkt\w*)\s+nr\.\s*\d{1,4}/\d{4}", re.I)
 
-_NUM = r"(?:[A-ZÞÆÖ]{1,2}-\d{1,5}/\d{4}|\d{1,4}/\d{4}|\d{4}-\d{1,3})"
+# (?!\d) keeps 'nr. 2010-2015' (a year range) from reading as málskotsbeiðni 2010-201.
+_NUM = r"(?:[A-ZÞÆÖ]{1,2}-\d{1,5}/\d{4}|\d{1,4}/\d{4}|\d{4}-\d{1,3}(?!\d))"
 # 'í máli nr. X' and 'í máli Landsréttar nr. X' — the court may sit between the
 # noun and 'nr.', which is common in Icelandic ('í máli Hæstaréttar nr. 1/2020').
 _TRIGGER_RX = re.compile(
     r"\bmál(?:i|inu|s|um|unum)?\s+(?:(?:" + _COURT_ALT + r")\s+)?nr\.\s*(?P<first>" + _NUM + r")"
     r"(?P<rest>(?:\s*,\s*" + _NUM + r")*(?:\s+og\s+" + _NUM + r")?)")
 _NUM_RX = re.compile(_NUM)
+_NR_NUM_RX = re.compile(r"nr\.\s*" + _NUM)
 # Málskotsbeiðni without the word 'mál': 'ákvörðun réttarins nr. 2023-68'.
-_AKVORDUN_RX = re.compile(r"\bákvörðun\w*\s+(?:réttarins\s+)?nr\.\s*(?P<first>\d{4}-\d{1,3})")
+_AKVORDUN_RX = re.compile(r"\bákvörðun\w*\s+(?:réttarins\s+)?nr\.\s*(?P<first>\d{4}-\d{1,3}(?!\d))")
 _MALSK_RX = re.compile(r"\d{4}-\d{1,3}")
 
 _ABBREV_RX = re.compile(
@@ -78,7 +88,7 @@ _VERB_RX = re.compile(r"\b(dóm\w*|úrskurð\w*|ákvörð\w*)\b")
 # Sentence break: '. ' + capital, ';', or a blank line. 'nr. 700', '8. nóvember'
 # and 'sbr. dóm' are followed by a digit or a lower-case letter, so they survive.
 _SENT_BREAK_RX = re.compile(r"\.\s+(?=[A-ZÁÐÉÍÓÚÝÞÆÖ])|;|\n\s*\n")
-_DATE_INTRO_RX = re.compile(r"\s*(?:frá|dags\.|uppkveðn\w*)\s+")
+_DATE_INTRO_RX = re.compile(r",?\s*(?:frá|dags\.|uppkveðn\w*)\s+")
 
 
 @dataclass(frozen=True)
@@ -149,7 +159,10 @@ def _find_date(text: str, court_pos: int, num_start: int, num_end: int, *,
     last = None
     for m in _DATE_RX.finditer(text, court_pos, num_start):
         last = m
-    if last is not None:
+    # The date belongs to this number only if no other 'nr. <NÚMER>' claims it first:
+    # in '… 8. nóvember 2017 í máli nr. 700/2017, sbr. einnig mál nr. 701/2017' the date
+    # is 700/2017's, so 701/2017 gets none.
+    if last is not None and not _NR_NUM_RX.search(text, last.end(), num_start):
         return _mk_date(last, text[sent_start:last.start()], doc_date)
 
     intro = _DATE_INTRO_RX.match(text, num_end)
