@@ -24,7 +24,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 import engine.database.connection as _db_conn
 from engine.config.sources import SOURCE_REGISTRY, get_config
-from engine.config.source_groups import catalog
+from engine.config.source_groups import annotate_counts, catalog
 from engine.database.connection import init_db
 from engine.database.models import Document, Source
 from engine.processors.renderer import to_markdown
@@ -66,22 +66,6 @@ async def health() -> dict:
     return {"status": "ok"}
 
 
-def _annotate(node: dict, by_source: dict, by_source_vt: dict) -> dict:
-    """Copy a scope-tree node with a document count attached."""
-    out = {"key": node["key"], "label": node["label"]}
-    if node.get("verdict_types"):
-        out["count"] = sum(
-            by_source_vt.get((s, vt), 0)
-            for s in node["sources"] for vt in node["verdict_types"]
-        )
-    elif "children" in node:
-        out["children"] = [_annotate(c, by_source, by_source_vt) for c in node["children"]]
-        out["count"] = sum(c["count"] for c in out["children"])
-    else:  # plain single-source leaf
-        out["count"] = sum(by_source.get(s, 0) for s in node["sources"])
-    return out
-
-
 @app.get("/api/sources")
 async def sources(session: AsyncSession = Depends(get_session)) -> dict:
     """Hierarchical scope catalog (Fons Juris layout) with document counts."""
@@ -98,7 +82,7 @@ async def sources(session: AsyncSession = Depends(get_session)) -> dict:
         if r["verdict_type"] is not None:
             by_source_vt[(r["short_name"], r["verdict_type"])] = r["n"] or 0
 
-    tree = [_annotate(cat, by_source, by_source_vt) for cat in catalog()]
+    tree = [annotate_counts(cat, by_source, by_source_vt) for cat in catalog()]
 
     # Flat source list (for single-source autocomplete / 'leita í einstaka stofnun').
     flat = sorted(
@@ -172,7 +156,7 @@ async def facets(
         )
     except SearchError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
-    tree = [_annotate(cat, by_source, by_source_vt) for cat in catalog()]
+    tree = [annotate_counts(cat, by_source, by_source_vt) for cat in catalog()]
     return {"catalog": tree, "total": sum(cat["count"] for cat in tree)}
 
 
