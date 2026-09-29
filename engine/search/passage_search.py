@@ -419,9 +419,12 @@ async def search_by_passages(
                bp.id AS passage_id, bp.layer, bp.section_kind, bp.section_path,
                bp.para_from, bp.para_to, bp.ordinal,
                ts_headline('simple', bp.text, {snippet_query}, {_HEADLINE_OPTS}) AS snippet,
+               -- 'cites' is excluded on both sides: a citation is not an appeal
+               -- relation, and the reader lists it under its own heading.
                EXISTS (SELECT 1 FROM document_links dl
-                       WHERE dl.from_doc_id = d.id
-                          OR (dl.to_doc_id = d.id AND dl.relation <> 'leyfisbeidni_um')) AS has_appeal_links,
+                       WHERE dl.relation <> 'cites'
+                         AND (dl.from_doc_id = d.id
+                           OR (dl.to_doc_id = d.id AND dl.relation <> 'leyfisbeidni_um'))) AS has_appeal_links,
                -- 'cites' is one-way (citing → cited), so this is exactly the
                -- number of documents citing this one. One index scan per page
                -- row (ix_link_to today, ix_link_to_rel once 0004 is applied);

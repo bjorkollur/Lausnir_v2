@@ -546,10 +546,12 @@ async def search_documents(
                -- judgment's side would flag the judgment as having an appeal
                -- chain it is not part of; the detail query likewise follows only
                -- from_doc_id, so the judgment never lists the petition either.
+               -- 'cites' is excluded on both sides: a citation is not an appeal
+               -- relation, and the reader lists it under its own heading.
                EXISTS (SELECT 1 FROM document_links dl
-                       WHERE dl.from_doc_id = d.id
-                          OR (dl.to_doc_id = d.id
-                              AND dl.relation <> 'leyfisbeidni_um')) AS has_appeal_links
+                       WHERE dl.relation <> 'cites'
+                         AND (dl.from_doc_id = d.id
+                           OR (dl.to_doc_id = d.id AND dl.relation <> 'leyfisbeidni_um'))) AS has_appeal_links
         FROM hits
         JOIN documents d ON d.id = hits.id
         JOIN sources s ON s.id = d.source_id
@@ -693,7 +695,7 @@ MAX_CITATION_PAGE_SIZE = 100
 # by delete+insert, which would silently null it) — the passage is found on read
 # with the LATERAL below: the last passage of that layer starting at or before
 # the citation. count(*) OVER () runs before LIMIT, so it is the true total.
-_CITATIONS_SQL = """
+_CITATIONS_CTE = """
     WITH c AS (
         SELECT DISTINCT ON (c.{other_col})
                c.{other_col} AS other_doc_id, c.layer, c.char_start, c.raw_text, c.confidence
@@ -701,6 +703,9 @@ _CITATIONS_SQL = """
         WHERE c.{self_col} = :id AND c.status = 'resolved' AND c.layer = ANY(:layers)
         ORDER BY c.{other_col}, (c.layer = 'body') DESC, c.char_start
     )
+"""
+
+_CITATIONS_SQL = _CITATIONS_CTE + """
     SELECT c.layer, c.raw_text, c.confidence,
            o.id AS other_id, o.case_number AS other_case, o.court AS other_court,
            o.document_date AS other_date, o.verdict_type AS other_verdict,
@@ -732,6 +737,15 @@ CITATIONS_OUT_SQL = _CITATIONS_SQL.format(
 # document, so the LATERAL is scoped to it.
 CITATIONS_IN_SQL = _CITATIONS_SQL.format(
     self_col="to_doc_id", other_col="from_doc_id", passage_doc="c.other_doc_id", order="DESC")
+
+# Only needed when a page past the first comes back empty: count(*) OVER () has
+# no row to ride on there, and the caller still needs the true total.
+_CITATIONS_COUNT_SQL = _CITATIONS_CTE + "SELECT count(*) AS total FROM c"
+
+CITATIONS_COUNT_OUT_SQL = _CITATIONS_COUNT_SQL.format(
+    self_col="from_doc_id", other_col="to_doc_id")
+CITATIONS_COUNT_IN_SQL = _CITATIONS_COUNT_SQL.format(
+    self_col="to_doc_id", other_col="from_doc_id")
 
 CITATIONS_UNRESOLVED_SQL = """
     SELECT count(*) FROM citations
@@ -769,15 +783,27 @@ async def _citations_page(session: AsyncSession, did: uuid.UUID, *, direction: s
     """Shared body of get_citations, for a caller that already holds court/case_number."""
     page = max(1, page)
     page_size = max(1, min(page_size, MAX_CITATION_PAGE_SIZE))
+    offset = (page - 1) * page_size
     sql = CITATIONS_OUT_SQL if direction == "out" else CITATIONS_IN_SQL
     rows = (await session.execute(text(sql), {
         "id": did, "layers": list(CITATION_LAYERS), "appeal_rels": list(APPEAL_RELATIONS),
-        "limit": page_size, "offset": (page - 1) * page_size,
+        "limit": page_size, "offset": offset,
     })).mappings().all()
+    if rows:
+        total = rows[0]["total"]
+    elif offset:
+        # Past the last page: no row carries count(*) OVER (), so count separately
+        # rather than reporting 0 and making the pager think the list ended early.
+        total = (await session.execute(
+            text(CITATIONS_COUNT_OUT_SQL if direction == "out" else CITATIONS_COUNT_IN_SQL),
+            {"id": did, "layers": list(CITATION_LAYERS)})).scalar() or 0
+    else:
+        total = 0
+
     my_norm_case = norm_case_number(my_case)
     return {
         "direction": direction,
-        "total": rows[0]["total"] if rows else 0,
+        "total": total,
         "page": page,
         "page_size": page_size,
         "items": [_citation_ref(r, my_court, my_norm_case) for r in rows],
@@ -836,6 +862,9 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
     # (This comment described the opposite until 2026-09-16, because
     # backfill_hrd_lrd_links.py wrote the two relations the wrong way round and
     # the comment was written to match the broken data rather than the model.)
+    # 'cites' edges live in the same table but are not appeal relations: they are
+    # served by citations_out/cited_by below, and listing them here would put a
+    # raw 'cites' label under "Tengd mál" in the reader.
     links = (await session.execute(text("""
         SELECT dl.relation, dl.confidence, dl.method,
                other.id AS other_id, other.case_number AS other_case,
@@ -844,7 +873,7 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
         FROM document_links dl
         JOIN documents other ON other.id = dl.to_doc_id
         JOIN sources os ON os.id = other.source_id
-        WHERE dl.from_doc_id = :id
+        WHERE dl.from_doc_id = :id AND dl.relation <> 'cites'
         ORDER BY other.document_date
     """), {"id": did})).mappings().all()
 
