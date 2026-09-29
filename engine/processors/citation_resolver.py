@@ -39,6 +39,9 @@ INDEX_SQL = """
     WHERE s.short_name = ANY(:sources) AND d.case_number IS NOT NULL AND d.court IS NOT NULL
 """
 HRD_COVERAGE_FROM_YEAR = 1999
+# A case number with no letter prefix — the pre-2010 Félagsdómur form, and the
+# form its judgments cite in prose whatever the era (see CitationIndex.candidates).
+_BARE_NUM = re.compile(r"\d{1,4}/\d{4}")
 
 
 @dataclass(frozen=True)
@@ -81,6 +84,17 @@ class CitationIndex:
         return cls(rows)
 
     def candidates(self, target_court: str | None, case_number: str | None) -> list[Candidate]:
+        """Every stored ruling that the (court, number) pair could name.
+
+        Exact on both, with two deliberate widenings — neither of them a guess:
+        `Hérd.` without a place spans all districts, and a bare Félagsdómur
+        number also tries the `F-` prefixed key. Félagsdómur changed its case
+        number format in 2010 (`13/2001` before, `F-9/2019` after) but the
+        prose in judgments keeps citing the bare form ('í máli nr. 5/2012'),
+        so the bare key alone misses every post-2010 Félagsdómur case. Both
+        keys are merged into one candidate list, so an ambiguity between them
+        stays an ambiguity — resolve() still requires exactly one survivor.
+        """
         if target_court is None:
             return []
         num = norm_case_number(case_number)
@@ -88,7 +102,11 @@ class CitationIndex:
             return []
         if target_court == "Hérd.":
             return list(self._herd_by_num.get(num, []))
-        return list(self._by_key.get((target_court, num), []))
+        out = list(self._by_key.get((target_court, num), []))
+        if target_court == "Féld." and _BARE_NUM.fullmatch(num):
+            seen = {c.id for c in out}
+            out += [c for c in self._by_key.get(("Féld.", "F-" + num), []) if c.id not in seen]
+        return out
 
 
 def _year_of(case_number: str | None) -> int | None:

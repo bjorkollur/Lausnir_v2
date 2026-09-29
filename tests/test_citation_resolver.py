@@ -117,3 +117,52 @@ def test_load_sql_uses_any_sources_param():
     assert isinstance(idx, CitationIndex)
     assert "ANY(:sources)" in captured["sql"]
     assert captured["params"] == {"sources": list(COURT_SOURCES)}
+
+
+# --- Félagsdómur bare-number fallback ---------------------------------------
+# Félagsdómur stores pre-2010 cases bare ('13/2001') and 2010-onward prefixed
+# ('F-9/2019'), but its judgments cite both eras bare ('í máli nr. 5/2012').
+
+FELD_F = uuid.UUID(int=20)
+FELD_ROWS = ROWS + [
+    (FELD_F, "Féld.", "F-5/2012", dt.date(2012, 6, 1), "Dómur"),
+    (uuid.UUID(int=21), "Hrd.", "F-5/2012", dt.date(2012, 6, 1), "Dómur"),
+]
+FELD_IDX = CitationIndex(FELD_ROWS)
+
+
+def test_bare_feld_number_finds_the_f_prefixed_case():
+    assert [c.id for c in FELD_IDX.candidates("Féld.", "5/2012")] == [FELD_F]
+    r = resolve(rc("Féld.", "5/2012"), index=FELD_IDX, from_doc_id=CITING, from_date=D)
+    assert (r.status, r.to_doc_id, r.method, r.confidence) == ("resolved", FELD_F, "casenum_unique", 0.8)
+
+
+def test_f_prefixed_citation_still_matches_directly():
+    assert [c.id for c in FELD_IDX.candidates("Féld.", "F-5/2012")] == [FELD_F]
+
+
+def test_both_forms_stored_is_ambiguous_until_date_or_verdict_narrows():
+    rows = FELD_ROWS + [(uuid.UUID(int=22), "Féld.", "5/2012", dt.date(2012, 9, 1), "Úrskurður")]
+    idx = CitationIndex(rows)
+    assert {c.id for c in idx.candidates("Féld.", "5/2012")} == {FELD_F, uuid.UUID(int=22)}
+    assert resolve(rc("Féld.", "5/2012"), index=idx, from_doc_id=CITING, from_date=D).status == "ambiguous"
+    by_date = resolve(rc("Féld.", "5/2012", date=dt.date(2012, 6, 1)), index=idx,
+                      from_doc_id=CITING, from_date=D)
+    assert (by_date.status, by_date.to_doc_id, by_date.method) == ("resolved", FELD_F, "casenum_date")
+    by_verdict = resolve(rc("Féld.", "5/2012", verdict="Úrskurður"), index=idx,
+                         from_doc_id=CITING, from_date=D)
+    assert (by_verdict.status, by_verdict.to_doc_id, by_verdict.method) == (
+        "resolved", uuid.UUID(int=22), "casenum_verdict")
+
+
+def test_the_fallback_is_feld_only_and_does_not_widen_other_courts():
+    # 'Hrd. F-5/2012' exists in the index, but a bare Hrd. number must not reach it.
+    assert FELD_IDX.candidates("Hrd.", "5/2012") == []
+    assert resolve(rc("Hrd.", "5/2012"), index=FELD_IDX, from_doc_id=CITING,
+                   from_date=D).status == "unresolved"
+
+
+def test_the_fallback_only_applies_to_bare_numbers():
+    # An already-prefixed number must not gain a second 'F-'.
+    assert FELD_IDX.candidates("Féld.", "E-5/2012") == []
+    assert [c.id for c in FELD_IDX.candidates("Féld.", "9/1999")] == [U[9]]
