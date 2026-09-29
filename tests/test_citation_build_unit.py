@@ -2,8 +2,8 @@ import datetime as dt
 import hashlib
 import uuid
 
-from engine.processors.citation_build import build_rows, citation_hash
-from engine.processors.citation_resolver import CitationIndex
+from engine.processors.citation_build import _UNRESOLVED_SQL, build_rows, citation_hash
+from engine.processors.citation_resolver import COURT_SOURCES, CitationIndex
 
 T = uuid.UUID(int=5)
 IDX = CitationIndex([(T, "Hrd.", "700/2017", dt.date(2017, 11, 8), "Dómur")])
@@ -64,7 +64,21 @@ def test_selection_staleness_predicate_follows_has_col_and_force():
 
 def test_selection_doc_wins_and_source_is_bound():
     sel = selection(force=False, source="haestirettur", doc="abc", since="2020-01-01", has_col=True)
-    assert sel.where_sql == "d.id = :doc" and sel.params == {"doc": "abc"} and sel.warn is False
+    # --doc still honours the court-source guard: a non-court document must
+    # select 0 rows rather than get citations --all would never revisit.
+    assert sel.where_sql == "s.short_name = ANY(:sources) AND d.id = :doc"
+    assert sel.params == {"sources": list(COURT_SOURCES), "doc": "abc"} and sel.warn is False
     sel = selection(force=True, source="felagsdomur", doc=None, since=None, has_col=True)
     assert "s.short_name = :sn" in sel.where_sql and sel.params["sn"] == "felagsdomur"
     assert "s.short_name = ANY(:sources)" in sel.where_sql
+
+
+def test_relink_also_picks_up_dangling_resolved_rows():
+    """citations.to_doc_id is ON DELETE SET NULL, so a deleted target leaves a
+    row claiming status='resolved' with no target. --all never revisits it (the
+    citing text is unchanged, so citation_hash still matches), so relink has to."""
+    assert "(c.status = 'resolved' AND c.to_doc_id IS NULL)" in _UNRESOLVED_SQL
+    assert "c.status IN ('unresolved','ambiguous')" in _UNRESOLVED_SQL
+    # the row's own status is selected, so relink can tell a dangling row apart
+    # from an ordinary unresolved one and demote it instead of leaving it be
+    assert "c.status, d.document_date" in _UNRESOLVED_SQL

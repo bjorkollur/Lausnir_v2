@@ -11,6 +11,7 @@ documents to rebuild, the Python writes the hash that takes them off that list.
 from __future__ import annotations
 
 import hashlib
+import logging
 import uuid
 from datetime import date
 
@@ -18,6 +19,8 @@ from sqlalchemy import text
 
 from engine.processors.citation_resolver import CitationIndex, resolve
 from engine.processors.citations import extract_citations
+
+log = logging.getLogger(__name__)
 
 SEP = chr(31)
 STALE_WHERE = ("(d.citation_hash IS NULL OR d.citation_hash <> encode(sha256(convert_to("
@@ -101,10 +104,18 @@ async def rebuild_citations(conn, doc_id, *, summary, body, lower, doc_date, ind
                                  write_edges=write_edges)
 
 
+# Dangling rows (`status='resolved'` with a NULL `to_doc_id`) are picked up too:
+# citations.to_doc_id is FK ... ON DELETE SET NULL, so deleting a target leaves
+# the citing row claiming to be resolved while pointing at nothing. --all never
+# revisits it (the citing document's own text is unchanged, so its citation_hash
+# still matches), which makes relink the only thing that can heal it — by
+# re-resolving it, or by demoting it to whatever resolve() says now.
+_DANGLING_PRED = "(c.status = 'resolved' AND c.to_doc_id IS NULL)"
 _UNRESOLVED_SQL = (
     "SELECT c.id, c.from_doc_id, c.layer, c.char_start, c.char_end, c.raw_text, c.target_court, c.target_case_number, "
-    "c.target_date, c.target_verdict, d.document_date FROM citations c JOIN documents d ON d.id = c.from_doc_id "
-    "WHERE c.status IN ('unresolved','ambiguous') ORDER BY c.from_doc_id, c.layer, c.char_start")
+    "c.target_date, c.target_verdict, c.status, d.document_date FROM citations c JOIN documents d ON d.id = c.from_doc_id "
+    f"WHERE (c.status IN ('unresolved','ambiguous') OR {_DANGLING_PRED}) "
+    "ORDER BY c.from_doc_id, c.layer, c.char_start")
 
 
 async def _unresolved_rows(conn, limit: int | None):
@@ -128,8 +139,16 @@ async def count_relinkable(conn, index: CitationIndex, *, limit: int | None = No
     return would, len(rows)
 
 
+_DEMOTE = text("UPDATE citations SET status=:s, to_doc_id=NULL, method=NULL, confidence=NULL WHERE id=:id")
+
+
 async def relink_unresolved(conn, index: CitationIndex, *, limit: int | None = None) -> int:
-    """Re-run resolve() on unresolved/ambiguous rows without re-extracting (spec §7)."""
+    """Re-run resolve() on unresolved/ambiguous/dangling rows without re-extracting (spec §7).
+
+    Returns the number of rows that now resolve. A dangling row that still does
+    not resolve is demoted to the status resolve() reports, so it stops claiming
+    `resolved` with no target; those are logged, not counted as relinked.
+    """
     rows = await _unresolved_rows(conn, limit)
     fixed = 0
     for r in rows:
@@ -140,4 +159,9 @@ async def relink_unresolved(conn, index: CitationIndex, *, limit: int | None = N
             if r.layer in EDGE_LAYERS:
                 await conn.execute(_EDGE, {"f": r.from_doc_id, "t": res.to_doc_id, "c": res.confidence})
             fixed += 1
+        elif r.status == "resolved":
+            # Dangling: the target was deleted. Leaving status='resolved' would
+            # keep it in every "resolved" count while linking to nothing.
+            await conn.execute(_DEMOTE, {"s": res.status, "id": r.id})
+            log.warning("citation %s was resolved with a deleted target — demoted to %s", r.id, res.status)
     return fixed

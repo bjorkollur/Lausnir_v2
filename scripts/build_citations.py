@@ -136,10 +136,15 @@ def selection(*, force: bool, source: str | None, doc: str | None,
     staleness to speak of (migration 0004 has not run), so every document
     counts as stale and `warn` is set for the caller to report.
     """
-    if doc:
-        return Selection("d.id = :doc", {"doc": doc}, False)
     params: dict = {"sources": list(COURT_SOURCES)}
     where = ["s.short_name = ANY(:sources)"]
+    if doc:
+        # The court-source guard applies here too: a non-court document selected
+        # by id would get citations, `cites` edges and a citation_hash that --all
+        # never revisits (it only ever looks at COURT_SOURCES), so those rows
+        # could never be rebuilt or cleaned up. 0 rows is the right answer.
+        params["doc"] = doc
+        return Selection(" AND ".join(where + ["d.id = :doc"]), params, False)
     warn = False
     if force:
         pass                                   # --force: staleness ignored on purpose
@@ -199,6 +204,9 @@ async def build(*, all_docs: bool, force: bool, source: str | None, doc: str | N
     log.info("Index: %s ruling(s). Documents to (re)build: %s  (workers=%d)%s",
              f"{len(index_rows):,}", f"{total:,}", workers, "  [dry run]" if dry_run else "")
     if not total:
+        if doc:
+            log.warning("document %s is not a court document (sources: %s) — nothing to do",
+                        doc, ", ".join(COURT_SOURCES))
         return
 
     t0 = time.monotonic()
