@@ -34,6 +34,7 @@ from engine.search.queries import (
     REGEX_COLUMNS,
     SearchError,
     facet_counts,
+    get_citations,
     get_document,
     search_documents,
 )
@@ -222,6 +223,26 @@ async def document_passages(
             session, doc_id, from_ordinal=from_, to_ordinal=to if to is not None else from_ + 49,
             section_kinds=section_kind, layer=layer,
         )
+    except SearchError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    if res is None:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return res
+
+
+@app.get("/api/document/{doc_id}/citations")
+async def document_citations(
+    doc_id: str,
+    direction: str = Query("out", pattern="^(out|in)$",
+                           description="'out' = cases this one cites, 'in' = cases citing it"),
+    page: int = Query(1, ge=1),
+    page_size: int = Query(50, ge=1, le=100),
+    session: AsyncSession = Depends(get_session),
+) -> dict:
+    """Resolved case-to-case citations of one document, paged."""
+    try:
+        res = await get_citations(session, doc_id, direction=direction,
+                                  page=page, page_size=page_size)
     except SearchError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     if res is None:

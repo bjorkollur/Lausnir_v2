@@ -149,8 +149,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from engine.config.source_groups import resolve_scope
 from engine.config.sources import get_config
 from engine.database.models import Document
+from engine.processors.citation_resolver import norm_case_number
 from engine.processors.lemmatizer import lemmatize_query
 from engine.processors.renderer import to_urlausn
+from engine.search.passage_index import passage_anchor
 from engine.search.passage_search import search_by_passages, validate_section_kinds
 from engine.search.relaxation import build_keyword_queries, should_relax
 
@@ -534,6 +536,11 @@ async def search_documents(
                d.summary, d.keywords, d.plaintiffs, d.defendants,
                {snippet_select},
                {body_head_select},
+               -- 'cites' is one-way (citing → cited), so this is exactly the
+               -- number of documents citing this one. One index scan per page
+               -- row (ix_link_to today, ix_link_to_rel once 0004 is applied).
+               (SELECT count(*) FROM document_links l
+                WHERE l.to_doc_id = d.id AND l.relation = 'cites') AS cited_by_count,
                -- 'leyfisbeidni_um' is a one-way edge petition → judgment, so it
                -- counts only from the petition (from) side. Counting it from the
                -- judgment's side would flag the judgment as having an appeal
@@ -570,6 +577,7 @@ async def search_documents(
             "defendants": r["defendants"] or [],
             "snippet": snippet,
             "has_appeal_links": r["has_appeal_links"],
+            "cited_by_count": r["cited_by_count"],
             "passage_id": None, "anchor": None, "section_kind": None, "layer": None, "match_count": None,
             "match_tier": 0,
         })
@@ -670,8 +678,137 @@ async def facet_counts(
     return by_source, by_source_vt
 
 
+# ── Citations (spec 2026-09-29 §8.1) ──────────────────────────────────────────
+# A pair that also carries an appeal relation (either orientation) is flagged
+# `also_appeal` so the frontend does not list it twice; 'cites' itself is
+# one-way and never part of this set.
+APPEAL_RELATIONS = ("appealed_to", "appealed_from", "leyfisbeidni_um", "leiddi_til_doms")
+
+CITATION_LAYERS = ("summary", "body")
+UNRESOLVED_STATUSES = ("unresolved", "ambiguous", "pre_coverage")
+MAX_CITATION_PAGE_SIZE = 100
+
+# One row per other document: the citation with the lowest char_start in `body`,
+# falling back to `summary`. `passage_id` is never stored (passages are rebuilt
+# by delete+insert, which would silently null it) — the passage is found on read
+# with the LATERAL below: the last passage of that layer starting at or before
+# the citation. count(*) OVER () runs before LIMIT, so it is the true total.
+_CITATIONS_SQL = """
+    WITH c AS (
+        SELECT DISTINCT ON (c.{other_col})
+               c.{other_col} AS other_doc_id, c.layer, c.char_start, c.raw_text, c.confidence
+        FROM citations c
+        WHERE c.{self_col} = :id AND c.status = 'resolved' AND c.layer = ANY(:layers)
+        ORDER BY c.{other_col}, (c.layer = 'body') DESC, c.char_start
+    )
+    SELECT c.layer, c.raw_text, c.confidence,
+           o.id AS other_id, o.case_number AS other_case, o.court AS other_court,
+           o.document_date AS other_date, o.verdict_type AS other_verdict,
+           os.short_name AS other_source,
+           p.id AS passage_id, p.layer AS p_layer, p.para_from, p.para_to,
+           p.section_path, p.ordinal,
+           EXISTS (SELECT 1 FROM document_links dl
+                   WHERE dl.relation = ANY(:appeal_rels)
+                     AND ((dl.from_doc_id = :id AND dl.to_doc_id = c.other_doc_id)
+                       OR (dl.to_doc_id = :id AND dl.from_doc_id = c.other_doc_id))) AS also_appeal,
+           count(*) OVER () AS total
+    FROM c
+    JOIN documents o ON o.id = c.other_doc_id
+    JOIN sources os ON os.id = o.source_id
+    LEFT JOIN LATERAL (
+        SELECT p.id, p.layer, p.para_from, p.para_to, p.section_path, p.ordinal
+        FROM passages p
+        WHERE p.document_id = {passage_doc} AND p.layer = c.layer AND p.char_start <= c.char_start
+        ORDER BY p.char_start DESC LIMIT 1
+    ) p ON TRUE
+    ORDER BY o.document_date {order} NULLS LAST, o.id
+    LIMIT :limit OFFSET :offset
+"""
+
+# out: citations this document makes, oldest cited document first.
+CITATIONS_OUT_SQL = _CITATIONS_SQL.format(
+    self_col="from_doc_id", other_col="to_doc_id", passage_doc=":id", order="ASC")
+# in: documents citing this one, newest first; the passage lives in the *other*
+# document, so the LATERAL is scoped to it.
+CITATIONS_IN_SQL = _CITATIONS_SQL.format(
+    self_col="to_doc_id", other_col="from_doc_id", passage_doc="c.other_doc_id", order="DESC")
+
+CITATIONS_UNRESOLVED_SQL = """
+    SELECT count(*) FROM citations
+    WHERE from_doc_id = :id AND layer = ANY(:layers) AND status = ANY(:statuses)
+"""
+
+
+def _citation_ref(r, my_court: str | None, my_norm_case: str | None) -> dict[str, Any]:
+    """One CitationRef row. `same_case` compares the *other* document's court and
+    normalised case number to mine — a judgment citing the ruling that carries the
+    same number in the same court is the same case, not a precedent (spec §4.3)."""
+    pid = r["passage_id"]
+    return {
+        "document_id": str(r["other_id"]),
+        "urlausn": _citation(r["other_source"], r["other_court"], r["other_case"],
+                             r["other_date"], r["other_verdict"]),
+        "source": r["other_source"],
+        "document_date": r["other_date"].isoformat() if r["other_date"] else None,
+        "layer": r["layer"],
+        "passage_id": str(pid) if pid is not None else None,
+        "anchor": passage_anchor(r["p_layer"], r["para_from"], r["para_to"],
+                                 r["section_path"], r["ordinal"]) if pid is not None else None,
+        "raw_text": r["raw_text"],
+        "confidence": r["confidence"],
+        "also_appeal": bool(r["also_appeal"]),
+        "same_case": bool(my_court and my_norm_case
+                          and r["other_court"] == my_court
+                          and norm_case_number(r["other_case"]) == my_norm_case),
+    }
+
+
+async def _citations_page(session: AsyncSession, did: uuid.UUID, *, direction: str,
+                          page: int, page_size: int,
+                          my_court: str | None, my_case: str | None) -> dict[str, Any]:
+    """Shared body of get_citations, for a caller that already holds court/case_number."""
+    page = max(1, page)
+    page_size = max(1, min(page_size, MAX_CITATION_PAGE_SIZE))
+    sql = CITATIONS_OUT_SQL if direction == "out" else CITATIONS_IN_SQL
+    rows = (await session.execute(text(sql), {
+        "id": did, "layers": list(CITATION_LAYERS), "appeal_rels": list(APPEAL_RELATIONS),
+        "limit": page_size, "offset": (page - 1) * page_size,
+    })).mappings().all()
+    my_norm_case = norm_case_number(my_case)
+    return {
+        "direction": direction,
+        "total": rows[0]["total"] if rows else 0,
+        "page": page,
+        "page_size": page_size,
+        "items": [_citation_ref(r, my_court, my_norm_case) for r in rows],
+    }
+
+
+async def get_citations(session: AsyncSession, doc_id: str | uuid.UUID, *,
+                        direction: str = "out", page: int = 1,
+                        page_size: int = 50) -> dict[str, Any] | None:
+    """Resolved citations of one document. None when the document does not exist.
+
+    direction='out' → documents this one cites; 'in' → documents citing this one.
+    """
+    if direction not in ("out", "in"):
+        raise SearchError("direction must be 'out' or 'in'")
+    try:
+        did = uuid.UUID(str(doc_id))
+    except (ValueError, AttributeError):
+        raise SearchError(f"Invalid document id: {doc_id!r}")
+
+    me = (await session.execute(text(
+        "SELECT court, case_number FROM documents WHERE id = :id"), {"id": did})).mappings().first()
+    if me is None:
+        return None
+    return await _citations_page(session, did, direction=direction, page=page,
+                                 page_size=page_size, my_court=me["court"],
+                                 my_case=me["case_number"])
+
+
 async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[str, Any] | None:
-    """Fetch one document with its full text, parties, and appeal links."""
+    """Fetch one document with its full text, parties, appeal links and citations."""
     try:
         did = uuid.UUID(str(doc_id))
     except (ValueError, AttributeError):
@@ -723,6 +860,16 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
                                  L["other_date"], L["other_verdict"]),
         })
 
+    # Citations. Both directions share the document row already fetched above,
+    # so neither re-reads court/case_number for the same_case comparison.
+    out = await _citations_page(session, did, direction="out", page=1, page_size=50,
+                                my_court=row["court"], my_case=row["case_number"])
+    incoming = await _citations_page(session, did, direction="in", page=1, page_size=50,
+                                     my_court=row["court"], my_case=row["case_number"])
+    unresolved_total = (await session.execute(text(CITATIONS_UNRESOLVED_SQL), {
+        "id": did, "layers": list(CITATION_LAYERS), "statuses": list(UNRESOLVED_STATUSES),
+    })).scalar() or 0
+
     # Access state — why body_text may be absent. Skemman embargoes a third of
     # all theses; without this the reader just shows a blank page and the user
     # can't tell a restriction from a bug. Sources that don't publish these keys
@@ -766,4 +913,9 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
         "body_text": row["body_text"],
         "lower_body_text": row["lower_body_text"],
         "appeal_links": appeal_links,
+        "citations_out": out["items"],
+        "citations_out_total": out["total"],
+        "cited_by": incoming["items"],
+        "cited_by_total": incoming["total"],
+        "citations_unresolved_total": unresolved_total,
     }
