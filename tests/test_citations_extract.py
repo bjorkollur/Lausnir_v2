@@ -227,3 +227,23 @@ def test_extra_comma_before_the_date_introducer():
 
 def test_extra_year_range_is_not_a_malskotsbeidni():
     assert extract_citations("sbr. dóm Hæstaréttar í máli nr. 2010-2015.", doc_date=D) == []
+
+
+def test_extra_relative_year_ignores_law_and_case_numbers():
+    """'sama ár' must resolve to a standalone year token, never the year inside 91/1991."""
+    # (1) only a law number precedes → no year at all, and never the law's year
+    c = one("Samkvæmt 1. mgr. 175. gr. laga nr. 91/1991 var dómi Landsréttar 18. nóvember sama ár "
+            "í máli nr. 308/2021 áfrýjað.", doc_date=dt.date(2022, 3, 1))
+    assert c.target_date is None
+    # (2) a real standalone year still resolves
+    c2 = one("Með áfrýjunarstefnu 25. janúar 2022 var dómi Landsréttar 18. nóvember sama ár "
+             "í máli nr. 308/2021 áfrýjað.")
+    assert c2.target_date == dt.date(2022, 11, 18)
+    # (3) the real year wins even with a law number earlier in the sentence
+    c3 = one("Samkvæmt 175. gr. laga nr. 91/1991 og áfrýjunarstefnu 25. janúar 2022 var dómi "
+             "Landsréttar 18. nóvember sama ár í máli nr. 308/2021 áfrýjað.")
+    assert c3.target_date == dt.date(2022, 11, 18)
+    # (4) a bare 'árið 2021' is a standalone year
+    c4 = one("Málið var rekið árið 2021 og dómi Landsréttar 18. nóvember sama ár "
+             "í máli nr. 308/2021 var áfrýjað.")
+    assert c4.target_date == dt.date(2021, 11, 18)

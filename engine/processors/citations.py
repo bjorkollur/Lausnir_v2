@@ -83,7 +83,11 @@ _REPORTER_RX = re.compile(
 _DATE_RX = re.compile(
     r"(?P<d>\d{1,2})\.\s+(?P<m>janúar|febrúar|mars|apríl|maí|júní|júlí|ágúst|september|október|nóvember|desember)"
     r"\s+(?P<y>\d{4}|sama\s+ár|s\.á\.|þess\s+árs|sl\.|síðastliðin\w*)")
-_YEAR_RX = re.compile(r"\b(1[89]\d\d|20\d\d)\b")
+# A year for relative resolution ("sama ár", "s.á.") must be a STANDALONE token.
+# \b is not enough: it also matches the year inside a case or law number, so
+# "laga nr. 91/1991 … 18. nóvember sama ár" resolved to 1991 and the citation
+# then failed to resolve. A year may not sit next to a digit, "/" or "-".
+_YEAR_RX = re.compile(r"(?<![\d/\-])(1[89]\d\d|20\d\d)(?![\d/])")
 _VERB_RX = re.compile(r"\b(dóm\w*|úrskurð\w*|ákvörð\w*)\b")
 # Sentence break: '. ' + capital, ';', or a blank line. 'nr. 700', '8. nóvember'
 # and 'sbr. dóm' are followed by a digit or a lower-case letter, so they survive.
