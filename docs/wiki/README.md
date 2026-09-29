@@ -26,7 +26,9 @@ Uppflettirit yfir uppbyggingu kerfisins. Skrifað út frá raunverulegum kóða 
 | Skjöl | **93.048** |
 | Heimildir | **111** (63 efnisheimildir + 48 lagasafnskaflar) |
 | Efnisgreinar | 1.781.516 |
-| Tengingar (áfrýjanir) | 23.824 |
+| Tengingar (`document_links`, áfrýjun+málskot+`cites`) | ≈48.113 |
+| — þar af `cites` (tilvitnanir, 29.09.2026) | 22.868 |
+| Tilvitnanir (`citations`, 29.09.2026) | 60.669 |
 | Stærð gagnagrunns | 76 GB |
 | Stærð `Lausnir_Data/` | 49 GB |
 | Fulltextaleit (`fts_is`) | 93.048 / 93.048 (100%) |

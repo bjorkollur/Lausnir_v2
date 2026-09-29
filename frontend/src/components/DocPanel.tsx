@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import type { DocumentDetail, Party } from "../api/types";
-import { documentPdfUrl } from "../api/client";
+import type { CitationRef, DocumentDetail, Party } from "../api/types";
+import { documentPdfUrl, fetchCitations } from "../api/client";
 import { splitMarkdown, LARGE_DOC_THRESHOLD, SEARCHABLE_THRESHOLD } from "../lib/splitMarkdown";
 import { findMatches } from "../lib/findMatches";
 import { applyHighlights } from "../lib/highlightMatches";
@@ -12,9 +12,28 @@ import { DocSearchBar } from "./DocSearchBar";
 import { Markdown } from "./Markdown";
 import { FootnoteList } from "./FootnoteList";
 import { PdfViewer } from "./PdfViewer";
+import { CitationList } from "./CitationList";
 import { extractFootnotes } from "../lib/footnotes";
 
 const partyNames = (ps: Party[]) => ps.map((p) => p.name).join(", ");
+
+/** Icelandic labels for the appeal relations under "Tengd mál". An unknown
+ * relation is shown verbatim rather than dropped — the API may grow a new one
+ * before this map does, and a raw name still tells the reader something. */
+const RELATION_LABELS: Record<string, string> = {
+  appealed_to: "Áfrýjað til",
+  appealed_from: "Áfrýjað frá",
+  leyfisbeidni_um: "Málskotsbeiðni um",
+  leiddi_til_doms: "Leiddi til dóms",
+};
+
+type Direction = "out" | "in";
+/** Matches the page size the API uses for the copy embedded in /api/document/:id. */
+const CITATIONS_PAGE_SIZE = 50;
+const NO_EXTRA: Record<Direction, { items: CitationRef[]; page: number }> = {
+  out: { items: [], page: 1 },
+  in: { items: [], page: 1 },
+};
 
 /** Shown when a document has no readable body. About a third of Skemman theses
  * are embargoed at the source, so a blank page here is expected far too often to
@@ -77,6 +96,39 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
   const [forcedSegments, setForcedSegments] = useState<Set<number>>(new Set());
   const bodyRef = useRef<HTMLElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // The document response carries the first page of both citation directions;
+  // "Sýna fleiri" fetches the next one and appends it here. Keyed on doc.id so
+  // navigating to another document starts from its own first page again.
+  const [extra, setExtra] = useState(NO_EXTRA);
+  useEffect(() => setExtra(NO_EXTRA), [doc.id]);
+
+  const citationsOut = [...doc.citations_out, ...extra.out.items];
+  const citedBy = [...doc.cited_by, ...extra.in.items];
+
+  const loadMoreCitations = async (dir: Direction) => {
+    const page = extra[dir].page + 1;
+    try {
+      const res = await fetchCitations(doc.id, dir, page, CITATIONS_PAGE_SIZE);
+      setExtra((prev) => ({
+        ...prev,
+        [dir]: { items: [...prev[dir].items, ...res.items], page },
+      }));
+    } catch {
+      // A failed page leaves the list as it was, with the button still there to
+      // retry; a half-read citation list is not worth an error banner.
+    }
+  };
+
+  // An appeal-chain citation is shown once, in "Tilvitnanir" with the
+  // „(í áfrýjunarkeðju)“ badge (spec §8.2) — repeating it under "Tengd mál"
+  // would make one relationship look like two.
+  const shownAsCitation = new Set(
+    [...citationsOut, ...citedBy].filter((c) => c.also_appeal).map((c) => c.document_id),
+  );
+  const relatedLinks = doc.appeal_links.filter((l) => !shownAsCitation.has(l.document_id));
+  const hasCitations =
+    doc.citations_out_total > 0 || doc.cited_by_total > 0 || doc.citations_unresolved_total > 0;
 
   const regexValid = !useRegex || query.trim().length === 0 || isValidRegex(query);
   const matches = useMemo(
@@ -259,14 +311,14 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
           </>
         )}
 
-        {doc.appeal_links.length > 0 && (
+        {relatedLinks.length > 0 && (
           <section className="mt-8 border-t border-slate-200 pt-4">
             <h2 className="font-bold mb-2">Tengd mál</h2>
             <ul className="space-y-1">
-              {doc.appeal_links.map((l) => (
+              {relatedLinks.map((l) => (
                 <li key={l.document_id} className="text-sm">
                   <span className="text-slate-500">
-                    {l.relation === "appealed_to" ? "Áfrýjað til: " : "Áfrýjað frá: "}
+                    {RELATION_LABELS[l.relation] ?? l.relation}:{" "}
                   </span>
                   <Link
                     to={`/domur/${l.document_id}`}
@@ -277,6 +329,38 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
                 </li>
               ))}
             </ul>
+          </section>
+        )}
+
+        {hasCitations && (
+          <section className="mt-8 border-t border-slate-200 pt-4">
+            <h2 className="font-bold mb-2">Tilvitnanir</h2>
+            {doc.citations_out_total > 0 && (
+              <CitationList
+                title="Vitnar í"
+                items={citationsOut}
+                total={doc.citations_out_total}
+                onMore={() => loadMoreCitations("out")}
+              />
+            )}
+            {doc.cited_by_total > 0 && (
+              <CitationList
+                title="Vitnað í þennan dóm"
+                items={citedBy}
+                total={doc.cited_by_total}
+                onMore={() => loadMoreCitations("in")}
+              />
+            )}
+            {doc.citations_unresolved_total > 0 && (
+              // Citations the resolver could not match to a document in the
+              // corpus: said plainly, so an incomplete list doesn't read as a
+              // complete one.
+              <p className="mt-2 text-xs text-slate-500">
+                {doc.citations_unresolved_total === 1
+                  ? "1 tilvitnun fannst ekki í safninu"
+                  : `${doc.citations_unresolved_total} tilvitnanir fundust ekki í safninu`}
+              </p>
+            )}
           </section>
         )}
       </article>

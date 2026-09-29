@@ -1,9 +1,10 @@
-import { describe, it, expect, vi } from "vitest";
-import { screen } from "@testing-library/react";
+import { describe, it, expect, vi, beforeAll, afterAll, afterEach } from "vitest";
+import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "../test/renderWithProviders";
 import { DocPanel } from "./DocPanel";
-import type { DocumentDetail } from "../api/types";
+import { server, http, HttpResponse } from "../test/msw";
+import type { CitationRef, DocumentDetail } from "../api/types";
 import { LARGE_DOC_THRESHOLD, SEARCHABLE_THRESHOLD } from "../lib/splitMarkdown";
 
 // react-pdf drives pdf.js canvas rendering and a web worker — neither exists under
@@ -30,7 +31,21 @@ const doc: DocumentDetail = {
   lower_body_text: null, appeal_links: [{ relation: "appealed_to", confidence: 1, method: "resolution_link",
     document_id: "b", source: "landsrettur", urlausn: "Lrd. 1/2024 – Dómur" }],
   markdown: "## Dómsorð\nTexti",
+  citations_out: [], citations_out_total: 0,
+  cited_by: [], cited_by_total: 0,
+  citations_unresolved_total: 0,
 };
+
+const cite = (over: Partial<CitationRef> = {}): CitationRef => ({
+  document_id: "c1", urlausn: "Hrd. 10/2019 – Dómur", source: "haestirettur",
+  document_date: "2019-05-05", layer: "body", passage_id: null, anchor: null,
+  raw_text: "dómi Hæstaréttar í máli nr. 10/2019", confidence: 0.9,
+  also_appeal: false, same_case: false, ...over,
+});
+
+/** The block CitationList renders: heading plus its own list and button. */
+const listOf = (name: string) =>
+  within(screen.getByRole("heading", { name }).parentElement!);
 
 describe("DocPanel", () => {
   it("renders keywords, reifun, body heading and appeal link", () => {
@@ -311,5 +326,117 @@ describe("DocPanel PDF view", () => {
 
     await user.click(screen.getByRole("button", { name: "Texti" }));
     expect(screen.getByRole("heading", { name: "Dómsorð" })).toBeInTheDocument();
+  });
+});
+
+describe("DocPanel citations", () => {
+  beforeAll(() => server.listen());
+  afterEach(() => server.resetHandlers());
+  afterAll(() => server.close());
+
+  const cited: DocumentDetail = {
+    ...doc,
+    citations_out: [cite()],
+    citations_out_total: 1,
+    cited_by: [cite({ document_id: "c2", urlausn: "Lrd. 5/2021 – Dómur", same_case: true,
+                      raw_text: "úrskurði Landsréttar í máli nr. 5/2021" })],
+    cited_by_total: 3,
+  };
+
+  it("renders both citation lists with their totals and the raw citing sentence", () => {
+    renderWithProviders(<DocPanel doc={cited} />);
+    expect(screen.getByRole("heading", { name: "Tilvitnanir" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Vitnar í (1)" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Vitnað í þennan dóm (3)" })).toBeInTheDocument();
+    expect(screen.getByText("dómi Hæstaréttar í máli nr. 10/2019")).toBeInTheDocument();
+    expect(listOf("Vitnar í (1)").getByRole("link", { name: /Hrd\. 10\/2019/ }))
+      .toHaveAttribute("href", "/domur/c1");
+    expect(screen.getByText("(sama mál)")).toBeInTheDocument();
+  });
+
+  it("offers 'Sýna fleiri' only for the list with more entries than are shown", () => {
+    renderWithProviders(<DocPanel doc={cited} />);
+    expect(listOf("Vitnar í (1)").queryByRole("button", { name: "Sýna fleiri" })).toBeNull();
+    expect(listOf("Vitnað í þennan dóm (3)").getByRole("button", { name: "Sýna fleiri" }))
+      .toBeInTheDocument();
+  });
+
+  it("appends the next page when 'Sýna fleiri' is clicked", async () => {
+    const user = userEvent.setup();
+    let asked: URL | null = null;
+    server.use(
+      http.get("http://localhost:8077/api/document/a/citations", ({ request }) => {
+        asked = new URL(request.url);
+        return HttpResponse.json({
+          direction: "in", total: 3, page: 2, page_size: 50,
+          items: [cite({ document_id: "c3", urlausn: "Hérd. Rvk. E-9/2018 – Dómur",
+                         raw_text: "úrskurði héraðsdóms í máli nr. E-9/2018" })],
+        });
+      }),
+    );
+    renderWithProviders(<DocPanel doc={cited} />);
+
+    await user.click(
+      listOf("Vitnað í þennan dóm (3)").getByRole("button", { name: "Sýna fleiri" }),
+    );
+
+    expect(await screen.findByRole("link", { name: /E-9\/2018/ })).toHaveAttribute(
+      "href", "/domur/c3",
+    );
+    expect(asked!.searchParams.get("direction")).toBe("in");
+    expect(asked!.searchParams.get("page")).toBe("2");
+  });
+
+  it("reports unresolved citations in the plural and the singular", () => {
+    const { unmount } = renderWithProviders(
+      <DocPanel doc={{ ...cited, citations_unresolved_total: 2 }} />,
+    );
+    expect(screen.getByText("2 tilvitnanir fundust ekki í safninu")).toBeInTheDocument();
+    unmount();
+
+    renderWithProviders(<DocPanel doc={{ ...cited, citations_unresolved_total: 1 }} />);
+    expect(screen.getByText("1 tilvitnun fannst ekki í safninu")).toBeInTheDocument();
+  });
+
+  it("renders no citation section at all when there is nothing to show", () => {
+    renderWithProviders(<DocPanel doc={doc} />);
+    expect(screen.queryByRole("heading", { name: "Tilvitnanir" })).not.toBeInTheDocument();
+  });
+
+  it("labels every known appeal relation, and shows an unknown one verbatim", () => {
+    renderWithProviders(<DocPanel doc={{ ...doc, appeal_links: [
+      { relation: "leyfisbeidni_um", confidence: 1, method: "m", document_id: "b1",
+        source: "haestirettur", urlausn: "Hrd. málsk. 2024-1" },
+      { relation: "leiddi_til_doms", confidence: 1, method: "m", document_id: "b2",
+        source: "haestirettur", urlausn: "Hrd. 2/2024 – Dómur" },
+      { relation: "appealed_from", confidence: 1, method: "m", document_id: "b3",
+        source: "landsrettur", urlausn: "Lrd. 3/2023 – Dómur" },
+      { relation: "eitthvad_annad", confidence: 1, method: "m", document_id: "b4",
+        source: "landsrettur", urlausn: "Lrd. 4/2023 – Dómur" },
+    ] }} />);
+    expect(screen.getByText("Málskotsbeiðni um:")).toBeInTheDocument();
+    expect(screen.getByText("Leiddi til dóms:")).toBeInTheDocument();
+    expect(screen.getByText("Áfrýjað frá:")).toBeInTheDocument();
+    expect(screen.getByText("eitthvad_annad:")).toBeInTheDocument();
+  });
+
+  it("shows an appeal-chain citation once — in Tilvitnanir, not in Tengd mál", () => {
+    const { container } = renderWithProviders(<DocPanel doc={{
+      ...doc,
+      // "b" is doc's appeal link (Lrd. 1/2024) and is also cited in the body.
+      citations_out: [cite({ document_id: "b", urlausn: "Lrd. 1/2024 – Dómur",
+                             also_appeal: true })],
+      citations_out_total: 1,
+    }} />);
+
+    expect(container.querySelectorAll('a[href="/domur/b"]')).toHaveLength(1);
+    expect(listOf("Vitnar í (1)").getByText("(í áfrýjunarkeðju)")).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Tengd mál" })).not.toBeInTheDocument();
+  });
+
+  it("still lists appeal links that are not among the citations", () => {
+    renderWithProviders(<DocPanel doc={{ ...doc, citations_out: [cite()], citations_out_total: 1 }} />);
+    expect(screen.getByRole("heading", { name: "Tengd mál" })).toBeInTheDocument();
+    expect(screen.getByText("Áfrýjað til:")).toBeInTheDocument();
   });
 });

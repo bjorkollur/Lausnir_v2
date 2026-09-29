@@ -23,7 +23,7 @@ async def test_stdio_roundtrip():
         async with ClientSession(read, write) as session:
             await session.initialize()
             names = [t.name for t in (await session.list_tools()).tools]
-            assert len(names) == 8 and "search" in names and "sql_query" in names
+            assert len(names) == 9 and "search" in names and "sql_query" in names and "citations" in names
             res = await session.call_tool("list_sources", {})
             assert res.is_error is False
             text = res.content[0].text

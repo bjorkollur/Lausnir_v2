@@ -10,6 +10,10 @@ link_appeals.py. Nothing failed loudly — the API just rendered "Áfrýjað til
 <a district court>" on Hæstiréttur judgments, and any query that followed only
 one direction silently saw half the graph.
 
+The three original checks are scoped to `appealed_to`/`appealed_from` by design;
+`leyfisbeidni_um`, `leiddi_til_doms` and `cites` are one-way and only get
+relation-specific checks.
+
 Usage:
     uv run python scripts/check_link_orientation.py
 Exits non-zero if the invariant is violated.
@@ -52,11 +56,18 @@ _CHECKS = {
               AND b.relation = CASE a.relation WHEN 'appealed_to' THEN 'appealed_from'
                                                ELSE 'appealed_to' END)
     """,
+    # 4. cites edges must never point at a later-dated document (spec §4.3 / §9)
+    "cites edge pointing at a later-dated document": """
+        SELECT count(*) FROM document_links dl
+        JOIN documents a ON a.id = dl.from_doc_id JOIN documents b ON b.id = dl.to_doc_id
+        WHERE dl.relation = 'cites' AND a.document_date IS NOT NULL AND b.document_date IS NOT NULL
+          AND b.document_date > a.document_date
+    """,
 }
 
 
 async def main() -> int:
-    await _db_conn.init_db()
+    await _db_conn.init_db(create_tables=False)
     failures = 0
     async with _db_conn.AsyncSessionLocal() as session:
         for label, sql in _CHECKS.items():
@@ -65,8 +76,8 @@ async def main() -> int:
             if n:
                 failures += 1
             print(f"  [{status}] {label}: {n}")
-    print("\nAppeal-link orientation " + ("is consistent." if not failures
-                                          else f"is BROKEN ({failures} check(s) failed)."))
+    print("\nLink orientation " + ("is consistent." if not failures
+                                    else f"is BROKEN ({failures} check(s) failed)."))
     return 1 if failures else 0
 
 

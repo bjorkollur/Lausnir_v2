@@ -71,10 +71,15 @@ async def test_get_document_no_text_by_default_and_short_text_not_truncated():
 
         # Pick a document whose markdown is comfortably under max_chars, so
         # "not truncated" is a deterministic assertion rather than a coin flip.
+        # to_markdown() renders summary + body_text + lower_body_text, so
+        # bounding body_text alone was not enough: a short body with a long
+        # embedded lower-court text still blew past max_chars.
         row = (await s.execute(text("""
             SELECT id FROM documents
             WHERE length(body_text) BETWEEN 300 AND 1500
+              AND length(coalesce(summary, '')) + length(coalesce(lower_body_text, '')) < 2000
               AND id IN (SELECT document_id FROM passages)
+            ORDER BY id
             LIMIT 1"""))).first()
         if row is None:
             pytest.skip("no short-bodied document in the corpus")
@@ -172,6 +177,43 @@ async def test_list_sources_and_facets():
         assert any(x["short_name"] == "haestirettur" for x in src["sources"])
         f = await tools.facets(s, q="gæsluvarðhald")
         assert f["by_group"]["domstolar"] > 0 and f["by_source"]["haestirettur"] > 0
+    finally:
+        await s.close(); await eng.dispose()
+
+
+async def test_citations_tool_both_directions_on_a_resolved_pair():
+    eng, s = await _session()
+    try:
+        # The pair must be findable on page 1 in *both* directions, so both
+        # endpoints are constrained to at most one page of `cites` edges
+        # (page_size defaults to 10). lower_body rows are excluded because the
+        # tool only ever pages over the summary/body layers — 38 % of resolved
+        # rows are lower_body, so an unfiltered LIMIT 1 picked one at random.
+        row = (await s.execute(text("""
+            SELECT c.from_doc_id, c.to_doc_id
+            FROM citations c
+            WHERE c.status = 'resolved'
+              AND c.layer IN ('summary', 'body')
+              AND (SELECT count(*) FROM document_links dl
+                   WHERE dl.relation = 'cites' AND dl.from_doc_id = c.from_doc_id) <= 10
+              AND (SELECT count(*) FROM document_links dl
+                   WHERE dl.relation = 'cites' AND dl.to_doc_id = c.to_doc_id) <= 10
+            ORDER BY c.from_doc_id, c.char_start
+            LIMIT 1"""))).first()
+        if row is None:
+            pytest.skip("no resolved citation in the corpus yet")
+        from_id, to_id = str(row[0]), str(row[1])
+
+        out = await tools.citations_tool(s, doc_id=from_id, direction="out")
+        assert out["doc_id"] == from_id and out["direction"] == "out" and out["total"] >= 1
+        assert any(item["document_id"] == to_id for item in out["items"])
+        item = next(i for i in out["items"] if i["document_id"] == to_id)
+        assert set(item) == {"document_id", "urlausn", "date", "layer", "passage_id", "anchor",
+                             "raw_text", "also_appeal", "same_case"}
+
+        incoming = await tools.citations_tool(s, doc_id=to_id, direction="in")
+        assert incoming["doc_id"] == to_id and incoming["direction"] == "in" and incoming["total"] >= 1
+        assert any(i["document_id"] == from_id for i in incoming["items"])
     finally:
         await s.close(); await eng.dispose()
 

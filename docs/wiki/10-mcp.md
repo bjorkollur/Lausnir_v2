@@ -24,18 +24,19 @@ Handvirk prófun án viðskiptavinar: `uv run pytest -q tests/test_mcp_stdio.py`
 
 ## Verkfærin
 
-Öll átta eru merkt `readOnlyHint=True`. Nöfn og fjöldi eru fest í `tests/test_mcp_server.py`/`test_mcp_stdio.py`.
+Öll níu eru merkt `readOnlyHint=True`. Nöfn og fjöldi eru fest í `tests/test_mcp_server.py`/`test_mcp_stdio.py`.
 
 | Verkfæri | Inntak | Skilar | Mörk |
 |---|---|---|---|
 | `search` | `q`, `mode`, `scope`, `date_from`/`date_to`, `sort`, `section_kind`, `page`, `page_size` | `total`, `strict_total`, `relaxed`, `results[]` (með `passage_id`/`anchor`/`snippet`/`match_tier`), `hint` | `page_size ≤ 25` (lægra en API-ið) |
 | `passage_context` | `passage_id`, `before`, `after` | `doc_id`, `urlausn`, `focus_ordinal`, `total_passages`, `passages[]` | `before`/`after` ≤ 10 |
 | `get_passages` | `doc_id`, `from_ordinal`, `count`, `section_kind`, `layer` | sami skammtur og `passage_context`, án `focus_ordinal`, með `from_ordinal`/`matching_passages`/`next_from_ordinal` | `count ≤ 50` |
-| `get_document` | `doc_id`, `max_chars` | lýsigögn + `outline`, `total_passages`, `text`/`text_truncated`/`text_error` | `max_chars ≤ 40.000` |
+| `get_document` | `doc_id`, `max_chars` | lýsigögn + `outline`, `total_passages`, `text`/`text_truncated`/`text_error`, `citations_out`/`cited_by` (efstu 5, sjá `citations`), `citations_out_total`/`cited_by_total`/`citations_unresolved_total` | `max_chars ≤ 40.000` |
 | `list_sources` | — | `catalog` (tré) + flatur `sources` listi | — |
 | `facets` | `q`, `mode`, `date_from`/`date_to` | `by_source`, `by_group` (alltaf ströng talning) | — |
 | `describe_schema` | `table` (valkvætt) | án `table`: töflulisti með `kind`/`approx_rows`; með `table`: dálkar, vísar, athugasemdir | — |
 | `sql_query` | `sql`, `max_rows` | `columns`, `rows`, `row_count`, `truncated_rows`, `truncated_cells`, `elapsed_ms` | `max_rows ≤ 1000`, reitir ≤ 500 stafir, 15 s tímamörk |
+| `citations` | `doc_id`, `direction` (`out`\|`in`), `page`, `page_size` | `total`, `page`, `page_size`, `items[]` (`document_id`, `urlausn`, `date`, `layer`, `passage_id`, `anchor`, `raw_text`, `also_appeal`, `same_case`) | `page_size ≤ 25` |
 
 Upptalningargildi eru `Literal`-tegundir í `server.py` og birtast því sem `enum` í `input_schema`: `mode` (`keyword|exact|prefix|substring|any|proximity|regex`), `sort` (`relevance|newest|oldest`) og `layer` (`summary|body|lower_body`) — viðskiptavinurinn þarf ekki að giska. `keywords` í `search`-niðurstöðum er stytt í mest 5. `get_document` skilar aldrei `body_text`, `lower_body_text` eða `raw_api_data` — aðeins reiknuðum `text`/`text_error` (sjá „Mörk og hegðun").
 

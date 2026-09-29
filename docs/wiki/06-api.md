@@ -62,10 +62,12 @@ Flokkunartréð með skjalatölum + flatur heimildalisti.
     "plaintiffs": [{"name": "A", "lawyer": null}], "defendants": [...],
     "snippet": "…texti með <mark>áherslu</mark>…", "has_appeal_links": true,
     "passage_id": "uuid", "anchor": "12. mgr.", "section_kind": "nidurstada",
-    "layer": "body", "match_count": 3, "match_tier": 0
+    "layer": "body", "match_count": 3, "match_tier": 0, "cited_by_count": 4
   }]
 }
 ```
+
+`cited_by_count` — fjöldi skjala sem vitna í þessa niðurstöðu (`cites`-brýr með `to_doc_id` = niðurstöðunni), reiknaður með einföldum skalar-undirspurnalið í SELECT-listanum (`(SELECT count(*) FROM document_links l WHERE l.to_doc_id = d.id AND l.relation = 'cites')`, ekki `LEFT JOIN LATERAL`) yfir `ix_link_to_rel`, aðeins fyrir síðuna (≤ 100 raðir) — ekki fyrir allt `total`. Notað af `ResultCard` fyrir „vitnað í N sinnum" (sjá [07-framendi](07-framendi.md)).
 
 Fimm svæðin `passage_id`…`match_count` koma frá efnisgreininni sem gaf besta samsvörun í `keyword`/`proximity` leit (sjá [05-leit](05-leit.md)) — öll `null` fyrir hina hamina, þar sem samsvörunin er á skjalstigi.
 
@@ -87,7 +89,53 @@ Sömu síuviðföng og `/api/search` (án `scope`, `sort`, `page`). Skilar flokk
 
 `?markdown=true` (sjálfgefið) bætir við `markdown` sviði sem er reiknað á staðnum með `renderer.to_markdown()` — RENDER-lagið, aldrei geymt.
 
-Skilar öllum NORM-gildum auk `appeal_links` (úr `document_links`, með `urlausn` tilvitnun hins skjalsins). 404 ef ekki finnst.
+Skilar öllum NORM-gildum auk `appeal_links` (úr `document_links`, aðeins `relation <> 'cites'`, með `urlausn` tilvitnun hins skjalsins) og tilvitnanavæðum:
+
+```json
+{
+  "...": "...",
+  "appeal_links": [{"relation": "appealed_to", "confidence": 1.0, "method": "casenum",
+                     "document_id": "uuid", "source": "haestirettur", "urlausn": "Hrd. 12/2020 …"}],
+  "citations_out": [{"document_id": "uuid", "urlausn": "Hrd. 700/2017 …", "layer": "body",
+                      "passage_id": "uuid", "anchor": "III", "raw_text": "…Hæstaréttar 8. nóvember 2017 í máli nr. 700/2017",
+                      "confidence": 1.0, "also_appeal": false, "same_case": false}],
+  "citations_out_total": 3,
+  "cited_by": [{"document_id": "uuid", "urlausn": "Lrd. 59/2025 …", "document_date": "2025-06-10",
+                "layer": "body", "passage_id": "uuid", "anchor": "12. mgr.", "raw_text": "…",
+                "also_appeal": true, "same_case": false}],
+  "cited_by_total": 1,
+  "citations_unresolved_total": 2
+}
+```
+
+- `citations_out` — leystar tilvitnanir úr `summary`/`body` **sem þetta skjal gerir**, ein röð á hvert `to_doc_id` (sú með lægsta `char_start` í `body`, annars `summary`), raðað eftir dagsetningu vitnaðs skjals; mest 50 auk `citations_out_total` (heildarfjöldi einstakra vitnaðra skjala).
+- `cited_by` — skjöl sem vitna **í þetta**, hvert með sinni fyrstu tilvitnun; nýjast fyrst; mest 50 auk `cited_by_total`.
+- `also_appeal: true` þegar parið líka ber `appealed_to`/`appealed_from`/`leyfisbeidni_um`/`leiddi_til_doms` í hvora áttina sem er — birtingarlagið sýnir slíka færslu **aðeins** undir „Tilvitnanir", ekki tvítekið undir „Tengd mál" (sjá [07-framendi](07-framendi.md)).
+- `same_case: true` þegar `target_case_number`/`target_court` tilvitnunarinnar er sama málsnúmer og dómstóll og skjalið sjálft (t.d. dómur sem vitnar í úrskurð í sama máli).
+- `citations_unresolved_total` — fjöldi `unresolved`+`ambiguous`+`pre_coverage` tilvitnana úr `summary`/`body` sem **ekki** leystust á neitt skjal; birt sem „N tilvitnanir fundust ekki í safninu".
+
+404 ef ekki finnst.
+
+### `GET /api/document/{doc_id}/citations`
+
+Allar leystar tilvitnanir eins skjals, síðuskipt — sama gögn og `citations_out`/`cited_by` í `/api/document/{doc_id}` en með fullri síðuflettingu í stað fyrstu 50.
+
+| Viðfang | Sjálfgefið | Athugasemd |
+|---|---|---|
+| `direction` | `out` | `out` (skjöl sem þetta vitnar í) \| `in` (skjöl sem vitna í þetta) |
+| `page` | 1 | ≥1 |
+| `page_size` | 50 | 1–100 |
+
+```json
+{
+  "direction": "out", "total": 3, "page": 1, "page_size": 50,
+  "items": [{"document_id": "uuid", "urlausn": "Hrd. 700/2017 10. nóvember 2017 – Dómur",
+             "layer": "body", "passage_id": "uuid", "anchor": "III", "raw_text": "…",
+             "confidence": 1.0, "also_appeal": false, "same_case": false}]
+}
+```
+
+404 ef skjalið finnst ekki. **Ógilt `direction` eða `page_size` yfir 100 → HTTP 422** (FastAPI hafnar sjálft, gegnum `Query(pattern=...)`/`Query(le=100)`, áður en meðhöndlarinn keyrir — ekki 400: 400 er frátekið fyrir villur sem koma úr `SearchError` inni í rökfræðinni sjálfri, t.d. ógilt skjala-id-snið. Sjá `tests/test_api_citations.py::test_route_rejects_bad_direction_with_422`).
 
 ### `GET /api/document/{doc_id}/passages`
 

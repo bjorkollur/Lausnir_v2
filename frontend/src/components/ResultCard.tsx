@@ -15,6 +15,11 @@ export function ResultCard({ r }: { r: SearchResult }) {
           {r.urlausn}
         </Link>
         {r.has_appeal_links && <span className="text-xs text-[var(--ink-faint)]" title="Hefur áfrýjunartengingar">⛓ tengt</span>}
+        {r.cited_by_count > 0 && (
+          <span className="text-xs text-[var(--ink-faint)]" title="Hversu oft er vitnað í málið">
+            {r.cited_by_count === 1 ? "vitnað í 1 sinni" : `vitnað í ${r.cited_by_count} sinnum`}
+          </span>
+        )}
       </div>
       <div className="text-sm text-[var(--ink-soft)]">{r.source_display}{r.document_date ? ` · ${r.document_date}` : ""}</div>
       {parties.length > 0 && (() => {

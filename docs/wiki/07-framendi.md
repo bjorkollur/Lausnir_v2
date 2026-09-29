@@ -52,7 +52,8 @@ Snyrtimennska: `proximity_n` er aðeins skrifað í URL þegar það er annað e
 | `ScopeChips` | Virk leitarsvið sem hægt er að fjarlægja |
 | `FacetSidebar` / `FacetNode` | Flokkunartréð með tölum |
 | `ResultsList` / `ResultCard` | Niðurstöður með útdráttum og `anchor` (efnisgreinar-heimilisfang, t.d. „12. mgr.") þegar leitin skilar einni; sjá „Slökuð leit" hér að neðan |
-| `DocPanel` | Skjalabirting (dómar **og** bækur) |
+| `DocPanel` | Skjalabirting (dómar **og** bækur), þ.m.t. „Tengd mál" og „Tilvitnanir" |
+| `CitationList` | Ein átt tilvitnana („Vitnar í" eða „Vitnað í þennan dóm") með „Sýna fleiri" síðuflettingu |
 | `LawPanel` | Lagabirting með ákvæðum |
 | `CatalogTree` / `SourceTree` | Heimildatré |
 | `states.tsx` | Hleðslu-, villu- og tómleikaástand |
@@ -67,6 +68,37 @@ Bakendarök í [05-leit](05-leit.md); þetta er eingöngu birtingin. `types.ts` 
 - `strict_total == 0`: „Engin skjöl innihalda öll leitarorðin. Sýni skjöl sem innihalda flest eða sum þeirra."
 
 `ResultCard` sýnir lítið merki við hlið `anchor`-merkisins þegar `match_tier` er 1 eða 2: „flest orðin" (þrep 1) eða „sum orðin" (þrep 2). Ekkert merki fyrir þrep 0 (og aldrei fyrir hina hamina, þar sem `match_tier` er alltaf 0).
+
+## Tilvitnanir — „Tengd mál" og „Tilvitnanir" í `DocPanel`
+
+Bakendagögnin eru í [02-gagnagrunnur](02-gagnagrunnur.md) (`citations`/`cites`) og [06-api](06-api.md) (`/api/document/{id}`-svæðin, `/api/document/{id}/citations`); þetta er eingöngu birtingin.
+
+**„Tengd mál"** sýnir áfrýjunar-/málskotstengsl (`doc.appeal_links`, `relation <> 'cites'`) með íslenskum merkingum:
+
+| `relation` | Merking |
+|---|---|
+| `appealed_to` | „Áfrýjað til" |
+| `appealed_from` | „Áfrýjað frá" |
+| `leyfisbeidni_um` | „Málskotsbeiðni um" |
+| `leiddi_til_doms` | „Leiddi til dóms" |
+
+Óþekkt `relation`-heiti birtist óbreytt (`RELATION_LABELS[l.relation] ?? l.relation`).
+
+**„Tilvitnanir"** birtist þegar `citations_out_total > 0 || cited_by_total > 0 || citations_unresolved_total > 0`, með tveimur `CitationList`-listum:
+- „Vitnar í (n)" — `doc.citations_out`.
+- „Vitnað í þennan dóm (n)" — `doc.cited_by`.
+
+Hver færsla er `urlausn` sem hlekkur á `/domur/{id}`, og undir henni `raw_text` í smáletri. Merki:
+- `also_appeal` → „(í áfrýjunarkeðju)".
+- `same_case` → „(sama mál)".
+
+**Engin tvítekning:** skjal sem er bæði í `appeal_links` og í `citations_out`/`cited_by` með `also_appeal: true` er **aðeins** sýnt undir „Tilvitnanir" — `relatedLinks` í `DocPanel.tsx` síar það úr „Tengd mál" (`shownAsCitation`-mengið). Þannig lítur eitt raunverulegt tengsl ekki út eins og tvö.
+
+„Sýna fleiri" (í `CitationList`) sækir næstu síðu með `GET /api/document/{id}/citations?direction=…&page=…` og bætir við listann; hnappurinn hverfur þegar `items.length >= total`.
+
+Neðst, ef `citations_unresolved_total > 0`: „1 tilvitnun fannst ekki í safninu" eða „N tilvitnanir fundust ekki í safninu" — tilvitnanir sem fundust í texta en leystust ekki á neitt skjal í safninu (`unresolved`/`ambiguous`/`pre_coverage`), sagt berum orðum svo ófullkominn listi líti ekki út eins og heill.
+
+**Leitarlisti:** `ResultCard` sýnir „vitnað í N sinnum" (eintölu „vitnað í 1 sinni") þegar `r.cited_by_count > 0`, ekkert þegar `0`.
 
 ## Langur lestur — `DocPanel`
 

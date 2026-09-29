@@ -6,7 +6,7 @@ import pytest
 from engine.mcp import server as srv
 
 EXPECTED = ("search", "passage_context", "get_passages", "get_document",
-            "list_sources", "facets", "describe_schema", "sql_query")
+            "list_sources", "facets", "describe_schema", "sql_query", "citations")
 
 
 def test_import_writes_nothing_to_stdout():
@@ -43,6 +43,8 @@ async def test_list_tools_names_and_annotations():
     layer_enum = next(b["enum"] for b in schema["get_passages"]["properties"]["layer"]["anyOf"]
                       if "enum" in b)
     assert layer_enum == ["summary", "body", "lower_body"]
+    assert schema["citations"]["properties"]["direction"]["enum"] == ["out", "in"]
+    assert schema["citations"]["required"] == ["doc_id"]
     # …and the prose lists the sort values too.
     search_desc = next(t.description for t in tools if t.name == "search")
     assert "relevance" in search_desc and "newest" in search_desc and "oldest" in search_desc

@@ -419,9 +419,18 @@ async def search_by_passages(
                bp.id AS passage_id, bp.layer, bp.section_kind, bp.section_path,
                bp.para_from, bp.para_to, bp.ordinal,
                ts_headline('simple', bp.text, {snippet_query}, {_HEADLINE_OPTS}) AS snippet,
+               -- 'cites' is excluded on both sides: a citation is not an appeal
+               -- relation, and the reader lists it under its own heading.
                EXISTS (SELECT 1 FROM document_links dl
-                       WHERE dl.from_doc_id = d.id
-                          OR (dl.to_doc_id = d.id AND dl.relation <> 'leyfisbeidni_um')) AS has_appeal_links
+                       WHERE dl.relation <> 'cites'
+                         AND (dl.from_doc_id = d.id
+                           OR (dl.to_doc_id = d.id AND dl.relation <> 'leyfisbeidni_um'))) AS has_appeal_links,
+               -- 'cites' is one-way (citing → cited), so this is exactly the
+               -- number of documents citing this one. One index scan per page
+               -- row (ix_link_to today, ix_link_to_rel once 0004 is applied);
+               -- measured at ~0 ms for a 20-row page.
+               (SELECT count(*) FROM document_links l
+                WHERE l.to_doc_id = d.id AND l.relation = 'cites') AS cited_by_count
         FROM hits h
         JOIN documents d ON d.id = h.document_id
         JOIN sources s ON s.id = d.source_id
@@ -442,6 +451,7 @@ async def search_by_passages(
             "keywords": r["keywords"] or [], "plaintiffs": r["plaintiffs"] or [], "defendants": r["defendants"] or [],
             "snippet": r["snippet"] or (r["summary"] or "")[:240],
             "has_appeal_links": r["has_appeal_links"],
+            "cited_by_count": r["cited_by_count"],
             "passage_id": str(r["passage_id"]),
             "anchor": passage_anchor(r["layer"], r["para_from"], r["para_to"], r["section_path"], r["ordinal"]),
             "section_kind": r["section_kind"], "layer": r["layer"], "match_count": r["match_count"],
