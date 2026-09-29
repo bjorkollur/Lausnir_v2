@@ -125,3 +125,40 @@ _ACCEPT_RETURN_VALUES = [
 def test_accept_list_return_values_match_expected():
     for sql, expected in _ACCEPT_RETURN_VALUES:
         assert validate_sql(sql) == expected, sql
+
+
+@pytest.mark.parametrize("sql", [
+    # `""` is an escaped quote inside a quoted identifier under Postgres rules,
+    # so the scanner's quote pairing ends up one quote short. Before the fix the
+    # blanked tail made validate_sql return a *truncated* query; now it refuses.
+    r'SELECT "a""b" FROM (SELECT 1 AS "a\"b") q',
+    "SELECT 'abc",
+    "SELECT $$abc",
+    'SELECT * FROM "t',
+    "SELECT $tag$abc",
+])
+def test_unterminated_literal_or_identifier_is_rejected(sql):
+    with pytest.raises(SqlRejected) as ei:
+        validate_sql(sql)
+    assert "Ólokaður" in str(ei.value)
+
+
+@pytest.mark.parametrize("sql", [
+    'SELECT "ok" FROM t',
+    "SELECT 'it''s'",
+    "SELECT $$ok$$ AS s",
+    "SELECT $tag$ok$tag$ AS s",
+])
+def test_properly_closed_literals_are_still_accepted(sql):
+    assert validate_sql(sql) == sql
+
+
+@pytest.mark.parametrize("sql", [
+    "SELECT pg_logical_emit_message(true, 'a', 'b')",
+    "SELECT pg_notify('chan', 'payload')",
+])
+def test_wal_writing_functions_are_rejected(sql):
+    """Both succeed as lausnir_ro inside a READ ONLY transaction and write WAL."""
+    with pytest.raises(SqlRejected) as ei:
+        validate_sql(sql)
+    assert "er ekki leyft" in str(ei.value)

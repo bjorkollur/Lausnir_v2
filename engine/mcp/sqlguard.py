@@ -12,7 +12,7 @@ import re
 
 _ALLOWED_FIRST = ("SELECT", "WITH", "EXPLAIN", "SHOW", "TABLE", "VALUES")
 _MODIFYING = re.compile(r"\b(INSERT|UPDATE|DELETE|MERGE|DROP|ALTER|CREATE|TRUNCATE|GRANT|REVOKE|COPY|VACUUM|REINDEX|CLUSTER|LOCK|CALL|DO)\b", re.I)
-_FORBIDDEN_FUNCS = re.compile(r"\b(pg_sleep|pg_sleep_for|pg_sleep_until|pg_read_file|pg_read_binary_file|pg_ls_dir|pg_stat_file|lo_import|lo_export|lo_unlink|dblink|dblink_exec|pg_terminate_backend|pg_cancel_backend|set_config|pg_reload_conf|pg_advisory_lock|pg_advisory_lock_shared|pg_advisory_xact_lock|pg_try_advisory_lock)\b", re.I)
+_FORBIDDEN_FUNCS = re.compile(r"\b(pg_sleep|pg_sleep_for|pg_sleep_until|pg_read_file|pg_read_binary_file|pg_ls_dir|pg_stat_file|lo_import|lo_export|lo_unlink|dblink|dblink_exec|pg_terminate_backend|pg_cancel_backend|set_config|pg_reload_conf|pg_advisory_lock|pg_advisory_lock_shared|pg_advisory_xact_lock|pg_try_advisory_lock|pg_logical_emit_message|pg_notify)\b", re.I)
 _SELECT_INTO = re.compile(r"\bSELECT\b(?:(?!\bFROM\b).)*?\bINTO\b", re.I | re.S)
 # A dollar-quote tag: `$$` (empty tag) or `$tag$` (tag starts with a letter/underscore).
 _DOLLAR_TAG = re.compile(r"\$[A-Za-z_][A-Za-z0-9_]*\$|\$\$")
@@ -31,7 +31,7 @@ class SqlRejected(ValueError):
     """Raised with an Icelandic reason the LLM can act on."""
 
 
-def _strip_comments_and_literals(sql: str) -> str:
+def _scan(sql: str) -> tuple[str, bool]:
     """Blank out comments, string/dollar-quoted literals and quoted-identifier
     bodies so keywords or semicolons inside them ('%delete%', 'a;b', "update")
     don't trigger the structural checks. Every blanked span is replaced with
@@ -41,8 +41,15 @@ def _strip_comments_and_literals(sql: str) -> str:
     comments then look like trailing whitespace); literal/identifier bodies
     become `_FILL` with their delimiters kept, so a literal at the very end
     of the query is never mistaken for trimmable trailing whitespace.
+
+    Returns ``(masked, unterminated)``. ``unterminated`` is True when a
+    literal, quoted identifier or dollar-quote was opened and never closed:
+    the mask then has no way to represent the tail faithfully, and returning
+    the truncated remainder would silently change the query, so validate_sql
+    rejects it outright.
     """
     out, i, n = [], 0, len(sql)
+    unterminated = False
     while i < n:
         ch = sql[i]
         if sql.startswith("--", i):
@@ -60,6 +67,7 @@ def _strip_comments_and_literals(sql: str) -> str:
             close = sql.find(tag, i + len(tag))
             if close == -1:
                 out.append(tag + _FILL * (n - i - len(tag)))
+                unterminated = True
                 i = n
             else:
                 content_len = close - (i + len(tag))
@@ -89,11 +97,13 @@ def _strip_comments_and_literals(sql: str) -> str:
             else:
                 # Unterminated literal: keep the opening quote, fill the rest.
                 out.append("'" + _FILL * (span_len - 1))
+                unterminated = True
             i = j
         elif ch == '"':
             j = sql.find('"', i + 1)
             if j == -1:
                 out.append('"' + " " * (n - i - 1))
+                unterminated = True
                 i = n
             else:
                 out.append('"' + " " * (j - i - 1) + '"')
@@ -101,14 +111,22 @@ def _strip_comments_and_literals(sql: str) -> str:
         else:
             out.append(ch)
             i += 1
-    return "".join(out)
+    return "".join(out), unterminated
+
+
+def _strip_comments_and_literals(sql: str) -> str:
+    return _scan(sql)[0]
 
 
 def validate_sql(sql: str) -> str:
     if sql is None or not sql.strip():
         raise SqlRejected("Fyrirspurnin er tóm.")
 
-    masked = _strip_comments_and_literals(sql)
+    masked, unterminated = _scan(sql)
+    if unterminated:
+        # Without this the masked tail is blanked and the query would be
+        # silently truncated to something the user never wrote.
+        raise SqlRejected("Ólokaður strengur eða auðkenni (gæsalappir/dollaramerki vantar).")
 
     # `start`/`end` bound the "real" query inside `sql`, trimming outer
     # whitespace and (via `masked`, where comments are already blank) any
