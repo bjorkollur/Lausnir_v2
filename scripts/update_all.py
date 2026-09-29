@@ -176,6 +176,20 @@ def run_all(
             ok, elapsed = _run_script("passages_refresh", cmd, log_path)
             results.append(("passages_refresh", ok, elapsed))
 
+    # 5. Rebuild citations for documents whose text changed (citation_hash stale),
+    # then re-resolve rows that could not be linked before the new documents
+    # existed. Must run after step 4 (docs/wiki/04-innflutningur.md § keyrsluröð).
+    # Cheap when nothing is new; see engine/processors/citation_build.py.
+    if not (skip and "citations" in skip):
+        cit_script = _SCRIPTS_DIR / "build_citations.py"
+        if cit_script.exists():
+            for name, extra in (("citations_refresh", "--all"),
+                                ("citations_relink", "--relink-unresolved")):
+                cmd = ["uv", "run", "python", str(cit_script), extra]
+                log_path = _LOG_DIR / f"{name}.log"
+                ok, elapsed = _run_script(name, cmd, log_path)
+                results.append((name, ok, elapsed))
+
     # Summary
     total = len(results)
     failed = [(n, e) for n, ok, e in results if not ok]
@@ -201,8 +215,8 @@ if __name__ == "__main__":
     parser.add_argument("--only", nargs="+", metavar="SOURCE",
                         help="Run only these sources")
     parser.add_argument("--skip", nargs="+", metavar="SOURCE",
-                        help="Skip these sources (also accepts 'fts' and 'passages' "
-                             "to skip the respective post-import refresh steps)")
+                        help="Skip these sources (also accepts 'fts', 'passages' and "
+                             "'citations' to skip the respective post-import refresh steps)")
     parser.add_argument("--new-only", action="store_true",
                         help="Only fetch documents not yet in DB (fast incremental update)")
     args = parser.parse_args()

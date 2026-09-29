@@ -45,8 +45,8 @@ write_markdown(doc, config, vf=verdict_filename)
 | `backfill_render_all.py --source X` | Endurgerir allar `.md` skrár | Eftir breytingu á renderer |
 | `backfill_book_metadata.py` | Sækir ISBN/útgefanda/höfunda aftur | Eftir 2026-07-27 skemabreytinguna |
 | `link_appeals.py` | Byggir `document_links` áfrýjunarkeðjuna | Eftir innflutning á dómstólum |
-| `build_citations.py --all` | Dregur út og leysir tilvitnanir milli dóma (`citations` + afleiddar `cites`-brýr) fyrir öll úrelt skjöl (`citation_hash` vantar/stemmir ekki) | **Eftir hvern innflutning á dómstólaheimildunum sjö** (sjá „Keyrsluröð" hér að neðan) |
-| `build_citations.py --relink-unresolved` | Endurleysir `unresolved`/`ambiguous` raðir gegn uppfærðum vísi, **án** endurdráttar | Eftir að nýtt markskjal (sem eldri tilvitnun vísaði ranglega óleyst á) bætist í safnið |
+| `build_citations.py --all` | Dregur út og leysir tilvitnanir milli dóma (`citations` + afleiddar `cites`-brýr) fyrir öll úrelt skjöl (`citation_hash` vantar/stemmir ekki) | **Eftir hvern innflutning á dómstólaheimildunum sjö** — keyrt sjálfkrafa af `update_all.py` sem skref 5 (`citations_refresh`), sjá „Keyrsluröð" hér að neðan |
+| `build_citations.py --relink-unresolved` | Endurleysir `unresolved`/`ambiguous` raðir gegn uppfærðum vísi, **án** endurdráttar | Eftir að nýtt markskjal (sem eldri tilvitnun vísaði ranglega óleyst á) bætist í safnið — keyrt sjálfkrafa af `update_all.py` strax á eftir `--all` (`citations_relink`) |
 
 ## `update_all.py` — heildarkeyrsla
 
@@ -57,7 +57,7 @@ uv run python scripts/update_all.py --only haestirettur landsrettur
 uv run python scripts/update_all.py --skip logfraediritgerdir
 ```
 
-Keyrir hverja heimild í röð, loggar í `/tmp/lausnir_update/{heimild}.log`.
+Keyrir hverja heimild í röð, loggar í `/tmp/lausnir_update/{heimild}.log`. Á eftir heimildunum koma þrjú eftirvinnsluskref: `fts_refresh` (3), `passages_refresh` (4) og tilvitnanir (5 — `citations_refresh` + `citations_relink`). `--skip` tekur líka við `fts`, `passages` og `citations` til að sleppa þeim.
 
 **`--new-only`** virkar aðeins fyrir heimildir í `_NEW_ONLY_CAPABLE` (19 heimildir). Þær styðja allar að hætta um leið og þekkt skjal finnst — t.d. `umbodsmadur` byrjar á `max(id)+1` og hættir eftir 50 samfelld 404, `fjolmidlanefnd` les WP REST í dagsetningarröð og hættir við fyrsta þekkta færslu. Stjornarradid-heimildir sleppa þekktum skjölum sjálfgefið.
 
@@ -74,6 +74,8 @@ Byggir `citations` (tafla, spec `2026-09-29-citations-design.md`) og afleiddar `
 ```
 backfill_passages.py  →  build_citations.py --all  →  build_citations.py --relink-unresolved
 ```
+
+`update_all.py` keyrir þetta **sjálfkrafa sem skref 5** (á eftir `passages_refresh`, skref 4): fyrst `build_citations.py --all` (`citations_refresh`), svo `build_citations.py --relink-unresolved` (`citations_relink`), hvort í sinni loggskrá undir `/tmp/lausnir_update/`. Eins og önnur skref stöðva þau ekki keyrsluna þótt þau mistakist — villan er logguð og birtist í lokasamantektinni. `--skip citations` sleppir báðum.
 
 Ástæðan: `build_citations.py` les `summary`/`body_text`/`lower_body_text` beint af `documents`, ekki af `passages`, svo röðin er ekki um gagnaháð milli þeirra tveggja — en efnisgreinarnar verða að vera í lagi **áður** en tilvitnanir eru byggðar, því birtingarlagið (API/framendi/MCP) finnur `anchor` fyrir hverja tilvitnun með því að fletta `char_start` upp í `passages` (sjá `citations`-töfluna í [02-gagnagrunnur](02-gagnagrunnur.md), „Hvers vegna enginn `passage_id`"); úreltar efnisgreinar þar myndu birta ranga eða vantandi `anchor` fyrir annars réttar tilvitnanir. `--relink-unresolved` keyrir síðast og eingöngu gegn `unresolved`/`ambiguous` röðum, án nokkurs endurdráttar — gagnlegt eftir að nýtt skjal bætist í safnið sem eldri tilvitnun vísaði á en gat ekki leyst á sínum tíma.
 
