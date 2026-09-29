@@ -1,4 +1,4 @@
-import type { SearchParams, SearchResponse, FacetsResponse, SourcesResponse, DocumentDetail, LawDetail } from "./types";
+import type { SearchParams, SearchResponse, FacetsResponse, SourcesResponse, DocumentDetail, CitationsResponse, LawDetail } from "./types";
 
 const BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8077";
 
@@ -61,4 +61,12 @@ export function fetchFacets(
 export const fetchSources = () => getJson<SourcesResponse>("/api/sources");
 export const fetchDocument = (id: string) => getJson<DocumentDetail>(`/api/document/${id}`);
 export const documentPdfUrl = (id: string) => `${BASE}/api/document/${id}/pdf`;
+/** One page of a document's citations. `/api/document/:id` already carries the
+ * first page of both directions, so this is only for "Sýna fleiri". */
+export function fetchCitations(
+  id: string, direction: "out" | "in", page = 1, pageSize = 50,
+): Promise<CitationsResponse> {
+  const qs = new URLSearchParams({ direction, page: String(page), page_size: String(pageSize) });
+  return getJson<CitationsResponse>(`/api/document/${id}/citations`, qs);
+}
 export const fetchLaw = (id: string) => getJson<LawDetail>(`/api/law/${id}`);
