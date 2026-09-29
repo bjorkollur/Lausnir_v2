@@ -43,27 +43,28 @@ from engine.processors.citation_build import STALE_WHERE  # noqa: E402
 
 def test_selection_since_is_bound_as_a_date():
     """asyncpg binds documents.document_date strictly — a str is a DataError."""
-    _, params = selection(force=False, source=None, doc=None, since="2020-01-01", has_col=True)
-    assert params["since"] == dt.date(2020, 1, 1)
-    assert isinstance(params["since"], dt.date) and not isinstance(params["since"], str)
-    _, params = selection(force=False, source=None, doc=None, since=dt.date(2020, 1, 1), has_col=True)
-    assert params["since"] == dt.date(2020, 1, 1)
+    sel = selection(force=False, source=None, doc=None, since="2020-01-01", has_col=True)
+    assert sel.params["since"] == dt.date(2020, 1, 1)
+    assert isinstance(sel.params["since"], dt.date) and not isinstance(sel.params["since"], str)
+    sel = selection(force=False, source=None, doc=None, since=dt.date(2020, 1, 1), has_col=True)
+    assert sel.params["since"] == dt.date(2020, 1, 1)
 
 
 def test_selection_staleness_predicate_follows_has_col_and_force():
-    stale, _ = selection(force=False, source=None, doc=None, since=None, has_col=True)
-    assert STALE_WHERE in stale
+    stale = selection(force=False, source=None, doc=None, since=None, has_col=True)
+    assert STALE_WHERE in stale.where_sql and stale.warn is False
     # Without documents.citation_hash (0004 not applied) there is no staleness to
-    # read — every document counts as stale rather than the query erroring.
-    no_col, _ = selection(force=False, source=None, doc=None, since=None, has_col=False)
-    assert STALE_WHERE not in no_col
-    forced, _ = selection(force=True, source=None, doc=None, since=None, has_col=True)
-    assert STALE_WHERE not in forced
+    # read — every document counts as stale rather than the query erroring, and
+    # the caller is told to warn.
+    no_col = selection(force=False, source=None, doc=None, since=None, has_col=False)
+    assert STALE_WHERE not in no_col.where_sql and no_col.warn is True
+    forced = selection(force=True, source=None, doc=None, since=None, has_col=True)
+    assert STALE_WHERE not in forced.where_sql and forced.warn is False
 
 
 def test_selection_doc_wins_and_source_is_bound():
-    where, params = selection(force=False, source="haestirettur", doc="abc", since="2020-01-01", has_col=True)
-    assert where == "d.id = :doc" and params == {"doc": "abc"}
-    where, params = selection(force=True, source="felagsdomur", doc=None, since=None, has_col=True)
-    assert "s.short_name = :sn" in where and params["sn"] == "felagsdomur"
-    assert "s.short_name = ANY(:sources)" in where
+    sel = selection(force=False, source="haestirettur", doc="abc", since="2020-01-01", has_col=True)
+    assert sel.where_sql == "d.id = :doc" and sel.params == {"doc": "abc"} and sel.warn is False
+    sel = selection(force=True, source="felagsdomur", doc=None, since=None, has_col=True)
+    assert "s.short_name = :sn" in sel.where_sql and sel.params["sn"] == "felagsdomur"
+    assert "s.short_name = ANY(:sources)" in sel.where_sql

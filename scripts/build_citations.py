@@ -29,6 +29,7 @@ import re
 import sys
 import time
 from collections import Counter, defaultdict
+from typing import NamedTuple
 from datetime import date
 from multiprocessing import Pool
 from pathlib import Path
@@ -117,24 +118,35 @@ class _Stats:
                 log.info("    %6d  %s", n, shape[:100])
 
 
+NO_HASH_WARNING = "citation_hash missing — treating every document as stale (apply alembic 0004)"
+
+
+class Selection(NamedTuple):
+    where_sql: str
+    params: dict
+    warn: bool          # documents.citation_hash is missing; caller logs NO_HASH_WARNING
+
+
 def selection(*, force: bool, source: str | None, doc: str | None,
-              since: str | date | None, has_col: bool) -> tuple[str, dict]:
+              since: str | date | None, has_col: bool) -> Selection:
     """WHERE clause + bind params for the documents to (re)build.
 
-    Pure, so the predicate choice is unit-testable. `has_col` says whether
-    documents.citation_hash exists: without it there is no staleness to speak
-    of (migration 0004 has not run), so every document counts as stale.
+    Pure (it logs nothing), so the predicate choice is unit-testable. `has_col`
+    says whether documents.citation_hash exists: without it there is no
+    staleness to speak of (migration 0004 has not run), so every document
+    counts as stale and `warn` is set for the caller to report.
     """
     if doc:
-        return "d.id = :doc", {"doc": doc}
+        return Selection("d.id = :doc", {"doc": doc}, False)
     params: dict = {"sources": list(COURT_SOURCES)}
     where = ["s.short_name = ANY(:sources)"]
+    warn = False
     if force:
         pass                                   # --force: staleness ignored on purpose
     elif has_col:
         where.append(STALE_WHERE)
     else:
-        log.warning("citation_hash missing — treating every document as stale (apply alembic 0004)")
+        warn = True
     if source:
         where.append("s.short_name = :sn")
         params["sn"] = source
@@ -142,22 +154,22 @@ def selection(*, force: bool, source: str | None, doc: str | None,
         where.append("d.document_date >= :since")
         # asyncpg binds a DATE column strictly: a str here is a DataError.
         params["since"] = date.fromisoformat(since) if isinstance(since, str) else since
-    return " AND ".join(where), params
+    return Selection(" AND ".join(where), params, warn)
 
 
 async def _load_index_rows(conn) -> list[tuple]:
     return [tuple(r) for r in (await conn.execute(text(INDEX_SQL), {"sources": list(COURT_SOURCES)})).all()]
 
 
-_HAS_COL_SQL = text("SELECT 1 FROM information_schema.columns "
-                    "WHERE table_name = 'documents' AND column_name = 'citation_hash'")
+_HAS_COL_SQL = text("SELECT 1 FROM information_schema.columns WHERE table_schema = 'public' "
+                    "AND table_name = 'documents' AND column_name = 'citation_hash'")
 
 
 async def _has_citation_hash(conn) -> bool:
     return bool((await conn.execute(_HAS_COL_SQL)).scalar())
 
 
-async def build(*, all_docs: bool, force: bool, source: str | None, doc: str | None, since: str | None,
+async def build(*, all_docs: bool, force: bool, source: str | None, doc: str | None, since: date | None,
                 limit: int | None, workers: int, dry_run: bool) -> None:
     if not (all_docs or source or doc or since):
         raise SystemExit("nothing selected: pass --all, --source, --doc or --since "
@@ -173,8 +185,10 @@ async def build(*, all_docs: bool, force: bool, source: str | None, doc: str | N
     engine = await get_engine()
 
     async with engine.connect() as conn:
-        where_sql, params = selection(force=force, source=source, doc=doc, since=since,
-                                      has_col=await _has_citation_hash(conn))
+        where_sql, params, warn = selection(force=force, source=source, doc=doc, since=since,
+                                            has_col=await _has_citation_hash(conn))
+        if warn:
+            log.warning(NO_HASH_WARNING)
         index_rows = await _load_index_rows(conn)
         ids = (await conn.execute(text(f"""
             SELECT d.id FROM documents d JOIN sources s ON s.id = d.source_id

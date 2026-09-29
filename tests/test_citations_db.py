@@ -81,11 +81,14 @@ async def test_rebuild_is_scoped():
         other = (await conn.execute(text("SELECT count(*) FROM citations WHERE from_doc_id <> :id"), {"id": d.id})).scalar()
         # A sentinel row owned by a DIFFERENT document: rebuild_citations must not
         # see it, let alone delete it. Rolled back with the rest of the transaction.
-        sentinel_doc = (await conn.execute(text("SELECT id FROM documents WHERE id <> :id LIMIT 1"), {"id": d.id})).scalar()
+        sentinel_doc = (await conn.execute(
+            text("SELECT id FROM documents WHERE id <> :id ORDER BY id LIMIT 1"), {"id": d.id})).scalar()
         sentinel_id = uuid.uuid4()
+        # char offsets far past any real document, so the row cannot collide with
+        # a genuine citation once the corpus is built.
         await conn.execute(text("""
             INSERT INTO citations (id, from_doc_id, layer, char_start, char_end, raw_text, target_court, status)
-            VALUES (:cid, :did, 'body', 0, 1, 'x', 'Hrd.', 'unresolved')"""),
+            VALUES (:cid, :did, 'body', 2000000000, 2000000001, 'x', 'Hrd.', 'unresolved')"""),
             {"cid": sentinel_id, "did": sentinel_doc})
         await rebuild_citations(conn, d.id, summary=d.summary, body=d.body_text, lower=d.lower_body_text, doc_date=d.document_date, index=idx)
         assert (await conn.execute(text("SELECT count(*) FROM document_links WHERE relation <> 'cites'"))).scalar() == before_links
