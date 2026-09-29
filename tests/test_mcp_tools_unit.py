@@ -94,3 +94,13 @@ async def test_passage_context_and_get_passages_clamp_args():
     with pytest.raises(ToolInputError):
         await tools.get_passages_tool(_Sess(), doc_id="not-a-uuid")
     assert tools.CONTEXT_MAX == 10 and tools.PASSAGES_COUNT_MAX == 50 and tools.DOC_TEXT_MAX_CHARS == 40_000
+
+
+async def test_sql_query_rejects_before_touching_db():
+    class _Boom:
+        def begin(self): raise AssertionError("must not reach the DB")
+    with pytest.raises(ToolInputError) as ei:
+        await tools.sql_query(_Boom(), sql="DELETE FROM documents")
+    assert "SELECT" in str(ei.value)
+    with pytest.raises(ToolInputError):
+        await tools.sql_query(_Boom(), sql="SELECT pg_sleep(20)")

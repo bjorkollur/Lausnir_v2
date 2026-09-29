@@ -8,6 +8,7 @@ testable without a protocol layer.
 from __future__ import annotations
 
 import datetime as _dt
+import time as _time
 import uuid
 from typing import Any
 
@@ -17,7 +18,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from engine.config.source_groups import annotate_counts, catalog, resolve_scope
 from engine.config.sources import SOURCE_REGISTRY, get_config
 from engine.database.models import Document
-from engine.mcp.shaping import compact_passage, compact_search_result, jsonable, truncate_text
+from engine.mcp.shaping import cell_value, compact_passage, compact_search_result, jsonable, truncate_text
+from engine.mcp.sqlguard import SqlRejected, validate_sql
 from engine.processors.renderer import to_markdown
 from engine.search.passage_search import get_passages, validate_section_kinds
 from engine.search.queries import SearchError, facet_counts, get_document, search_documents
@@ -290,3 +292,81 @@ async def facets(session: AsyncSession, *, q: str = "", mode: str = "keyword",
     for cat in catalog():
         _flatten_groups(annotate_counts(cat, by_source, by_source_vt), by_group)
     return {"by_source": dict(by_source), "by_group": by_group}
+
+
+# ── schema / sql ───────────────────────────────────────────────────────────────
+
+SQL_MAX_ROWS = 1000
+SQL_DEFAULT_ROWS = 200
+SQL_TIMEOUT = "15s"
+
+_TABLE_DESCRIPTIONS = {
+    "documents": "Eitt skjal á röð (dómur, úrskurður, ákvörðun, lagakafli). NORM-dálkar + raw_api_data (RAW, stórt JSONB).",
+    "passages": "Efnisgreinar skjala, leitareining orðaleitar. (document_id, ordinal) einkvæmt; fts_is er GIN-vísað.",
+    "sources": "Heimildir (short_name, display_name). documents.source_id → sources.id.",
+    "document_links": "Tengingar milli skjala (t.d. málskotsbeiðni → Landsréttardómur), relation/confidence/method.",
+    "alembic_version": "Skemaútgáfa (alembic).",
+}
+_TABLE_NOTES = {
+    "documents": "raw_api_data er stórt JSONB (öll API-svörin); veldu einstaka lykla (raw_api_data->>'x') en aldrei dálkinn í heild. body_text/lower_body_text eru fullir textar; notaðu passages fyrir lesanleg brot.",
+    "passages": "text getur verið langt; sía fyrst á document_id eða fts_is @@ to_tsquery('simple', …).",
+}
+
+
+async def describe_schema(session: AsyncSession, *, table: str | None = None) -> dict:
+    if table is None:
+        rows = (await session.execute(text("""
+            SELECT c.relname AS name, c.reltuples::bigint AS approx_rows
+            FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace
+            WHERE n.nspname = 'public' AND c.relkind = 'r' ORDER BY c.relname"""))).mappings().all()
+        return {"tables": [{"name": r["name"], "approx_rows": max(0, int(r["approx_rows"])),
+                            "description": _TABLE_DESCRIPTIONS.get(r["name"], "")} for r in rows]}
+    cols = (await session.execute(text("""
+        SELECT column_name AS name, udt_name AS type, is_nullable = 'YES' AS nullable
+        FROM information_schema.columns
+        WHERE table_schema = 'public' AND table_name = :t ORDER BY ordinal_position"""), {"t": table})).mappings().all()
+    if not cols:
+        raise ToolInputError(f"Tafla fannst ekki: {table!r}. Kallaðu á describe_schema án table til að sjá lista.")
+    idx = (await session.execute(text(
+        "SELECT indexname AS name, indexdef AS definition FROM pg_indexes WHERE schemaname = 'public' AND tablename = :t ORDER BY indexname"),
+        {"t": table})).mappings().all()
+    return {"table": table, "description": _TABLE_DESCRIPTIONS.get(table, ""),
+            "columns": [dict(c) for c in cols], "indexes": [dict(i) for i in idx],
+            "notes": _TABLE_NOTES.get(table, "")}
+
+
+async def sql_query(session: AsyncSession, *, sql: str, max_rows: int = SQL_DEFAULT_ROWS) -> dict:
+    try:
+        clean = validate_sql(sql)
+    except SqlRejected as exc:
+        raise ToolInputError(str(exc))
+    max_rows = _clamp(max_rows, 1, SQL_MAX_ROWS, SQL_DEFAULT_ROWS)
+    t0 = _time.perf_counter()
+    try:
+        async with session.begin():
+            await session.execute(text("SET TRANSACTION READ ONLY"))
+            await session.execute(text(f"SET LOCAL statement_timeout = '{SQL_TIMEOUT}'"))
+            result = await session.execute(text(clean))
+            columns = list(result.keys())
+            raw = result.fetchmany(max_rows + 1)
+    except Exception as exc:  # asyncpg errors arrive wrapped in sqlalchemy DBAPIError
+        msg = str(getattr(exc, "orig", exc))
+        low = msg.lower()
+        if "canceling statement due to statement timeout" in low or "querycancelederror" in low:
+            raise ToolInputError(f"Fyrirspurn féll á {SQL_TIMEOUT} tímamörkum.")
+        if "permission denied" in low or "read-only transaction" in low or "insufficientprivilege" in low:
+            raise ToolInputError("Lesaðgangshlutverkið má ekki gera þetta.")
+        raise ToolInputError(f"Villa í fyrirspurn: {msg.splitlines()[0] if msg else exc.__class__.__name__}")
+    elapsed = int((_time.perf_counter() - t0) * 1000)
+    truncated_rows = len(raw) > max_rows
+    raw = raw[:max_rows]
+    rows, truncated_cells = [], 0
+    for r in raw:
+        out_row = []
+        for v in r:
+            val, cut = cell_value(v)
+            truncated_cells += int(cut)
+            out_row.append(val)
+        rows.append(out_row)
+    return {"columns": columns, "rows": rows, "row_count": len(rows),
+            "truncated_rows": truncated_rows, "truncated_cells": truncated_cells, "elapsed_ms": elapsed}
