@@ -1,7 +1,7 @@
 # Tilvitnanir milli dóma (case-to-case citations) — hönnun
 
 **Dagsetning:** 2026-09-29 (endurskoðuð sama dag eftir gagnrýna yfirferð; 14 atriði löguð, sjá kafla 14)
-**Staða:** Samþykkt hönnun í spjalli 2026-09-29. Áætlun: `docs/superpowers/plans/2026-09-29-citations.md`.
+**Staða:** Innleitt 2026-09-29 á grein feat/citations; niðurstöður í áætluninni. Áætlun: `docs/superpowers/plans/2026-09-29-citations.md` (`## Niðurstöður keyrslu (2026-09-29)` og `## Nákvæmniúttekt` fyrir tölur og nákvæmnimælingu).
 **Forsaga:** `docs/2026-09-27-mat-a-adferdafraedi-og-llm-leit.md` nefndi tilvitnanir milli dóma sem næstu rannsóknarvirkni á eftir leit og MCP. `document_links` ber í dag áfrýjunarkeðjuna (`appealed_to`/`appealed_from`) og málskotsbeiðnir (`leyfisbeidni_um`, `leiddi_til_doms`); tilvitnanir í lög eru í `documents.cited_provisions`.
 
 ## 1. Markmið
@@ -213,3 +213,13 @@ Tvær aðgerðir snerta lifandi grunninn og bíða sérstaks „já“ frá nota
 ## 14. Breytingar eftir gagnrýna yfirferð 2026-09-29
 
 `char_start` = bil númersins (upptalningar); afstæðar dagsetningar leystar rétt („sama ár“ → fyrra ártal setningar, „sl.“ → ár/ár−1); `target_tier` fellt út og `instance_tier`-fullyrðing leiðrétt; `F-` → Félagsdómur; átta réttar héraðsdómsskammstafanir með vörpunartöflu; málskotsbeiðnir gerðar nothæfar (`2023-65`, `Ákvörðun`); nákvæm `court`-samsvörun; framburður dómstóls innan setningar með endurmælingu; dagsetning aðeins milli dómstóls og númers eða kynnt með „frá“; þrengingarskref 4 fellt út og tæmdur hópur → `unresolved`; `cites`-brún haldið fyrir áfrýjunarpör með `also_appeal`; `passage_id` ekki geymt; `citation_hash` dálkur í stað sértöflu; „fyrsta tilvitnun“ skilgreind og `ix_link_to_rel` bætt við; sjálfstæður sannprófari og lagskipting í úttekt; `summary`-lag tekið með; `same_case`; pre-1999 regla orðuð sem „enginn frambjóðandi og ár ≤ 1998“.
+
+## 15. Viðbót eftir innleiðingu (2026-09-29)
+
+Fimm atriði komu í ljós við innleiðingu og aðlöguðu hönnunina lítillega frá kafla 1–14 hér að ofan — kóðinn er heimildin þar sem þessi skjöl greinir á:
+
+- **Félagsdómur — `F-`-fallleið í vísinum.** §6.2 nefndi ekki að bara-tölu-lykillinn (`13/2001`) og `F-`-forskeytti lykillinn (`F-13/2001`) þyrftu báðir að reynast fyrir `target_court == 'Féld.'`. Án hennar missti bara-lykillinn af öllum Félagsdómsmálum sem birtust eftir 2010-skiptin, af því dómstexti vitnar áfram í bara-tölu-formið óháð ártali skjalsins sjálfs. Sjá `CitationIndex.candidates()` í `citation_resolver.py` og [09-gildrur](../../wiki/09-gildrur.md). Mæld áhrif: +0,87 hlutfallsstig þekju (deterministic A/B).
+- **Afstæð ár verða að vera stök tákn.** `_YEAR_RX` í §5.5 var upphaflega `\b(1[89]\d\d|20\d\d)\b`, sem passaði líka við ártalið falið inni í `nr. 91/1991` eða `2020-2021`. Reglan er nú: hvorki tölustafur né `/` né `-` má standa við hlið ártalsins á hvorn veg (sjá `citations.py`).
+- **HTTP 422, ekki 400, fyrir ógild `direction`/`page_size` á `/api/document/{id}/citations`.** §8.1 orðaði það sem „400 við rangt `direction`". Útfærslan notar `Query(pattern=...)`/`Query(le=100)`, svo FastAPI hafnar sjálft áður en meðhöndlarinn keyrir — það er 422 (staðfest fyrirspurn ógild), ekki 400 (sem er frátekið fyrir `SearchError` úr rökfræðinni sjálfri, t.d. ógilt skjala-id).
+- **Dómsorð-athugunin í nákvæmniúttektinni er skráð en ekki metin til gæðaviðmiðsins.** §9-athugun (d) („dómsorð á undan dómstólsorði = `target.verdict_type`") mælir merkingu heimildarinnar á `verdict_type`, ekki hvort tenglinum sé rétt beint — Hæstiréttur merkir kærumál oft `Úrskurður` í `verdict_type` en orðar tilvitnunina „dómi …". Úttektin heldur `verdict`-dálkinn (talinn sér sem `vmis`-frávik) en fellir hann úr `mech_ok`/`mech_fail`-heildarniðurstöðunni. Sjá `scripts/audit_citations.py`.
+- **Sannprófarinn í úttektinni beitir virka (§5.3) dómstólnum, ekki bara orðinu.** Forskeytisregla §5.3 (`F-` alltaf Félagsdómur, annað bókstafsforskeyti alltaf héraðsdómstóll, `YYYY-N` alltaf málskotsbeiðni) á líka við í sjálfstæða sannprófaranum: dómstóllinn sem númerið sjálft gefur til kynna (sé eitthvað) vinnur gegn dómstólsorðinu, annars er orðið notað. Án þessa féllu réttar tilvitnanir í úttektinni á fölskum forsendum þegar númer og orð stönguðust vísvitandi á. Sjá `_court_from_number`/`_last_court` í `scripts/audit_citations.py`.

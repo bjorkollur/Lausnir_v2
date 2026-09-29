@@ -45,6 +45,8 @@ write_markdown(doc, config, vf=verdict_filename)
 | `backfill_render_all.py --source X` | Endurgerir allar `.md` skrár | Eftir breytingu á renderer |
 | `backfill_book_metadata.py` | Sækir ISBN/útgefanda/höfunda aftur | Eftir 2026-07-27 skemabreytinguna |
 | `link_appeals.py` | Byggir `document_links` áfrýjunarkeðjuna | Eftir innflutning á dómstólum |
+| `build_citations.py --all` | Dregur út og leysir tilvitnanir milli dóma (`citations` + afleiddar `cites`-brýr) fyrir öll úrelt skjöl (`citation_hash` vantar/stemmir ekki) | **Eftir hvern innflutning á dómstólaheimildunum sjö** (sjá „Keyrsluröð" hér að neðan) |
+| `build_citations.py --relink-unresolved` | Endurleysir `unresolved`/`ambiguous` raðir gegn uppfærðum vísi, **án** endurdráttar | Eftir að nýtt markskjal (sem eldri tilvitnun vísaði ranglega óleyst á) bætist í safnið |
 
 ## `update_all.py` — heildarkeyrsla
 
@@ -62,6 +64,36 @@ Keyrir hverja heimild í röð, loggar í `/tmp/lausnir_update/{heimild}.log`.
 ## Checkpoints
 
 `checkpoints/{heimild}.json` — 21 skrá. Geymir framvindu innflutnings svo hægt sé að halda áfram eftir hrun án þess að byrja upp á nýtt.
+
+## Tilvitnanir milli dóma — `build_citations.py`
+
+Byggir `citations` (tafla, spec `2026-09-29-citations-design.md`) og afleiddar `cites`-brýr í `document_links`. Hreinn útdráttur (`engine/processors/citations.py`) og leysari (`engine/processors/citation_resolver.py`) keyra án gagnagrunnstengingar; skriftan sjálf annast lestur/skrif og `multiprocessing.Pool` (sama mynstur og `backfill_passages.py` — útdráttur í vinnsluferlum, skrif í aðalferli).
+
+**Keyrsluröð eftir innflutning:**
+
+```
+backfill_passages.py  →  build_citations.py --all  →  build_citations.py --relink-unresolved
+```
+
+Ástæðan: `build_citations.py` les `summary`/`body_text`/`lower_body_text` beint af `documents`, ekki af `passages`, svo röðin er ekki um gagnaháð milli þeirra tveggja — en efnisgreinarnar verða að vera í lagi **áður** en tilvitnanir eru byggðar, því birtingarlagið (API/framendi/MCP) finnur `anchor` fyrir hverja tilvitnun með því að fletta `char_start` upp í `passages` (sjá `citations`-töfluna í [02-gagnagrunnur](02-gagnagrunnur.md), „Hvers vegna enginn `passage_id`"); úreltar efnisgreinar þar myndu birta ranga eða vantandi `anchor` fyrir annars réttar tilvitnanir. `--relink-unresolved` keyrir síðast og eingöngu gegn `unresolved`/`ambiguous` röðum, án nokkurs endurdráttar — gagnlegt eftir að nýtt skjal bætist í safnið sem eldri tilvitnun vísaði á en gat ekki leyst á sínum tíma.
+
+**Staleness** virkar eins og `passage_hash`: `--all` (sjálfgefið) vinnur aðeins skjöl þar sem `documents.citation_hash` vantar eða stemmir ekki við núverandi `sha256(summary ‖ body_text ‖ lower_body_text)` (`STALE_WHERE` í `citation_build.py`); `--force` vinnur líka óúrelt skjöl.
+
+**Valkostir** (`--help`):
+
+| Valkostur | Þýðing |
+|---|---|
+| `--all` | Öll úrelt skjöl (`citation_hash` vantar/stemmir ekki) |
+| `--force` | Með `--all`/`--source`: einnig óúrelt skjöl |
+| `--source SHORT_NAME` | Takmarka við eina heimild |
+| `--doc UUID` | Eitt tiltekið skjal |
+| `--since YYYY-MM-DD` | Aðeins skjöl með `document_date` frá og með dagsetningunni |
+| `--relink-unresolved` | Endurleysa `unresolved`/`ambiguous` raðir án útdráttar |
+| `--dry-run` | Draga út + leysa, prenta samantekt, skrifa ekkert |
+| `--limit N` | Hámarksfjöldi skjala |
+| `--workers N` | Fjöldi vinnsluferla, sjálfgefið `cpu_count() - 1` |
+
+Keyrsla #2 (29.09.2026, eftir lagfæringar á útdrætti og leysara): 44.513 skjöl, 60.669 `citations`-raðir, 22.868 `cites`-brýr, 0 villur, 409 s með 8 vinnsluferlum. Full sundurliðun eftir stöðu/lagi/dómstólapörum: „Niðurstöður keyrslu" í `docs/superpowers/plans/2026-09-29-citations.md`.
 
 ## Sérstakar pípur
 

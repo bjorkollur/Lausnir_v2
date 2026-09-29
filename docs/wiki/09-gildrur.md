@@ -116,6 +116,34 @@ Staðfest 28.07.2026 með `--listFiles`: `--noEmit` snerti enga skrá úr `src/`
 ### JSX strengir vinna ekki `\n`
 `text="## Titill\n\nMál"` í JSX gefur bókstaflegt bakstrik-n (char 92,110), ekki línuskil (char 10). Verður að vera `text={"## Titill\n\nMál"}`. Þetta olli röngum prófum sem voru „lagfærð" með því að slaka á fullyrðingum áður en rót fannst.
 
+## Tilvitnanir milli dóma — sjö gildrur
+
+Kóðinn er í `engine/processors/citations.py` (útdráttur) og `citation_resolver.py` (leysing); hönnunin er skjölluð í `docs/superpowers/specs/2026-09-29-citations-design.md`.
+
+### Lög verða að vera merkt ÁÐUR en málsnúmer eru lesin
+`"laga nr. 91/1991"` inniheldur tölustafaform sem lítur út eins og málsnúmer. Ef lagatilvísanir eru ekki merktar og útilokaðar fyrst (`_LAW_RX`, §5.1) les útdrátturinn `91/1991` sem tilvitnun í dóm. Sama gildir um reglugerðir, auglýsingar og samþykktir (`reglugerð\w*`, `auglýsing\w*`, `samþykkt\w*` + `nr. NNNN/ÁÁÁÁ`).
+
+### Dómstólsorðið verður að standa í sömu setningu og innan 120 stafa
+`WINDOW = 120` í `citations.py` er hörð fjarlægðartakmörkun aftur á bak frá málsnúmerinu, og leitin fer aldrei yfir setningarmörk (`_sentence_start`). Fyrsta útgáfan notaði 220 stafi, sem var of vítt — úrskurður óbyggðanefndar sem nefndur var langt á undan í sömu efnisgrein rataði ranglega á Hæstarétt. Einnig: standi annar úrskurðaraðili (nefnd, sýslumaður, ráðuneyti, stjórnvald o.fl. — `_OTHER_BODY_RX`) **nær** númerinu en dómstólsorðið, vinnur sá aðili og engin tilvitnun er skráð.
+
+### Afstæð ár — „sama ár" tekur næsta STAKA ártal, aldrei ártal falið inni í öðru númeri
+„8. nóvember 2017 … 18. nóvember sama ár" á að leysast á 2017. En `\b` eitt og sér er ekki nóg: það passar líka við ártalið inni í `nr. 91/1991` eða `2020-2021`. `_YEAR_RX` í `citations.py` krefst þess að ártalið standi **stakt** — hvorki tölustafur né `/` né `-` má standa við hliðina á því (`(?<![\d/\-])(1[89]\d\d|20\d\d)(?![\d/\-])`). Án þessa leysti „laga nr. 91/1991 … 18. nóvember sama ár" á 1991 og tilvitnunin mistókst að leysast á rétt skjal. `sl.`/`síðastliðinn` er annað afstætt form: það notar `doc_date` (skjalsins eigin dagsetning), ekki næsta ártal í setningunni.
+
+### Hæstaréttarnúmer með forskeyttum núllum (`055/2001`) verða að staðlast fyrir samanburð
+Gagnagrunnurinn geymir sum Hæstaréttarmálsnúmer með forskeyttum núllum (`055/2001`) og fjögur með stöku bili (`243 /2002`), en texti dóma vitnar alltaf í þau án núllanna (`55/2001`). `norm_case_number()` í `citation_resolver.py` fjarlægir bil, hástafar bókstafi og fellir forskeytt núll úr tölulega hlutanum á undan `/` — beitt á **báðar** hliðar (bæði þegar vísirinn er byggður úr `documents.case_number` og þegar númer eru lesin úr texta), svo þau bera alltaf saman rétt.
+
+### Landsréttarnúmer eru endurnýtt milli úrskurðar og dóms — leyst með dagsetningu/dómsorði, aldrei giskað
+Sama málsnúmer getur átt bæði úrskurð og síðar dóm í Landsrétti (og víðar). Sé fleiri en einn frambjóðandi eftir stöðlun númers, þrengir leysarinn með dagsetningu í setningunni (`target_date`, ef til) og annars með orðinu á undan dómstólsorðinu (`Dómur`/`Úrskurður`/`Ákvörðun` → `target_verdict`). Standi fleiri en einn frambjóðandi eftir **allar** þrengingar → `status='ambiguous'`, aldrei valið af handahófi. Tæmi dagsetningarþrengingin frambjóðendahópinn alveg → `status='unresolved'` — leysarinn fellur **aldrei** aftur á ódagsetta frambjóðendur eftir að hafa reynt dagsetningu.
+
+### Héraðsdómsnúmer eru ekki einkvæm milli héraða
+Sama málsnúmersform (`E-1234/2020`) getur átt sitt skjal í hverju héraði. Sé staður ekki nefndur í texta (`Hérd.` án viðskeytis) leitar vísirinn yfir **öll** héruð (`court LIKE 'Hérd. %'`) og fleiri en eitt tréff → `ambiguous`; sé staður nefndur (`Hérd. Rvk.` o.s.frv., átta möguleg gildi) leysist það venjulega ótvírætt.
+
+### `F-` er Félagsdómur, og bara-tölu-form Félagsdómsnúmera þurfa sérstaka fallleið
+Félagsdómur skipti um málsnúmeraform 2010: `13/2001` fyrir þann tíma, `F-9/2019` eftir — en dómstexti vitnar áfram í bara-tölu-formið óháð ártali (`„í máli nr. 5/2012"`). Forskeytið `F-` **ræður alltaf** Félagsdómi, sama hvaða dómstólsorð stendur við hliðina (§5.3: forskeyti vinnur gegn orði). Vísirinn (`CitationIndex.candidates()`) reynir því, fyrir `target_court == 'Féld.'` með bara-tölu-formi, **báða** lyklana — bara-töluna og `F-`-forskeytta útgáfuna — og sameinar niðurstöðurnar; annars myndi bara-lykillinn missa af öllum Félagsdómsmálum eftir 2010. Mæling: þessi fallleið ein og sér bætti þekju um **+0,87 hlutfallsstig** í deterministic A/B-mælingu.
+
+## Opið atriði: fjögur eldri, óskyld rangstefnu-tilvik í áfrýjunarpörum
+Eftir keyrslu #2 (29.09.2026) skilar `check_link_orientation.py` **núlli** fyrir `cites`-athugunina (engin brún vísar á síðar-dagsett skjal), en skriptan finnur **fjögur** eldri, **ótengd** tilvik þar sem `appealed_to`/`appealed_from`-parið er ranglega stefnt — sama gildruflokkur og sögulega vandamálið sem `check_link_orientation.py` var upphaflega skrifuð til að finna (sjá docstring skriptunnar). Þessi fjögur tilvik komu **ekki** frá tilvitnanavinnunni og voru til staðar fyrir hana; þau eru skráð hér sem ólokið verk, ekki lagfærð sem hluti af þessu verkefni.
+
 ## Ósamræmi í skjölum
 
 | Atriði | Vandi |

@@ -1458,3 +1458,73 @@ The tool reuses `queries.get_citations`; items are compacted to `document_id, ur
 - Names consistent: `extract_citations`, `RawCitation`, `norm_case_number`, `CitationIndex`, `Candidate`, `Resolution`, `resolve`, `build_rows`, `rebuild_citations`, `relink_unresolved`, `citation_hash`, `STALE_WHERE`, `get_citations`, `citations_tool`.
 - Review Focus 1 → Task 3 tests; 2 → Task 2 `test_enumeration…`; 3 → Task 2 `test_relative_sl…`; 4 → Task 4 `test_rebuild_is_scoped`; 5 → Task 4 `test_document_without_text`.
 - Known soft spot: Task 2's reference implementation is deliberately marked as a starting point; the tests are the contract. The implementer for Task 2 should be a capable model.
+
+---
+
+## Niðurstöður keyrslu (2026-09-29)
+
+Full run #2, after the extractor and resolver fixes landed (Félagsdómur `F-` fallback, standalone-year rule, effective-court rule in the audit verifier).
+
+**Run summary:**
+
+| Mæling | Gildi |
+|---|---|
+| Skjöl unnin | 44.513 (allar sjö dómstólaheimildir með texta) |
+| `citations`-raðir | 60.669 |
+| `cites`-brýr | 22.868 |
+| Villur | 0 |
+| Keyrslutími | 409 s, 8 vinnsluferli |
+
+**Staða (`citations.status`), allar 60.669 raðir:**
+
+| Staða | Fjöldi |
+|---|---|
+| `resolved` | 51.794 |
+| `unresolved` | 4.793 |
+| `pre_coverage` | 3.268 |
+| `self` | 677 |
+| `ambiguous` | 137 |
+
+**Lag (`citations.layer`):**
+
+| Lag | Fjöldi |
+|---|---|
+| `body` | 36.906 |
+| `lower_body` | 23.433 |
+| `summary` | 330 |
+
+**Þekja** (2.400 skjala úrtak, lokareglur): **88,2 %** = `resolved / (resolved + ambiguous + unresolved)`, talið yfir `summary`+`body` lögin — yfir 80 % viðmiðinu í spec §9. Félagsdómur `F-`-fallleiðin ein og sér bætti þekjuna um **+0,87 hlutfallsstig** í deterministic A/B-samanburði (fallleiðin á/af, sama úrtak, sama reglur að öðru leyti).
+
+**Stærstu leystu tilvitnanaflæðin** (vitnandi dómstóll → vitnaður dómstóll; frá keyrslu #1 — keyrsla #2 er sögð víkja innan við 2 % frá þessum tölum, því „≈" hér að neðan):
+
+| Flæði | Fjöldi (≈) |
+|---|---|
+| Hrd. → Hrd. | 14.248 |
+| Hérd. Rvk. → Hrd. | 10.510 |
+| Lrd. → Hrd. | 9.236 |
+| Hérd. Reykn. → Hrd. | 1.794 |
+
+**Algengustu `unresolved`-formin eftir keyrslu #2** (öll eru raunveruleg eyður í safninu — óbirtir héraðsdómar, Landsréttarnúmer sem eru ekki í safninu, Félagsdómur fyrir 2000 — **ekki** göt í mynstrunum sjálfum):
+
+| Form (tölur → `#`) | Fjöldi |
+|---|---|
+| „Landsréttar í máli nr. ###/####" | 89 |
+| „Félagsdóms í máli nr. #/####" | 60 |
+| „Héraðsdóms Reykjavíkur í máli nr. E-####/####" | 55 |
+| „Hæstaréttar í máli nr. ###/####" | 52 |
+| „Héraðsdóms Reykjavíkur í máli nr. R-###/####" | 50 |
+
+**`check_link_orientation.py` eftir keyrsluna:** `cites`-athugunin (engin brún á síðar-dagsett skjal) skilar **0**. Skriptan finnur að auki **4** eldri, **ótengd** rangstefnu-tilvik í `appealed_to`/`appealed_from`-pörum sem voru til staðar fyrir þessa vinnu — skráð sem opið atriði í [09-gildrur](../../wiki/09-gildrur.md), ekki lagfært hér.
+
+## Nákvæmniúttekt
+
+Sjálfstæð úttekt (`scripts/audit_citations.py`), 200 `status='resolved'` raðir úr `summary`/`body`, lagskiptar eftir `method` × `target_court`, sannprófaðar með reglum skrifuðum **frá spec-inu, ekki frá útdráttarkóðanum** (sjá kafla 15 í hönnunarskjalinu fyrir tvær lagfæringar sem sannprófarinn sjálfur fékk).
+
+**Vélrænar tölur úr keyrslu #1** (áður en úttektarreglurnar tvær í kafla 15 voru lagfærðar — talan er birt hér óbreytt sem grunnlína; sjá athugasemd hér að neðan um keyrslu #2):
+
+- Talna-, stefnu- og bils-athuganirnar (checks „number", „order", „span") stóðust í öllum 200/200 tilvikum.
+- **199/200** raðir voru vélrænt samræmar (`mech_ok`) eftir að tvær falskar villuviðvaranir í sannprófaranum sjálfum voru leiðréttar (sjá kafla 15: Félagsdómur `F-`-frávik og virki dómstóllinn skv. §5.3).
+- **30/200** báru misræmi milli dómsorðsins næst á undan dómstólsorðinu og hins geymda `verdict_type` (`verdict_mismatch`) — þetta er merkingarvenja Hæstaréttar við kærumál (dómurinn er orðaður „dómi …" þótt `verdict_type` sé skráð `Úrskurður`), **ekki** rangur hlekkur, og telst því ekki með í `mech_ok`/`mech_fail`-heildinni (sjá kafla 15, fjórða atriði).
+- **1** dagsetningarfrávik reyndist innsláttarvilla (rangt ár) í frumtexta heimildarinnar sjálfrar, ekki í útdrættinum.
+
+**Keyrsla #2 (2026-09-29):** sama sjálfstæða úttektarskripta keyrð aftur á 200 fersk lagskipt sýni eftir að öll fimm atriðin í kafla 15 höfðu verið löguð. Manneskjulegi lesturinn á ±250 stafa samhengi þeirra 200 sýna (er þetta yfirhöfuð tilvísun í úrlausn; á dómstólsorðið við þetta númer) er skráður hér af stjórnandanum eftir yfirferð, ekki af innleiðingaraðilanum.

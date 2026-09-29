@@ -133,6 +133,12 @@ Athygli: `_PROVISION_NOISE = {mgr, gr, lag, lög, nr, sbr}` — eftir BÍN-lemmu
 
 Þetta er algengasta gildran: nýtt skjal fer inn, `fts` uppfærist sjálfkrafa, en `fts_is` er NULL — og skjalið finnst þá ekki í venjulegri leit. `import_baekur.py` keyrir `backfill_fts_is` sjálfkrafa í lokin einmitt út af þessu; aðrar heimildir gera það gegnum `update_all.py`.
 
+## Tilvitnanir milli dóma — ótengt fulltextaleitinni
+
+`citations`/`cites` (sjá [02-gagnagrunnur](02-gagnagrunnur.md) og [06-api](06-api.md)) er **ekki** hluti af leitarpípunni hér að ofan — engin af leitarhömunum sjö leitar í `citations`, og tilvitnanir hafa engin áhrif á `fts_is`, `passages` eða röðun leitarniðurstaðna. Eina snertiflöturinn er birtingarlags-liður: leitarniðurstöður fá `cited_by_count` (fjöldi skjala sem vitna í hverja niðurstöðu, `LEFT JOIN LATERAL` yfir `ix_link_to_rel`), notaður eingöngu til birtingar á niðurstöðukorti — sjá [07-framendi](07-framendi.md).
+
+Tilvitnun er staðsett í texta með `char_start`/`char_end` í sama textadálki (`summary`/`body_text`/`lower_body_text`) sem `passages` er byggð úr, en tilvitnanataflan geymir **ekki** `passage_id` (efnisgreinar fá nýtt `id` við hverja endurbyggingu). Til að sýna tilvitnun með tilvitnanlegu heimilisfangi (`anchor`, t.d. „12. mgr.") er efnisgreinin fundin við lestur með sömu aðferð og `passage_index.passage_anchor()` notar annars staðar: `char_start`-bil tilvitnunarinnar er flett upp í `passages` fyrir sama `document_id`/`layer`. Sjá „Hvers vegna enginn `passage_id`" í [02-gagnagrunnur](02-gagnagrunnur.md).
+
 ## Merkingarleit (semantic) — ekki byggð
 
 `documents.embedding vector(3072)` er til í skemanu og `pgvector` er uppsett, en **0 af 91.152 skjölum eru með embedding**. Engin vektorleit er útfærð neins staðar í kóðanum. Þetta er ætlað framtíðarverk, ekki bilun.
