@@ -44,7 +44,7 @@ Engin sjálfstæð AI-agentakerfi eru starfandi í Lausnir — engir bakgrunnsbo
 | `caveman`, `design-taste-frontend`, `gpt-taste`, `high-end-visual-design`, `minimalist-ui` | Stíl- og hönnunarleiðbeiningar (samskiptaform / framenda-fagurfræði) | Engin gagnaaðgangsáhrif | Nei |
 | `commit-commands` (GitHub-tengt) | Commit/PR-gerð | Write í git, push til remote | Já — sbr. almennar reglur: aldrei push án staðfestingar frá notanda |
 
-**Réttindalíkan:** Það er ekkert formlegt aðgreint les/skrif-réttindakerfi milli skilja — Claude Code keyrir með fullum aðgangi að skránni (og gagnagrunninum, í gegnum `mcp-postgres` MCP-þjón sem er tengdur `postgresql://geiri@localhost/lausnir_v2`) hverju sinni sem notandi samþykkir tólakall. Síðan 2026-09-29 er til aðgreint lesaðgangshlutverk `lausnir_ro` sem MCP-þjónninn notar (sjá `docs/wiki/10-mcp.md`). Sjálfgefið keyrir AI í "auto mode" — heldur áfram án stöðvunar á afturkræfum aðgerðum, en stöðvar og biður um staðfestingu fyrir:
+**Réttindalíkan:** Það er ekkert formlegt aðgreint les/skrif-réttindakerfi milli skilja — Claude Code keyrir með fullum aðgangi að skráakerfinu hverju sinni sem notandi samþykkir tólakall, og getur keyrt `psql` gegn `postgresql://geiri@localhost/lausnir_v2` með fullum skrifaðgangi eins og hver önnur skel-skipun. Frá 2026-09-29 er **enginn `mcp-postgres`-þjónn stilltur á þessari vél**; eina MCP-gagnagrunnsleiðin er `engine/mcp` sem tengist með aðgreinda lesaðgangshlutverkinu `lausnir_ro` (`DATABASE_URL_READONLY`, `default_transaction_read_only = on`) — sjá `docs/wiki/10-mcp.md`. Sjálfgefið keyrir AI í "auto mode" — heldur áfram án stöðvunar á afturkræfum aðgerðum, en stöðvar og biður um staðfestingu fyrir:
 - Eyðingu skráa/greina utan vinnusvæðis
 - `git push`, PR-gerð, force-push
 - Hvers kyns óafturkræfa aðgerð utan git-repósins sjálfs
@@ -102,7 +102,7 @@ Leyfir eingöngu staðarnetsuppruna (`localhost`, `127.0.0.1`, `192.168.x.x`), a
 
 - [x] Staðfesta að `.env` sé í `.gitignore` — staðfest 2026-07-23 (`.gitignore:5`, `frontend/.gitignore:13` fyrir `.env.local`)
 - [ ] Ef API fer nokkurn tímann út fyrir staðarnet: bæta við auðkenningarlagi áður en `allow_origin_regex` er rýmkað
-- [x] Yfirfara `mcp-postgres` MCP-tenginguna reglulega — hún er beintengd við framleiðslugagnagrunninn með fullum réttindum — leyst 2026-09-29: sjá `docs/wiki/10-mcp.md`
+- [ ] Yfirfara MCP-tenginguna (nú `engine/mcp` á `lausnir_ro`) reglulega — endurtekið eftirlit, ekki eitt verk sem lokast: staðfesta að enginn MCP-þjónn með skrifaðgang hafi bæst við og að `lausnir_ro` haldi réttindum sínum (`tests/test_mcp_readonly_role_db.py`). Síðast yfirfarið 2026-09-29; sjá `docs/wiki/10-mcp.md`
 
 ---
 

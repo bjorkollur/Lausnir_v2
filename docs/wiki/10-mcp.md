@@ -18,6 +18,8 @@ Claude Desktop (`~/Library/Application Support/Claude/claude_desktop_config.json
 {"mcpServers": {"lausnir": {"command": "uv", "args": ["run", "--directory", "/Volumes/RuleOfLaw/Lausnir", "python", "-m", "engine.mcp"]}}}
 ```
 
+Við ræsingu keyrir þjónninn tengiprófun: `SELECT current_user, current_setting('default_transaction_read_only')`, logar hvort tveggja á stderr og neitar að ræsast (`RuntimeError`) ef `default_transaction_read_only` er ekki `on` — þ.e. ef slóðin vísar á skrif-hlutverk. Tengivilla berst upp óbreytt; röng slóð uppgötvast því við ræsingu en ekki við fyrsta verkfærakall.
+
 Handvirk prófun án viðskiptavinar: `uv run pytest -q tests/test_mcp_stdio.py`.
 
 ## Verkfærin
@@ -35,14 +37,14 @@ Handvirk prófun án viðskiptavinar: `uv run pytest -q tests/test_mcp_stdio.py`
 | `describe_schema` | `table` (valkvætt) | án `table`: töflulisti með `kind`/`approx_rows`; með `table`: dálkar, vísar, athugasemdir | — |
 | `sql_query` | `sql`, `max_rows` | `columns`, `rows`, `row_count`, `truncated_rows`, `truncated_cells`, `elapsed_ms` | `max_rows ≤ 1000`, reitir ≤ 500 stafir, 15 s tímamörk |
 
-`keywords` í `search`-niðurstöðum er stytt í mest 5. `get_document` skilar aldrei `body_text`, `lower_body_text` eða `raw_api_data` — aðeins reiknuðum `text`/`text_error` (sjá „Mörk og hegðun").
+Upptalningargildi eru `Literal`-tegundir í `server.py` og birtast því sem `enum` í `input_schema`: `mode` (`keyword|exact|prefix|substring|any|proximity|regex`), `sort` (`relevance|newest|oldest`) og `layer` (`summary|body|lower_body`) — viðskiptavinurinn þarf ekki að giska. `keywords` í `search`-niðurstöðum er stytt í mest 5. `get_document` skilar aldrei `body_text`, `lower_body_text` eða `raw_api_data` — aðeins reiknuðum `text`/`text_error` (sjá „Mörk og hegðun").
 
 ## Lesaðgangshlutverkið `lausnir_ro`
 
 - Stofnað með `deploy/sql/create_readonly_role.sql` (`psql -v ro_password=… -f …`, `\gexec`-form af því `DO`-blokk sér ekki psql-breytur inni í dollaravitnun). Keyrt 2026-09-29; `rolconfig = {default_transaction_read_only=on, statement_timeout=15s}` staðfest handvirkt eftir keyrslu.
-- SELECT-only: `CONNECT`/`USAGE`/`SELECT ON ALL TABLES` + `ALTER DEFAULT PRIVILEGES` (nýjar töflur fá sjálfkrafa `SELECT`), engin `CREATE`, engin `TEMP`.
+- SELECT-only: `CONNECT`/`USAGE`/`SELECT ON ALL TABLES` + `ALTER DEFAULT PRIVILEGES` (nýjar töflur fá sjálfkrafa `SELECT`), engin `CREATE`, engin `TEMP`. `TEMP` er sjálfgefið veitt `PUBLIC`, svo `REVOKE TEMP … FROM lausnir_ro` er marklaust — skriftan afturkallar það frá `PUBLIC` (eigandinn er ofurnotandi og verður óbreyttur — ofurnotendur fara framhjá ACL-um). `tests/test_mcp_readonly_role_db.py` staðfestir `has_database_privilege(…, 'TEMP') = false` og að `CREATE TEMP TABLE` falli.
 - Þrjú lög varnar: hlutverk (raunverulega vörnin) → READ ONLY færsla með `SET LOCAL statement_timeout` → `engine/mcp/sqlguard.py` (belti-við-axlabönd, gefur LLM skiljanlega villu strax). `tests/test_mcp_readonly_role_db.py` sannreynir að `UPDATE`/`CREATE` falli fyrir hlutverkið **óháð** verðinum.
-- `mcp-postgres` (gamla tengingin með fullum skrifaðgangi): fjarlægja úr stillingum viðskiptavinar, eða beina á sömu `DATABASE_URL_READONLY` ef almennt SQL-verkfæri er enn óskað.
+- `mcp-postgres` (gamla tengingin með fullum skrifaðgangi): enginn slíkur þjónn er stilltur á þessari vél (staðfest 2026-09-29). Verði hann settur upp aftur á að beina honum á `DATABASE_URL_READONLY`.
 
 ## Mörk og hegðun
 
@@ -61,5 +63,7 @@ Handvirk prófun án viðskiptavinar: `uv run pytest -q tests/test_mcp_stdio.py`
 
 ## Þekkt takmörk
 
-- `sqlguard.py` þekkir `$$…$$`/`$tag$…$tag$` dollaravitnun, `E'…'` escape-strengi, gæsalappaða auðkenna og aftanávið-athugasemdir, og leyfir eina fremstu sviga (`(`). Það hafnar líka læsingaföllum (`pg_advisory_lock` o.fl.). Þekkt takmörk, alltaf í **höfnunar**-átt (aldrei sleppir gegn): tvöfaldar gæsalappir í auðkenni (`"a""b"`) og hreiðraðar blokkarathugasemdir eru mistúlkaðar.
-- Prófaskrár: `tests/test_mcp_sqlguard.py`, `test_mcp_shaping.py`, `test_mcp_tools_unit.py`, `test_mcp_server.py` þurfa engan gagnagrunn. `test_mcp_tools_db.py`, `test_mcp_sql_db.py`, `test_mcp_stdio.py`, `test_mcp_readonly_role_db.py` þurfa grunn (fyrstu þrjú nota `DATABASE_URL_READONLY` ef sett, annars `DATABASE_URL`; `test_mcp_readonly_role_db.py` krefst `DATABASE_URL_READONLY`, því það prófar hlutverkið sjálft). Öll bakendaprófin (579) eru græn.
+- `sqlguard.py` þekkir `$$…$$`/`$tag$…$tag$` dollaravitnun, `E'…'` escape-strengi, gæsalappaða auðkenna og aftanávið-athugasemdir, og leyfir hvaða runu sem er af fremstu svigum og bilum (`((SELECT …))`, `(SELECT 1) UNION ALL (SELECT 2)`). Það hafnar líka læsingaföllum (`pg_advisory_lock` o.fl.) og WAL-skrifandi föllum sem lesaðgangshlutverkið kemst annars upp með (`pg_notify`, `pg_logical_emit_message`).
+- Ólokaður strengur, gæsalappað auðkenni eða dollaravitnun veldur **höfnun** (`"Ólokaður strengur eða auðkenni …"`). Áður var afgangurinn þaggaður niður í grímunni og fyrirspurnin skilaðist **stytt** — önnur fyrirspurn en notandinn skrifaði. Þar með eru þekkt takmörk aftur öll í höfnunar-átt: tvöfaldar gæsalappir í auðkenni (`"a""b"`, sem Postgres les sem eitt auðkenni) lenda á þessari höfnun, og hreiðraðar blokkarathugasemdir eru mistúlkaðar þannig að afgangurinn fellur á þáttunarvillu — hvorugt sleppir skrifum gegn.
+- Stærð **einstakra reita** er aðeins bundin *eftir* flutning: `sql_query` styttir reit í 500 stafi fyrst þegar hann er kominn inn í ferlið, svo `SELECT repeat('x', 10^8)` eða `string_agg` yfir `passages` er fluttur í heilu lagi yfir tenginguna áður en stytt er. `max_rows` og netþjónahliðar-bendillinn binda **raðafjölda**, ekki bætafjölda á reit.
+- Prófaskrár: `tests/test_mcp_sqlguard.py`, `test_mcp_shaping.py`, `test_mcp_tools_unit.py`, `test_mcp_server.py` þurfa engan gagnagrunn. `test_mcp_tools_db.py`, `test_mcp_sql_db.py`, `test_mcp_stdio.py`, `test_mcp_readonly_role_db.py` þurfa grunn og **krefjast allar** `DATABASE_URL_READONLY` (ekkert fall aftur á `DATABASE_URL` — annars væru þau að prófa skrif-hlutverkið); hver þeirra staðfestir að `SELECT current_user` skili `lausnir_ro`. Öll bakendaprófin (597) eru græn.
