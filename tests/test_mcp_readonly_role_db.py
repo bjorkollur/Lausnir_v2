@@ -43,3 +43,21 @@ async def test_role_can_select():
             assert (await conn.execute(text("select count(*) from documents"))).scalar() > 0
     finally:
         await eng.dispose()
+
+
+async def test_role_has_no_temp_privilege():
+    """TEMP is granted to PUBLIC by default, so revoking it from lausnir_ro
+    alone is a no-op — deploy/sql/create_readonly_role.sql revokes it from
+    PUBLIC. Without this the role could materialise a corpus-sized temp table
+    on the production volume."""
+    eng = create_async_engine(_URL)
+    try:
+        async with eng.connect() as conn:
+            has_temp = (await conn.execute(text(
+                "SELECT has_database_privilege(current_user, current_database(), 'TEMP')"))).scalar()
+            assert has_temp is False
+        async with eng.connect() as conn:
+            with pytest.raises(DBAPIError):
+                await conn.execute(text("CREATE TEMP TABLE zz_tmp (id int)"))
+    finally:
+        await eng.dispose()

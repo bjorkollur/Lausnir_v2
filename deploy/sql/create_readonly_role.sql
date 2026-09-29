@@ -13,6 +13,8 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO lausnir_ro;
 GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO lausnir_ro;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO lausnir_ro;
 REVOKE CREATE ON SCHEMA public FROM lausnir_ro;
-REVOKE TEMP ON DATABASE lausnir_v2 FROM lausnir_ro;
+-- TEMP is granted to PUBLIC by default, so revoking it from lausnir_ro alone is a no-op;
+-- it must come off PUBLIC. The superuser owner keeps TEMP regardless (superusers bypass ACLs).
+REVOKE TEMP ON DATABASE lausnir_v2 FROM PUBLIC;
 ALTER ROLE lausnir_ro SET default_transaction_read_only = on;
 ALTER ROLE lausnir_ro SET statement_timeout = '15s';

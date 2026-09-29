@@ -32,6 +32,20 @@ async def test_list_tools_names_and_annotations():
     assert schema["sql_query"]["required"] == ["sql"]
     assert schema["list_sources"].get("required", []) == []
     assert srv.INSTRUCTIONS and "urlausn" in srv.INSTRUCTIONS
+    # The enum-valued parameters must be discoverable from the schema alone —
+    # an LLM should not have to guess `mode`/`sort`/`layer` from prose.
+    assert "keyword" in schema["search"]["properties"]["mode"]["enum"]
+    assert set(schema["search"]["properties"]["mode"]["enum"]) == {
+        "keyword", "exact", "prefix", "substring", "any", "proximity", "regex"}
+    assert schema["search"]["properties"]["sort"]["enum"] == ["relevance", "newest", "oldest"]
+    assert "keyword" in schema["facets"]["properties"]["mode"]["enum"]
+    # Optional params come out as anyOf[<enum>, null].
+    layer_enum = next(b["enum"] for b in schema["get_passages"]["properties"]["layer"]["anyOf"]
+                      if "enum" in b)
+    assert layer_enum == ["summary", "body", "lower_body"]
+    # …and the prose lists the sort values too.
+    search_desc = next(t.description for t in tools if t.name == "search")
+    assert "relevance" in search_desc and "newest" in search_desc and "oldest" in search_desc
 
 
 def test_main_requires_readonly_url(monkeypatch, capsys):
@@ -105,3 +119,54 @@ async def test_other_errors_are_not_blamed_on_the_database(monkeypatch):
     msg = await _call_search_raising(monkeypatch, KeyError("reifun"))
     assert "Gagnagrunnstenging" not in msg
     assert "Óvænt villa í verkfæri" in msg and "KeyError" in msg
+
+
+async def test_bare_oserror_is_reported_as_a_connection_failure(monkeypatch):
+    """asyncpg raises a bare OSError (ConnectionRefusedError/gaierror) when it
+    cannot reach the server at all — that is a connection failure, not a bug."""
+    msg = await _call_search_raising(
+        monkeypatch, ConnectionRefusedError(61, "Connection refused"))
+    assert "Gagnagrunnstenging brást" in msg and "ConnectionRefusedError" in msg
+
+
+class _StubResult:
+    def __init__(self, row): self._row = row
+    def one(self): return self._row
+    def first(self): return self._row
+
+
+class _StubSession:
+    def __init__(self, row): self._row = row
+    async def __aenter__(self): return self
+    async def __aexit__(self, *a): return False
+    async def execute(self, *a, **kw): return _StubResult(self._row)
+
+
+def _stub_db(monkeypatch, row):
+    calls = []
+
+    async def recorder(*a, **kw):
+        calls.append((a, kw))
+
+    monkeypatch.setattr(srv._db, "init_db", recorder)
+    monkeypatch.setattr(srv._db, "AsyncSessionLocal", lambda: _StubSession(row))
+    monkeypatch.setenv("DATABASE_URL_READONLY", "postgresql+asyncpg://ro@localhost/lausnir_v2")
+    return calls
+
+
+async def test_lifespan_probe_accepts_a_read_only_role(monkeypatch):
+    calls = _stub_db(monkeypatch, ("lausnir_ro", "on"))
+    async with srv._lifespan(srv.build_server()):
+        pass
+    assert len(calls) == 1 and calls[0][1]["create_tables"] is False
+
+
+async def test_lifespan_probe_refuses_a_read_write_role(monkeypatch):
+    """A URL pointing at the read-write role must be caught at startup, not on
+    the first tool call."""
+    _stub_db(monkeypatch, ("geiri", "off"))
+    with pytest.raises(RuntimeError) as ei:
+        async with srv._lifespan(srv.build_server()):
+            pass
+    assert str(ei.value) == srv.NOT_READ_ONLY_MSG
+    assert "default_transaction_read_only" in str(ei.value)

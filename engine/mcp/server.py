@@ -12,11 +12,12 @@ import os
 import sys
 from contextlib import asynccontextmanager
 from pathlib import Path
-from typing import AsyncIterator
+from typing import AsyncIterator, Literal
 
 from mcp.server.mcpserver import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
 from mcp.types import ToolAnnotations
+from sqlalchemy import text
 from sqlalchemy.exc import DBAPIError, InterfaceError, OperationalError
 
 import engine.database.connection as _db
@@ -25,6 +26,10 @@ from engine.mcp.tools import ToolInputError
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 log = logging.getLogger("lausnir.mcp")
+
+SearchMode = Literal["keyword", "exact", "prefix", "substring", "any", "proximity", "regex"]
+SortOrder = Literal["relevance", "newest", "oldest"]
+PassageLayer = Literal["summary", "body", "lower_body"]
 
 TOOL_NAMES = ("search", "passage_context", "get_passages", "get_document",
               "list_sources", "facets", "describe_schema", "sql_query")
@@ -54,6 +59,8 @@ _RO = ToolAnnotations(read_only_hint=True)
 # default, which is the read-write role.
 NO_RO_URL_MSG = ("lausnir mcp: DATABASE_URL_READONLY vantar í umhverfi/.env — þjónninn notar aðeins "
                  "lesaðgangshlutverkið lausnir_ro (sjá docs/wiki/10-mcp.md).")
+NOT_READ_ONLY_MSG = ("DATABASE_URL_READONLY vísar ekki á lesaðgangshlutverk "
+                     "(default_transaction_read_only er ekki 'on').")
 
 
 def _session_factory():
@@ -64,8 +71,8 @@ def _session_factory():
 
 def _one_line(exc: Exception) -> str:
     """``ExcName: first line`` — tracebacks belong in the log, not in the LLM's context."""
-    text = str(exc).splitlines()[0] if str(exc) else ""
-    return f"{exc.__class__.__name__}: {text}"
+    first = str(exc).splitlines()[0] if str(exc) else ""
+    return f"{exc.__class__.__name__}: {first}"
 
 
 async def _run(fn, **kw):
@@ -76,7 +83,10 @@ async def _run(fn, **kw):
         raise ToolError(str(exc))
     except ToolError:
         raise
-    except (OperationalError, InterfaceError, DBAPIError) as exc:  # DB down mid-run, dropped connection
+    except (OperationalError, InterfaceError, DBAPIError, OSError) as exc:
+        # DB down mid-run or dropped connection. asyncpg raises a bare OSError
+        # (ConnectionRefusedError, socket.gaierror, …) when it cannot reach the
+        # server at all — that is a connection failure, not a tool bug.
         log.exception("database failure")
         raise ToolError(f"Gagnagrunnstenging brást: {_one_line(exc)}")
     except Exception as exc:  # a bug in a tool: readable error, no traceback to the LLM
@@ -90,7 +100,17 @@ async def _lifespan(_server: MCPServer) -> AsyncIterator[None]:
     if not url:
         raise RuntimeError(NO_RO_URL_MSG)
     await _db.init_db(url=url, create_tables=False)
-    log.info("lausnir mcp: db ready")
+    # Startup probe: fail loudly here rather than on the first tool call. A
+    # connection failure propagates as-is (the server refuses to start), and a
+    # URL that points at a read-write role is rejected outright.
+    async with _session_factory() as session:
+        row = (await session.execute(
+            text("SELECT current_user, current_setting('default_transaction_read_only')"))).one()
+    db_user, read_only = row[0], row[1]
+    log.info("lausnir mcp: db ready (current_user=%s, default_transaction_read_only=%s)",
+             db_user, read_only)
+    if read_only != "on":
+        raise RuntimeError(NOT_READ_ONLY_MSG)
     yield
 
 
@@ -101,9 +121,11 @@ def build_server() -> MCPServer:
         "Leit í dómasafninu (orðaleit með lemmun, sjálfgefið mode='keyword'). Skilar allt að page_size "
         "(≤25) skjölum með bestu efnisgrein hvers (passage_id, anchor, snippet). scope: heiti úr "
         "list_sources (t.d. 'domstolar', 'haestirettur', 'landsrettur_domar') eða 'all'. section_kind: "
-        "reifun, malsmedferd, malsatvik, malsastaedur, nidurstada, domsord, annad. Dagsetningar ISO."))
-    async def search(q: str, mode: str = "keyword", scope: list[str] | None = None,
-                     date_from: str | None = None, date_to: str | None = None, sort: str = "relevance",
+        "reifun, malsmedferd, malsatvik, malsastaedur, nidurstada, domsord, annad. sort: relevance "
+        "(sjálfgefið), newest eða oldest. Dagsetningar ISO."))
+    async def search(q: str, mode: SearchMode = "keyword", scope: list[str] | None = None,
+                     date_from: str | None = None, date_to: str | None = None,
+                     sort: SortOrder = "relevance",
                      section_kind: list[str] | None = None, page: int = 1, page_size: int = 10) -> dict:
         return await _run(tools.search, q=q, mode=mode, scope=scope, date_from=date_from, date_to=date_to,
                           sort=sort, section_kind=section_kind, page=page, page_size=page_size)
@@ -122,7 +144,8 @@ def build_server() -> MCPServer:
         "og total_passages (heildarfjöldi efnisgreina skjalsins). Flettu með next_from_ordinal; "
         "null þýðir að ekkert er eftir."))
     async def get_passages(doc_id: str, from_ordinal: int = 0, count: int = 20,
-                           section_kind: list[str] | None = None, layer: str | None = None) -> dict:
+                           section_kind: list[str] | None = None,
+                           layer: PassageLayer | None = None) -> dict:
         return await _run(tools.get_passages_tool, doc_id=doc_id, from_ordinal=from_ordinal, count=count,
                           section_kind=section_kind, layer=layer)
 
@@ -140,7 +163,7 @@ def build_server() -> MCPServer:
 
     @server.tool(annotations=_RO, description=(
         "Fjöldi strangra treffa eftir heimild (by_source) og heimildahópi (by_group) fyrir fyrirspurn."))
-    async def facets(q: str = "", mode: str = "keyword", date_from: str | None = None,
+    async def facets(q: str = "", mode: SearchMode = "keyword", date_from: str | None = None,
                      date_to: str | None = None) -> dict:
         return await _run(tools.facets, q=q, mode=mode, date_from=date_from, date_to=date_to)
 
@@ -162,8 +185,8 @@ def _load_env() -> None:
     """Load the repo's .env without overriding the shell.
 
     ``override=False`` makes shell-exported variables win over .env, which the
-    ``set -a; . ./.env; set +a; uv run pytest`` workflow and the stdio test (it
-    passes DATABASE_URL_READONLY to the child) both rely on.
+    ``set -a; . ./.env; set +a; uv run pytest`` workflow and the stdio test (the
+    child inherits the test process's environment) both rely on.
     """
     from dotenv import load_dotenv
     load_dotenv(REPO_ROOT / ".env", override=False)

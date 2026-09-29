@@ -458,6 +458,8 @@ async def sql_query(session: AsyncSession, *, sql: str, max_rows: int = SQL_DEFA
     try:
         async with _read_only_tx(session):
             columns, raw = await _stream_or_buffer(session, clean, max_rows)
+    except ToolInputError:  # already user-facing — don't relabel it as a DB error
+        raise
     except Exception as exc:  # asyncpg errors arrive wrapped in sqlalchemy DBAPIError
         raise _wrap_db_error(exc) from None
     elapsed = int((_time.perf_counter() - t0) * 1000)
