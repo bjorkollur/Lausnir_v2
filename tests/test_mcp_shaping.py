@@ -1,4 +1,5 @@
 import datetime as dt
+import json
 import uuid
 from decimal import Decimal
 
@@ -74,3 +75,70 @@ def test_compact_passage():
          "word_count": 2, "text": "hello there"}
     assert compact_passage(p) == {"passage_id": str(uuid.UUID(int=1)), "ordinal": 4, "layer": "body",
                                   "section_kind": "malsatvik", "anchor": "a", "text": "hello there"}
+
+
+# --- fix round 1: JSON-safety of cell_value / truncate_text whitespace ---
+
+
+def test_truncate_text_cuts_at_any_whitespace_kind():
+    text, cut = truncate_text("alpha\tbeta gamma", 11)
+    assert text == "alpha\tbeta" and cut is True
+
+
+def test_truncate_text_leading_whitespace_stripped_on_hard_cut():
+    assert truncate_text(" aaaaaaaaaa", 5) == ("aaaa", True)
+
+
+def test_cell_value_converts_nested_dict_leaves_before_measuring():
+    u = uuid.uuid4()
+    d = {"id": u, "when": dt.date(2020, 1, 1), "n": Decimal("2.5"), "b": b"\x00"}
+    v, cut = cell_value(d)
+    assert cut is False
+    assert v == {"id": str(u), "when": "2020-01-01", "n": "2.5", "b": "<bytes 1>"}
+    json.dumps(v)  # must not raise
+
+
+def test_cell_value_converts_list_of_uuids():
+    us = [uuid.uuid4(), uuid.uuid4()]
+    v, cut = cell_value(us)
+    assert cut is False
+    assert v == [str(x) for x in us]
+    json.dumps(v)
+
+
+def test_cell_value_converts_nested_dict_in_list_in_dict():
+    inner = uuid.uuid4()
+    nested = {"outer": [{"inner": inner}]}
+    v, cut = cell_value(nested)
+    assert cut is False
+    assert v == {"outer": [{"inner": str(inner)}]}
+    json.dumps(v)
+
+
+def test_cell_value_set_becomes_sorted_list():
+    assert cell_value({1, 2}) == ([1, 2], False)
+
+
+def test_cell_value_unknown_object_becomes_string():
+    v, cut = cell_value(object())
+    assert isinstance(v, str) and cut is False
+
+
+def test_cell_value_nan_and_inf_become_none():
+    assert cell_value(float("nan")) == (None, False)
+    assert cell_value(float("inf")) == (None, False)
+    assert cell_value(float("-inf")) == (None, False)
+
+
+def test_compact_search_result_output_is_json_serialisable_with_odd_keyword_types():
+    r = {"id": uuid.uuid4(), "keywords": [uuid.uuid4(), "ok"]}
+    out = compact_search_result(r)
+    json.dumps(out)
+    assert all(isinstance(k, str) for k in out["keywords"])
+
+
+def test_compact_passage_output_is_json_serialisable():
+    p = {"id": uuid.uuid4(), "ordinal": 1, "layer": "body", "section_kind": "x",
+         "anchor": None, "text": "t"}
+    out = compact_passage(p)
+    json.dumps(out)
