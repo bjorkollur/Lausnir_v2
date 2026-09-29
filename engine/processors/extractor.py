@@ -1909,9 +1909,12 @@ def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,
-        "case_type": raw.get("caseType") or _infer_hrd_lrd_case_type(
-            raw.get("keywords"), plf
-        ),
+        # Left unset on purpose: the court's classification is readable only
+        # from the island.is caseTypes filter, which
+        # backfill_case_type.py --missing-only reads after the import (step 3 of
+        # update_all.py).  Writing the keyword/party inference here would leave
+        # the row non-NULL and the court would never get its say.
+        "case_type": raw.get("caseType"),
         "plaintiffs": plf or None,
         "defendants": dfd or None,
         "keywords": _keywords_from_content(
@@ -1930,10 +1933,23 @@ def _infer_hrd_lrd_case_type(
     keywords: list | None,
     plaintiffs: list[dict] | None,
 ) -> str:
-    """Infer case_type from keywords and plaintiffs when API does not provide it.
+    """Infer case_type from keywords and plaintiffs.  Not wired into the import.
 
     Kærumál keyword → Kært, absence → Áfrýjað.
     Ákæruvaldið as plaintiff → sakamál, otherwise → einkamál.
+
+    This is the fallback for the few verdicts island.is classifies in no
+    category at all (three Landsréttarmál on 2026-09-29).  It must run *after*
+    the source has had its say — see backfill_case_type.py and
+    tests/test_import_upsert_parity.py — and it is deliberately not called yet:
+    measured against island.is's own answer the route (kært/áfrýjað) is 99,98%
+    right for Hæstiréttur and 99,66% for Landsréttur, but the kind
+    (sakamál/einkamál) is 96,9% and only 70,0%, because Landsréttur also files
+    the prosecution as 'Lögreglustjórinn á …', 'Héraðssaksóknari' and
+    'Ríkissaksóknari'.  Widening the test lifts Landsréttur to 99,4% but drops
+    Hæstiréttur to 87,7%: the two courts do not classify police-initiated
+    kærumál the same way, so any wiring of this needs a per-court rule and a
+    record of which values were inferred.  See docs/wiki/09-gildrur.md.
     """
     kw_lower = [k.lower() for k in (keywords or []) if isinstance(k, str)]
     has_kaermal = any("kærumál" in k for k in kw_lower)
@@ -2007,9 +2023,8 @@ def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,
-        "case_type": _normalise_lrd_case_type(raw.get("caseType")) or _infer_hrd_lrd_case_type(
-            raw.get("keywords"), plf
-        ),
+        # As in _extract_haestirettur: the source classifies, not the importer.
+        "case_type": _normalise_lrd_case_type(raw.get("caseType")),
         "plaintiffs": plf or None,
         "defendants": dfd or None,
         "keywords": api_keywords,

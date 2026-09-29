@@ -89,3 +89,41 @@ def test_case_type_is_filled_but_never_overwritten(short_name: str):
         f"on-conflict update, or a re-import will overwrite the court's own "
         f"classification with the inferred fallback"
     )
+
+
+def _calls(fn_name: str) -> set[str]:
+    fn = _function(REPO / "engine/processors/extractor.py", fn_name)
+    return {
+        node.func.id
+        for node in ast.walk(fn)
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+    }
+
+
+@pytest.mark.parametrize("extract_fn", ["_extract_haestirettur", "_extract_landsrettur"])
+def test_court_case_type_is_left_for_the_source_to_decide(extract_fn: str):
+    """Hæstiréttur and Landsréttur must import with case_type unset.
+
+    Their classification is readable only from the island.is caseTypes filter,
+    which backfill_case_type.py --missing-only reads *after* the import.  An
+    inferred value written at import would leave the row non-NULL, and
+    --missing-only would skip it — the court would never get its say.  The
+    keyword/party fallback belongs after the source, not before it.
+
+    Héraðsdómstólar are the exception: there the case-number prefix is the
+    court's own answer, so _extract_heradsdomstolar fills it at import.
+    """
+    assert "_infer_hrd_lrd_case_type" not in _calls(extract_fn)
+
+
+def test_haestirettur_extract_leaves_case_type_none():
+    from engine.config.sources import get_config
+    from engine.processors.extractor import Extractor
+
+    raw = {
+        "id": "x", "title": "Jón Jónsson gegn Sigríður Sigurðardóttir",
+        "caseNumber": "1/2026", "verdictDate": "2026-09-28T00:00:00Z",
+        "keywords": ["Skaðabætur"], "court": "Hæstiréttur",
+        "richText": "<p>Dómur Hæstaréttar.</p><p>Dómsorð: Stefndi greiði.</p>",
+    }
+    assert Extractor(get_config("haestirettur")).extract(raw)["case_type"] is None
