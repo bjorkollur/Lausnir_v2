@@ -247,3 +247,11 @@ def test_extra_relative_year_ignores_law_and_case_numbers():
     c4 = one("Málið var rekið árið 2021 og dómi Landsréttar 18. nóvember sama ár "
              "í máli nr. 308/2021 var áfrýjað.")
     assert c4.target_date == dt.date(2021, 11, 18)
+    # (5) a málskotsbeiðni number is not a year either — '2019-155' must not give 2019
+    out = extract_citations("Í máli nr. 2019-155 var beiðni hafnað og dómi Landsréttar "
+                            "18. nóvember sama ár í máli nr. 308/2021 áfrýjað.", doc_date=D)
+    assert [(c.target_case_number, c.target_date) for c in out] == [("2019-155", None), ("308/2021", None)]
+    # …unless a real year precedes it
+    out2 = extract_citations("Árið 2021 var máli nr. 2019-155 vísað frá og dómi Landsréttar "
+                             "18. nóvember sama ár í máli nr. 308/2021 áfrýjað.", doc_date=D)
+    assert out2[-1].target_date == dt.date(2021, 11, 18)
