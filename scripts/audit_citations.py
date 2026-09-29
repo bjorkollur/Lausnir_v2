@@ -18,7 +18,10 @@ Mechanical checks per row (spec §9 a–f):
     span     `raw_text` ends with the stored character span
 
 A row is `mech_ok` when every applicable check passes; checks that cannot be
-evaluated are `n/a` and do not count against it. The machine cannot see whether
+evaluated are `n/a` and do not count against it. `verdict` is reported but not
+scored: it measures the source's labelling of `verdict_type`, not the link (see
+the note at the end of `verify`), and is counted separately as `vmis` in the
+table. The machine cannot see whether
 the sentence is a reference to a ruling at all, nor whether the court word
 belongs to *this* number — a human/LLM reviewer reads the ±250-char context in
 `/tmp/lausnir-dev/citations_audit.jsonl` for that.
@@ -133,6 +136,24 @@ def _strip_letter_prefix(n: str) -> str:
     return re.sub(r"^[A-ZÞÆÖ]{1,2}-", "", n)
 
 
+def _court_from_number(num: str | None) -> str | None:
+    """The court a case number's shape implies on its own (spec §5.3), or None.
+
+    'F-…' is always Félagsdómur, any other letter prefix a district court (bare
+    'Hérd.', since the number does not say which one), 'YYYY-N' a
+    málskotsbeiðni. A bare 'N/YYYY' implies nothing.
+    """
+    if not num:
+        return None
+    if num.startswith("F-"):
+        return "Féld."
+    if re.match(r"^[A-ZÞÆÖ]{1,2}-", num):
+        return "Hérd."
+    if re.fullmatch(r"\d{4}-\d{1,3}", num):
+        return "Hrd. málsk."
+    return None
+
+
 def _last_court(raw_text: str):
     """Return (kind, abbr, start) for the last court word or inherited pronoun.
 
@@ -187,32 +208,33 @@ def verify(raw_text: str, span_text: str | None, target: dict, citing: dict,
         checks["number"] = "fail"
 
     # (b) the last court word maps to the target's court.
+    # The number's own shape decides the court whenever it carries one, and it
+    # overrides a court word that says otherwise (spec §5.3): 'F-' is always
+    # Félagsdómur, any other letter prefix a district court, 'YYYY-N' a
+    # málskotsbeiðni — which is why 'ákvörðun nr. 2022-1' needs no court word
+    # at all. Only when the number is a bare 'N/YYYY' does the word decide.
     kind, abbr, cpos = _last_court(raw_text)
     tcourt = target.get("court")
-    if kind == "inherit":
-        checks["court"] = "n/a"
-        notes.append("court inherited from an earlier sentence: cannot verify")
-    elif kind == "none":
-        checks["court"] = "fail"
-        notes.append("no court word in raw_text")
-    elif abbr == tcourt:
+    expected = _court_from_number(found_num) or (abbr if kind == "court" else None)
+    if expected is None:
+        if kind == "inherit":
+            checks["court"] = "n/a"
+            notes.append("court inherited from an earlier sentence: cannot verify")
+        else:
+            checks["court"] = "fail"
+            notes.append("no court word in raw_text and no court-bearing number shape")
+    elif expected == tcourt:
         checks["court"] = "pass"
-    elif abbr == "Hérd." and (tcourt or "").startswith("Hérd. "):
-        # 'héraðsdómi' with no place named accepts any district court.
+    elif expected == "Hérd." and (tcourt or "").startswith("Hérd. "):
+        # A district court with no place named accepts any district.
         checks["court"] = "pass"
-        notes.append("bare héraðsdóm accepts any district court")
-    elif abbr == "Hrd." and tcourt == "Hrd. málsk." and found_num and \
-            re.fullmatch(r"\d{4}-\d{1,3}", found_num):
-        # A 'YYYY-N' number under Hæstiréttur is a málskotsbeiðni (spec §5.3).
-        checks["court"] = "pass"
-        notes.append("Hrd. + YYYY-N number is a málskotsbeiðni")
     else:
         checks["court"] = "fail"
-        if found_num and re.match(r"^[A-ZÞÆÖ]{1,2}-", found_num) and \
-                (tcourt or "").startswith("Hérd"):
-            notes.append("letter-prefix rule (§5.3): number overrides the court word")
-        if found_num and re.match(r"^F-", found_num) and tcourt == "Féld.":
-            notes.append("letter-prefix rule (§5.3): F- is always Félagsdómur")
+    if kind == "court" and expected != abbr:
+        notes.append(f"letter-prefix rule (§5.3): number makes it {expected}, "
+                     f"the word says {abbr}")
+    elif kind != "court" and expected is not None:
+        notes.append(f"court taken from the number shape (§5.3): {expected}")
 
     # (c) a full date in raw_text, if any, is the target's date.
     tdate = target.get("document_date")
@@ -265,9 +287,16 @@ def verify(raw_text: str, span_text: str | None, target: dict, citing: dict,
     else:
         checks["span"] = "pass" if raw_text.endswith(span_text) else "fail"
 
-    failed = sorted(k for k, v in checks.items() if v == "fail")
+    # The verdict check is reported but not scored. `documents.verdict_type`
+    # follows the source's labelling (Hæstiréttur kærumál are stored as
+    # 'Úrskurður' though the document is headed 'Dómur Hæstaréttar'), and the
+    # resolver narrows by verdict only when more than one candidate is left —
+    # so a mismatch is a labelling signal, never evidence of a wrong link.
+    failed = sorted(k for k, v in checks.items() if v == "fail" and k != "verdict")
     return {"checks": checks, "failed": failed,
-            "verdict": "mech_fail" if failed else "mech_ok", "notes": notes}
+            "verdict": "mech_fail" if failed else "mech_ok",
+            "verdict_mismatch": checks["verdict"] == "fail",
+            "notes": notes}
 
 
 # --------------------------------------------------------------------------
@@ -359,9 +388,12 @@ async def run(n_total: int, seed: int, out_path: str) -> int:
     from engine.database.connection import init_db
     from engine.search.queries import _citation
 
-    url = os.environ.get("DATABASE_URL_READONLY") or os.environ.get("DATABASE_URL")
+    # Read-only role only: the audit must never be able to write, so there is
+    # no fallback to DATABASE_URL.
+    url = os.environ.get("DATABASE_URL_READONLY")
     if not url:
-        print("DATABASE_URL_READONLY is not set — run: set -a; . ./.env; set +a", file=sys.stderr)
+        print("DATABASE_URL_READONLY is not set — run: set -a; . ./.env; set +a",
+              file=sys.stderr)
         return 2
     await init_db(url, create_tables=False)
 
@@ -416,6 +448,7 @@ async def run(n_total: int, seed: int, out_path: str) -> int:
                 or f'{r["citing_court"]} {r["citing_case"]}',
                 "checks": v["checks"],
                 "mech_verdict": v["verdict"],
+                "verdict_mismatch": v["verdict_mismatch"],
                 "notes": v["notes"],
             }, ensure_ascii=False) + "\n")
 
@@ -425,29 +458,36 @@ async def run(n_total: int, seed: int, out_path: str) -> int:
           f"{len(sizes)} strata; sampled {len(results)}")
     print(f"# jsonl: {out_path}\n")
 
-    per = defaultdict(lambda: [0, 0, 0])
+    per = defaultdict(lambda: [0, 0, 0, 0])
     for r, v in results:
         cell = per[(r["method"], r["target_court"])]
         cell[0] += 1
         cell[1 if v["verdict"] == "mech_ok" else 2] += 1
+        cell[3] += 1 if v["verdict_mismatch"] else 0
 
-    print(f"{'method':<16} {'target_court':<18} {'pool':>7} {'n':>4} {'ok':>4} {'fail':>5}")
-    print("-" * 60)
+    print(f"{'method':<16} {'target_court':<18} {'pool':>7} {'n':>4} {'ok':>4} "
+          f"{'fail':>5} {'vmis':>5}")
+    print("-" * 66)
     for k in sorted(per, key=lambda k: (k[0], k[1])):
-        n, ok, bad = per[k]
-        print(f"{k[0]:<16} {k[1]:<18} {sizes.get(k, 0):>7,} {n:>4} {ok:>4} {bad:>5}")
-    print("-" * 60)
+        n, ok, bad, vmis = per[k]
+        print(f"{k[0]:<16} {k[1]:<18} {sizes.get(k, 0):>7,} {n:>4} {ok:>4} "
+              f"{bad:>5} {vmis:>5}")
+    print("-" * 66)
     tot = len(results)
     ok = sum(1 for _, v in results if v["verdict"] == "mech_ok")
+    vmis = sum(1 for _, v in results if v["verdict_mismatch"])
     pct = 100.0 * ok / tot if tot else 0.0
-    print(f"{'ALLS':<35} {len(pool):>7,} {tot:>4} {ok:>4} {tot - ok:>5}   ({pct:.1f} % mech_ok)")
+    print(f"{'ALLS':<35} {len(pool):>7,} {tot:>4} {ok:>4} {tot - ok:>5} {vmis:>5}"
+          f"   ({pct:.1f} % mech_ok)")
+    print(f"\nverdict word vs stored verdict_type: {vmis}/{tot} mismatches "
+          f"(labelling, not link errors — not scored)")
 
     fails = defaultdict(int)
     for _, v in results:
         for f in v["failed"]:
             fails[f] += 1
     if fails:
-        print("\nfailing checks: " + ", ".join(f"{k}={v}" for k, v in sorted(fails.items())))
+        print("failing checks: " + ", ".join(f"{k}={v}" for k, v in sorted(fails.items())))
 
     print(f"\n## mech_fail rows ({tot - ok})")
     for r, v in results:

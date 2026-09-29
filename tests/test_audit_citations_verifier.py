@@ -60,6 +60,28 @@ def test_inherited_court_word_cannot_be_verified_but_number_can():
     assert v["checks"]["verdict"] == "pass"
 
 
+def test_malskotsbeidni_needs_no_court_word_at_all():
+    # 'ákvörðun nr. 2022-1': the YYYY-N shape is always a málskotsbeiðni (§5.3),
+    # so the citation is complete without a court word.
+    raw = "ákvörðun nr. 2022-1"
+    v = verify(raw, "2022-1", _t("Hrd. málsk.", "2022-1", dt.date(2022, 3, 4), "Ákvörðun"),
+               {"document_date": dt.date(2022, 9, 28)})
+    assert v["verdict"] == "mech_ok", v
+    assert v["checks"]["court"] == "pass"
+
+
+def test_letter_prefix_overrides_a_wrong_court_word():
+    # The citing text misattributes an E- number to Hæstiréttur; a letter prefix
+    # other than F- is always a district court (§5.3), so the target is right.
+    raw = "Hæstaréttar Íslands í máli nr. E-1871/2007"
+    v = verify(raw, "E-1871/2007",
+               _t("Hérd. Rvk.", "E-1871/2007", dt.date(2007, 10, 5)),
+               {"document_date": dt.date(2007, 12, 12)}, prefix="dómur ")
+    assert v["verdict"] == "mech_ok", v
+    assert v["checks"]["court"] == "pass"
+    assert any("letter-prefix rule" in n for n in v["notes"])
+
+
 # ------------------------------------------------------------------ wrong ---
 
 def test_number_mismatch_fails():
@@ -86,6 +108,19 @@ def test_norm_num_drops_spaces_zeros_and_upcases():
     assert norm_num("e-0012/2020") == "E-12/2020"
     assert norm_num("2023-65") == "2023-65"
     assert norm_num(None) is None
+
+
+def test_verdict_mismatch_is_reported_but_not_scored():
+    # 'dómi Hæstaréttar' against a target stored as 'Úrskurður' (a Hæstiréttur
+    # kærumál): flagged for the reviewer, but it is not a link error.
+    raw = "Hæstaréttar 29. ágúst 2017 í máli nr. 533/2017"
+    v = verify(raw, "533/2017",
+               _t("Hrd.", "533/2017", dt.date(2017, 8, 29), "Úrskurður"),
+               CITING, prefix="Með dómi ")
+    assert v["checks"]["verdict"] == "fail"
+    assert v["verdict_mismatch"] is True
+    assert v["failed"] == []
+    assert v["verdict"] == "mech_ok"
 
 
 def test_later_target_and_broken_span_are_caught():
