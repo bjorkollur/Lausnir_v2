@@ -87,6 +87,18 @@ Aðeins **4** eru ólæstar en textalausar; þær eru raunverulegar eyður:
 
 Athugið að `locked` er geymt sem strengurinn `"true"`/`"false"` í `raw_api_data`, ekki JSON-boolean.
 
+### `case_type` er ekki `verdict_type` — og hann var aldrei skrifaður við innflutning (lagað 29.09.2026)
+Tvær ólíkar víddir sem er auðvelt að blanda: `verdict_type` er **hvað dómstóllinn kvað upp** (dómur eða úrskurður), `case_type` er **hvernig málið kom til hans** (kært eða áfrýjað) og hvers kyns það er (einkamál eða sakamál). Þær eru sjálfstæðar:
+
+- **Landsréttur kveður upp úrskurð í kærumálum** — öll 3.719 kærumál hans eru úrskurðir (100 %). En 122 **áfrýjuð** mál eru líka úrskurðir (frávísun, ómerking, hæfi dómara), svo `verdict_type` er ekki kærumálamerki.
+- **Hæstiréttur dæmir kærumál.** Ekkert af 12.216 Hæstaréttarskjölum kallar sig úrskurð: öll sem bera fyrirsögn segja „Dómur Hæstaréttar" og öll sem bera sitt eigið úrslitaorð segja „Dómsorð" — kærumál og áfrýjuð mál, fyrir og eftir 2018. Gamla `verdict_type`-villan hér að neðan var því óvart orðin kærumálaskynjari með 82 % nákvæmni, og það er sú vídd sem menn lásu úr henni.
+
+**Lekinn:** `case_type` var eini dálkurinn sem extractorinn framleiðir en `_upsert_doc` í öllum þremur dómstólainnflutningsskriftunum sleppti. Hann hafði því aldrei verið skrifaður við innflutning — aðeins af einskiptis-`backfill_case_type.py`, síðast 18.–22. júní 2026. 328 skjöl sem komu inn eftir það voru óflokkuð. `tests/test_import_upsert_parity.py` ber nú dálkasett extractorsins saman við upsertið hjá öllum þremur svo næsti nýi dálkur hverfi ekki þegjandi líka.
+
+**Innflutningur má fylla `case_type` en aldrei skrifa yfir hann.** Upsertið notar `coalesce(documents.case_type, excluded.case_type)`, því gildið í grunninum kemur frá dómstólnum en gildi extractorsins er ágiskun (`_infer_hrd_lrd_case_type`, ~97 % hjá Hæstarétti og ~70 % hjá Landsrétti). Ástæðan er alvarlegri en nákvæmnin: **island.is flokkar Hæstaréttardóma aðeins frá 5. janúar 2016**, svo fyrir ~10.000 eldri raðir er gildið í grunninum síðasta eintakið sem til er. Sjá [docs/snapshots/README.md](../snapshots/README.md) fyrir afritið og tölurnar.
+
+**Tvær gildrur í fyrirspurninni sjálfri:** dómstólslykillinn er `Landsrettur` **án broddstafa** (`Landsréttur` skilar `total: 0` án villu) en `Hæstiréttur` **með** þeim (`Haestirettur` skilar 0). Og skjölin bera ekkert tegundarsvið — `caseType`, `caseTypes`, `caseCategories`, `caseCategory`, `type`, `category` er öllum hafnað á `WebVerdictItem`, og skemaskoðun er lokuð, svo eina leiðin er `caseTypes`-sían á listanum.
+
 ### `verdict_type` má aldrei lesa úr tilvísun í annan úrskurð (lagað 29.09.2026)
 Gamla reglan í `extractor.py::_detect_verdict_type` skilaði `'Úrskurður'` ef `Úrskurðarorð|úrskurðar` stóð **hvar sem er** í meginmálinu. Hvert einasta kærumál nefnir „úrskurð héraðsdóms" — þann sem kærður var — svo **5.368 Hæstaréttardómar, 151 Landsréttarmál og 1.071 héraðsdómur** voru skráðir sem úrskurðir. Hæstiréttur átti eftir það enga úrskurði í grunninum: heimildin birtir aðeins dóma (líka í kærumálum, fyrir og eftir 2018).
 
