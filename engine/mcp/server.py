@@ -17,6 +17,7 @@ from typing import AsyncIterator
 from mcp.server.mcpserver import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
 from mcp.types import ToolAnnotations
+from sqlalchemy.exc import DBAPIError, InterfaceError, OperationalError
 
 import engine.database.connection as _db
 from engine.mcp import tools
@@ -48,11 +49,23 @@ INSTRUCTIONS = (
 
 _RO = ToolAnnotations(read_only_hint=True)
 
+# Both the CLI guard and the lifespan use this: an unset *or empty*
+# DATABASE_URL_READONLY must never fall through to init_db's DATABASE_URL
+# default, which is the read-write role.
+NO_RO_URL_MSG = ("lausnir mcp: DATABASE_URL_READONLY vantar í umhverfi/.env — þjónninn notar aðeins "
+                 "lesaðgangshlutverkið lausnir_ro (sjá docs/wiki/10-mcp.md).")
+
 
 def _session_factory():
     if _db.AsyncSessionLocal is None:
         raise ToolError("Gagnagrunnstenging er ekki tilbúin.")
     return _db.AsyncSessionLocal()
+
+
+def _one_line(exc: Exception) -> str:
+    """``ExcName: first line`` — tracebacks belong in the log, not in the LLM's context."""
+    text = str(exc).splitlines()[0] if str(exc) else ""
+    return f"{exc.__class__.__name__}: {text}"
 
 
 async def _run(fn, **kw):
@@ -63,14 +76,19 @@ async def _run(fn, **kw):
         raise ToolError(str(exc))
     except ToolError:
         raise
-    except Exception as exc:  # DB down mid-run etc.: readable error, no traceback to the LLM
+    except (OperationalError, InterfaceError, DBAPIError) as exc:  # DB down mid-run, dropped connection
+        log.exception("database failure")
+        raise ToolError(f"Gagnagrunnstenging brást: {_one_line(exc)}")
+    except Exception as exc:  # a bug in a tool: readable error, no traceback to the LLM
         log.exception("tool failure")
-        raise ToolError(f"Gagnagrunnstenging brást: {exc.__class__.__name__}: {str(exc).splitlines()[0] if str(exc) else ''}")
+        raise ToolError(f"Óvænt villa í verkfæri: {_one_line(exc)}")
 
 
 @asynccontextmanager
 async def _lifespan(_server: MCPServer) -> AsyncIterator[None]:
-    url = os.environ["DATABASE_URL_READONLY"]
+    url = os.environ.get("DATABASE_URL_READONLY")
+    if not url:
+        raise RuntimeError(NO_RO_URL_MSG)
     await _db.init_db(url=url, create_tables=False)
     log.info("lausnir mcp: db ready")
     yield
@@ -141,6 +159,12 @@ def build_server() -> MCPServer:
 
 
 def _load_env() -> None:
+    """Load the repo's .env without overriding the shell.
+
+    ``override=False`` makes shell-exported variables win over .env, which the
+    ``set -a; . ./.env; set +a; uv run pytest`` workflow and the stdio test (it
+    passes DATABASE_URL_READONLY to the child) both rely on.
+    """
     from dotenv import load_dotenv
     load_dotenv(REPO_ROOT / ".env", override=False)
 
@@ -150,8 +174,7 @@ def main(argv: list[str] | None = None) -> int:
                         format="%(asctime)s %(name)s %(levelname)s %(message)s")
     _load_env()
     if not os.environ.get("DATABASE_URL_READONLY"):
-        print("lausnir mcp: DATABASE_URL_READONLY vantar í umhverfi/.env — þjónninn notar aðeins "
-              "lesaðgangshlutverkið lausnir_ro (sjá docs/wiki/10-mcp.md).", file=sys.stderr)
+        print(NO_RO_URL_MSG, file=sys.stderr)
         return 2
     build_server().run("stdio")
     return 0

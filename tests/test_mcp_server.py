@@ -1,4 +1,3 @@
-import asyncio
 import subprocess
 import sys
 
@@ -19,6 +18,9 @@ def test_import_writes_nothing_to_stdout():
     assert p.stdout == ""
 
 
+# This test is the drift guard that pins srv.TOOL_NAMES to what build_server()
+# actually registers — TOOL_NAMES is the documented contract, nothing enforces it
+# at runtime (the SDK's tool registry is private).
 async def test_list_tools_names_and_annotations():
     s = srv.build_server()
     tools = await s.list_tools()
@@ -55,3 +57,51 @@ async def test_tool_error_wrapping(monkeypatch):
     with pytest.raises(ToolError) as ei:
         await s.call_tool("search", {"q": "x"})
     assert "prófvilla" in str(ei.value)
+
+
+async def test_lifespan_refuses_empty_readonly_url(monkeypatch):
+    """An empty DATABASE_URL_READONLY must not fall through to DATABASE_URL:
+    init_db(url="") would silently open the read-write connection."""
+    calls = []
+
+    async def recorder(*a, **kw):
+        calls.append((a, kw))
+
+    monkeypatch.setattr(srv._db, "init_db", recorder)
+    monkeypatch.setenv("DATABASE_URL_READONLY", "")
+    monkeypatch.setenv("DATABASE_URL", "postgresql+asyncpg://user@localhost/lausnir")
+    with pytest.raises(RuntimeError) as ei:
+        async with srv._lifespan(srv.build_server()):
+            pass
+    assert "DATABASE_URL_READONLY" in str(ei.value)
+    assert calls == []
+
+
+async def _call_search_raising(monkeypatch, exc):
+    async def boom(session, **kw):
+        raise exc
+    monkeypatch.setattr(srv.tools, "search", boom)
+
+    class _S:
+        async def __aenter__(self): return object()
+        async def __aexit__(self, *a): return False
+
+    monkeypatch.setattr(srv, "_session_factory", lambda: _S())
+    from mcp.server.mcpserver.exceptions import ToolError
+    s = srv.build_server()
+    with pytest.raises(ToolError) as ei:
+        await s.call_tool("search", {"q": "x"})
+    return str(ei.value)
+
+
+async def test_db_error_is_reported_as_a_connection_failure(monkeypatch):
+    from sqlalchemy.exc import OperationalError
+    msg = await _call_search_raising(
+        monkeypatch, OperationalError("SELECT 1", {}, Exception("connection refused")))
+    assert "Gagnagrunnstenging brást" in msg and "OperationalError" in msg
+
+
+async def test_other_errors_are_not_blamed_on_the_database(monkeypatch):
+    msg = await _call_search_raising(monkeypatch, KeyError("reifun"))
+    assert "Gagnagrunnstenging" not in msg
+    assert "Óvænt villa í verkfæri" in msg and "KeyError" in msg
