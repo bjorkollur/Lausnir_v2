@@ -3,6 +3,13 @@ norm_case_number; CitationIndex/resolve follow in Task 3."""
 from __future__ import annotations
 
 import re
+import uuid
+from collections import defaultdict
+from dataclasses import dataclass
+from datetime import date
+from typing import Iterable
+
+from sqlalchemy import text as _sql_text
 
 _LEADING_ZEROS = re.compile(r"^([A-ZÞÆÖ]{1,2}-)?0+(?=\d)")
 
@@ -22,14 +29,6 @@ def norm_case_number(s: str | None) -> str | None:
         return None
     return _LEADING_ZEROS.sub(lambda m: m.group(1) or "", s)
 
-
-import uuid
-from collections import defaultdict
-from dataclasses import dataclass
-from datetime import date
-from typing import Iterable
-
-from sqlalchemy import text as _sql_text
 
 COURT_SOURCES = ("haestirettur", "landsrettur", "heradsdomstolar", "felagsdomur",
                  "landsdomar", "endurupptokudomur", "malskotsbeidnir")

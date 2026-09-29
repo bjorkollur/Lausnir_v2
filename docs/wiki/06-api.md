@@ -67,7 +67,7 @@ Flokkunartréð með skjalatölum + flatur heimildalisti.
 }
 ```
 
-`cited_by_count` — fjöldi skjala sem vitna í þessa niðurstöðu (`cites`-brýr með `to_doc_id` = niðurstöðunni), reiknaður með `LEFT JOIN LATERAL (SELECT count(*) FROM document_links l WHERE l.to_doc_id = d.id AND l.relation = 'cites')` yfir `ix_link_to_rel`, aðeins fyrir síðuna (≤ 100 raðir) — ekki fyrir allt `total`. Notað af `ResultCard` fyrir „vitnað í N sinnum" (sjá [07-framendi](07-framendi.md)).
+`cited_by_count` — fjöldi skjala sem vitna í þessa niðurstöðu (`cites`-brýr með `to_doc_id` = niðurstöðunni), reiknaður með einföldum skalar-undirspurnalið í SELECT-listanum (`(SELECT count(*) FROM document_links l WHERE l.to_doc_id = d.id AND l.relation = 'cites')`, ekki `LEFT JOIN LATERAL`) yfir `ix_link_to_rel`, aðeins fyrir síðuna (≤ 100 raðir) — ekki fyrir allt `total`. Notað af `ResultCard` fyrir „vitnað í N sinnum" (sjá [07-framendi](07-framendi.md)).
 
 Fimm svæðin `passage_id`…`match_count` koma frá efnisgreininni sem gaf besta samsvörun í `keyword`/`proximity` leit (sjá [05-leit](05-leit.md)) — öll `null` fyrir hina hamina, þar sem samsvörunin er á skjalstigi.
 

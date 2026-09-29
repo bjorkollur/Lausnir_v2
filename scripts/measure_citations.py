@@ -8,6 +8,11 @@ resolver in-process via `build_rows`, and writes nothing. Nothing here touches
 Gate: resolved >= 80 % of (resolved + ambiguous + unresolved), counted over the
 `summary` and `body` layers only (`lower_body` never forms an edge, §4.3).
 
+Sample: `--n` documents drawn at random per court instance tier, over
+`instance_tier IN (1, 2, 3)` only — héraðsdómur, Landsréttur and Hæstiréttur.
+Málskotsbeiðnir (and anything else without one of those three tiers) are
+**not** sampled, so the coverage number here is not the whole corpus.
+
 Usage:
     set -a; . ./.env; set +a
     uv run python scripts/measure_citations.py --n 800
@@ -147,6 +152,7 @@ async def measure(*, n: int, seed: int | None) -> int:
     print("=" * 78)
     print(f"SAMPLE: {docs:,} documents ({n} per tier x {len(TIERS)} tiers), "
           f"{total:,} citations, {time.monotonic() - t0:.0f}s")
+    print(f"        instance_tier IN {TIERS} only — málskotsbeiðnir excluded")
     print("=" * 78)
     print()
     print("counts by status (all layers):")
@@ -160,7 +166,7 @@ async def measure(*, n: int, seed: int | None) -> int:
         print(f"  {k:<14} {v:>8,}  {100 * v / tot_edge if tot_edge else 0:5.1f}%")
     print(f"  {'TOTAL':<14} {tot_edge:>8,}")
     print()
-    print(f"COVERAGE = resolved / (resolved+ambiguous+unresolved), summary+body")
+    print("COVERAGE = resolved / (resolved+ambiguous+unresolved), summary+body")
     print(f"         = {status_edge['resolved']:,} / {denom:,} = {100 * coverage:.2f}%   "
           f"gate {100 * GATE:.0f}%  -> {'PASS' if coverage >= GATE else 'FAIL'}")
     print()

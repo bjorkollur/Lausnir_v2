@@ -167,11 +167,11 @@ Hver rað er **ein tilvísun** í texta á aðra úrlausn — fundin af `engine/
 | `target_case_number` | text | Staðlað með `norm_case_number` (sjá [09-gildrur](09-gildrur.md)); NULL fyrir dómasafnsform (`form='reporter'`, t.d. „Hrd. 1983/1538") |
 | `target_date` | date | Dagsetning nefnd í setningunni, sé hún til (§5.5 í hönnunarskjalinu) |
 | `target_verdict` | text | `Dómur` \| `Úrskurður` \| `Ákvörðun` \| NULL |
-| `to_doc_id` | uuid FK documents SET NULL | Leyst skjal — NULL þegar `status` er ekki `resolved`/`self` |
+| `to_doc_id` | uuid FK documents SET NULL | Leyst skjal — NULL nema `status = 'resolved'` (`self`-raðir hafa líka NULL: skjalið vitnar í sjálft sig og engin brú er skrifuð) |
 | `status` | text | `resolved` \| `ambiguous` \| `unresolved` \| `self` \| `pre_coverage` |
 | `method` | text | `casenum_date` \| `casenum_verdict` \| `casenum_unique` \| NULL |
 | `confidence` | float | `1.0` / `0.9` / `0.8` / NULL |
-| `created_at` | timestamptz | `now()` |
+| `created_at` | timestamp without time zone | `now()` — húsreglan (alembic 0004), eins og `created_at` á öðrum töflum |
 
 `UNIQUE (from_doc_id, layer, char_start)`.
 
