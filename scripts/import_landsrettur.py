@@ -198,6 +198,7 @@ async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
         "court": _v(doc.court),
         "verdict_type": _v(doc.verdict_type),
         "instance_tier": _v(doc.instance_tier),
+        "case_type": _v(doc.case_type),
         "plaintiffs": _v(doc.plaintiffs),
         "defendants": _v(doc.defendants),
         "keywords": _v(doc.keywords),
@@ -206,15 +207,20 @@ async def _upsert_doc(session: AsyncSession, doc: Document) -> None:
         "lower_body_text": _v(doc.lower_body_text),
         "validation_errors": _v(doc.validation_errors),
     }
+    stmt = pg_insert(Document).values(**values)
     update_cols = {
         k: v for k, v in values.items()
         if k not in ("id", "source_id", "external_id")
     }
+    # case_type is the court's own classification, collected from island.is by
+    # backfill_case_type.py; the extractor only infers it from keywords and
+    # parties.  island.is classifies Hæstaréttar verdicts from 2016 on, so for
+    # ~10.000 older rows the stored value is the last copy that exists — fill
+    # the column, never overwrite it.  See docs/snapshots/README.md.
+    update_cols["case_type"] = func.coalesce(Document.case_type, stmt.excluded.case_type)
     update_cols["updated_at"] = func.now()
     await session.execute(
-        pg_insert(Document)
-        .values(**values)
-        .on_conflict_do_update(
+        stmt.on_conflict_do_update(
             constraint="uq_doc_source_external",
             set_=update_cols,
         )
