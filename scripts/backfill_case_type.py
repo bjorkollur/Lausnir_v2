@@ -34,6 +34,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import collections
+import json
 import logging
 import sys
 import time
@@ -47,7 +48,10 @@ from sqlalchemy import text
 
 import engine.database.connection as _db_conn
 from engine.database.connection import init_db
-from engine.processors.extractor import _heradsdomur_case_type
+from engine.processors.extractor import (
+    _heradsdomur_case_type,
+    _infer_hrd_lrd_case_type,
+)
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 log = logging.getLogger(__name__)
@@ -333,10 +337,53 @@ async def _fill_from_prefix(short_name: str, dry_run: bool) -> None:
         log.warning("  óþekkt forskeyti: %s", case_number)
 
 
+
+def _as_list(value) -> list:
+    """JSONB comes back as a list from asyncpg and as text from some drivers."""
+    if isinstance(value, str):
+        return json.loads(value)
+    return value or []
+
+
+async def _fill_from_keywords(short_name: str, dry_run: bool) -> None:
+    """Last resort: read the route off the keywords and the kind off the plaintiff.
+
+    Only for rows the site classifies in no category at all — the walk above has
+    already had its chance.  An inferred value is indistinguishable from a
+    fetched one in the column, so a later full run (no --missing-only) is what
+    corrects it: that run writes whatever the site says now and leaves alone
+    everything the site has no answer for.
+    """
+    async with _db_conn.AsyncSessionLocal() as session:
+        rows = (await session.execute(
+            text("""
+                SELECT d.id, d.case_number, d.keywords, d.plaintiffs
+                FROM documents d JOIN sources s ON s.id = d.source_id
+                WHERE s.short_name = :sn AND d.case_type IS NULL
+            """),
+            {"sn": short_name},
+        )).all()
+    if not rows:
+        return
+    for doc_id, case_number, keywords, plaintiffs in rows:
+        case_type = _infer_hrd_lrd_case_type(_as_list(keywords), _as_list(plaintiffs), short_name)
+        log.info("  ágiskun: %s ← %s%s", case_number, case_type, " [dry-run]" if dry_run else "")
+        if dry_run:
+            continue
+        async with _db_conn.AsyncSessionLocal() as session:
+            await session.execute(
+                text("""UPDATE documents SET case_type = :ct
+                        WHERE id = :id AND case_type IS NULL"""),
+                {"ct": case_type, "id": doc_id},
+            )
+            await session.commit()
+
+
 async def backfill_missing(
     sources: list[str] | None = None,
     dry_run: bool = False,
     max_pages: int = _DEFAULT_MAX_PAGES,
+    fallback: bool = True,
 ) -> None:
     """Fill only the rows that have no case_type, leaving every other row alone."""
     await init_db()
@@ -374,8 +421,12 @@ async def backfill_missing(
                 log.info("  %s ← %d skjöl", normalised, n)
                 total_filled += n
             log.info("%s: %d fyllt, %d eftir óflokkuð", short_name, total_filled, len(wanted))
-            for external_id in sorted(wanted)[:10]:
-                log.warning("  ekki í neinni tegundasíu: %s", external_id)
+            if wanted and not fallback:
+                for external_id in sorted(wanted)[:10]:
+                    log.warning("  ekki í neinni tegundasíu: %s", external_id)
+            elif wanted:
+                log.info("  %d í engri tegundasíu — varaleið úr lykilorðum:", len(wanted))
+                await _fill_from_keywords(short_name, dry_run)
 
 
 if __name__ == "__main__":
@@ -386,6 +437,8 @@ if __name__ == "__main__":
                         help="fylla aðeins raðir með case_type IS NULL; skrifar aldrei yfir")
     parser.add_argument("--max-pages", type=int, default=_DEFAULT_MAX_PAGES,
                         help=f"þak á síðum á tegund í --missing-only (sjálfgefið {_DEFAULT_MAX_PAGES})")
+    parser.add_argument("--no-fallback", action="store_true",
+                        help="sleppa lykilorða-varaleiðinni; skilja eyður eftir sem NULL")
     parser.add_argument("--dry-run", action="store_true",
                         help="sækja en ekki skrifa")
     args = parser.parse_args()
@@ -393,6 +446,7 @@ if __name__ == "__main__":
     sources = [args.source] if args.source else None
     if args.missing_only:
         asyncio.run(backfill_missing(sources=sources, dry_run=args.dry_run,
-                                     max_pages=args.max_pages))
+                                     max_pages=args.max_pages,
+                                     fallback=not args.no_fallback))
     else:
         asyncio.run(backfill(sources=sources, dry_run=args.dry_run))

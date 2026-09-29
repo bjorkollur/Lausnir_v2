@@ -1929,41 +1929,65 @@ def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
     }
 
 
+# Which plaintiffs make a case a sakamál, measured against island.is's own
+# classification of 18.515 verdicts (29.09.2026).  The two courts disagree, and
+# the column has to stay consistent with what the site already told us, so the
+# test is per court rather than "legally correct":
+#
+#   name                      Hæstiréttur          Landsréttur
+#   Ákæruvaldið               2.336 / 0            1.239 / 1
+#   Héraðssaksóknari             37 / 0              110 / 0
+#   Lögreglustjórinn á …        321 / 983          1.671 / 3
+#   Ríkislögreglustjóri           0 / 99            (few)
+#   Sérstakur saksóknari          0 / 30            (few)
+#   Ríkissaksóknari               3 / 20               50 / 0
+#
+# (sakamál / einkamál).  Under Hæstiréttur a police-initiated kærumál —
+# gæsluvarðhald and the like — is filed as *einkamál* far more often than not,
+# so only the two unambiguous names count there.
+_SAKAMAL_ANY_COURT = re.compile(r"^(Ákæruvaldið|Héraðssaksóknari)\b", re.IGNORECASE)
+_SAKAMAL_LANDSRETTUR = re.compile(
+    r"^(Lögreglustjór|Ríkissaksóknari|Ríkislögreglustjóri|Sérstakur[ \t]+saksóknari"
+    r"|Skattrannsóknarstjóri|Tollstjóri)",
+    re.IGNORECASE,
+)
+
+
 def _infer_hrd_lrd_case_type(
     keywords: list | None,
     plaintiffs: list[dict] | None,
+    short_name: str,
 ) -> str:
-    """Infer case_type from keywords and plaintiffs.  Not wired into the import.
+    """Infer case_type for a verdict island.is classifies in no category at all.
 
-    Kærumál keyword → Kært, absence → Áfrýjað.
-    Ákæruvaldið as plaintiff → sakamál, otherwise → einkamál.
+    The court's own classification is the real answer and it is read from the
+    island.is caseTypes filter — this is the fallback for what that filter never
+    returns (three Landsréttarmál on 2026-09-29).  It must therefore run *after*
+    the source has had its say: ``backfill_case_type.py --missing-only``, never
+    at import time.  See tests/test_import_upsert_parity.py.
 
-    This is the fallback for the few verdicts island.is classifies in no
-    category at all (three Landsréttarmál on 2026-09-29).  It must run *after*
-    the source has had its say — see backfill_case_type.py and
-    tests/test_import_upsert_parity.py — and it is deliberately not called yet:
-    measured against island.is's own answer the route (kært/áfrýjað) is 99,98%
-    right for Hæstiréttur and 99,66% for Landsréttur, but the kind
-    (sakamál/einkamál) is 96,9% and only 70,0%, because Landsréttur also files
-    the prosecution as 'Lögreglustjórinn á …', 'Héraðssaksóknari' and
-    'Ríkissaksóknari'.  Widening the test lifts Landsréttur to 99,4% but drops
-    Hæstiréttur to 87,7%: the two courts do not classify police-initiated
-    kærumál the same way, so any wiring of this needs a per-court rule and a
-    record of which values were inferred.  See docs/wiki/09-gildrur.md.
+    Route from the keywords, which is where a kærumál says so: 'Kærumál' → Kært,
+    absence → Áfrýjað.  Measured 99,98% right for Hæstiréttur and 99,66% for
+    Landsréttur.  Kind from the plaintiff, per court (see the table above):
+    97,22% and 98,89% for the whole case_type.
+
+    An inferred value is indistinguishable from a fetched one in the column, so
+    a later full ``backfill_case_type.py`` run is what corrects it — that run
+    overwrites with whatever the site says now, and touches nothing the site has
+    no answer for.
     """
     kw_lower = [k.lower() for k in (keywords or []) if isinstance(k, str)]
-    has_kaermal = any("kærumál" in k for k in kw_lower)
-    has_akaeruvalid = any(
-        (p.get("name") or "").startswith("Ákæruvaldið")
-        for p in (plaintiffs or [])
-    )
-    if has_kaermal and has_akaeruvalid:
-        return "Kært sakamál"
-    if not has_kaermal and has_akaeruvalid:
-        return "Áfrýjað sakamál"
-    if has_kaermal:
-        return "Kært einkamál"
-    return "Áfrýjað einkamál"
+    route = "Kært" if any("kærumál" in k for k in kw_lower) else "Áfrýjað"
+
+    kind = "einkamál"
+    for party in (plaintiffs or []):
+        name = (party.get("name") or "").strip()
+        if _SAKAMAL_ANY_COURT.match(name) or (
+            short_name == "landsrettur" and _SAKAMAL_LANDSRETTUR.match(name)
+        ):
+            kind = "sakamál"
+            break
+    return f"{route} {kind}"
 
 
 _LRD_CASE_TYPE_NORMALISE: dict[str, str] = {

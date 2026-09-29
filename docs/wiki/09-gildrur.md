@@ -99,7 +99,22 @@ Tvær ólíkar víddir sem er auðvelt að blanda: `verdict_type` er **hvað dó
 
 **Röðin skiptir máli: heimildin fyrst, ágiskun á eftir.** Innflutningurinn skilar `case_type = NULL` fyrir Hæstarétt og Landsrétt af ásettu ráði. Skrifaði hann ágiskun væri röðin ekki lengur NULL og `--missing-only` slepti henni — dómstóllinn fengi aldrei orðið. Héraðsdómstólar eru undantekningin: þar **er** forskeyti málsnúmersins svar dómstólsins, svo það er fyllt við innflutning. `tests/test_import_upsert_parity.py` festir þetta.
 
-`_infer_hrd_lrd_case_type` er því ókölluð eins og stendur, og það er vísvitandi: hún er varaleiðin fyrir þau fáu mál sem heimildin flokkar ekki í neina tegund (þrjú Landsréttarmál 29.09.2026). Mælt gegn svari island.is er leiðin (kært/áfrýjað) 99,98 % rétt hjá Hæstarétti og 99,66 % hjá Landsrétti, en tegundin (sakamál/einkamál) 96,9 % og aðeins 70,0 % — Landsréttur skráir ákæruvaldið líka sem „Lögreglustjórinn á …", „Héraðssaksóknari" og „Ríkissaksóknari". Víkkað próf lyftir Landsrétti í 99,4 % en fellir Hæstarétt í 87,7 %, því dómstólarnir flokka lögreglustýrð kærumál ekki eins. Wiring hennar þarf því dómstólasértæka reglu **og** skráningu á því hvaða gildi eru ágiskuð.
+**Varaleiðin** (`_infer_hrd_lrd_case_type`) tekur við þeim fáu málum sem heimildin flokkar í **enga** tegund — þrjú Landsréttarmál 29.09.2026 (592/2026, 562/2026, 564/2019). Hún keyrir aðeins í `--missing-only`, **eftir** að síuflettingin hefur fengið sitt, aldrei við innflutning. Leiðin kemur úr lykilorðinu „Kærumál" (99,98 % rétt hjá Hæstarétti, 99,66 % hjá Landsrétti), tegundin úr stefnanda og hún er dómstólasértæk. Heild: **97,22 % hjá Hæstarétti og 98,89 % hjá Landsrétti** (mælt gegn 18.515 gildum frá heimildinni).
+
+Dómstólasértæknin er ekki smekksatriði — hún er mæld. Sama sækjandaheiti flokkast ekki eins:
+
+| Stefnandi | Hæstiréttur (saka/einka) | Landsréttur (saka/einka) |
+|---|---|---|
+| Ákæruvaldið | 2.336 / 0 | 1.239 / 1 |
+| Héraðssaksóknari | 37 / 0 | 110 / 0 |
+| Lögreglustjórinn á … | **321 / 983** | **1.671 / 3** |
+| Ríkislögreglustjóri | 0 / 99 | (fá) |
+| Sérstakur saksóknari | 0 / 30 | (fá) |
+| Ríkissaksóknari | 3 / 20 | 50 / 0 |
+
+Hjá Hæstarétti flokkar island.is lögreglustýrt kærumál (gæsluvarðhald o.þ.h.) sem **einkamál** í langflestum tilvikum, hjá Landsrétti sem **sakamál**. Reglan telur því aðeins tvö heiti hjá Hæstarétti en öll hjá Landsrétti; víkkun fyrir bæði lyfti Landsrétti í 99,4 % en felldi Hæstarétt í 87,7 %. Það sem eftir stendur af skekkjunni (337 skjöl hjá Hæstarétti) er nánast allt þessi eini flokkur. **Samræmi við geymdu gildin gildir hér framar „réttri" lögfræði** — dálkurinn verður að vera einn taxonómía, ekki tvær.
+
+**Ágiskun er ekki merkt sérstaklega** (enginn upprunadálkur, ákvörðun notanda 29.09.2026). Leiðréttingarleiðin er því **full keyrsla** á `backfill_case_type.py` (án `--missing-only`): hún skrifar það sem heimildin segir núna og snertir ekkert sem heimildin hefur ekkert svar við — þar á meðal Hæstaréttarraðirnar fyrir 2016.
 
 **Tvær gildrur í fyrirspurninni sjálfri:** dómstólslykillinn er `Landsrettur` **án broddstafa** (`Landsréttur` skilar `total: 0` án villu) en `Hæstiréttur` **með** þeim (`Haestirettur` skilar 0). Og skjölin bera ekkert tegundarsvið — `caseType`, `caseTypes`, `caseCategories`, `caseCategory`, `type`, `category` er öllum hafnað á `WebVerdictItem`, og skemaskoðun er lokuð, svo eina leiðin er `caseTypes`-sían á listanum.
 
