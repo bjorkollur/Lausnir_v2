@@ -1,7 +1,7 @@
 # Read-only MCP-þjónn fyrir Lausnir — hönnun
 
 **Dagsetning:** 2026-09-29
-**Staða:** Samþykkt hönnun í spjalli 2026-09-29 (leið A, stdio, rannsóknarverkfæri + read-only SQL). Áætlun: `docs/superpowers/plans/2026-09-29-mcp-server.md`.
+**Staða:** Innleitt 2026-09-29 á grein feat/mcp-server. Áætlun: `docs/superpowers/plans/2026-09-29-mcp-server.md`.
 **Forsaga:** `docs/2026-09-27-mat-a-adferdafraedi-og-llm-leit.md` (kafli 4 og aðgerðaliður í línu 121) lagði til read-only MCP ofan á `queries.py` og að loka skrifaðgangi `mcp-postgres`. `docs/superpowers/specs/2026-09-27-passages-design.md` nefndi verkfæraheitin `search_passages`/`get_passages` sem framtíðarverk.
 
 ## 1. Markmið

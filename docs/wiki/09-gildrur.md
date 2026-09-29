@@ -90,6 +90,12 @@ Athugið að `locked` er geymt sem strengurinn `"true"`/`"false"` í `raw_api_da
 ### Héraðsdómur birtir ekki alla dóma
 ~30% „no-candidate" hlutfall í `hrd_herd` tengingum er væntanlegt, ekki bilun.
 
+### MCP: stdout er samskiptarásin
+`engine/mcp` er stdio MCP-þjónn (sjá [10-mcp](10-mcp.md)) — stdout er lokað fyrir prótókollinn, ekki fyrir venjulegt `print`/log. Allt log verður að fara á stderr (`logging.basicConfig(stream=sys.stderr)` í `server.py`, sett upp áður en `engine` er flutt inn). `tests/test_mcp_server.py::test_import_writes_nothing_to_stdout` staðfestir að sjálft `import engine.mcp.server` sé þögult á stdout — bætist einhvern tímann `print()`-kall eða óvart-stillt logger með `StreamHandler(sys.stdout)` inn í `engine`, brotnar prótókollið þögult hjá viðskiptavininum.
+
+### Lesaðgangshlutverk + `Base.metadata.create_all`
+`engine/database/connection.py::init_db` keyrir sjálfgefið `Base.metadata.create_all` við ræsingu — nauðsynlegt fyrir API-ið og skriptur, en `lausnir_ro` má ekki `CREATE`. MCP-þjónninn kallar því `init_db(url=DATABASE_URL_READONLY, create_tables=False)` (`engine/mcp/server.py::_lifespan`). Ef `create_tables` gleymist (t.d. ný kallstöð sem afritar gamla `init_db()`-kallið) mistekst ræsingin á fyrstu `CREATE TABLE` með réttindavillu — augljóst í log, en villuboðin benda á `CREATE`, ekki á orsökina (`create_tables=True` með read-only hlutverki).
+
 ### `npx tsc --noEmit` í `frontend/` athugar EKKERT
 Rót-`tsconfig.json` er `{"files": [], "references": [...]}`. Án `-b` þýðir það **núll skrár**:
 
@@ -205,7 +211,7 @@ Leyst með `case_number_is_title` svæðinu í `/api/document`. Á við bæði b
 `embedding vector(3072)` dálkurinn er til og `pgvector` uppsett, en 0 skjöl eru fyllt og engin vektorleit er útfærð. Kerfisvítt verk (öll 91.152 skjölin), ekki bókasértækt.
 
 ### 4. Smærri atriði úr READINESS_PLAYBOOK
-- Ákveða hvort `mcp-postgres` MCP-þjónninn eigi að hafa read-only aðgang í stað fulls read/write
+- ~~Ákveða hvort `mcp-postgres` MCP-þjónninn eigi að hafa read-only aðgang í stað fulls read/write~~ Leyst 2026-09-29: `lausnir_ro` + `engine/mcp` (sjá [10-mcp](10-mcp.md)).
 - Íhuga varanlegri geymslu import-logga
 
 ## Öryggisákvarðanir sem standa

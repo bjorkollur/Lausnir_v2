@@ -80,6 +80,10 @@ Verkefnið notar `superpowers`-skil:
 
 `docs/superpowers/` geymir 6 specs og 10 áætlanir frá maí–júlí 2026 — góð heimild um *af hverju* hlutir eru eins og þeir eru.
 
+## MCP
+
+`python -m engine.mcp` er read-only MCP-þjónn ofan á `engine` (leit, efnisgreinar, skjöl, lesaðgangs-SQL) — sjá [10-mcp](10-mcp.md) fyrir verkfæratöflu og mörk. Tengt við Claude Code með `claude mcp add lausnir -- uv run --directory /Volumes/RuleOfLaw/Lausnir python -m engine.mcp`. Próf: `uv run pytest -q tests/test_mcp_*.py` (fjórar skrár keyra án gagnagrunns; hinar fjórar þurfa `DATABASE_URL_READONLY`/`DATABASE_URL`). `DATABASE_URL_READONLY` er, eins og `DATABASE_URL`, vélarsértæk stilling í `.env` — ekki deilt milli véla.
+
 ## Skjöl
 
 | Skjal | Innihald |

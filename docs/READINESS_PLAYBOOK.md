@@ -44,7 +44,7 @@ Engin sjálfstæð AI-agentakerfi eru starfandi í Lausnir — engir bakgrunnsbo
 | `caveman`, `design-taste-frontend`, `gpt-taste`, `high-end-visual-design`, `minimalist-ui` | Stíl- og hönnunarleiðbeiningar (samskiptaform / framenda-fagurfræði) | Engin gagnaaðgangsáhrif | Nei |
 | `commit-commands` (GitHub-tengt) | Commit/PR-gerð | Write í git, push til remote | Já — sbr. almennar reglur: aldrei push án staðfestingar frá notanda |
 
-**Réttindalíkan:** Það er ekkert formlegt aðgreint les/skrif-réttindakerfi milli skilja — Claude Code keyrir með fullum aðgangi að skránni (og gagnagrunninum, í gegnum `mcp-postgres` MCP-þjón sem er tengdur `postgresql://geiri@localhost/lausnir_v2`) hverju sinni sem notandi samþykkir tólakall. Sjálfgefið keyrir AI í "auto mode" — heldur áfram án stöðvunar á afturkræfum aðgerðum, en stöðvar og biður um staðfestingu fyrir:
+**Réttindalíkan:** Það er ekkert formlegt aðgreint les/skrif-réttindakerfi milli skilja — Claude Code keyrir með fullum aðgangi að skránni (og gagnagrunninum, í gegnum `mcp-postgres` MCP-þjón sem er tengdur `postgresql://geiri@localhost/lausnir_v2`) hverju sinni sem notandi samþykkir tólakall. Síðan 2026-09-29 er til aðgreint lesaðgangshlutverk `lausnir_ro` sem MCP-þjónninn notar (sjá `docs/wiki/10-mcp.md`). Sjálfgefið keyrir AI í "auto mode" — heldur áfram án stöðvunar á afturkræfum aðgerðum, en stöðvar og biður um staðfestingu fyrir:
 - Eyðingu skráa/greina utan vinnusvæðis
 - `git push`, PR-gerð, force-push
 - Hvers kyns óafturkræfa aðgerð utan git-repósins sjálfs
@@ -56,7 +56,7 @@ Engin sjálfstæð AI-agentakerfi eru starfandi í Lausnir — engir bakgrunnsbo
 
 ### TODO — AI-verkflæði
 
-- [ ] Ákveða hvort `mcp-postgres` MCP-þjónninn ætti að hafa read-only aðgang að framleiðslugagnagrunninum í stað fulls read/write (í dag: fullur aðgangur)
+- [x] Ákveða hvort `mcp-postgres` MCP-þjónninn ætti að hafa read-only aðgang að framleiðslugagnagrunninum í stað fulls read/write — leyst 2026-09-29: sjá `docs/wiki/10-mcp.md`
 - [ ] Íhuga hvort import-loggar (`/tmp/lausnir_update/`) ættu að varðveitast lengur en `/tmp` leyfir (hreinsast við endurræsingu)
 
 ---
@@ -102,7 +102,7 @@ Leyfir eingöngu staðarnetsuppruna (`localhost`, `127.0.0.1`, `192.168.x.x`), a
 
 - [x] Staðfesta að `.env` sé í `.gitignore` — staðfest 2026-07-23 (`.gitignore:5`, `frontend/.gitignore:13` fyrir `.env.local`)
 - [ ] Ef API fer nokkurn tímann út fyrir staðarnet: bæta við auðkenningarlagi áður en `allow_origin_regex` er rýmkað
-- [ ] Yfirfara `mcp-postgres` MCP-tenginguna reglulega — hún er beintengd við framleiðslugagnagrunninn með fullum réttindum
+- [x] Yfirfara `mcp-postgres` MCP-tenginguna reglulega — hún er beintengd við framleiðslugagnagrunninn með fullum réttindum — leyst 2026-09-29: sjá `docs/wiki/10-mcp.md`
 
 ---
 
