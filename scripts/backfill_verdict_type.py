@@ -3,7 +3,7 @@
 The old rule in extractor.py filed a document as 'Úrskurður' whenever the body
 mentioned 'úrskurðar' anywhere — which every kærumál does, because it discusses
 the úrskurður under appeal.  5.368 Hæstaréttardómar, 151 Landsréttarmál and
-~1.070 héraðsdómar carried the wrong type.  See docs/wiki/09-gildrur.md.
+1.071 héraðsdómar carried the wrong type.  See docs/wiki/09-gildrur.md.
 
 verdict_type also feeds verdict_filename (the ``_D_``/``_U_`` code), the .md
 header and documents.fts_is, so a repaired row means: rename the .md and .pdf,

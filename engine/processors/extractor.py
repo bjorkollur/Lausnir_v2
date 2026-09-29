@@ -403,7 +403,7 @@ def _detect_verdict_type(plain_text: str | None, config: "SourceConfig") -> str 
 
     None means the text does not say, and the caller falls back to
     ``config.verdict_type_default``.  Two equally direct statements that
-    contradict each other also return None: those 41 héraðsdómar are for a
+    contradict each other also return None: those 43 héraðsdómar are for a
     human to read, not for this function to guess at.
     """
     if not plain_text or not plain_text.strip():

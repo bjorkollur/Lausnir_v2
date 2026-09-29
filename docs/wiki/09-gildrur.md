@@ -101,7 +101,9 @@ Nýja reglan les það sem skjalið segir um **sjálft sig**, í þessari röð:
 - `has_lower_court`-heimildir (Hæstiréttur, Landsréttur) fá aðeins þrep 1 og 4. Þegar `_split_lower_court` missir skiptinguna (t.d. `ÚrskurðurHéraðsdóms` án bils) hangir úrskurður héraðsdóms aftan í `body_text` með sinni eigin fyrirsögn, lokaformúlu og „tekið til úrskurðar" — Hrd. 411/2000 og 412/2000 urðu að úrskurðum af þeim sökum í fyrstu útgáfu reglunnar. Aðeins **fyrsta** úrskurðarorðið er örugglega okkar.
 - Fyrirsagnir gamalla dóma eru bókstafaglesnar (`Ú r s k u r ð a r o r ð`) og lifa það af úr PDF-inum; `_spaced()` leyfir bil milli allra bókstafa.
 
-41 héraðsdómar segja tvennt jafn afdráttarlaust (t.d. „kveður upp úrskurð þennan" undir fyrirsögninni `## DÓMSORÐ`). Fallið skilar `None` fyrir þá og `scripts/backfill_verdict_type.py` lætur röðina ósnerta — ekkert giskað, sbr. tilvitnanaleysarann.
+43 héraðsdómar segja tvennt jafn afdráttarlaust (t.d. „kveður upp úrskurð þennan" undir fyrirsögninni `## DÓMSORÐ`). Fallið skilar `None` fyrir þá og `scripts/backfill_verdict_type.py` lætur röðina ósnerta — ekkert giskað, sbr. tilvitnanaleysarann.
+
+90 skjöl standa eftir sem óþekkt: 43 héraðsdómar með mótsögn, 31 héraðsdómur án nokkurs merkis, 12 með tómt meginmál (7 héraðsdómar, 5 Hæstiréttur) og 4 Hæstaréttarskjöl án úrskurðar-/dómsorðs. Skriftan er lyklunarlaus og sjálfsömul, svo listinn er endurgeranlegur hvenær sem er: `uv run python scripts/backfill_verdict_type.py --dry-run --report /tmp/vt.csv` — raðir merktar `óþekkt`.
 
 ### `verdict_type` dregur skráarnafnið og `fts_is` með sér
 `verdict_filename` ber kóðann `_D_`/`_U_` (`renderer._VERDICT_CODE`) og `.md`-hausinn segir „# Úrskurður Landsréttar – 184/2022", svo lagfærð tegund þýðir endurnefnd `.md`+`.pdf`, endurgerð markdown, færð `raw_api_data->>'pdf_path'`-vísun og `passage_hash = NULL` svo `backfill_passages.py` endurbyggi `documents.fts_is` (verdict_type er í strúktúr-forskeytinu, sjá `passage_index.py`). `backfill_verdict_type.py` gerir allt fjögur í sömu færslu.
