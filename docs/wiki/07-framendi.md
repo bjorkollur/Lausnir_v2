@@ -25,7 +25,13 @@ API-grunnur: `import.meta.env.VITE_API_BASE ?? "http://localhost:8077"`.
 | `/bokasafn` | `BokasafnPage` | Bókasafnið |
 | `/domur/:id` | `DocumentPage` | Eitt skjal — dómur, úrskurður eða **heil bók** |
 
-`NavRail` er alltaf sýnileg vinstra megin.
+`TopNav` (56px lárétt stika) er alltaf efst; `#efni` fyrir neðan hana er skrunsvæði appsins — glugginn sjálfur skrunar aldrei.
+
+**Síðuheiti:** hver síða setur `<title>` með `useDocumentTitle` (`lib/useDocumentTitle.ts`), t.d. „„skaðabætur“ – Leit – Lausnir" eða heiti dóms/laga (WCAG 2.4.2). `PageShell` gerir það sjálfkrafa út frá `title`.
+
+**Fókus við leiðaskipti:** `App` færir fókus á `#efni` (`tabIndex=-1`) þegar `pathname` breytist, nema síðan hafi sjálf sett fókus inni í efninu (forsíðan setur hann á leitarreitinn).
+
+**Skrunminni:** `lib/useScrollMemory.ts` endurheimtir skrunstöðu innri skrunsvæða eftir sögufærslu, eins og vafrinn gerir fyrir gluggann: ný færsla (hlekkur, leit) byrjar efst, til baka/áfram skilar lesanda þangað sem hann var. Notað á `#efni`, niðurstöðulistann (`SearchPage`) og lesarann (`DocPanel`). Án þess skilaði „til baka" úr dómi lesanda á niðurstöðu 1, og tilvitnun opnuð neðarlega í dómi opnaði næsta dóm jafn neðarlega.
 
 ## Ástandsstjórnun
 
@@ -40,24 +46,31 @@ toSearchParams(s: SearchState): URLSearchParams
 
 Snyrtimennska: `proximity_n` er aðeins skrifað í URL þegar það er annað en sjálfgefið 5.
 
+**Leit eða forsíða:** `hasSearchCriteria(s)` — fyrirspurn **eða** einhver sía (`activeFilterCount`: heimildir, tímabil, lagaákvæði, lykilorð). Án hvors tveggja sýnir `/` forsíðuna. Tímabil eitt og sér telst nú leit (áður var slóð með aðeins `date_from` áfram forsíðan). `CLEAR_FILTERS` fjarlægir allar síur en heldur fyrirspurn, ham og röðun.
+
+Hamirnir sjö, heiti þeirra og lýsingar eru á **einum stað**, `lib/modes.ts` (`ALL_MODES`, `MODE_LABELS`, `MODE_HINTS`, `FTS_MODES`, `sortForMode`, `effectiveSort`) — `LandingView`, `ModeDropdown` og `Toolbar` báru áður hvert sitt eintak.
+
 **Gagnasókn** er í gegnum TanStack Query hooks: `useSearch`, `useFacets`, `useSources`, `useDocument`, `useLaw`.
 
 ## Íhlutir
 
 | Íhlutur | Hlutverk |
 |---|---|
-| `SearchBar` | Leitarreitur, breytir texta eftir ham |
-| `ModeDropdown` | Val á leitarham + `proximity_n` reitur |
-| `Toolbar` | Röðun, dagsetningarsíur |
-| `ScopeChips` | Virk leitarsvið sem hægt er að fjarlægja |
-| `FacetSidebar` / `FacetNode` | Flokkunartréð með tölum |
-| `ResultsList` / `ResultCard` | Niðurstöður með útdráttum og `anchor` (efnisgreinar-heimilisfang, t.d. „12. mgr.") þegar leitin skilar einni; sjá „Slökuð leit" hér að neðan |
-| `DocPanel` | Skjalabirting (dómar **og** bækur), þ.m.t. „Tengd mál" og „Tilvitnanir" |
-| `CitationList` | Ein átt tilvitnana („Vitnar í" eða „Vitnað í þennan dóm") með „Sýna fleiri" síðuflettingu |
-| `LawPanel` | Lagabirting með ákvæðum |
-| `CatalogTree` / `SourceTree` | Heimildatré |
-| `states.tsx` | Hleðslu-, villu- og tómleikaástand |
-| `LandingView` | Upphafssýn áður en leitað er |
+| `SearchBar` | Leitarreitur (`role="search"`) með áföstum leitarhnappi og hreinsihnappi |
+| `ModeDropdown` | Val á leitarham + `proximity_n` reitur + „?"-sprettigluggi sem lýsir hömunum (falinn undir `sm`) |
+| `Toolbar` | `SortSelect` (sýnir „Nýjast fyrst" þegar engin fyrirspurn er til að raða eftir vægi — `effectiveSort` í `lib/modes.ts`), `FieldsPicker` (regex-reitir) og sameiginlegi `CONTROL`-klasinn |
+| `ActiveFilters` | Allar virkar síur fyrir ofan niðurstöðurnar — heimildir, tímabil, lagaákvæði, lykilorð — hver fjarlægjanleg, og „Hreinsa allt" |
+| `FilterPanel` / `FacetNode` | Síuspjaldið vinstra megin: tímabil, lagaákvæði, lykilorð og heimildatréð. Undir `lg` rennur það inn sem modal-gluggi (`role="dialog"`, fókusgildra, Escape lokar, „Sýna N niðurstöður") |
+| `ResultsList` / `ResultCard` | Niðurstöður með útdráttum og `anchor` (efnisgreinar-heimilisfang, t.d. „12. mgr.") þegar leitin skilar einni; sjá „Slökuð leit" hér að neðan. Fjöldinn er `role="status"`. Tómt ástand nefnir leitina og býður „Fjarlægja allar síur" / „Nota orðaleit"; villuástand býður „Reyna aftur" |
+| `DocPanel` | Skjalabirting (dómar **og** bækur), þ.m.t. „Tengd mál" og „Tilvitnanir". `PdfViewer` er hlaðið lötu (`React.lazy`) — pdf.js er ~420 kB og aðeins PDF-sýnin þarf það |
+| `DocHeader` | Klístraður haus lesarans; örin fer **til baka í sögunni** (leit, tilvitnun, lög), og á forsíðu aðeins ef skjalið var opnað beint |
+| `DocOutline` / `DocOutlineCompact` | Efnisyfirlit: dálkur á `xl`, felliflipi („Efnisyfirlit (n)") undir `xl` |
+| `CitationList` | Ein átt tilvitnana („Vitnar í" eða „Vitnað í þennan dóm") með „Sýna fleiri (n)" síðuflettingu |
+| `LawPanel` | Lagabirting: brauðmolar, heiti án breytingamerkja (`lib/lawTitle.ts`), „Lög nr. X · Tók gildi [dags.]", greinayfirlit á `xl`, og á hverri grein hlekkurinn „Tilvísanir" → `/?provision=72. gr. laga nr. 33/1944` |
+| `Breadcrumbs` | Brauðmolar (`nav aria-label="Brauðmolar"`), notaðir á kafla- og lagasíðum; núverandi síða er `h1`, ekki síðasti moli |
+| `CatalogTree` / `SourceTree` | Heimildatré (Heimildir-síðan / ýtarleg leit á forsíðu) |
+| `states.tsx` | Hleðslu- (`role="status"`), villu- (með „Reyna aftur") og tómleikaástand |
+| `LandingView` | Forsíðan: einn reitur og „Leita", og „Ýtarleg leit" fellanleg (opin/lokuð geymt í `localStorage`). **Allt forsíðuformið er drög þar til það er sent** — áður skrifaði hver stilling sig í slóðina strax, svo að haka við heimild breytti síðunni í niðurstöður og henti leitarorðinu |
 
 ## Slökuð leit — tilkynning og merki
 
@@ -184,7 +197,7 @@ Um þriðjungur ritgerða á Skemman er **læstur** hjá útgefanda (`locked: tr
 
 ## Próf
 
-19 prófskrár, 69 próf, Vitest + Testing Library + MSW.
+28 prófskrár, 156 próf, Vitest + Testing Library + MSW.
 
 Reglur sem gilda í öllum prófum:
 - Leita eftir hlutverki/texta (`getByRole`, `getByText`), **ekki** `data-testid`
