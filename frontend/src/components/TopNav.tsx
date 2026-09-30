@@ -59,6 +59,14 @@ export function TopNav() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-surface">
+      {/* Every page puts five nav controls and a toolbar ahead of the results.
+          Keyboard users get one key to step over them. */}
+      <a
+        href="#efni"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded focus:bg-cta focus:px-3 focus:py-2 focus:text-meta focus:text-cta-ink"
+      >
+        Fara beint í efnið
+      </a>
       <div className="mx-auto flex h-14 max-w-[1400px] items-center gap-4 px-4 sm:gap-8 sm:px-6">
         <NavLink to="/" end className="shrink-0 font-serif text-heading text-ink" aria-label="Lausnir, forsíða">
           Lausnir
@@ -78,7 +86,7 @@ export function TopNav() {
           className="ml-auto grid h-8 w-8 place-items-center rounded text-ink-soft hover:bg-surface-sunken hover:text-ink"
           aria-label={isDark ? "Skipta í ljóst þema" : "Skipta í dökkt þema"}
         >
-          {isDark ? <SunIcon size={17} weight="regular" /> : <MoonIcon size={17} weight="regular" />}
+          {isDark ? <SunIcon size={17} aria-hidden /> : <MoonIcon size={17} aria-hidden />}
         </button>
       </div>
     </header>

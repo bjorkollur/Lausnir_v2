@@ -78,7 +78,7 @@ export function FacetSidebar({ state, onChange, open = false, onClose }: {
             aria-label="Loka"
             className="text-ink-soft hover:text-ink lg:hidden"
           >
-            <XIcon size={15} />
+            <XIcon size={15} aria-hidden />
           </button>
         </div>
       {isPending && <div className="h-40 animate-pulse rounded bg-border" />}

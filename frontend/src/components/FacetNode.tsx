@@ -32,7 +32,7 @@ export function FacetNode({ node, selected, depth, onToggle }:
             onClick={() => setOpen(!open)}
             className="grid w-4 place-items-center text-ink-faint hover:text-ink"
           >
-            {open ? <CaretDownIcon size={11} weight="bold" /> : <CaretRightIcon size={11} weight="bold" />}
+            {open ? <CaretDownIcon size={11} weight="bold" aria-hidden /> : <CaretRightIcon size={11} weight="bold" aria-hidden />}
           </button>
         ) : (
           <span className="w-4" />
@@ -44,7 +44,7 @@ export function FacetNode({ node, selected, depth, onToggle }:
           className="grid h-[15px] w-[15px] place-items-center rounded-[3px] border border-border-strong data-[state=checked]:border-accent data-[state=checked]:bg-accent"
         >
           <Checkbox.Indicator className="text-cta-ink">
-            <CheckIcon size={10} weight="bold" />
+            <CheckIcon size={10} weight="bold" aria-hidden />
           </Checkbox.Indicator>
         </Checkbox.Root>
         <span className="flex-1 truncate text-meta text-ink">{node.label}</span>

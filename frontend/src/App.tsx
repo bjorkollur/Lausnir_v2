@@ -12,7 +12,10 @@ export default function App() {
   return (
     <div className="flex h-full flex-col">
       <TopNav />
-      <div className="min-h-0 flex-1 overflow-auto">
+      {/* scroll-pt-14 keeps a focused target clear of the sticky chrome:
+          WCAG 2.2 AA (Focus Not Obscured) fails when a sticky header covers the
+          element the browser just scrolled focus to. */}
+      <div id="efni" className="min-h-0 flex-1 scroll-pt-14 overflow-auto">
         <Routes>
           <Route path="/" element={<SearchPage />} />
           <Route path="/lagasafn" element={<LagasafnPage />} />

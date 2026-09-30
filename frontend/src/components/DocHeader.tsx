@@ -14,7 +14,7 @@ export function DocHeader({ doc }: { doc: DocumentDetail }) {
           aria-label="Til baka í leit"
           className="grid h-7 w-7 shrink-0 place-items-center rounded text-ink-soft hover:bg-surface-sunken hover:text-ink"
         >
-          <ArrowLeftIcon size={15} />
+          <ArrowLeftIcon size={15} aria-hidden />
         </Link>
         <span className="truncate text-meta font-medium text-ink">{doc.urlausn}</span>
         {doc.url && (

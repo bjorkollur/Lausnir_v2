@@ -220,7 +220,7 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
         .join(", ");
 
   return (
-    <div ref={scrollContainerRef} className="flex-1 overflow-y-auto bg-canvas">
+    <div ref={scrollContainerRef} className="flex-1 scroll-pt-16 overflow-y-auto bg-canvas">
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-x-12 gap-y-10 px-6 py-10 lg:grid-cols-[minmax(0,1fr)_17rem] xl:grid-cols-[12rem_minmax(0,1fr)_17rem]">
         <DocOutline segments={segments} activeText={activeHeading} onJump={jumpToHeading} />
 
