@@ -143,6 +143,10 @@ async def run(dry_run: bool, probe: bool, out: Path | None,
               sources: list[str], min_similarity: float) -> None:
     await init_db()
     async with _db_conn.AsyncSessionLocal() as session:
+        if sources is None:
+            sources = list((await session.execute(
+                text("SELECT short_name FROM sources ORDER BY short_name")
+            )).scalars().all())
         rows = [dict(r) for r in (
             await session.execute(text(_FIND_SQL), {"sources": sources})
         ).mappings().all()]
@@ -270,12 +274,17 @@ def main() -> None:
                     help="skrá fyrir fullt afrit af eyddu röðunum (skylda við raunverulega eyðingu)")
     ap.add_argument("--source", action="append", dest="sources", metavar="HEIMILD",
                     help=f"heimild til að skoða (má gefa oftar; sjálfgefið {', '.join(DEFAULT_SOURCES)})")
+    ap.add_argument("--all-sources", action="store_true",
+                    help="allar heimildir — vörnin er --min-similarity, ekki heimildalistinn")
     ap.add_argument("--min-similarity", type=float, default=DEFAULT_MIN_SIMILARITY,
                     help=f"lágmarkslíkindi á stöðluðum texta til að flokkur telist "
                          f"tvítekning (sjálfgefið {DEFAULT_MIN_SIMILARITY})")
     args = ap.parse_args()
+    if args.all_sources and args.sources:
+        ap.error("--all-sources og --source eiga ekki saman")
     asyncio.run(run(args.dry_run, args.probe, args.out,
-                    args.sources or list(DEFAULT_SOURCES), args.min_similarity))
+                    None if args.all_sources else (args.sources or list(DEFAULT_SOURCES)),
+                    args.min_similarity))
 
 
 if __name__ == "__main__":
