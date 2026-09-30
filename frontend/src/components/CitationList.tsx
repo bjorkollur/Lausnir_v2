@@ -28,22 +28,22 @@ export function CitationList({
 
   return (
     <div className="mb-4 last:mb-0">
-      <h3 className="text-sm font-semibold text-ink mb-1">
+      <h3 className="mb-2 text-meta font-medium text-ink">
         {title} ({total})
       </h3>
       <ul className="space-y-2">
         {items.map((c) => (
           // A pair can be cited from several passages, but the API collapses
           // each pair to one row — document_id is a stable key here.
-          <li key={c.document_id} className="text-sm">
-            <Link to={`/domur/${c.document_id}`} className="text-accent hover:underline">
+          <li key={c.document_id} className="text-meta">
+            <Link to={`/domur/${c.document_id}`} className="text-accent underline-offset-2 hover:underline">
               {c.urlausn}
             </Link>
             {c.also_appeal && (
-              <span className="ml-1 text-xs text-ink-soft">(í áfrýjunarkeðju)</span>
+              <span className="ml-1 text-micro text-ink-soft">(í áfrýjunarkeðju)</span>
             )}
-            {c.same_case && <span className="ml-1 text-xs text-ink-soft">(sama mál)</span>}
-            <div className="text-xs text-ink-soft leading-snug">{c.raw_text}</div>
+            {c.same_case && <span className="ml-1 text-micro text-ink-soft">(sama mál)</span>}
+            <div className="text-micro text-ink-soft">{c.raw_text}</div>
           </li>
         ))}
       </ul>
@@ -52,9 +52,9 @@ export function CitationList({
           type="button"
           onClick={() => void loadMore()}
           disabled={busy}
-          className="mt-2 text-sm text-accent hover:underline disabled:text-ink-faint"
+          className="mt-2 text-meta text-accent underline-offset-2 hover:underline disabled:text-ink-faint"
         >
-          Sýna fleiri
+          {busy ? "Sæki…" : `Sýna fleiri (${total - items.length})`}
         </button>
       )}
     </div>

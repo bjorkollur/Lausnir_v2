@@ -34,14 +34,14 @@ vi.mock("react-pdf", () => ({
 describe("PdfViewer", () => {
   it("disables the search box until per-page text extraction finishes", async () => {
     renderWithProviders(<PdfViewer url="https://example.test/x.pdf" />);
-    expect(await screen.findByPlaceholderText("Leita í skjalinu...")).not.toBeDisabled();
+    expect(await screen.findByPlaceholderText("Leita í skjalinu…")).not.toBeDisabled();
   });
 
   it("jumps to the page containing a match", async () => {
     const user = userEvent.setup();
     renderWithProviders(<PdfViewer url="https://example.test/x.pdf" />);
 
-    const input = await screen.findByPlaceholderText("Leita í skjalinu...");
+    const input = await screen.findByPlaceholderText("Leita í skjalinu…");
     await user.type(input, "lykilorð");
 
     expect(await screen.findByText("1 af 1")).toBeInTheDocument();
@@ -53,7 +53,7 @@ describe("PdfViewer", () => {
     const user = userEvent.setup();
     renderWithProviders(<PdfViewer url="https://example.test/x.pdf" />);
 
-    const input = await screen.findByPlaceholderText("Leita í skjalinu...");
+    const input = await screen.findByPlaceholderText("Leita í skjalinu…");
     await user.type(input, "finnst-hvergi");
 
     expect(await screen.findByText("Engar niðurstöður")).toBeInTheDocument();

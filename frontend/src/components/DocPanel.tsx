@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import type { CitationRef, DocumentDetail, Party } from "../api/types";
 import { documentPdfUrl, fetchCitations } from "../api/client";
@@ -11,14 +11,19 @@ import { LazyMarkdownSection } from "./LazyMarkdownSection";
 import { DocSearchBar } from "./DocSearchBar";
 import { Markdown } from "./Markdown";
 import { FootnoteList } from "./FootnoteList";
-import { PdfViewer } from "./PdfViewer";
 import { CitationList } from "./CitationList";
-import { DocOutline, type OutlineEntry } from "./DocOutline";
+import { DocOutline, DocOutlineCompact, type OutlineEntry } from "./DocOutline";
+import { ArrowSquareOutIcon } from "@phosphor-icons/react";
+import { useScrollMemory } from "../lib/useScrollMemory";
 import { formatIcelandicDate } from "../lib/formatDate";
 import { stripDocumentPreamble } from "../lib/stripPreamble";
 import { extractFootnotes } from "../lib/footnotes";
 
 const partyNames = (ps: Party[]) => ps.map((p) => p.name).join(", ");
+
+/** pdf.js is the largest thing in the bundle and only the "PDF" view needs it,
+ *  so it loads when that view is first opened rather than with the search page. */
+const PdfViewer = lazy(() => import("./PdfViewer").then((m) => ({ default: m.PdfViewer })));
 
 /** Icelandic labels for the appeal relations under "Tengd mál". An unknown
  * relation is shown verbatim rather than dropped — the API may grow a new one
@@ -65,9 +70,10 @@ function UnavailableNotice({ doc }: { doc: DocumentDetail }) {
             href={doc.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent hover:underline"
+            className="inline-flex items-center gap-1.5 text-accent hover:underline"
           >
-            Skoða hjá útgefanda ↗
+            Skoða hjá útgefanda
+            <ArrowSquareOutIcon size={13} aria-hidden />
           </a>
         </p>
       )}
@@ -102,6 +108,9 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
   const [forcedSegments, setForcedSegments] = useState<Set<number>>(new Set());
   const bodyRef = useRef<HTMLElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  // Opening a cited case from halfway down a judgment used to open it halfway
+  // down as well; back returns to the paragraph the reader left.
+  useScrollMemory(scrollContainerRef, "doc");
 
   // The document response carries the first page of both citation directions;
   // "Sýna fleiri" fetches the next one and appends it here. Keyed on doc.id so
@@ -221,7 +230,7 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
 
   return (
     <div ref={scrollContainerRef} className="flex-1 scroll-pt-16 overflow-y-auto bg-canvas">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-x-12 gap-y-10 px-6 py-10 lg:grid-cols-[minmax(0,1fr)_17rem] xl:grid-cols-[12rem_minmax(0,1fr)_17rem]">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-x-12 gap-y-10 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-[minmax(0,1fr)_17rem] xl:grid-cols-[12rem_minmax(0,1fr)_17rem]">
         <DocOutline segments={segments} activeText={activeHeading} onJump={jumpToHeading} />
 
         <article className="min-w-0 max-w-[44rem]">
@@ -229,26 +238,25 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
               when. The old header centred six stacked lines, which reads as a
               title page rather than as the head of a document. */}
           <header className="border-b border-border pb-6">
-            {/* One h1 that names the document: the court in small caps above,
-                the case number carrying the size. Naming the parties by role
-                was tried and reverted — "Sóknaraðili / Varnaraðili" is only
+            {/* One h1 that names the document. A ruling is identified by court
+                plus case number; a thesis by its own title, with the repository
+                it came from beside its year underneath. Naming the parties by
+                role was tried and reverted — "Sóknaraðili / Varnaraðili" is only
                 right for kærumál, while an appealed case has an áfrýjandi and a
                 stefndi. "gegn" is correct for both. */}
-            {/* A thesis is identified by its own title, so the repository it was
-                collected from stays outside the heading. A ruling is identified
-                by court plus case number, so the court belongs inside it. */}
-            {doc.case_number_is_title && (
-              <p className="text-micro font-medium uppercase tracking-[0.12em] text-ink-faint">
-                {doc.source_display}
-              </p>
-            )}
-            <h1 className={`font-serif text-title text-ink ${doc.case_number_is_title ? "mt-2" : ""}`}>
-              {heading}
-            </h1>
+            <h1 className="font-serif text-title text-ink">{heading}</h1>
             <p className="mt-1 text-meta text-ink-soft">
-              {[dateLabel, doc.case_number_is_title ? null : doc.verdict_type]
+              {(doc.case_number_is_title
+                ? [doc.source_display, dateLabel]
+                : [dateLabel, doc.verdict_type]
+              )
                 .filter(Boolean)
-                .join(" · ")}
+                .map((part, i) => (
+                  <span key={i}>
+                    {i > 0 && <span aria-hidden> · </span>}
+                    <span>{part}</span>
+                  </span>
+                ))}
             </p>
 
             {doc.plaintiffs.length > 0 && (
@@ -279,6 +287,8 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
               </ul>
             )}
           </header>
+
+          <DocOutlineCompact segments={segments} activeText={activeHeading} onJump={jumpToHeading} />
 
           {doc.summary && (
             <section className="border-b border-border py-6">
@@ -316,7 +326,13 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
 
           {viewMode === "pdf" ? (
             <div className="mt-6">
-              <PdfViewer url={documentPdfUrl(doc.id)} />
+              <Suspense
+                fallback={
+                  <p role="status" className="py-8 text-meta text-ink-soft">Sæki PDF-skoðara…</p>
+                }
+              >
+                <PdfViewer url={documentPdfUrl(doc.id)} />
+              </Suspense>
             </div>
           ) : (
             <>

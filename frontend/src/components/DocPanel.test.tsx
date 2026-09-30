@@ -77,7 +77,7 @@ describe("DocPanel with a large (book-length) document", () => {
     // fires, so every section stays an aria-hidden placeholder — proving the large
     // document takes the lazy path instead of rendering everything immediately.
     expect(screen.queryByRole("heading", { name: "Upphafskafli" })).not.toBeInTheDocument();
-    const placeholders = container.querySelectorAll('[aria-hidden="true"]');
+    const placeholders = container.querySelectorAll('[id^="doc-segment-"][aria-hidden="true"]');
     expect(placeholders.length).toBeGreaterThan(1);
   });
 });
@@ -131,7 +131,7 @@ describe("DocPanel search", () => {
     expect(screen.getByLabelText("Leita í skjalinu")).toBeInTheDocument();
     // Rendered eagerly — the heading is present and there are no lazy placeholders.
     expect(screen.getByRole("heading", { name: "Kafli" })).toBeInTheDocument();
-    expect(container.querySelectorAll('[aria-hidden="true"]')).toHaveLength(0);
+    expect(container.querySelectorAll('[id^="doc-segment-"][aria-hidden="true"]')).toHaveLength(0);
   });
 
   it("counts matches in a mid-length, eagerly-rendered document", async () => {
@@ -326,7 +326,8 @@ describe("DocPanel PDF view", () => {
     await user.click(screen.getByRole("button", { name: "PDF" }));
 
     expect(screen.queryByRole("heading", { name: "Dómsorð" })).not.toBeInTheDocument();
-    expect(screen.getByTestId("pdf-viewer")).toHaveTextContent("/api/document/doc-42/pdf");
+    // The viewer is lazy-loaded, so it arrives a tick after the click.
+    expect(await screen.findByTestId("pdf-viewer")).toHaveTextContent("/api/document/doc-42/pdf");
 
     await user.click(screen.getByRole("button", { name: "Texti" }));
     expect(screen.getByRole("heading", { name: "Dómsorð" })).toBeInTheDocument();
@@ -360,8 +361,8 @@ describe("DocPanel citations", () => {
 
   it("offers 'Sýna fleiri' only for the list with more entries than are shown", () => {
     renderWithProviders(<DocPanel doc={cited} />);
-    expect(listOf("Vitnar í (1)").queryByRole("button", { name: "Sýna fleiri" })).toBeNull();
-    expect(listOf("Vitnað í þennan dóm (3)").getByRole("button", { name: "Sýna fleiri" }))
+    expect(listOf("Vitnar í (1)").queryByRole("button", { name: /^Sýna fleiri/ })).toBeNull();
+    expect(listOf("Vitnað í þennan dóm (3)").getByRole("button", { name: /^Sýna fleiri/ }))
       .toBeInTheDocument();
   });
 
@@ -381,7 +382,7 @@ describe("DocPanel citations", () => {
     renderWithProviders(<DocPanel doc={cited} />);
 
     await user.click(
-      listOf("Vitnað í þennan dóm (3)").getByRole("button", { name: "Sýna fleiri" }),
+      listOf("Vitnað í þennan dóm (3)").getByRole("button", { name: /^Sýna fleiri/ }),
     );
 
     expect(await screen.findByRole("link", { name: /E-9\/2018/ })).toHaveAttribute(

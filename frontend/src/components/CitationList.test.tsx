@@ -51,7 +51,7 @@ describe("CitationList", () => {
     renderWithProviders(
       <CitationList title="Vitnar í" items={[cite()]} total={1} onMore={onMore} />,
     );
-    expect(screen.queryByRole("button", { name: "Sýna fleiri" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /^Sýna fleiri/ })).not.toBeInTheDocument();
   });
 
   it("offers 'Sýna fleiri' when the total exceeds what is shown, and calls onMore", async () => {
@@ -60,12 +60,12 @@ describe("CitationList", () => {
     renderWithProviders(
       <CitationList title="Vitnar í" items={[cite()]} total={4} onMore={onMore} />,
     );
-    await user.click(screen.getByRole("button", { name: "Sýna fleiri" }));
+    await user.click(screen.getByRole("button", { name: /^Sýna fleiri/ }));
     expect(onMore).toHaveBeenCalledTimes(1);
   });
 
   it("hides the button when the caller cannot load more", () => {
     renderWithProviders(<CitationList title="Vitnar í" items={[cite()]} total={4} />);
-    expect(screen.queryByRole("button", { name: "Sýna fleiri" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /^Sýna fleiri/ })).not.toBeInTheDocument();
   });
 });

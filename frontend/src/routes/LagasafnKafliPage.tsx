@@ -2,14 +2,16 @@ import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { searchDocuments } from "../api/client";
 import { useSources } from "../hooks/useSources";
+import { PageShell } from "../components/PageShell";
 import { ErrorState } from "../components/states";
+import { cleanLawTitle } from "../lib/lawTitle";
 
 export default function LagasafnKafliPage() {
   const { n } = useParams<{ n: string }>();
   // "1" → "lagasafn_01", "12" → "lagasafn_12"
   const scope = `lagasafn_${n?.padStart(2, "0") ?? "01"}`;
 
-  const { data, isPending, isError } = useQuery({
+  const { data, isPending, isError, error, refetch } = useQuery({
     queryKey: ["lagasafn-kafli", scope],
     queryFn: () =>
       searchDocuments({
@@ -27,49 +29,44 @@ export default function LagasafnKafliPage() {
   const { data: sources } = useSources();
   const lagasafnNode = sources?.catalog.find((c) => c.key === "lagasafn");
   const chapter = lagasafnNode?.children?.find((c) => c.key === scope);
+  const title = chapter?.label ?? `Kafli ${n}`;
+  const laws = data?.results ?? [];
 
   return (
-    <div className="p-6 max-w-3xl">
-      <Link
-        to="/lagasafn"
-        className="text-sm text-ink-soft hover:text-accent mb-4 inline-block"
-      >
-        ← Lagasafn
-      </Link>
-      <h1 className="text-2xl font-bold mb-6">
-        {chapter?.label ?? `Kafli ${n}`}
-      </h1>
-
+    <PageShell
+      title={title}
+      subtitle={data ? `${laws.length} lög í kaflanum` : undefined}
+      breadcrumbs={[{ label: "Lagasafn", to: "/lagasafn" }]}
+    >
       {isPending ? (
-        <div className="space-y-1">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="h-10 bg-surface-sunken rounded animate-pulse" />
+        <div role="status" className="max-w-3xl space-y-px">
+          <span className="sr-only">Sæki lög…</span>
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} aria-hidden className="h-10 animate-pulse rounded bg-surface-sunken" />
           ))}
         </div>
       ) : isError ? (
-        <ErrorState error={new Error("Ekki tókst að sækja lög")} />
+        <ErrorState error={error} onRetry={() => void refetch()} />
+      ) : laws.length === 0 ? (
+        <p className="text-body text-ink-soft">Engin lög fundust í þessum kafla.</p>
       ) : (
-        <div className="divide-y divide-border">
-          {(data?.results ?? []).map((r) => (
-            <Link
-              key={r.id}
-              to={`/log/${r.id}`}
-              className="flex items-start justify-between py-3 px-2 hover:bg-canvas rounded group"
-            >
-              <span className="text-accent group-hover:underline text-sm leading-snug">
-                {/* snippet = lögaheiti þegar q="" fyrir lagasafn */}
-                {r.snippet || r.urlausn}
-              </span>
-              <span className="text-ink-faint text-xs shrink-0 ml-4 tabular-nums pt-0.5">
-                nr.&nbsp;{r.case_number}
-              </span>
-            </Link>
+        <ul className="max-w-3xl">
+          {laws.map((r) => (
+            <li key={r.id}>
+              <Link
+                to={`/log/${r.id}`}
+                className="group -mx-2 flex items-baseline gap-4 rounded border-b border-border px-2 py-2.5 hover:bg-surface"
+              >
+                <span className="min-w-0 flex-1 text-meta text-ink group-hover:text-accent">
+                  {/* snippet = lögaheiti þegar q="" fyrir lagasafn */}
+                  {cleanLawTitle(r.snippet) || r.urlausn}
+                </span>
+                <span className="tabular shrink-0 text-micro text-ink-faint">nr. {r.case_number}</span>
+              </Link>
+            </li>
           ))}
-          {data?.results.length === 0 && (
-            <p className="text-ink-soft text-sm py-4">Engin lög fundust í þessum kafla.</p>
-          )}
-        </div>
+        </ul>
       )}
-    </div>
+    </PageShell>
   );
 }

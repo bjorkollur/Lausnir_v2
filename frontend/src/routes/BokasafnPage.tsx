@@ -23,7 +23,7 @@ export default function BokasafnPage() {
       title="Bókasafn"
       subtitle={baekurNode ? `${formatCount(baekurNode.count)} rit` : undefined}
     >
-      <ul className="grid max-w-3xl gap-px sm:grid-cols-2">
+      <ul className="grid max-w-3xl gap-3 sm:grid-cols-2">
         {SECTIONS.map((s) => (
           <li key={s.key}>
             <Link

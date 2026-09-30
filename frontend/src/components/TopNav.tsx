@@ -67,12 +67,16 @@ export function TopNav() {
       >
         Fara beint í efnið
       </a>
-      <div className="mx-auto flex h-14 max-w-[1400px] items-center gap-4 px-4 sm:gap-8 sm:px-6">
+      {/* At 390px the four labels, the wordmark and the theme toggle need 382px
+          at desktop spacing and have 358px, so "Bókasafn" was clipped to
+          "Bókasa". The gaps tighten on a phone instead of a destination being
+          hidden behind a scroll nobody knows is there. */}
+      <div className="mx-auto flex h-14 max-w-[1400px] items-center gap-3 px-4 sm:gap-8 sm:px-6">
         <NavLink to="/" end className="shrink-0 font-serif text-heading text-ink" aria-label="Lausnir, forsíða">
           Lausnir
         </NavLink>
 
-        <nav aria-label="Aðalleiðsögn" className="flex min-w-0 items-center gap-4 overflow-x-auto sm:gap-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <nav aria-label="Aðalleiðsögn" className="flex min-w-0 items-center gap-2.5 overflow-x-auto sm:gap-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {LINKS.map((l) => (
             <NavLink key={l.to} to={l.to} end={l.end} className={linkClass}>
               {l.label}

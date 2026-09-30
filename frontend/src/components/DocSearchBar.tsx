@@ -1,3 +1,5 @@
+import { CaretDownIcon, CaretUpIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
+
 export function DocSearchBar({
   query,
   onQueryChange,
@@ -35,7 +37,8 @@ export function DocSearchBar({
           : `${activeIndex + 1} af ${matchCount}`;
 
   return (
-    <div className="mb-6 flex items-center gap-2 rounded-md border border-border bg-canvas px-3 py-2">
+    <div className="mb-6 flex h-10 items-center gap-1.5 rounded-md border border-border bg-surface pl-3 pr-1.5">
+      <MagnifyingGlassIcon size={14} aria-hidden className="shrink-0 text-ink-faint" />
       <input
         type="text"
         value={query}
@@ -47,9 +50,9 @@ export function DocSearchBar({
           if (e.shiftKey) onPrev();
           else onNext();
         }}
-        placeholder={disabled ? "Sæki texta til leitar…" : useRegex ? "Regex mynstur..." : "Leita í skjalinu..."}
+        placeholder={disabled ? "Sæki texta til leitar…" : useRegex ? "Regex mynstur…" : "Leita í skjalinu…"}
         aria-label="Leita í skjalinu"
-        className="flex-1 bg-transparent text-sm outline-none placeholder:text-ink-faint disabled:cursor-wait"
+        className="min-w-0 flex-1 bg-transparent text-meta text-ink outline-none placeholder:text-ink-faint disabled:cursor-wait"
       />
       <button
         type="button"
@@ -57,30 +60,30 @@ export function DocSearchBar({
         aria-pressed={useRegex}
         aria-label="Regex leit"
         title="Regex leit"
-        className={`rounded px-1.5 py-1 font-mono text-xs ${
-          useRegex ? "bg-ink text-canvas" : "text-ink-soft hover:bg-border"
+        className={`h-7 rounded px-1.5 font-mono text-micro ${
+          useRegex ? "bg-cta text-cta-ink" : "text-ink-soft hover:bg-surface-sunken"
         }`}
       >
         .*
       </button>
-      <span className="whitespace-nowrap text-sm text-ink-soft">{status}</span>
+      <span aria-live="polite" className="tabular whitespace-nowrap px-1 text-micro text-ink-soft">{status}</span>
       <button
         type="button"
         onClick={onPrev}
         disabled={matchCount === 0}
         aria-label="Fyrri niðurstaða"
-        className="rounded px-2 py-1 text-ink-soft hover:bg-border disabled:opacity-30"
+        className="grid h-7 w-7 place-items-center rounded text-ink-soft hover:bg-surface-sunken disabled:text-border-strong disabled:hover:bg-transparent"
       >
-        ↑
+        <CaretUpIcon size={13} weight="bold" aria-hidden />
       </button>
       <button
         type="button"
         onClick={onNext}
         disabled={matchCount === 0}
         aria-label="Næsta niðurstaða"
-        className="rounded px-2 py-1 text-ink-soft hover:bg-border disabled:opacity-30"
+        className="grid h-7 w-7 place-items-center rounded text-ink-soft hover:bg-surface-sunken disabled:text-border-strong disabled:hover:bg-transparent"
       >
-        ↓
+        <CaretDownIcon size={13} weight="bold" aria-hidden />
       </button>
     </div>
   );
