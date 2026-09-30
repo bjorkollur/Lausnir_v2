@@ -62,12 +62,15 @@ Flokkunartréð með skjalatölum + flatur heimildalisti.
     "plaintiffs": [{"name": "A", "lawyer": null}], "defendants": [...],
     "snippet": "…texti með <mark>áherslu</mark>…", "has_appeal_links": true,
     "passage_id": "uuid", "anchor": "12. mgr.", "section_kind": "nidurstada",
-    "layer": "body", "match_count": 3, "match_tier": 0, "cited_by_count": 4
+    "layer": "body", "match_count": 3, "match_tier": 0, "cited_by_count": 4,
+    "case_number_is_title": false
   }]
 }
 ```
 
 `cited_by_count` — fjöldi skjala sem vitna í þessa niðurstöðu (`cites`-brýr með `to_doc_id` = niðurstöðunni), reiknaður með einföldum skalar-undirspurnalið í SELECT-listanum (`(SELECT count(*) FROM document_links l WHERE l.to_doc_id = d.id AND l.relation = 'cites')`, ekki `LEFT JOIN LATERAL`) yfir `ix_link_to_rel`, aðeins fyrir síðuna (≤ 100 raðir) — ekki fyrir allt `total`. Notað af `ResultCard` fyrir „vitnað í N sinnum" (sjá [07-framendi](07-framendi.md)).
+
+`case_number_is_title` — `true` fyrir ritgerðir og bækur (úr `SourceConfig`), þar sem `case_number` geymir titil. Bætt við í `/api/search`-leiðinni sjálfri (`engine/api/app.py`), ekki í SQL-inu, svo MCP-verkfærin og leitarföllin eru óbreytt. `ResultCard` nefnir slík skjöl eftir titlinum og sýnir aðeins ártal, í stað `urlausn` á borð við „Bók. Kauparéttur 1. janúar 2005 – Bók".
 
 Fimm svæðin `passage_id`…`match_count` koma frá efnisgreininni sem gaf besta samsvörun í `keyword`/`proximity` leit (sjá [05-leit](05-leit.md)) — öll `null` fyrir hina hamina, þar sem samsvörunin er á skjalstigi.
 

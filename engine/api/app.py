@@ -133,6 +133,11 @@ async def search(
         )
     except SearchError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
+    # Theses and books hold a title in case_number; the results list names them
+    # by it, as the document view already does.
+    for r in res.results:
+        cfg = SOURCE_REGISTRY.get(r["source"])
+        r["case_number_is_title"] = bool(cfg and cfg.case_number_is_title)
     return {
         "total": res.total, "page": res.page, "page_size": res.page_size,
         "strict_total": res.strict_total, "relaxed": res.relaxed, "results": res.results,
