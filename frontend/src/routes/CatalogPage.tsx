@@ -11,7 +11,7 @@ export default function CatalogPage() {
   return (
     <div className="p-6 max-w-3xl">
       <h1 className="text-2xl font-bold mb-4">Heimildir</h1>
-      {isPending ? <div className="h-64 bg-slate-100 rounded animate-pulse" />
+      {isPending ? <div className="h-64 bg-surface-sunken rounded animate-pulse" />
         : isError ? <ErrorState error={error} />
         : <CatalogTree nodes={filtered} />}
     </div>

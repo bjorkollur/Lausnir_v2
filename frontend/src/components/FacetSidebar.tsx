@@ -45,11 +45,16 @@ export function FacetSidebar({ state, onChange }:
   };
 
   return (
-    <aside className="w-[300px] shrink-0 border-l border-[var(--border)] p-4 overflow-y-auto">
-      {isPending && <div className="h-40 bg-[var(--border)] rounded animate-pulse" />}
-      {data?.catalog.map((node) => (
-        <FacetNode key={node.key} node={node} selected={selected} depth={0} onToggle={toggle} />
-      ))}
+    <aside className="w-[280px] shrink-0 overflow-y-auto border-l border-border px-4 py-5">
+      <h2 className="mb-3 text-micro font-medium uppercase tracking-[0.1em] text-ink-faint">
+        Heimildir
+      </h2>
+      {isPending && <div className="h-40 animate-pulse rounded bg-border" />}
+      {data?.catalog
+        .filter((node) => node.count > 0 || selected.has(node.key))
+        .map((node) => (
+          <FacetNode key={node.key} node={node} selected={selected} depth={0} onToggle={toggle} />
+        ))}
     </aside>
   );
 }

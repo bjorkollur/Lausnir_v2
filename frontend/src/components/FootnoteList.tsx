@@ -10,14 +10,14 @@ export function FootnoteList({ notes }: { notes: Footnote[] }) {
   if (notes.length === 0) return null;
 
   return (
-    <section className="mt-8 border-t border-slate-200 pt-4">
+    <section className="mt-8 border-t border-border pt-4">
       <h2 className="font-bold mb-2">Neðanmálsgreinar</h2>
-      <ol className="space-y-1 text-sm text-slate-600">
+      <ol className="space-y-1 text-sm text-ink-soft">
         {notes.map((n) => (
           <li key={n.num} id={`${FOOTNOTE_ID_PREFIX}${n.num}`} className="flex gap-2">
             <a
               href={`#${FOOTNOTE_REF_ID_PREFIX}${n.num}`}
-              className="shrink-0 text-indigo-700 hover:underline"
+              className="shrink-0 text-accent hover:underline"
               aria-label={`Til baka í texta, neðanmálsgrein ${n.num}`}
             >
               {n.num}.

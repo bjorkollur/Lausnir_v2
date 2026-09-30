@@ -35,7 +35,7 @@ export function DocSearchBar({
           : `${activeIndex + 1} af ${matchCount}`;
 
   return (
-    <div className="mb-6 flex items-center gap-2 rounded-md border border-slate-200 bg-slate-50 px-3 py-2">
+    <div className="mb-6 flex items-center gap-2 rounded-md border border-border bg-canvas px-3 py-2">
       <input
         type="text"
         value={query}
@@ -49,7 +49,7 @@ export function DocSearchBar({
         }}
         placeholder={disabled ? "Sæki texta til leitar…" : useRegex ? "Regex mynstur..." : "Leita í skjalinu..."}
         aria-label="Leita í skjalinu"
-        className="flex-1 bg-transparent text-sm outline-none placeholder:text-slate-400 disabled:cursor-wait"
+        className="flex-1 bg-transparent text-sm outline-none placeholder:text-ink-faint disabled:cursor-wait"
       />
       <button
         type="button"
@@ -58,18 +58,18 @@ export function DocSearchBar({
         aria-label="Regex leit"
         title="Regex leit"
         className={`rounded px-1.5 py-1 font-mono text-xs ${
-          useRegex ? "bg-slate-700 text-white" : "text-slate-500 hover:bg-slate-200"
+          useRegex ? "bg-ink text-white" : "text-ink-soft hover:bg-border"
         }`}
       >
         .*
       </button>
-      <span className="whitespace-nowrap text-sm text-slate-500">{status}</span>
+      <span className="whitespace-nowrap text-sm text-ink-soft">{status}</span>
       <button
         type="button"
         onClick={onPrev}
         disabled={matchCount === 0}
         aria-label="Fyrri niðurstaða"
-        className="rounded px-2 py-1 text-slate-600 hover:bg-slate-200 disabled:opacity-30"
+        className="rounded px-2 py-1 text-ink-soft hover:bg-border disabled:opacity-30"
       >
         ↑
       </button>
@@ -78,7 +78,7 @@ export function DocSearchBar({
         onClick={onNext}
         disabled={matchCount === 0}
         aria-label="Næsta niðurstaða"
-        className="rounded px-2 py-1 text-slate-600 hover:bg-slate-200 disabled:opacity-30"
+        className="rounded px-2 py-1 text-ink-soft hover:bg-border disabled:opacity-30"
       >
         ↓
       </button>

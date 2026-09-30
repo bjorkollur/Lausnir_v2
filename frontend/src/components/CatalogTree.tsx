@@ -5,8 +5,8 @@ function Node({ node, depth }: { node: CatalogNode; depth: number }) {
   return (
     <div>
       <div className="flex items-center gap-2 py-1" style={{ paddingLeft: depth * 16 }}>
-        <Link to={`/?scope=${encodeURIComponent(node.key)}`} className="text-indigo-700 hover:underline">{node.label}</Link>
-        <span className="text-xs text-slate-400 tabular-nums">{node.count.toLocaleString("is-IS")}</span>
+        <Link to={`/?scope=${encodeURIComponent(node.key)}`} className="text-accent hover:underline">{node.label}</Link>
+        <span className="text-xs text-ink-faint tabular-nums">{node.count.toLocaleString("is-IS")}</span>
       </div>
       {node.children?.map((c) => <Node key={c.key} node={c} depth={depth + 1} />)}
     </div>

@@ -32,7 +32,7 @@ export default function LagasafnKafliPage() {
     <div className="p-6 max-w-3xl">
       <Link
         to="/lagasafn"
-        className="text-sm text-slate-500 hover:text-indigo-600 mb-4 inline-block"
+        className="text-sm text-ink-soft hover:text-accent mb-4 inline-block"
       >
         ← Lagasafn
       </Link>
@@ -43,30 +43,30 @@ export default function LagasafnKafliPage() {
       {isPending ? (
         <div className="space-y-1">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="h-10 bg-slate-100 rounded animate-pulse" />
+            <div key={i} className="h-10 bg-surface-sunken rounded animate-pulse" />
           ))}
         </div>
       ) : isError ? (
         <ErrorState error={new Error("Ekki tókst að sækja lög")} />
       ) : (
-        <div className="divide-y divide-slate-100">
+        <div className="divide-y divide-border">
           {(data?.results ?? []).map((r) => (
             <Link
               key={r.id}
               to={`/log/${r.id}`}
-              className="flex items-start justify-between py-3 px-2 hover:bg-slate-50 rounded group"
+              className="flex items-start justify-between py-3 px-2 hover:bg-canvas rounded group"
             >
-              <span className="text-indigo-700 group-hover:underline text-sm leading-snug">
+              <span className="text-accent group-hover:underline text-sm leading-snug">
                 {/* snippet = lögaheiti þegar q="" fyrir lagasafn */}
                 {r.snippet || r.urlausn}
               </span>
-              <span className="text-slate-400 text-xs shrink-0 ml-4 tabular-nums pt-0.5">
+              <span className="text-ink-faint text-xs shrink-0 ml-4 tabular-nums pt-0.5">
                 nr.&nbsp;{r.case_number}
               </span>
             </Link>
           ))}
           {data?.results.length === 0 && (
-            <p className="text-slate-500 text-sm py-4">Engin lög fundust í þessum kafla.</p>
+            <p className="text-ink-soft text-sm py-4">Engin lög fundust í þessum kafla.</p>
           )}
         </div>
       )}
