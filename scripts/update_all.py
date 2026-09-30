@@ -154,7 +154,22 @@ def run_all(
         ok, elapsed = _run_script(short_name, cmd, log_path)
         results.append((short_name, ok, elapsed))
 
-    # 3. Refresh Icelandic FTS (fts_is) for any newly-imported docs.
+    # 3. Fill case_type for newly-imported court documents.  For Hæstiréttur and
+    # Landsréttur this is the court's own classification, readable only through
+    # the island.is caseTypes filter; for héraðsdómstólar it is the case-number
+    # prefix.  --missing-only never overwrites a stored value: island.is
+    # classifies Hæstaréttar verdicts from 2016 on only, so the older rows are
+    # the last copy in existence (docs/snapshots/README.md).  Cheap when nothing
+    # is new — the listing is newest-first and the walk stops at the oldest gap.
+    if not (skip and "case_type" in skip):
+        ct_script = _SCRIPTS_DIR / "backfill_case_type.py"
+        if ct_script.exists():
+            cmd = ["uv", "run", "python", str(ct_script), "--missing-only"]
+            log_path = _LOG_DIR / "case_type_refresh.log"
+            ok, elapsed = _run_script("case_type_refresh", cmd, log_path)
+            results.append(("case_type_refresh", ok, elapsed))
+
+    # 4. Refresh Icelandic FTS (fts_is) for any newly-imported docs.
     # Imports do NOT populate fts_is (lemmatization is Python/BÍN, not SQL), so
     # without this step new documents are unsearchable. backfill_fts_is.py only
     # touches rows where fts_is IS NULL, so this is cheap when nothing is new.
@@ -166,7 +181,7 @@ def run_all(
             ok, elapsed = _run_script("fts_refresh", cmd, log_path)
             results.append(("fts_refresh", ok, elapsed))
 
-    # 4. Rebuild passages for documents whose text changed (passage_hash stale).
+    # 5. Rebuild passages for documents whose text changed (passage_hash stale).
     # Cheap when nothing is new; see engine/search/passage_index.py.
     if not (skip and "passages" in skip):
         pass_script = _SCRIPTS_DIR / "backfill_passages.py"
@@ -176,7 +191,7 @@ def run_all(
             ok, elapsed = _run_script("passages_refresh", cmd, log_path)
             results.append(("passages_refresh", ok, elapsed))
 
-    # 5. Rebuild citations for documents whose text changed (citation_hash stale),
+    # 6. Rebuild citations for documents whose text changed (citation_hash stale),
     # then re-resolve rows that could not be linked before the new documents
     # existed. Must run after step 4 (docs/wiki/04-innflutningur.md § keyrsluröð).
     # Cheap when nothing is new; see engine/processors/citation_build.py.

@@ -316,12 +316,127 @@ def _html_to_plain(html: str | None) -> str | None:
     return text or None
 
 
-def _detect_verdict_type(plain_text: str | None, keywords: list) -> str | None:
-    """Return 'Úrskurður' if body text signals an úrskurður, else None."""
-    if not plain_text:
+def _spaced(word: str) -> str:
+    """'DÓMUR' → 'D[ \t]*Ó[ \t]*M[ \t]*U[ \t]*R'.
+
+    Older verdicts letter-space their headings ('Ú r s k u r ð a r o r ð'),
+    which survives PDF extraction as real spaces.
+    """
+    return r"[ \t]*".join(re.escape(c) for c in word)
+
+
+# A heading may be prefixed by markdown hashes and/or bold markers.
+_HEAD_LEAD = r"^[ \t]*#{0,4}[ \t]*(?:\*\*|__)?[ \t]*"
+_HEAD_TAIL = r"(?:\*\*|__)?"
+
+# The court naming itself: 'Dómur Hæstaréttar', 'Úrskurður Landsréttar'.
+_COURT_GENITIVE = {
+    "haestirettur": r"H[æÆ]star[ée]ttar",
+    "landsrettur": r"Landsr[ée]ttar",
+    "heradsdomstolar": r"H[ée]ra[ðd]sd[óÓ]ms",
+}
+_SELF_HEADING_RE = {
+    short_name: re.compile(
+        _HEAD_LEAD + r"(DÓMUR|Dómur|ÚRSKURÐUR|Úrskurður)" + _HEAD_TAIL + r"[ \t]+" + genitive,
+        re.MULTILINE,
+    )
+    for short_name, genitive in _COURT_GENITIVE.items()
+}
+
+# A heading that names no court — héraðsdómar only (see _detect_verdict_type).
+_BARE_HEADING_RE = re.compile(
+    _HEAD_LEAD
+    + r"(?:(" + _spaced("DÓMUR") + r"|" + _spaced("Dómur") + r")"
+    + r"|(" + _spaced("ÚRSKURÐUR") + r"|" + _spaced("Úrskurður") + r"))"
+    + _HEAD_TAIL + r"[ \t]*:?[ \t]*$",
+    re.MULTILINE,
+)
+
+# 'X héraðsdómari kveður upp dóm þennan' / 'Úrskurðinn kveður upp X'.  The
+# demonstrative or the definite article is what ties the phrase to *this*
+# document — 'nefndin kvað upp úrskurð' is someone else's ruling.
+_PRONOUNCE_RE = re.compile(r"kve[ðd]\w*[ \t]+upp|kva[ðd][ \t]+upp", re.IGNORECASE)
+_THIS_JUDGMENT_RE = re.compile(r"d[óo]m(?:inn|[ \t]+þennan|[ \t]+þetta)|þennan[ \t]+d[óo]m", re.IGNORECASE)
+_THIS_RULING_RE = re.compile(r"[úu]rskur[ðd](?:inn|[ \t]+þennan|[ \t]+þetta)|þennan[ \t]+[úu]rskur[ðd]", re.IGNORECASE)
+_PRONOUNCE_WINDOW = 70
+
+_OPERATIVE_RE = re.compile(
+    _HEAD_LEAD + r"(" + "|".join(
+        _spaced(w) for w in ("DÓMSORÐ", "Dómsorð", "ÚRSKURÐARORÐ", "Úrskurðarorð")
+    ) + r")",
+    re.MULTILINE,
+)
+
+# 'tekið til dóms' and 'tekið var til úrskurðar' are both written.
+_SUBMITTED_RE = re.compile(
+    r"tekið[ \t]+(?:var[ \t]+)?til[ \t]+(dóms|úrskurðar)|(dómtek\w+)", re.IGNORECASE
+)
+
+
+def _is_judgment(word: str) -> bool:
+    return re.sub(r"\s", "", word).lower().startswith(("dóm", "dom"))
+
+
+def _pronounced_verdict(plain_text: str) -> str | None:
+    """Read the sign-off formula.  Last one wins — it closes the document."""
+    found = None
+    for m in _PRONOUNCE_RE.finditer(plain_text):
+        window = plain_text[max(0, m.start() - _PRONOUNCE_WINDOW): m.end() + _PRONOUNCE_WINDOW]
+        judgment = _THIS_JUDGMENT_RE.search(window)
+        ruling = _THIS_RULING_RE.search(window)
+        if judgment and not ruling:
+            found = "Dómur"
+        elif ruling and not judgment:
+            found = "Úrskurður"
+    return found
+
+
+def _detect_verdict_type(plain_text: str | None, config: "SourceConfig") -> str | None:
+    """Return 'Dómur' or 'Úrskurður' as the document itself states it, else None.
+
+    Read in order of directness: the court's own heading, a bare heading, the
+    sign-off formula, the operative clause, and finally how the case was taken
+    up.  A mention of someone else's ruling never counts — every verdict in a
+    kærumál discusses the úrskurður under appeal, which is what the old keyword
+    rule mistook for the document's own type (5.368 Hæstaréttardómar were filed
+    as úrskurðir because of it).
+
+    None means the text does not say, and the caller falls back to
+    ``config.verdict_type_default``.  Two equally direct statements that
+    contradict each other also return None: those 43 héraðsdómar are for a
+    human to read, not for this function to guess at.
+    """
+    if not plain_text or not plain_text.strip():
         return None
-    if re.search(r"Úrskurðarorð|úrskurðar\b", plain_text, re.IGNORECASE):
-        return "Úrskurður"
+
+    self_heading = _SELF_HEADING_RE.get(config.short_name)
+    if self_heading:
+        m = self_heading.search(plain_text)
+        if m:
+            return "Dómur" if _is_judgment(m.group(1)) else "Úrskurður"
+
+    if config.has_lower_court:
+        # The lower court's text is appended when the split misses it, carrying
+        # its own bare heading, sign-off and 'tekið til úrskurðar'.  Only the
+        # first operative clause is reliably this court's.
+        m = _OPERATIVE_RE.search(plain_text)
+        return ("Dómur" if _is_judgment(m.group(1)) else "Úrskurður") if m else None
+
+    m = _BARE_HEADING_RE.search(plain_text)
+    if m:
+        return "Dómur" if m.group(1) else "Úrskurður"
+
+    pronounced = _pronounced_verdict(plain_text)
+    m = _OPERATIVE_RE.search(plain_text)
+    operative = ("Dómur" if _is_judgment(m.group(1)) else "Úrskurður") if m else None
+    if pronounced and operative:
+        return pronounced if pronounced == operative else None
+    if pronounced or operative:
+        return pronounced or operative
+
+    m = _SUBMITTED_RE.search(plain_text)
+    if m:
+        return "Dómur" if (m.group(2) or (m.group(1) or "").lower() == "dóms") else "Úrskurður"
     return None
 
 
@@ -1790,13 +1905,16 @@ def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
         "document_date": document_date,
         "court": config.abbreviation,
         "verdict_type": (
-            _detect_verdict_type(plain_body, raw.get("keywords") or [])
+            _detect_verdict_type(plain_body, config)
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,
-        "case_type": raw.get("caseType") or _infer_hrd_lrd_case_type(
-            raw.get("keywords"), plf
-        ),
+        # Left unset on purpose: the court's classification is readable only
+        # from the island.is caseTypes filter, which
+        # backfill_case_type.py --missing-only reads after the import (step 3 of
+        # update_all.py).  Writing the keyword/party inference here would leave
+        # the row non-NULL and the court would never get its say.
+        "case_type": raw.get("caseType"),
         "plaintiffs": plf or None,
         "defendants": dfd or None,
         "keywords": _keywords_from_content(
@@ -1811,28 +1929,65 @@ def _extract_haestirettur(raw: dict, config: SourceConfig) -> dict:
     }
 
 
+# Which plaintiffs make a case a sakamál, measured against island.is's own
+# classification of 18.515 verdicts (29.09.2026).  The two courts disagree, and
+# the column has to stay consistent with what the site already told us, so the
+# test is per court rather than "legally correct":
+#
+#   name                      Hæstiréttur          Landsréttur
+#   Ákæruvaldið               2.336 / 0            1.239 / 1
+#   Héraðssaksóknari             37 / 0              110 / 0
+#   Lögreglustjórinn á …        321 / 983          1.671 / 3
+#   Ríkislögreglustjóri           0 / 99            (few)
+#   Sérstakur saksóknari          0 / 30            (few)
+#   Ríkissaksóknari               3 / 20               50 / 0
+#
+# (sakamál / einkamál).  Under Hæstiréttur a police-initiated kærumál —
+# gæsluvarðhald and the like — is filed as *einkamál* far more often than not,
+# so only the two unambiguous names count there.
+_SAKAMAL_ANY_COURT = re.compile(r"^(Ákæruvaldið|Héraðssaksóknari)\b", re.IGNORECASE)
+_SAKAMAL_LANDSRETTUR = re.compile(
+    r"^(Lögreglustjór|Ríkissaksóknari|Ríkislögreglustjóri|Sérstakur[ \t]+saksóknari"
+    r"|Skattrannsóknarstjóri|Tollstjóri)",
+    re.IGNORECASE,
+)
+
+
 def _infer_hrd_lrd_case_type(
     keywords: list | None,
     plaintiffs: list[dict] | None,
+    short_name: str,
 ) -> str:
-    """Infer case_type from keywords and plaintiffs when API does not provide it.
+    """Infer case_type for a verdict island.is classifies in no category at all.
 
-    Kærumál keyword → Kært, absence → Áfrýjað.
-    Ákæruvaldið as plaintiff → sakamál, otherwise → einkamál.
+    The court's own classification is the real answer and it is read from the
+    island.is caseTypes filter — this is the fallback for what that filter never
+    returns (three Landsréttarmál on 2026-09-29).  It must therefore run *after*
+    the source has had its say: ``backfill_case_type.py --missing-only``, never
+    at import time.  See tests/test_import_upsert_parity.py.
+
+    Route from the keywords, which is where a kærumál says so: 'Kærumál' → Kært,
+    absence → Áfrýjað.  Measured 99,98% right for Hæstiréttur and 99,66% for
+    Landsréttur.  Kind from the plaintiff, per court (see the table above):
+    97,22% and 98,89% for the whole case_type.
+
+    An inferred value is indistinguishable from a fetched one in the column, so
+    a later full ``backfill_case_type.py`` run is what corrects it — that run
+    overwrites with whatever the site says now, and touches nothing the site has
+    no answer for.
     """
     kw_lower = [k.lower() for k in (keywords or []) if isinstance(k, str)]
-    has_kaermal = any("kærumál" in k for k in kw_lower)
-    has_akaeruvalid = any(
-        (p.get("name") or "").startswith("Ákæruvaldið")
-        for p in (plaintiffs or [])
-    )
-    if has_kaermal and has_akaeruvalid:
-        return "Kært sakamál"
-    if not has_kaermal and has_akaeruvalid:
-        return "Áfrýjað sakamál"
-    if has_kaermal:
-        return "Kært einkamál"
-    return "Áfrýjað einkamál"
+    route = "Kært" if any("kærumál" in k for k in kw_lower) else "Áfrýjað"
+
+    kind = "einkamál"
+    for party in (plaintiffs or []):
+        name = (party.get("name") or "").strip()
+        if _SAKAMAL_ANY_COURT.match(name) or (
+            short_name == "landsrettur" and _SAKAMAL_LANDSRETTUR.match(name)
+        ):
+            kind = "sakamál"
+            break
+    return f"{route} {kind}"
 
 
 _LRD_CASE_TYPE_NORMALISE: dict[str, str] = {
@@ -1888,13 +2043,12 @@ def _extract_landsrettur(raw: dict, config: SourceConfig) -> dict:
         "document_date": document_date,
         "court": config.abbreviation,
         "verdict_type": (
-            _detect_verdict_type(plain_body, raw.get("keywords") or [])
+            _detect_verdict_type(plain_body, config)
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,
-        "case_type": _normalise_lrd_case_type(raw.get("caseType")) or _infer_hrd_lrd_case_type(
-            raw.get("keywords"), plf
-        ),
+        # As in _extract_haestirettur: the source classifies, not the importer.
+        "case_type": _normalise_lrd_case_type(raw.get("caseType")),
         "plaintiffs": plf or None,
         "defendants": dfd or None,
         "keywords": api_keywords,
@@ -2028,7 +2182,7 @@ def _extract_heradsdomstolar(raw: dict, config: SourceConfig) -> dict:
         "document_date": document_date,
         "court": abbr,
         "verdict_type": (
-            _detect_verdict_type(plain_body, raw.get("keywords") or [])
+            _detect_verdict_type(plain_body, config)
             or config.verdict_type_default
         ),
         "instance_tier": config.instance_tier,

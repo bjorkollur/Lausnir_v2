@@ -37,7 +37,7 @@ Fimm töflur + `alembic_version`.
 | `court` | text | Skammstöfun: `'Hrd.'`, `'Lrd.'`, `'Hérd. Rvk.'` |
 | `verdict_type` | text | `'Dómur'`, `'Úrskurður'`, `'Álit'`, `'Bók'`, `'Lög'` … |
 | `instance_tier` | smallint | 1=hérað, 2=Landsréttur, 3=Hæstiréttur |
-| `case_type` | text | `'Einkamál'`, `'Sakamál'`, `'Stjórnsýslumál'` … |
+| `case_type` | text | Orðaforðinn er **heimildarsértækur**: Hæstiréttur/Landsréttur `'Kært einkamál'`, `'Áfrýjað einkamál'`, `'Kært sakamál'`, `'Áfrýjað sakamál'`; héraðsdómstólar `'Einkamál'`, `'Sakamál'`, `'Ágreiningsmál v/nauðungarsölu'` …; ritgerðir `'Meistara ritgerð'` … Ekki blanda þeim í síu. Kemur frá dómstólnum sjálfum — sjá [09-gildrur](09-gildrur.md) og [docs/snapshots/README.md](../snapshots/README.md) |
 | `plaintiffs` | jsonb | `[{name, lawyer}]` — endurnýtt sem **höfundar** fyrir bækur/ritgerðir |
 | `defendants` | jsonb | `[{name, lawyer}]` |
 | `keywords` | jsonb | `[str]` |

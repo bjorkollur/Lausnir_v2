@@ -56,6 +56,8 @@ Landsréttur og Héraðsdómstólar nota `heading_fonts={"Bold": "## "}` því f
 
 **Hnútaform:** `{key, label, [sources], [verdict_types], [children]}`. Hnútur með `verdict_types` síar heimildina líka á tegund — þannig verður „Hæstiréttur – Dómar" að `source = haestirettur AND verdict_type = 'Dómur'`.
 
+Eftir `verdict_type`-lagfæringuna 29.09.2026 (sjá [09-gildrur](09-gildrur.md)) er `haestirettur_urskurdir` **0** — heimildin birtir aðeins dóma, líka í kærumálum. Hnúturinn stendur enn sem scope-lykill í API-inu og telur 0 í flokkunartrénu.
+
 `resolve_scope()` breytir lista af hnútalyklum í `ScopeFilter` með SQL-skilyrðum.
 
 ## Heimildaskrá — 20 stærstu

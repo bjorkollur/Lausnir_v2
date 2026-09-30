@@ -14,11 +14,18 @@ const r: SearchResult = {
 };
 
 describe("ResultCard", () => {
-  it("links to the document and shows highlighted snippet + keyword", () => {
+  it("links to the document and highlights the match in the snippet", () => {
     renderWithProviders(<ResultCard r={r} />);
     expect(screen.getByRole("link", { name: /Hrd\. 48\/2022/ })).toHaveAttribute("href", "/domur/abc");
-    expect(screen.getByText("Gæsluvarðhald")).toBeInTheDocument();
     expect(document.querySelector("mark")?.textContent).toBe("gæsluvarðhald");
+  });
+
+  it("leaves keywords off the result row", () => {
+    // Keywords live on the document page. In a list they added a second row of
+    // chips in the same treatment as the passage anchor, which made two
+    // unrelated kinds of information look alike.
+    renderWithProviders(<ResultCard r={r} />);
+    expect(screen.queryByText("Gæsluvarðhald")).toBeNull();
   });
 
   it("shows the passage anchor when present", () => {

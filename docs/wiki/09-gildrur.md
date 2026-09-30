@@ -87,6 +87,73 @@ Aðeins **4** eru ólæstar en textalausar; þær eru raunverulegar eyður:
 
 Athugið að `locked` er geymt sem strengurinn `"true"`/`"false"` í `raw_api_data`, ekki JSON-boolean.
 
+### Sami dómur tvisvar: nýtt GUID býr til nýja röð (hreinsað 29.09.2026)
+island.is endurbirtir dóm undir nýju GUID-i. Upsertið keyrir á `(source_id, external_id)`, svo nýja GUID-ið verður **ný röð** — sami dómstóll, sama málsnúmer, sami dagur, sama tegund, og í 9 af 10 tilvikum bætaeins meginmál. Tvær raðir á einn dóm tvítelja í flokkunartrénu og í `cited_by_count`.
+
+`scripts/dedupe_documents.py` eyddi tíu slíkum (átta Landsréttar, tveir héraðsdóma; sjá [docs/snapshots/README.md](../snapshots/README.md)). Reglan er **yngsti innflutningurinn heldur sér**, og hún er mæld: könnun á öllum 20 GUID-um gegn `https://island.is/_next/data/{buildId}/domar/{id}.json` gaf eldri röðina dauða (404) og yngri lifandi í öllum fimm pörunum sem heimildin gat skorið úr. Fyrir hin fimm birtir island.is báða. **Athugið að `/domar/{id}` (án `_next/data`) skilar 404 fyrir lifandi dóma líka** — sú slóð er ekki nothæf til könnunar.
+
+**Lykillinn `(court, case_number, document_date, verdict_type)` gildir EKKI almennt.** Sama fyrirspurn án heimildarsíu finnur 618 „tvítekin" mál og 912 raðir þvert á allar heimildir — og þau eru að stórum hluta raunveruleg, ólík skjöl:
+- `heilbrigdi_raduneyti 008/2020` eru **fjórir ólíkir úrskurðir** undir sama málsnúmeri, þrír með sama dagsetningu og sama `verdict_filename`, en 4.192 / 4.935 / 5.348 bæti af ólíkum texta.
+- `hugverkastofa` dagsetur allt `01-01-<ár>`, svo dagsetningin afmarkar ekkert.
+
+Skriftan afmarkast því við dómstólaheimildirnar þrjár (`DEFAULT_SOURCES`) og neitar að eyða röð sem hefur annan texta en sú sem heldur sér nema `--allow-text-diff` sé gefið. Aðrar heimildir þarfnast eigin greiningar á því hvað auðkennir skjal þar — óunnið.
+
+**Eyðing tekur afleidd gögn með sér.** `passages`, `citations` og `document_links` eru öll `ON DELETE CASCADE` (`citations.to_doc_id` er `SET NULL`). Eftirlifandinn bar sín eigin afrit af öllu nema tveimur `leyfisbeidni_um`-tengingum, svo `link_malskotsbeidnir.py` verður að keyra á eftir — hún er sjálfsömul (`ON CONFLICT DO NOTHING`).
+
+### `case_type` er ekki `verdict_type` — og hann var aldrei skrifaður við innflutning (lagað 29.09.2026)
+Tvær ólíkar víddir sem er auðvelt að blanda: `verdict_type` er **hvað dómstóllinn kvað upp** (dómur eða úrskurður), `case_type` er **hvernig málið kom til hans** (kært eða áfrýjað) og hvers kyns það er (einkamál eða sakamál). Þær eru sjálfstæðar:
+
+- **Landsréttur kveður upp úrskurð í kærumálum** — öll 3.719 kærumál hans eru úrskurðir (100 %). En 122 **áfrýjuð** mál eru líka úrskurðir (frávísun, ómerking, hæfi dómara), svo `verdict_type` er ekki kærumálamerki.
+- **Hæstiréttur dæmir kærumál.** Ekkert af 12.216 Hæstaréttarskjölum kallar sig úrskurð: öll sem bera fyrirsögn segja „Dómur Hæstaréttar" og öll sem bera sitt eigið úrslitaorð segja „Dómsorð" — kærumál og áfrýjuð mál, fyrir og eftir 2018. Gamla `verdict_type`-villan hér að neðan var því óvart orðin kærumálaskynjari með 82 % nákvæmni, og það er sú vídd sem menn lásu úr henni.
+
+**Lekinn:** `case_type` var eini dálkurinn sem extractorinn framleiðir en `_upsert_doc` í öllum þremur dómstólainnflutningsskriftunum sleppti. Hann hafði því aldrei verið skrifaður við innflutning — aðeins af einskiptis-`backfill_case_type.py`, síðast 18.–22. júní 2026. 328 skjöl sem komu inn eftir það voru óflokkuð. `tests/test_import_upsert_parity.py` ber nú dálkasett extractorsins saman við upsertið hjá öllum þremur svo næsti nýi dálkur hverfi ekki þegjandi líka.
+
+**Innflutningur má fylla `case_type` en aldrei skrifa yfir hann.** Upsertið notar `coalesce(documents.case_type, excluded.case_type)`, því gildið í grunninum kemur frá dómstólnum en gildi extractorsins er ágiskun (`_infer_hrd_lrd_case_type`, ~97 % hjá Hæstarétti og ~70 % hjá Landsrétti). Ástæðan er alvarlegri en nákvæmnin: **island.is flokkar Hæstaréttardóma aðeins frá 5. janúar 2016**, svo fyrir ~10.000 eldri raðir er gildið í grunninum síðasta eintakið sem til er. Sjá [docs/snapshots/README.md](../snapshots/README.md) fyrir afritið og tölurnar.
+
+**Röðin skiptir máli: heimildin fyrst, ágiskun á eftir.** Innflutningurinn skilar `case_type = NULL` fyrir Hæstarétt og Landsrétt af ásettu ráði. Skrifaði hann ágiskun væri röðin ekki lengur NULL og `--missing-only` slepti henni — dómstóllinn fengi aldrei orðið. Héraðsdómstólar eru undantekningin: þar **er** forskeyti málsnúmersins svar dómstólsins, svo það er fyllt við innflutning. `tests/test_import_upsert_parity.py` festir þetta.
+
+**Varaleiðin** (`_infer_hrd_lrd_case_type`) tekur við þeim fáu málum sem heimildin flokkar í **enga** tegund — þrjú Landsréttarmál 29.09.2026 (592/2026, 562/2026, 564/2019). Hún keyrir aðeins í `--missing-only`, **eftir** að síuflettingin hefur fengið sitt, aldrei við innflutning. Leiðin kemur úr lykilorðinu „Kærumál" (99,98 % rétt hjá Hæstarétti, 99,66 % hjá Landsrétti), tegundin úr stefnanda og hún er dómstólasértæk. Heild: **97,22 % hjá Hæstarétti og 98,89 % hjá Landsrétti** (mælt gegn 18.515 gildum frá heimildinni).
+
+Dómstólasértæknin er ekki smekksatriði — hún er mæld. Sama sækjandaheiti flokkast ekki eins:
+
+| Stefnandi | Hæstiréttur (saka/einka) | Landsréttur (saka/einka) |
+|---|---|---|
+| Ákæruvaldið | 2.336 / 0 | 1.239 / 1 |
+| Héraðssaksóknari | 37 / 0 | 110 / 0 |
+| Lögreglustjórinn á … | **321 / 983** | **1.671 / 3** |
+| Ríkislögreglustjóri | 0 / 99 | (fá) |
+| Sérstakur saksóknari | 0 / 30 | (fá) |
+| Ríkissaksóknari | 3 / 20 | 50 / 0 |
+
+Hjá Hæstarétti flokkar island.is lögreglustýrt kærumál (gæsluvarðhald o.þ.h.) sem **einkamál** í langflestum tilvikum, hjá Landsrétti sem **sakamál**. Reglan telur því aðeins tvö heiti hjá Hæstarétti en öll hjá Landsrétti; víkkun fyrir bæði lyfti Landsrétti í 99,4 % en felldi Hæstarétt í 87,7 %. Það sem eftir stendur af skekkjunni (337 skjöl hjá Hæstarétti) er nánast allt þessi eini flokkur. **Samræmi við geymdu gildin gildir hér framar „réttri" lögfræði** — dálkurinn verður að vera einn taxonómía, ekki tvær.
+
+**Ágiskun er ekki merkt sérstaklega** (enginn upprunadálkur, ákvörðun notanda 29.09.2026). Leiðréttingarleiðin er því **full keyrsla** á `backfill_case_type.py` (án `--missing-only`): hún skrifar það sem heimildin segir núna og snertir ekkert sem heimildin hefur ekkert svar við — þar á meðal Hæstaréttarraðirnar fyrir 2016.
+
+**Tvær gildrur í fyrirspurninni sjálfri:** dómstólslykillinn er `Landsrettur` **án broddstafa** (`Landsréttur` skilar `total: 0` án villu) en `Hæstiréttur` **með** þeim (`Haestirettur` skilar 0). Og skjölin bera ekkert tegundarsvið — `caseType`, `caseTypes`, `caseCategories`, `caseCategory`, `type`, `category` er öllum hafnað á `WebVerdictItem`, og skemaskoðun er lokuð, svo eina leiðin er `caseTypes`-sían á listanum.
+
+### `verdict_type` má aldrei lesa úr tilvísun í annan úrskurð (lagað 29.09.2026)
+Gamla reglan í `extractor.py::_detect_verdict_type` skilaði `'Úrskurður'` ef `Úrskurðarorð|úrskurðar` stóð **hvar sem er** í meginmálinu. Hvert einasta kærumál nefnir „úrskurð héraðsdóms" — þann sem kærður var — svo **5.368 Hæstaréttardómar, 151 Landsréttarmál og 1.071 héraðsdómur** voru skráðir sem úrskurðir. Hæstiréttur átti eftir það enga úrskurði í grunninum: heimildin birtir aðeins dóma (líka í kærumálum, fyrir og eftir 2018).
+
+Nýja reglan les það sem skjalið segir um **sjálft sig**, í þessari röð:
+1. Eigin fyrirsögn með dómstólsheiti — `Dómur Hæstaréttar`, `Úrskurður Landsréttar`. Fyrsta treffið vinnur: ~98 Hæstaréttarsíður bera dóminn og EFTA-álitsúrskurðinn í sömu skrá, og dómurinn er aðalskjalið.
+2. Stök fyrirsögn (`## ÚRSKURÐUR`) — **aðeins** heimildir sem fella ekki undirréttartexta inn í `body_text`.
+3. Lokaformúlan („kveður upp dóm **þennan**", „Úrskurð**inn** kveður upp …"). Ábendingarfornafnið/greinirinn er það sem bindur formúluna við þetta skjal: „Tjónanefndin kvað upp úrskurð" er annars aðila úrskurður. Síðasta treffið vinnur — formúlan lokar skjalinu.
+4. Fyrsta dómsorðs-/úrskurðarorðsfyrirsögn.
+5. „tekið til dóms/úrskurðar", „dómtekið".
+
+**Tvær gildrur sem bitu:**
+- `has_lower_court`-heimildir (Hæstiréttur, Landsréttur) fá aðeins þrep 1 og 4. Þegar `_split_lower_court` missir skiptinguna (t.d. `ÚrskurðurHéraðsdóms` án bils) hangir úrskurður héraðsdóms aftan í `body_text` með sinni eigin fyrirsögn, lokaformúlu og „tekið til úrskurðar" — Hrd. 411/2000 og 412/2000 urðu að úrskurðum af þeim sökum í fyrstu útgáfu reglunnar. Aðeins **fyrsta** úrskurðarorðið er örugglega okkar.
+- Fyrirsagnir gamalla dóma eru bókstafaglesnar (`Ú r s k u r ð a r o r ð`) og lifa það af úr PDF-inum; `_spaced()` leyfir bil milli allra bókstafa.
+
+43 héraðsdómar segja tvennt jafn afdráttarlaust (t.d. „kveður upp úrskurð þennan" undir fyrirsögninni `## DÓMSORÐ`). Fallið skilar `None` fyrir þá og `scripts/backfill_verdict_type.py` lætur röðina ósnerta — ekkert giskað, sbr. tilvitnanaleysarann.
+
+90 skjöl standa eftir sem óþekkt: 43 héraðsdómar með mótsögn, 31 héraðsdómur án nokkurs merkis, 12 með tómt meginmál (7 héraðsdómar, 5 Hæstiréttur) og 4 Hæstaréttarskjöl án úrskurðar-/dómsorðs. Skriftan er lyklunarlaus og sjálfsömul, svo listinn er endurgeranlegur hvenær sem er: `uv run python scripts/backfill_verdict_type.py --dry-run --report /tmp/vt.csv` — raðir merktar `óþekkt`.
+
+### `verdict_type` dregur skráarnafnið og `fts_is` með sér
+`verdict_filename` ber kóðann `_D_`/`_U_` (`renderer._VERDICT_CODE`) og `.md`-hausinn segir „# Úrskurður Landsréttar – 184/2022", svo lagfærð tegund þýðir endurnefnd `.md`+`.pdf`, endurgerð markdown, færð `raw_api_data->>'pdf_path'`-vísun og `passage_hash = NULL` svo `backfill_passages.py` endurbyggi `documents.fts_is` (verdict_type er í strúktúr-forskeytinu, sjá `passage_index.py`). `backfill_verdict_type.py` gerir allt fjögur í sömu færslu.
+
+**Skrá sem enga röð á bak við sig er jafn frátekin og röð.** Landsréttur ber ~6.000 munaðarlausar `.md`/`.pdf` frá endurinnflutningi þar sem `unique_verdict_filename` taldi skjalið sitt eigið nafn frátekið og gaf öllum `_2`-viðskeyti. Endurnefning á slíkt nafn eyðir eina afritinu, svo skriftan tekur bæði DB-nöfn **og** skráarnöfn á disknum í `taken`-mengið.
+
 ### Héraðsdómur birtir ekki alla dóma
 ~30% „no-candidate" hlutfall í `hrd_herd` tengingum er væntanlegt, ekki bilun.
 

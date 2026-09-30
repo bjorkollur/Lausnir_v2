@@ -23,5 +23,5 @@ export function ErrorState({ error }: { error: unknown }) {
     error instanceof ApiError && error.status === 400
       ? error.message
       : "Eitthvað fór úrskeiðis. Reyndu aftur.";
-  return <p className="py-10 text-center text-red-600">{msg}</p>;
+  return <p className="py-10 text-center text-danger">{msg}</p>;
 }

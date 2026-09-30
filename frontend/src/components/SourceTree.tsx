@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { CatalogNode } from "../api/types";
+import { formatCount } from "../lib/formatNumber";
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -138,7 +139,7 @@ function GroupNode({
             {node.label}
           </span>
           <span className="text-xs text-[var(--ink-faint)] tabular-nums ml-2 flex-shrink-0">
-            {node.count.toLocaleString("is-IS")}
+            {formatCount(node.count)}
           </span>
         </button>
       </div>
@@ -193,7 +194,7 @@ function ChildNode({
         {node.label}
       </span>
       <span className="text-xs text-[var(--ink-faint)] tabular-nums flex-shrink-0">
-        {node.count.toLocaleString("is-IS")}
+        {formatCount(node.count)}
       </span>
     </div>
   );
@@ -227,7 +228,7 @@ function Checkbox({
         <svg
           viewBox="0 0 10 8"
           fill="none"
-          className="w-2.5 h-2 text-white"
+          className="w-2.5 h-2 text-cta-ink"
           stroke="currentColor"
           strokeWidth={2}
           strokeLinecap="round"

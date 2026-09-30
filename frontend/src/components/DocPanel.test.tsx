@@ -207,8 +207,12 @@ describe("DocPanel for theses and books (case_number_is_title)", () => {
   });
 
   it("still labels a real case number on a court ruling", () => {
+    // Court and case number share one heading line. They used to be stacked,
+    // with the court as a small-caps label above the number.
     renderWithProviders(<DocPanel doc={doc} />);
-    expect(screen.getByText("Mál nr. 59/2025")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
+      "Hæstiréttur, mál nr. 59/2025",
+    );
     expect(screen.getByText("gegn")).toBeInTheDocument();
   });
 });

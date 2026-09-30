@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { NavRail } from "./components/NavRail";
+import { TopNav } from "./components/TopNav";
 import SearchPage from "./routes/SearchPage";
 import CatalogPage from "./routes/CatalogPage";
 import DocumentPage from "./routes/DocumentPage";
@@ -10,9 +10,9 @@ import BokasafnPage from "./routes/BokasafnPage";
 
 export default function App() {
   return (
-    <div className="flex h-full">
-      <NavRail />
-      <div className="flex-1 min-w-0 overflow-auto">
+    <div className="flex h-full flex-col">
+      <TopNav />
+      <div className="min-h-0 flex-1 overflow-auto">
         <Routes>
           <Route path="/" element={<SearchPage />} />
           <Route path="/lagasafn" element={<LagasafnPage />} />

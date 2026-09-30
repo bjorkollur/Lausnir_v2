@@ -1,63 +1,212 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Self-hosted, no render-blocking <link> to a font CDN.
+   Inter Tight carries the UI, Newsreader carries document prose. Both ship the
+   full Latin Extended-A range, so þ ð æ ö and the accented vowels are real
+   glyphs and not synthesised fallbacks. */
+@import "@fontsource-variable/inter-tight/index.css";
+@import "@fontsource-variable/newsreader/index.css";
+
 /* ── Design tokens ─────────────────────────────────────────────────────────────
-   Warm-monochrome, document-workspace palette. No web-font load: system-native
-   sans for UI/body, system serif for the brand wordmark. These tokens are generic
-   (not landing-page specific) so the rest of the app can reuse them.            */
+   One warm-monochrome system for the whole app. Every colour in a component
+   comes from here: raw Tailwind palette utilities (slate-500, indigo-600 …) are
+   what split this product into two visual languages, and they do not come back.
+
+   Light is the default. Dark is a real mode, not an inversion.                 */
 
 :root {
-  /* Surfaces */
-  --canvas: #fbfbfa;          /* warm bone page background */
-  --surface: #ffffff;         /* cards / inputs */
-  --border: #e7e6e3;          /* structural 1px dividers (warm neutral) */
-  --border-strong: #d6d4cf;   /* hover / emphasized borders */
+  color-scheme: light;
 
-  /* Text */
-  --ink: #2f3437;             /* primary body — off-black charcoal, never #000 */
-  --ink-soft: #6b6a66;        /* secondary / muted */
-  --ink-faint: #908e89;       /* tertiary / captions */
+  /* Surfaces, warm neutral, lightest to deepest */
+  --canvas: #fbfbfa;          /* page ground */
+  --surface: #ffffff;         /* raised: cards, inputs, popovers */
+  --surface-sunken: #f4f3f0;  /* recessed: rails, toolbars, table headers */
+  --border: #e7e6e3;          /* hairlines */
+  --border-strong: #d4d2cc;   /* hover, focus, emphasised edges */
 
-  /* Accent — single restrained slate-blue, used only for active/selected state.
-     The primary CTA itself uses solid ink, not the accent (see --cta).         */
-  --accent: #3a5a78;          /* muted slate-blue (replaces indigo-600) */
-  --accent-soft: #eef2f5;     /* washed accent tint for active chips */
+  /* Ink, never pure black */
+  --ink: #2b2f31;             /* body and headings */
+  --ink-soft: #66655f;        /* secondary */
+  --ink-faint: #6f6d68;       /* tertiary — 4,99:1 á canvas, svo 11px hástafa
+                                 merkingar standist WCAG AA */
 
-  /* Call-to-action — solid dark, white text, no shadow */
-  --cta: #2f3437;
-  --cta-hover: #45494c;
+  /* One accent. Links and active state only, never decoration. */
+  --accent: #1d4e6f;
+  --accent-hover: #15384f;
+  --accent-soft: #e8eef3;     /* selected-row wash */
+
+  /* Primary action: solid ink, white label. Not the accent. */
+  --cta: #2b2f31;
+  --cta-hover: #43484b;
+  --cta-ink: #ffffff;
+
+  /* Feedback */
+  --danger: #8f2f2a;
+  --danger-soft: #f7ecea;
+  --highlight: #f6e7a8;       /* search-match mark */
+  --highlight-ink: #2b2f31;
+
+  /* Focus ring, one definition for the whole app */
+  --ring: #1d4e6f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --canvas: #16181a;
+    --surface: #1d2022;
+    --surface-sunken: #121415;
+    --border: #2b2e31;
+    --border-strong: #3d4145;
+
+    --ink: #e6e4df;
+    --ink-soft: #a5a29b;
+    --ink-faint: #94918a;
+
+    --accent: #8ab6d6;
+    --accent-hover: #a7c9e2;
+    --accent-soft: #1c2b35;
+
+    --cta: #e6e4df;
+    --cta-hover: #cfcdc7;
+    --cta-ink: #16181a;
+
+    --danger: #e0938d;
+    --danger-soft: #2e1e1d;
+    --highlight: #6a5a1f;
+    --highlight-ink: #f5efd9;
+
+    --ring: #8ab6d6;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: #16181a;
+  --surface: #1d2022;
+  --surface-sunken: #121415;
+  --border: #2b2e31;
+  --border-strong: #3d4145;
+  --ink: #e6e4df;
+  --ink-soft: #a5a29b;
+  --ink-faint: #94918a;
+  --accent: #8ab6d6;
+  --accent-hover: #a7c9e2;
+  --accent-soft: #1c2b35;
+  --cta: #e6e4df;
+  --cta-hover: #cfcdc7;
+  --cta-ink: #16181a;
+  --danger: #e0938d;
+  --danger-soft: #2e1e1d;
+  --highlight: #6a5a1f;
+  --highlight-ink: #f5efd9;
+  --ring: #8ab6d6;
 }
 
 @theme {
-  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino,
-    Georgia, "Times New Roman", serif;
+  --font-sans: "Inter Tight Variable", ui-sans-serif, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-serif: "Newsreader Variable", "Iowan Old Style", Palatino, Georgia,
+    "Times New Roman", serif;
 
-  /* Expose semantic tokens to Tailwind utilities (e.g. text-ink, bg-canvas) */
+  /* Type scale. Six steps, each with its own line-height, so a component picks
+     a role rather than a pixel size. The old app used text-sm for 85% of
+     everything, which is why nothing had a hierarchy. */
+  --text-display: 2.75rem;      --text-display--line-height: 1.08;
+  --text-title: 1.5rem;         --text-title--line-height: 1.25;
+  --text-heading: 1.125rem;     --text-heading--line-height: 1.35;
+  --text-body: 0.9375rem;       --text-body--line-height: 1.6;
+  --text-meta: 0.8125rem;       --text-meta--line-height: 1.45;
+  --text-micro: 0.6875rem;      --text-micro--line-height: 1.4;
+
+  /* Reading measure for document prose */
+  --container-measure: 34rem;
+
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
+  --color-surface-sunken: var(--surface-sunken);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-ink-faint: var(--ink-faint);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
   --color-cta: var(--cta);
   --color-cta-hover: var(--cta-hover);
+  --color-cta-ink: var(--cta-ink);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+
+  --radius-card: 0.5rem;
 }
 
 html, body, #root { height: 100%; }
+
+/* The off-canvas facet panel is fixed and parked at translate-x-full when
+   closed; without this it widens the scrollable area and every page gains a
+   horizontal scrollbar on a phone. The app scrolls in inner containers, never
+   the body, so clipping here costs nothing. */
+html, body { overflow-x: hidden; }
+
 body {
   @apply antialiased;
   background-color: var(--canvas);
   color: var(--ink);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
 }
-mark { @apply rounded-sm px-0.5; background-color: #f6e7a8; color: var(--ink); }
-::highlight(book-search-match) { background-color: #f6e7a8; color: var(--ink); }
+
+/* One focus treatment, everywhere. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Browser surfaces. Selection, caret and scrollbars ship with defaults that
+   belong to no design system, and in a tool people sit in for hours they are
+   on screen constantly. */
+::selection {
+  background-color: var(--accent-soft);
+  color: var(--ink);
+}
+:root { accent-color: var(--accent); caret-color: var(--accent); }
+
+* { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-strong);
+  border: 3px solid var(--canvas);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background-color: var(--ink-faint); }
+
+/* Numbers in counts and metadata line up in columns. */
+.tabular { font-variant-numeric: tabular-nums; }
+
+mark {
+  @apply rounded-sm px-0.5;
+  background-color: var(--highlight);
+  color: var(--highlight-ink);
+}
+::highlight(book-search-match) {
+  background-color: var(--highlight);
+  color: var(--highlight-ink);
+}
+
+/* Document prose: serif, generous leading, measured line length. */
+.prose-document {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
 
 /* Footnote references: rendered as ordinary markdown links (see lib/footnotes.ts)
    so they resolve across lazily-rendered sections, then styled as superscripts. */
@@ -67,4 +216,12 @@ mark { @apply rounded-sm px-0.5; background-color: #f6e7a8; color: var(--ink); }
   text-decoration: none;
   font-weight: 600;
   padding-inline: 0.1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

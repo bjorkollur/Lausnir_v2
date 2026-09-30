@@ -9,7 +9,7 @@ export default function DocumentPage() {
   const { data, isPending, isError, error } = useDocument(id);
   if (isPending) return (
     <div className="p-8">
-      <div className="h-64 bg-slate-100 rounded animate-pulse" />
+      <div className="h-64 bg-surface-sunken rounded animate-pulse" />
     </div>
   );
   if (isError) return <ErrorState error={error} />;

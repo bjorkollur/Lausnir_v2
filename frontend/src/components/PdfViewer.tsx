@@ -93,7 +93,7 @@ export function PdfViewer({ url }: { url: string }) {
 
   if (error) {
     return (
-      <p className="text-sm text-slate-600">Ekki tókst að sækja PDF-skjalið.</p>
+      <p className="text-sm text-ink-soft">Ekki tókst að sækja PDF-skjalið.</p>
     );
   }
 
@@ -119,11 +119,11 @@ export function PdfViewer({ url }: { url: string }) {
           onClick={() => setPageNumber((p) => Math.max(1, p - 1))}
           disabled={pageNumber <= 1}
           aria-label="Fyrri síða"
-          className="rounded px-2 py-1 text-slate-600 hover:bg-slate-200 disabled:opacity-30"
+          className="rounded px-2 py-1 text-ink-soft hover:bg-border disabled:opacity-30"
         >
           ←
         </button>
-        <span className="whitespace-nowrap text-slate-600">
+        <span className="whitespace-nowrap text-ink-soft">
           Síða {pageNumber} af {numPages ?? "…"}
         </span>
         <button
@@ -131,7 +131,7 @@ export function PdfViewer({ url }: { url: string }) {
           onClick={() => setPageNumber((p) => (numPages ? Math.min(numPages, p + 1) : p))}
           disabled={numPages === null || pageNumber >= numPages}
           aria-label="Næsta síða"
-          className="rounded px-2 py-1 text-slate-600 hover:bg-slate-200 disabled:opacity-30"
+          className="rounded px-2 py-1 text-ink-soft hover:bg-border disabled:opacity-30"
         >
           →
         </button>
@@ -140,7 +140,7 @@ export function PdfViewer({ url }: { url: string }) {
         file={url}
         onLoadSuccess={({ numPages: n }) => setNumPages(n)}
         onLoadError={() => setError(true)}
-        loading={<p className="text-sm text-slate-500">Sæki PDF…</p>}
+        loading={<p className="text-sm text-ink-soft">Sæki PDF…</p>}
       >
         <div ref={pageContainerRef}>
           <Page pageNumber={pageNumber} width={PAGE_WIDTH} className="shadow-sm" />

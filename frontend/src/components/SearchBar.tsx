@@ -7,7 +7,7 @@ export function SearchBar({ state, onChange }:
   useEffect(() => setText(state.q), [state.q]);
   const submit = (e: FormEvent) => { e.preventDefault(); onChange({ q: text.trim() }); };
   return (
-    <form onSubmit={submit} className="flex-1">
+    <form onSubmit={submit} className="min-w-0 flex-1 basis-full sm:basis-auto">
       <input
         role="searchbox"
         value={text}
