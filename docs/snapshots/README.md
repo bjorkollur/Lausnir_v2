@@ -57,3 +57,28 @@ Reglan var: **yngsti innflutningurinn heldur sér.** Hún er ekki smekksatriði 
 | heradsdomstolar | S-1300/2026, S-3991/2026 |
 
 Tvær `leyfisbeidni_um`-tengingar (frá málskotsbeiðnum 2024-92 og 2020-118) hengu aðeins á eyddu röðunum; `link_malskotsbeidnir.py` var keyrð á eftir og festi þær á eftirlifendurna.
+
+## `dedupe_other_2026-09-30_manifest.json` — og fulla afritið sem er EKKI hér
+
+130 raðir í 18 heimildum sem bíða eyðingar (sjá „Staða" neðst). Hér er **aðeins samantekt**: heimild, málsnúmer, dagsetning, id, external_id, slóð, skráarnafn, tímastimpill, lengd, `md5` og fjöldi nafnleyndarmerkja. **Enginn meginmálstexti.**
+
+Fulla afritið (allir dálkar, 3,8 MB) liggur á gagnadisknum: `Lausnir_Data/snapshots/dedupe_other_2026-09-30.json.gz`. Það er **vísvitandi ekki í git**: meðal raðanna eru hælismálsúrskurðir kærunefndar útlendingamála í útgáfum sem eru **verr nafnleyndar** en þær sem halda sér, og þær eiga ekki að fara á fjarlagið. `md5` í samantektinni leyfir samt að staðfesta að afritið á disknum sé óbreytt.
+
+Innihaldið tapast ekki við eyðinguna: eftirlifandinn ber sama texta (≥ 0,995 líkindi á stöðluðum texta), svo afritið ver aðeins **útgáfumun**.
+
+### Hvað var greint
+
+690 flokkar deila lyklinum `(court, case_number, document_date, verdict_type)` þvert á allar heimildir, en aðeins 118 þeirra eru tvítekningar. Flokkun eftir líkindum á stöðluðum texta (bil og markdown-áherslur felld út):
+
+| Band | Flokkar | Hvað það er |
+|---|---|---|
+| 1,0 (eins) | 75 | tvítekning |
+| ≥ 0,995 | 43 | tvítekning |
+| 0,90–0,995 | 57 | óljóst — `knhus 17/2015` er 0,57 líkt þótt lengdin sé innan 2 % (aðrir aðilar: „A" á móti „B, C og D") |
+| < 0,90 | 423 | **ólík skjöl** undir sama málsnúmeri |
+| tóm | 10 | enginn texti |
+| NULL í lykli | 82 | lykillinn merkingarlaus (personuvernd 49, yfirskattanefnd 23) |
+
+Mekanisminn er annar en hjá dómstólunum: heimildin sjálf birtir sama úrskurð tvisvar — tvö `newsid`-GUID á stjornarradid.is, WordPress-slug með `-1` hjá hugverk.is, tvö PDF-skráarnöfn, og hjá `personuvernd 2012/983` **sama slóð á báðum röðum** (hrein innflutningstvítekning).
+
+**Slóðin skerúr sjaldan.** Könnun á báðum slóðum allra 118 para: 75 pör þar sem báðar lifa, 42 þar sem báðar eru dauðar, 1 með sömu slóð — **ekkert par þar sem aðeins ein lifir**. Allar `?newsid=`-slóðir stjornarradid skila tómri skel (~52,9 KB, sama og bogus-id), svo Blazor-endurbyggingin braut þær allar, ekki einstök id. Þess vegna er reglan „yngsta heldur sér" og ekki „sú með gildu slóðina".

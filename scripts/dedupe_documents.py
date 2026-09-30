@@ -29,8 +29,10 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import difflib
 import json
 import logging
+import re
 import sys
 from datetime import date, datetime
 from pathlib import Path
@@ -83,6 +85,29 @@ ORDER BY s.short_name, d.case_number, rn
 
 _PROBE_URL = "https://island.is/_next/data/{build}/domar/{external_id}.json"
 
+# Two rows are the same verdict when their text matches once formatting is set
+# aside.  Length alone is not enough: knhus 17/2015 is within 2% in length and
+# only 0,57 alike — different appellants under one case number.
+_WS = re.compile(r"\s+")
+_EMPH = re.compile(r"[*_]{1,4}")
+_SIMILARITY_CAP = 40_000        # difflib is quadratic; 40k of text settles it
+DEFAULT_MIN_SIMILARITY = 0.995
+
+
+def _normalised(body: str | None) -> str:
+    """Text with markdown emphasis and whitespace differences taken out."""
+    return _WS.sub(" ", _EMPH.sub("", (body or "").replace("\xa0", " "))).strip()
+
+
+def _worst_similarity(texts: list[str]) -> float:
+    """The least alike pair in the group.  1.0 when every text is identical."""
+    if len(set(texts)) == 1:
+        return 1.0
+    return min(
+        difflib.SequenceMatcher(None, a[:_SIMILARITY_CAP], b[:_SIMILARITY_CAP]).ratio()
+        for i, a in enumerate(texts) for b in texts[i + 1:]
+    )
+
 
 def _jsonable(value):
     if isinstance(value, (datetime, date)):
@@ -115,7 +140,7 @@ async def _alive(client: httpx.AsyncClient, build: str, external_id: str) -> boo
 
 
 async def run(dry_run: bool, probe: bool, out: Path | None,
-              sources: list[str], allow_text_diff: bool) -> None:
+              sources: list[str], min_similarity: float) -> None:
     await init_db()
     async with _db_conn.AsyncSessionLocal() as session:
         rows = [dict(r) for r in (
@@ -143,23 +168,36 @@ async def run(dry_run: bool, probe: bool, out: Path | None,
                     if r["rn"] == 1 and alive is False:
                         log.warning("    ATH: röðin sem heldur sér er dauð hjá heimildinni")
 
-    # A row whose text differs from the survivor's may not be the same document
-    # at all — that is how the sources outside DEFAULT_SOURCES fail this key.
-    survivor_text = {
-        tuple(r[c] for c in IDENTITY): r["body_md5"] for r in keep
-    }
-    differing = [r for r in doomed
-                 if survivor_text.get(tuple(r[c] for c in IDENTITY)) != r["body_md5"]]
-    if differing and not allow_text_diff:
-        log.warning("%d raðir hafa annan texta en sú sem heldur sér — sleppt "
-                    "(--allow-text-diff til að taka þær með):", len(differing))
-        for r in differing:
-            log.warning("  %-16s %-12s %s", r["short_name"], r["case_number"], r["verdict_filename"])
-        doomed = [r for r in doomed if r not in differing]
-    elif differing:
-        log.warning("%d raðir með annan texta teknar með (--allow-text-diff):", len(differing))
-        for r in differing:
-            log.warning("  %-16s %-12s %s", r["short_name"], r["case_number"], r["verdict_filename"])
+    # Only groups whose rows really are the same verdict.  Everything else is a
+    # collision on the key, not a duplicate: 423 of the 690 groups across all
+    # sources are different documents filed under one case number.
+    by_group: dict[tuple, list[dict]] = {}
+    for r in rows:
+        by_group.setdefault(tuple(r[c] for c in IDENTITY), []).append(r)
+    bands: dict[str, list[tuple]] = {"skyld": [], "ólík": [], "tóm": []}
+    accepted: set[tuple] = set()
+    for gkey, members in by_group.items():
+        texts = [_normalised(m["body_text"]) for m in members]
+        head = (members[0]["short_name"], members[0]["case_number"], members[0]["document_date"])
+        if not any(texts):
+            bands["tóm"].append((head, 0.0))
+            continue
+        ratio = _worst_similarity(texts)
+        if ratio >= min_similarity:
+            accepted.add(gkey)
+        else:
+            bands["skyld" if ratio >= 0.90 else "ólík"].append((head, ratio))
+
+    for band, items in bands.items():
+        if not items:
+            continue
+        log.warning("%d flokkar sleppt (%s):", len(items), band)
+        for (src, case, dt), ratio in sorted(items)[:15]:
+            log.warning("  %-20s %-16s %s  líkindi %.4f", src, case, dt, ratio)
+        if len(items) > 15:
+            log.warning("  … og %d fleiri", len(items) - 15)
+
+    doomed = [r for r in doomed if tuple(r[c] for c in IDENTITY) in accepted]
 
     for r in doomed:
         log.info("EYÐA %-16s %-12s %s", r["short_name"], r["case_number"], r["verdict_filename"])
@@ -232,11 +270,12 @@ def main() -> None:
                     help="skrá fyrir fullt afrit af eyddu röðunum (skylda við raunverulega eyðingu)")
     ap.add_argument("--source", action="append", dest="sources", metavar="HEIMILD",
                     help=f"heimild til að skoða (má gefa oftar; sjálfgefið {', '.join(DEFAULT_SOURCES)})")
-    ap.add_argument("--allow-text-diff", action="store_true",
-                    help="eyða líka röðum sem hafa annan texta en sú sem heldur sér")
+    ap.add_argument("--min-similarity", type=float, default=DEFAULT_MIN_SIMILARITY,
+                    help=f"lágmarkslíkindi á stöðluðum texta til að flokkur telist "
+                         f"tvítekning (sjálfgefið {DEFAULT_MIN_SIMILARITY})")
     args = ap.parse_args()
     asyncio.run(run(args.dry_run, args.probe, args.out,
-                    args.sources or list(DEFAULT_SOURCES), args.allow_text_diff))
+                    args.sources or list(DEFAULT_SOURCES), args.min_similarity))
 
 
 if __name__ == "__main__":
