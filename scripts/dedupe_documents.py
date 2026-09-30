@@ -183,26 +183,42 @@ async def run(dry_run: bool, probe: bool, out: Path | None,
         log.info("(þurrkeyrsla — ekkert eytt)")
         return
 
-    removed_files = 0
+    doomed_ids = [r["id"] for r in doomed]
+    async with _db_conn.AsyncSessionLocal() as session:
+        result = await session.execute(
+            text("DELETE FROM documents WHERE id = ANY(:ids) RETURNING id"),
+            {"ids": doomed_ids},
+        )
+        deleted = len(result.fetchall())
+        await session.commit()
+
+    # Files only after the rows are gone, and only when nothing points at them
+    # any more.  Outside the court sources a duplicate pair usually shares ONE
+    # verdict_filename — 139 of 161 candidate groups on 2026-09-30 — so removing
+    # the doomed row's file would take the survivor's only copy with it.
+    removed_files = kept_files = 0
     for r in doomed:
-        config = get_config(r["short_name"])
         vf = r["verdict_filename"]
         if not vf:
             continue
+        async with _db_conn.AsyncSessionLocal() as session:
+            still_used = (await session.execute(
+                text("""SELECT 1 FROM documents
+                        WHERE source_id = :sid AND verdict_filename = :vf LIMIT 1"""),
+                {"sid": r["source_id"], "vf": vf},
+            )).first()
+        if still_used:
+            kept_files += 1
+            log.info("  skrá höfð áfram (önnur röð notar hana): %s", vf)
+            continue
+        config = get_config(r["short_name"])
         for path in (config.markdown_path(vf), config.pdf_path(vf)):
             if path.exists():
                 path.unlink()
                 removed_files += 1
 
-    async with _db_conn.AsyncSessionLocal() as session:
-        result = await session.execute(
-            text("DELETE FROM documents WHERE id = ANY(:ids) RETURNING id"),
-            {"ids": [r["id"] for r in doomed]},
-        )
-        deleted = len(result.fetchall())
-        await session.commit()
-
-    log.info("%d raðir eyddar, %d skrár fjarlægðar", deleted, removed_files)
+    log.info("%d raðir eyddar, %d skrár fjarlægðar, %d skráarnöfn höfð áfram",
+             deleted, removed_files, kept_files)
     log.info("NEXT: uv run python scripts/link_malskotsbeidnir.py   "
              "# tvær leyfisbeidni_um-tengingar hanga á eyddu röðunum")
 
