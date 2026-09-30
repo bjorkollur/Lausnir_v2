@@ -161,11 +161,15 @@ body {
   line-height: var(--text-body--line-height);
 }
 
-/* One focus treatment, everywhere. */
+/* One focus treatment, everywhere, and only one. This rule is unlayered, so it
+   wins over Tailwind's layered outline-none; a control that also swapped its
+   border colour on focus therefore drew an accent border AND a ring 2px outside
+   it, which read as a double border. Controls keep their neutral border on
+   focus and let this ring be the whole signal. */
 :where(a, button, input, select, textarea, [tabindex]):focus-visible {
   outline: 2px solid var(--ring);
-  outline-offset: 2px;
-  border-radius: 2px;
+  outline-offset: 1px;
+  border-radius: 3px;
 }
 
 /* Browser surfaces. Selection, caret and scrollbars ship with defaults that

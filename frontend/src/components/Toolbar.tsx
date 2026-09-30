@@ -23,7 +23,7 @@ export function Toolbar({ state, regexFields, onChange }:
         aria-label="Röðun"
         value={state.sort}
         onChange={(e) => onChange({ sort: e.target.value as Sort })}
-        className="text-sm border border-[var(--border)] rounded-md px-3 py-1.5 bg-[var(--surface)] text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors">
+        className="h-9 rounded-md border border-border bg-surface px-2.5 text-meta text-ink transition-colors hover:border-border-strong">
         <option value="relevance" disabled={!FTS_MODES.has(state.mode)}>
           Bestar niðurstöður
         </option>
@@ -32,7 +32,7 @@ export function Toolbar({ state, regexFields, onChange }:
       </select>
 
       <Popover.Root>
-        <Popover.Trigger className="text-sm border border-[var(--border)] rounded-md px-3 py-1.5 bg-[var(--surface)] text-[var(--ink-soft)] hover:border-[var(--border-strong)] hover:text-[var(--ink)] transition-colors">
+        <Popover.Trigger className="h-9 rounded-md border border-border bg-surface px-3 text-meta text-ink-soft transition-colors hover:border-border-strong hover:text-ink">
           Tímabil
         </Popover.Trigger>
         <Popover.Portal>
@@ -41,13 +41,13 @@ export function Toolbar({ state, regexFields, onChange }:
               <span className="w-7">Frá</span>
               <input type="date" value={state.date_from ?? ""}
                 onChange={(e) => onChange({ date_from: e.target.value || undefined })}
-                className="border border-[var(--border)] bg-[var(--surface)] rounded-md px-2 py-1 text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors" />
+                className="h-9 rounded-md border border-border bg-surface px-2.5 text-meta text-ink transition-colors hover:border-border-strong" />
             </label>
             <label className="text-sm text-[var(--ink-soft)] flex items-center gap-2">
               <span className="w-7">Til</span>
               <input type="date" value={state.date_to ?? ""}
                 onChange={(e) => onChange({ date_to: e.target.value || undefined })}
-                className="border border-[var(--border)] bg-[var(--surface)] rounded-md px-2 py-1 text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors" />
+                className="h-9 rounded-md border border-border bg-surface px-2.5 text-meta text-ink transition-colors hover:border-border-strong" />
             </label>
           </Popover.Content>
         </Popover.Portal>
@@ -59,7 +59,7 @@ export function Toolbar({ state, regexFields, onChange }:
 
       {REGEX_BACKED_MODES.has(state.mode) && (
         <Popover.Root>
-          <Popover.Trigger className="text-sm border border-[var(--border)] rounded-md px-3 py-1.5 bg-[var(--surface)] text-[var(--ink-soft)] hover:border-[var(--border-strong)] hover:text-[var(--ink)] transition-colors">
+          <Popover.Trigger className="h-9 rounded-md border border-border bg-surface px-3 text-meta text-ink-soft transition-colors hover:border-border-strong hover:text-ink">
             Reitir
           </Popover.Trigger>
           <Popover.Portal>
@@ -106,7 +106,7 @@ function FilterInput({ placeholder, ariaLabel, ariaLabelClear, value, onChange }
           onChange={(e) => setDraft(e.target.value)}
           placeholder={placeholder}
           aria-label={ariaLabel}
-          className={`text-sm border rounded-md px-3 py-1.5 w-full min-w-0 sm:w-44 text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none transition-colors ${
+          className={`h-9 w-full min-w-0 rounded-md border px-3 text-meta text-ink placeholder:text-ink-faint transition-colors sm:w-44 ${
             value ? "border-[var(--accent)] bg-[var(--accent-soft)]" : "border-[var(--border)] bg-[var(--surface)] hover:border-[var(--border-strong)]"
           } focus:border-[var(--accent)]`}
         />

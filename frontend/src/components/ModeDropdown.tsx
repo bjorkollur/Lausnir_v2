@@ -38,7 +38,7 @@ export function ModeDropdown({
         aria-label="Leitarstilling"
         value={state.mode}
         onChange={(e) => handleModeChange(e.target.value as Mode)}
-        className="text-sm border border-[var(--border)] rounded-md px-3 py-1.5 bg-[var(--surface)] text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors"
+        className="h-9 rounded-md border border-border bg-surface px-2.5 text-meta text-ink transition-colors hover:border-border-strong"
       >
         {ALL_MODES.map((m) => (
           <option key={m} value={m}>

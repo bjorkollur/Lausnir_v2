@@ -96,12 +96,12 @@ export function LandingView({
               state.mode === "regex" ? "regex mynstur…" : "Leita í réttarheimildum…"
             }
             aria-label="Leitarbox"
-            className="flex-1 h-14 rounded-md border border-[var(--border)] bg-[var(--surface)] px-5 text-lg text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none focus:border-[var(--accent)] transition-colors"
+            className="h-11 min-w-0 flex-1 rounded-md border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-faint transition-colors hover:border-border-strong"
           />
           <button
             type="submit"
             disabled={!localQ.trim()}
-            className="h-14 px-8 rounded-md bg-cta font-medium tracking-wide text-cta-ink transition-colors hover:bg-cta-hover active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-border disabled:text-ink-faint"
+            className="h-11 px-6 rounded-md bg-cta font-medium tracking-wide text-cta-ink transition-colors hover:bg-cta-hover active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-border disabled:text-ink-faint"
           >
             Leita
           </button>
@@ -145,7 +145,7 @@ export function LandingView({
                 key={m}
                 type="button"
                 onClick={() => handleModeChange(m)}
-                className={`px-4 py-1.5 rounded-md text-sm font-medium border transition-colors ${
+                className={`h-9 rounded-md border px-3.5 text-meta font-medium transition-colors ${
                   state.mode === m
                     ? "bg-[var(--accent-soft)] text-[var(--ink)] border-[var(--accent)]"
                     : "bg-[var(--surface)] text-[var(--ink-soft)] border-[var(--border)] hover:border-[var(--border-strong)] hover:text-[var(--ink)]"
@@ -190,7 +190,7 @@ export function LandingView({
                 onChange={(e) =>
                   patch({ date_from: e.target.value || undefined })
                 }
-                className="border border-[var(--border)] bg-[var(--surface)] rounded-md px-3 py-1.5 text-sm text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors"
+                className="h-9 rounded-md border border-border bg-surface px-3 text-meta text-ink transition-colors hover:border-border-strong"
               />
             </label>
             <label className="flex items-center gap-2 text-sm text-[var(--ink-soft)]">
@@ -201,7 +201,7 @@ export function LandingView({
                 onChange={(e) =>
                   patch({ date_to: e.target.value || undefined })
                 }
-                className="border border-[var(--border)] bg-[var(--surface)] rounded-md px-3 py-1.5 text-sm text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors"
+                className="h-9 rounded-md border border-border bg-surface px-3 text-meta text-ink transition-colors hover:border-border-strong"
               />
             </label>
             {(state.date_from || state.date_to) && (
@@ -238,7 +238,7 @@ export function LandingView({
           <button
             type="submit"
             disabled={!localQ.trim()}
-            className="w-full h-12 rounded-md bg-cta font-medium tracking-wide text-cta-ink transition-colors hover:bg-cta-hover active:scale-[0.99] disabled:cursor-not-allowed disabled:bg-border disabled:text-ink-faint"
+            className="h-11 w-full rounded-md bg-cta font-medium tracking-wide text-cta-ink transition-colors hover:bg-cta-hover active:scale-[0.99] disabled:cursor-not-allowed disabled:bg-border disabled:text-ink-faint"
           >
             Leita með ýtarlegri leit
           </button>
