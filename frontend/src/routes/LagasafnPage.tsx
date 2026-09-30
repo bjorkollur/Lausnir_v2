@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useSources } from "../hooks/useSources";
+import { PageShell } from "../components/PageShell";
 import { ErrorState } from "../components/states";
+import { formatCount } from "../lib/formatNumber";
 
 export default function LagasafnPage() {
   const { data, isPending, isError } = useSources();
@@ -8,42 +10,46 @@ export default function LagasafnPage() {
   const chapters = lagasafnNode?.children ?? [];
 
   return (
-    <div className="p-6 max-w-3xl">
-      <h1 className="text-2xl font-bold mb-1">Lagasafn Alþingis</h1>
-      <p className="text-ink-soft mb-6 text-sm">
-        {lagasafnNode ? `${lagasafnNode.count} lög í ${chapters.length} köflum` : "Hleður..."}
-      </p>
-
+    <PageShell
+      title="Lagasafn Alþingis"
+      subtitle={
+        lagasafnNode
+          ? `${formatCount(lagasafnNode.count)} lög í ${chapters.length} köflum`
+          : undefined
+      }
+    >
       {isPending ? (
-        <div className="space-y-2">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="h-14 bg-surface-sunken rounded-lg animate-pulse" />
+        <div className="grid gap-x-10 gap-y-px sm:grid-cols-2 xl:grid-cols-3">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div key={i} className="h-9 animate-pulse rounded bg-surface-sunken" />
           ))}
         </div>
       ) : isError ? (
         <ErrorState error={new Error("Ekki tókst að sækja lagasafn")} />
       ) : (
-        <div className="space-y-2">
+        // 48 chapters in three columns rather than 48 cards down a 3.200px
+        // scroll. A chapter is a link with a count; it does not need a card.
+        <ul className="grid gap-x-10 sm:grid-cols-2 xl:grid-cols-3">
           {chapters.map((ch) => {
             const n = ch.key.replace("lagasafn_", "").replace(/^0/, "");
             return (
-              <Link
-                key={ch.key}
-                to={`/lagasafn/${n}`}
-                className="flex items-center justify-between px-5 py-4 bg-white rounded-lg border border-border hover:border-accent hover:bg-accent-soft transition-colors group"
-              >
-                <span className="font-medium text-ink group-hover:text-accent">
-                  {ch.label}
-                </span>
-                <span className="text-ink-faint text-sm tabular-nums ml-4">
-                  {ch.count}
-                  <span className="ml-1 text-ink-faint">›</span>
-                </span>
-              </Link>
+              <li key={ch.key}>
+                <Link
+                  to={`/lagasafn/${n}`}
+                  className="group -mx-2 flex items-baseline gap-3 rounded border-b border-border px-2 py-2 hover:bg-surface"
+                >
+                  <span className="min-w-0 flex-1 truncate text-meta text-ink group-hover:text-accent">
+                    {ch.label}
+                  </span>
+                  <span className="tabular shrink-0 text-micro text-ink-faint">
+                    {formatCount(ch.count)}
+                  </span>
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
-    </div>
+    </PageShell>
   );
 }

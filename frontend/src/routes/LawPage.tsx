@@ -10,7 +10,7 @@ export default function LawPage() {
   if (isPending) {
     return (
       <div className="bg-canvas flex-1 p-8">
-        <div className="mx-auto max-w-2xl bg-white rounded-lg p-8 shadow-sm space-y-4 animate-pulse">
+        <div className="mx-auto max-w-2xl rounded-card bg-surface p-8 space-y-4 animate-pulse">
           <div className="h-4 bg-surface-sunken rounded w-1/3 mx-auto" />
           <div className="h-8 bg-surface-sunken rounded w-2/3 mx-auto" />
           <div className="h-4 bg-surface-sunken rounded w-1/2 mx-auto" />

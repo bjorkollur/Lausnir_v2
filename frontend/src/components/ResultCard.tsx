@@ -69,18 +69,22 @@ export function ResultCard({ r }: { r: SearchResult }) {
         </p>
       )}
 
-      <div className="mt-3 flex items-baseline gap-3">
+      {/* The anchor is not always "IV" or "hluti 6": it can be a whole section
+          title. shrink-0 on a variable-length label pushed the snippet out of
+          the row and off the screen at 390px, so it caps and truncates beside
+          the text and stacks above it on a phone. */}
+      <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3">
         {r.anchor && (
           <span
             data-testid="passage-anchor"
-            className="shrink-0 text-micro font-medium uppercase tracking-wide text-ink-faint"
-            title={r.section_kind ?? undefined}
+            className="truncate text-micro font-medium uppercase tracking-wide text-ink-faint sm:w-24 sm:shrink-0 sm:text-right"
+            title={r.anchor}
           >
             {r.anchor}
           </span>
         )}
         <p
-          className="text-body text-ink"
+          className="max-w-[78ch] text-body text-ink"
           dangerouslySetInnerHTML={markHtml(r.snippet)}
         />
       </div>

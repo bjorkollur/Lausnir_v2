@@ -210,9 +210,14 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
     ? doc.document_date?.slice(0, 4)
     : formatIcelandicDate(doc.document_date);
 
+  // One heading line that names the document: court plus case number. The court
+  // used to sit above it as a small-caps kicker, which is decoration where the
+  // heading can simply carry the whole identity.
   const heading = doc.case_number_is_title
     ? doc.case_number
-    : doc.case_number && `Mál nr. ${doc.case_number}`;
+    : [doc.source_display, doc.case_number && `mál nr. ${doc.case_number}`]
+        .filter(Boolean)
+        .join(", ");
 
   return (
     <div ref={scrollContainerRef} className="flex-1 overflow-y-auto bg-canvas">
@@ -237,17 +242,8 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
                 {doc.source_display}
               </p>
             )}
-            <h1 className={doc.case_number_is_title ? "mt-2 text-ink" : "text-ink"}>
-              {!doc.case_number_is_title && (
-                <span className="block text-micro font-medium uppercase tracking-[0.12em] text-ink-faint">
-                  {doc.source_display}
-                </span>
-              )}
-              {heading && (
-                <span className={`block font-serif text-title ${doc.case_number_is_title ? "" : "mt-2"}`}>
-                  {heading}
-                </span>
-              )}
+            <h1 className={`font-serif text-title text-ink ${doc.case_number_is_title ? "mt-2" : ""}`}>
+              {heading}
             </h1>
             <p className="mt-1 text-meta text-ink-soft">
               {[dateLabel, doc.case_number_is_title ? null : doc.verdict_type]

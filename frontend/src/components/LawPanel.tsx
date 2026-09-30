@@ -31,7 +31,7 @@ function ProvisionBlock({ p }: { p: Provision }) {
 export function LawPanel({ law }: { law: LawDetail }) {
   return (
     <div className="bg-canvas flex-1 overflow-y-auto py-8">
-      <article className="mx-auto max-w-2xl bg-white rounded-lg p-8 shadow-sm">
+      <article className="mx-auto max-w-2xl rounded-card bg-surface p-8">
         {/* Haus */}
         <header className="text-center space-y-1 mb-8 pb-6 border-b border-border">
           {law.document_date && law.case_number && (

@@ -58,7 +58,7 @@ export function DocSearchBar({
         aria-label="Regex leit"
         title="Regex leit"
         className={`rounded px-1.5 py-1 font-mono text-xs ${
-          useRegex ? "bg-ink text-white" : "text-ink-soft hover:bg-border"
+          useRegex ? "bg-ink text-canvas" : "text-ink-soft hover:bg-border"
         }`}
       >
         .*

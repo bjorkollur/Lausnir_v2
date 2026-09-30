@@ -15,7 +15,10 @@ const FTS_MODES = new Set<Mode>(["keyword", "proximity"]);
 export function Toolbar({ state, regexFields, onChange }:
   { state: SearchState; regexFields: string[]; onChange: (p: Partial<SearchState>) => void }) {
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    // min-w-0 matters: as a flex item without it, the toolbar's widest
+    // unbreakable child sets a floor that pushes the whole header past the
+    // viewport on a phone, and the page inherits the overflow.
+    <div className="flex min-w-0 flex-1 basis-full flex-wrap items-center gap-2 sm:basis-auto sm:gap-3">
       <select
         aria-label="Röðun"
         value={state.sort}
@@ -96,14 +99,14 @@ function FilterInput({ placeholder, ariaLabel, ariaLabelClear, value, onChange }
 
   return (
     <form onSubmit={submit} className="flex items-center gap-1">
-      <div className="relative flex items-center">
+      <div className="relative flex min-w-0 flex-1 items-center sm:flex-none">
         <input
           type="text"
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           placeholder={placeholder}
           aria-label={ariaLabel}
-          className={`text-sm border rounded-md px-3 py-1.5 w-44 text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none transition-colors ${
+          className={`text-sm border rounded-md px-3 py-1.5 w-full min-w-0 sm:w-44 text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none transition-colors ${
             value ? "border-[var(--accent)] bg-[var(--accent-soft)]" : "border-[var(--border)] bg-[var(--surface)] hover:border-[var(--border-strong)]"
           } focus:border-[var(--accent)]`}
         />

@@ -4,6 +4,7 @@ import type { Mode, Sort } from "../api/types";
 import type { SearchState } from "../lib/searchState";
 import { SourceTree } from "./SourceTree";
 import { ProvisionInput, KeywordInput } from "./Toolbar";
+import { formatCount } from "../lib/formatNumber";
 
 // ── Mode labels ───────────────────────────────────────────────────────────────
 
@@ -100,7 +101,7 @@ export function LandingView({
           <button
             type="submit"
             disabled={!localQ.trim()}
-            className="h-14 px-8 bg-[var(--cta)] text-white rounded-md font-medium tracking-wide hover:bg-[var(--cta-hover)] active:scale-[0.98] disabled:opacity-35 disabled:cursor-not-allowed transition-all"
+            className="h-14 px-8 rounded-md bg-cta font-medium tracking-wide text-cta-ink transition-colors hover:bg-cta-hover active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-border disabled:text-ink-faint"
           >
             Leita
           </button>
@@ -120,7 +121,7 @@ export function LandingView({
 
         {/* Stats footer */}
         <p className="text-xs text-[var(--ink-faint)] tracking-wide">
-          {total.toLocaleString("is-IS")} skjöl · {sourceCount} heimildir
+          {formatCount(total)} skjöl · {sourceCount} heimildir
         </p>
       </div>
 
@@ -237,7 +238,7 @@ export function LandingView({
           <button
             type="submit"
             disabled={!localQ.trim()}
-            className="w-full h-12 bg-[var(--cta)] text-white rounded-md font-medium tracking-wide hover:bg-[var(--cta-hover)] active:scale-[0.99] disabled:opacity-35 disabled:cursor-not-allowed transition-all"
+            className="w-full h-12 rounded-md bg-cta font-medium tracking-wide text-cta-ink transition-colors hover:bg-cta-hover active:scale-[0.99] disabled:cursor-not-allowed disabled:bg-border disabled:text-ink-faint"
           >
             Leita með ýtarlegri leit
           </button>

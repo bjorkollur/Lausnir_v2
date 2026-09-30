@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { CaretDownIcon, CaretRightIcon, CheckIcon } from "@phosphor-icons/react";
 import type { CatalogNode } from "../api/types";
+import { formatCount } from "../lib/formatNumber";
 
 /** A source in the facet tree.
  *
@@ -48,7 +49,7 @@ export function FacetNode({ node, selected, depth, onToggle }:
         </Checkbox.Root>
         <span className="flex-1 truncate text-meta text-ink">{node.label}</span>
         <span className="tabular text-micro text-ink-faint">
-          {node.count.toLocaleString("is-IS")}
+          {formatCount(node.count)}
         </span>
       </div>
       {hasKids && open && kids.map((c) => (

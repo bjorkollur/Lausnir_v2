@@ -3,9 +3,10 @@ import { useSearch } from "../hooks/useSearch";
 import { ResultCard } from "./ResultCard";
 import { ResultsSkeleton, EmptyState, ErrorState } from "./states";
 import type { SearchState } from "../lib/searchState";
+import { formatCount } from "../lib/formatNumber";
 
 function plural(n: number) {
-  return n === 1 ? "1 niðurstaða" : `${n.toLocaleString("is-IS")} niðurstöður`;
+  return n === 1 ? "1 niðurstaða" : `${formatCount(n)} niðurstöður`;
 }
 
 export function ResultsList({ state }: { state: SearchState }) {
