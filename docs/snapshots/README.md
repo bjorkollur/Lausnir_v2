@@ -60,9 +60,9 @@ Tvær `leyfisbeidni_um`-tengingar (frá málskotsbeiðnum 2024-92 og 2020-118) h
 
 ## `dedupe_other_2026-09-30_manifest.json` — og fulla afritið sem er EKKI hér
 
-130 raðir í 18 heimildum sem bíða eyðingar (sjá „Staða" neðst). Hér er **aðeins samantekt**: heimild, málsnúmer, dagsetning, id, external_id, slóð, skráarnafn, tímastimpill, lengd, `md5` og fjöldi nafnleyndarmerkja. **Enginn meginmálstexti.**
+130 raðir í 18 heimildum sem var eytt 30.09.2026. Hér er **aðeins samantekt**: heimild, málsnúmer, dagsetning, id, external_id, slóð, skráarnafn, tímastimpill, lengd, `md5` og fjöldi nafnleyndarmerkja. **Enginn meginmálstexti.**
 
-Fulla afritið (allir dálkar, 3,8 MB) liggur á gagnadisknum: `Lausnir_Data/snapshots/dedupe_other_2026-09-30.json.gz`. Það er **vísvitandi ekki í git**: meðal raðanna eru hælismálsúrskurðir kærunefndar útlendingamála í útgáfum sem eru **verr nafnleyndar** en þær sem halda sér, og þær eiga ekki að fara á fjarlagið. `md5` í samantektinni leyfir samt að staðfesta að afritið á disknum sé óbreytt.
+Fulla afritið (allir dálkar, 3,8 MB) liggur á gagnadisknum: `Lausnir_Data/snapshots/dedupe_other_run_2026-09-30.json.gz` — skrifað af keyrslunni sjálfri, sömu 130 id og samantektin hér. Það er **vísvitandi ekki í git**: meðal raðanna eru hælismálsúrskurðir kærunefndar útlendingamála í útgáfum sem eru **verr nafnleyndar** en þær sem halda sér, og þær eiga ekki að fara á fjarlagið. `md5` í samantektinni leyfir samt að staðfesta að afritið á disknum sé óbreytt.
 
 Innihaldið tapast ekki við eyðinguna: eftirlifandinn ber sama texta (≥ 0,995 líkindi á stöðluðum texta), svo afritið ver aðeins **útgáfumun**.
 
@@ -82,3 +82,20 @@ Innihaldið tapast ekki við eyðinguna: eftirlifandinn ber sama texta (≥ 0,99
 Mekanisminn er annar en hjá dómstólunum: heimildin sjálf birtir sama úrskurð tvisvar — tvö `newsid`-GUID á stjornarradid.is, WordPress-slug með `-1` hjá hugverk.is, tvö PDF-skráarnöfn, og hjá `personuvernd 2012/983` **sama slóð á báðum röðum** (hrein innflutningstvítekning).
 
 **Slóðin skerúr sjaldan.** Könnun á báðum slóðum allra 118 para: 75 pör þar sem báðar lifa, 42 þar sem báðar eru dauðar, 1 með sömu slóð — **ekkert par þar sem aðeins ein lifir**. Allar `?newsid=`-slóðir stjornarradid skila tómri skel (~52,9 KB, sama og bogus-id), svo Blazor-endurbyggingin braut þær allar, ekki einstök id. Þess vegna er reglan „yngsta heldur sér" og ekki „sú með gildu slóðina".
+
+### Niðurstaða keyrslunnar 30.09.2026
+
+130 raðir eyddar, **16 skrár fjarlægðar og 114 skráarnöfn höfð áfram** — 114 af eyddu röðunum deildu `.md`-skrá með þeirri sem hélt sér, svo vörnin í `dedupe_documents.py` bjargaði þeim skrám.
+
+| Mælikvarði | Fyrir | Eftir |
+|---|---|---|
+| `documents` | 93.038 | 92.908 (−130) |
+| `passages` | 1.781.347 | 1.779.474 (−1.873, CASCADE) |
+| `citations` | 60.655 | **60.655 (óbreytt)** |
+| `document_links` | 48.111 | **48.111 (óbreytt)** |
+
+Tilvitnanir og tenglar eru óbreyttir af því að þessar heimildir eru hvorki uppruni né skotmark í `citations`/áfrýjunarkeðjunni — `link_malskotsbeidnir.py` þurfti því ekki að keyra (NEXT-skilaboðin í skriftunni eru föst og miðuð við dómstólana).
+
+Eftir keyrslu deila 489 flokkar enn lyklinum en **enginn** fer yfir 0,995-þröskuldinn: það sem eftir stendur eru ólík skjöl undir sama málsnúmeri, ekki tvítekningar.
+
+**Engin skrá tapaðist:** 0 raðir með meginmál vantar `.md`. Þær 1.020 raðir sem eiga enga `.md` (umbodsmadur 895, hugverkastofa 121, samkeppni 4) eru allar með tómt meginmál — `write_markdown` skrifar enga skrá fyrir textalaust skjal, og það var svona fyrir.
