@@ -1,43 +1,32 @@
-import { useState, useRef, type FormEvent } from "react";
-import type { CatalogNode } from "../api/types";
-import type { Mode, Sort } from "../api/types";
-import type { SearchState } from "../lib/searchState";
+import { useId, useRef, useState, type FormEvent } from "react";
+import { CaretRightIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
+import type { CatalogNode, Mode } from "../api/types";
+import { activeFilterCount, hasSearchCriteria, type SearchState } from "../lib/searchState";
+import { ALL_MODES, MODE_HINTS, MODE_LABELS, sortForMode } from "../lib/modes";
 import { SourceTree } from "./SourceTree";
-import { ProvisionInput, KeywordInput } from "./Toolbar";
 import { formatCount } from "../lib/formatNumber";
 
-// ── Mode labels ───────────────────────────────────────────────────────────────
+const ADVANCED_KEY = "lausnir-advanced-open";
 
-const MODE_LABELS: Record<Mode, string> = {
-  keyword: "Orðaleit",
-  exact: "Heilt orð",
-  prefix: "Byrjar á",
-  substring: "Hluti af orði",
-  any: "Eitthvað af",
-  proximity: "Nálægt",
-  regex: "Regex",
-};
+function readAdvancedOpen(): boolean {
+  try {
+    return localStorage.getItem(ADVANCED_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
 
-const ALL_MODES: Mode[] = [
-  "keyword",
-  "exact",
-  "prefix",
-  "substring",
-  "any",
-  "proximity",
-  "regex",
-];
+const LEGEND = "mb-2.5 text-micro font-medium uppercase tracking-[0.1em] text-ink-faint";
+const FIELD =
+  "h-10 w-full min-w-0 rounded-md border border-border bg-surface px-3 text-meta text-ink placeholder:text-ink-faint transition-colors hover:border-border-strong";
 
-// Modes that support ts_rank (can use sort=relevance)
-const FTS_MODES = new Set<Mode>(["keyword", "proximity"]);
-
-// ── Shared classes ────────────────────────────────────────────────────────────
-
-const SECTION_LABEL =
-  "text-[0.7rem] font-semibold text-[var(--ink-soft)] uppercase tracking-[0.12em] mb-3";
-
-// ── LandingView ───────────────────────────────────────────────────────────────
-
+/** The front page: one field and a button, and advanced search one click
+ *  away rather than a second page of controls under the first.
+ *
+ *  The whole page is one form and nothing is applied until it is submitted.
+ *  Each advanced control used to write itself into the URL the moment it
+ *  changed, so ticking a source (which makes the URL a search) swapped this page
+ *  for the results mid-form and threw away the query typed above it. */
 export function LandingView({
   state,
   catalog,
@@ -51,204 +40,237 @@ export function LandingView({
   sourceCount: number;
   patch: (p: Partial<SearchState>) => void;
 }) {
-  const [localQ, setLocalQ] = useState("");
-  const searchInputRef = useRef<HTMLInputElement>(null);
+  const [draft, setDraft] = useState<SearchState>(state);
+  const set = (p: Partial<SearchState>) => setDraft((d) => ({ ...d, ...p }));
+  const advancedCount =
+    activeFilterCount(draft) + (draft.mode !== "keyword" ? 1 : 0);
+  const [open, setOpen] = useState(() => readAdvancedOpen() || advancedCount > 0);
+  const input = useRef<HTMLInputElement>(null);
+  const ids = { q: useId(), panel: useId(), provision: useId(), keyword: useId(), from: useId(), to: useId() };
 
-  const handleSubmit = (e: FormEvent) => {
+  const toggle = () => {
+    setOpen((o) => {
+      try {
+        localStorage.setItem(ADVANCED_KEY, o ? "0" : "1");
+      } catch {
+        /* private mode: the panel still toggles for this visit */
+      }
+      return !o;
+    });
+  };
+
+  const submit = (e: FormEvent) => {
     e.preventDefault();
-    if (localQ.trim()) {
-      patch({ q: localQ.trim() });
+    const next: SearchState = {
+      ...draft,
+      q: draft.q.trim(),
+      provision: draft.provision?.trim() || undefined,
+      keyword: draft.keyword?.trim() || undefined,
+    };
+    if (!hasSearchCriteria(next)) {
+      input.current?.focus();
+      return;
     }
+    patch(next);
   };
 
-  const handleModeChange = (mode: Mode) => {
-    const sort: Sort =
-      !FTS_MODES.has(mode) && state.sort === "relevance" ? "newest" : state.sort;
-    patch({ mode, sort });
-  };
-
-  const handleScopeChange = (scope: string[]) => {
-    patch({ scope });
-  };
+  const reset = () =>
+    set({
+      mode: "keyword", sort: "relevance", scope: [], date_from: undefined, date_to: undefined,
+      provision: undefined, keyword: undefined, proximity_n: 5,
+    });
 
   return (
-    <div className="min-h-full flex flex-col items-center px-6 pb-20">
-      {/* ── Simple search section ───────────────────────────────────────────── */}
-      <div className="flex flex-col items-center gap-9 pt-20 pb-14 w-full max-w-2xl">
-        {/* Branding — serif wordmark preserved as the brand element */}
-        <div className="text-center">
-          <h1 className="font-serif text-6xl font-medium tracking-[-0.02em] text-[var(--ink)]">
-            Lausnir
-          </h1>
-          <p className="text-[var(--ink-soft)] mt-3 text-base tracking-wide">
-            Íslenskar réttarheimildir
-          </p>
+    <div className="flex min-h-full flex-col items-center px-4 pb-24 sm:px-6">
+      <form onSubmit={submit} role="search" aria-label="Leit" className="w-full max-w-2xl pt-[12vh] sm:pt-[16vh]">
+        <div className="mb-9 text-center">
+          <h1 className="font-serif text-6xl font-medium tracking-[-0.02em] text-ink">Lausnir</h1>
+          <p className="mt-3 text-body text-ink-soft">Íslenskar réttarheimildir</p>
         </div>
 
-        {/* Simple search bar */}
-        <form onSubmit={handleSubmit} className="w-full flex gap-2.5">
-          <input
-            ref={searchInputRef}
-            autoFocus
-            value={localQ}
-            onChange={(e) => setLocalQ(e.target.value)}
-            placeholder={
-              state.mode === "regex" ? "regex mynstur…" : "Leita í réttarheimildum…"
-            }
-            aria-label="Leitarbox"
-            className="h-11 min-w-0 flex-1 rounded-md border border-border bg-surface px-4 text-base text-ink placeholder:text-ink-faint transition-colors hover:border-border-strong"
-          />
+        <div className="flex gap-2">
+          <label htmlFor={ids.q} className="sr-only">Leitarorð</label>
+          <div className="relative min-w-0 flex-1">
+            <MagnifyingGlassIcon
+              size={18}
+              aria-hidden
+              className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-faint"
+            />
+            <input
+              id={ids.q}
+              ref={input}
+              role="searchbox"
+              autoFocus
+              enterKeyHint="search"
+              value={draft.q}
+              onChange={(e) => set({ q: e.target.value })}
+              placeholder={draft.mode === "regex" ? "regex mynstur…" : "Leita í réttarheimildum…"}
+              className="h-12 w-full rounded-md border border-border bg-surface pl-11 pr-4 text-body text-ink placeholder:text-ink-faint transition-colors hover:border-border-strong"
+            />
+          </div>
           <button
             type="submit"
-            disabled={!localQ.trim()}
-            className="h-11 px-6 rounded-md bg-cta font-medium tracking-wide text-cta-ink transition-colors hover:bg-cta-hover active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-border disabled:text-ink-faint"
+            className="h-12 shrink-0 rounded-md bg-cta px-6 font-medium text-cta-ink transition-colors hover:bg-cta-hover"
           >
             Leita
           </button>
-        </form>
-
-        {/* Structured filters: provision reference + keyword tag */}
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          <ProvisionInput
-            value={state.provision ?? ""}
-            onChange={(v) => patch({ provision: v || undefined })}
-          />
-          <KeywordInput
-            value={state.keyword ?? ""}
-            onChange={(v) => patch({ keyword: v || undefined })}
-          />
         </div>
 
-        {/* Stats footer */}
-        <p className="text-xs text-[var(--ink-faint)] tracking-wide">
-          {formatCount(total)} skjöl · {sourceCount} heimildir
-        </p>
-      </div>
-
-      {/* ── Divider ────────────────────────────────────────────────────────── */}
-      <div className="w-full max-w-2xl flex items-center gap-4 mb-10">
-        <div className="flex-1 border-t border-[var(--border)]" />
-        <span className="text-xs text-[var(--ink-faint)] uppercase tracking-[0.14em]">
-          Ýtarleg leit
-        </span>
-        <div className="flex-1 border-t border-[var(--border)]" />
-      </div>
-
-      {/* ── Advanced search section ─────────────────────────────────────────── */}
-      <div className="w-full max-w-2xl space-y-9">
-        {/* Mode selection */}
-        <section>
-          <h2 className={SECTION_LABEL}>Leitarstilling</h2>
-          <div className="flex flex-wrap gap-2">
-            {ALL_MODES.map((m) => (
-              <button
-                key={m}
-                type="button"
-                onClick={() => handleModeChange(m)}
-                className={`h-9 rounded-md border px-3.5 text-meta font-medium transition-colors ${
-                  state.mode === m
-                    ? "bg-[var(--accent-soft)] text-[var(--ink)] border-[var(--accent)]"
-                    : "bg-[var(--surface)] text-[var(--ink-soft)] border-[var(--border)] hover:border-[var(--border-strong)] hover:text-[var(--ink)]"
-                }`}
-              >
-                {MODE_LABELS[m]}
-              </button>
-            ))}
-          </div>
-
-          {/* Proximity distance picker */}
-          {state.mode === "proximity" && (
-            <div className="mt-3 flex items-center gap-2 text-sm text-[var(--ink-soft)]">
-              <span>Innan</span>
-              <input
-                type="number"
-                min={1}
-                max={50}
-                value={state.proximity_n}
-                onChange={(e) => {
-                  const n = parseInt(e.target.value, 10);
-                  if (Number.isFinite(n) && n >= 1 && n <= 50) {
-                    patch({ proximity_n: n });
-                  }
-                }}
-                className="w-16 border border-[var(--border)] bg-[var(--surface)] rounded-md px-2 py-1 text-center text-[var(--ink)] outline-none focus:border-[var(--accent)] transition-colors"
-              />
-              <span>orða</span>
-            </div>
-          )}
-        </section>
-
-        {/* Date range */}
-        <section>
-          <h2 className={SECTION_LABEL}>Tímabil</h2>
-          <div className="flex items-center gap-3 flex-wrap">
-            <label className="flex items-center gap-2 text-sm text-[var(--ink-soft)]">
-              <span className="w-8 text-right text-[var(--ink-faint)]">Frá</span>
-              <input
-                type="date"
-                value={state.date_from ?? ""}
-                onChange={(e) =>
-                  patch({ date_from: e.target.value || undefined })
-                }
-                className="h-9 rounded-md border border-border bg-surface px-3 text-meta text-ink transition-colors hover:border-border-strong"
-              />
-            </label>
-            <label className="flex items-center gap-2 text-sm text-[var(--ink-soft)]">
-              <span className="w-8 text-right text-[var(--ink-faint)]">Til</span>
-              <input
-                type="date"
-                value={state.date_to ?? ""}
-                onChange={(e) =>
-                  patch({ date_to: e.target.value || undefined })
-                }
-                className="h-9 rounded-md border border-border bg-surface px-3 text-meta text-ink transition-colors hover:border-border-strong"
-              />
-            </label>
-            {(state.date_from || state.date_to) && (
-              <button
-                type="button"
-                onClick={() => patch({ date_from: undefined, date_to: undefined })}
-                className="text-xs text-[var(--ink-faint)] hover:text-[var(--ink)] underline underline-offset-2 transition-colors"
-              >
-                Hreinsa tímabil
-              </button>
-            )}
-          </div>
-        </section>
-
-        {/* Source tree */}
-        <section>
-          <div className="flex items-center justify-between mb-3">
-            <h2 className={SECTION_LABEL + " mb-0"}>Heimildir</h2>
-            {state.scope.length > 0 && (
-              <span className="text-xs text-[var(--accent)] font-medium">
-                {state.scope.length} valin
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+          <button
+            type="button"
+            onClick={toggle}
+            aria-expanded={open}
+            aria-controls={ids.panel}
+            className="-ml-1 inline-flex h-8 items-center gap-1.5 rounded px-1 text-meta text-ink-soft hover:text-ink"
+          >
+            <CaretRightIcon
+              size={12}
+              weight="bold"
+              aria-hidden
+              className={`transition-transform duration-150 ${open ? "rotate-90" : ""}`}
+            />
+            Ýtarleg leit
+            {advancedCount > 0 && (
+              <span className="tabular grid h-5 min-w-5 place-items-center rounded-full bg-accent-soft px-1.5 text-micro text-ink">
+                {advancedCount}
               </span>
             )}
-          </div>
-          <SourceTree
-            catalog={catalog}
-            scope={state.scope}
-            onScopeChange={handleScopeChange}
-          />
-        </section>
-
-        {/* Advanced search submit button */}
-        <form onSubmit={handleSubmit}>
-          <button
-            type="submit"
-            disabled={!localQ.trim()}
-            className="h-11 w-full rounded-md bg-cta font-medium tracking-wide text-cta-ink transition-colors hover:bg-cta-hover active:scale-[0.99] disabled:cursor-not-allowed disabled:bg-border disabled:text-ink-faint"
-          >
-            Leita með ýtarlegri leit
           </button>
-          {!localQ.trim() && (
-            <p className="text-center text-xs text-[var(--ink-faint)] mt-2.5">
-              Sláðu inn leitarorð í reitinn að ofan
+          {total > 0 && (
+            <p className="tabular text-meta text-ink-faint">
+              {formatCount(total)} skjöl · {sourceCount} heimildir
             </p>
           )}
-        </form>
-      </div>
+        </div>
+
+        <div id={ids.panel} hidden={!open} className="mt-5 space-y-8 border-t border-border pt-7">
+          <fieldset>
+            <legend className={LEGEND}>Leitarhamur</legend>
+            <div className="flex flex-wrap gap-1.5">
+              {ALL_MODES.map((m) => (
+                <label
+                  key={m}
+                  className={`relative inline-flex h-9 cursor-pointer items-center rounded-md border px-3.5 text-meta transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-1 has-[:focus-visible]:outline-ring ${
+                    draft.mode === m
+                      ? "border-accent bg-accent-soft text-ink"
+                      : "border-border bg-surface text-ink-soft hover:border-border-strong hover:text-ink"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="mode"
+                    value={m}
+                    checked={draft.mode === m}
+                    onChange={() => set({ mode: m as Mode, sort: sortForMode(m, draft.sort) })}
+                    className="sr-only"
+                  />
+                  {MODE_LABELS[m]}
+                </label>
+              ))}
+            </div>
+            <p className="mt-2.5 text-meta text-ink-soft">
+              {MODE_HINTS[draft.mode]}
+              {draft.mode === "proximity" && (
+                <label className="ml-2 inline-flex items-center gap-1.5">
+                  Innan
+                  <input
+                    type="number"
+                    min={1}
+                    max={50}
+                    value={draft.proximity_n}
+                    onChange={(e) => {
+                      const n = parseInt(e.target.value, 10);
+                      if (Number.isFinite(n) && n >= 1 && n <= 50) set({ proximity_n: n });
+                    }}
+                    className="h-8 w-14 rounded-md border border-border bg-surface px-2 text-center text-meta text-ink"
+                  />
+                  orða
+                </label>
+              )}
+            </p>
+          </fieldset>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label htmlFor={ids.provision} className={LEGEND + " block"}>Lagaákvæði</label>
+              <input
+                id={ids.provision}
+                value={draft.provision ?? ""}
+                onChange={(e) => set({ provision: e.target.value })}
+                placeholder="t.d. 72. gr. laga nr. 33/1944"
+                className={FIELD}
+              />
+            </div>
+            <div>
+              <label htmlFor={ids.keyword} className={LEGEND + " block"}>Lykilorð</label>
+              <input
+                id={ids.keyword}
+                value={draft.keyword ?? ""}
+                onChange={(e) => set({ keyword: e.target.value })}
+                placeholder="t.d. Gæsluvarðhald"
+                className={FIELD}
+              />
+            </div>
+          </div>
+
+          <fieldset>
+            <legend className={LEGEND}>Tímabil</legend>
+            <div className="grid grid-cols-2 gap-3 sm:max-w-sm">
+              <div>
+                <label htmlFor={ids.from} className="mb-1 block text-micro text-ink-soft">Frá</label>
+                <input
+                  id={ids.from}
+                  type="date"
+                  value={draft.date_from ?? ""}
+                  onChange={(e) => set({ date_from: e.target.value || undefined })}
+                  className={FIELD}
+                />
+              </div>
+              <div>
+                <label htmlFor={ids.to} className="mb-1 block text-micro text-ink-soft">Til</label>
+                <input
+                  id={ids.to}
+                  type="date"
+                  value={draft.date_to ?? ""}
+                  onChange={(e) => set({ date_to: e.target.value || undefined })}
+                  className={FIELD}
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend className={LEGEND}>
+              Heimildir
+              {draft.scope.length > 0 && (
+                <span className="ml-2 font-normal normal-case tracking-normal text-accent">
+                  {draft.scope.length} {draft.scope.length === 1 ? "valin" : "valdar"}
+                </span>
+              )}
+            </legend>
+            <SourceTree catalog={catalog} scope={draft.scope} onScopeChange={(scope) => set({ scope })} />
+          </fieldset>
+
+          <div className="flex flex-wrap items-center gap-3 border-t border-border pt-6">
+            <button
+              type="submit"
+              className="h-11 rounded-md bg-cta px-6 font-medium text-cta-ink transition-colors hover:bg-cta-hover"
+            >
+              Leita
+            </button>
+            {advancedCount > 0 && (
+              <button
+                type="button"
+                onClick={reset}
+                className="h-11 rounded-md px-3 text-meta text-ink-soft underline-offset-2 hover:text-ink hover:underline"
+              >
+                Hreinsa ýtarlega leit
+              </button>
+            )}
+          </div>
+        </div>
+      </form>
     </div>
   );
 }

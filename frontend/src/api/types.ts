@@ -20,6 +20,8 @@ export interface SearchResult {
   layer: "summary" | "body" | "lower_body" | null; match_count: number | null;
   /** Relaxed keyword search tier: 0 = all keywords, 1 = most, 2 = some. */
   match_tier: number;
+  /** True for theses/books: case_number holds the title, parties hold authors. */
+  case_number_is_title?: boolean;
 }
 // GET /api/facets?q&mode&date_from&date_to&regex_fields  → {catalog, total}
 export interface CatalogNode { key: string; label: string; count: number; children?: CatalogNode[]; }

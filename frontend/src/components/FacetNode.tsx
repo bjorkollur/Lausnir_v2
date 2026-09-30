@@ -23,34 +23,40 @@ export function FacetNode({ node, selected, depth, onToggle }:
   return (
     <div>
       <div
-        className={`flex items-center gap-2 rounded py-1 pr-2 ${isSelected ? "bg-accent-soft" : ""}`}
+        className={`flex items-center gap-2 rounded py-1 pr-2 hover:bg-surface-sunken ${isSelected ? "bg-accent-soft hover:bg-accent-soft" : ""}`}
         style={{ paddingLeft: depth * 14 + 4 }}
       >
         {hasKids ? (
           <button
-            aria-label={open ? "fella saman" : "opna"}
+            type="button"
+            aria-label={`${open ? "Fella saman" : "Opna"} ${node.label}`}
+            aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="grid w-4 place-items-center text-ink-faint hover:text-ink"
+            className="grid h-5 w-4 place-items-center text-ink-faint hover:text-ink"
           >
             {open ? <CaretDownIcon size={11} weight="bold" aria-hidden /> : <CaretRightIcon size={11} weight="bold" aria-hidden />}
           </button>
         ) : (
           <span className="w-4" />
         )}
-        <Checkbox.Root
-          aria-label={node.label}
-          checked={isSelected}
-          onCheckedChange={() => onToggle(node.key)}
-          className="grid h-[15px] w-[15px] place-items-center rounded-[3px] border border-border-strong data-[state=checked]:border-accent data-[state=checked]:bg-accent"
-        >
-          <Checkbox.Indicator className="text-cta-ink">
-            <CheckIcon size={10} weight="bold" aria-hidden />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
-        <span className="flex-1 truncate text-meta text-ink">{node.label}</span>
-        <span className="tabular text-micro text-ink-faint">
-          {formatCount(node.count)}
-        </span>
+        {/* A label around the box, the name and the count: the whole row is
+            the target, not only the 15px checkbox. */}
+        <label className="flex min-w-0 flex-1 cursor-pointer items-center gap-2">
+          <Checkbox.Root
+            aria-label={node.label}
+            checked={isSelected}
+            onCheckedChange={() => onToggle(node.key)}
+            className="grid h-[15px] w-[15px] shrink-0 place-items-center rounded-[3px] border border-border-strong bg-surface data-[state=checked]:border-accent data-[state=checked]:bg-accent"
+          >
+            <Checkbox.Indicator className="text-cta-ink">
+              <CheckIcon size={10} weight="bold" aria-hidden />
+            </Checkbox.Indicator>
+          </Checkbox.Root>
+          <span className="flex-1 truncate text-meta text-ink" title={node.label}>{node.label}</span>
+          <span className="tabular text-micro text-ink-faint">
+            {formatCount(node.count)}
+          </span>
+        </label>
       </div>
       {hasKids && open && kids.map((c) => (
         <FacetNode key={c.key} node={c} selected={selected} depth={depth + 1} onToggle={onToggle} />

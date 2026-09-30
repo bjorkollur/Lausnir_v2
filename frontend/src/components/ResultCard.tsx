@@ -6,6 +6,10 @@ import { markHtml } from "../lib/sanitize";
 
 const partyLine = (ps: Party[]) => ps.map((p) => p.name).join(", ");
 
+/** Passages keep their markdown heading marks, so a snippet could open with
+ *  "## 5.1. Inngangur". The marks are structure, not text. */
+const cleanSnippet = (html: string) => html.replace(/(^|\s)#{1,6}\s+/g, "$1");
+
 /** One result. The title is the only coloured thing on the row, the snippet is
  *  the only thing at reading size, and everything else recedes. The old card
  *  printed title, source, ISO date, parties, anchor, match tier and a row of
@@ -19,20 +23,27 @@ export function ResultCard({ r }: { r: SearchResult }) {
   const parties = [...r.plaintiffs, ...r.defendants];
   const full = partyLine(parties);
   const long = full.length > 140;
+  // A book or thesis is named by its title. Its urlausn reads "Bók. Kauparéttur
+  // 1. janúar 2005 – Bók": the kind twice, and a 1 January that is only the
+  // year the catalogue recorded, printed as if it were a date.
+  const isTitle = Boolean(r.case_number_is_title && r.case_number);
+  const heading = isTitle ? r.case_number : r.urlausn;
+  const year = isTitle ? r.document_date?.slice(0, 4) : null;
 
   return (
     <article className="group -mx-3 rounded px-3 py-5 transition-colors hover:bg-surface">
-      <h3>
+      <h2>
         <Link
           to={`/domur/${r.id}`}
           className="text-heading font-medium text-accent decoration-1 underline-offset-[3px] hover:underline"
         >
-          {r.urlausn}
+          {heading}
         </Link>
-      </h3>
+      </h2>
 
       <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-meta text-ink-faint">
         <span>{r.source_display}</span>
+        {year && <span className="tabular">{year}</span>}
         {r.has_appeal_links && (
           <span className="inline-flex items-center gap-1" title="Hefur áfrýjunartengingar">
             <LinkSimpleIcon size={13} aria-hidden />
@@ -85,7 +96,7 @@ export function ResultCard({ r }: { r: SearchResult }) {
         )}
         <p
           className="max-w-[78ch] text-body text-ink"
-          dangerouslySetInnerHTML={markHtml(r.snippet)}
+          dangerouslySetInnerHTML={markHtml(cleanSnippet(r.snippet ?? ""))}
         />
       </div>
 

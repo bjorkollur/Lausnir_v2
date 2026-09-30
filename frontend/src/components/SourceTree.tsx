@@ -1,34 +1,8 @@
 import { useState } from "react";
+import { CaretDownIcon, CaretRightIcon, CheckIcon } from "@phosphor-icons/react";
 import type { CatalogNode } from "../api/types";
+import { toggleScope } from "../lib/scopeTree";
 import { formatCount } from "../lib/formatNumber";
-
-// ── helpers ──────────────────────────────────────────────────────────────────
-
-function ancestorKeys(
-  nodes: CatalogNode[],
-  target: string,
-  path: string[] = [],
-): string[] | null {
-  for (const n of nodes) {
-    if (n.key === target) return path;
-    const found = ancestorKeys(n.children ?? [], target, [...path, n.key]);
-    if (found) return found;
-  }
-  return null;
-}
-
-function descendantKeys(node: CatalogNode): string[] {
-  return (node.children ?? []).flatMap((c) => [c.key, ...descendantKeys(c)]);
-}
-
-function findNode(nodes: CatalogNode[], key: string): CatalogNode | null {
-  for (const n of nodes) {
-    if (n.key === key) return n;
-    const found = findNode(n.children ?? [], key);
-    if (found) return found;
-  }
-  return null;
-}
 
 // ── SourceTree ────────────────────────────────────────────────────────────────
 
@@ -41,17 +15,7 @@ interface SourceTreeProps {
 export function SourceTree({ catalog, scope, onScopeChange }: SourceTreeProps) {
   const selected = new Set(scope);
 
-  const toggle = (key: string) => {
-    if (selected.has(key)) {
-      onScopeChange(scope.filter((k) => k !== key));
-    } else {
-      const ancestors = new Set(ancestorKeys(catalog, key) ?? []);
-      const node = findNode(catalog, key);
-      const descendants = new Set(node ? descendantKeys(node) : []);
-      const pruned = scope.filter((k) => !ancestors.has(k) && !descendants.has(k));
-      onScopeChange([...pruned, key]);
-    }
-  };
+  const toggle = (key: string) => onScopeChange(toggleScope(catalog, scope, key));
 
   if (catalog.length === 0) {
     return <div className="h-10 bg-[var(--canvas)] border border-[var(--border)] rounded-md animate-pulse" />;
@@ -108,11 +72,12 @@ function GroupNode({
         {hasChildren ? (
           <button
             type="button"
-            aria-label={open ? "Fella saman" : "Opna"}
+            aria-label={`${open ? "Fella saman" : "Opna"} ${node.label}`}
+            aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="w-4 text-xs text-[var(--ink-faint)] hover:text-[var(--ink)] flex-shrink-0"
+            className="grid w-4 shrink-0 place-items-center text-ink-faint hover:text-ink"
           >
-            {open ? "▾" : "▸"}
+            {open ? <CaretDownIcon size={11} weight="bold" aria-hidden /> : <CaretRightIcon size={11} weight="bold" aria-hidden />}
           </button>
         ) : (
           <span className="w-4 flex-shrink-0" />
@@ -125,10 +90,12 @@ function GroupNode({
           label={node.label}
         />
 
-        {/* Label + count */}
+        {/* Label + count. Clicking the name selects the group, as a label does. */}
         <button
           type="button"
-          onClick={() => setOpen(!open)}
+          tabIndex={-1}
+          aria-hidden
+          onClick={() => onToggle(node.key)}
           className="flex-1 flex items-center justify-between text-left min-w-0"
         >
           <span
@@ -179,7 +146,8 @@ function ChildNode({
   const isChecked = selected.has(node.key);
 
   return (
-    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-[var(--canvas)] transition-colors">
+    // A label, so the whole row is the click target and not only the 16px box.
+    <label className="flex cursor-pointer items-center gap-2 px-2 py-1.5 rounded-md hover:bg-[var(--canvas)] transition-colors">
       <span className="w-4 flex-shrink-0" />
       <Checkbox
         checked={isChecked}
@@ -196,7 +164,7 @@ function ChildNode({
       <span className="text-xs text-[var(--ink-faint)] tabular-nums flex-shrink-0">
         {formatCount(node.count)}
       </span>
-    </div>
+    </label>
   );
 }
 
@@ -224,19 +192,7 @@ function Checkbox({
           : "border-[var(--border-strong)] bg-[var(--surface)] hover:border-[var(--accent)]"
       }`}
     >
-      {checked && (
-        <svg
-          viewBox="0 0 10 8"
-          fill="none"
-          className="w-2.5 h-2 text-cta-ink"
-          stroke="currentColor"
-          strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M1 4l2.5 2.5L9 1" />
-        </svg>
-      )}
+      {checked && <CheckIcon size={10} weight="bold" aria-hidden className="text-cta-ink" />}
     </button>
   );
 }

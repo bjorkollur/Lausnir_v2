@@ -140,8 +140,13 @@
   --color-cta-ink: var(--cta-ink);
   --color-danger: var(--danger);
   --color-danger-soft: var(--danger-soft);
+  --color-ring: var(--ring);
 
   --radius-card: 0.5rem;
+
+  /* Floating layers only: popovers and the off-canvas filter panel. Anything
+     that sits in the page is separated by a hairline, not by elevation. */
+  --shadow-pop: 0 4px 14px -4px rgb(0 0 0 / 0.16);
 }
 
 html, body, #root { height: 100%; }
@@ -171,6 +176,11 @@ body {
   outline-offset: 1px;
   border-radius: 3px;
 }
+
+/* The content region takes focus on a route change and from the skip link, so
+   the next Tab starts on the new page. A ring around the whole page would say
+   nothing the page itself does not. */
+#efni:focus { outline: none; }
 
 /* Browser surfaces. Selection, caret and scrollbars ship with defaults that
    belong to no design system, and in a tool people sit in for hours they are

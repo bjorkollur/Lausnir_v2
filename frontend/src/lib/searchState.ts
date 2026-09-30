@@ -63,3 +63,24 @@ export function toSearchParams(s: SearchState): URLSearchParams {
   for (const f of s.regex_fields) sp.append("regex_fields", f);
   return sp;
 }
+
+/** Anything that narrows the corpus. A search with none of these and no query
+ *  is the landing page; a search with only these is a browse ("everything from
+ *  Hæstiréttur", "everything citing 72. gr."). */
+export function activeFilterCount(s: SearchState): number {
+  return (
+    s.scope.length +
+    (s.date_from || s.date_to ? 1 : 0) +
+    (s.provision ? 1 : 0) +
+    (s.keyword ? 1 : 0)
+  );
+}
+
+export function hasSearchCriteria(s: SearchState): boolean {
+  return Boolean(s.q) || activeFilterCount(s) > 0;
+}
+
+/** The patch that removes every filter and keeps the query, mode and sort. */
+export const CLEAR_FILTERS: Partial<SearchState> = {
+  scope: [], date_from: undefined, date_to: undefined, provision: undefined, keyword: undefined,
+};

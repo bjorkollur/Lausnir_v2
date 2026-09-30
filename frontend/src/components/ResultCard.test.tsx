@@ -67,4 +67,19 @@ describe("ResultCard", () => {
     renderWithProviders(<ResultCard r={{ ...r, cited_by_count: 0 }} />);
     expect(screen.queryByText(/vitnað í/)).toBeNull();
   });
+
+  it("names a book by its title, with the year, not by its urlausn", () => {
+    renderWithProviders(
+      <ResultCard r={{ ...r, urlausn: "Bók. Kauparéttur 1. janúar 2005 – Bók", case_number: "Kauparéttur",
+        document_date: "2005-01-01", case_number_is_title: true, source_display: "Lögfræðibækur" }} />,
+    );
+    expect(screen.getByRole("link", { name: "Kauparéttur" })).toBeInTheDocument();
+    expect(screen.getByText("2005")).toBeInTheDocument();
+    expect(screen.queryByText(/1\. janúar 2005/)).toBeNull();
+  });
+
+  it("drops markdown heading marks from the snippet", () => {
+    renderWithProviders(<ResultCard r={{ ...r, snippet: "## 5.1. Inngangur Það hefur" }} />);
+    expect(screen.getByText("5.1. Inngangur Það hefur")).toBeInTheDocument();
+  });
 });
