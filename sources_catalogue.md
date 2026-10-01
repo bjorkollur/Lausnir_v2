@@ -2,8 +2,8 @@
 
 Yfirlit yfir allar heimildir í gagnagrunni. Fjöldi skjala og tímabil uppfærð úr grunninum 1. október 2026; tölur í dálkinum *Athugasemdir* eru frá júní 2026 nema annað sé tekið fram.
 
-**Heildartala skjala:** 92.908  
-**Heimildir:** 111 í grunninum, allar með gögn — 61 í töflunum hér að neðan, 48 lagasafnskaflar og 2 sem eru ekki skráðar í `engine/config/sources.py` (`atvinnuvegar_ra` 2 skjöl, `innvidara` 12 skjöl)
+**Heildartala skjala:** 92.896  
+**Heimildir:** 109 í grunninum, allar með gögn — 61 í töflunum hér að neðan og 48 lagasafnskaflar. (`innvidara` og `atvinnuvegar_ra`, sem voru ekki skráðar í `engine/config/sources.py`, voru lagðar niður 01.10.2026 — sjá `docs/snapshots/README.md`.)
 
 ---
 
@@ -96,7 +96,7 @@ API: `https://www.stjornarradid.is/gogn/urskurdir-og-alit-/`
 | `ferdathjod` | Úrskurðir ferðaþjónusta | ÚRFÞ. | 41 | 2014–2026 | |
 | `mnh_raduneyti` | Úrskurðir menningar-, nýsköpunar- og háskólaráðuneytisins | Ú.MNHr. | 12 | 2017–2026 | |
 | `innanr_utl` | Úrskurðir innanríkisráðuneytisins – útlendingamál (–2015) | Ú.Ir.Ú. | 12 | 2014 | Söguleg, lokað 2015; IRR-númer (t.d. IRR12030163) |
-| `vidskiptamal` | Úrskurðir viðskiptamál | ÚRVM. | 14 | 2020–2025 | |
+| `vidskiptamal` | Úrskurðir viðskiptamál | ÚRVM. | 16 | 2020–2025 | |
 | `forseta_raduneyti` | Úrskurðir forsætisráðuneytisins | Ú.Fr. | 5 | 2013–2016 | Söguleg |
 | `kosninga_ursk` | Úrskurðir vegna kosninga | ÚRKOSN. | 4 | 2012–2019 | |
 | `utanr_raduneyti` | Úrskurðir utanríkisráðuneytisins | Ú.ur. | 1 | 2021 | |

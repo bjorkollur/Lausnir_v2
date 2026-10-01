@@ -93,7 +93,7 @@ from sources s left join documents d on d.source_id = s.id
 group by 1,2 order by docs desc;"
 ```
 
-`sources_catalogue.md` í rót geymir ítarlegri lýsingu á API-um hverrar heimildar. Fjöldi skjala og tímabil voru uppfærð úr grunninum 01.10.2026 (92.908 skjöl / 111 heimildir); tölur inni í *Athugasemdir*-dálkinum eru eldri. Sjá [09-gildrur](09-gildrur.md).
+`sources_catalogue.md` í rót geymir ítarlegri lýsingu á API-um hverrar heimildar. Fjöldi skjala og tímabil voru uppfærð úr grunninum 01.10.2026 (92.896 skjöl / 109 heimildir); tölur inni í *Athugasemdir*-dálkinum eru eldri. Sjá [09-gildrur](09-gildrur.md).
 
 ## Að bæta við nýrri heimild
 

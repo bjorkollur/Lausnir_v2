@@ -99,3 +99,18 @@ Tilvitnanir og tenglar eru óbreyttir af því að þessar heimildir eru hvorki 
 Eftir keyrslu deila 489 flokkar enn lyklinum en **enginn** fer yfir 0,995-þröskuldinn: það sem eftir stendur eru ólík skjöl undir sama málsnúmeri, ekki tvítekningar.
 
 **Engin skrá tapaðist:** 0 raðir með meginmál vantar `.md`. Þær 1.020 raðir sem eiga enga `.md` (umbodsmadur 895, hugverkastofa 121, samkeppni 4) eru allar með tómt meginmál — `write_markdown` skrifar enga skrá fyrir textalaust skjal, og það var svona fyrir.
+
+## `orphan_sources_2026-10-01.json.gz` — EKKI hér, á gagnadisknum
+
+`Lausnir_Data/snapshots/orphan_sources_2026-10-01.json.gz` geymir allar 14 raðir (allir dálkar nema `fts`, `fts_is`, `embedding`) tveggja heimilda sem voru í `sources`-töflunni en ekki í `engine/config/sources.py`, skráðar 09.06.2026 með HTML-táknum í heitinu (`Innvi&#240;ar&#225;&#240;uneyti&#240;`). `.md`-skrárnar þeirra eru í `Lausnir_Data/snapshots/orphan_sources_2026-10-01_markdown/`.
+
+| Heimild | Raðir | Hvað var gert |
+|---|---|---|
+| `innvidara` | 12 | Eytt — hver röð var orðrétt eins (`body_text`) og röð í `innvida` með sama málsnúmeri og dagsetningu |
+| `atvinnuvegar_ra` | 2 | Flutt í `vidskiptamal`: úrskurðir menningar- og viðskiptaráðuneytisins 30.11. og 20.12.2023 um stjórnvaldssektir ársreikningaskrár. Málsnúmerin voru lögnúmer (`37/1993` = stjórnsýslulög, `3/2006` = lög um ársreikninga) og urðu `URVM-2023-11-30` / `URVM-2023-12-20` eftir dagsetningarreglu heimildarinnar |
+
+Báðar `sources`-raðirnar voru síðan felldar niður.
+
+## `document_links_backup_20260916.sql.gz` — EKKI hér, á gagnadisknum
+
+`Lausnir_Data/snapshots/document_links_backup_20260916.sql.gz` (`pg_dump` af töflunni, 25.310 raðir) — afrit af `document_links` frá 16.09.2026, áður en stefna áfrýjunarbrúna var leiðrétt. Taflan var felld niður 01.10.2026: nær öll pör hennar eru enn tengd, og þau 261 sem ekki eru það voru veikar `court_window`-ágiskanir (meðalöryggi ~0,6) sem endurkeyrsla `link_appeals.py` leysti af með öðrum pörum.

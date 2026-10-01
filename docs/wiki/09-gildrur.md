@@ -215,12 +215,11 @@ Ritarinn er lagaður og festur með `test_resolution_link_edges_follow_the_tier_
 
 ## Ósamræmi í skjölum
 
-Yfirfarið 01.10.2026. Atriðin sem töflan taldi áður upp um CLAUDE.md (`scripts/supervised.sh`, `Renderer.rebuild_all()`, `backfill_render.py`, `migrate_v1.py`, ófullkomin skemalýsing) hurfu þegar CLAUDE.md var stytt og vísar nú á þetta wiki. `engine/collectors/` er ekki lengur til. `sources_catalogue.md` var uppfærð úr grunninum sama dag (92.908 skjöl, 111 heimildir).
+Yfirfarið 01.10.2026. Atriðin sem töflan taldi áður upp um CLAUDE.md (`scripts/supervised.sh`, `Renderer.rebuild_all()`, `backfill_render.py`, `migrate_v1.py`, ófullkomin skemalýsing) hurfu þegar CLAUDE.md var stytt og vísar nú á þetta wiki. `engine/collectors/` er ekki lengur til. `sources_catalogue.md` var uppfærð úr grunninum sama dag (92.896 skjöl, 109 heimildir). Tvær heimildir sem voru í `sources`-töflunni en ekki í `engine/config/sources.py` voru lagðar niður sama dag: `innvidara` (12 orðréttar tvítekningar á `innvida`, eytt) og `atvinnuvegar_ra` (2 úrskurðir menningar- og viðskiptaráðuneytisins með lögnúmer sem málsnúmer, fluttir í `vidskiptamal` sem `URVM-2023-11-30`/`URVM-2023-12-20`). Sjá [docs/snapshots/README.md](../snapshots/README.md).
 
 | Atriði | Staða |
 |---|---|
 | `sources_catalogue.md` → *Athugasemdir*-dálkurinn | Fjöldi og tímabil eru úr grunninum, en tölur inni í athugasemdunum (t.d. „2.807 opin“ hjá ritgerðum) eru frá júní 2026. |
-| Heimildir án `SourceConfig` | `atvinnuvegar_ra` (2 skjöl) og `innvidara` (12) eru í `sources`-töflunni en ekki í `engine/config/sources.py`, svo `get_config()` þekkir þær ekki (`has_pdf` og `case_number_is_title` verða þá `False`). Óskoðað hvort þær eru leifar af nafnabreytingu ráðuneyta. |
 
 ## PDF-skrár bera ekki sama nafn hjá öllum heimildum (lagað 01.10.2026)
 
