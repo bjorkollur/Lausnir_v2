@@ -24,7 +24,7 @@ class SourceConfig:
     stjornarradid_source: bool   # heimildin er á stjornarradid.is
 ```
 
-Hjálparföll: `cfg.markdown_path(vf)` → `{DATA_DIR}/markdown/{short_name}/{vf}.md`, `cfg.pdf_path(vf)` → `{DATA_DIR}/raw/{short_name}/{vf}.pdf`.
+Hjálparföll: `cfg.markdown_path(vf)` → `{DATA_DIR}/markdown/{short_name}/{vf}.md`, `cfg.pdf_path(vf)` → `{DATA_DIR}/raw/{short_name}/{vf}.pdf`. Til að **finna** PDF skjals skal nota `engine.processors.stored_pdf.find_stored_pdf()` — heimildirnar nefna skrárnar ekki eins (`verdict_filename`, `external_id` eða `thesis_stem()`), sjá [09-gildrur](09-gildrur.md).
 
 ### `PdfCrop` — PDF-sértækar stillingar
 
@@ -93,7 +93,7 @@ from sources s left join documents d on d.source_id = s.id
 group by 1,2 order by docs desc;"
 ```
 
-`sources_catalogue.md` í rót geymir ítarlegri lýsingu á API-um hverrar heimildar — **en er úrelt** (segir ~86.614 skjöl / 59 heimildir; raunin er 91.152 / 111). Sjá [09-gildrur](09-gildrur.md).
+`sources_catalogue.md` í rót geymir ítarlegri lýsingu á API-um hverrar heimildar. Fjöldi skjala og tímabil voru uppfærð úr grunninum 01.10.2026 (92.908 skjöl / 111 heimildir); tölur inni í *Athugasemdir*-dálkinum eru eldri. Sjá [09-gildrur](09-gildrur.md).
 
 ## Að bæta við nýrri heimild
 
