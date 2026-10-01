@@ -24,6 +24,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from engine.config.sources import RAW_DIR, SOURCE_REGISTRY
+from engine.database.connection import _get_db_url
 
 log = logging.getLogger(__name__)
 
@@ -100,10 +101,7 @@ def _run_script(
             cmd,
             stdout=fout,
             stderr=subprocess.STDOUT,
-            env={**os.environ, "DATABASE_URL": os.environ.get(
-                "DATABASE_URL",
-                "postgresql+asyncpg://geiri@localhost/lausnir_v2",
-            )},
+            env=os.environ.copy(),
         )
     elapsed = time.time() - t0
     ok = result.returncode == 0
@@ -117,6 +115,9 @@ def run_all(
     skip: list[str] | None = None,
     new_only: bool = False,
 ) -> None:
+    # Fail before the first import rather than letting every subprocess guess a
+    # URL: the database listens on 5433, and a port-less default means 5432.
+    _get_db_url()
     _LOG_DIR.mkdir(parents=True, exist_ok=True)
     results: list[tuple[str, bool, float]] = []
 

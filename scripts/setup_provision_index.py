@@ -15,10 +15,12 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import create_async_engine
 
+from engine.database.connection import _get_db_url
+
 
 async def main() -> None:
     engine = create_async_engine(
-        "postgresql+asyncpg://geiri@localhost/lausnir_v2",
+        _get_db_url(),
         isolation_level="AUTOCOMMIT",
     )
     async with engine.connect() as conn:

@@ -32,7 +32,7 @@ hún **fylgir gagnamöppunni** og er rétt á hvaða vél sem er án frekari upp
 Þetta þýðir:
 
 ```bash
-# psql þarf -p 5433
+# psql þarf -p 5433 — nema PGPORT=5433 sé sett í ~/.zshenv (sjá skref 10 neðar)
 psql -U geiri -p 5433 -d lausnir_v2
 
 # .env inniheldur portið
@@ -188,6 +188,15 @@ Postgres hýsilvélarinnar á porti 5432 er í lagi — við notum 5433.
    ```
    (Auðkenning er stillt á `trust` fyrir localhost, svo `-U geiri` virkar óháð
    því hvað notandanafnið á nýju tölvunni heitir.)
+
+   Til að `psql` rati sjálfkrafa á 5433, bættu við `~/.zshenv` (vélarsértækt, fylgir
+   ekki disknum):
+   ```bash
+   export PGPORT=5433
+   ```
+   Á vél sem keyrir líka eigin Postgres á 5432 þarf þá að gefa því `-p 5432` sérstaklega.
+   Skriftur lesa portið úr `DATABASE_URL` í `.env` og eru háðar þessu hvorugu —
+   þær neita að keyra ef `DATABASE_URL` vantar (`uv run --env-file .env …`).
 
 11. **Python-umhverfi** — `.venv` möppan á disknum er ekki endilega flytjanleg
    milli véla (bundin við tiltekna Python-uppsetningu). Endurgerðu hana á

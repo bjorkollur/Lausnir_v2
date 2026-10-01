@@ -24,17 +24,17 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import create_async_engine
 
+from engine.database.connection import _get_db_url
 from engine.processors.provision_extractor import extract_provisions
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 log = logging.getLogger(__name__)
 
 BATCH_SIZE = 200
-DB_URL = "postgresql+asyncpg://geiri@localhost/lausnir_v2"
 
 
 async def backfill(source_name: str | None = None, limit: int | None = None) -> None:
-    engine = create_async_engine(DB_URL)
+    engine = create_async_engine(_get_db_url())
 
     # Fetch document IDs + body_text
     async with engine.connect() as conn:
