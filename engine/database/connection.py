@@ -50,6 +50,17 @@ async def init_db(url: str | None = None, *, create_tables: bool = True) -> None
             await conn.run_sync(Base.metadata.create_all)
 
 
+async def dispose_db() -> None:
+    """Close the pool and forget the engine, so no connection is left for the
+    garbage collector to terminate (it warns, and the server never sees a
+    clean disconnect)."""
+    global _engine, AsyncSessionLocal
+    if _engine is not None:
+        await _engine.dispose()
+    _engine = None
+    AsyncSessionLocal = None
+
+
 async def get_engine():
     if _engine is None:
         await init_db()

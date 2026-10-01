@@ -23,6 +23,7 @@ from sqlalchemy.exc import DBAPIError, InterfaceError, OperationalError
 import engine.database.connection as _db
 from engine.mcp import tools
 from engine.mcp.tools import ToolInputError
+from engine.search.relaxation import RELAX_BELOW
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 log = logging.getLogger("lausnir.mcp")
@@ -41,7 +42,7 @@ INSTRUCTIONS = (
     "Hver niðurstaða vísar á bestu efnisgreinina (`passage_id`, `anchor`). Notaðu "
     "`passage_context` til að lesa í kringum treffið og `get_document` fyrir lýsigögn, aðila og "
     "reifun. Vitnaðu alltaf með `urlausn` og `anchor` (t.d. „Hrd. 123/2020, mgr. 14“). "
-    "`relaxed: true` þýðir að færri en 10 skjöl innihéldu öll leitarorðin; `match_tier` 1–2 "
+    f"`relaxed: true` þýðir að færri en {RELAX_BELOW} skjöl innihéldu öll leitarorðin; `match_tier` 1–2 "
     "innihalda aðeins hluta þeirra. `sql_query` er fyrir tölfræði og gagnaathuganir sem "
     "leitarverkfærin svara ekki; það er read-only og skilar mest 1000 röðum. Notaðu `citations` "
     "til að sjá í hvaða dóma er vitnað og hverjir vitna í dóm.\n\n"
@@ -49,7 +50,7 @@ INSTRUCTIONS = (
     "with `search` (lemmatised keyword search; `scope` narrows by court tier or source, see "
     "`list_sources`). Each hit points at its best passage (`passage_id`, `anchor`); use "
     "`passage_context` to read around it and `get_document` for metadata, parties and summary. "
-    "Always cite with `urlausn` plus `anchor`. `relaxed: true` means fewer than 10 documents "
+    f"Always cite with `urlausn` plus `anchor`. `relaxed: true` means fewer than {RELAX_BELOW} documents "
     "contained all query terms; `match_tier` 1–2 hits contain only some of them. `sql_query` is "
     "read-only SQL for statistics the search tools cannot answer (max 1000 rows). Use `citations` "
     "to see which rulings a document cites and which cite it."
@@ -103,18 +104,21 @@ async def _lifespan(_server: MCPServer) -> AsyncIterator[None]:
     if not url:
         raise RuntimeError(NO_RO_URL_MSG)
     await _db.init_db(url=url, create_tables=False)
-    # Startup probe: fail loudly here rather than on the first tool call. A
-    # connection failure propagates as-is (the server refuses to start), and a
-    # URL that points at a read-write role is rejected outright.
-    async with _session_factory() as session:
-        row = (await session.execute(
-            text("SELECT current_user, current_setting('default_transaction_read_only')"))).one()
-    db_user, read_only = row[0], row[1]
-    log.info("lausnir mcp: db ready (current_user=%s, default_transaction_read_only=%s)",
-             db_user, read_only)
-    if read_only != "on":
-        raise RuntimeError(NOT_READ_ONLY_MSG)
-    yield
+    try:
+        # Startup probe: fail loudly here rather than on the first tool call. A
+        # connection failure propagates as-is (the server refuses to start), and a
+        # URL that points at a read-write role is rejected outright.
+        async with _session_factory() as session:
+            row = (await session.execute(
+                text("SELECT current_user, current_setting('default_transaction_read_only')"))).one()
+        db_user, read_only = row[0], row[1]
+        log.info("lausnir mcp: db ready (current_user=%s, default_transaction_read_only=%s)",
+                 db_user, read_only)
+        if read_only != "on":
+            raise RuntimeError(NOT_READ_ONLY_MSG)
+        yield
+    finally:
+        await _db.dispose_db()
 
 
 def build_server() -> MCPServer:
