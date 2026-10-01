@@ -36,6 +36,7 @@ import engine.database.connection as _db_conn
 from engine.config.sources import SOURCE_REGISTRY, get_config
 from engine.database.connection import init_db
 from engine.processors.pdf_parser import parse_pdf
+from engine.processors.stored_pdf import find_stored_pdf
 
 log = logging.getLogger(__name__)
 
@@ -43,43 +44,6 @@ _REF_RE = re.compile(r'\[\^(\d+)\](?!:)')
 _DEF_RE = re.compile(r'(?m)^\[\^(\d+)\]:')
 # Refuse to replace a body that would come back materially shorter.
 _MIN_LENGTH_RATIO = 0.97
-
-
-def _exists(p: Path) -> bool:
-    """Path.exists() that tolerates unusable names.
-
-    Some verdict_filenames are long enough that the filesystem rejects the path
-    outright (ENAMETOOLONG), which raises rather than returning False.
-    """
-    try:
-        return p.exists()
-    except OSError:
-        return False
-
-
-def _pdf_for(row, config) -> Path | None:
-    """Locate the stored PDF for a document.
-
-    Tries the current verdict_filename first, then the pre-migration
-    thesis_stem() name that most files on disk still use.
-    """
-    if row["verdict_filename"]:
-        p = config.pdf_path(row["verdict_filename"])
-        if _exists(p):
-            return p
-    # Books are stored under their external_id (the ISBN), not the .md filename.
-    if row["external_id"]:
-        p = config.pdf_path(row["external_id"])
-        if _exists(p):
-            return p
-    if config.short_name == "logfraediritgerdir":
-        from scripts.import_logfraediritgerdir import thesis_stem
-        raw = row["raw_api_data"] or {}
-        stem = thesis_stem(row["case_number"] or "", raw.get("author"), raw.get("degree"))
-        p = config.pdf_path(stem)
-        if _exists(p):
-            return p
-    return None
 
 
 async def main(source: str, dry_run: bool, limit: int | None, redo: bool) -> None:
@@ -112,7 +76,9 @@ async def main(source: str, dry_run: bool, limit: int | None, redo: bool) -> Non
     log.info("%s: %d documents to consider", source, len(rows))
 
     for i, row in enumerate(rows, 1):
-        pdf = _pdf_for(row, config)
+        pdf = find_stored_pdf(config, verdict_filename=row["verdict_filename"],
+                              external_id=row["external_id"], case_number=row["case_number"],
+                              raw=row["raw_api_data"])
         if pdf is None:
             stats["no_pdf"] += 1
             continue

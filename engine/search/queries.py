@@ -20,6 +20,7 @@ import re
 import uuid
 from dataclasses import dataclass
 from datetime import date
+from pathlib import Path
 from typing import Any
 
 
@@ -152,6 +153,7 @@ from engine.database.models import Document
 from engine.processors.citation_resolver import norm_case_number
 from engine.processors.lemmatizer import lemmatize_query
 from engine.processors.renderer import to_urlausn
+from engine.processors.stored_pdf import find_stored_pdf
 from engine.search.passage_index import passage_anchor
 from engine.search.passage_search import search_by_passages, validate_section_kinds
 from engine.search.relaxation import build_keyword_queries, should_relax
@@ -833,6 +835,38 @@ async def get_citations(session: AsyncSession, doc_id: str | uuid.UUID, *,
                                  my_case=me["case_number"])
 
 
+def _stored_pdf(cfg, row, raw: dict) -> Path | None:
+    return find_stored_pdf(cfg, verdict_filename=row["verdict_filename"],
+                           external_id=row["external_id"], case_number=row["case_number"],
+                           raw=raw)
+
+
+async def get_stored_pdf(session: AsyncSession, doc_id: str | uuid.UUID) -> Path | None:
+    """Path of the document's original PDF on disk, or None if none is stored.
+
+    Raises SearchError for a malformed id and LookupError for an unknown one.
+    """
+    try:
+        did = uuid.UUID(str(doc_id))
+    except (ValueError, AttributeError):
+        raise SearchError(f"Invalid document id: {doc_id!r}")
+
+    row = (await session.execute(text("""
+        SELECT s.short_name AS source, d.external_id, d.verdict_filename, d.case_number,
+               d.raw_api_data
+        FROM documents d JOIN sources s ON s.id = d.source_id
+        WHERE d.id = :id
+    """), {"id": did})).mappings().first()
+    if row is None:
+        raise LookupError(f"Document not found: {did}")
+    try:
+        cfg = get_config(row["source"])
+    except ValueError:
+        return None
+    raw = row["raw_api_data"] if isinstance(row["raw_api_data"], dict) else {}
+    return _stored_pdf(cfg, row, raw)
+
+
 async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[str, Any] | None:
     """Fetch one document with its full text, parties, appeal links and citations."""
     try:
@@ -843,7 +877,7 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
     row = (await session.execute(text("""
         SELECT d.id, s.short_name AS source, s.display_name AS source_display,
                d.external_id, d.url, d.court, d.case_number, d.document_date,
-               d.verdict_type, d.instance_tier, d.case_type,
+               d.verdict_type, d.instance_tier, d.case_type, d.verdict_filename,
                d.plaintiffs, d.defendants, d.keywords, d.summary,
                d.body_text, d.lower_body_text, d.raw_api_data
         FROM documents d JOIN sources s ON s.id = d.source_id
@@ -924,7 +958,7 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
         # than a case number — the reader must not label it "Mál nr.".
         "case_number_is_title": bool(cfg.case_number_is_title) if cfg else False,
         # True → the original PDF is on disk and /api/document/{id}/pdf will serve it.
-        "has_pdf": bool(cfg and cfg.pdf_path(row["external_id"]).exists()),
+        "has_pdf": bool(cfg and _stored_pdf(cfg, row, raw)),
         "locked": locked if isinstance(locked, bool) else None,
         "embargo_until": raw.get("embargo_until"),
         "urlausn": _citation(row["source"], row["court"], row["case_number"],

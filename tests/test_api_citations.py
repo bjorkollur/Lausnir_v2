@@ -294,6 +294,7 @@ DOC_ROW = {
     "document_date": date(2001, 3, 1), "verdict_type": "Dómur", "instance_tier": 3,
     "case_type": None, "plaintiffs": [], "defendants": [], "keywords": [],
     "summary": "reifun", "body_text": "texti", "lower_body_text": None, "raw_api_data": {},
+    "verdict_filename": None,
 }
 
 
