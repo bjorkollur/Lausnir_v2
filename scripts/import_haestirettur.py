@@ -253,18 +253,19 @@ async def _link_via_resolution_link(session: AsyncSession, docs: list[Document])
             continue
         lower_id = row[0]
 
-        # Insert Hrd → lower  appealed_to
+        # Oriented by instance_tier (DocumentLink docstring, checked by
+        # scripts/check_link_orientation.py): lower → Hrd carries 'appealed_to',
+        # Hrd → lower carries 'appealed_from'.
         await session.execute(sa_text("""
             INSERT INTO document_links (id, from_doc_id, to_doc_id, relation, confidence, method)
             VALUES (:id, :from_id, :to_id, 'appealed_to', 1.0, 'resolution_link')
             ON CONFLICT DO NOTHING
-        """), {"id": uuid.uuid4(), "from_id": doc.id, "to_id": lower_id})
-        # Insert lower → Hrd  appealed_from
+        """), {"id": uuid.uuid4(), "from_id": lower_id, "to_id": doc.id})
         await session.execute(sa_text("""
             INSERT INTO document_links (id, from_doc_id, to_doc_id, relation, confidence, method)
             VALUES (:id, :from_id, :to_id, 'appealed_from', 1.0, 'resolution_link')
             ON CONFLICT DO NOTHING
-        """), {"id": uuid.uuid4(), "from_id": lower_id, "to_id": doc.id})
+        """), {"id": uuid.uuid4(), "from_id": doc.id, "to_id": lower_id})
         inserted += 1
 
     return inserted

@@ -2,7 +2,8 @@
 
 Runs each source's import script sequentially. Stjornarradid sources are
 handled via import_stjornarradid.py with --source.
-Logs each source to a separate file under /tmp/lausnir_update/.
+Logs each source to a separate file under $DATA_DIR/logs/update/ (each run
+overwrites the previous run's log for that source).
 
 Usage:
     uv run python scripts/update_all.py                    # full re-import
@@ -22,12 +23,14 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from engine.config.sources import SOURCE_REGISTRY
+from engine.config.sources import RAW_DIR, SOURCE_REGISTRY
 
 log = logging.getLogger(__name__)
 
 _SCRIPTS_DIR = Path(__file__).parent
-_LOG_DIR = Path("/tmp/lausnir_update")
+# Next to the data rather than in /tmp, which macOS wipes on restart — the logs
+# are the only record of what an import run did.
+_LOG_DIR = Path(RAW_DIR).parent / "logs" / "update"
 
 # Sources whose import scripts support --new-only (stop when known docs found)
 _NEW_ONLY_CAPABLE: set[str] = {

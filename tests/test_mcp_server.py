@@ -172,3 +172,48 @@ async def test_lifespan_probe_refuses_a_read_write_role(monkeypatch):
             pass
     assert str(ei.value) == srv.NOT_READ_ONLY_MSG
     assert "default_transaction_read_only" in str(ei.value)
+
+
+def _record_dispose(monkeypatch):
+    disposed = []
+
+    async def recorder():
+        disposed.append(True)
+
+    monkeypatch.setattr(srv._db, "dispose_db", recorder)
+    return disposed
+
+
+async def test_lifespan_disposes_the_engine_when_the_probe_refuses(monkeypatch):
+    """A refused probe stops the server; its pooled connection must not be
+    left for the garbage collector to terminate."""
+    _stub_db(monkeypatch, ("geiri", "off"))
+    disposed = _record_dispose(monkeypatch)
+    with pytest.raises(RuntimeError):
+        async with srv._lifespan(srv.build_server()):
+            pass
+    assert disposed == [True]
+
+
+async def test_lifespan_disposes_the_engine_at_shutdown(monkeypatch):
+    _stub_db(monkeypatch, ("lausnir_ro", "on"))
+    disposed = _record_dispose(monkeypatch)
+    async with srv._lifespan(srv.build_server()):
+        assert disposed == []
+    assert disposed == [True]
+
+
+def test_relaxed_hint_follows_relax_below(monkeypatch):
+    """The LLM is told when a search relaxed; the threshold it is told must be
+    the one the search uses, not a copy that drifts when RELAX_BELOW changes."""
+    import importlib
+    import engine.search.relaxation as relaxation
+
+    monkeypatch.setattr(relaxation, "RELAX_BELOW", 7)
+    try:
+        reloaded = importlib.reload(srv)
+        assert "færri en 7 skjöl" in reloaded.INSTRUCTIONS
+        assert "fewer than 7 documents" in reloaded.INSTRUCTIONS
+    finally:
+        monkeypatch.undo()
+        importlib.reload(srv)

@@ -1047,7 +1047,7 @@
   scope:
   - domstolar
 - id: g1066
-  question: nauðungarvistun barna
+  question: vistun barna utan heimilis
   style: short
   set: auto
   expected:
@@ -5241,7 +5241,7 @@
   scope:
   - domstolar
 - id: g1376
-  question: skerðing lífeyris vegna tekna maka
+  question: skerðing örorkubóta almannatrygginga vegna fjármagnstekna maka
   style: medium
   set: auto
   expected:
@@ -6298,7 +6298,7 @@
   scope:
   - domstolar
 - id: g1348
-  question: brot gegn EES-reglum um fæðingarorlof
+  question: skaðabótaábyrgð ríkisins vegna fæðingarorlofsgreiðslna til farandlaunþega
   style: term
   set: auto
   expected:

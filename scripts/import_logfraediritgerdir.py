@@ -35,7 +35,6 @@ import logging
 import re
 import shutil
 import subprocess
-import unicodedata
 import uuid
 from pathlib import Path
 from typing import Any
@@ -49,10 +48,11 @@ from engine.config.sources import SourceConfig, get_config
 import engine.database.connection as _db_conn
 from engine.database.connection import init_db
 from engine.database.models import Document, Source
-from engine.processors.extractor import Extractor, clean_person_name, degree_to_namsstig
+from engine.processors.extractor import Extractor
 from engine.processors.http_utils import get_with_retry, make_client
 from engine.processors.pdf_parser import parse_pdf
 from engine.processors.renderer import unique_verdict_filename, write_markdown
+from engine.processors.thesis_names import thesis_stem
 from engine.processors.validator import validate
 
 log = logging.getLogger(__name__)
@@ -74,39 +74,6 @@ _NAV_HANDLES = {"28", "1991", "1992", "2057", "3515", "6000", "6001", "10473"}
 # Full-text file labels (Lýsing column). Everything else (efnisyfirlit, fylgiskjöl…)
 # is not treated as the main body.
 _FULLTEXT_LABELS = {"heildartexti", "meginmál", "meginmal"}
-
-
-# ── Filename stem (M/B/D scheme) ───────────────────────────────────────────────
-
-_TRANSLIT = str.maketrans({
-    "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u", "ý": "y", "ð": "d",
-    "þ": "th", "æ": "ae", "ö": "o", "Á": "A", "É": "E", "Í": "I", "Ó": "O",
-    "Ú": "U", "Ý": "Y", "Ð": "D", "Þ": "Th", "Æ": "Ae", "Ö": "O",
-})
-
-
-def transliterate(s: str) -> str:
-    s = s.translate(_TRANSLIT)
-    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode("ascii")
-    return s
-
-
-def author_initials(author: str | None) -> str:
-    name = (clean_person_name(author) or "").replace(",", " ")
-    parts = [p for p in transliterate(name).split() if p]
-    return "".join(p[0].upper() for p in parts)
-
-
-def thesis_stem(title: str, author: str | None, degree: str | None, max_len: int = 40) -> str:
-    """Return the filename stem (no extension): {M|B|D}_{initials}_{title}."""
-    _, abbr = degree_to_namsstig(degree)
-    abbr = abbr or "X"
-    prefix = f"{abbr}_{author_initials(author)}_"
-    t = re.sub(r"\([^)]*\)", "", title)        # drop parenthetical content
-    t = transliterate(t)
-    t = re.sub(r"[^A-Za-z0-9]+", "_", t).strip("_")
-    stem = (prefix + t)[:max_len].rstrip("_")
-    return stem or (prefix.rstrip("_") or "thesis")
 
 
 # ── Browse page ────────────────────────────────────────────────────────────────

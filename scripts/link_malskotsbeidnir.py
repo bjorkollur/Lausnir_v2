@@ -261,9 +261,10 @@ async def main(dry_run: bool = False) -> None:
         # Reached through the contested decision: the Hrd judgment that reviewed
         # it, and post-dates the petition. Done in SQL because pass 1's edges are
         # only visible after flush, and the join is the whole of the logic.
-        # 'appealed_to' edges between Hæstiréttur and a lower court exist in BOTH
-        # orientations: backfill_hrd_lrd_links.py writes Hrd → Lrd, link_appeals.py
-        # writes Lrd → Hrd. Match either way round, or half the chain is invisible.
+        # 'appealed_to' edges once existed in BOTH orientations (backfill_hrd_lrd_links.py
+        # and import_haestirettur.py wrote Hrd → lower until 2026-09-26 / 2026-10-01).
+        # Every writer now orients lower → Hrd, but matching either way round costs
+        # nothing and keeps the chain visible if a writer ever gets it wrong again.
         await session.flush()
         candidates = (await session.execute(text("""
             SELECT p.id AS pid, hrd.id AS hid, hrd.document_date AS hdate

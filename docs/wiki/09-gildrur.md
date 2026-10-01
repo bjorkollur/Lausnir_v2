@@ -96,7 +96,7 @@ island.is endurbirtir dóm undir nýju GUID-i. Upsertið keyrir á `(source_id, 
 - `heilbrigdi_raduneyti 008/2020` eru **fjórir ólíkir úrskurðir** undir sama málsnúmeri, þrír með sama dagsetningu og sama `verdict_filename`, en 4.192 / 4.935 / 5.348 bæti af ólíkum texta.
 - `hugverkastofa` dagsetur allt `01-01-<ár>`, svo dagsetningin afmarkar ekkert.
 
-Skriftan afmarkast því við dómstólaheimildirnar þrjár (`DEFAULT_SOURCES`) og neitar að eyða röð sem hefur annan texta en sú sem heldur sér nema `--allow-text-diff` sé gefið. Aðrar heimildir þarfnast eigin greiningar á því hvað auðkennir skjal þar — óunnið.
+Lykillinn velur því aðeins frambjóðendur; það sem sker úr er **líkindi á stöðluðum texta** (`--min-similarity`, sjálfgefið 0,995). Sjálfgefið afmarkast skriftan við dómstólaheimildirnar þrjár (`DEFAULT_SOURCES`); `--all-sources` nær yfir allar, og þar sem líkindaþröskuldurinn ver umfangið skilar hún sömu röðum og upptalning heimildanna. Keyrslan 30.09.2026 eyddi **130 röðum í 18 heimildum** utan dómstólanna — þar birtir heimildin sjálf sama úrskurð tvisvar (tvö `newsid` á stjornarradid.is, `-1`-slóð hjá hugverk.is). Greining, líkindabönd og afrit: [docs/snapshots/README.md](../snapshots/README.md).
 
 **Eyðing tekur afleidd gögn með sér.** `passages`, `citations` og `document_links` eru öll `ON DELETE CASCADE` (`citations.to_doc_id` er `SET NULL`). Eftirlifandinn bar sín eigin afrit af öllu nema tveimur `leyfisbeidni_um`-tengingum, svo `link_malskotsbeidnir.py` verður að keyra á eftir — hún er sjálfsömul (`ON CONFLICT DO NOTHING`).
 
@@ -208,32 +208,27 @@ Sama málsnúmersform (`E-1234/2020`) getur átt sitt skjal í hverju héraði. 
 ### `F-` er Félagsdómur, og bara-tölu-form Félagsdómsnúmera þurfa sérstaka fallleið
 Félagsdómur skipti um málsnúmeraform 2010: `13/2001` fyrir þann tíma, `F-9/2019` eftir — en dómstexti vitnar áfram í bara-tölu-formið óháð ártali (`„í máli nr. 5/2012"`). Forskeytið `F-` **ræður alltaf** Félagsdómi, sama hvaða dómstólsorð stendur við hliðina (§5.3: forskeyti vinnur gegn orði). Vísirinn (`CitationIndex.candidates()`) reynir því, fyrir `target_court == 'Féld.'` með bara-tölu-formi, **báða** lyklana — bara-töluna og `F-`-forskeytta útgáfuna — og sameinar niðurstöðurnar; annars myndi bara-lykillinn missa af öllum Félagsdómsmálum eftir 2010. Mæling: þessi fallleið ein og sér bætti þekju um **+0,87 hlutfallsstig** í deterministic A/B-mælingu.
 
-## Opið atriði: fjögur eldri, óskyld rangstefnu-tilvik í áfrýjunarpörum
-Eftir keyrslu #2 (29.09.2026) skilar `check_link_orientation.py` **núlli** fyrir `cites`-athugunina (engin brún vísar á síðar-dagsett skjal), en skriptan finnur **fjögur** eldri, **ótengd** tilvik þar sem `appealed_to`/`appealed_from`-parið er ranglega stefnt — sama gildruflokkur og sögulega vandamálið sem `check_link_orientation.py` var upphaflega skrifuð til að finna (sjá docstring skriptunnar). Þessi fjögur tilvik komu **ekki** frá tilvitnanavinnunni og voru til staðar fyrir hana; þau eru skráð hér sem ólokið verk, ekki lagfærð sem hluti af þessu verkefni.
+## Áfrýjunarbrúnir: þriðji ritarinn með ranga stefnu (lagað 01.10.2026)
+Reglan er sú sama og í `DocumentLink`: lægra dómstig → hærra ber `appealed_to`, hærra → lægra ber `appealed_from`. `check_link_orientation.py` staðfestir hana yfir alla töfluna. Lagfæringin 26.09.2026 (751a5d1) lagaði `link_appeals.py` og `backfill_hrd_lrd_links.py` en missti af þriðja ritaranum, `_link_via_resolution_link` í `scripts/import_haestirettur.py`, sem skrifaði Hrd → neðra dómstig sem `appealed_to`. Fjögur tilvik sem skriptan fann 29.09. og voru skráð hér sem „eldri, óskyld" voru því ekki leifar heldur **tvö pör úr Hæstaréttarinnflutningi 23.09.** (Hrd. 26/2026 ↔ Lrd. 388/2026 og Hrd. 50/2025 ↔ Hérd. Rvk. E-6483/2024), og hver nýr innflutningur hefði bætt við fleirum.
+
+Ritarinn er lagaður og festur með `test_resolution_link_edges_follow_the_tier_invariant`. Röðunum fjórum (`6fdb5df6…`, `0f000e17…`, `19e5c3d5…`, `45b51474…`) var víxlað í einni færslu; `check_link_orientation.py` skilar núlli á öllum fjórum athugunum. Afturköllun er sama víxlun.
 
 ## Ósamræmi í skjölum
 
-| Atriði | Vandi |
+Yfirfarið 01.10.2026. Atriðin sem töflan taldi áður upp um CLAUDE.md (`scripts/supervised.sh`, `Renderer.rebuild_all()`, `backfill_render.py`, `migrate_v1.py`, ófullkomin skemalýsing) hurfu þegar CLAUDE.md var stytt og vísar nú á þetta wiki. `engine/collectors/` er ekki lengur til. `sources_catalogue.md` var uppfærð úr grunninum sama dag (92.908 skjöl, 111 heimildir).
+
+| Atriði | Staða |
 |---|---|
-| `sources_catalogue.md` | Segir **~86.614 skjöl / 59 heimildir**. Raunin: **91.152 / 111**. Uppfært síðast júní 2026. |
-| `CLAUDE.md` → `scripts/supervised.sh` | Skriptan er **ekki til á diski**. Dauð tilvísun í `## Running` kaflanum. |
-| `CLAUDE.md:143` → `Renderer.rebuild_all()` | Fallið er **ekki til** neins staðar í kóðanum. Raunveruleg leið: `scripts/backfill_render_all.py`. |
-| `CLAUDE.md:205` → `scripts/backfill_render.py` | Rangt skráarnafn — heitir `backfill_render_all.py`. |
-| `CLAUDE.md:175,220` → `scripts/migrate_v1.py` | Ekki til lengur. |
-| `engine/collectors/` | Mappan er til en **tóm**. Söfnunarrökfræði býr í `scripts/import_*.py`. (CLAUDE.md nefnir hana ekki.) |
-| `CLAUDE.md` skema | Nefnir hvorki `case_type`, `provisions`, `cited_provisions`, `isbn`, `publisher`, `fts_is`, `verdict_filename` né `passages`/`document_links` töflurnar. |
-| `CLAUDE.md` → `SourceConfig.pdf_path(external_id)` | Rangt fyrir heradsdomstolar/haestirettur/landsrettur/endurupptokudomur: `import_*.py` og `backfill_heradsdomstolar_detail.py` kalla alltaf `pdf_path(vf)` þar sem `vf` er `documents.verdict_filename` (t.d. `HerdRvk_E-4047-2018_D_27-11-2020.pdf`, ekki `g-9b7fbb27-....pdf`) — fallback á `external_id` bara ef `verdict_filename` er NULL. `engine/api/app.py:217` og `engine/search/queries.py:710` nota samt `external_id` beint fyrir `has_pdf`/`/api/document/{id}/pdf` hjá þessum heimildum, sem þýðir að sú leið finnur skrána sjaldnast — óskoðað hvort þetta er virkur galli í dag. Uppgötvað 27.09.2026 við `scripts/migrate_pdfstring_to_disk.py`. |
+| `sources_catalogue.md` → *Athugasemdir*-dálkurinn | Fjöldi og tímabil eru úr grunninum, en tölur inni í athugasemdunum (t.d. „2.807 opin“ hjá ritgerðum) eru frá júní 2026. |
+| Heimildir án `SourceConfig` | `atvinnuvegar_ra` (2 skjöl) og `innvidara` (12) eru í `sources`-töflunni en ekki í `engine/config/sources.py`, svo `get_config()` þekkir þær ekki (`has_pdf` og `case_number_is_title` verða þá `False`). Óskoðað hvort þær eru leifar af nafnabreytingu ráðuneyta. |
 
-## Tvíteknar renderer-skrár — önnur er dauður kóði
+## PDF-skrár bera ekki sama nafn hjá öllum heimildum (lagað 01.10.2026)
 
-Tvær skrár heita `renderer.py` og innihalda báðar RENDER-lags rökfræði:
+Dómstólar (héraðsdómstólar, Landsréttur, Endurupptökudómur) geyma PDF undir `verdict_filename`, bækur undir `external_id` (ISBN) og flestar ritgerðir undir `thesis_stem()`-nafninu frá innflutningi, sem er eldra en núverandi `verdict_filename` þeirra. `has_pdf` og `/api/document/{id}/pdf` leituðu aðeins eftir `external_id` og fundu því **enga** PDF fyrir 30.704 dómsskjöl og ~2.800 ritgerðir sem eiga skrá á diski — lesandinn bauð ekki upp á PDF-sýn fyrir þau. Allir lesendur nota nú `engine.processors.stored_pdf.find_stored_pdf()`, sem reynir nöfnin þrjú í þessari röð. Hæstiréttur á engar PDF-skrár (`raw/haestirettur/` er tóm, dómarnir koma sem HTML).
 
-| Skrá | Línur | Staða |
-|---|---|---|
-| `engine/processors/renderer.py` | 548 | ✅ **Í notkun** — flutt inn af ~20 skriptum og `api/app.py` |
-| `engine/database/renderer.py` | 197 | ⚠️ **Dauður kóði** — engin skrá í verkefninu flytur hann inn |
+## Tvíteknar renderer-skrár — eytt 01.10.2026
 
-Staðfest 28.07.2026 með `grep -rn "database.renderer"` yfir allan kóðabasann: núll niðurstöður. Sennilega leif frá endurskipulagningu. Athugaðu áður en þú eyðir, en hann tekur ekki þátt í neinni keyrslu í dag.
+`engine/database/renderer.py` (197 línur) var eldra eintak af RENDER-lags rökfræðinni sem engin skrá flutti inn (staðfest 28.07. og aftur 01.10.2026). Henni var eytt; `engine/processors/renderer.py` er eina eintakið.
 
 ## Verkfæri sem voru metin og hafnað fyrir PDF-fótnótur
 
@@ -283,8 +278,8 @@ Um 11.800 skjöl höfðu þegar keyrt gegnum gömlu, gölluðu útgáfuna þegar
 ### Engin gagnagrunnsafritun
 Meðvituð ákvörðun (sjá [08-þróun](08-throun.md)) — endurheimt með endurinnflutningi.
 
-### Import-loggar eru hverfulir
-`/tmp/lausnir_update/*.log` hreinsast við endurræsingu vélar.
+### Import-loggar
+`update_all.py` skrifar loggana í `$DATA_DIR/logs/update/{heimild}.log` (sjálfgefið `/Volumes/RuleOfLaw/Lausnir_Data/logs/update/`), ekki lengur í `/tmp/lausnir_update/` sem hreinsaðist við endurræsingu (breytt 01.10.2026). Hver keyrsla skrifar yfir log fyrri keyrslu fyrir sömu heimild.
 
 ## Ólokið verk
 
@@ -303,11 +298,11 @@ Full úttekt: `docs/logfraedibaekur-pdf-extraction-investigation.md`.
 Leyst með `case_number_is_title` svæðinu í `/api/document`. Á við bæði bækur og ritgerðir. Sjá [07-framendi](07-framendi.md).
 
 ### 3. Merkingarleit (embeddings)
-`embedding vector(3072)` dálkurinn er til og `pgvector` uppsett, en 0 skjöl eru fyllt og engin vektorleit er útfærð. Kerfisvítt verk (öll 91.152 skjölin), ekki bókasértækt.
+`embedding vector(3072)` dálkurinn er til og `pgvector` uppsett, en 0 skjöl eru fyllt og engin vektorleit er útfærð. Kerfisvítt verk (öll 92.908 skjölin), ekki bókasértækt. Matið 27.09.2026 leggur til vektora á efnisgreinar og `summary` (`halfvec(1024)`, HNSW, RRF með `fts_is`) frekar en á heilt `body_text`.
 
 ### 4. Smærri atriði úr READINESS_PLAYBOOK
 - ~~Ákveða hvort `mcp-postgres` MCP-þjónninn eigi að hafa read-only aðgang í stað fulls read/write~~ Leyst 2026-09-29: `lausnir_ro` + `engine/mcp` (sjá [10-mcp](10-mcp.md)).
-- Íhuga varanlegri geymslu import-logga
+- ~~Íhuga varanlegri geymslu import-logga~~ Leyst 2026-10-01: `$DATA_DIR/logs/update/`.
 
 ## Öryggisákvarðanir sem standa
 

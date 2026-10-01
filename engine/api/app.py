@@ -36,6 +36,7 @@ from engine.search.queries import (
     facet_counts,
     get_citations,
     get_document,
+    get_stored_pdf,
     search_documents,
 )
 
@@ -200,15 +201,12 @@ async def document_pdf(
     falls back to this when markdown reconstruction can't be trusted.
     """
     try:
-        doc = await get_document(session, doc_id)
+        pdf_path = await get_stored_pdf(session, doc_id)
     except SearchError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
-    if doc is None:
+    except LookupError:
         raise HTTPException(status_code=404, detail="Document not found")
-
-    cfg = get_config(doc["source"])
-    pdf_path = cfg.pdf_path(doc["external_id"])
-    if not pdf_path.exists():
+    if pdf_path is None:
         raise HTTPException(status_code=404, detail="No PDF stored for this document")
     return FileResponse(pdf_path, media_type="application/pdf")
 

@@ -43,7 +43,8 @@ def _scan(sql: str) -> tuple[str, bool]:
     of the query is never mistaken for trimmable trailing whitespace.
 
     Returns ``(masked, unterminated)``. ``unterminated`` is True when a
-    literal, quoted identifier or dollar-quote was opened and never closed:
+    literal, quoted identifier, dollar-quote or block comment was opened and
+    never closed:
     the mask then has no way to represent the tail faithfully, and returning
     the truncated remainder would silently change the query, so validate_sql
     rejects it outright.
@@ -58,10 +59,21 @@ def _scan(sql: str) -> tuple[str, bool]:
             out.append(" " * (end - i))
             i = end
         elif sql.startswith("/*", i):
-            j = sql.find("*/", i + 2)
-            end = n if j == -1 else j + 2
-            out.append(" " * (end - i))
-            i = end
+            # Postgres nests block comments: `/* a /* b */ c */` is one comment.
+            # Closing at the first `*/` would let the rest of the comment be
+            # read as code — and a stray quote there could mask real code.
+            depth, j = 1, i + 2
+            while j < n and depth:
+                if sql.startswith("/*", j):
+                    depth, j = depth + 1, j + 2
+                elif sql.startswith("*/", j):
+                    depth, j = depth - 1, j + 2
+                else:
+                    j += 1
+            if depth:
+                unterminated = True
+            out.append(" " * (j - i))
+            i = j
         elif ch == "$" and _DOLLAR_TAG.match(sql, i):
             tag = _DOLLAR_TAG.match(sql, i).group(0)
             close = sql.find(tag, i + len(tag))
@@ -126,7 +138,7 @@ def validate_sql(sql: str) -> str:
     if unterminated:
         # Without this the masked tail is blanked and the query would be
         # silently truncated to something the user never wrote.
-        raise SqlRejected("Ólokaður strengur eða auðkenni (gæsalappir/dollaramerki vantar).")
+        raise SqlRejected("Ólokaður strengur, auðkenni eða athugasemd (gæsalappir, dollaramerki eða */ vantar).")
 
     # `start`/`end` bound the "real" query inside `sql`, trimming outer
     # whitespace and (via `masked`, where comments are already blank) any

@@ -53,3 +53,22 @@ async def test_init_db_without_url_or_env_raises(monkeypatch):
     monkeypatch.delenv("DATABASE_URL", raising=False)
     with pytest.raises(RuntimeError):
         await conn.init_db(create_tables=False)
+
+
+async def test_dispose_db_closes_the_pool_and_forgets_the_engine(monkeypatch):
+    disposed = []
+
+    class _DisposableEngine:
+        async def dispose(self): disposed.append(True)
+
+    monkeypatch.setattr(conn, "_engine", _DisposableEngine())
+    monkeypatch.setattr(conn, "AsyncSessionLocal", object())
+    await conn.dispose_db()
+    assert disposed == [True]
+    assert conn._engine is None and conn.AsyncSessionLocal is None
+
+
+async def test_dispose_db_without_an_engine_is_a_no_op(monkeypatch):
+    monkeypatch.setattr(conn, "_engine", None)
+    await conn.dispose_db()
+    assert conn._engine is None

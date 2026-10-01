@@ -1,6 +1,6 @@
 # Lausnir v2 — Architecture Guide
 
-> **Full system wiki: [`docs/wiki/`](docs/wiki/README.md)** — architecture, DB schema, sources, import pipeline, search, API, frontend, gotchas. Verified against live code and DB on 2026-07-28. Where this file and the wiki disagree, the wiki is newer (see `docs/wiki/09-gildrur.md` for the known stale references below).
+> **Full system wiki: [`docs/wiki/`](docs/wiki/README.md)** — architecture, DB schema, sources, import pipeline, search, API, frontend, gotchas. Verified against live code and DB on 2026-07-28. Where this file and the wiki disagree, the wiki is newer (`docs/wiki/09-gildrur.md` tracks known inconsistencies).
 
 ## Project Purpose
 Icelandic legal research platform. Collects, normalises, and serves court verdicts and rulings from ~100 sources (~100k–1M documents). Stores them in PostgreSQL + pgvector for full-text and semantic search.
@@ -17,7 +17,7 @@ LAYER 3: RENDER   — derived output (fully reconstructable from NORM)
 
 ### Layer 1 – RAW
 - `raw_api_data JSONB` — full API response, never mutated
-- PDF bytes on disk at `Lausnir_Data/raw/{short_name}/{external_id}.pdf`
+- PDF bytes on disk at `Lausnir_Data/raw/{short_name}/{verdict_filename}.pdf` (books: `{external_id}`; most theses: their import-time `thesis_stem()`) — find them with `engine.processors.stored_pdf.find_stored_pdf()`
 - Written once at import, never updated (only appended to if API adds fields)
 
 ### Layer 2 – NORM
@@ -27,12 +27,12 @@ Structured, validated DB columns:
 - `keywords JSONB`, `summary TEXT`
 - `body_text TEXT` — current court body, preamble stripped
 - `lower_body_text TEXT` — embedded lower court text (NULL if none)
-- `embedding vector(3072)` — text-embedding-3-large on body_text
+- `embedding vector(3072)` — reserved for semantic search; no rows filled and no vector search yet
 
 ### Layer 3 – RENDER
 Always derivable from NORM. Never store separately unless caching for performance:
-- `.md` file on disk — `Renderer.to_markdown(doc)` 
-- `urlausn` — `Renderer.to_urlausn(doc)` (e.g. "Hrd. E-25/2020 5. maí 2020 – Dómur")
+- `.md` file on disk — `to_markdown(doc, config)` in `engine/processors/renderer.py`
+- `urlausn` — `to_urlausn(doc, config)` (e.g. "Hrd. E-25/2020 5. maí 2020 – Dómur")
 
 ## Validation Rules
 
