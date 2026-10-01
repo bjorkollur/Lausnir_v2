@@ -150,3 +150,38 @@ def test_build_document_failed_detail_raw_is_list_item_only():
 
     doc = _build_document(_LIST_ITEM, Exception("fail"), SOURCE_ID, CONFIG)
     assert "richText" not in doc.raw_api_data
+
+
+# ── resolutionLink → appeal edges ─────────────────────────────────────────────
+
+class _LinkSession:
+    """Answers the lower-court lookup and records every INSERT's params."""
+
+    def __init__(self, lower_id):
+        self.lower_id = lower_id
+        self.inserts: list[dict] = []
+
+    async def execute(self, stmt, params=None):
+        sql = " ".join(str(stmt).split())
+        if sql.startswith("INSERT INTO document_links"):
+            relation = "appealed_to" if "'appealed_to'" in sql else "appealed_from"
+            self.inserts.append({**params, "relation": relation})
+            return MagicMock()
+        result = MagicMock()
+        result.fetchone.return_value = (self.lower_id,)
+        return result
+
+
+async def test_resolution_link_edges_follow_the_tier_invariant():
+    """lower→higher carries 'appealed_to', higher→lower 'appealed_from' — the
+    invariant check_link_orientation.py asserts. This writer had it the other
+    way round, so every Hæstiréttur import added mis-oriented pairs."""
+    from scripts.import_haestirettur import _link_via_resolution_link
+    hrd = MagicMock(id=uuid.uuid4(), raw_api_data={"resolutionLink": "/domar/g-lower-1"})
+    lower_id = uuid.uuid4()
+    session = _LinkSession(lower_id)
+
+    assert await _link_via_resolution_link(session, [hrd]) == 1
+
+    edges = {(e["from_id"], e["to_id"]): e["relation"] for e in session.inserts}
+    assert edges == {(lower_id, hrd.id): "appealed_to", (hrd.id, lower_id): "appealed_from"}
