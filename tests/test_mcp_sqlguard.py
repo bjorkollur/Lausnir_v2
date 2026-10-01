@@ -162,3 +162,34 @@ def test_wal_writing_functions_are_rejected(sql):
     with pytest.raises(SqlRejected) as ei:
         validate_sql(sql)
     assert "er ekki leyft" in str(ei.value)
+
+
+def test_nested_block_comment_cannot_hide_a_second_statement():
+    # Postgres nests block comments: `/* /* */ ' */` is ONE comment. A scanner
+    # that closes at the first `*/` reads the `'` as the start of a literal and
+    # masks `; DELETE …` as string content — the statement Postgres then runs.
+    with pytest.raises(SqlRejected) as ei:
+        validate_sql("SELECT 1 /* /* */ ' */; DELETE FROM documents; -- '")
+    assert "ein setning" in str(ei.value)
+
+
+def test_nested_block_comment_is_one_comment():
+    sql = "/* outer /* inner; DELETE */ still comment; */ SELECT 1"
+    assert validate_sql(sql) == sql
+
+
+def test_unterminated_block_comment_is_rejected():
+    # Postgres refuses it ("unterminated /* comment"); returning the text up to
+    # the comment would hand back a query the user never wrote.
+    with pytest.raises(SqlRejected) as ei:
+        validate_sql("SELECT 1 /* /* */ never closed")
+    assert "Ólokað" in str(ei.value)
+
+
+def test_nested_block_comment_cannot_hide_a_forbidden_function():
+    # One statement to Postgres — `SELECT 1, pg_notify(...)` — so it does not
+    # fail on a multi-statement parse error; before nesting was honoured the
+    # guard read the call as string content and let it through.
+    with pytest.raises(SqlRejected) as ei:
+        validate_sql("SELECT 1 /* /* */ ' */, pg_notify('chan', 'x') -- '")
+    assert "pg_notify" in str(ei.value)
