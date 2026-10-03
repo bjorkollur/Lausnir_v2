@@ -34,8 +34,8 @@ articles:
   - Einar B. Guðmundsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 8
-  page_end: 13
+  page_start: 3
+  page_end: 8
   issue: '1'
   pdf_pages:
   - 0
@@ -47,7 +47,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -60,7 +60,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1041.pdf
   note: ''
   analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  - taflan segir bls. 8, prentað bls. 3
 - title: Um 142. - 144. Gr. Almennra hegningarlaga
   authors:
   - Jón G. Tómasson
@@ -91,14 +91,13 @@ articles:
   xlsx_row: 1152
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/485.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  analysis_notes: []
 - title: Braziliskir í hríðarbyl
   authors: []
   author_titles: []
   article_type: Fræðigrein
-  page_start: 14
-  page_end: 15
+  page_start: 13
+  page_end: 14
   issue: '1'
   pdf_pages:
   - 0
@@ -110,7 +109,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -123,14 +122,14 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1042.pdf
   note: ''
   analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  - taflan segir bls. 14, prentað bls. 13
 - title: Tillögur þjóðréttarnefndar Sameinuðu þjóðanna um landhelgi ríkja
   authors:
   - Jón Thors
   author_titles: []
   article_type: Fræðigrein
-  page_start: 25
-  page_end: 35
+  page_start: 15
+  page_end: 25
   issue: '1'
   pdf_pages:
   - 0
@@ -142,7 +141,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -155,8 +154,8 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1043.pdf
   note: ''
   analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
-- title: Nokkrar athugasemdir varðandi skjöl, sem afhent eru til þinglýsingar
+  - taflan segir bls. 25, prentað bls. 15
+- title: Nokkrar athugasemdir í sambandi við skjöl, sem afhent eru til þinglýsingar
   authors:
   - Ólafur Pálsson
   author_titles: []
@@ -172,7 +171,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: page
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -186,15 +185,14 @@ articles:
   xlsx_row: 1155
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/187.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
-- title: Stúdentaskiptin við Þýskaland
+  analysis_notes: []
+- title: Stúdentaskiptin við Þýzkaland
   authors:
   - Arnljótur Björnsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 17
-  page_end: 21
+  page_start: 13
+  page_end: 17
   issue: '2'
   pdf_pages:
   - 0
@@ -204,9 +202,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: page
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -219,14 +217,14 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1051.pdf
   note: ''
   analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  - taflan segir bls. 17, prentað bls. 13
 - title: Lögfræðingafélag Íslands
   authors:
   - Ármann Snævarr
   author_titles: []
   article_type: Fræðigrein
-  page_start: 19
-  page_end: 20
+  page_start: 18
+  page_end: 19
   issue: '2'
   pdf_pages:
   - 0
@@ -238,7 +236,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -251,7 +249,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1052.pdf
   note: ''
   analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  - taflan segir bls. 19, prentað bls. 18
 - title: Lagakennsla á Íslandi í 50 ár
   authors:
   - Magnús Thoroddsen
@@ -282,8 +280,7 @@ articles:
   xlsx_row: 1158
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/54.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  analysis_notes: []
 - title: Langaréttarbót
   authors:
   - Ólafur Lárusson
@@ -314,11 +311,10 @@ articles:
   xlsx_row: 1159
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/55.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  analysis_notes: []
 - title: Smygl
   authors:
-  - Guðmundur Yngvi Sigurðsson
+  - Guðmundur Ingvi Sigurðsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 15
@@ -333,7 +329,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: page
     pages: xlsx
     issue: xlsx
   checks:
@@ -346,8 +342,7 @@ articles:
   xlsx_row: 1160
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/486.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  analysis_notes: []
 - title: Lagakennslan 50 ára
   authors:
   - Magnús Thoroddsen
@@ -378,15 +373,14 @@ articles:
   xlsx_row: 1161
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/53.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  analysis_notes: []
 - title: Laganemamót í Danmörku í ágúst 1958
   authors:
   - Guðrún Erlendsdóttir
   author_titles: []
   article_type: Fræðigrein
-  page_start: 31
-  page_end: 34
+  page_start: 28
+  page_end: 31
   issue: '3'
   pdf_pages:
   - 0
@@ -398,7 +392,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -411,14 +405,14 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1059.pdf
   note: ''
   analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  - taflan segir bls. 31, prentað bls. 28
 - title: Lögfræðingafélag Íslands, stofnun þess og starfsemi
   authors:
   - Ármann Snævarr
   author_titles: []
   article_type: Fræðigrein
-  page_start: 37
-  page_end: 39
+  page_start: 35
+  page_end: 37
   issue: '3'
   pdf_pages:
   - 0
@@ -430,7 +424,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -443,14 +437,14 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1061.pdf
   note: ''
   analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  - taflan segir bls. 37, prentað bls. 35
 - title: Gerðardómar í milliríkjamálum og alþjóðadómstóllinn í Haag
   authors:
   - Jón P. Emils
   author_titles: []
   article_type: Fræðigrein
-  page_start: 9
-  page_end: 21
+  page_start: 3
+  page_end: 15
   issue: '4'
   pdf_pages:
   - 0
@@ -462,7 +456,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -475,14 +469,14 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1068.pdf
   note: ''
   analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  - taflan segir bls. 9, prentað bls. 3
 - title: Frá aðalfundi
   authors:
   - Jóhann J. Ragnarsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 22
-  page_end: 23
+  page_start: 21
+  page_end: 22
   issue: '4'
   pdf_pages:
   - 0
@@ -494,7 +488,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -507,4 +501,4 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1071.pdf
   note: ''
   analysis_notes:
-  - möppuár 1957 ≠ prentað ár 1958
+  - taflan segir bls. 22, prentað bls. 21

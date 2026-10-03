@@ -26,6 +26,7 @@ files:
 articles:
 - title: Sérgreiningarregla höfundaréttar
   authors:
+  - Alexander Hafþórsson
   - Sigríður Rut Júlíusdóttir
   author_titles: []
   article_type: Fræðigrein
@@ -42,7 +43,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: page
     pages: toc
   checks:
     title_on_page: true
@@ -117,12 +118,12 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: GESTABÁLKUR Viðtal við Markús Sigurbjörnsson, fyrrverandi hæstaréttardómara
+- title: Viðtal við Markús Sigurbjörnsson, fyrrverandi hæstaréttardómara
   authors: []
   author_titles: []
   article_type: Viðtal
   page_start: 377
-  page_end: 394
+  page_end: 392
   issue: null
   pdf_pages:
   - 114

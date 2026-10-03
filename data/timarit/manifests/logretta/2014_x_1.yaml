@@ -34,38 +34,163 @@ page_map:
   contested: []
   bin_ratio: 0.874
 status: review
-confidence: 0.65
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2014 1.tbl.pdf
 articles:
-- title: a
-  authors: []
+- title: Nokkrir farvegir fyrir hafréttardeilur íslands við erlend ríki og alÞjóðastofnanir
+  authors:
+  - Bjarni Már Magnússon
   author_titles: []
   article_type: Fræðigrein
-  page_start: 10
+  page_start: 9
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Staða dóma Mannréttindadómstóls Evrópu í íslenskum landsrétti
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 68
+  issue: null
+  pdf_pages:
+  - 12
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Forgangsáhrif EES-réttar í íslenskum rétti
+  authors:
+  - Margrét Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 75
+  page_end: 86
+  issue: null
+  pdf_pages:
+  - 56
+  - 67
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Áhrif sérfræðigagna á fjárhæð miskabóta til Þolenda kynferðisbrota í æsku
+  authors:
+  - Snædís Ósk Sigurjónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 89
+  page_end: 101
+  issue: null
+  pdf_pages:
+  - 68
+  - 80
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Lögsaga AlÞjóðadómstólsins í Haag: Tilskipun breskra stjórnvalda nr. 2668/2008 varðandi kyrrsetningu'
+  authors:
+  - Þórdís Ingadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 103
   page_end: 115
   issue: null
   pdf_pages:
-  - 1
+  - 81
   - 93
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 11. árg. (2014); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []

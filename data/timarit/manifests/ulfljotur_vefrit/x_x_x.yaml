@@ -56,7 +56,8 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Vefrit/Áhrif innleiðingar þriðja orkupakka ESB í íslenskan rétt.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Vefrit/Áhrif nauðgunarmýta á íslenska dómaframkvæmd í nauðgunarmálum.pdf
 articles:
-- title: Er dómstólum heimilt að breyta stjórnvaldsákvörðunum með íþyngjandi hætti
+- title: Er dómstólum heimilt að breyta stjórnvaldsákvörðunum með íþyngjandi hætti? Nokkur orð um dóm Landsréttar í máli nr.
+    490/2018
   authors:
   - Víðir Smári Petersen
   author_titles: []
@@ -72,7 +73,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
   checks:
     title_on_page: true
@@ -177,7 +178,7 @@ articles:
   note: ''
   analysis_notes:
   - birtingardagur fannst ekki á fyrstu síðu
-- title: Hugleiðing um konur á dómarabekk í kjölfar andláts Ruth Bader Ginsburg
+- title: Þegar þær verða sjö? Hugleiðing um konur á dómarabekk í kjölfar andláts Ruth Bader Ginsburg
   authors:
   - María Rún Bjarnadóttir
   author_titles: []
@@ -193,7 +194,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
   checks:
     title_on_page: true
@@ -237,7 +238,7 @@ articles:
   note: ''
   analysis_notes:
   - birtingardagur fannst ekki á fyrstu síðu
-- title: Innlit í dóm Evrópudómstólsins í máli C-578:16
+- title: Fær um að ferðast? Innlit í dóm Evrópudómstólsins í máli C-578/16 C.K. o.fl. gegn Slóveníu
   authors:
   - Ómar Berg Rúnarsson
   author_titles: []
@@ -253,7 +254,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
   checks:
     title_on_page: true
@@ -389,7 +390,7 @@ articles:
   note: ''
   analysis_notes:
   - birtingardagur fannst ekki á fyrstu síðu
-- title: Nýleg dómaframkvæmd MDE um netmiðla
+- title: Nýleg dómaframkvæmd mannréttindadómstóls Evrópu um netmiðla
   authors:
   - Eiríkur Jónsson
   author_titles: []
@@ -405,7 +406,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
   checks:
     title_on_page: true
@@ -479,7 +480,7 @@ articles:
   note: ''
   analysis_notes:
   - birtingardagur fannst ekki á fyrstu síðu
-- title: Samningur um úthafsveiðar
+- title: Nýr samningur um að koma í veg fyrir stjórnlausar úthafsveiðar í miðhluta Norður-Íshafsins
   authors:
   - Arnór Snæbjörnsson
   author_titles: []
@@ -495,7 +496,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
   checks:
     title_on_page: false
@@ -600,7 +601,7 @@ articles:
   note: ''
   analysis_notes:
   - birtingardagur fannst ekki á fyrstu síðu
-- title: Getur Norður-Kórea löglega beitt kjarnavopnum
+- title: Getur Norður-Kórea löglega beitt kjarnavopnum í ljósi yfirlýsinga forseta Bandaríkjanna?
   authors:
   - Davíð Örn Sveinbjörnsson
   author_titles: []
@@ -616,7 +617,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:
@@ -630,7 +631,8 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Getur Norður-Kórea löglega beitt kjarnavopnum.pdf
   note: ''
   analysis_notes: []
-- title: Framkvæmd skráningar EES-launþega hér á landi
+- title: Framkvæmd skráningar EES-launþega hér á landi á grundvelli 89. gr. útlendingalaga nr. 80/2016 í ljósi skuldbindinga
+    samningsins um Evrópska efnahagssvæðið
   authors:
   - Bjarnveig Eiríksdóttir
   author_titles: []
@@ -646,7 +648,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:
@@ -660,7 +662,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Framkvæmd skráningar EES-launþega hér á landi.pdf
   note: ''
   analysis_notes: []
-- title: Meiðyrði á samfélagsmiðli
+- title: Meiðyrði á samfélagsmiðli – hugleiðingar um mál Egils Einarssonar gegn Íslandi
   authors:
   - María Rún Bjarnadóttir
   author_titles: []
@@ -676,7 +678,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:
@@ -721,7 +723,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Breytt landslag á greiðsluþjónustumarkaði.pdf
   note: ''
   analysis_notes: []
-- title: Skuldajöfnuður að EES-rétti
+- title: Skuldajöfnuður að EES-rétti – Rökstutt álit ESA 7. febrúar 2018
   authors:
   - Stefán A. Svensson
   author_titles: []
@@ -737,7 +739,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:
@@ -812,7 +814,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/EFTA-dómstóllinn í ljósi lýðræðishalla.pdf
   note: ''
   analysis_notes: []
-- title: Mannréttindasamningar og túlkun laga
+- title: 'Mannréttindasamningar og túlkun laga: nýlegir dómar í andstæðar áttir'
   authors:
   - Kári Hólmar Ragnarsson
   author_titles: []
@@ -828,7 +830,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:
@@ -872,7 +874,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Áhrif innleiðingar þriðja orkupakka ESB í íslenskan rétt.pdf
   note: ''
   analysis_notes: []
-- title: EFTA-dómstóllinn og lýðræðishalli
+- title: EFTA-dómstóllinn og lýðræðishalli – svar við grein Eyvindar G. Gunnarssonar og Stefáns Más Stefánssonar
   authors:
   - Ólafur Jóhannes Einarsson
   author_titles: []
@@ -888,7 +890,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:
@@ -902,7 +904,8 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/EFTA-dómstóllinn og lýðræðishalli.pdf
   note: ''
   analysis_notes: []
-- title: Lögbann á fjölmiðlaumfjöllun
+- title: Lögbann á fjölmiðlaumfjöllun - Dómur Hæstaréttar Íslands 22. mars 2019 (29/2018) í máli Glitnis HoldCo ehf. gegn
+    Útgáfufélaginu Stundinni ehf. og Reykjavík Media ehf.
   authors:
   - Halldóra Þorsteinsdóttir
   author_titles: []
@@ -918,7 +921,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:
@@ -932,7 +935,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Lögbann á fjölmiðlaumfjöllun.pdf
   note: ''
   analysis_notes: []
-- title: Um beitingu 53. gr. EES-samningsins íslenskum rétti
+- title: 'Um beitingu 53. gr. EES-samningsins í íslenskum rétti: Dómur Hæstaréttar Íslands 7. janúar 2021 (42/2019)'
   authors:
   - Peter Dalmay
   author_titles: []
@@ -948,7 +951,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:
@@ -992,7 +995,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Eru almenningar stöðuvatna þjóðlendur.pdf
   note: ''
   analysis_notes: []
-- title: Staðgöngumæðrun milli landa
+- title: Staðgöngumæðrun milli landa – hugleiðingar um dóm Mannréttindadómstóls Evrópu frá 18. maí 2021
   authors:
   - Hrefna Friðriksdóttir
   author_titles: []
@@ -1008,7 +1011,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:
@@ -1022,7 +1025,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Staðgöngumæðrun milli landa.pdf
   note: ''
   analysis_notes: []
-- title: Niðurstaða Alþingis um gildi alþingiskosninga 2021
+- title: 'Niðurstaða Alþingis um gildi alþingiskosninga 2021: Hvað gerist nú?'
   authors:
   - Valgerður Sólnes
   author_titles: []
@@ -1038,7 +1041,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:
@@ -1113,7 +1116,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Improving the Major Questions Doctrine in US Constitutional Law
-  authors: []
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  - Hafsteinn Dan Kristjánsson
   author_titles: []
   article_type: Fræðigrein
   page_start: null
@@ -1129,6 +1134,7 @@ articles:
   provenance:
     title: filename
     date: page
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: false
@@ -1141,7 +1147,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Samtal Hæstaréttar og Endurupptökudóms
-  authors: []
+  authors:
+  - Sindri M. Stephensen
+  - Víðir Smári Petersen
   author_titles: []
   article_type: Fræðigrein
   page_start: null
@@ -1157,6 +1165,7 @@ articles:
   provenance:
     title: filename
     date: page
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: false
@@ -1169,7 +1178,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Gjafa- og séreignakaupmálar á Íslandi
-  authors: []
+  authors:
+  - Björn Ingi L. Jónsson
+  - Hrefna Friðriksdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: null
@@ -1185,6 +1196,7 @@ articles:
   provenance:
     title: filename
     date: page
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: false
@@ -1257,7 +1269,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Gildissvið fyrirhugaðrar EES- forgangsreglu.pdf
   note: ''
   analysis_notes: []
-- title: Réttur til húsnæðis
+- title: 'Réttur til húsnæðis: Samrýmist leigubremsa vernd eignarréttar?'
   authors:
   - Kári Hólmar Ragnarsson
   author_titles: []
@@ -1273,7 +1285,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     authors: page
     date: page
   checks:

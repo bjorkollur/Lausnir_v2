@@ -24,39 +24,11 @@ error: null
 files:
 - Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2005 - VI.pdf
 articles:
-- title: Höfundalisti
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 7
-  page_end: 8
-  issue: null
-  pdf_pages:
-  - 6
-  - 7
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-  checks:
-    title_on_page: true
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.65
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
 - title: Formáli
-  authors: []
+  authors:
+  - Róbert R. Spanó
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 9
   page_end: 10
   issue: null
@@ -71,6 +43,7 @@ articles:
     title: toc
     article_type: toc
     pages: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -454,8 +427,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 4. gr. 7. viðauka við mannréttindasáttmála Evrópu
-  authors: []
+- title: Gildissvið meginreglunnar um ne bis in idem í 1. mgr. 4. gr. 7. viðauka við mannréttindasáttmála Evrópu
+  authors:
+  - Róbert R. Spanó
   author_titles: []
   article_type: Fræðigrein
   page_start: 301
@@ -469,9 +443,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     pages: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true

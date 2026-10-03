@@ -30,23 +30,85 @@ error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2010 1.tbl.pdf
 articles:
-- title: Úrræði lánveitanda við vanefndir lántaka I – Gjaldfelling lánasamninga
+- title: Úrræði lánveitanda við vanefndir lántaka I - Gjaldfelling lánasamninga
   authors:
   - Stefán A. Svensson
   author_titles: []
   article_type: Fræðigrein
   page_start: 9
-  page_end: 90
+  page_end: 22
   issue: null
   pdf_pages:
   - 0
-  - 77
+  - 13
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Forgangsáhrif réttilega innleiddra EES-reglna
+  authors:
+  - Margrét Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 36
+  issue: null
+  pdf_pages:
+  - 14
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipting á skattlagningarréttinum milli heimilisfestarríkis og keldulands
+  authors:
+  - Ásmundur G. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 90
+  issue: null
+  pdf_pages:
+  - 26
+  - 77
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
     article_type: llm
     authors: llm
     pages: llm

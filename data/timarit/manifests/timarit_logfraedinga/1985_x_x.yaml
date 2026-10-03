@@ -193,7 +193,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Af vettvangi dómsmála: Dýraspítalamálið'
+- title: Dýraspítalamálið
   authors:
   - Eiríkur Tómasson
   author_titles: []
@@ -215,11 +215,11 @@ articles:
     pages: leitir+toc
     issue: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: true
-  confidence: 0.65
+  confidence: 1.0
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
@@ -289,7 +289,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Á víð og dreif
+- title: Norrænt laganemamót á Íslandi
   authors: []
   author_titles: []
   article_type: Fræðigrein
@@ -304,16 +304,16 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     pages: leitir+toc
     issue: toc
   checks:
-    title_on_page: true
+    title_on_page: false
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.85
+  confidence: 0.5
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
@@ -443,7 +443,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Af vettvangi dómsmála: Hæstaréttardómur 1983, 1718'
+- title: Hæstaréttardómur 1983, 1718
   authors:
   - Arnljótur Björnsson
   author_titles: []
@@ -465,11 +465,11 @@ articles:
     pages: leitir+toc
     issue: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: true
-  confidence: 0.65
+  confidence: 1.0
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
@@ -505,7 +505,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Á víð og dreif
+- title: Þankabrot um nýstofnað embætti ríkislögmanns
   authors: []
   author_titles: []
   article_type: Fræðigrein
@@ -520,16 +520,16 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     pages: toc
     issue: toc
   checks:
-    title_on_page: true
+    title_on_page: false
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.85
+  confidence: 0.5
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
@@ -664,7 +664,7 @@ articles:
   analysis_notes: []
 - title: Réttarfar í höfundarréttarmálum
   authors:
-  - Eirik Tómasson
+  - Eiríkur Tómasson
   author_titles: []
   article_type: Fræðigrein
   page_start: 177
@@ -680,7 +680,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: page
     pages: toc
     issue: toc
   checks:
@@ -758,7 +758,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Af vettvangi dómsmála: Hæstaréttardómur frá 31. maf 1985'
+- title: Hæstaréttardómur frá 31. maí 1985
   authors:
   - Páll Sigurðsson
   author_titles: []
@@ -774,23 +774,23 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     authors: toc
     pages: toc
     issue: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.45
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
-- title: Á vfð og dreif
+- title: Embættisskipanir og lausnir frá 1. maí 1983 til 1. des. 1985
   authors: []
   author_titles: []
   article_type: Fræðigrein
@@ -805,16 +805,16 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     pages: toc
     issue: toc
   checks:
-    title_on_page: true
+    title_on_page: false
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.65
+  confidence: 0.3
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -946,7 +946,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Af vettvangi dómsmála: Um rétt til launa f veikindum'
+- title: Um rétt til launa í veikindum
   authors:
   - Lára V. Júlíusdóttir
   author_titles: []
@@ -962,17 +962,17 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     authors: toc
     pages: toc
     issue: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.45
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -1038,12 +1038,12 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Á víð og dreif
+- title: Amnesty international
   authors: []
   author_titles: []
   article_type: Fræðigrein
   page_start: 272
-  page_end: 278
+  page_end: 276
   issue: '4'
   pdf_pages:
   - 289
@@ -1053,16 +1053,16 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     pages: toc
     issue: toc
   checks:
-    title_on_page: true
+    title_on_page: false
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.85
+  confidence: 0.5
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null

@@ -24,39 +24,11 @@ error: null
 files:
 - Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2003 - IV.pdf
 articles:
-- title: Höfundalisti
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 7
-  page_end: 8
-  issue: null
-  pdf_pages:
-  - 6
-  - 7
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-  checks:
-    title_on_page: true
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.65
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
 - title: Formáli
-  authors: []
+  authors:
+  - Viðar Már Matthíasson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 9
   page_end: 10
   issue: null
@@ -71,6 +43,7 @@ articles:
     title: toc
     article_type: toc
     pages: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -239,7 +212,7 @@ articles:
   analysis_notes: []
 - title: Ákvörðun um saksókn frá sjónarhorni verjanda
   authors:
-  - Jóhannes Rúnar Jóhannesson
+  - Jóhannes Rúnar Jóhannsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 93
@@ -255,7 +228,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: page
     pages: toc
   checks:
     title_on_page: true
@@ -364,7 +337,7 @@ articles:
   analysis_notes: []
 - title: Skaðabótareglur í kaupalögum
   authors:
-  - Viðar Már Matthíassson
+  - Viðar Már Matthíasson
   author_titles: []
   article_type: Fræðigrein
   page_start: 153
@@ -380,7 +353,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: page
     pages: toc
   checks:
     title_on_page: true
@@ -455,7 +428,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Stjórnarskrárákvæði um framsal valdaheimilda ríkisins til alþjóðastofnana
+- title: Stjórnarskrárákvæði um framsal valdheimilda ríkisins til alþjóðastofnana
   authors:
   - Davíð Þór Björgvinsson
   author_titles: []
@@ -471,7 +444,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     authors: toc
     pages: toc

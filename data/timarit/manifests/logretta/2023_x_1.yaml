@@ -16,38 +16,8 @@ page_map:
   contested: []
   bin_ratio: 0.998
 status: review
-confidence: 0
-error: null
+confidence: 0.0
+error: 'enginn greinalisti: efnisyfirlit fannst ekki eða var ólæsilegt'
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2023 1.tbl.pdf
-articles:
-- title: Litið yfir farinn veg
-  authors:
-  - Jón Steinar Gunnlaugsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 1
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: llm
-    article_type: llm
-    authors: llm
-    pages: llm
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
+articles: []

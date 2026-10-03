@@ -47,17 +47,16 @@ articles:
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: Eru lögmenn fjölmiðlafulltrúar?
-  authors:
-  - Guðrún Björg Birgisdóttir
+  authors: []
   author_titles: []
   article_type: Annað
   page_start: 6
@@ -73,22 +72,20 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: Sakamál – hinn nýi tónn fjölmiðla
-  authors:
-  - Halldór Reynisson
+  authors: []
   author_titles: []
   article_type: Annað
   page_start: 12
@@ -104,22 +101,20 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: Nauðsyn á gagnkvæmu trausti og virðingu
-  authors:
-  - Björn Jóhann Björnsson
+  authors: []
   author_titles: []
   article_type: Annað
   page_start: 14
@@ -135,22 +130,20 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: Myndatökur í dómhúsum og umfjöllun lögmanna um dómsmál á meðan þau eru til meðferðar fyrir dómstólum
-  authors:
-  - Helgi I. Jónsson
+  authors: []
   author_titles: []
   article_type: Annað
   page_start: 16
@@ -164,16 +157,15 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: page
     article_type: llm
-    authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -198,11 +190,11 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -227,11 +219,11 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -239,7 +231,7 @@ articles:
   analysis_notes: []
 - title: Pistill formanns
   authors:
-  - Helgi Jóhannesson
+  - Ármann Guðjónsson
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 21
@@ -255,23 +247,23 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
     pages: llm
+    authors: page
   checks:
-    title_on_page: true
+    title_on_page: false
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.65
+  confidence: 0.3
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
-- title: Heyrt og séð á árshátíð LMFÍ
+- title: Heyrt og séð á hinni umtöluðu árshátíð LMFÍ
   authors: []
   author_titles: []
-  article_type: Frétt
+  article_type: Annað
   page_start: 22
   page_end: 23
   issue: null
@@ -287,19 +279,18 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: 37. norræna lögfræðingaþingið í Reykjavík í ágúst 2005
-  authors:
-  - Ragnar Tómas Árnason
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 24
@@ -315,7 +306,6 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
     pages: llm
   checks:
     title_on_page: true
@@ -328,7 +318,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Aðalfundur LMFÍ
+- title: Aðalfundur Lögmannafélags Íslands 2005
   authors: []
   author_titles: []
   article_type: Frétt
@@ -387,8 +377,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Fréttir frá félagsdeild
-  authors:
-  - Eyrún Ingadóttir
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 28
@@ -404,14 +393,13 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -422,7 +410,7 @@ articles:
   author_titles: []
   article_type: Dómareifun
   page_start: 29
-  page_end: 32
+  page_end: 30
   issue: null
   pdf_pages:
   - 28

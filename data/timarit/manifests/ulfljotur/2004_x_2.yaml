@@ -48,8 +48,7 @@ articles:
   xlsx_row: 309
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3235.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Auga fyrir auga
   authors:
   - Jón Þór Ólason
@@ -79,8 +78,7 @@ articles:
   xlsx_row: 310
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3236.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Um birtingu laga og annarra fyrirmæla
   authors:
   - Sigurður Líndal
@@ -110,8 +108,7 @@ articles:
   xlsx_row: 311
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3237.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Bókabálkur - Ökutæki og tjónbætur
   authors:
   - Viðar Már Matthíasson
@@ -141,12 +138,11 @@ articles:
   xlsx_row: 312
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3238.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
-- title: null
+  analysis_notes: []
+- title: 'Minning: Arnljótur Björnsson'
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 295
   page_end: 303
   issue: null
@@ -159,6 +155,8 @@ articles:
   keywords: []
   provenance:
     pages: page
+    title: page
+    article_type: page
   checks:
     title_on_page: false
     printed_page_match: false
@@ -171,4 +169,3 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.47)
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'

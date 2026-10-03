@@ -118,7 +118,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Viðtöl við bifrestinga
-  authors: []
+  authors:
+  - Kristján Örvar Sveinsson
   author_titles: []
   article_type: Viðtal
   page_start: 155
@@ -135,6 +136,7 @@ articles:
     title: toc
     article_type: toc
     pages: toc
+    authors: page
   checks:
     title_on_page: false
     printed_page_match: true

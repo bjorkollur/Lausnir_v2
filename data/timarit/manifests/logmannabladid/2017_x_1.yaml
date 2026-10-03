@@ -24,7 +24,7 @@ error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2017 01 .pdf
 articles:
-- title: Leiðari
+- title: Lögmenn í Landsrétt
   authors:
   - Eva Halldórsdóttir
   author_titles: []
@@ -40,8 +40,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: page
+    article_type: page
     authors: toc
     pages: toc
   checks:
@@ -78,9 +78,9 @@ articles:
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -177,9 +177,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: OG VÍÐIR SMÁRI PETERSEN Hinn nýi Landsréttur
+- title: Hinn nýi Landsréttur
   authors:
   - Eyrún Ingadóttir
+  - Víðir Smári Petersen
   author_titles: []
   article_type: Annað
   page_start: 16
@@ -198,19 +199,20 @@ articles:
     authors: toc
     pages: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
-- title: OG VÍÐIR SMÁRI PETERSEN Hinn nýi Hæstiréttur
+- title: Hinn nýi Hæstiréttur
   authors:
   - Eyrún Ingadóttir
+  - Víðir Smári Petersen
   author_titles: []
   article_type: Annað
   page_start: 22
@@ -229,19 +231,20 @@ articles:
     authors: toc
     pages: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
-- title: OG VÍÐIR SMÁRI PETERSEN Hin nýja dómstólasýsla
+- title: Hin nýja dómstólasýsla
   authors:
   - Eyrún Ingadóttir
+  - Víðir Smári Petersen
   author_titles: []
   article_type: Annað
   page_start: 24
@@ -260,11 +263,11 @@ articles:
     authors: toc
     pages: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.45
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -323,17 +326,17 @@ articles:
     authors: toc
     pages: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
-- title: Ánægja og traust til dómstólanna VIÐTAL VIÐ ÓLÖFU FINNSDÓTTUR
+- title: Ánægja og traust til dómstólanna
   authors: []
   author_titles: []
   article_type: Viðtal
@@ -348,7 +351,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     pages: toc
   checks:
@@ -362,7 +365,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Jólasnapsmót LMFÍ Hinn nýi Landsréttur. Eiríkur Tómasson.
+- title: Jólasnapsmót LMFÍ
   authors: []
   author_titles: []
   article_type: Annað
@@ -377,7 +380,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     pages: toc
   checks:

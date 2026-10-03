@@ -19,20 +19,21 @@ page_map:
   contested: []
   bin_ratio: 0.964
 status: review
-confidence: 0.3
+confidence: 0.35
 error: null
 files:
 - Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2007 - VIII.pdf
 articles:
-- title: Höfundalisti
-  authors: []
+- title: Formáli
+  authors:
+  - Pétur Dam Leifsson
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 7
+  article_type: Ritstjórnargrein
+  page_start: 8
   page_end: 8
   issue: null
   pdf_pages:
-  - 6
+  - 7
   - 7
   lang: is
   date: null
@@ -41,28 +42,31 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    pages: toc
+    pages: page
+    authors: page
   checks:
-    title_on_page: false
-    printed_page_match: true
+    title_on_page: true
+    printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.35
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
-- title: Formáli
-  authors: []
+  analysis_notes:
+  - efnisyfirlitið segir bls. 9, prentað bls. 8
+- title: Nokkur orð um eignarhugtakið í Landabrigðisþætti Grágásar
+  authors:
+  - Aagot V. Óskarsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 9
-  page_end: 10
+  page_end: 26
   issue: null
   pdf_pages:
   - 8
-  - 9
+  - 25
   lang: is
   date: null
   summary: null
@@ -70,59 +74,30 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
-- title: Nokkur orð um eignarhugtakið í Landabrigðisþætti Grágásar
-  authors:
-  - Aagot Vigdís Óskarsdóttir
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 11
-  page_end: 27
-  issue: null
-  pdf_pages:
-  - 10
-  - 26
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    authors: page
+    pages: page
   checks:
     title_on_page: true
-    printed_page_match: true
-    author_on_page: false
+    printed_page_match: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.5
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið segir bls. 11, prentað bls. 9
 - title: Ákvörðun miskabóta í ærumeiðingamálum
   authors:
   - Auður Björg Jónsdóttir
   author_titles: []
   article_type: Fræðigrein
-  page_start: 28
+  page_start: 27
   page_end: 58
   issue: null
   pdf_pages:
-  - 27
+  - 26
   - 57
   lang: is
   date: null
@@ -132,18 +107,19 @@ articles:
     title: toc
     article_type: toc
     authors: toc
-    pages: toc
+    pages: page
   checks:
-    title_on_page: false
-    printed_page_match: true
+    title_on_page: true
+    printed_page_match: false
     author_on_page: true
     external_record: false
-  confidence: 0.45
+  confidence: 0.5
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið segir bls. 28, prentað bls. 27
 - title: Um sameign íslensku þjóðarinnar
   authors:
   - Helgi Áss Grétarsson
@@ -175,7 +151,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Öryggisráðið og Alþjóðadómstóllinn - fyrirsjáanlegur stjórnskipunarvandi eða ,,stormur í vatnsglasi?“
+- title: Öryggisráðið og Alþjóðadómstóllinn – fyrirsjáanlegur stjórnskipunarvandi SÞ – eða „stormur í vatnsglasi“?
   authors:
   - Pétur Dam Leifsson
   author_titles: []
@@ -191,7 +167,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     authors: toc
     pages: toc

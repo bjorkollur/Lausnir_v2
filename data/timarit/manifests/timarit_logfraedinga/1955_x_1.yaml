@@ -19,147 +19,253 @@ page_map:
   contested: []
   bin_ratio: 0.94
 status: review
-confidence: 0
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1955_01.pdf
 articles:
-- title: Ólafur Lárusson sjötugur.............. 12—
-  authors:
-  - Bjarni Benediktsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 11
-  page_end: 14
-  issue: null
-  pdf_pages:
-  - 16
-  - 19
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
-- title: Þjóðréttarnefnd Sameinuðu þjóð- anna ..................................................................................
-    16—
-  authors:
-  - Ólaíur Jóhannesson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 15
-  page_end: 26
-  issue: null
-  pdf_pages:
-  - 20
-  - 31
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
-- title: Hugleiðingar um eignarréttar- fyrirvara við sölu lausafjár .......................................... 28—
-  authors:
-  - Benedikt Sigurjónsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 27
-  page_end: 39
-  issue: null
-  pdf_pages:
-  - 32
-  - 44
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
-- title: Frá Félagsdómi.............................. 41—
-  authors:
-  - Hákon Guðmundsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 40
-  page_end: 41
-  issue: null
-  pdf_pages:
-  - 45
-  - 46
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
-- title: Úr skýrslum barnaverndarnefndar Reykjavíkur árin 1951, 1952 og 1953 .......................... 43—
+- title: Dr. jur. Einar Arnórsson. IN MEMORIAM
   authors:
   - Theodór B. Líndal
   author_titles: []
   article_type: Fræðigrein
-  page_start: 42
-  page_end: 53
+  page_start: 1
+  page_end: 11
   issue: null
   pdf_pages:
+  - 6
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 11 (bls. 65–173; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Ólafur Lárusson sjötugur
+  authors:
+  - Bjarni Benediktsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 12
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 17
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 11 (bls. 65–173; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Þjóðréttarnefnd Sameinuðu þjóðanna
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 16
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 21
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 11 (bls. 65–173; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Hugleiðingar um eignarréttarfyrirvara við sölu lausafjár
+  authors:
+  - Benedikt Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 40
+  issue: null
+  pdf_pages:
+  - 33
+  - 45
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 11 (bls. 65–173; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Frá Félagsdómi
+  authors:
+  - Hákon Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 42
+  issue: null
+  pdf_pages:
+  - 46
   - 47
-  - 58
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 11 (bls. 65–173; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Úr skýrslum barnaverndarnefndar Reykjavíkur árin 1951, 1952 og 1953
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 43
+  page_end: 57
+  issue: null
+  pdf_pages:
+  - 48
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 11 (bls. 65–173; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Samtök lagamanna
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 55
+  page_end: 57
+  issue: null
+  pdf_pages:
+  - 60
+  - 62
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 11 (bls. 65–173; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Á víð og dreif
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 58
+  page_end: 59
+  issue: null
+  pdf_pages:
+  - 63
+  - 64
   lang: is
   date: null
   summary: null
@@ -179,104 +285,19 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
-- title: 'Sami: Samtök lagamanna ...................................................... 55—'
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 54
-  page_end: 56
-  issue: null
-  pdf_pages:
-  - 59
-  - 61
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
-- title: 'Sami: Á víð og dreif .............................................................. 58—'
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 57
-  page_end: 58
-  issue: null
-  pdf_pages:
-  - 62
-  - 63
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
-- title: 'Sami: Erlendar bækur .......................................................... 60—'
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 59
-  page_end: 63
-  issue: null
-  pdf_pages:
-  - 64
-  - 68
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
-- title: Þróun íslenzkra réttarreglna um hjónavígslutálma frá siðaskiptum til vorra daga .. 65—
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 11 (bls. 65–173; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Erlendar bækur
   authors:
-  - Ármann Snævarr
+  - Theodór B. Líndal
   author_titles: []
   article_type: Fræðigrein
-  page_start: 64
-  page_end: 80
+  page_start: 60
+  page_end: 64
   issue: null
   pdf_pages:
-  - 69
+  - 65
   - 85
   lang: is
   date: null
@@ -288,50 +309,15 @@ articles:
     authors: toc
     pages: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes: []
-- title: 'Kjeld-Rördam: Helztu drættir i danskri löggjöf um vörumerki ..............................................................
-    87—103 Gunnlaugur Þórðarson: „Hin hvíta bók“ um aðgerðirnar frá 19. marz 1952 ................................................................
-    104—109 Benedikt Sigurjónsson: Frá bæjarþingi og Sjó- og verzl- unardómi Reykjavíkur: Nokkrir dómar frá árinu 1954 fheodór
-    B. Líndal: Lifskjör og menntun.......................... 117—121 Sami: Á víð og dreif ...............................................................
-    122—124 Arni Tryggvason: Löggjöf um prentrétt og hömlur gegn útgáfu siðspillandi rita ..................................................
-    125—140 Sigurgeir Sigurjónsson: Er þörf breytinga á vöru- merkjalögum nr. 43/1903?..............................................
-    141—151 Knud Illum: Um prófraun hæstaréttarlögmanna.......... 152—167 Einar B. Guðmundsson: Bókarfregn ..................................
-    168—169 Hákon Guðmundsson: Frá Félagsdómi.............................. 170—171 Kriðrik Skarphéðinsson: Skrá um lagabókmenntir
-    eftir íslenzka höfunda eða í íslenzkum þýðingum til árs- !oka 1955 ..............................................................................
-    173—264'
-  authors: []
-  author_titles: []
-  article_type: Ritdómur
-  page_start: 86
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - upphafsbls. 86 er utan skjals
+  - 'greinar fundust ekki í skjalinu: 11 (bls. 65–173; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'

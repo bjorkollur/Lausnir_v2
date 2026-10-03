@@ -25,9 +25,10 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2010_01.pdf
 articles:
 - title: Ný löggjöf um skipun dómara
-  authors: []
+  authors:
+  - Róbert R. Spanó
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 6
   issue: null
@@ -40,8 +41,9 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: page
     pages: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true

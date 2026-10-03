@@ -19,19 +19,22 @@ page_map:
   contested: []
   bin_ratio: 0.982
 status: review
-confidence: 0
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 1 arg 2006.pdf
 articles:
 - title: Fylgt úr hlaði
-  authors: []
+  authors:
+  - Guðmundur Egill Erlendsson
   author_titles: []
   article_type: Ritstjórnargrein
-  page_start: null
-  page_end: null
+  page_start: 4
+  page_end: 5
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 4
+  - 5
   lang: is
   date: null
   summary: null
@@ -39,25 +42,30 @@ articles:
   provenance:
     title: llm
     article_type: llm
+    pages: llm
+    authors: page
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: Ávarp formanns Þemis
-  authors: []
+  authors:
+  - Vigdís Ósk Sveinsdóttir
   author_titles: []
-  article_type: Annað
-  page_start: null
-  page_end: null
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 7
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 6
+  - 7
   lang: is
   date: null
   summary: null
@@ -65,25 +73,30 @@ articles:
   provenance:
     title: llm
     article_type: llm
+    pages: llm
+    authors: page
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: Er lögreglan á réttri leið?
-  authors: []
+  authors:
+  - Hermann Karlsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 8
+  page_end: 13
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 8
+  - 13
   lang: is
   date: null
   summary: null
@@ -91,51 +104,61 @@ articles:
   provenance:
     title: llm
     article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
-- title: The evolving constitution of Northern Ireland
-  authors: []
+- title: The Evolving Constitution of Northern Ireland
+  authors:
+  - Tim Murphy
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 14
+  page_end: 35
   issue: null
-  pdf_pages: null
-  lang: is
+  pdf_pages:
+  - 14
+  - 35
+  lang: en
   date: null
   summary: null
   keywords: []
   provenance:
     title: llm
     article_type: llm
+    pages: llm
+    authors: page
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: Hvað eru lög?
-  authors: []
+  authors:
+  - Jóna Benný Kristjánsdóttir
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 36
+  page_end: 46
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 36
+  - 46
   lang: is
   date: null
   summary: null
@@ -143,25 +166,61 @@ articles:
   provenance:
     title: llm
     article_type: llm
+    pages: llm
+    authors: page
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fangelsin og samfélagið
+  authors:
+  - Valtýr Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 47
+  page_end: 56
+  issue: null
+  pdf_pages:
+  - 47
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: Er virkt þingræði á Íslandi?
-  authors: []
+  authors:
+  - Húni Heiðar Hallsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 57
+  page_end: 77
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 57
+  - 77
   lang: is
   date: null
   summary: null
@@ -169,25 +228,30 @@ articles:
   provenance:
     title: llm
     article_type: llm
+    pages: llm
+    authors: page
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: Lögfræðiráðgjöf í Alþjóðahúsi
-  authors: []
+  authors:
+  - Margrét Steinarsdóttir
   author_titles: []
-  article_type: Annað
-  page_start: null
-  page_end: null
+  article_type: Fræðigrein
+  page_start: 78
+  page_end: 81
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 78
+  - 81
   lang: is
   date: null
   summary: null
@@ -195,25 +259,30 @@ articles:
   provenance:
     title: llm
     article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
 - title: Eru hrepparnir eitthvað sem þarf að skammast sín fyrir?
-  authors: []
+  authors:
+  - Hilmar Vilberg Gylfason
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 82
+  page_end: 96
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 82
+  - 96
   lang: is
   date: null
   summary: null
@@ -221,12 +290,14 @@ articles:
   provenance:
     title: llm
     article_type: llm
+    pages: llm
+    authors: page
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null

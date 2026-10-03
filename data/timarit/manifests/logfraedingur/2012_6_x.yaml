@@ -19,22 +19,53 @@ page_map:
   contested: []
   bin_ratio: 0.946
 status: review
-confidence: 0.3
+confidence: 0.45
 error: null
 files:
 - Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 6 arg 2012.pdf
 articles:
-- title: Störf Þemis síðastliðið ár..................00.ee..00 eeen
+- title: Frá ritstjóra
+  authors:
+  - Ásdís Auðunsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 5
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Störf Þemis síðastliðið ár
   authors:
   - Kolbrún Ríkharðsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 6
-  page_end: 9
+  page_end: 7
   issue: null
   pdf_pages:
   - 6
-  - 9
+  - 7
   lang: is
   date: null
   summary: null
@@ -55,7 +86,38 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Vernd kjarasamninga, hver eru lágmarkskjör?..............0000000000ee
+- title: Ávarp formanns Málfundafélags Þemis
+  authors:
+  - Hjördís Olga Guðbrandsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 8
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vernd kjarasamninga, hver eru lágmarkskjör?
   authors:
   - Andrés Már Magnússon
   author_titles: []
@@ -86,7 +148,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Samræmist bann við skipulögðum glæpasamtökum gildandi mannéttindum á Íslandi? .................eeeeeeeeeezeeneneneneeeereeenenenenenrrrrrrnna
+- title: Samræmist bann við skipulögðum glæpasamtökum gildandi mannéttindum á Íslandi?
   authors:
   - Bjarni Sigursteinsson
   author_titles: []
@@ -107,17 +169,17 @@ articles:
     authors: toc
     pages: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.45
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
-- title: The President of the Republic in the Italian Constitution eee
+- title: The President of the Republic in the Italian Constitution
   authors:
   - Giorgio Baruchello
   author_titles: []
@@ -210,12 +272,12 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Lögfræðingatal.......................0000000eeeeee err nr ret sssaannnn rett r rss r err
+- title: Lögfræðingatal
   authors: []
   author_titles: []
   article_type: Fræðigrein
   page_start: 89
-  page_end: 95
+  page_end: 94
   issue: null
   pdf_pages:
   - 89
@@ -229,11 +291,11 @@ articles:
     article_type: toc
     pages: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null

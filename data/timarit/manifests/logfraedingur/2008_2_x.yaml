@@ -19,22 +19,53 @@ page_map:
   contested: []
   bin_ratio: 0.962
 status: review
-confidence: 0.3
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 2 arg 2008.pdf
 articles:
-- title: Ávarp formanns Þemis ...............0eeeneeeeeneneneeenenenereenenenrrrnn
+- title: Frá ritstjóra
+  authors:
+  - Hilmar Vilberg Gylfason
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 5
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ávarp formanns Þemis
   authors:
   - Sindri Kristjánsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 6
-  page_end: 22
+  page_end: 7
   issue: null
   pdf_pages:
   - 6
-  - 22
+  - 7
   lang: is
   date: null
   summary: null
@@ -45,18 +76,51 @@ articles:
     authors: toc
     pages: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.45
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
-- title: 000 eeen
-  authors: []
+- title: Um íslenska fiskveiðistjórnunarkerfið og skyldu íslenska ríkisins til að virða álit Mannréttindanefndar Sameinuðu
+    þjóðanna
+  authors:
+  - Aðalheiður Ámundadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 8
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 8
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrslutaka hjá lögreglu
+  authors:
+  - Birkir Már Magnússon
   author_titles: []
   article_type: Fræðigrein
   page_start: 23
@@ -72,27 +136,58 @@ articles:
   provenance:
     title: toc
     article_type: toc
+    authors: toc
     pages: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
-- title: Um lögmæti valdbeitingar við sýnatöku vegna rannsóknar á öÖlvunarakstri ....c...eeeeeeeeesssarrsssrrrrssssrrsssrr
+- title: Um lögmæti valdbeitingar við sýnatöku vegna rannsóknar á ölvunarakstri!
   authors: []
   author_titles: []
   article_type: Fræðigrein
   page_start: 40
-  page_end: 64
+  page_end: 56
   issue: null
   pdf_pages:
   - 40
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugtakið „kristið siðgæði“ og Dómur Mannréttindadómstóls Evrópu frá 29. júní 2007, Folgeró o.fl. gegn Noregi
+  authors:
+  - Höskuldur Þór Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 64
+  issue: null
+  pdf_pages:
+  - 57
   - 64
   lang: is
   date: null
@@ -101,25 +196,26 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    pages: toc
+    authors: toc
+    pages: page
   checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.5
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []
-- title: Öryggisráð SÞ frá sjónarhóli þjóðaréttar eee.
+- title: Öryggisráð SÞ frá sjónarhóli þjóðaréttar
   authors:
   - Pétur Dam Leifsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 65
-  page_end: 100
+  page_end: 99
   issue: null
   pdf_pages:
   - 65

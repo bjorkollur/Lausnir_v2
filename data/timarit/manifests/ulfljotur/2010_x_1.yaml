@@ -19,12 +19,12 @@ page_map:
   contested: []
   bin_ratio: 0.972
 status: review
-confidence: 0.5
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2010_1_tbl.pdf
 articles:
-- title: Fjármálamarkaður innan Evrópusambandsins og EES reflur og eftirlit
+- title: Fjármálamarkaður innan Evrópusambandsins og EES reglur og eftirlit
   authors:
   - Dóra Guðmundsdóttir
   author_titles: []
@@ -40,15 +40,15 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: page
     authors: xlsx
     pages: xlsx
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: true
-  confidence: 0.5
+  confidence: 1.0
   leitir_record_id: null
   xlsx_row: 194
   source_file: null
@@ -84,7 +84,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Fræðabálkur
+- title: Er skipulögð glæpastarfsemi raunveruleg ógn á Íslandi?
   authors:
   - Haraldur Johannessen
   author_titles: []
@@ -100,9 +100,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: page
     authors: xlsx
     pages: xlsx
+    article_type: page
   checks:
     title_on_page: false
     printed_page_match: true

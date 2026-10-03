@@ -19,7 +19,7 @@ page_map:
   contested: []
   bin_ratio: 0.953
 status: review
-confidence: 0.3
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2012 03 .pdf
@@ -78,9 +78,9 @@ articles:
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -107,11 +107,11 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -150,7 +150,7 @@ articles:
   authors:
   - Katrín Oddsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 10
   page_end: 12
   issue: null
@@ -177,10 +177,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: „Við áttum ekki skilið stig í kvöld"
+- title: „Við áttum ekki skilið stig í kvöld“
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 13
   page_end: 13
   issue: null
@@ -267,8 +267,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
-- title: Pistill formanns
+  analysis_notes:
+  - 'á síðunni stendur: Ágúst Þór Árnason'
+- title: Mat á hæfni umsækjenda um embætti hæstaréttardómara
   authors:
   - Jónas Þór Guðmundsson
   author_titles: []
@@ -289,11 +290,11 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -301,9 +302,9 @@ articles:
   analysis_notes: []
 - title: Réttarstaða sakaðra manna
   authors:
-  - Anna Lilja Hallgrímsdóttir
+  - Anna Lilja Hermannsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 20
   page_end: 21
   issue: null
@@ -320,11 +321,11 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -409,11 +410,11 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -425,7 +426,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 28
-  page_end: 31
+  page_end: 30
   issue: null
   pdf_pages:
   - 27
@@ -442,9 +443,9 @@ articles:
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null

@@ -155,8 +155,8 @@ articles:
   - Vilhjálmur H. Vilhjálmsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 168
-  page_end: 169
+  page_start: 167
+  page_end: 168
   issue: '2'
   pdf_pages:
   - 0
@@ -168,7 +168,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -180,7 +180,8 @@ articles:
   xlsx_row: 876
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/1741.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - taflan segir bls. 168, prentað bls. 167
 - title: Tönnes Madsson Andenæs
   authors:
   - Guðmundur Benediktsson
@@ -211,7 +212,8 @@ articles:
   xlsx_row: 877
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/1750.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'á síðunni stendur: In Memoriam'
 - title: Ábyrgðartrygging bifreiða
   authors:
   - Arnljótur Björnsson
@@ -243,13 +245,13 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/303.pdf
   note: ''
   analysis_notes: []
-- title: Bætur fyrir lífs- og líkamstjórn
+- title: Bætur fyrir lífs- og líkamstjón
   authors:
   - Þórir Bergsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 227
-  page_end: 237
+  page_start: 217
+  page_end: 227
   issue: '3'
   pdf_pages:
   - 0
@@ -259,9 +261,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: page
     authors: xlsx
-    pages: xlsx
+    pages: page
     issue: xlsx
   checks:
     title_on_page: true
@@ -273,7 +275,8 @@ articles:
   xlsx_row: 879
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/1751.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - taflan segir bls. 227, prentað bls. 217
 - title: Sýning á lögfræðilegu efni
   authors:
   - Páll Sigurðsson
@@ -305,7 +308,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/23.pdf
   note: ''
   analysis_notes: []
-- title: Skrá yfir lögfræðilegar bækur útgefnar 1974 og 1975
+- title: Skrá yfir lögfræðibækur útgefnar 1974 og 1975
   authors:
   - Ritstjórn
   author_titles: []
@@ -321,7 +324,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: page
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -335,7 +338,8 @@ articles:
   xlsx_row: 883
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/24.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'á síðunni stendur: Arnljótur Björnsson'
 - title: Þolendur eignaupptöku.
   authors:
   - Ingibjörg Benediktsdóttir

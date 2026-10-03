@@ -27,7 +27,7 @@ articles:
 - title: Flóttamannaréttur
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 8
   issue: null
@@ -40,7 +40,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: page
     pages: toc
   checks:
     title_on_page: true

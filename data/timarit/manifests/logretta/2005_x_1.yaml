@@ -21,12 +21,12 @@ error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2005 1.tbl.pdf
 articles:
-- title: „Hvers vegna eruð þið alltaf að þessu þrasi?“ Hugleiðingar um lög og lagalegan ágreining
+- title: „Hvers vegna eruð þið alltaf að þessu þrasi?“
   authors:
   - Skúli Magnússon
   author_titles: []
   article_type: Fræðigrein
-  page_start: 3
+  page_start: null
   page_end: null
   issue: null
   pdf_pages: null
@@ -38,7 +38,6 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
   checks:
     title_on_page: false
     printed_page_match: false
@@ -49,5 +48,124 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'upphafsbls. 3 fannst ekki: blaðsíðutal skjalsins óljóst'
+  analysis_notes: []
+- title: Kröfugerð í málum gegn ríkinu og stjórnskipuleg valdmörk
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 12
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félagsform íslensku sparisjóðanna hlutafélagavæðing og SPRON-málin
+  authors:
+  - Jóhannes Karl Sveinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 31
+  - 48
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hlutverk og ábyrgð byggingarstjóra
+  authors:
+  - Erlendur Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 49
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Yfirtökuskylda
+  authors:
+  - Jóhannes Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 66
+  - 76
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

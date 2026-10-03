@@ -65,7 +65,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Stjómarskráin og refsiábyrgð (fyrri hluti) - grunnreglan um lögbundnar refsiheimildir -
+- title: Stjórnarskráin og refsiábyrgð (fyrri hluti) - grunnreglan um lögbundnar refsiheimildir
   authors:
   - Róbert R. Spanó
   author_titles: []
@@ -81,7 +81,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     authors: toc
     pages: toc
@@ -99,7 +99,7 @@ articles:
   analysis_notes: []
 - title: Abyrgðartakmarkanir í skilmálum vátrygginga og ófrávíkjanlegar reglur laga nr. 20/1954 um vátryggingarsamninga
   authors:
-  - Viðar Lúðvílcsson
+  - Viðar Lúðvíksson
   author_titles: []
   article_type: Fræðigrein
   page_start: 49
@@ -115,7 +115,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: page
     pages: toc
     issue: toc
   checks:
@@ -193,7 +193,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Galli í lausafjárkaupum
+- title: Réttarreglur um galla í lausafjárkaupum
   authors:
   - Þorgeir Örlygsson
   author_titles: []
@@ -209,7 +209,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     authors: toc
     pages: toc
@@ -420,7 +420,7 @@ articles:
   analysis_notes: []
 - title: Dómar EFTA-dómstólsins á árinu 2003 sem eiga rætur að rekja til Islands
   authors:
-  - Kristína Haraldsdóttir
+  - Kristín Haraldsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 417
@@ -436,7 +436,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: page
     pages: toc
     issue: toc
   checks:
@@ -450,7 +450,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Unr EFTA-dómstólinn
+- title: Um EFTA-dómstólinn
   authors:
   - Pálína Margrét Rúnarsdóttir
   author_titles: []
@@ -466,7 +466,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     authors: toc
     pages: toc
@@ -617,7 +617,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 549
-  page_end: 566
+  page_end: 563
   issue: '4'
   pdf_pages:
   - 570

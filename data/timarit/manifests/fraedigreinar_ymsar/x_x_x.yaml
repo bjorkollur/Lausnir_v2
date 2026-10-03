@@ -16,7 +16,7 @@ files:
 - Tímarit og fræðigreinar/Ýmsar fræðigreinar/Skýrsla starfshóps um EES-samstarfið 092019.pdf
 - Tímarit og fræðigreinar/Ýmsar fræðigreinar/Þjóðareign - þýðing og áhrif stjórnarskrárákvæðis.pdf
 articles:
-- title: Skýrsla starfshóps um EES-samstarfið 092019
+- title: Skýrsla starfshóps um EES-samstarfið
   authors: []
   author_titles: []
   article_type: Fræðigrein
@@ -31,7 +31,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
   checks:
     title_on_page: true
     printed_page_match: false

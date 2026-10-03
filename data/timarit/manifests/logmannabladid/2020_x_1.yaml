@@ -47,9 +47,9 @@ articles:
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -78,14 +78,15 @@ articles:
   checks:
     title_on_page: false
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.45
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'á síðunni stendur: Arnþór Gunnarsson Sagnfræðingur'
 - title: Viðtal við Markús Sigurbjörnsson. Þægilegt að kveðja eftir 25 ár
   authors:
   - Daníel Isebarn Ágústsson
@@ -179,9 +180,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: OG BERGÞÓR BERGSSON Viðbótargreinargerðir á Íslandi og í Danmörku
+- title: Viðbótargreinargerðir á Íslandi og í Danmörku
   authors:
   - Guðrún Olsen
+  - Bergþór Bergsson
   author_titles: []
   article_type: Annað
   page_start: 26
@@ -200,11 +202,11 @@ articles:
     authors: toc
     pages: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.45
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -262,9 +264,9 @@ articles:
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -275,7 +277,7 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 36
-  page_end: 40
+  page_end: 39
   issue: null
   pdf_pages:
   - 35

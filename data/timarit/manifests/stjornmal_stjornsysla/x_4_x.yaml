@@ -151,8 +151,10 @@ articles:
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/89-111_Democracy.pdf
   note: ''
   analysis_notes: []
-- title: Private Sector Investments from Small St
-  authors: []
+- title: 'Private Sector Investments from Small States in Emerging Markets: Can International Financial Institutions Help
+    Handle the Risks?'
+  authors:
+  - Hilmar Þór Hilmarsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 113
@@ -166,9 +168,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
     pages: filename
     issue: page
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: false
