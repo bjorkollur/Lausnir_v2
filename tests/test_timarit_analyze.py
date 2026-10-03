@@ -70,7 +70,8 @@ def _manifest(**over):
 async def test_issue_is_split_into_three_located_articles():
     m = await analyze_issue(_manifest(), get_config("timarit_logfraedinga"), _deps(_issue_pdf()))
     assert m.pages == 11 and m.page_map["offset"] == -1
-    assert [a.title for a in m.articles] == ["Fyrsta greinin", "Önnur greinin um dóma", "Ritdómur: Bók um kröfurétt"]
+    # Task 22b (fix 2): "Ritdómur:" in front of a title is a section label, evidence for the type, not the title
+    assert [a.title for a in m.articles] == ["Fyrsta greinin", "Önnur greinin um dóma", "Bók um kröfurétt"]
     assert [a.page_start for a in m.articles] == [1, 5, 9]
     assert [a.pdf_pages for a in m.articles] == [[2, 5], [6, 9], [10, 10]]
     assert [a.page_end for a in m.articles] == [4, 8, 9]
@@ -345,7 +346,7 @@ async def test_sogs_heading_joins_hyphenated_title_lines_and_drops_footnote_mark
 
 def test_sogs_heading_joins_a_soft_hyphen_at_a_line_end():
     """The real text layer keeps U+00AD ('Frumundir\xad' / 'búningur'); a synthetic PDF turns it into '-'."""
-    from engine.timarit.analyze import _first_page_heading
+    from engine.timarit.firstpage import sogs_heading as _first_page_heading
     title, authors = _first_page_heading("Stjórnmál eða stjórnsýsla? – Frumundir\xad\nbúningur\nJón Jónsson, lektor\nÚtdráttur")
     assert title == "Stjórnmál eða stjórnsýsla? – Frumundirbúningur" and authors == ["Jón Jónsson"]
 

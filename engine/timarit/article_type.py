@@ -18,10 +18,13 @@ _SECTION_RULES = [
 # friðhelgi einkalífs" are articles), so these match whole words or the start of the title only.
 _TITLE_RULES = [
     ("Ritdómur", re.compile(r"\britdóm|\bbókarfregn|\britfregn", re.I)),
-    ("Ritstjórnargrein", re.compile(r"^\s*frá ritstjór|^\s*ávarp ritstjór|\britstjórnargrein|\bleiðari\b", re.I)),
+    ("Ritstjórnargrein", re.compile(r"^\s*frá ritstjór|^\s*ávarp (?:ritstjór|formanns)|^\s*formannspistill|"
+                                    r"^\s*pistill formanns|^\s*fylgt úr hlaði|^\s*formáli\s*$|\britstjórnargrein|"
+                                    r"\bleiðari\b", re.I)),
     ("Viðtal", re.compile(r"^\s*(?:viðtal|viðtöl)\b|\bviðtal við\b", re.I)),
     ("Dómareifun", re.compile(r"\bdómareifan", re.I)),
     ("Frétt", re.compile(r"\bfrétt(?:ir)?\b|\bdagskrá\b|\btilkynning\b|\baf félagsstarf", re.I)),
+    ("Annað", re.compile(r"^\s*(?:minning|minningarorð|in memoriam)\b", re.I)),     # obituaries (Task 22b)
 ]
 
 

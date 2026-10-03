@@ -20,6 +20,11 @@ Authors are split from titles by "… eftir Nafn", by "Nafn: Titill", by author 
 title, by "Nafn, Titill", or by a patronymic surname followed by the title
 ("Elín Sif Kjartansdóttir Frá ritstjóra"). An 'eftir' name is in the accusative/dative and is
 lemmatised to the nominative with BÍN word by word.
+
+Task 22b (the pilot audit): every title leaves parse_toc through clean_title (OCR'd dotted leaders such as
+"…eeee0eeeaeen…", page ranges "65— 86"); a page range counts by its first page; "Sami:" is the author above; a
+credit before the title ("Ritdómur eftir X:", "Reviewed by X:") names the author and makes the entry a review; a page
+number that goes back in a page-last TOC is unknown (None), so analyze locates the entry by its title.
 """
 from __future__ import annotations
 
@@ -41,6 +46,17 @@ _POSTAL = "(?:Reykjavík|Kópavogur|Hafnarfjörður|Garðabær|Akureyri)"
 _PAGE_FIRST_SPLIT = re.compile(rf"(?:(?<=\s)|^)(\d{{1,4}})\s+(?!{_POSTAL}\b)(?=[{_UP}„])")
 _TRAIL_LEADER = re.compile(r"(?:\s*\.){2,}\s*$|\s+\.\s*$|\s*…+\s*$")  # ". . . ." / "......" / " ." at the end
 _LEADER_ONLY = re.compile(r"^[.\s…]*$")
+# A page range at the end of a line ("… 12— 15", "87—103", "65— 86" alone, "… 65—" with the end on the next line):
+# the article starts on the first page. Years ("1977-2008") are never pages (see _plausible).
+_PAGE_RANGE = re.compile(r"(?<!\S)(\d{1,4})\s*[—–-]\s*(\d{1,4})?\s*$")
+
+# --- OCR'd leaders --------------------------------------------------------------------------------
+# The OCR reads a dotted leader as dots mixed with these characters ("…eeee0eeeaeen…", "0000vvrvesnnerrsrerrrsrss").
+_JUNK_CHARS = frozenset("eoanrszvcuwmitl0.,:;·…|()")
+_LONG_LEADER = re.compile(r"\s*(?:\.\s*){5,}")          # no title has five dots in a row
+_SHORT_LEADER_TAIL = re.compile(r"\s*(?:\.{2,}|…)[\s\d.—–\-]*$")   # "daga .. 65—", "Handbók..."
+_TITLE_PAGE_TAIL = re.compile(r"\s+(\d{1,4})\s*[—–-]\s*(?:\d{1,4})?\s*$")
+_FOOTNOTE_MARK = re.compile(r"\s*\*+$")
 
 # --- headings and furniture ---------------------------------------------------------------------
 _HEFTI = re.compile(r"^\s*(\d)\.\s*hefti\b", re.I)
@@ -69,7 +85,13 @@ _NAME_HLUTI = ("ism", "föð", "ætt")  # BÍN: given name, patronymic, family n
 _LIST_END = re.compile(r"\s+(?:og|&)$", re.I)  # an author list that goes on on the next line
 _LIST_START = re.compile(r"^(?:og|&)\s+", re.I)  # … or that began on the line above
 _LONE_SURNAME = re.compile(rf"^[{_UP}]\S*(?:son|sen|dóttir)[:,]?$", re.I)
+# The rest of a name that wrapped inside an author list: "EYRÚN INGADÓTTIR OG VÍÐIR" / "SMÁRI PETERSEN"
+_NAME_TAIL = re.compile(rf"^(?:[{_UP}]\S*\s+)?[{_UP}]\S*(?:son|sen|dóttir)[:,]?$", re.I)
 _LIST_CONTINUES = re.compile(r"(?:\bog|&|,)\s*$", re.I)
+# A credit before the title: "Ritdómur eftir Margréti Heinreksdóttur: Mál …", "Reviewed by Rachael Lorna Johnstone: …"
+# (the colon may be missing when the title is on the next line). Such an entry is a review.
+_LEAD_CREDIT = re.compile(r"^(?:(?P<review>Ritdómur|Bókardómur|Reviewed|Review)|Grein|Viðtal)\s+(?P<prep>eftir|by)\s+")
+_SAME_AUTHOR = re.compile(r"^(?:Sami|Sama|Sömu)\s*:\s*", re.I)   # "Sami: Erlendar bækur" — by the author of the entry above
 
 # An article's own outline: numbered section headings ("1. Inngangur", "2.1. Almennt", "3.2 Fræðikenningar") or a
 # section number alone on its line ("2.1"). Not "1. hefti", "42. ÁRGANGUR", "3. tbl." nor a date ("1. júlí 1992").
@@ -110,6 +132,116 @@ def toc_style(source: str, kind: str = "issue") -> str:
 def _plausible(page: int) -> bool:
     """A TOC page number. A year (1900–2099) is the date line or a date in a title, never a page here."""
     return 0 < page and not 1900 <= page <= 2099
+
+
+# --- titles ---------------------------------------------------------------------------------------
+
+def _bin_knows(word: str) -> bool:
+    return bool(_bin.lookup(word)[1] or _bin.lookup(word.lower())[1])
+
+
+def _junk_token(tok: str) -> tuple[bool, bool]:
+    """(junk, strong) for one token: could it be what the OCR made of a dotted leader? Strong junk ("eee.", "00e0",
+    "ee0eeeaeen", "...") is never a word. Weak junk is any other token of the same letters ("er", "rss",
+    "Constitution"): it goes only after strong junk (see _strip_junk_tail)."""
+    low = tok.lower()
+    if not low or any(c not in _JUNK_CHARS for c in low):
+        return False, False
+    core = low.strip(".,:;·…|()")
+    if not core:
+        return True, True
+    if core.isdigit():
+        return set(core) == {"0"}, set(core) == {"0"}
+    strong = "0" in core or "." in core or bool(re.search(r"(.)\1\1", core)) or (len(core) >= 4 and len(set(core)) <= 2)
+    return True, strong
+
+
+def _strip_junk_tail(s: str) -> str:
+    """Drop a tail of leader junk ("… þjóðaréttar eee.", "… Comparative Law eee"): the longest run of junk tokens at
+    the end, cut at its first strong token, so a word before the leader stays ("Constitution eee..." → "Constitution")
+    and a title that merely ends in a short word ("Hvað er") is left alone."""
+    toks = s.split()
+    k = len(toks)
+    while k > 1 and _junk_token(toks[k - 1])[0]:
+        k -= 1
+    cut = next((i for i in range(k, len(toks)) if _junk_token(toks[i])[1]), None)
+    return " ".join(toks[:cut]) if cut is not None and cut > 0 else s
+
+
+def clean_title(title: str | None) -> str | None:
+    """A registry title without what the TOC's layout and OCR glued to it: dotted leaders, including OCR'd ones
+    ("… ...........eeeeeeeee00eeeeeeeeeee er", "eee."), a page reference (".. 65—"), a footnote star. Everything from
+    a run of five dots on goes (no title has one); a shorter leader only when nothing but numbers follows it."""
+    if title is None:
+        return None
+    s = " ".join(title.replace("\xad", "").split())
+    if m := _LONG_LEADER.search(s):
+        s = s[:m.start()]
+    s = _SHORT_LEADER_TAIL.sub("", s)
+    if (m := _TITLE_PAGE_TAIL.search(s)) and _plausible(int(m.group(1))) and int(m.group(1)) < 1800:
+        s = s[:m.start()]
+    s = _strip_junk_tail(s)
+    s = _FOOTNOTE_MARK.sub("", s).strip(" ,;")
+    return s.rstrip(" .") if s.endswith(" .") else s
+
+
+# Section headings that a registry (a TOC line, a spreadsheet row) or a page prints where the title belongs, with the
+# article type they stand for (None: says nothing about the type). Keys are lower case.
+SECTION_LABELS: dict[str, str | None] = {
+    "fræðabálkur": "Fræðigrein", "fræðigreinar": "Fræðigrein", "greinar": "Fræðigrein", "ritrýndar greinar": "Fræðigrein",
+    "gestabálkur": None, "rekabálkur": None, "minningarbálkur": "Annað", "minning": "Annað", "in memoriam": "Annað",
+    "leiðari": "Ritstjórnargrein", "ritstjórnargrein": "Ritstjórnargrein", "formannspistill": "Ritstjórnargrein",
+    "pistill formanns": "Ritstjórnargrein", "á víð og dreif": None, "ritdómar": "Ritdómur", "ritdómur": "Ritdómur",
+    "bókarfregn": "Ritdómur", "bókarfregnir": "Ritdómur", "bókabálkur": "Ritdómur", "dómareifanir": "Dómareifun", "fréttir": "Frétt",
+    "viðtal": "Viðtal", "viðtöl": "Viðtal", "vefrit": None, "aðsent": None, "umfjöllun": None, "grein": None,
+    "af vettvangi dómsmála": None, "af vettvangi": None,     # TL's column logo, OCR'd "Aí vettvangi" / "(lóinsinála"
+}
+
+
+# Front matter a TOC lists among the articles (Rannsóknir í félagsvísindum: "Höfundalisti … 7"): not an article (fix 7
+# of Task 22b: dropped from the article list).
+_FRONT_MATTER = frozenset({"höfundalisti", "höfundar efnis", "höfundar", "efnisyfirlit", "útgáfuupplýsingar",
+                           "ritnefnd", "höfundar greina", "um höfunda"})
+
+
+def is_front_matter(title: str | None) -> bool:
+    return bool(title) and _label_key(title) in _FRONT_MATTER
+
+
+def _label_key(s: str) -> str:
+    return " ".join(re.sub(r"[^\w\s]", " ", s).split()).lower()
+
+
+def is_label(s: str | None) -> bool:
+    return bool(s) and _label_key(s) in SECTION_LABELS
+
+
+def label_type(s: str | None) -> str | None:
+    return SECTION_LABELS.get(_label_key(s)) if s else None
+
+
+def split_label(title: str) -> tuple[str | None, str]:
+    """(section label, the rest) of a title that starts with one: "GESTABÁLKUR Viðtal við …", "RITSTJÓRNARGREIN: Ný
+    löggjöf …"; a title that is only a label gives (label, ""). The label counts only when a colon follows it or it is
+    printed in capitals before a word that is not ("Fréttir af aðalfundi" is a title). The label comes back capitalised."""
+    words = title.split()
+    for k in (4, 3, 2, 1):
+        if len(words) < k:
+            continue
+        head = " ".join(words[:k])
+        if not is_label(head):
+            continue
+        rest = " ".join(words[k:])
+        label = _label_key(head).capitalize()
+        if not rest:
+            return label, ""
+        if head.endswith(":"):
+            return label, rest
+        if rest.startswith(":"):
+            return label, rest[1:].strip()
+        if head.isupper() and not words[k].isupper():
+            return label, rest
+    return None, title
 
 
 def _toc_numbers(text: str) -> list[int]:
@@ -256,9 +388,58 @@ def _join_wrapped_surnames(lines: list[str]) -> list[str]:
     for line in lines:
         if out and _LONE_SURNAME.match(line) and _person_names(out[-1]):
             out[-1] = f"{out[-1]} {line}"
+        elif out and _NAME_TAIL.match(line) and not _person_names(out[-1]) and _person_names(f"{out[-1]} {line}"):
+            out[-1] = f"{out[-1]} {line}"    # "GUÐRÚN OLSEN OG BERGÞÓR" / "BERGSSON": a name wrapped inside the list
         else:
             out.append(line)
     return out
+
+
+_COMPOUND_DASH_NEXT = re.compile(r"^(?:og|eða|né|and|or)\b", re.I)
+
+
+def _join_lines(lines: list[str]) -> str:
+    """The entry's lines as one string; a word hyphenated at a line end is joined ("þjóð-" / "anna"), but not a
+    compound dash before "og" ("lífs- og líkamstjón") or a hyphen after a capital ("EES-" / "reglur")."""
+    out = ""
+    for ln in lines:
+        if out.endswith("-") and out[-2:-1].islower() and ln[:1].islower() and not _COMPOUND_DASH_NEXT.match(ln):
+            out = out[:-1] + ln
+        else:
+            out = f"{out} {ln}" if out else ln
+    return out.strip()
+
+
+_EN_FUNCTION_WORDS = frozenset({"The", "A", "An", "On", "In", "Of", "To", "And", "For", "From", "Towards"})
+
+
+def _plain_word(tok: str) -> bool:
+    """A capitalised token that starts a title rather than ends a name: an English function word, or a word BÍN
+    knows only as an ordinary word."""
+    return tok in _EN_FUNCTION_WORDS or bool((e := _bin.lookup(tok)[1]) and all(x.hluti == "alm" for x in e))
+
+
+def _lead_credit(body: str) -> tuple[list[str], str, bool] | None:
+    """(names, title, is_review) of "Ritdómur eftir Margréti Heinreksdóttur: Mál …" / "Reviewed by X: Title" /
+    "Reviewed by X The Yearbook …" (no colon: the longest run of 2–4 tokens that reads as names, then a capital)."""
+    m = _LEAD_CREDIT.match(body)
+    if not m:
+        return None
+    rest = body[m.end():]
+    head, colon, title = rest.partition(":")
+    names = _person_names(head) if colon and len(head) <= 70 else []
+    if not names:
+        toks = rest.split()
+        for k in (4, 3, 2):
+            if len(toks) > k and _TITLE_START.match(toks[k]) and not _plain_word(toks[k - 1]) \
+                    and (names := _person_names(" ".join(toks[:k]))):
+                title = " ".join(toks[k:])
+                break
+    if not names or not title.strip():
+        return None
+    if m.group("prep") == "eftir":
+        names = [_nominative(n) for n in names]
+    return names, title.strip(), bool(m.group("review"))
 
 
 def _split_author_title(lines: list[str]) -> tuple[list[str], str]:
@@ -279,7 +460,7 @@ def _split_author_title(lines: list[str]) -> tuple[list[str], str]:
     No author found → ([], whole text).
     """
     lines = _join_wrapped_surnames(lines)
-    body = " ".join(lines).strip()
+    body = _join_lines(lines)
     if (m := _EFTIR.search(body)):
         raw = re.sub(r"^l(?=n)", "I", m.group("name"))
         names = _person_names(raw)
@@ -303,7 +484,7 @@ def _split_author_title(lines: list[str]) -> tuple[list[str], str]:
         if not goes_on:
             break
     if authors:
-        return authors, " ".join(lines[used:]).strip()
+        return authors, _join_lines(lines[used:])
     if "," in body:
         parts = body.split(",")
         for used, part in enumerate(parts[:-1], start=1):
@@ -326,7 +507,14 @@ def _prepare(text: str) -> list[str]:
     """Non-empty lines with whitespace collapsed; a soft hyphen at a line end joins the word."""
     text = re.sub(r"-?\xad\s*", "", text)
     lines = (" ".join(raw.split()) for raw in text.splitlines())
-    return [ln for ln in lines if ln and not _LEADER_ONLY.match(ln)]
+    return [ln for ln in lines if ln and not _LEADER_ONLY.match(ln) and not _junk_line(ln)]
+
+
+def _junk_line(line: str) -> bool:
+    """A line that is only what the OCR made of a dotted leader ("eeen eeen", "00...", "rr", "er"): every token is
+    leader junk, and one is strong junk or the line is three letters at most."""
+    marks = [_junk_token(t) for t in line.split()]
+    return bool(marks) and all(j for j, _ in marks) and (any(s for _, s in marks) or len(line.replace(" ", "")) <= 3)
 
 
 def _is_role(line: str) -> bool:
@@ -379,15 +567,31 @@ def _parse_page_first(lines: list[str]) -> list[TocEntry]:
         body = [ln.strip() for ln in _stretch(text, kept, k).splitlines() if ln.strip()]
         if not body or _is_role(body[0]):
             continue
-        authors, title = _split_author_title(body)
-        if title:
-            entries.append(TocEntry(title, authors, int(m.group(1))))
+        if entry := _entry(body, int(m.group(1)), None, None, entries):
+            entries.append(entry)
     return entries
+
+
+def _entry(lines: list[str], page: int | None, section: str | None, issue: str | None,
+           before: list[TocEntry]) -> TocEntry | None:
+    """One TOC entry from its lines: a credit before the title ("Ritdómur eftir X: …") makes it a review by X;
+    "Sami: …" is by the author of the entry before it."""
+    if credit := _lead_credit(_join_lines(_join_wrapped_surnames(lines))):
+        authors, title, review = credit
+        section = "Ritdómar" if review else section
+    else:
+        authors, title = _split_author_title(lines)
+    if not authors and (m := _SAME_AUTHOR.match(title)) and before:
+        authors, title = list(before[-1].authors), title[m.end():]
+    return TocEntry(title, authors, page, section, issue) if title else None
 
 
 def _closing(line: str) -> tuple[str, int, bool] | None:
     """(entry text on this line, page, bare) if the line ends in a page number, else None.
     `bare`: text followed directly by the number, with no leaders and nothing but the number after it."""
+    if (r := _PAGE_RANGE.search(line)) and _plausible(int(r.group(1))) and (
+            r.group(2) is None or (_plausible(int(r.group(2))) and int(r.group(2)) >= int(r.group(1)))):
+        line = line[:r.start()] + r.group(1)          # "… 12— 15", "65— 86", "… 65—": the first page
     if m := _PAGE_ONLY.match(line):
         text, bare = "", False
     elif m := _PAGE_LAST.match(line):
@@ -439,7 +643,7 @@ def _parse_page_last(lines: list[str]) -> list[TocEntry]:
         if _NOISE.match(line) or _is_role(line):
             pending = []
             continue
-        closing = _closing(line)
+        closing = _closing(line) or _garbled_closing(line, pending)
         if closing and closing[2]:
             # Text + number without leaders is ambiguous ("Hæstaréttardómur 1983, 1718", the footer
             # "Lögfræðingur 3"): accept it only if the page does not go back and no lower-case
@@ -451,16 +655,46 @@ def _parse_page_last(lines: list[str]) -> list[TocEntry]:
             pending.append(_TRAIL_LEADER.sub("", line).strip())
             continue
         text, page, _ = closing
-        authors, title = _split_author_title(_chain(pending, text))
+        if page is not None and last_page is not None and page < last_page:
+            page = None                     # "2" for 27 after page 8: an unknown start, located by the title later
+        entry = _entry(_chain(pending, text), page, section, issue, entries)
         pending = []
-        if title:
-            entries.append(TocEntry(title, authors, page, section, issue))
-            last_page = page
+        if entry:
+            entries.append(entry)
+            last_page = page if page is not None else last_page
     return entries
+
+
+_GARBLED_PAGE = re.compile(r"^(?=.*[Ðð0-9])[ÐðlIoO0-9|(]{1,4}$")
+_OCR_DIGITS = str.maketrans("lIoO", "1100")
+
+
+def _garbled_closing(line: str, pending: list[str]) -> tuple[str, int | None, bool] | None:
+    """A page number the OCR misread ("Ð", "ð", "l5l", "Ð(") still closes the entry above it: with the number when
+    the misreading maps back to digits ("l5l" → 151), else with an unknown page."""
+    if not pending or line.isdigit() or not _GARBLED_PAGE.match(line):
+        return None
+    digits = line.translate(_OCR_DIGITS)
+    return "", (int(digits) if digits.isdigit() and _plausible(int(digits)) else None), False
+
+
+_LEADER_END = re.compile(r"(?:\.\s*){3,}\s*(?:\d{1,4}(?:\s*[—–-]\s*\d{0,4})?)?\s*$")
+
+
+def style_of_text(text: str, style: str) -> str:
+    """The configured style, unless the text shows the other layout plainly: three or more lines that end in a dotted
+    leader (and a page number or range) are a page-last TOC, whatever the source's issues print today (Tímarit
+    lögfræðinga 1951–1970 issues: "Bjarni Benediktsson: Ólafur Lárusson sjötugur ...... 12— 15")."""
+    if style == "page_first" and sum(1 for ln in text.splitlines() if _LEADER_END.search(ln)) >= 3:
+        return "page_last"
+    return style
 
 
 def parse_toc(text: str, *, style: str) -> list[TocEntry]:
     if style not in ("page_first", "page_last"):
         raise ValueError(f"unknown TOC style: {style!r}")
     lines = _prepare(text)
-    return _parse_page_first(lines) if style == "page_first" else _parse_page_last(lines)
+    entries = _parse_page_first(lines) if style == "page_first" else _parse_page_last(lines)
+    for e in entries:
+        e.title = clean_title(e.title) or e.title
+    return [e for e in entries if e.title]

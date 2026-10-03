@@ -4,7 +4,9 @@ from pathlib import Path
 
 import pytest
 
-from engine.timarit.toc import TocEntry, find_toc_pages, parse_toc, toc_style
+from engine.timarit.toc import (
+    TocEntry, clean_title, find_toc_pages, label_type, parse_toc, split_label, style_of_text, toc_style,
+)
 
 FIX = Path(__file__).parent / "fixtures" / "timarit" / "toc"
 
@@ -477,3 +479,103 @@ def test_numbered_dates_and_volume_lines_do_not_make_a_toc_an_outline():
 def test_a_real_toc_after_an_outline_free_cover_is_unchanged():
     # Lögbrú 2013-01 prints its first article's outline on pages 4-5, after the TOC on page 2 (unchanged: [2])
     assert find_toc_pages(_pages("logbru_2013_01")) == [2]
+
+
+# --- Task 22b: TOC titles and names as the pilot audit found them -------------------------------------------------
+
+@pytest.mark.parametrize("raw, clean", [
+    # Lögfræðingur 2011 / 2012 / 2008: OCR'd dotted leaders and their page-number tails (audit, manifest + idx in the report)
+    ("Lýðveldi, stjórnarskrá og þjóðaratkvæði ...........eeeeeeeee00eeeeeeeeeee er", "Lýðveldi, stjórnarskrá og þjóðaratkvæði"),
+    ("Ávarp formanns Þemis ..............ee0eeeeaeenenenenenenenerreeenenenrnenerrrr rr", "Ávarp formanns Þemis"),
+    ("Samræmist bann við skipulögðum glæpasamtökum gildandi mannéttindum á Íslandi? "
+     ".................eeeeeeeeeezeeneneneneeeereeenenenenenrrrrrrnna",
+     "Samræmist bann við skipulögðum glæpasamtökum gildandi mannéttindum á Íslandi?"),
+    ("Öryggisráð SÞ frá sjónarhóli þjóðaréttar eee.", "Öryggisráð SÞ frá sjónarhóli þjóðaréttar"),
+    ("Laganám við Háskólann á Akureyri .....................00000000000 nn nenna", "Laganám við Háskólann á Akureyri"),
+    ("Mál Mannréttindanefndar SÞ 1977-2008 — Handbók...............00000ee.....0",
+     "Mál Mannréttindanefndar SÞ 1977-2008 — Handbók"),
+    ("Iceland's Renaissance: Time for Comparative Law eee", "Iceland's Renaissance: Time for Comparative Law"),
+    # TL 1955: a page range after a short leader
+    ("Þróun íslenzkra réttarreglna um hjónavígslutálma frá siðaskiptum til vorra daga .. 65—",
+     "Þróun íslenzkra réttarreglna um hjónavígslutálma frá siðaskiptum til vorra daga"),
+    # titles that end in words, numbers or years stay as they are
+    ("Hæstaréttardómur frá 31. maí 1985", "Hæstaréttardómur frá 31. maí 1985"),
+    ("Takmörk markmiðsskýringar – hugleiðingar um hrd. 1993, bls. 2230 (Helga Kress)",
+     "Takmörk markmiðsskýringar – hugleiðingar um hrd. 1993, bls. 2230 (Helga Kress)"),
+    ("Hvað er?", "Hvað er?"),
+    ("Störf Þemis síðastliðið ár", "Störf Þemis síðastliðið ár"),
+    ("Sérgreiningarregla höfundaréttar*", "Sérgreiningarregla höfundaréttar"),
+])
+def test_clean_title_strips_ocr_leaders_and_page_tails(raw, clean):
+    assert clean_title(raw) == clean
+
+
+@pytest.mark.parametrize("raw, label, rest", [
+    ("GESTABÁLKUR Viðtal við Markús Sigurbjörnsson, fyrrverandi hæstaréttardómara",      # Úlfljótur 2023-3 idx 3
+     "Gestabálkur", "Viðtal við Markús Sigurbjörnsson, fyrrverandi hæstaréttardómara"),
+    ("RITSTJÓRNARGREIN: Ný löggjöf um skipun dómara", "Ritstjórnargrein", "Ný löggjöf um skipun dómara"),
+    ("Fræðabálkur", "Fræðabálkur", ""),                                                  # Úlfljótur 2010-1 idx 2
+    ("Leiðari", "Leiðari", ""),                                                          # LMBL 2017-1 idx 0
+    ("Fréttir af aðalfundi", None, "Fréttir af aðalfundi"),                               # a title that starts with a label word
+    ("FRÉTTIR AF AÐALFUNDI", None, "FRÉTTIR AF AÐALFUNDI"),
+    ("Viðtöl við bifrestinga", None, "Viðtöl við bifrestinga"),
+])
+def test_split_label(raw, label, rest):
+    assert split_label(raw) == (label, rest)
+
+
+def test_section_label_types():
+    assert label_type("Leiðari") == "Ritstjórnargrein" and label_type("FRÆÐABÁLKUR") == "Fræðigrein"
+    assert label_type("Gestabálkur") is None and label_type("Ný löggjöf") is None
+
+
+def test_page_first_author_list_wrapped_inside_a_name():
+    # LMBL 2020-1 idx 5 and 2017-1 idx 7: "GUÐRÚN OLSEN OG BERGÞÓR" / "BERGSSON" and "EYRÚN INGADÓTTIR OG VÍÐIR" /
+    # "SMÁRI PETERSEN": the second name wraps; it was glued into the title ("OG BERGÞÓR BERGSSON Viðbótargreinargerðir …")
+    e20 = {e.page_start: e for e in parse_toc(_load("logmannabladid_2020_01.txt"), style="page_first")}
+    assert e20[26].authors == ["Guðrún Olsen", "Bergþór Bergsson"]
+    assert e20[26].title == "Viðbótargreinargerðir á Íslandi og í Danmörku"
+    e17 = {e.page_start: e for e in parse_toc(_load("logmannabladid_2017_01.txt"), style="page_first")}
+    assert e17[24].authors == ["Eyrún Ingadóttir", "Víðir Smári Petersen"] and e17[24].title == "Hin nýja dómstólasýsla"
+    assert e17[16].title == "Hinn nýi Landsréttur" and e17[4].title == "Leiðari"
+
+
+def test_page_last_ocr_junk_lines_credits_and_backward_numbers():
+    # Lögfræðingur 2011 (idx 0, 1, 6, 7, 9 of the pilot manifest)
+    es = parse_toc(_load("logfraedingur_2011.txt"), style="page_last")
+    by_title = {e.title: e for e in es}
+    assert by_title["Ávarp formanns Þemis"].page_start == 6
+    assert by_title["Lýðveldi, stjórnarskrá og þjóðaratkvæði"].page_start == 8
+    rd = by_title["Mál Mannréttindanefndar SÞ 1977-2008 — Handbók"]
+    assert rd.authors == ["Margrét Heinreksdóttir"] and rd.section == "Ritdómar" and rd.page_start == 96
+    pl = by_title["Polar Law Textbook"]
+    assert pl.authors == ["Rachael Lorna Johnstone"] and pl.section == "Ritdómar" and pl.page_start == 106
+    assert by_title["The Yearbook of Polar Law"].authors == ["Rachael Lorna Johnstone"]
+    assert by_title["Laganám við Háskólann á Akureyri"].page_start == 112
+    assert by_title["Millidómstig — tálsýn eða raunveruleiki?"].authors == ["Símon Sigvaldason"]
+    # "2" printed for 27 after page 8: a number that goes back is no start page; the title is located on the pages
+    icesave = next(e for e in es if e.title.startswith("ICESAVE"))
+    assert icesave.page_start is None and icesave.authors == ["Birna Ágústsdóttir"]
+    assert not any(e.title in ("00", "er", "rr") for e in es)
+
+
+def test_page_last_page_ranges_and_sami():
+    # TL 1955 1. hefti (idx 7, 8, 9): "… 12— 15", "65— 86" on a line of its own, "87—103"; "Sami:" = the author above
+    es = parse_toc(_load("tl_1955_01.txt"), style="page_last")
+    starts = {e.page_start: e for e in es}
+    assert starts[1].title == "Einar Arnórsson — In memoriam" and starts[1].authors == ["Theodór B. Líndal"]
+    assert starts[12].title == "Ólafur Lárusson sjötugur" and starts[12].authors == ["Bjarni Benediktsson"]
+    assert starts[16].title == "Þjóðréttarnefnd Sameinuðu þjóðanna"
+    assert starts[60].title == "Erlendar bækur" and starts[60].authors == ["Theodór B. Líndal"]
+    assert starts[65].title == "Þróun íslenzkra réttarreglna um hjónavígslutálma frá siðaskiptum til vorra daga"
+    assert starts[65].authors == ["Ármann Snævarr"]
+    assert starts[87].title.endswith("Helztu drættir i danskri löggjöf um vörumerki")
+    assert [e.page_start for e in es if e.page_start] == sorted(e.page_start for e in es if e.page_start)
+
+
+def test_a_page_first_source_with_a_page_last_toc_is_read_page_last():
+    # TL 1951–1970 issue files print "Author: Title ...... 12— 15" (TL 1955 1. hefti idx 7–9 were off by one entry)
+    text = _load("tl_1955_01.txt")
+    assert style_of_text(text, "page_first") == "page_last"
+    assert style_of_text(_load("tl_2010_01.txt"), "page_first") == "page_first"
+    assert style_of_text(text, "page_last") == "page_last"

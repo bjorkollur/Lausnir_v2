@@ -29,6 +29,7 @@ ARTICLE_TYPES = frozenset(
 DEFAULT_MODEL = "claude-haiku-4-5-20251001"
 PENDING_DIR = "pending"            # under the cache directory: texts waiting for the session's answer
 _BODY_CHARS = 12000                # how much of the text is sent (and keyed)
+TEXT_LIMIT = _BODY_CHARS           # for callers that build the text to fit
 KEY_PATTERN = re.compile(r"[0-9a-f]{40}")   # a cache key: sha1 hex
 _ANSWER_KEYS = ("title", "authors", "page_start", "article_type")
 
@@ -38,7 +39,11 @@ PROMPT = (
     "Skilaðu EINGÖNGU JSON-fylki, einu hluti á grein, á forminu "
     '{"title": "...", "authors": ["Fullt nafn", ...], "page_start": 7, "article_type": "Fræðigrein"} '
     "þar sem article_type er eitt af: Fræðigrein, Ritstjórnargrein, Ritdómur, Viðtal, Frétt, Dómareifun, Annað. "
-    "Slepptu auglýsingum, ritstjórnarupplýsingum og starfsheitum höfunda. page_start er null ef blaðsíðutal vantar.\n\n"
+    "Slepptu auglýsingum, ritstjórnarupplýsingum og starfsheitum höfunda. page_start er null ef blaðsíðutal vantar. "
+    "Á eftir efnisyfirlitinu (eða í stað þess, ef ekkert fannst) kemur yfirlit yfir allar síður heftisins, ein lína á "
+    "síðu: „[n] p.N: fyrsta lína | önnur lína“, þar sem n er númer síðunnar í PDF-skjalinu og N prentað blaðsíðutal "
+    "hennar (? ef það er óþekkt). Grein byrjar á síðu sem hefst á titli hennar (oft með höfundi); notaðu þá N sem "
+    "page_start og nefndu hverja grein heftisins, ekki aðeins þá fyrstu.\n\n"
 )
 _FENCE = re.compile(r"^```(?:json)?\s*|\s*```$", re.M)
 

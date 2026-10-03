@@ -160,7 +160,8 @@ async def test_analysis_notes_are_replaced_and_the_users_note_is_kept_across_two
     m.articles = [ArticleEntry(title="Fyrsta greinin", page_start=1, note="Notandi: athuga höfund",
                                analysis_notes=["gömul vélathugasemd"])]
     p = _save(tmp_path, m)
-    # a TOC line that points beyond the document gives a machine note that must not pile up
+    # a TOC line that points beyond the document gives a machine note that must not pile up (Task 22b: the entry is
+    # left out, and the issue-level note about it is on every article)
     pdf = _issue_pdf(toc_tail="99\nÖssur Össurarson:\nGrein utan skjals\n")
     for _ in range(2):
         await analyze_manifests([p], deps_factory=_deps(pdf), save=True)
@@ -168,9 +169,9 @@ async def test_analysis_notes_are_replaced_and_the_users_note_is_kept_across_two
         first = next(a for a in out.articles if a.page_start == 1)
         assert first.note == "Notandi: athuga höfund"
         assert "gömul vélathugasemd" not in first.analysis_notes
-        outside = [a for a in out.articles if a.page_start == 99]
-        assert len(outside) == 1
-        assert len(outside[0].analysis_notes) == len(set(outside[0].analysis_notes)) >= 1
+        assert not [a for a in out.articles if a.page_start == 99]
+        outside = [n for n in first.analysis_notes if "ekki í skjalinu" in n]
+        assert len(outside) == 1 and len(first.analysis_notes) == len(set(first.analysis_notes))
     assert sum(1 for a in out.articles if a.page_start == 1) == 1          # merged, not duplicated
 
 
@@ -621,7 +622,8 @@ async def test_an_unreadable_toc_is_queued_under_the_issue_identity_and_the_writ
     (entry,) = pending_entries(llm_dir)
     assert entry["context"] == {"manifest": "data/timarit/manifests/timarit_logfraedinga/2010_60_1.yaml",
                                 "source": SRC, "year": 2010, "volume": 60, "issue": "1", "label": LABEL}
-    assert entry["body_path"].read_text(encoding="utf-8").startswith("Kápa")
+    # Task 22b (fix 8): no TOC page was found, so Claude gets the issue's page-heads digest
+    assert entry["body_path"].read_text(encoding="utf-8").startswith("[0] p.?: Kápa\n[1] p.?: Efnisyfirlit")
     assert factory.queued == {entry["key"]}
     assert imp._ISSUE_CONTEXT.get() is None                                    # the context does not leak out of the run
 
