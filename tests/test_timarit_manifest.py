@@ -54,6 +54,27 @@ def test_issue_label_ignores_issue_when_source_has_no_issue_term():
     assert issue_label(get_config("rannsoknir_lagadeild"), 2007, 8, "2") == "Rannsóknir í félagsvísindum, 8. árg. (2007)"
 
 
+def test_issue_label_omits_a_non_numeric_issue_key():
+    # Task 17a (R32): discovery's non-numeric issue keys are identity only (file name, manifest path, external_id);
+    # a label must not read "afmaelisrit. tbl." or "power-and-democracy-in-iceland. tbl.".
+    ulf, sogs = get_config("ulfljotur"), get_config("stjornmal_stjornsysla")
+    assert issue_label(ulf, 2007, None, "afmaelisrit") == "Úlfljótur (2007)"
+    assert issue_label(ulf, 2007, 60, "afmaelisrit") == "Úlfljótur, 60. árg. (2007)"
+    assert issue_label(sogs, 2018, 14, "power-and-democracy-in-iceland") == "Stjórnmál og stjórnsýsla, 14. árg. (2018)"
+    assert issue_label(get_config("rannsoknir_lagadeild"), 2010, 11, "trausti-fannar") == "Rannsóknir í félagsvísindum, 11. árg. (2010)"
+    # numbers and number ranges are still printed
+    assert issue_label(ulf, 2002, None, "3-4") == "Úlfljótur, 3-4. tbl. (2002)"
+    assert issue_label(ulf, 2004, 57, "2") == "Úlfljótur, 57. árg. 2. tbl. (2004)"
+    # R35: "1/2" (a double issue as leitir.is writes it) stays citable
+    assert issue_label(ulf, 2004, 57, "1/2") == "Úlfljótur, 57. árg. 1/2. tbl. (2004)"
+
+
+def test_external_id_and_manifest_path_keep_a_non_numeric_issue_key(tmp_path):
+    m = _m(source="ulfljotur", year=2007, volume=None, issue="afmaelisrit", articles=[ArticleEntry(title="T", page_start=9)])
+    assert external_id(m, m.articles[0]) == "2007-x-afmaelisrit-9"
+    assert manifest_path(tmp_path, "ulfljotur", 2007, None, "afmaelisrit").name == "2007_x_afmaelisrit.yaml"
+
+
 def test_roundtrip_yaml_keeps_everything(tmp_path):
     p = tmp_path / "m.yaml"
     save_manifest(_m(), p)

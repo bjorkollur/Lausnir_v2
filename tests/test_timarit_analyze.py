@@ -110,6 +110,47 @@ async def test_article_with_start_page_beyond_pdf_is_flagged_not_cut():
     assert entries[1].note == ""
 
 
+def test_last_article_of_a_hefti_ends_on_its_last_numbered_page_not_on_the_next_hefti_cover():
+    # Task 17a (R32): a TL annual volume, two hefti; the second hefti's cover pages carry no number and fall between
+    # the segments of the piecewise map. The first hefti's last article runs up to the next located article, but its
+    # page_end is the last numbered page of that range (8), not the unnumbered cover (None).
+    texts = [f"{n}\nTexti." if n else "Kápa 2. heftis" for n in [1, 2, 3, 4, 5, 6, 7, 8, None, None, 9, 10, 11, 12]]
+    entries = [ArticleEntry(title="A", page_start=1), ArticleEntry(title="B", page_start=5),
+               ArticleEntry(title="C", page_start=9)]
+    pm = build_page_map(texts, "default")
+    assert pm.printed[8:10] == [None, None]
+    locate_articles(entries, pm, texts)
+    assert [a.pdf_pages for a in entries] == [[0, 3], [4, 9], [10, 13]]
+    assert [a.page_end for a in entries] == [4, 8, 12]
+
+
+def test_a_start_page_that_falls_between_segments_is_noted_as_a_gap_not_as_outside_the_document():
+    # printed 9 is on no page (the scan skips from 8 to 10 across the second hefti's cover): it is inside the
+    # document's numbering, so "utan skjals" (beyond the document) would mislead the reviewer
+    texts = [f"{n}\nTexti." if n else "Kápa 2. heftis" for n in [1, 2, 3, 4, 5, 6, 7, 8, None, None, 10, 11, 12, 13]]
+    entries = [ArticleEntry(title="A", page_start=1), ArticleEntry(title="B", page_start=9),
+               ArticleEntry(title="C", page_start=40)]
+    locate_articles(entries, build_page_map(texts, "default"), texts)
+    assert entries[1].pdf_pages is None
+    assert entries[1].analysis_notes == ["upphafsbls. 9 er á engri síðu skjalsins (eyða í blaðsíðutali)"]
+    assert entries[2].analysis_notes == ["upphafsbls. 40 er utan skjals"]
+
+
+def test_a_start_page_printed_on_two_pages_is_not_located_and_noted_as_unclear():
+    # Review IMPORTANT 1: numbered adverts end the first hefti (printed 9-11) and the second hefti starts again at 9.
+    # The contested numbers resolve to no page; the article is noted, not placed on an advert page.
+    texts = [f"{n}\nTexti." if n else "Kápa 2. heftis" for n in
+             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, None, None, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]]
+    entries = [ArticleEntry(title="A", page_start=1), ArticleEntry(title="B", page_start=9),
+               ArticleEntry(title="C", page_start=12)]
+    pm = build_page_map(texts, "default")
+    assert 9 in pm.contested and pm.pdf_index_for(9) is None
+    locate_articles(entries, pm, texts)
+    assert entries[1].pdf_pages is None
+    assert entries[1].analysis_notes == ["upphafsbls. 9 fannst ekki: blaðsíðutalið óljóst (talan stendur á fleiri en einni síðu)"]
+    assert entries[2].pdf_pages == [16, 26]
+
+
 def test_verify_article_checks():
     a = ArticleEntry(title="Fyrsta greinin", authors=["Jón Jónsson"], page_start=1)
     c = verify_article(a, "1\nJón Jónsson\nFyrsta greinin\nTexti", 1)

@@ -341,11 +341,22 @@ def _author_part(plaintiffs) -> str | None:
     return f"{names[0]} o.fl."
 
 
+_CITABLE_ISSUE = re.compile(r"\d+(?:[-/]\d+)?")
+
+
+def citable_issue(issue) -> bool:
+    """An issue is cited ("3. tbl.", "3-4. tbl.", "1/2. tbl.") only when it is a number, a range of numbers or a
+    double issue as leitir.is writes it (R35; verdict_filename turns "/" into "-"). Non-numeric keys
+    from file names ("afmaelisrit", "power-and-democracy-in-iceland") identify an issue but are not printed in
+    citations or labels (Task 17a, R32); verdict_filename and external_id keep them."""
+    return issue is not None and bool(_CITABLE_ISSUE.fullmatch(str(issue)))
+
+
 def journal_citation(doc: "Document", config: "SourceConfig") -> str:
     """'Höfundur: „Titill“ Tímarit, 60. árg. 1. hefti (2010), bls. 7–47' (spec §4.5).
 
-    Parts whose value is NULL are omitted. The journal name is omitted when
-    ``config.citation_name`` is None (standalone works, e.g. fraedigreinar_ymsar).
+    Parts whose value is NULL are omitted, and so is an issue that is not a number (citable_issue).
+    The journal name is omitted when ``config.citation_name`` is None (standalone works, e.g. fraedigreinar_ymsar).
     Only sources with ``config.cite_by_date`` (web articles) cite by full date.
     """
     author = _author_part(doc.plaintiffs)
@@ -359,7 +370,7 @@ def journal_citation(doc: "Document", config: "SourceConfig") -> str:
     bib: list[str] = []
     if doc.volume is not None:
         bib.append(f"{doc.volume}. árg.")
-    if doc.issue and config.issue_term:
+    if citable_issue(doc.issue) and config.issue_term:
         bib.append(f"{doc.issue}. {config.issue_term}")
     bib_s = " ".join(bib)
     label = f"{name}, {bib_s}" if name and bib_s else (name or bib_s)

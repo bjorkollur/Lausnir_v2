@@ -13,6 +13,7 @@ from pathlib import Path
 import yaml
 
 from engine.config.sources import SourceConfig, get_config
+from engine.processors.renderer import citable_issue
 from engine.timarit import config as C
 
 USER = "user"
@@ -73,12 +74,13 @@ def manifest_path(root: Path, source: str, year, volume, issue) -> Path:
 
 def issue_label(cfg: SourceConfig, year, volume, issue) -> str:
     """'Name, 60. árg. 1. hefti (2010)'; any part without a value is left out
-    (the year too: some sources have none after discovery)."""
+    (the year too: some sources have none after discovery), and so is an issue key that is not a number
+    ("afmaelisrit" → 'Úlfljótur (2007)'; see renderer.citable_issue)."""
     name = cfg.citation_name or cfg.display_name
     bib = []
     if volume is not None:
         bib.append(f"{volume}. árg.")
-    if issue is not None and cfg.issue_term:
+    if citable_issue(issue) and cfg.issue_term:
         bib.append(f"{issue}. {cfg.issue_term}")
     label = f"{name}, {' '.join(bib)}" if bib else name
     return f"{label} ({year})" if year is not None else label

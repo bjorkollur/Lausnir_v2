@@ -140,16 +140,28 @@ def locate_articles(entries: list[ArticleEntry], page_map: PageMap, page_texts: 
     """Fill pdf_pages in place from each entry's printed start page: from the PDF page carrying it to the
     page before the next located article; the last one runs to the last page with any text (spec §5.2).
     An entry whose start is unknown or not in the document gets no range, and a note when it had a start,
-    instead of raising. A page_end that is still unknown becomes the printed number of the range's last page."""
+    instead of raising: beyond the document's numbers, a number printed on two pages, a gap between two segments
+    of a piecewise map, or an ambiguous map. A page_end that is still unknown becomes the printed number of the
+    range's last numbered page (the last article of a hefti in an annual volume runs over the next hefti's
+    unnumbered cover pages)."""
     last_text = max((i for i, t in enumerate(page_texts) if t.strip()), default=len(page_texts) - 1)
+    numbered = [p for p in page_map.printed if p is not None]
     located: list[tuple[int, ArticleEntry]] = []
     for a in entries:
         idx = page_map.pdf_index_for(a.page_start) if a.page_start is not None else None
         if idx is None:
             a.pdf_pages = None
-            if a.page_start is not None:
-                _add_analysis_note(a, f"upphafsbls. {a.page_start} er utan skjals" if page_map.offset is not None
-                          else f"upphafsbls. {a.page_start} fannst ekki: blaðsíðutal skjalsins óljóst")
+            if a.page_start is None:
+                continue
+            if page_map.offset is None:
+                _add_analysis_note(a, f"upphafsbls. {a.page_start} fannst ekki: blaðsíðutal skjalsins óljóst")
+            elif a.page_start in page_map.contested:                         # printed on two pages (pagemap._contested)
+                _add_analysis_note(a, f"upphafsbls. {a.page_start} fannst ekki: blaðsíðutalið óljóst "
+                                      "(talan stendur á fleiri en einni síðu)")
+            elif numbered and numbered[0] < a.page_start < numbered[-1]:   # between two segments of the map
+                _add_analysis_note(a, f"upphafsbls. {a.page_start} er á engri síðu skjalsins (eyða í blaðsíðutali)")
+            else:
+                _add_analysis_note(a, f"upphafsbls. {a.page_start} er utan skjals")
             continue
         located.append((idx, a))
     located.sort(key=lambda t: t[0])
@@ -157,7 +169,7 @@ def locate_articles(entries: list[ArticleEntry], page_map: PageMap, page_texts: 
         end = located[k + 1][0] - 1 if k + 1 < len(located) else last_text
         a.pdf_pages = [idx, max(idx, end)]
         if a.page_end is None:
-            a.page_end = page_map.printed[a.pdf_pages[1]]
+            a.page_end = next((p for p in reversed(page_map.printed[idx:a.pdf_pages[1] + 1]) if p is not None), None)
 
 
 def _printed_at(pm: PageMap, idx: int) -> int | None:

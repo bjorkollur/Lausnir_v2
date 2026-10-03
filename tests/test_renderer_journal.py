@@ -96,6 +96,24 @@ def test_verdict_filename_journal_and_vefrit():
     assert verdict_filename(d, VEF) == "UlfljoturVefrit_x-x_2022_loftslagsvain-og-domstolar"
 
 
+def test_urlausn_omits_a_non_numeric_issue_key_but_the_file_name_keeps_it():
+    # Task 17a (R32): "afmaelisrit" (Úlfljótur's anniversary issue) and slugs such as "power-and-democracy-in-iceland"
+    # are identity only: no "afmaelisrit. tbl." in the citation; verdict_filename (and external_id) keep the key.
+    d = _doc(court="Úlfljótur", volume=None, issue="afmaelisrit", page_start=9, page_end=20,
+             document_date=date(2007, 1, 1), external_id="2007-x-afmaelisrit-9")
+    assert to_urlausn(d, ULF) == "Kjartan Bjarni Björgvinsson: „Hvenær er vanhæfi smitandi?“ Úlfljótur (2007), bls. 9–20"
+    assert verdict_filename(d, ULF) == "Ulfljotur_x-afmaelisrit_2007_bls-9-20"
+    d.volume = 60
+    assert to_urlausn(d, ULF).endswith("Úlfljótur, 60. árg. (2007), bls. 9–20")
+    # numeric issues and ranges are cited as before
+    d.issue = "3-4"
+    assert to_urlausn(d, ULF).endswith("Úlfljótur, 60. árg. 3-4. tbl. (2007), bls. 9–20")
+    # R35: a double issue written "1/2" (leitir.is keeps that form) is a number too
+    d.issue = "1/2"
+    assert to_urlausn(d, ULF).endswith("Úlfljótur, 60. árg. 1/2. tbl. (2007), bls. 9–20")
+    assert verdict_filename(d, ULF) == "Ulfljotur_60-1-2_2007_bls-9-20"
+
+
 def test_markdown_header_and_page_markers():
     md = to_markdown(_doc(), TL)
     assert md.startswith("# Hvenær er vanhæfi smitandi?\n")

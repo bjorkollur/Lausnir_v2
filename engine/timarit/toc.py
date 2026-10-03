@@ -71,6 +71,13 @@ _LIST_START = re.compile(r"^(?:og|&)\s+", re.I)  # … or that began on the line
 _LONE_SURNAME = re.compile(rf"^[{_UP}]\S*(?:son|sen|dóttir)[:,]?$", re.I)
 _LIST_CONTINUES = re.compile(r"(?:\bog|&|,)\s*$", re.I)
 
+# An article's own outline: numbered section headings ("1. Inngangur", "2.1. Almennt", "3.2 Fræðikenningar") or a
+# section number alone on its line ("2.1"). Not "1. hefti", "42. ÁRGANGUR", "3. tbl." nor a date ("1. júlí 1992").
+_OUTLINE_HEADING = re.compile(
+    r"^\d{1,2}\.(?:\d{1,2}\.?)*\s+(?!(?:hefti|tbl|tölubl|árg|jan|feb|mar|apr|maí|jún|júl|ág|sep|okt|nóv|des)\w*)[^\W\d]"
+    r"|^\d{1,2}(?:\.\d{1,2})+\.?$",
+    re.I,
+)
 _MIN_TOC_NUMBERS = 3  # page numbers a TOC page must show (three-article covers exist)
 _MAX_ENTRY_CHARS = 400  # page_first: a longer stretch after the first mark is a header and colophon, not an entry
 _MAX_STRAY_MARKS = 0.2  # page_first: share of marks allowed to break the increasing run before the TOC is given up
@@ -138,6 +145,15 @@ def _longest_increasing(values: list[int]) -> list[int]:
     return max(best, key=len, default=[])
 
 
+def _is_outline(text: str) -> bool:
+    """The page shows an article's own outline: at least three numbered section headings, and at least half as many
+    as it has TOC-number candidates (Lögrétta prints one under the first article's title: "1. Inngangur\\t" / "10",
+    "2. Vanefndir samkvæmt lánasamningum\\t" / "10", "2.1. Almennt\\t" / "10" …). An issue TOC lists titles and authors,
+    not numbered headings."""
+    headings = sum(1 for line in text.splitlines() if _OUTLINE_HEADING.match(line.strip()))
+    return headings >= _MIN_TOC_NUMBERS and 2 * headings >= len(_toc_numbers(text))
+
+
 def find_toc_pages(page_texts: list[str], max_scan: int = 6) -> list[int]:
     """The TOC pages among the first `max_scan` pages: the first page that shows at least three page
     numbers in increasing order (see _toc_numbers), plus the pages directly after it that do too.
@@ -145,9 +161,15 @@ def find_toc_pages(page_texts: list[str], max_scan: int = 6) -> list[int]:
     The run ends at the first page that does not qualify, so what follows the TOC is not taken: ads,
     articles with footnotes, an article's own outline (Lögbrú prints one on the pages after the TOC).
     A TOC split by an advertisement page is read only up to the ad.
+
+    An article's own outline (_is_outline) is never a TOC page, and the scan stops there: the article has begun, and
+    its body pages (footnotes ending in page references) must not be taken for a TOC either. Lögrétta issue PDFs
+    start with their first article, so they get [] and the caller falls back to Claude / review.
     """
     out: list[int] = []
     for i, t in enumerate(page_texts[:max_scan]):
+        if _is_outline(t):
+            break
         if len(_longest_increasing(_toc_numbers(t))) >= _MIN_TOC_NUMBERS:
             out.append(i)
         elif out:

@@ -439,3 +439,41 @@ def test_a_heading_in_capitals_over_two_lines_is_not_an_author():
         (22, [], "SAGA ANNARS STOFNANDA MÁLFLUTNINGSMANNAFÉLAGS ÍSLANDS Ævisaga og aldarspegill"),
         (28, ["Kolbrún Garðarsdóttir"], "Hugleiðingar um #METOO byltinguna"),
     ]
+
+
+# --- Task 17a (R32): an article's own outline is not the issue's TOC -----------------------------------------
+
+def test_an_articles_own_outline_is_not_an_issue_toc():
+    # Lögrétta 2010 1.tbl starts with the first article: "a" / "9", title, author, then its outline
+    # "1. Inngangur\t" / "10", "2. Vanefndir samkvæmt lánasamningum\t" / "10", "2.1. Almennt\t" / "10" … "4. Nokkur lokaorð\t" / "21".
+    # Task 17's dry run parsed that outline as the issue TOC ("a" 9, "1. Inngangur" 10, …).
+    pages = _pages("logretta_2010_1")
+    assert "1. Inngangur" in pages[0] and "2. Vanefndir samkvæmt lánasamningum" in pages[0]
+    assert find_toc_pages(pages) == []
+
+
+def test_an_outline_with_section_numbers_on_lines_of_their_own_is_not_a_toc():
+    # Lögrétta 2019 4.tbl: "1. Almennt um reglur … 3", then "2.1 " alone on a line above "Almennt …… 5"
+    assert find_toc_pages(_pages("logretta_2019_4")) == []
+
+
+def test_the_scan_stops_at_an_article_outline():
+    # Lögrétta 2019 3.tbl: the outline on page 0, then article pages whose footnotes end in page references
+    # ("Press 2012). 19", "… 2/2008. 140"). Once the article has begun no issue TOC follows: before this rule the
+    # body page 1 was returned with the outline.
+    pages = _pages("logretta_2019_3")
+    assert find_toc_pages(pages[1:]) == [0]          # the body page alone does look like a TOC page …
+    assert find_toc_pages(pages) == []               # … but not after the article's outline
+
+
+def test_numbered_dates_and_volume_lines_do_not_make_a_toc_an_outline():
+    # TL 1992, cover of 1. hefti: "1.HEFTI", "42. ÁRGANGUR", "1. júlí 1992", "15. febr. 1991-19. rebr. 1992" start with
+    # "N." but are no section headings; the page is the hefti's TOC (1, 3, 15, 19, 58).
+    pages = _pages("tl_1992_hefti_1_cover")
+    assert "42. ÁRGANGUR" in pages[0] and "1. júlí 1992" in pages[0]
+    assert find_toc_pages(pages) == [0]
+
+
+def test_a_real_toc_after_an_outline_free_cover_is_unchanged():
+    # Lögbrú 2013-01 prints its first article's outline on pages 4-5, after the TOC on page 2 (unchanged: [2])
+    assert find_toc_pages(_pages("logbru_2013_01")) == [2]
