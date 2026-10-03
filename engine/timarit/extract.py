@@ -78,12 +78,19 @@ def dehyphenate(text: str) -> str:
     return _HYPHEN_BREAK.sub(_repl, text)
 
 
-def bin_known_ratio(text: str, sample_words: int = 2000) -> float:
+def bin_known_share(text: str, sample_words: int = 2000) -> float | None:
+    """Share of the text's first `sample_words` words (longer than two letters) that BÍN knows; None when the
+    text has no such words, so a caller can tell "no text" from "all noise"."""
     words = [w for w in _WORD_RE.findall(text) if len(w) > 2][:sample_words]
     if not words:
-        return 0.0
+        return None
     known = sum(1 for w in words if _bin.lookup(w)[1])
     return known / len(words)
+
+
+def bin_known_ratio(text: str, sample_words: int = 2000) -> float:
+    share = bin_known_share(text, sample_words)
+    return 0.0 if share is None else share
 
 
 def has_text_layer(page_texts: list[str]) -> bool:

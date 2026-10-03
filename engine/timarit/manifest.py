@@ -5,7 +5,9 @@ from __future__ import annotations
 import datetime
 import hashlib
 import math
+import os
 import re
+import tempfile
 import unicodedata
 from dataclasses import asdict, dataclass, field, fields
 from pathlib import Path
@@ -319,12 +321,33 @@ def load_manifest(path: Path) -> IssueManifest:
     return IssueManifest(**fields_, articles=arts)
 
 
+def _write_atomic(path: Path, text: str) -> None:
+    """Write `text` via a temp file in the same directory, fsync it and os.replace it over `path`: a crash or a
+    full disk leaves the old file whole (never a truncated YAML), and the temp file is removed on failure. The
+    file keeps the mode of the one it replaces (0644 for a new one) instead of mkstemp's private 0600."""
+    try:
+        mode = path.stat().st_mode & 0o777
+    except FileNotFoundError:
+        mode = 0o644
+    fd, tmp = tempfile.mkstemp(dir=path.parent, prefix=path.name + ".", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+            fh.write(text)
+            fh.flush()
+            os.fsync(fh.fileno())
+        os.chmod(tmp, mode)
+        os.replace(tmp, path)
+    except BaseException:
+        Path(tmp).unlink(missing_ok=True)
+        raise
+
+
 def save_manifest(m: IssueManifest, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     data = asdict(m)
     for a in data["articles"]:
         a["date"] = _iso_date(a["date"])     # a str is dumped quoted, so it round-trips as a str
-    path.write_text(yaml.safe_dump(data, allow_unicode=True, sort_keys=False, width=120), encoding="utf-8")
+    _write_atomic(path, yaml.safe_dump(data, allow_unicode=True, sort_keys=False, width=120))
 
 
 def manifest_sha256(path: Path) -> str:

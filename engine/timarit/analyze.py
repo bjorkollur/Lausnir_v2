@@ -39,7 +39,7 @@ from engine.config.sources import SourceConfig
 from engine.timarit import config as C
 from engine.timarit.article_type import infer_article_type
 from engine.timarit.authors import _is_initial, _is_name_token, clean_author, looks_like_person
-from engine.timarit.extract import has_text_layer
+from engine.timarit.extract import bin_known_ratio, bin_known_share, has_text_layer
 from engine.timarit.lang import detect_lang
 from engine.timarit.leitir_articles import LeitirArticle, best_match
 from engine.timarit.llm_toc import ARTICLE_TYPES
@@ -58,6 +58,7 @@ _LEITIR_SOURCES = frozenset({"timarit_logfraedinga"})
 NO_TEXT_LAYER = "ekkert textalag — þarf OCR"
 NO_ARTICLE_LIST = "enginn greinalisti: efnisyfirlit fannst ekki eða var ólæsilegt"
 _LLM_TOC_PAGES = 4                            # pages sent to Claude when the TOC parser finds nothing
+_BIN_SAMPLE_PAGES = 20                        # pages (container) or files (article folder) behind page_map["bin_ratio"]
 
 
 @dataclass
@@ -364,6 +365,9 @@ async def _analyze_container(m: IssueManifest, cfg: SourceConfig, deps: AnalyzeD
     m.sha256, m.pages = sha256_bytes(pdf), len(texts)
     pm = build_page_map(texts, cfg.short_name)
     m.page_map = pm.as_dict()
+    # Share of words BÍN knows over the first pages: the pilot (Task 22) reads it to choose the OCR threshold.
+    # Taken from the texts already in hand, so the PDF is not opened twice. 0.0 for a scan.
+    m.page_map["bin_ratio"] = round(bin_known_ratio(" ".join(texts[:_BIN_SAMPLE_PAGES])), 3)
     if not has_text_layer(texts):
         m.error = NO_TEXT_LAYER                  # scanned: no TOC to read, no titles to check; OCR is Task 20's
         run.review = True
@@ -710,6 +714,17 @@ async def _analyze_article_files(m: IssueManifest, cfg: SourceConfig, deps: Anal
         a.checks["printed_page_match"] = _printed_start_confirmed(a, d)
         a.confidence = article_confidence(a.checks)
     m.articles = sorted(entries + unreadable, key=_reading_order)
+    m.page_map = {"bin_ratio": _folder_bin_ratio(docs)}
+
+
+def _folder_bin_ratio(docs: list[_Doc]) -> float:
+    """An article folder has no page map; its one entry is the share of words BÍN knows. It is the mean of the
+    per-file ratios of the first pages of at most _BIN_SAMPLE_PAGES files, taken with a stride that spans the
+    whole folder. (bin_known_ratio looks at 2000 words only, so pooled text would show just the first files;
+    a file without any words, e.g. a scan, says nothing about text quality and is left out.) 0.0 without any."""
+    step = -(-len(docs) // _BIN_SAMPLE_PAGES) or 1
+    shares = [s for s in (bin_known_share(d.first_page) for d in docs[::step]) if s is not None]
+    return round(sum(shares) / len(shares), 3) if shares else 0.0
 
 
 def _reading_order(a: ArticleEntry) -> tuple:
@@ -723,6 +738,9 @@ def _reading_order(a: ArticleEntry) -> tuple:
 async def analyze_issue(m: IssueManifest, cfg: SourceConfig, deps: AnalyzeDeps) -> IssueManifest:
     """Analyse one issue (spec §5) and return a new manifest: article list, page map, checks, confidence,
     status. Year, volume and label may change when the PDF prints better evidence than discovery had.
+    `page_map["bin_ratio"]` (share of words BÍN knows, over the first pages; for an article folder the mean over
+    a sample of files) is set for every issue, also for article folders, whose page map is otherwise empty; the
+    pilot reads it to choose the OCR threshold.
     An approved or imported status is kept; otherwise the issue is approved only when every article
     clears the threshold, the articles cover the file, and no fallback (LLM list, formula year or volume,
     untrusted page map, missing text layer) was needed."""

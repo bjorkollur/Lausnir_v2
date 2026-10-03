@@ -101,6 +101,37 @@ def test_save_creates_parent_dirs_and_writes_utf8(tmp_path):
     assert "Tímarit lögfræðinga" in p.read_text(encoding="utf-8")
 
 
+def test_a_failing_write_leaves_the_old_manifest_intact_and_no_temp_file(tmp_path, monkeypatch):
+    """analyze rewrites hand-edited files in bulk: a crash or a full disk mid-write must not truncate one."""
+    import os
+    p = tmp_path / "m.yaml"
+    save_manifest(_m(), p)
+    before = p.read_bytes()
+    changed = _m(label="Annað heiti")
+    for target in ("fsync", "replace"):
+        with monkeypatch.context() as mp:
+            def boom(*a, **k):
+                raise OSError(28, "No space left on device")
+            mp.setattr(os, target, boom)
+            with pytest.raises(OSError):
+                save_manifest(changed, p)
+        assert p.read_bytes() == before
+        assert [q.name for q in tmp_path.iterdir()] == ["m.yaml"]          # the temp file is cleaned up
+    save_manifest(changed, p)                                              # and the next save works
+    assert load_manifest(p).label == "Annað heiti" and [q.name for q in tmp_path.iterdir()] == ["m.yaml"]
+
+
+def test_save_keeps_the_mode_of_an_existing_file(tmp_path):
+    p = tmp_path / "m.yaml"
+    save_manifest(_m(), p)
+    p.chmod(0o640)
+    save_manifest(_m(label="Annað"), p)
+    assert p.stat().st_mode & 0o777 == 0o640
+    fresh = tmp_path / "n.yaml"
+    save_manifest(_m(), fresh)
+    assert fresh.stat().st_mode & 0o777 == 0o644                           # not mkstemp's private 0600
+
+
 def test_save_writes_dates_as_quoted_strings(tmp_path):
     m = _m(articles=[ArticleEntry(title="T", date="2022-01-21")])
     p = tmp_path / "m.yaml"

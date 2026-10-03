@@ -1,7 +1,7 @@
 """Journals: discover → analyze → (review) → import  (spec 2026-10-03 §7).
 
     uv run --env-file .env python scripts/import_timarit.py discover
-    uv run --env-file .env python scripts/import_timarit.py analyze --source timarit_logfraedinga --workers 6
+    uv run --env-file .env python scripts/import_timarit.py analyze --source timarit_logfraedinga
     uv run --env-file .env python scripts/import_timarit.py import --dry-run
     uv run --env-file .env python scripts/import_timarit.py status
 
@@ -11,6 +11,12 @@ data/timarit/manifests (git); state lives in journal_issues.
 `discover --dry-run` writes nothing at all (no manifests, no _unmatched.yaml, no database access); it only
 prints what a real discover would do. (Every run also logs to Lausnir_Data/logs/timarit/.)
 
+`analyze` runs the per-issue analysis over the manifests on disk (sequentially: leitir.is is throttled anyway;
+`--workers` belongs to `import`), merges it with the user's edits, saves the manifest and updates journal_issues,
+committing after every manifest. It never touches an approved/imported issue. An issue that fails gets
+status `failed` and the exception's first line in `error`; the run goes on. `analyze --dry-run` saves nothing and
+opens no database session (it still reads leitir.is and Claude, through their caches under Lausnir_Data/cache).
+
 Discovery drops two kinds of duplicate: byte-identical files (`duplicate_of`) and files whose text lies inside
 a larger volume file of the same year (`contained_in`, spec 5.6); both are listed in data/timarit/_unmatched.yaml.
 """
@@ -18,8 +24,10 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import contextlib
 import datetime
 import logging
+import os
 import re
 import sys
 import unicodedata
@@ -28,6 +36,7 @@ from pathlib import Path
 from typing import Callable
 
 import fitz
+import httpx
 import yaml
 from sqlalchemy import select, text
 
@@ -37,9 +46,15 @@ import engine.database.connection as _db
 from engine.config.sources import TIMARIT_DROPFOLDER_DIR, _DATA_DIR, get_config
 from engine.database.models import Source
 from engine.timarit import config as C
-from engine.timarit.manifest import IssueManifest, issue_label, load_manifest, manifest_path, save_manifest
+from engine.timarit.analyze import AnalyzeDeps, analyze_issue
+from engine.timarit.leitir_articles import search_articles
+from engine.timarit.llm_toc import toc_via_llm
+from engine.timarit.manifest import (
+    IssueManifest, issue_label, load_manifest, manifest_path, merge_preserving_user, save_manifest,
+)
 from engine.timarit.naming import FileIdentity, identify, issue_key, nfc, reject_reason
 from engine.timarit.splitter import sha256_bytes
+from engine.timarit.ulfljotur_xlsx import load_xlsx
 
 log = logging.getLogger("import_timarit")
 REPO = Path(__file__).resolve().parent.parent
@@ -47,6 +62,7 @@ DROP = Path(TIMARIT_DROPFOLDER_DIR)
 LOG_DIR = Path(_DATA_DIR) / "logs" / "timarit"
 _FROZEN = ("approved", "imported")                       # statuses only the user or import moves
 _DISCOVERY_ERROR = "fleiri en eitt heftisskjal"           # the prefix of the one error discovery itself writes
+_ERROR_SEP = " | "                                        # discovery's error, then analyze's, in one `error`
 _CHANGED_AFTER_APPROVAL = "frumskjal breyttist eftir samþykkt — yfirfarðu og greindu aftur"
 
 
@@ -124,6 +140,19 @@ def find_contained_files(fids: list[FileIdentity], page_texts: Callable[[str], l
     return found
 
 
+def _split_discovery_error(error: str | None) -> tuple[str | None, str | None]:
+    """(discovery's error, whatever analyze appended after it) of an `error` that starts with discovery's own
+    message; (None, None) for any other error, which is not discovery's to touch."""
+    if not error or not error.startswith(_DISCOVERY_ERROR):
+        return None, None
+    disc, _, rest = error.partition(_ERROR_SEP)
+    return disc, rest or None
+
+
+def _join_errors(*parts: str | None) -> str | None:
+    return _ERROR_SEP.join(p for p in parts if p) or None
+
+
 def plan_discovery(rel_paths: list[str], read_bytes: Callable[[str], bytes],
                    page_texts: Callable[[str], list[str]] | None = None
                    ) -> tuple[list[IssueManifest], list[dict]]:
@@ -187,8 +216,8 @@ def merge_with_existing(path: Path, new: IssueManifest) -> IssueManifest:
     article files) what was derived from it is stale: sha256 (replaced by the new one), pages and page_map are
     cleared, and an issue that is not approved/imported goes back to `pending` so analyze runs again. An
     approved/imported issue keeps its status (R4) but is flagged in `error`. Analyze clears that flag when
-    it re-runs. A discovery error that discovery no longer reports is removed; errors written by analyze or
-    import are left alone."""
+    it re-runs. A discovery error that discovery no longer reports is removed (what analyze appended after it
+    stays); errors written by analyze or import are left alone."""
     if not path.exists():
         return new
     old = load_manifest(path)
@@ -201,10 +230,11 @@ def merge_with_existing(path: Path, new: IssueManifest) -> IssueManifest:
             old.status = "pending"
     elif old.sha256 is None:
         old.sha256 = new.sha256
+    disc, rest = _split_discovery_error(old.error)       # analyze may have appended its own error to discovery's
     if new.error:
-        old.error = new.error
-    elif old.error and old.error.startswith(_DISCOVERY_ERROR):
-        old.error = None
+        old.error = _join_errors(new.error, rest)
+    elif disc:
+        old.error = rest
     if changed and old.status in _FROZEN and _CHANGED_AFTER_APPROVAL not in (old.error or ""):
         old.error = "; ".join(filter(None, [_CHANGED_AFTER_APPROVAL, old.error]))
     return old
@@ -344,8 +374,151 @@ async def cmd_status(args) -> None:
         await _db.dispose_db()
 
 
+# --- analyze -------------------------------------------------------------------------------------------
+
+def _manifest_rel(path: Path) -> str:
+    """manifest_path as journal_issues stores it: relative to the repo root (always so outside tests)."""
+    try:
+        return str(path.relative_to(REPO))
+    except ValueError:
+        return str(path)
+
+
+def _is_frozen(path: Path) -> bool:
+    """True when the manifest on disk is approved/imported. A manifest that does not load is not frozen:
+    it stays selected so that analyze reports it."""
+    try:
+        return load_manifest(path).status in _FROZEN
+    except (ValueError, OSError):
+        return False
+
+
+def _select_manifests(args) -> list[Path]:
+    """Manifests chosen by --source / --issue (a stem, or a prefix up to an underscore: "2010" → 2010_*) and
+    --limit. The limit counts manifests analyze will actually run, so approved/imported ones do not use it up."""
+    paths = sorted((REPO / C.MANIFEST_ROOT).glob("*/*.yaml"))
+    if args.source:
+        paths = [p for p in paths if p.parent.name == args.source]
+    if args.issue:
+        paths = [p for p in paths if p.stem == args.issue or p.stem.startswith(args.issue + "_")]
+    if args.limit:
+        chosen: list[Path] = []
+        for p in paths:
+            if len(chosen) == args.limit:
+                break
+            if not _is_frozen(p):
+                chosen.append(p)
+        paths = chosen
+    return paths
+
+
+def _real_deps_factory(client: httpx.AsyncClient, llm_client=None):
+    """AnalyzeDeps over the real archive, leitir.is (one shared client) and, when `llm_client` is given, Claude.
+    Caches live in CACHE_DIR, never in the archive (R3)."""
+    xlsx_rows = load_xlsx(C.XLSX_PATH) if C.XLSX_PATH.exists() else []
+
+    async def leitir(q, journal):
+        return await search_articles(client, q, cache_dir=C.CACHE_DIR / "leitir", journal_filter=journal)
+
+    async def llm(text_):
+        return await toc_via_llm(text_, cache_dir=C.CACHE_DIR / "llm", client=llm_client)
+
+    return lambda: AnalyzeDeps(read_bytes=lambda rel: (DROP / rel).read_bytes(), leitir=leitir,
+                               llm_toc=llm if llm_client is not None else None, xlsx_rows=xlsx_rows)
+
+
+def _error_text(exc: BaseException, prefix: str = "") -> str:
+    """"ExceptionName: first line of its message" (just the name when there is no message)."""
+    lines = str(exc).splitlines()
+    first = lines[0].strip() if lines else ""
+    return f"{prefix}{type(exc).__name__}: {first}" if first else f"{prefix}{type(exc).__name__}"
+
+
+async def _analyse(old: IssueManifest, path: Path, deps_factory) -> IssueManifest:
+    """The manifest to save for `old`: analysed and merged with the user's edits, or `old` itself marked
+    `failed` (with its articles, which are the user's work) when the analysis raised.
+
+    The error discovery wrote (several container files for one issue; only the first is analysed, the other's
+    articles would be dropped silently) outlives the analysis: analyze_issue starts from a clean `error`, so it is
+    put back in front of analyze's own, and an issue that would be approved goes to review instead. Only the user
+    resolves it (by editing the files or approving), and discover removes it once it stops reporting it."""
+    carried, _ = _split_discovery_error(old.error)
+    frozen = old.status in _FROZEN
+    try:
+        new = merge_preserving_user(old, await analyze_issue(old, get_config(old.source), deps_factory()))
+    except Exception as exc:  # noqa: BLE001 — one bad issue must not stop the run
+        log.exception("analyze failed for %s", path.name)
+        old.status, old.error = "failed", _error_text(exc)
+        new = old
+    if carried:
+        new.error = _join_errors(carried, new.error)
+        if new.status != "failed" and not frozen:
+            new.status = "review"
+    return new
+
+
+async def analyze_manifests(paths: list[Path], *, deps_factory: Callable[[], AnalyzeDeps], save: bool,
+                            session=None) -> dict[str, int]:
+    """Analyse the manifests at `paths` one after the other; returns {resulting status: count}. "skipped" counts
+    approved/imported ones, which are never touched; "failed" an issue whose manifest file does not load (the
+    file is left as it is: it is the user's hand edit), whose analysis raised, or whose journal_issues row could
+    not be written. With `save` each manifest is written to its file and, given a `session`, upserted into
+    journal_issues and committed before the next one starts, so a crash keeps the earlier work."""
+    counts: dict[str, int] = defaultdict(int)
+    for path in paths:
+        try:
+            old = load_manifest(path)
+        except (ValueError, OSError) as exc:
+            log.error("cannot load %s: %s", path.name, exc)
+            counts["failed"] += 1
+            continue
+        if old.status in _FROZEN:
+            counts["skipped"] += 1
+            continue
+        new = await _analyse(old, path, deps_factory)
+        if save:
+            save_manifest(new, path)
+            if session is not None:
+                try:
+                    await upsert_issue_row(session, new, _manifest_rel(path))
+                    await session.commit()
+                except Exception as exc:  # noqa: BLE001 — e.g. a year/volume/issue another manifest already holds
+                    await session.rollback()
+                    log.exception("journal_issues update failed for %s", path.name)
+                    new.status, new.error = "failed", _error_text(exc, "gagnagrunnur: ")
+                    save_manifest(new, path)
+        counts[new.status] += 1
+        log.info("%-9s %s  (%d articles, confidence %.2f)%s", new.status, new.label, len(new.articles),
+                 new.confidence, f"  {new.error}" if new.error else "")
+    return dict(counts)
+
+
 async def cmd_analyze(args) -> None:
-    raise SystemExit("analyze: sjá Task 19")
+    paths = _select_manifests(args)
+    if not paths:
+        print("Engar yfirlitsskrár fundust (keyrðu discover fyrst eða rýmkaðu --source/--issue).")
+        return
+    save = not args.dry_run
+    if save:
+        await _db.init_db(create_tables=False)
+    try:
+        async with contextlib.AsyncExitStack() as stack:
+            client = await stack.enter_async_context(httpx.AsyncClient(headers={"User-Agent": "Lausnir/2.0"}))
+            llm_client = None
+            if os.environ.get("ANTHROPIC_API_KEY"):
+                from anthropic import AsyncAnthropic
+                llm_client = await stack.enter_async_context(AsyncAnthropic())
+            session = await stack.enter_async_context(_db.AsyncSessionLocal()) if save else None
+            counts = await analyze_manifests(paths, deps_factory=_real_deps_factory(client, llm_client), save=save,
+                                             session=session)
+    finally:
+        if save:
+            await _db.dispose_db()
+    print(f"analyze: {len(paths)} hefti")
+    for status, n in sorted(counts.items()):
+        print(f"  {status:9s} {n:5d}")
+    if args.dry_run:
+        print("Þurrkeyrsla: ekkert var vistað (engar yfirlitsskrár, enginn gagnagrunnur).")
 
 
 async def cmd_import(args) -> None:
