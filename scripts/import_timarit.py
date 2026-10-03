@@ -19,6 +19,14 @@ opens no database session (it still reads leitir.is and Claude, through their ca
 
 Discovery drops two kinds of duplicate: byte-identical files (`duplicate_of`) and files whose text lies inside
 a larger volume file of the same year (`contained_in`, spec 5.6); both are listed in data/timarit/_unmatched.yaml.
+
+`import` takes the approved manifests (and imported ones whose file changed since their import): every article is
+cut out of its issue PDF (or taken from its own file), its text extracted page by page in `--workers` processes,
+turned into a Document, validated and upserted; markdown and the article PDF are written, the issue PDF is copied
+to raw/{source}/hefti/, and the issue is marked imported, committing after every manifest. Articles that could not
+be imported say why in their `analysis_notes`; an issue that fails, or of which no article could be imported, gets
+status `failed`. Afterwards run backfill_passages.py and build_citations.py. `import --dry-run` reads the archive
+and the database but writes nothing (no documents, files, manifests or journal_issues); it prints every article.
 """
 from __future__ import annotations
 
@@ -31,29 +39,40 @@ import os
 import re
 import sys
 import unicodedata
+import uuid
 from collections import Counter, defaultdict
+from multiprocessing import Pool
 from pathlib import Path
 from typing import Callable
 
+import asyncpg
 import fitz
 import httpx
 import yaml
-from sqlalchemy import select, text
+from sqlalchemy import exc as sa_exc, func, null as sa_null, select, text
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+import engine.config.sources as sources_config
 import engine.database.connection as _db
 from engine.config.sources import TIMARIT_DROPFOLDER_DIR, _DATA_DIR, get_config
-from engine.database.models import Source
+from engine.database.models import Document, Source
+from engine.processors.extractor import Extractor
+from engine.processors.pdf_parser import docling_ocr_pdf
+from engine.processors.renderer import unique_verdict_filename, verdict_filename, write_markdown
+from engine.processors.validator import validate
 from engine.timarit import config as C
 from engine.timarit.analyze import AnalyzeDeps, analyze_issue
+from engine.timarit.extract import ExtractedText, extract_article
 from engine.timarit.leitir_articles import search_articles
 from engine.timarit.llm_toc import toc_via_llm
 from engine.timarit.manifest import (
-    IssueManifest, issue_label, load_manifest, manifest_path, merge_preserving_user, save_manifest,
+    ArticleEntry, IssueManifest, article_issue, assign_external_ids, issue_label, load_manifest, manifest_path,
+    manifest_sha256, merge_preserving_user, save_manifest,
 )
 from engine.timarit.naming import FileIdentity, identify, issue_key, nfc, reject_reason
-from engine.timarit.splitter import sha256_bytes
+from engine.timarit.splitter import cut_pages, sha256_bytes
 from engine.timarit.ulfljotur_xlsx import load_xlsx
 
 log = logging.getLogger("import_timarit")
@@ -395,18 +414,20 @@ def _is_frozen(path: Path) -> bool:
 
 def _select_manifests(args) -> list[Path]:
     """Manifests chosen by --source / --issue (a stem, or a prefix up to an underscore: "2010" → 2010_*) and
-    --limit. The limit counts manifests analyze will actually run, so approved/imported ones do not use it up."""
+    --limit. The limit counts manifests the command will actually work on: for analyze those that are not
+    approved/imported, for import exactly those."""
     paths = sorted((REPO / C.MANIFEST_ROOT).glob("*/*.yaml"))
     if args.source:
         paths = [p for p in paths if p.parent.name == args.source]
     if args.issue:
         paths = [p for p in paths if p.stem == args.issue or p.stem.startswith(args.issue + "_")]
     if args.limit:
+        for_import = getattr(args, "command", None) == "import"
         chosen: list[Path] = []
         for p in paths:
             if len(chosen) == args.limit:
                 break
-            if not _is_frozen(p):
+            if _is_frozen(p) == for_import:
                 chosen.append(p)
         paths = chosen
     return paths
@@ -521,8 +542,541 @@ async def cmd_analyze(args) -> None:
         print("Þurrkeyrsla: ekkert var vistað (engar yfirlitsskrár, enginn gagnagrunnur).")
 
 
+# --- import -------------------------------------------------------------------------------------------------
+
+# What import writes into an article's analysis_notes (Icelandic: the reviewer reads them). They are dropped at the
+# start of every import, so a problem that has since been fixed does not linger in the manifest.
+_NOTE_NO_PAGES = "ekki flutt inn: engar PDF-síður (pdf_pages)"
+_NOTE_NO_TEXT = "enginn texti — þarf OCR"
+_NOTE_FAILED = "innflutningur mistókst: "
+_NOTE_COLLISION = "auðkenni {} er þegar til í öðru hefti"
+_IMPORT_NOTE = re.compile(r"ekki flutt inn: .*|enginn texti — þarf OCR|innflutningur mistókst: .*"
+                          r"|auðkenni .+ er þegar til í öðru hefti")
+# The issue-level error import writes (manifest and journal_issues): a failure, or what of the manifest did not reach
+# the database. Every import replaces it (a clean one removes it); an error from elsewhere is kept beside it.
+_IMPORT_ERROR = "innflutningur: "
+_NOT_IMPORTED = (("no_text", "enginn texti"), ("failed", "villa"), ("collision", "árekstur"))
+_MAX_LISTED_ORPHANS = 10
+_MAX_FAILURES_IN_A_ROW = 5          # issues failing one after the other point at the environment, not at the issues
+_COUNT_LABELS = {
+    "imported": "greinar fluttar inn", "unchanged": "hefti óbreytt", "not_approved": "hefti ekki samþykkt",
+    "skipped_no_pages": "greinar án PDF-síðna", "collision": "auðkenni þegar í öðru hefti",
+    "no_text": "greinar án texta", "failed": "greinar mistókust", "failed_issue": "hefti mistókust",
+    "source_changed": "frumskjal breytt", "discovery_error": "fleiri en eitt heftisskjal",
+    "not_analysed": "hefti ekki greint", "orphaned": "eldri greinar ekki í skránni",
+}
+
+
+def article_pdf_bytes(m: IssueManifest, a: ArticleEntry, read_bytes) -> bytes:
+    """The article's PDF: its own file, unchanged (spec §4.5), or its pdf_pages cut out of the issue PDF."""
+    if a.source_file:
+        return read_bytes(a.source_file)
+    if m.file is None:
+        raise ValueError("greinin hefur hvorki eigið skjal (source_file) né hefti til að skera úr")
+    if not a.pdf_pages:
+        raise ValueError("pdf_pages vantar")
+    first, last = a.pdf_pages
+    return cut_pages(read_bytes(m.file), first, last)
+
+
+def build_article_raw(m: IssueManifest, a: ArticleEntry, ex: ExtractedText, source_file: str) -> dict:
+    """The raw dict _extract_timarit consumes (Task 6 contract): the manifest line as reviewed, the article's own
+    issue (R31), the user's note and analyze's notes (R33), the issue it came from, and the extracted text with its
+    page offsets. raw_api_data keeps all of it but the text and the offsets (they have columns of their own)."""
+    return {
+        "title": a.title, "authors": list(a.authors), "author_titles": list(a.author_titles),
+        "article_type": a.article_type, "page_start": a.page_start, "page_end": a.page_end, "lang": a.lang,
+        "volume": m.volume, "issue": article_issue(m, a), "year": m.year, "date": a.date, "summary": a.summary,
+        "keywords": list(a.keywords), "pdf_text": ex.body, "page_offsets": ex.page_offsets,
+        "source_filename": source_file, "pdf_pages": a.pdf_pages, "provenance": dict(a.provenance),
+        "checks": dict(a.checks), "confidence": a.confidence, "leitir_record_id": a.leitir_record_id,
+        "xlsx_row": a.xlsx_row, "ocr_source": ex.ocr_source, "date_precision": "day" if a.date else "year",
+        "bin_ratio": round(ex.bin_ratio, 3), "issue_label": m.label, "issue_file": m.file,
+        "note": a.note, "analysis_notes": list(a.analysis_notes),
+    }
+
+
+def _ocr(pdf: bytes) -> str | None:
+    """docling + tesseract (isl) for an article without a usable text layer. Only scans reach it, and those stay in
+    review (analyze notes "ekkert textalag"), so import runs it only for a scan the user approved."""
+    return docling_ocr_pdf(pdf, timeout=900)
+
+
+def _work(item: tuple) -> tuple[str, dict | None, str | None]:
+    """Worker (a Pool process, or in-process with one worker): (key, pdf bytes, source, footnotes, printed_start)
+    → (key, the extracted text as a plain dict, None), or (key, None, error) when extraction raised."""
+    key, pdf, source, footnotes, printed_start = item
+    try:
+        ex = extract_article(pdf, source=source, footnotes=footnotes, ocr=_ocr,
+                             ocr_bin_threshold=C.OCR_BIN_RATIO_THRESHOLD, printed_start=printed_start)
+    except Exception as exc:  # noqa: BLE001 — one bad article must not stop its issue
+        return key, None, _error_text(exc)
+    return key, {"body": ex.body, "page_offsets": ex.page_offsets, "ocr_source": ex.ocr_source,
+                 "bin_ratio": ex.bin_ratio}, None
+
+
+@contextlib.contextmanager
+def _extracting(jobs: list[tuple], workers: int, pool=None):
+    """_work over `jobs`, results in job order: on the caller's pool, in-process for one worker or one job, else on
+    a Pool of this call's own that is shut down when the caller is done with the results."""
+    if pool is not None:
+        yield pool.imap(_work, jobs)
+    elif workers <= 1 or len(jobs) <= 1:
+        yield map(_work, jobs)
+    else:
+        with Pool(processes=min(workers, len(jobs))) as own:
+            yield own.imap(_work, jobs)
+
+
+async def _upsert_doc(session, doc: Document) -> uuid.UUID:
+    """INSERT or UPDATE by (source_id, external_id); returns the id of the row actually stored (the existing one
+    on conflict). Writes every field _extract_timarit fills (tests/test_import_upsert_parity.py). passage_hash is
+    reset: it hashes summary and body only, so changed page_offsets or lang would otherwise leave stale passages
+    (NULL is stale to backfill_passages.py, see passage_index.STALE_WHERE)."""
+    def _v(val):
+        # asyncpg serializes Python None to JSON null for JSONB columns; use sa_null() for SQL NULL
+        return sa_null() if val is None else val
+
+    values = {
+        "id": doc.id,
+        "source_id": doc.source_id,
+        "external_id": doc.external_id,
+        "url": _v(doc.url),
+        "raw_api_data": _v(doc.raw_api_data),
+        "case_number": _v(doc.case_number),
+        "document_date": _v(doc.document_date),
+        "court": _v(doc.court),
+        "verdict_type": _v(doc.verdict_type),
+        "instance_tier": _v(doc.instance_tier),
+        "case_type": _v(doc.case_type),
+        "plaintiffs": _v(doc.plaintiffs),
+        "defendants": _v(doc.defendants),
+        "keywords": _v(doc.keywords),
+        "summary": _v(doc.summary),
+        "body_text": _v(doc.body_text),
+        "lower_body_text": _v(doc.lower_body_text),
+        "volume": _v(doc.volume),
+        "issue": _v(doc.issue),
+        "page_start": _v(doc.page_start),
+        "page_end": _v(doc.page_end),
+        "lang": _v(doc.lang),
+        "page_offsets": _v(doc.page_offsets),
+        "journal_issue_id": _v(doc.journal_issue_id),
+        "verdict_filename": _v(doc.verdict_filename),
+        "validation_errors": _v(doc.validation_errors),
+    }
+    stmt = pg_insert(Document).values(**values)
+    update_cols = {k: v for k, v in values.items() if k not in ("id", "source_id", "external_id")}
+    # The court importers' rule for a value another process fills (spec §7.1 step 4): fill, never overwrite.
+    update_cols["case_type"] = func.coalesce(Document.case_type, stmt.excluded.case_type)
+    update_cols["passage_hash"] = sa_null()
+    update_cols["updated_at"] = func.now()
+    stmt = stmt.on_conflict_do_update(constraint="uq_doc_source_external", set_=update_cols).returning(Document.id)
+    return (await session.execute(stmt)).scalar_one()
+
+
+async def _issue_row(session, manifest_rel: str):
+    """(id, manifest_sha256) of the issue's journal_issues row, found by manifest_path (R4), or None."""
+    return (await session.execute(text(
+        "SELECT id, manifest_sha256 FROM journal_issues WHERE manifest_path = :p"), {"p": manifest_rel})).first()
+
+
+async def _stored_docs(session, source_id) -> list[tuple]:
+    """(external_id, journal_issue_id, verdict_filename) of every document the source already has."""
+    if source_id is None:
+        return []
+    rows = (await session.execute(
+        select(Document.external_id, Document.journal_issue_id, Document.verdict_filename)
+        .where(Document.source_id == source_id))).all()
+    return [tuple(r) for r in rows]
+
+
+async def _mark_issue_failed(session, manifest_rel: str, error: str) -> None:
+    await session.execute(text(
+        "UPDATE journal_issues SET status = 'failed', error = :error, updated_at = now() WHERE manifest_path = :p"),
+        {"error": error, "p": manifest_rel})
+
+
+def _blocked(m: IssueManifest) -> str | None:
+    """Why an approved/imported manifest must not be imported as it stands (Task 18, R37): its source file changed
+    after approval (sha256 alone cannot tell: pdf_pages may be stale), discovery found two container files for the
+    issue, or its issue PDF was never analysed."""
+    err = m.error or ""
+    if _CHANGED_AFTER_APPROVAL in err:
+        return "source_changed"
+    if _DISCOVERY_ERROR in err:
+        return "discovery_error"
+    if m.file and m.pages is None:
+        return "not_analysed"
+    return None
+
+
+def _issue_pdf_name(m: IssueManifest) -> str:
+    parts = ("x" if v is None else str(v).replace("/", "-") for v in (m.year, m.volume, m.issue))
+    return "_".join(parts) + ".pdf"
+
+
+def _import_note(a: ArticleEntry, note: str) -> None:
+    if note not in a.analysis_notes:
+        a.analysis_notes.append(note)
+
+
+def _dry(dry_run: bool, eid: str, what: str) -> None:
+    if dry_run:
+        print(f"  {eid:>26}  {what}")
+
+
+def _articles(n: int) -> str:
+    """'1 grein flutt' / '2 greinar fluttar' (21 takes the singular, 11 does not)."""
+    return f"{n} grein flutt" if n % 10 == 1 and n % 100 != 11 else f"{n} greinar fluttar"
+
+
+def _import_summary(counts: dict[str, int], orphans: list[str]) -> str | None:
+    """One line for the issue's `error` saying what of the manifest did not reach the database: articles that
+    failed, had no text or collided (an article without pdf_pages was approved as such and is not counted, unless
+    nothing at all was imported), and stored articles the manifest no longer has. None when there is nothing to say."""
+    missing = [(label, counts[k]) for k, label in _NOT_IMPORTED if counts.get(k)]
+    parts: list[str] = []
+    if not counts.get("imported"):
+        missing += [("engar síður", counts["skipped_no_pages"])] if counts.get("skipped_no_pages") else []
+        detail = ", ".join(f"{label} {n}" for label, n in missing) or "heftið hefur engar greinar"
+        parts.append(f"engin grein var flutt inn ({detail})")
+    elif missing:
+        n = sum(k for _, k in missing)
+        parts.append(f"{_articles(n)} ekki inn ({', '.join(f'{label} {k}' for label, k in missing)})")
+    if orphans:
+        more = f" o.fl. ({len(orphans)} alls)" if len(orphans) > _MAX_LISTED_ORPHANS else ""
+        parts.append("úreltar færslur: " + ", ".join(orphans[:_MAX_LISTED_ORPHANS]) + more)
+    if not parts:
+        return None
+    return _IMPORT_ERROR + "; ".join(parts) + (" — sjá analysis_notes" if missing else "")
+
+
+def _with_import_error(error: str | None, mine: str | None) -> str | None:
+    """`error` without an earlier import's part, plus `mine`; another stage's error stays where it was."""
+    kept = [part for part in (error or "").split(_ERROR_SEP) if part and not part.startswith(_IMPORT_ERROR)]
+    return _join_errors(*kept, mine)
+
+
+class _FileLog:
+    """The files one manifest's import writes, so that a failed commit can put the disk back as it was: the
+    previous content of each path (None: it did not exist) is remembered before its first write."""
+    def __init__(self) -> None:
+        self._before: dict[Path, bytes | None] = {}
+
+    def track(self, path: Path) -> Path:
+        if path not in self._before:
+            self._before[path] = path.read_bytes() if path.exists() else None
+        return path
+
+    def write(self, path: Path, data: bytes) -> None:
+        self.track(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+
+    def undo(self) -> None:
+        for path, old in self._before.items():
+            try:
+                if old is None:
+                    path.unlink(missing_ok=True)
+                else:
+                    path.write_bytes(old)
+            except OSError:
+                log.exception("could not undo %s", path)
+        self._before.clear()
+
+
+class _StopRun(Exception):
+    """A failure of the environment, not of one issue: the run stops instead of marking every remaining issue
+    failed (which would rewrite hundreds of git-tracked manifests). The message is the user's (Icelandic)."""
+
+
+# Lost connections: SQLAlchemy's own classes, an invalidated connection, asyncpg's connection errors (also when
+# SQLAlchemy wraps them), sockets. Anything else is judged by asking the database whether it still answers.
+_CONNECTION_ERRORS = (sa_exc.OperationalError, sa_exc.InterfaceError, sa_exc.DisconnectionError,
+                      asyncpg.PostgresConnectionError, asyncpg.InterfaceError, ConnectionError, TimeoutError)
+
+
+def _is_connection_error(exc: BaseException) -> bool:
+    seen: set[int] = set()
+    e: BaseException | None = exc
+    while e is not None and id(e) not in seen:
+        seen.add(id(e))
+        if isinstance(e, _CONNECTION_ERRORS) or (isinstance(e, sa_exc.DBAPIError) and e.connection_invalidated):
+            return True
+        e = e.__cause__ or getattr(e, "orig", None)
+    return False
+
+
+async def _session_alive(session) -> bool:
+    """Roll the session back and ask the database for SELECT 1; False when either fails (the connection is gone)."""
+    try:
+        await session.rollback()
+        await session.execute(text("SELECT 1"))
+        return True
+    except Exception:  # noqa: BLE001
+        log.exception("the database does not answer")
+        return False
+
+
+def _check_raw_dir(raw_dir: Path) -> None:
+    """RAW must never lie inside the read-only archive: refuse the whole run, not one issue after another."""
+    if Path(raw_dir).resolve().is_relative_to(DROP.resolve()):
+        raise SystemExit(f"import: RAW ({raw_dir}) er inni í safninu {DROP}, sem aldrei má skrifa í; lagaðu DATA_DIR.")
+
+
+async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry_run: bool, workers: int,
+                          pool=None, files: _FileLog | None = None) -> dict[str, int]:
+    """Import one issue (spec §7.1 step 4) and return its counts. Only an `approved` manifest, or an `imported` one
+    whose file differs from the version journal_issues recorded, is imported; a manifest the guards block
+    (_blocked), or whose issue PDF no longer has the sha256 it was analysed with, is not.
+
+    Every article gets its id from assign_external_ids (R28). An article without pdf_pages, whose id another
+    issue already holds (never overwritten), whose PDF cannot be cut or read, or that yields no text (R19) is not
+    imported and says why in its analysis_notes. The others are extracted (`workers` processes, or `pool`), built
+    by the journal extractor, validated and upserted under a verdict_filename that never reuses another issue's
+    name. The manifest is then saved as `imported` and journal_issues updated, with `error` saying what did not
+    reach the database (_import_summary); when no article could be imported the issue is `failed` instead.
+
+    Files come last, after all database work of the manifest: markdown and the article PDF of every imported
+    article, and the issue PDF at raw/{source}/hefti/{year}_{volume}_{issue}.pdf. A failure before that leaves the
+    disk untouched; what is written is recorded in `files`, so the caller can undo it when its commit fails.
+
+    With `dry_run` the database is only read and nothing is written anywhere; every article is printed."""
+    m = load_manifest(path)
+    if m.status not in _FROZEN:
+        return {"not_approved": 1}
+    blocked = _blocked(m)
+    if blocked:
+        log.warning("%s not imported (%s): %s", path.name, blocked, m.error or "issue PDF not analysed")
+        return {blocked: 1}
+    manifest_rel = _manifest_rel(path)
+    row = await _issue_row(session, manifest_rel)
+    if row is None and not dry_run:
+        await upsert_issue_row(session, m, manifest_rel)
+        row = await _issue_row(session, manifest_rel)
+    issue_id = uuid.UUID(str(row[0])) if row else None
+    if m.status == "imported" and row is not None and row[1] == manifest_sha256(path):
+        return {"unchanged": 1}
+    if not dry_run:
+        _check_raw_dir(raw_dir)
+    files = files if files is not None else _FileLog()
+
+    cfg = get_config(m.source)
+    cache: dict[str, bytes] = {}
+
+    def read(rel: str) -> bytes:
+        if rel not in cache:
+            cache[rel] = read_bytes(rel)
+        return cache[rel]
+
+    issue_bytes = read(m.file) if m.file else None
+    issue_sha = sha256_bytes(issue_bytes) if issue_bytes is not None else None
+    if issue_sha is not None and m.sha256 and issue_sha != m.sha256:
+        log.warning("%s not imported: %s changed since it was analysed (run discover and analyze)", path.name, m.file)
+        return {"source_changed": 1}
+
+    if dry_run:
+        print(f"{m.label}  ({path.name})")
+        source_id = (await session.execute(select(Source.id).where(Source.short_name == m.source))).scalar_one_or_none()
+    else:
+        source_id = await _source_id(session, m.source)
+    stored = await _stored_docs(session, source_id)
+    owner = {eid: jid for eid, jid, _ in stored}
+    taken = {vf for _, jid, vf in stored if vf and (issue_id is None or jid != issue_id)}
+
+    counts: dict[str, int] = defaultdict(int)
+    ids = assign_external_ids(m)
+    by_id = dict(zip(ids, m.articles))
+    for a in m.articles:
+        a.analysis_notes = [n for n in a.analysis_notes if not _IMPORT_NOTE.fullmatch(n)]
+    orphans = sorted(eid for eid, jid, _ in stored if issue_id is not None and jid == issue_id and eid not in by_id)
+    if orphans:
+        counts["orphaned"] = len(orphans)
+        log.warning("%s: stored articles no longer in the manifest (left in place): %s", path.name, ", ".join(orphans))
+        _dry(dry_run, "", f"eldri greinar heftisins sem eru ekki lengur í skránni: {', '.join(orphans)}")
+
+    pdfs: dict[str, bytes] = {}
+    stored_docs: list[tuple[Document, str]] = []
+    jobs: list[tuple] = []
+    for eid, a in by_id.items():
+        if a.pdf_pages is None:
+            counts["skipped_no_pages"] += 1
+            _import_note(a, _NOTE_NO_PAGES)
+            _dry(dry_run, eid, "sleppt: engar PDF-síður")
+            continue
+        if eid in owner and owner[eid] != issue_id:
+            counts["collision"] += 1
+            _import_note(a, _NOTE_COLLISION.format(eid))
+            _dry(dry_run, eid, "sleppt: auðkennið er þegar til í öðru hefti")
+            continue
+        try:
+            pdfs[eid] = article_pdf_bytes(m, a, read)
+        except Exception as exc:  # noqa: BLE001 — a bad page range or an unreadable article file fails that article
+            counts["failed"] += 1
+            _import_note(a, _NOTE_FAILED + _error_text(exc))
+            _dry(dry_run, eid, f"mistókst: {_error_text(exc)}")
+            continue
+        printed_start = a.page_start if a.checks.get("printed_page_match") else None      # R17
+        jobs.append((eid, pdfs[eid], m.source, cfg.has_footnotes, printed_start))
+
+    with _extracting(jobs, workers, pool) as results:
+        for eid, extracted, err in results:
+            a = by_id[eid]
+            if err:
+                counts["failed"] += 1
+                _import_note(a, _NOTE_FAILED + err)
+                _dry(dry_run, eid, f"mistókst: {err}")
+                continue
+            ex = ExtractedText(extracted["body"], extracted["page_offsets"], extracted["ocr_source"],
+                               extracted["bin_ratio"])
+            if ex.ocr_source == "none" or not ex.body.strip():                                     # R19
+                counts["no_text"] += 1
+                _import_note(a, _NOTE_NO_TEXT)
+                _dry(dry_run, eid, "sleppt: enginn texti — þarf OCR")
+                continue
+            fields = Extractor(cfg).extract(build_article_raw(m, a, ex, a.source_file or m.file))
+            doc = Document(id=uuid.uuid4(), source_id=source_id, external_id=eid, url=None,
+                           journal_issue_id=issue_id, **fields)
+            doc.validation_errors = validate(doc, cfg) or None
+            vf = unique_verdict_filename(verdict_filename(doc, cfg), taken)
+            taken.add(vf)
+            doc.verdict_filename = vf
+            counts["imported"] += 1
+            if dry_run:
+                errors = "; ".join(f"{e['field']}: {e['message']}" for e in doc.validation_errors or [])
+                _dry(True, eid, f"{vf}  {len(doc.body_text or '')} stafir" + (f"  villur: {errors}" if errors else ""))
+                continue
+            await _upsert_doc(session, doc)
+            stored_docs.append((doc, vf))
+
+    summary = _import_summary(counts, orphans)
+    if dry_run:
+        if summary:
+            print(f"  → {summary}" + ("" if counts["imported"] else "  (heftið fengi stöðuna failed)"))
+        return dict(counts)
+
+    if summary:
+        log.warning("%s: %s", path.name, summary)
+    m.error = _with_import_error(m.error, summary)
+    if not counts["imported"]:
+        m.status = "failed"
+        save_manifest(m, path)
+        await _mark_issue_failed(session, manifest_rel, m.error)
+        counts["failed_issue"] += 1
+        return dict(counts)
+
+    issue_dest = issue_rel = None
+    if issue_bytes is not None:
+        issue_dest = Path(raw_dir) / m.source / "hefti" / _issue_pdf_name(m)
+        issue_rel = str(issue_dest.relative_to(Path(raw_dir).parent))  # relative to DATA_DIR (raw_dir = DATA_DIR/raw)
+        m.sha256 = issue_sha
+    m.status = "imported"
+    save_manifest(m, path)
+    await session.execute(text("""
+        UPDATE journal_issues SET status = 'imported', manifest_sha256 = :sha, file_path = coalesce(:fp, file_path),
+               sha256 = coalesce(:s, sha256), page_count = coalesce(:pc, page_count), error = :error,
+               updated_at = now()
+        WHERE id = :id"""), {"sha": manifest_sha256(path), "fp": issue_rel, "s": m.sha256, "pc": m.pages,
+                             "error": m.error, "id": issue_id})
+
+    # Files last (see the docstring): every row and the issue's UPDATE went through. The caller commits, and undoes
+    # these writes through `files` if that fails.
+    for doc, vf in stored_docs:
+        files.track(cfg.markdown_path(vf))
+        write_markdown(doc, cfg, vf=vf)
+        files.write(cfg.pdf_path(vf), pdfs[doc.external_id])
+    if issue_dest is not None and not (issue_dest.exists() and sha256_bytes(issue_dest.read_bytes()) == issue_sha):
+        files.write(issue_dest, issue_bytes)
+    return dict(counts)
+
+
+def _read_drop(rel: str) -> bytes:
+    """A file of the archive (read only). An OSError fails the issue, not the run (unlike discover's reader)."""
+    return (DROP / rel).read_bytes()
+
+
+async def _import_one(path: Path, session, args, pool) -> tuple[dict[str, int], bool]:
+    """import_manifest for one manifest, committed on its own; returns (counts, whether it raised).
+
+    When it raises, the files it wrote are undone and the session is rolled back. A lost database connection (by
+    the exception's type, or because the database no longer answers SELECT 1) raises _StopRun: the issue is not to
+    blame and is left as it was. Any other error is the issue's: it gets status `failed` with the error (manifest
+    and journal_issues, committed) and the run goes on. A manifest that does not load is left as it is (it is the
+    user's hand edit)."""
+    files = _FileLog()
+    try:
+        counts = await import_manifest(path, session=session, read_bytes=_read_drop,
+                                       raw_dir=Path(sources_config.RAW_DIR), dry_run=args.dry_run,
+                                       workers=args.workers, pool=pool, files=files)
+        if not args.dry_run:
+            await session.commit()
+        return counts, False
+    except Exception as exc:  # noqa: BLE001 — one bad issue must not stop the run
+        files.undo()
+        log.exception("import failed for %s", path.name)
+        if _is_connection_error(exc) or not await _session_alive(session):
+            raise _StopRun(f"tengingin við gagnagrunninn brást við {path.name} ({_error_text(exc)}); "
+                           "heftið var ekki merkt failed og ekkert hefti á eftir því var reynt") from exc
+        if args.dry_run:
+            print(f"  ✗ {path.name}: {_error_text(exc)}")
+            return {"failed_issue": 1}, True
+        try:
+            m = load_manifest(path)
+        except (ValueError, OSError):
+            return {"failed_issue": 1}, True
+        m.status, m.error = "failed", _with_import_error(m.error, _error_text(exc, _IMPORT_ERROR))
+        save_manifest(m, path)
+        try:
+            await _mark_issue_failed(session, _manifest_rel(path), m.error)
+            await session.commit()
+        except Exception:  # noqa: BLE001
+            await session.rollback()
+            log.exception("journal_issues update failed for %s", path.name)
+        return {"failed_issue": 1}, True
+
+
 async def cmd_import(args) -> None:
-    raise SystemExit("import: sjá Task 20")
+    paths = _select_manifests(args)
+    if not paths:
+        print("Engar yfirlitsskrár fundust (keyrðu discover og analyze fyrst eða rýmkaðu --source/--issue).")
+        return
+    if not args.dry_run:
+        _check_raw_dir(Path(sources_config.RAW_DIR))
+    totals: dict[str, int] = defaultdict(int)
+    done, in_a_row, stop = 0, 0, None
+    with contextlib.ExitStack() as stack:
+        # One pool for the whole run, started before the database connects (nothing to inherit when forking).
+        pool = stack.enter_context(Pool(processes=args.workers)) if args.workers > 1 else None
+        await _db.init_db(create_tables=False)
+        try:
+            async with _db.AsyncSessionLocal() as session:
+                for path in paths:
+                    try:
+                        counts, raised = await _import_one(path, session, args, pool)
+                    except _StopRun as e:
+                        stop = str(e)
+                        break
+                    done += 1
+                    log.info("%s → %s", path.stem, counts)
+                    for k, n in counts.items():
+                        totals[k] += n
+                    in_a_row = in_a_row + 1 if raised else 0
+                    if in_a_row >= _MAX_FAILURES_IN_A_ROW:
+                        stop = (f"{in_a_row} hefti í röð mistókust — líklega villa í umhverfinu (diskur, RAW, "
+                                "gagnagrunnur) frekar en í heftunum sjálfum; sjá loggskrána")
+                        break
+        finally:
+            await _db.dispose_db()
+    print(f"import: {done} hefti" if done == len(paths) else f"import: {done} af {len(paths)} hefti")
+    for k, n in sorted(totals.items()):
+        print(f"  {_COUNT_LABELS.get(k, k):30s} {n:5d}")
+    if args.dry_run:
+        print("Þurrkeyrsla: ekkert var skrifað (engin skjöl, engar skrár, ekkert í gagnagrunn).")
+    elif totals.get("imported"):
+        print("Næst: keyrðu scripts/backfill_passages.py og scripts/build_citations.py.")
+    if stop:
+        raise SystemExit(f"import stöðvað: {stop}")
 
 
 def _setup_logging(command: str) -> list[logging.Handler]:

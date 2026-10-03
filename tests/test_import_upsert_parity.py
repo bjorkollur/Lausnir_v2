@@ -26,6 +26,10 @@ SOURCES = [
     ("heradsdomstolar", "_extract_heradsdomstolar"),
 ]
 
+# Journals: scripts/import_timarit.py::_upsert_doc must write every field
+# _extract_timarit returns (same guard, new importer).
+JOURNALS = [("timarit", "_extract_timarit")]
+
 
 def _string_keys(node: ast.Dict) -> set[str]:
     return {
@@ -62,7 +66,7 @@ def _upsert_columns(short_name: str) -> set[str]:
     raise AssertionError(f"import_{short_name}.py::_upsert_doc has no `values` dict")
 
 
-@pytest.mark.parametrize("short_name,extract_fn", SOURCES)
+@pytest.mark.parametrize("short_name,extract_fn", SOURCES + JOURNALS)
 def test_upsert_writes_every_extracted_field(short_name: str, extract_fn: str):
     missing = _extractor_fields(extract_fn) - _upsert_columns(short_name)
     assert not missing, (
