@@ -57,6 +57,12 @@ _FROZEN = ("approved", "imported")           # statuses only the user or import 
 _LEITIR_SOURCES = frozenset({"timarit_logfraedinga"})
 NO_TEXT_LAYER = "ekkert textalag — þarf OCR"
 NO_ARTICLE_LIST = "enginn greinalisti: efnisyfirlit fannst ekki eða var ólæsilegt"
+# Notes that analysis writes when it fell back to a formula (and forced the issue to review); the pilot report reads
+# them back from analysis_notes, so they are named here, not repeated there.
+FORMULA_VOLUME_NOTE = "árgangur reiknaður út frá ári"
+FORMULA_YEAR_NOTE = "ár reiknað út frá"
+# A note starting with one of these means analysis sent the issue to review whatever the scores say.
+FORCED_REVIEW_NOTES = (NO_TEXT_LAYER, FORMULA_VOLUME_NOTE, FORMULA_YEAR_NOTE)
 _LLM_TOC_PAGES = 4                            # pages sent to Claude when the TOC parser finds nothing
 _BIN_SAMPLE_PAGES = 20                        # pages (container) or files (article folder) behind page_map["bin_ratio"]
 
@@ -242,7 +248,7 @@ def _fallback_volume(m: IssueManifest, cfg: SourceConfig, run: _Run) -> None:
     else:
         return
     m.volume = v
-    run.flag(f"árgangur reiknaður út frá ári: {v}. árg. ({m.year}); ekkert prentað árgangsnúmer fannst", review=True)
+    run.flag(f"{FORMULA_VOLUME_NOTE}: {v}. árg. ({m.year}); ekkert prentað árgangsnúmer fannst", review=True)
 
 
 def _printed_issue_volume_year(pages: list[str]) -> tuple[str | None, int | None, int | None]:
@@ -576,7 +582,7 @@ def _sogs_articles(docs: list[_Doc], m: IssueManifest, cfg: SourceConfig, run: _
         m.year = year
     elif m.year is None and cfg.volume_base_year is not None and m.volume is not None:
         m.year = cfg.volume_base_year + m.volume - 1
-        run.flag(f"ár reiknað út frá {m.volume}. árg.: {m.year}; ekkert prentað ár fannst", review=True)
+        run.flag(f"{FORMULA_YEAR_NOTE} {m.volume}. árg.: {m.year}; ekkert prentað ár fannst", review=True)
     return entries
 
 
