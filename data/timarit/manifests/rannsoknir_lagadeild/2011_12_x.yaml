@@ -5,12 +5,22 @@ issue: null
 label: Rannsóknir í félagsvísindum, 12. árg. (2011)
 file: Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2011 - XII.pdf
 sha256: 21327a054c15b7efb96608066db92b1d31b0e4ba40ddd001fff718124d45a20d
-pages: null
+pages: 67
 year_end: null
-page_map: {}
-status: pending
+page_map:
+  offset: -4
+  quality: 0.91
+  runner_up_share: 0.0
+  pages: 67
+  segments:
+  - - 5
+    - 65
+    - -4
+  contested: []
+  bin_ratio: 0.967
+status: review
 confidence: 0.0
-error: null
+error: 'enginn greinalisti: efnisyfirlit fannst ekki eða var ólæsilegt'
 files:
 - Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2011 - XII.pdf
 articles: []

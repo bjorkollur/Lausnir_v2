@@ -1,16 +1,149 @@
 source: timarit_logfraedinga
 year: 2024
-volume: null
+volume: 74
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2024)
+label: Tímarit lögfræðinga, 74. árg. 1. hefti (2024)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2024_01.pdf
 sha256: 12683cac8f18a4be26f3944c381334f059ea9da02c8caf421a08a8f21cd78bdc
-pages: null
+pages: 152
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.954
+  runner_up_share: 0.0
+  pages: 152
+  segments:
+  - - 2
+    - 148
+    - -1
+  contested: []
+  bin_ratio: 0.944
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2024_01.pdf
-articles: []
+articles:
+- title: Flóttamannaréttur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 2
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skilyrði og viðmið atvinnurekstrarbanns
+  authors:
+  - Ása Ólafsdóttir
+  - Gunnar Atli Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 61
+  issue: null
+  pdf_pages:
+  - 10
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vernd mannréttinda samkvæmt EES-samningnum
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 63
+  page_end: 100
+  issue: null
+  pdf_pages:
+  - 64
+  - 101
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Takmörkun á frádrætti vaxtagjalda - skuldbindingar samkvæmt EES-rétti
+  authors:
+  - Vigdís Tinna Sigurvaldadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 101
+  page_end: 142
+  issue: null
+  pdf_pages:
+  - 102
+  - 151
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

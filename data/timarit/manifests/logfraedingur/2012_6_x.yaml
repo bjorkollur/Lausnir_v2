@@ -5,12 +5,237 @@ issue: null
 label: Lögfræðingur, 6. árg. (2012)
 file: Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 6 arg 2012.pdf
 sha256: 28de321d0d350ff0fa28774e932464bf90c002dcb5a79310402c57e67ef86080
-pages: null
+pages: 97
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.918
+  runner_up_share: 0.022
+  pages: 97
+  segments:
+  - - 2
+    - 94
+    - 0
+  contested: []
+  bin_ratio: 0.946
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 6 arg 2012.pdf
-articles: []
+articles:
+- title: Störf Þemis síðastliðið ár..................00.ee..00 eeen
+  authors:
+  - Kolbrún Ríkharðsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 6
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 6
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vernd kjarasamninga, hver eru lágmarkskjör?..............0000000000ee
+  authors:
+  - Andrés Már Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 10
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 10
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samræmist bann við skipulögðum glæpasamtökum gildandi mannéttindum á Íslandi? .................eeeeeeeeeezeeneneneneeeereeenenenenenrrrrrrnna
+  authors:
+  - Bjarni Sigursteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 38
+  issue: null
+  pdf_pages:
+  - 23
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: The President of the Republic in the Italian Constitution eee
+  authors:
+  - Giorgio Baruchello
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 48
+  issue: null
+  pdf_pages:
+  - 39
+  - 48
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnskipuleg staða þjóðaréttar að íslenskum lögum
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 72
+  issue: null
+  pdf_pages:
+  - 49
+  - 72
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: STEN A KS(0) 100 14 RA
+  authors:
+  - Þorsteinn Hjaltason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 88
+  issue: null
+  pdf_pages:
+  - 73
+  - 88
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögfræðingatal.......................0000000eeeeee err nr ret sssaannnn rett r rss r err
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 89
+  page_end: 95
+  issue: null
+  pdf_pages:
+  - 89
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

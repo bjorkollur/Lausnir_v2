@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2008
 volume: 4
 issue: null
-label: Stjórnmál og stjórnsýsla, 4. árg.
+label: Stjórnmál og stjórnsýsla, 4. árg. (2008)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.757
+status: review
+confidence: 0.35
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/113-132_Private_Sector_Investments_from_Small_St.pdf
@@ -22,4 +23,320 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/5-32_The_position_of_the_political_parties_be.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/65-88_Strategic_management_of_non-profit_organ.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/89-111_Democracy.pdf
-articles: []
+articles:
+- title: Markaðsfræðilegt sjónarhorn á stöðu stjórnmálaflokka fyrir alþingiskosningarnar 2007
+  authors:
+  - Þórhallur Guðlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 6
+  page_end: 31
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/5-32_The_position_of_the_political_parties_be.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 5–32, PDF-skjalið bls. 6–31
+- title: Vefþjónusta ríkisins
+  authors:
+  - Haukur Arnþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 33
+  page_end: 62
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/33-64_The_Icelandic_states_online_web_services.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 33–64, PDF-skjalið bls. 33–62
+- title: Stefnumiðuð áætlanagerð félagasamtaka
+  authors:
+  - Ómar H. Kristmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 87
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/65-88_Strategic_management_of_non-profit_organ.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 65–88, PDF-skjalið bls. 65–87
+- title: Lýðræði Drög að greiningu
+  authors:
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 89
+  page_end: 111
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/89-111_Democracy.pdf
+  note: ''
+  analysis_notes: []
+- title: Private Sector Investments from Small St
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 113
+  page_end: 131
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 18
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/113-132_Private_Sector_Investments_from_Small_St.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 113–132, PDF-skjalið bls. 113–131
+- title: Öryggissjálfsmynd Íslands Umræða um varnarmála- og almannavarnalög á Alþingi vorið 2008
+  authors:
+  - Silja Bára Ómarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 156
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/133-158_Icelandic_Security_Identity.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 133–158, PDF-skjalið bls. 133–156
+- title: Viðhorf dómara til fyrningar sakar í kynferðisbrotum gegn börnum
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 159
+  page_end: 180
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/159-180_Statutes_of_Limitation_for_Sexual_Offens.pdf
+  note: ''
+  analysis_notes: []
+- title: Vinnulöggjöfin (lög nr. 80/1938) í 70 ár
+  authors:
+  - Gylfi Dalmann Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 181
+  page_end: 204
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/181-204_Act_on_Trade_Unions_and_Industrial_Dispu.pdf
+  note: ''
+  analysis_notes: []
+- title: Framboð eða eftirspurn? Árangur kvenna í prófkjörum flokkanna
+  authors:
+  - Ásdís Jóna Sigurjónsdóttir
+  - Indriði H. Indriðason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 205
+  page_end: 228
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/205-230_Supply_or_demand__Women's_success_in_par.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 205–230, PDF-skjalið bls. 205–228
+- title: Íslenska efnahagsundrið Frá hagsæld til frjálshyggju og fjármálahruns
+  authors:
+  - Stefán Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 231
+  page_end: 255
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/231-256_The_Icelandic_Economic_Miracle.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 231–256, PDF-skjalið bls. 231–255

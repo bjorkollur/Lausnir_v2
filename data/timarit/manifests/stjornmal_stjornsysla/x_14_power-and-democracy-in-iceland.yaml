@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2018
 volume: 14
 issue: power-and-democracy-in-iceland
-label: Stjórnmál og stjórnsýsla, 14. árg.
+label: Stjórnmál og stjórnsýsla, 14. árg. (2018)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.157
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/1-34_The_Icelandic_power_structure_revisited.pdf
@@ -22,4 +23,321 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/35-60_Icelandic_politics_in_light_of_normative.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/61-82_A_small_state_in_world_politics.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/81-100_Autonomy_or_integration.pdf
-articles: []
+articles:
+- title: The Icelandic power structure revisited
+  authors:
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 34
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 33
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/1-34_The_Icelandic_power_structure_revisited.pdf
+  note: ''
+  analysis_notes: []
+- title: Icelandic politics in light of normative models of democracy
+  authors:
+  - Vilhjálmur Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 35
+  page_end: 60
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/35-60_Icelandic_politics_in_light_of_normative.pdf
+  note: ''
+  analysis_notes: []
+- title: 'A small state in world politics: Iceland’s search for shelter'
+  authors:
+  - Baldur Thorhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 82
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/61-82_A_small_state_in_world_politics.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Autonomy or integration: Historical analysis of the debate on the purpose of Icelandic local self-government'
+  authors:
+  - Eva Marín Hlynsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 100
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/81-100_Autonomy_or_integration.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 81–100, PDF-skjalið bls. 83–100
+- title: Political cleavages, party voter linkages and the impact of voters’ socio-economic status on vote-choice in Iceland,
+    1983-2016/17
+  authors:
+  - Eva H. Önnudóttir
+  - Ólafur Þ. Harðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 101
+  page_end: 130
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 29
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/101-130_Political_cleavages,_party_voter_linkage.pdf
+  note: ''
+  analysis_notes: []
+- title: 'The politics of diversity: Social and political integration of immigrants in Iceland'
+  authors:
+  - Þorgerður Einarsdóttir
+  - Guðbjörg Linda Rafnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 131
+  page_end: 148
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/131-148_The_politics_of_diversity.pdf
+  note: ''
+  analysis_notes: []
+- title: The role of parliament under ministerial government
+  authors:
+  - Indriði H. Indriðason
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 149
+  page_end: 166
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/149-166_The_role_of_parliament_under_ministerial.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Public committees and corporatism: How does Iceland compare to Scandinavia?'
+  authors:
+  - Stefanía Óskarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 167
+  page_end: 188
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/167-188_Public_committees_and_corporatism.pdf
+  note: ''
+  analysis_notes: []
+- title: The Icelandic news media in times of crisis and change
+  authors:
+  - Valgerður Jóhannsdóttir
+  - Jón Gunnar Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 189
+  page_end: 210
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/189-210_The_Icelandic_news_media_in_times_of.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Political trust in Iceland: Performance or politics?'
+  authors:
+  - Sjöfn Vilhelmsdóttir
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 211
+  page_end: 234
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol14 Power and democracy in Iceland/211-234_Political_trust_in_Iceland.pdf
+  note: ''
+  analysis_notes: []

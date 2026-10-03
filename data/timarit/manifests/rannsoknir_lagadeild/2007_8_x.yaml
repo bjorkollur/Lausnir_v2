@@ -5,12 +5,266 @@ issue: null
 label: Rannsóknir í félagsvísindum, 8. árg. (2007)
 file: Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2007 - VIII.pdf
 sha256: f82ba126227366b4651fbb8d378e9f0e304164bed74282670359072383fbeb6c
-pages: null
+pages: 164
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.915
+  runner_up_share: 0.0
+  pages: 164
+  segments:
+  - - 9
+    - 163
+    - 1
+  contested: []
+  bin_ratio: 0.964
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2007 - VIII.pdf
-articles: []
+articles:
+- title: Höfundalisti
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 6
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Formáli
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 8
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um eignarhugtakið í Landabrigðisþætti Grágásar
+  authors:
+  - Aagot Vigdís Óskarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 10
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ákvörðun miskabóta í ærumeiðingamálum
+  authors:
+  - Auður Björg Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 58
+  issue: null
+  pdf_pages:
+  - 27
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um sameign íslensku þjóðarinnar
+  authors:
+  - Helgi Áss Grétarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 59
+  page_end: 108
+  issue: null
+  pdf_pages:
+  - 58
+  - 107
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Öryggisráðið og Alþjóðadómstóllinn - fyrirsjáanlegur stjórnskipunarvandi eða ,,stormur í vatnsglasi?“
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 109
+  page_end: 127
+  issue: null
+  pdf_pages:
+  - 108
+  - 126
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Takmörk markmiðsskýringar – hugleiðingar um hrd. 1993, bls. 2230 (Helga Kress)
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 128
+  page_end: 147
+  issue: null
+  pdf_pages:
+  - 127
+  - 146
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Landamerkjabréf í þjóðlendumálum
+  authors:
+  - Sif Guðjónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 148
+  page_end: 164
+  issue: null
+  pdf_pages:
+  - 147
+  - 163
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

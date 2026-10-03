@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.849
+status: review
+confidence: 0.15
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Vefrit/Breytt landslag á greiðsluþjónustumarkaði.pdf
@@ -54,4 +55,1235 @@ files:
   hryðjuverka.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Vefrit/Áhrif innleiðingar þriðja orkupakka ESB í íslenskan rétt.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Vefrit/Áhrif nauðgunarmýta á íslenska dómaframkvæmd í nauðgunarmálum.pdf
-articles: []
+articles:
+- title: Er dómstólum heimilt að breyta stjórnvaldsákvörðunum með íþyngjandi hætti
+  authors:
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Er dómstólum heimilt að breyta stjórnvaldsákvörðunum með íþyngjandi
+    hætti.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Fjártækni og löggjöfin
+  authors:
+  - Sigvaldi Fannar Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Fjártækni og löggjöfin.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Framlagning nýrra sönnunargagna við málskot
+  authors:
+  - Stefán A. Svensson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Framlagning nýrra sönnunargagna við málskot.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Frjálsir fjármagnsflutningar og fasteignakaup
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Frjálsir fjármagnsflutningar og fasteignakaup.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Hugleiðing um konur á dómarabekk í kjölfar andláts Ruth Bader Ginsburg
+  authors:
+  - María Rún Bjarnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Hugleiðing um konur á dómarabekk í kjölfar andláts Ruth Bader Ginsburg.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Hugtakid Nauðgun
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Hugtakid Nauðgun.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Innlit í dóm Evrópudómstólsins í máli C-578:16
+  authors:
+  - Ómar Berg Rúnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Innlit í dóm Evrópudómstólsins í máli C-578:16.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Kynbundið ofbeldi í nánum samböndum
+  authors:
+  - Ingibjörg Ruth Gulin
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Kynbundið ofbeldi í nánum samböndum.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Nokkrar athugasemdir um uppruna tvíeðliskenningarinnar í dómaframkvæmd Hæstaréttar
+  authors:
+  - Bjarni Má Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Nokkrar athugasemdir um uppruna tvíeðliskenningarinnar í dómaframkvæmd
+    Hæstaréttar.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Nokkur orð um skaðabótarétt þrotabús gagnvart hluthöfum og öðrum tengdum aðilum
+  authors:
+  - Diljá Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Nokkur orð um skaðabótarétt þrotabús gagnvart hluthöfum og öðrum tengdum
+    aðilum.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Notkun innherjaupplýsinga er forsenda innherjasvika
+  authors:
+  - Andri Fannar Bergþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Notkun innherjaupplýsinga er forsenda innherjasvika.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Nýleg dómaframkvæmd MDE um netmiðla
+  authors:
+  - Eiríkur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Nýleg dómaframkvæmd MDE um netmiðla.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Samningsfrelsið og skerðing þess
+  authors:
+  - Ása Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Samningsfrelsið og skerðing þess.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Samningur Sameinuðu þjóðanna um réttindi fatlaðs fólks
+  authors:
+  - Brynhildur G. Flóvenz
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Samningur Sameinuðu þjóðanna um réttindi fatlaðs fólks.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Samningur um úthafsveiðar
+  authors:
+  - Arnór Snæbjörnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.15
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Samningur um úthafsveiðar.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Slit fyrningar eftir lok gjaldþrotaskipta
+  authors:
+  - Diljá Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Slit fyrningar eftir lok gjaldþrotaskipta.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Um tilkynningarskyldu lögmanna í tengslum við aðgerðir gegn peningaþvætti og fjármögnun hryðjuverka
+  authors:
+  - Þórir Helgi Sigvaldason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Um tilkynningarskyldu lögmanna í tengslum við aðgerðir gegn peningaþvætti
+    og fjármögnun hryðjuverka.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Áhrif nauðgunarmýta á íslenska dómaframkvæmd í nauðgunarmálum
+  authors:
+  - Eva Huld Ívarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Áhrif nauðgunarmýta á íslenska dómaframkvæmd í nauðgunarmálum.pdf
+  note: ''
+  analysis_notes:
+  - birtingardagur fannst ekki á fyrstu síðu
+- title: Getur Norður-Kórea löglega beitt kjarnavopnum
+  authors:
+  - Davíð Örn Sveinbjörnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: '2017-11-08'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Getur Norður-Kórea löglega beitt kjarnavopnum.pdf
+  note: ''
+  analysis_notes: []
+- title: Framkvæmd skráningar EES-launþega hér á landi
+  authors:
+  - Bjarnveig Eiríksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: '2017-11-28'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Framkvæmd skráningar EES-launþega hér á landi.pdf
+  note: ''
+  analysis_notes: []
+- title: Meiðyrði á samfélagsmiðli
+  authors:
+  - María Rún Bjarnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: '2017-12-31'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Meiðyrði á samfélagsmiðli.pdf
+  note: ''
+  analysis_notes: []
+- title: Breytt landslag á greiðsluþjónustumarkaði
+  authors:
+  - Kolbrún Sara Másdóttir
+  - Thelma Christel Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: '2018-01-29'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Breytt landslag á greiðsluþjónustumarkaði.pdf
+  note: ''
+  analysis_notes: []
+- title: Skuldajöfnuður að EES-rétti
+  authors:
+  - Stefán A. Svensson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: '2018-02-07'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Skuldajöfnuður að EES-rétti.pdf
+  note: ''
+  analysis_notes: []
+- title: Gildissvið laga nr. 111:2016 um stuðning til kaupa á fyrstu íbúð
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: '2018-03-21'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Gildissvið laga nr. 111:2016 um stuðning til kaupa á fyrstu íbúð.pdf
+  note: ''
+  analysis_notes: []
+- title: EFTA-dómstóllinn í ljósi lýðræðishalla
+  authors:
+  - Eyvindur G. Gunnarsson
+  - Stefán Má Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: '2018-04-10'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/EFTA-dómstóllinn í ljósi lýðræðishalla.pdf
+  note: ''
+  analysis_notes: []
+- title: Mannréttindasamningar og túlkun laga
+  authors:
+  - Kári Hólmar Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: '2018-05-17'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Mannréttindasamningar og túlkun laga.pdf
+  note: ''
+  analysis_notes: []
+- title: Áhrif innleiðingar þriðja orkupakka ESB í íslenskan rétt
+  authors:
+  - Ragna Árnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: '2018-07-14'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Áhrif innleiðingar þriðja orkupakka ESB í íslenskan rétt.pdf
+  note: ''
+  analysis_notes: []
+- title: EFTA-dómstóllinn og lýðræðishalli
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: '2018-08-20'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/EFTA-dómstóllinn og lýðræðishalli.pdf
+  note: ''
+  analysis_notes: []
+- title: Lögbann á fjölmiðlaumfjöllun
+  authors:
+  - Halldóra Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: '2019-03-22'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Lögbann á fjölmiðlaumfjöllun.pdf
+  note: ''
+  analysis_notes: []
+- title: Um beitingu 53. gr. EES-samningsins íslenskum rétti
+  authors:
+  - Peter Dalmay
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: '2021-05-08'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Um beitingu 53. gr. EES-samningsins íslenskum rétti.pdf
+  note: ''
+  analysis_notes: []
+- title: Eru almenningar stöðuvatna þjóðlendur
+  authors:
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: '2021-06-27'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Eru almenningar stöðuvatna þjóðlendur.pdf
+  note: ''
+  analysis_notes: []
+- title: Staðgöngumæðrun milli landa
+  authors:
+  - Hrefna Friðriksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: '2021-09-02'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Staðgöngumæðrun milli landa.pdf
+  note: ''
+  analysis_notes: []
+- title: Niðurstaða Alþingis um gildi alþingiskosninga 2021
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: '2021-11-29'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Niðurstaða Alþingis um gildi alþingiskosninga 2021.pdf
+  note: ''
+  analysis_notes: []
+- title: Um málsmeðferð vegna breytinga á fasteignaskráningu
+  authors:
+  - Þorvaldur Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: '2021-12-30'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Um málsmeðferð vegna breytinga á fasteignaskráningu.pdf
+  note: ''
+  analysis_notes: []
+- title: Loftslagsváin og dómstólar
+  authors:
+  - Kári Hólmar Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: '2022-01-21'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Loftslagsváin og dómstólar.pdf
+  note: ''
+  analysis_notes: []
+- title: Improving the Major Questions Doctrine in US Constitutional Law
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: '2022-09-16'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Improving the Major Questions Doctrine in US Constitutional Law.pdf
+  note: ''
+  analysis_notes: []
+- title: Samtal Hæstaréttar og Endurupptökudóms
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: '2022-11-07'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Samtal Hæstaréttar og Endurupptökudóms.pdf
+  note: ''
+  analysis_notes: []
+- title: Gjafa- og séreignakaupmálar á Íslandi
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: '2023-01-09'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Gjafa- og séreignakaupmálar á Íslandi.pdf
+  note: ''
+  analysis_notes: []
+- title: Inntak fyrirhugaðrar EES-forgangsreglu og áhrif hennar í íslenskum rétti
+  authors:
+  - Friðrik Árni Friðriksson Hirst
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: '2023-04-22'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Inntak fyrirhugaðrar EES-forgangsreglu og áhrif hennar í íslenskum
+    rétti.pdf
+  note: ''
+  analysis_notes: []
+- title: Gildissvið fyrirhugaðrar EES- forgangsreglu
+  authors:
+  - Friðrik Árni Friðriksson Hirst
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: '2023-05-21'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Gildissvið fyrirhugaðrar EES- forgangsreglu.pdf
+  note: ''
+  analysis_notes: []
+- title: Réttur til húsnæðis
+  authors:
+  - Kári Hólmar Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: '2023-07-05'
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    authors: page
+    date: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Vefrit/Réttur til húsnæðis.pdf
+  note: ''
+  analysis_notes: []

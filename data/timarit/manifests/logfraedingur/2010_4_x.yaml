@@ -5,12 +5,299 @@ issue: null
 label: Lögfræðingur, 4. árg. (2010)
 file: Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 4 arg 2010.pdf
 sha256: 02686f09724d9be4acd27a60ed16cec1214a4017dfe602fe0a1e579f9d4b0ba2
-pages: null
+pages: 92
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.989
+  runner_up_share: 0.0
+  pages: 92
+  segments:
+  - - 1
+    - 91
+    - 1
+  contested: []
+  bin_ratio: 0.359
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 4 arg 2010.pdf
-articles: []
+articles:
+- title: Frá ritstjóra
+  authors:
+  - Elín Sif Kjartansdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 5
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 4
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ávarp formanns Þemis
+  authors:
+  - Davíð Birkir Tryggvason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Resolving Iceland‘s Debt Crisis: Causes, Sovereign Debt and Future Prospects'
+  authors:
+  - Alena Ingvarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 8
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 7
+  - 18
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lýðveldið, stjórnskipun og staða forseta
+  authors:
+  - Ágúst Þór Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 20
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 19
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mannréttindayfirlýsing Sameinuðu þjóðanna 60 ára
+  authors:
+  - Jakob Þ. Möller
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 31
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 30
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Comparative Introduction to Environmental Protection and Biodiversity Conservation in the Antarctic and Arctic Regions
+  authors:
+  - Jennifer Rhemann
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 40
+  page_end: 58
+  issue: null
+  pdf_pages:
+  - 39
+  - 57
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Public Memory and the Rule of Law in the Age of Globalization and the Internet: Lessons from Iceland'
+  authors:
+  - Mark S. Weiner
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 59
+  page_end: 74
+  issue: null
+  pdf_pages:
+  - 58
+  - 73
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: The Tradition and the State – Sámi Reindeer Husbandry and the Forestry Challenge in Northern Finland
+  authors:
+  - Nikolas Sellheim
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 75
+  page_end: 87
+  issue: null
+  pdf_pages:
+  - 74
+  - 86
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögfræðingatal
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 88
+  page_end: 92
+  issue: null
+  pdf_pages:
+  - 87
+  - 91
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

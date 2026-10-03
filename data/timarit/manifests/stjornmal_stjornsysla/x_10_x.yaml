@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2014
 volume: 10
 issue: null
-label: Stjórnmál og stjórnsýsla, 10. árg.
+label: Stjórnmál og stjórnsýsla, 10. árg. (2014)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.708
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/1-16_Responsibility,_institutions_and_adminis.pdf
@@ -40,4 +41,921 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/613-642_Lender_of_last_resort_in_a_monetary.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/77-98_The_status_of_preschool_teachers_in_two.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/99-118_Democratic_educational_policy.pdf
-articles: []
+articles:
+- title: Ábyrgð, stofnanir og íslensk stjórnsýsla. Lærdómar af bankahruni
+  authors:
+  - Salvör Nordal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 16
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/1-16_Responsibility,_institutions_and_adminis.pdf
+  note: ''
+  analysis_notes: []
+- title: Stjórnmál eða stjórnsýsla? – Frumundirbúningur og ákvörðunartaka vegna opinbers verkefnis á Íslandi borið saman við
+    norskar lágmarkskröfur
+  authors:
+  - Þórður Víkingur Friðgeirsson
+  - Helgi Vignir Bragason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 17
+  page_end: 28
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/17-30_Prerequisites_and_decision_making_proced.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 17–30, PDF-skjalið bls. 17–28
+- title: 'The EU’s Post-Lisbon Democratic Development: What Lessons for Iceland?'
+  authors:
+  - Maximilian Conrad
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: 48
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/31-50_The_EU’s_Post-Lisbon_Democratic_Developm.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 31–50, PDF-skjalið bls. 29–48
+- title: Hvað skiptir máli fyrir árangursríka stjórnun nýsköpunar í opinberri þjónustustarfsemi?
+  authors:
+  - Inga Jóna Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 74
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/51-76_What_are_the_critical_success_factors_in.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 51–76, PDF-skjalið bls. 49–74
+- title: Staða leikskólakennara í tveimur sveitarfélögum í kjölfar hruns
+  authors:
+  - Laufey Axelsdóttir
+  - Gyða Margrét Pétursdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 75
+  page_end: 96
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/77-98_The_status_of_preschool_teachers_in_two.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 77–98, PDF-skjalið bls. 75–96
+- title: 'Lýðræðisleg menntastefna: Sögulegt ágrip og heimspekileg greining'
+  authors:
+  - Ólafur Páll Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 116
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/99-118_Democratic_educational_policy.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 99–118, PDF-skjalið bls. 97–116
+  - prentað 9. árg., mappan 10. árg.
+- title: 'Rökræðulýðræði verður stofnanalýðræði: Er hættulegt að færa vald til almennings? Athugasemdir við grein Vilhjálms
+    Árnasonar „Valdið fært til fólksins?“'
+  authors:
+  - Jón Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 140
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/119-142_Deliberative_democracy_becomes_instituti.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 119–142, PDF-skjalið bls. 117–140
+- title: Sameining sveitarfélaga á Íslandi í 70 ár. Röksemdir sameiningarsinna og andstæðinga
+  authors:
+  - Grétar Þór Eyþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 141
+  page_end: 166
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/143-168_Efficiency,_capacity_and_democratic_defi.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 143–168, PDF-skjalið bls. 141–166
+- title: Hverjir verða aðstoðarmenn ráðherra?
+  authors:
+  - Gestur Páll Reynisson
+  - Ómar H. Kristmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 167
+  page_end: 188
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/169-190_Who_becomes_a_political_advisor_to_icela.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 169–190, PDF-skjalið bls. 167–188
+- title: 'Iceland’s External Affairs from 1550-1815: Danish societal and political cover concurrent with a highly costly economic
+    policy'
+  authors:
+  - Baldur Þórhallsson
+  - Tómas Joensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 189
+  page_end: 214
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/191-216_Iceland’s_External_Affairs_from_1550-181.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 191–216, PDF-skjalið bls. 189–214
+- title: Sætaskipun á Alþingi
+  authors:
+  - Þorsteinn Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 215
+  page_end: 246
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/217-248_Seating_arrangement_in_Althingi.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 217–248, PDF-skjalið bls. 215–246
+- title: Samanburður á ráðningarferli við embættisveitingar á Íslandi fyrir og eftir efnahagshrunið
+  authors:
+  - Berglind Möller
+  - Gylfi Dalmann Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 247
+  page_end: 270
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/249-272_Comparison_of_the_recruitment_process_wh.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 249–272, PDF-skjalið bls. 247–270
+- title: Vilji, völd og veruleiki í opinberri stefnumótun á Íslandi. Af óförum Íbúðalánasjóðs 2003-2005
+  authors:
+  - Sigurbjörg Sigurgeirsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 271
+  page_end: 296
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/273-298_Preferences,_power_and_policy_outcomes_i.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 273–298, PDF-skjalið bls. 271–296
+- title: Stjórnsýsluumbætur og árangur þeirra
+  authors:
+  - Gunnar Helgi Kristinsson
+  - Pétur Berg Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 297
+  page_end: 316
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/299-318_Public_Administration_reforms_and_result.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 299–318, PDF-skjalið bls. 297–316
+- title: 'Samfélagsmiðlar hjá ríkisstofnunum á Íslandi: Notkun, hlutverk og markmið'
+  authors:
+  - Már Einarsson
+  - Jóhanna Gunnlaugsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 317
+  page_end: 338
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/319-340_Social_Media_Used_by_Government_Institut.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 319–340, PDF-skjalið bls. 317–338
+- title: 'Facebook og flokkarnir: Rannsókn á notkun íslenskra stjórnmálaflokka á samfélagsmiðlum'
+  authors:
+  - Baldvin Þór Bergsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 339
+  page_end: 366
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/341-368_Political_parties_and_Facebook.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 341–368, PDF-skjalið bls. 339–366
+- title: Siðfár í íslensku samfélagi? Koma e-töflunnar til Íslands
+  authors:
+  - Jónas Orri Jónasson
+  - Helgi Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 367
+  page_end: 384
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/369-386_Moral_panic_in_Icelandic_society.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 369–386, PDF-skjalið bls. 367–384
+- title: 'The Palermo Protocol: Trafficking Takes it All'
+  authors:
+  - Jónína Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 385
+  page_end: 396
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 11
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/387-398_The_Palermo_Protocol.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 387–398, PDF-skjalið bls. 385–396
+- title: Hagsveiflur og vinnuslys á Íslandi 1986-2011
+  authors:
+  - Tinna Laufey Ásgeirsdóttir
+  - Ásgeir Tryggvason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 397
+  page_end: 424
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/399-426_Business_cycles_and_workplace_accidents.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 399–426, PDF-skjalið bls. 397–424
+- title: Þátttaka í sjálfboðastarfi á Íslandi
+  authors:
+  - Steinunn Hrafnsdóttir
+  - Guðbjörg Andrea Jónsdóttir
+  - Ómar H. Kristmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 425
+  page_end: 442
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/427-444_Participation_in_Voluntary_Work_in_Icela.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 427–444, PDF-skjalið bls. 425–442
+- title: 'Umhverfisleg sjálfbærni Íslands: Staðan og aðkoma stjórnvalda'
+  authors:
+  - Lára Jóhannsdóttir
+  - Brynhildur Davíðsdóttir
+  - Snjólfur Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 443
+  page_end: 470
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/445-472_Iceland’s_environmental_sustainability.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 445–472, PDF-skjalið bls. 443–470
+- title: 'Samfélagslegt hlutverk háskóla: Kostun í íslenskum háskólum'
+  authors:
+  - Sigurður Kristinsson
+  - Hjalti Jóhannesson
+  - Trausti Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 471
+  page_end: 496
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/473-498_The_Public_Role_of_Universities_–_Sponso.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 473–498, PDF-skjalið bls. 471–496
+- title: Þjónandi forysta og starfsánægja í Háskóla Íslands
+  authors:
+  - Guðjón Ingi Guðjónsson
+  - Sigrún Gunnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 497
+  page_end: 520
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/499-522_Servant_leadership_and_job_satisfaction.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 499–522, PDF-skjalið bls. 497–520
+- title: Gildi náms- og kynnisferða grunnskólakennara fyrir starfsþróun
+  authors:
+  - Guðrún Þorsteinsdóttir
+  - Trausti Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 521
+  page_end: 542
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/523-544_The_value_of_teachers’_study_tours_abroa.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 523–544, PDF-skjalið bls. 521–542
+- title: 'Leyfi til raforkuframleiðslu: Skyldur ríkja samkvæmt raforkutilskipuninni í ljósi reglna um jafnræði og gagnsæi'
+  authors:
+  - Kristín Haraldsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 543
+  page_end: 564
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/545-566_Access_to_Electricity_Production_Activit.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 545–566, PDF-skjalið bls. 543–564
+- title: 'Stefna íslenskra stjórnvalda og vöxtur ferðaþjónustu á jaðarsvæðum: Áhrif Héðinsfjarðarganga í Fjallabyggð'
+  authors:
+  - Þóroddur Bjarnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 565
+  page_end: 586
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/567-588_Icelandic_government_policy_and_tourism.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 567–588, PDF-skjalið bls. 565–586
+- title: 'Velferðarþjónusta og fötluð börn: Reynsla foreldra af starfi fjölskyldudeildar Akureyrarbæjar'
+  authors:
+  - Snæfríður Þóra Egilson
+  - Sara Stefánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 587
+  page_end: 610
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/589-612_Welfare_services_and_disabled_children.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 589–612, PDF-skjalið bls. 587–610
+- title: Þrautalánveitandi ríkja á sameiginlegu myntsvæði
+  authors:
+  - Gylfi Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 611
+  page_end: 636
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol10/613-642_Lender_of_last_resort_in_a_monetary.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 613–642, PDF-skjalið bls. 611–636

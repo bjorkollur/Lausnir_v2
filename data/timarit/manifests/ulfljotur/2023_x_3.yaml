@@ -1,16 +1,148 @@
 source: ulfljotur
 year: 2023
-volume: null
+volume: 76
 issue: '3'
-label: Úlfljótur, 3. tbl. (2023)
+label: Úlfljótur, 76. árg. 3. tbl. (2023)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2023-3tbl.pdf
 sha256: 2a394dda813e1934162ea216246a1b4d577eebf7e9ed01089cb9249a5ae871ff
-pages: null
+pages: 132
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 263
+  quality: 0.939
+  runner_up_share: 0.008
+  pages: 132
+  segments:
+  - - 2
+    - 129
+    - 263
+  contested: []
+  bin_ratio: 0.834
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2023-3tbl.pdf
-articles: []
+articles:
+- title: Sérgreiningarregla höfundaréttar
+  authors:
+  - Sigríður Rut Júlíusdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 271
+  page_end: 306
+  issue: null
+  pdf_pages:
+  - 8
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Vímuefna- og sviptingarakstur: Reglur og viðurlög'
+  authors:
+  - Karitas Rán Garðarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 307
+  page_end: 344
+  issue: null
+  pdf_pages:
+  - 44
+  - 81
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rétturinn til að mótmæla og takmarkanir á honum. Um beitingu 19. gr. lögreglulaga og ályktanir af dómaframkvæmd
+  authors:
+  - Sigrún Ingibjörg Gísladóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 345
+  page_end: 376
+  issue: null
+  pdf_pages:
+  - 82
+  - 113
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: GESTABÁLKUR Viðtal við Markús Sigurbjörnsson, fyrrverandi hæstaréttardómara
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 377
+  page_end: 394
+  issue: null
+  pdf_pages:
+  - 114
+  - 131
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

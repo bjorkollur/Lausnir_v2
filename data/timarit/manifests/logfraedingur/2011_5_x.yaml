@@ -5,12 +5,350 @@ issue: null
 label: Lögfræðingur, 5. árg. (2011)
 file: Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 5 arg 2011.pdf
 sha256: 392f84c1ac72bc5551ff270940066299400ef66c4fda75e9ea43b5e8a259bd54
-pages: null
+pages: 159
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.962
+  runner_up_share: 0.0
+  pages: 159
+  segments:
+  - - 2
+    - 157
+    - 0
+  contested: []
+  bin_ratio: 0.915
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 5 arg 2011.pdf
-articles: []
+articles:
+- title: Ávarp formanns Þemis ..............ee0eeeeaeenenenenenenenerreeenenenrnenerrrr rr
+  authors:
+  - Svanhildur Ýr Sigþórsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 6
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lýðveldi, stjórnarskrá og þjóðaratkvæði ...........eeeeeeeee00eeeeeeeeeee er
+  authors:
+  - Ágúst Þór Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 8
+  page_end: 47
+  issue: null
+  pdf_pages:
+  - 8
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'ICESAVE: Ber íslenska ríkið ábyrgð á grundvelli meginreglna Evrópuréttar um bann við mismunun á grundvelli ríkisfangs
+    og bótaskyldu ríkis? ...........00eeeeeeeeeeeeee seek'
+  authors:
+  - Birna Ágústsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 2
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 2
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'The Icesave Dispute: Iceland''s Obligation under European Law'
+  authors:
+  - Gunnþóra Elín Erlingsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 48
+  page_end: 57
+  issue: null
+  pdf_pages:
+  - 48
+  - 57
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Iceland''s Renaissance: Time for Comparative Law eee'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 69
+  page_end: 95
+  issue: null
+  pdf_pages:
+  - 69
+  - 95
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: '00'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 58
+  page_end: 68
+  issue: null
+  pdf_pages:
+  - 58
+  - 68
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Ritdómur eftir Margréti Heinreksdóttur: Mál Mannréttindanefndar SÞ 1977-2008 — Handbók...............00000ee.....0'
+  authors: []
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 96
+  page_end: 105
+  issue: null
+  pdf_pages:
+  - 96
+  - 105
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Reviewed by Rachael Lorna Johnstone: Polar Law Textbook ..........0000000000000.0000vvrvesnnerrsrerrrsrss rss err'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 106
+  page_end: 108
+  issue: null
+  pdf_pages:
+  - 106
+  - 108
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Reviewed by Rachael Lorna Johnstone The Yearbook of Polar Law ............000...0..e ee eee sess eter eee
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 109
+  page_end: 111
+  issue: null
+  pdf_pages:
+  - 109
+  - 111
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Laganám við Háskólann á Akureyri .....................00000000000 nn nenna
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 112
+  page_end: 146
+  issue: null
+  pdf_pages:
+  - 112
+  - 146
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félagsstarf Þemis .................00.0eeeeeeeeennnn neee eee rrersnnnnnreeeer sera rreeer tres
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 147
+  page_end: 158
+  issue: null
+  pdf_pages:
+  - 147
+  - 158
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

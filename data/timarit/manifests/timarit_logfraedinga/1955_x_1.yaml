@@ -1,16 +1,337 @@
 source: timarit_logfraedinga
 year: 1955
-volume: null
+volume: 5
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1955)
+label: Tímarit lögfræðinga, 5. árg. 1. hefti (1955)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1955_01.pdf
 sha256: 92a52cc04915c5c09c1e6ad8d6f449608e6cdf5143314ffd66086347c8f03270
-pages: null
+pages: 88
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -5
+  quality: 0.648
+  runner_up_share: 0.018
+  pages: 88
+  segments:
+  - - 6
+    - 69
+    - -5
+  contested: []
+  bin_ratio: 0.94
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1955_01.pdf
-articles: []
+articles:
+- title: Ólafur Lárusson sjötugur.............. 12—
+  authors:
+  - Bjarni Benediktsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 16
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Þjóðréttarnefnd Sameinuðu þjóð- anna ..................................................................................
+    16—
+  authors:
+  - Ólaíur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 15
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 20
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um eignarréttar- fyrirvara við sölu lausafjár .......................................... 28—
+  authors:
+  - Benedikt Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 27
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 32
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Félagsdómi.............................. 41—
+  authors:
+  - Hákon Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 40
+  page_end: 41
+  issue: null
+  pdf_pages:
+  - 45
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Úr skýrslum barnaverndarnefndar Reykjavíkur árin 1951, 1952 og 1953 .......................... 43—
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 42
+  page_end: 53
+  issue: null
+  pdf_pages:
+  - 47
+  - 58
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Sami: Samtök lagamanna ...................................................... 55—'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 54
+  page_end: 56
+  issue: null
+  pdf_pages:
+  - 59
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Sami: Á víð og dreif .............................................................. 58—'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 58
+  issue: null
+  pdf_pages:
+  - 62
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Sami: Erlendar bækur .......................................................... 60—'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 59
+  page_end: 63
+  issue: null
+  pdf_pages:
+  - 64
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Þróun íslenzkra réttarreglna um hjónavígslutálma frá siðaskiptum til vorra daga .. 65—
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 64
+  page_end: 80
+  issue: null
+  pdf_pages:
+  - 69
+  - 85
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Kjeld-Rördam: Helztu drættir i danskri löggjöf um vörumerki ..............................................................
+    87—103 Gunnlaugur Þórðarson: „Hin hvíta bók“ um aðgerðirnar frá 19. marz 1952 ................................................................
+    104—109 Benedikt Sigurjónsson: Frá bæjarþingi og Sjó- og verzl- unardómi Reykjavíkur: Nokkrir dómar frá árinu 1954 fheodór
+    B. Líndal: Lifskjör og menntun.......................... 117—121 Sami: Á víð og dreif ...............................................................
+    122—124 Arni Tryggvason: Löggjöf um prentrétt og hömlur gegn útgáfu siðspillandi rita ..................................................
+    125—140 Sigurgeir Sigurjónsson: Er þörf breytinga á vöru- merkjalögum nr. 43/1903?..............................................
+    141—151 Knud Illum: Um prófraun hæstaréttarlögmanna.......... 152—167 Einar B. Guðmundsson: Bókarfregn ..................................
+    168—169 Hákon Guðmundsson: Frá Félagsdómi.............................. 170—171 Kriðrik Skarphéðinsson: Skrá um lagabókmenntir
+    eftir íslenzka höfunda eða í íslenzkum þýðingum til árs- !oka 1955 ..............................................................................
+    173—264'
+  authors: []
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 86
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - upphafsbls. 86 er utan skjals

@@ -1,16 +1,148 @@
 source: timarit_logfraedinga
 year: 2010
-volume: null
+volume: 60
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2010)
+label: Tímarit lögfræðinga, 60. árg. 1. hefti (2010)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2010_01.pdf
 sha256: 6285ccf5a0744831532ffc4989d3c8bb0c5d89d63004ea4800df117884c5bf8f
-pages: null
+pages: 109
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.954
+  runner_up_share: 0.0
+  pages: 109
+  segments:
+  - - 2
+    - 107
+    - -1
+  contested: []
+  bin_ratio: 0.977
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2010_01.pdf
-articles: []
+articles:
+- title: Ný löggjöf um skipun dómara
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 2
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvenær er vanhæfi smitandi? - Hugleiðingar í kjölfar dóms Hæstaréttar frá 17. desember 2009 í máli nr. 665/2008
+  authors:
+  - Kjartan Bjarni Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 48
+  issue: null
+  pdf_pages:
+  - 8
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eru valdmörk milli dómsvalds og framkvæmdarvalds á sífelldri hreyfingu?
+  authors:
+  - Daníel Isebarn Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 70
+  issue: null
+  pdf_pages:
+  - 50
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skráning munnlegra upplýsinga um málsatvik með sérstakri hliðsjón af málum er varða veitingu opinberra starfa
+  authors:
+  - Berglind Bára Sigurjónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 97
+  issue: null
+  pdf_pages:
+  - 72
+  - 107
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

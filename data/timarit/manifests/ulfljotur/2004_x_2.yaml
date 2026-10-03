@@ -1,15 +1,16 @@
 source: ulfljotur
 year: 2004
-volume: null
+volume: 57
 issue: '2'
-label: Úlfljótur, 2. tbl. (2004)
+label: Úlfljótur, 57. árg. 2. tbl. (2004)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.945
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3235.pdf
@@ -17,4 +18,157 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3237.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3238.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3240.pdf
-articles: []
+articles:
+- title: Það sem barninu er fyrir bestu
+  authors:
+  - Þyrí Halla Steingrímsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 200
+  issue: null
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 309
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3235.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+- title: Auga fyrir auga
+  authors:
+  - Jón Þór Ólason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 201
+  page_end: 232
+  issue: null
+  pdf_pages:
+  - 0
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 310
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3236.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+- title: Um birtingu laga og annarra fyrirmæla
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 233
+  page_end: 284
+  issue: null
+  pdf_pages:
+  - 0
+  - 51
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 311
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3237.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+- title: Bókabálkur - Ökutæki og tjónbætur
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 285
+  page_end: 293
+  issue: null
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 312
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3238.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+- title: null
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 295
+  page_end: 303
+  issue: null
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_2_tbl/3240.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.47)
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'

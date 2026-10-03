@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2005
 volume: 1
 issue: null
-label: Stjórnmál og stjórnsýsla, 1. árg.
+label: Stjórnmál og stjórnsýsla, 1. árg. (2005)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.637
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/107-140_What_features_determine_mall_states’_act.pdf
@@ -19,4 +20,225 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/5-26_When_is_a_minority_a_majority.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/61-80_Career_background_of_minister_assistants.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/81-106_The_Icelandic_Supreme_Court_and_the_Cons.pdf
-articles: []
+articles:
+- title: Hvenær verður minnihluti atkvæða að meirihluta fulltrúa? Tengslin milli atkvæðahlutfalls og stjórnarmeirihluta í
+    skoðanakönnunum og í bæjarstjórnarkosningum 1930-2002
+  authors:
+  - Ólafur Þ. Harðarson
+  - Indriði H. Indriðason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 26
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/5-26_When_is_a_minority_a_majority.pdf
+  note: ''
+  analysis_notes: []
+- title: Alþingi í ljósi samþættingar löggjafarvalds og framkvæmdavalds
+  authors:
+  - Þorsteinn Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 27
+  page_end: 60
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/27-60_Alþingi_in_light_of_the_fusion_of.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Bakgrunnur aðstoðarmanna ráðherra: Þróun 1971-2005'
+  authors:
+  - Ómar H. Kristmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 80
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/61-80_Career_background_of_minister_assistants.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Samræmi laga og stjórnarskrár: Afstaða íslenskra fræðimanna til úrskurðarvalds dómstóla'
+  authors:
+  - Svandís Nína Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 81
+  page_end: 106
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/81-106_The_Icelandic_Supreme_Court_and_the_Cons.pdf
+  note: ''
+  analysis_notes: []
+- title: What features determine small states’ activities in the international arena? Iceland’s approach to foreign relations
+    until the mid-1990’s
+  authors:
+  - Baldur Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 140
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 33
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/107-140_What_features_determine_mall_states’_act.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Electoral instability in Iceland 1931-95: The impact of aggregate electoral volatility and block volatility on the
+    Icelandic party system'
+  authors:
+  - Sigtryggur Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 141
+  page_end: 162
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/141-162_Electoral_instability_in_Iceland_1931-95.pdf
+  note: ''
+  analysis_notes: []
+- title: Local Democracy and the Public Services
+  authors:
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 163
+  page_end: 190
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 27
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol01/163-190_Local_Democracy_and_the_Public_Services.pdf
+  note: ''
+  analysis_notes: []

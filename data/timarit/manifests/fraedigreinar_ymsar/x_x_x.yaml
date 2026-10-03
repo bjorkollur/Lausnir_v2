@@ -7,11 +7,66 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.9
+status: review
+confidence: 0.35
 error: null
 files:
 - Tímarit og fræðigreinar/Ýmsar fræðigreinar/Skýrsla starfshóps um EES-samstarfið 092019.pdf
 - Tímarit og fræðigreinar/Ýmsar fræðigreinar/Þjóðareign - þýðing og áhrif stjórnarskrárákvæðis.pdf
-articles: []
+articles:
+- title: Skýrsla starfshóps um EES-samstarfið 092019
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 301
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Ýmsar fræðigreinar/Skýrsla starfshóps um EES-samstarfið 092019.pdf
+  note: ''
+  analysis_notes: []
+- title: Þjóðareign - þýðing og áhrif stjórnarskrárákvæðis
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 159
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Ýmsar fræðigreinar/Þjóðareign - þýðing og áhrif stjórnarskrárákvæðis.pdf
+  note: ''
+  analysis_notes: []

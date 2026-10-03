@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.849
+status: review
+confidence: 0.55
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/1741.pdf
@@ -23,4 +24,346 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/303.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/357.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/497.pdf
-articles: []
+articles:
+- title: Um stofnun skaðabótaábyrgðar seljanda vegna galla í kaupum um ákveðna eign, lausafé og fasteign. 2. Fasteignakaup
+  authors:
+  - Sigurður Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 46
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 869
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/217.pdf
+  note: ''
+  analysis_notes: []
+- title: Skaðabótareglur umferðarlaga nr. 40/1968
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 102
+  page_end: 138
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 873
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/244.pdf
+  note: ''
+  analysis_notes: []
+- title: Skaðabætur gagnvart þriðja manni í samgöngu- eða flutningarétti
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 139
+  page_end: 153
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 874
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/292.pdf
+  note: ''
+  analysis_notes: []
+- title: Islandske höjesteretsdomme der har betydning for fortolkning af den islandske grundlovs ekspropriationsbestemmelse
+    (67)
+  authors:
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 154
+  page_end: 164
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 875
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/357.pdf
+  note: ''
+  analysis_notes: []
+- title: Lillehammerseminarið 1975
+  authors:
+  - Vilhjálmur H. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 168
+  page_end: 169
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 876
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/1741.pdf
+  note: ''
+  analysis_notes: []
+- title: Tönnes Madsson Andenæs
+  authors:
+  - Guðmundur Benediktsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 187
+  page_end: 187
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 877
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/1750.pdf
+  note: ''
+  analysis_notes: []
+- title: Ábyrgðartrygging bifreiða
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 188
+  page_end: 216
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 878
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/303.pdf
+  note: ''
+  analysis_notes: []
+- title: Bætur fyrir lífs- og líkamstjórn
+  authors:
+  - Þórir Bergsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 227
+  page_end: 237
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 879
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/1751.pdf
+  note: ''
+  analysis_notes: []
+- title: Sýning á lögfræðilegu efni
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 235
+  page_end: 238
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 881
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/23.pdf
+  note: ''
+  analysis_notes: []
+- title: Skrá yfir lögfræðilegar bækur útgefnar 1974 og 1975
+  authors:
+  - Ritstjórn
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 241
+  page_end: 241
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 883
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/24.pdf
+  note: ''
+  analysis_notes: []
+- title: Þolendur eignaupptöku.
+  authors:
+  - Ingibjörg Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 263
+  page_end: 296
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 884
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/497.pdf
+  note: ''
+  analysis_notes: []

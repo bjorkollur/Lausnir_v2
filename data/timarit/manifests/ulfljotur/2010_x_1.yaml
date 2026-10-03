@@ -1,16 +1,116 @@
 source: ulfljotur
 year: 2010
-volume: null
+volume: 63
 issue: '1'
-label: Úlfljótur, 1. tbl. (2010)
+label: Úlfljótur, 63. árg. 1. tbl. (2010)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2010_1_tbl.pdf
 sha256: 0375168703867ee8a413855309e5e3678d86f2616516a9472615db847d560243
-pages: null
+pages: 98
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.847
+  runner_up_share: 0.012
+  pages: 98
+  segments:
+  - - 3
+    - 97
+    - -1
+  contested: []
+  bin_ratio: 0.972
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2010_1_tbl.pdf
-articles: []
+articles:
+- title: Fjármálamarkaður innan Evrópusambandsins og EES reflur og eftirlit
+  authors:
+  - Dóra Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 40
+  issue: null
+  pdf_pages:
+  - 10
+  - 41
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 194
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýja hagkerfið og orðsending framkvæmdastjórnar Evrópubandalagsins um misnotkun á markaðsráðandi stöðu
+  authors:
+  - Ólafur Ari Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 74
+  issue: null
+  pdf_pages:
+  - 42
+  - 75
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 195
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fræðabálkur
+  authors:
+  - Haraldur Johannessen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 75
+  page_end: 96
+  issue: null
+  pdf_pages:
+  - 76
+  - 97
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 196
+  source_file: null
+  note: ''
+  analysis_notes: []

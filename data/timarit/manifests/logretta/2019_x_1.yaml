@@ -1,16 +1,57 @@
 source: logretta
 year: 2019
-volume: null
+volume: 16
 issue: '1'
-label: Lögrétta, 1. tbl. (2019)
+label: Lögrétta, 16. árg. 1. tbl. (2019)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2019 1.tbl.pdf
 sha256: 771ef665fb37804a1cf7d6d16a22fe9b907df0996bf64dff591cd87a011c48fd
-pages: null
+pages: 30
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.967
+  runner_up_share: 0.0
+  pages: 30
+  segments:
+  - - 1
+    - 29
+    - 1
+  contested: []
+  bin_ratio: 0.835
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2019 1.tbl.pdf
-articles: []
+articles:
+- title: Kröfur þrotabús vegna óheimilla úthlutana úr félagi
+  authors:
+  - Diljá Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

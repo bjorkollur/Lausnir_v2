@@ -5,12 +5,144 @@ issue: '1'
 label: Lögbrú, 1. tbl. (2013)
 file: Tímarit og fræðigreinar/Lögbrú/2013-01-Lögbrú.pdf
 sha256: 91e0cafba7ba225b22b9e89b36461226ff8baf9786552ccde902bf75f49ce555
-pages: null
+pages: 171
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 171
+  segments:
+  - - 0
+    - 170
+    - 1
+  contested: []
+  bin_ratio: 0.948
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögbrú/2013-01-Lögbrú.pdf
-articles: []
+articles:
+- title: Um sönnunarkröfur og sönnunarmat í sakamálum
+  authors:
+  - Pétur Fannar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 56
+  issue: null
+  pdf_pages:
+  - 4
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um forvirkar rannsóknarheimildir og mannréttindi
+  authors:
+  - Snorri Snorrason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 98
+  issue: null
+  pdf_pages:
+  - 56
+  - 97
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skilyrði lögbanns
+  authors:
+  - Kristján Óskar Ásvaldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 99
+  page_end: 154
+  issue: null
+  pdf_pages:
+  - 98
+  - 153
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Viðtöl við bifrestinga
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 155
+  page_end: 171
+  issue: null
+  pdf_pages:
+  - 154
+  - 170
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,53 @@
 source: logretta
 year: 2023
-volume: null
+volume: 20
 issue: '1'
-label: Lögrétta, 1. tbl. (2023)
+label: Lögrétta, 20. árg. 1. tbl. (2023)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2023 1.tbl.pdf
 sha256: 2a19fe666ef3086be6335f88dfde99cb8473bf8bb3b1804002e61f4925d3617a
-pages: null
+pages: 201
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.75
+  pages: 201
+  segments: []
+  contested: []
+  bin_ratio: 0.998
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2023 1.tbl.pdf
-articles: []
+articles:
+- title: Litið yfir farinn veg
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'

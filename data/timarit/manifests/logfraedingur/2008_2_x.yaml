@@ -5,12 +5,142 @@ issue: null
 label: Lögfræðingur, 2. árg. (2008)
 file: Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 2 arg 2008.pdf
 sha256: 42454303cf70e06d0dc0ee9edcaf8376bdb38aeb4d2f5371a95a8a82bae4cb30
-pages: null
+pages: 101
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.941
+  runner_up_share: 0.021
+  pages: 101
+  segments:
+  - - 2
+    - 99
+    - 0
+  contested: []
+  bin_ratio: 0.962
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 2 arg 2008.pdf
-articles: []
+articles:
+- title: Ávarp formanns Þemis ...............0eeeneeeeeneneneeenenenereenenenrrrnn
+  authors:
+  - Sindri Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 6
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 6
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 000 eeen
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 23
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um lögmæti valdbeitingar við sýnatöku vegna rannsóknar á öÖlvunarakstri ....c...eeeeeeeeesssarrsssrrrrssssrrsssrr
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 40
+  page_end: 64
+  issue: null
+  pdf_pages:
+  - 40
+  - 64
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Öryggisráð SÞ frá sjónarhóli þjóðaréttar eee.
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 100
+  issue: null
+  pdf_pages:
+  - 65
+  - 100
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

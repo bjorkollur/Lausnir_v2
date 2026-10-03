@@ -1,16 +1,144 @@
 source: timarit_logfraedinga
 year: 2007
-volume: null
+volume: 57
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2007)
+label: Tímarit lögfræðinga, 57. árg. 1. hefti (2007)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2007_01.pdf
 sha256: 8402cdaba5fd03112a193664fa61ba7850034958ad54da9fdc17222159c3cafb
-pages: null
+pages: 105
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.971
+  runner_up_share: 0.0
+  pages: 105
+  segments:
+  - - 1
+    - 102
+    - 0
+  contested: []
+  bin_ratio: 0.972
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2007_01.pdf
-articles: []
+articles:
+- title: Breytingar á Tímariti lögfræðinga
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 1
+  page_end: 3
+  issue: null
+  pdf_pages:
+  - 1
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Leiðbeiningarskylda stjórnvalds við meðferð stjórnsýslumáls
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samningalögin sjötug – Standast þau tímans tönn?
+  authors:
+  - Matthías G. Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttarfarsskilyrði til að fá stjórnvaldsákvörðun endurskoðaða fyrir dómi
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 81
+  issue: null
+  pdf_pages:
+  - 39
+  - 104
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

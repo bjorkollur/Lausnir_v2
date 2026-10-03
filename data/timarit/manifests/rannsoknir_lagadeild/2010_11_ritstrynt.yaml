@@ -5,12 +5,22 @@ issue: ritstrynt
 label: Rannsóknir í félagsvísindum, 11. árg. (2010)
 file: Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2010 - XI - Ritstrynt.pdf
 sha256: b97933545b0dc99448651081e418f9a2e0cf41c6d63997691c9588537eadb405
-pages: null
+pages: 146
 year_end: null
-page_map: {}
-status: pending
+page_map:
+  offset: -8
+  quality: 0.938
+  runner_up_share: 0.0
+  pages: 146
+  segments:
+  - - 9
+    - 145
+    - -8
+  contested: []
+  bin_ratio: 0.807
+status: review
 confidence: 0.0
-error: null
+error: 'enginn greinalisti: efnisyfirlit fannst ekki eða var ólæsilegt'
 files:
 - Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2010 - XI - Ritstrynt.pdf
 articles: []

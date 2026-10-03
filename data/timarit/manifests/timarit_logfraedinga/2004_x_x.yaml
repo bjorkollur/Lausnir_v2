@@ -1,16 +1,645 @@
 source: timarit_logfraedinga
 year: 2004
-volume: null
+volume: 54
 issue: null
-label: Tímarit lögfræðinga (2004)
+label: Tímarit lögfræðinga, 54. árg. (2004)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2004.pdf
 sha256: 93b2a199d4636e928813dc138657a2be952807be92dcd9092817355896250ff3
-pages: null
+pages: 588
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -5
+  quality: 0.922
+  runner_up_share: 0.006
+  pages: 588
+  segments:
+  - - 6
+    - 190
+    - -5
+  - - 198
+    - 306
+    - -11
+  - - 314
+    - 477
+    - -17
+  - - 482
+    - 584
+    - -21
+  contested: []
+  bin_ratio: 0.891
+status: review
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2004.pdf
-articles: []
+articles:
+- title: Græðgi valdsins
+  authors:
+  - Gunnar Hrafn Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 3
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjómarskráin og refsiábyrgð (fyrri hluti) - grunnreglan um lögbundnar refsiheimildir -
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 48
+  issue: '1'
+  pdf_pages:
+  - 10
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Abyrgðartakmarkanir í skilmálum vátrygginga og ófrávíkjanlegar reglur laga nr. 20/1954 um vátryggingarsamninga
+  authors:
+  - Viðar Lúðvílcsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 168
+  issue: '1'
+  pdf_pages:
+  - 54
+  - 173
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um húftryggingar kaupskipa
+  authors:
+  - Valgarð Briem
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 169
+  page_end: 179
+  issue: '1'
+  pdf_pages:
+  - 174
+  - 197
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnarskráin og almenn lög
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 187
+  page_end: 189
+  issue: '2'
+  pdf_pages:
+  - 198
+  - 201
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Galli í lausafjárkaupum
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 191
+  page_end: 240
+  issue: '2'
+  pdf_pages:
+  - 202
+  - 251
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Framkvæmdaleyfi
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 241
+  page_end: 264
+  issue: '2'
+  pdf_pages:
+  - 252
+  - 275
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rafrænt eftirlit á vinnustöðum
+  authors:
+  - Sigrún H. Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 265
+  page_end: 295
+  issue: '2'
+  pdf_pages:
+  - 276
+  - 313
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: EFTA-dómstóllinn í áratug
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 297
+  page_end: 299
+  issue: '3'
+  pdf_pages:
+  - 314
+  - 317
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'EFTA-dómstóllinn í 10 ár: Hvernig er samskiptum við Evrópudómstólinn háttað?'
+  authors:
+  - Carl Baudenbacher
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 301
+  page_end: 334
+  issue: '3'
+  pdf_pages:
+  - 318
+  - 351
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um hugtakið skaðabótaábyrgð ríkis í Evrópurétti
+  authors:
+  - Per Tresselt
+  - Katinka Mahieu
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 335
+  page_end: 373
+  issue: '3'
+  pdf_pages:
+  - 352
+  - 391
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvernig hefur Island brugðist við ákvörðunum EFTA-dómstólsins?
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 375
+  page_end: 416
+  issue: '3'
+  pdf_pages:
+  - 392
+  - 433
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dómar EFTA-dómstólsins á árinu 2003 sem eiga rætur að rekja til Islands
+  authors:
+  - Kristína Haraldsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 417
+  page_end: 444
+  issue: '3'
+  pdf_pages:
+  - 434
+  - 461
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Unr EFTA-dómstólinn
+  authors:
+  - Pálína Margrét Rúnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 445
+  page_end: 460
+  issue: '3'
+  pdf_pages:
+  - 462
+  - 481
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ein grein í frumvarpi til samkeppnislaga
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 461
+  page_end: 464
+  issue: '4'
+  pdf_pages:
+  - 482
+  - 485
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um dómsvaldið, faglegt mat á hæfni dómara og hlutverk dómstóla í réttarríkinu
+  authors:
+  - Sigríður Ingvarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 465
+  page_end: 499
+  issue: '4'
+  pdf_pages:
+  - 486
+  - 521
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samkynhneigð pör innan Evrópusambandsins - ESB ríkisborgararéttur, frjáls för og búseta -
+  authors:
+  - Nanna Magnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 501
+  page_end: 522
+  issue: '4'
+  pdf_pages:
+  - 522
+  - 543
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Meðferð samkeppnismála og 6. gr. Mannréttindasáttmála Evrópu - Rétturinn til meðferðar fyrir sjálfstæðum og óvilhöllum
+    dómstól -
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 523
+  page_end: 548
+  issue: '4'
+  pdf_pages:
+  - 544
+  - 569
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögfræðingafélagi íslands
+  authors:
+  - Kristján Gunnar Valdimarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 549
+  page_end: 566
+  issue: '4'
+  pdf_pages:
+  - 570
+  - 587
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

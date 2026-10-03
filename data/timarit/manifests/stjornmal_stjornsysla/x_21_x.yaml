@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2025
 volume: 21
 issue: null
-label: Stjórnmál og stjórnsýsla, 21. árg.
+label: Stjórnmál og stjórnsýsla, 21. árg. (2025)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.466
+status: review
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/1-34_The_2024_Alþingi_election.pdf
@@ -23,4 +24,368 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/35-58_Local_parliamentarians_in_a_global_world.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/59-82_Workers’_Descriptive_Representation_in_t.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/83-103_Outsourcing_Migration_Governance.pdf
-articles: []
+articles:
+- title: 'The 2024 Alþingi election: Is extreme electoral volatility the new norm?'
+  authors:
+  - Hafsteinn Einarsson
+  - Ólafur Þ. Harðarson
+  - Agnar Freyr Helgason
+  - Jón Gunnar Ólafsson
+  - Eva H. Önnudóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 34
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 33
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/1-34_The_2024_Alþingi_election.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Staðbundnir þingmenn í alþjóðlegum heimi: þingerindrekstur íslenskra þingmanna'
+  authors:
+  - Vilborg Ása Guðjónsdóttir
+  - Silja Bára Ómarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 35
+  page_end: 58
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/35-58_Local_parliamentarians_in_a_global_world.pdf
+  note: ''
+  analysis_notes: []
+- title: Workers’ Descriptive Representation in the
+  authors:
+  - United Socialist Party
+  - Skafti Ingimarsson
+  - Kjartan Ólafsson
+  - Hermann Óskarsson
+  - Guðmundur Oddsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 59
+  page_end: 82
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/59-82_Workers’_Descriptive_Representation_in_t.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Outsourcing Migration Governance: Nordic States and the Financing of the International Organization for Migration'
+  authors:
+  - Svanhildur Þorvaldsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 104
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/83-103_Outsourcing_Migration_Governance.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 83–103, PDF-skjalið bls. 83–104
+- title: 'Kynjakvótalögin fimmtán ára: Hefur markmiðinu um aukna hlutdeild kvenna verið náð?'
+  authors:
+  - Ásta Dís Óladóttir
+  - Þóra H. Christiansen
+  - Viðar Lúðvíksson
+  - Katrín Jakobsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 105
+  page_end: 134
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/105-133_Fifteen_Years_After_the_Gender_Quota_Law.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 105–133, PDF-skjalið bls. 105–134
+- title: 'Hagsmunir í húfi: Um samspil stafvæðingar, skýjanotkunar og öryggisflokkunar gagna íslenska ríkisins'
+  authors:
+  - Ragna Kemp Haraldsdóttir
+  - Kolbrún Ósk Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 160
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/135-160_Interests_at_stake.pdf
+  note: ''
+  analysis_notes: []
+- title: Voter turnout in local elections – the impact of municipal amalgamations. A study of 28 cases in Iceland
+  authors:
+  - Grétar Þór Eyþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 174
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 13
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/161-174_Voter_turnout_in_local_elections_–_the.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Innleiðing farsældarlaga: Samstarf ríkis og sveitarfélaga um þjónustu fyrir börn og fjölskyldur'
+  authors:
+  - Ragný Þóra Guðjohnsen
+  - Eva Harðardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 175
+  page_end: 200
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/175-199_Implementation_of_the_Prosperity_Act.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 175–199, PDF-skjalið bls. 175–200
+- title: „Græna gímaldið“ við Álfabakka – hvað segir það okkur um stjórnsýslu skipulagsmála á Íslandi?
+  authors:
+  - Ásdís Hlökk Theodórsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 201
+  page_end: 230
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/201-230_The_green_giant_structure_in_Álfabakki_–.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Transparency in the Age of Uncertainty: The Communication Strategies of Icelandic and US Authorities During the
+    First Wave of the COVID-19 Pandemic'
+  authors:
+  - Reynir Bragi Ragnarsson
+  - Eva H. Önnudóttir
+  - Jón Gunnar Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 231
+  page_end: 258
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/231-257_Transparency_in_the_Age_of_Uncertainty.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 231–257, PDF-skjalið bls. 231–258
+- title: User-Led Social Innovation – Emerging Ecosystems and Policy Frameworks
+  authors:
+  - Stefanía G. Kristinsdóttir
+  - Steinunn Hrafnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 259
+  page_end: 280
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol21/259-279_User-Led_Social_Innovation_–_Emerging_Ec.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 259–279, PDF-skjalið bls. 259–280

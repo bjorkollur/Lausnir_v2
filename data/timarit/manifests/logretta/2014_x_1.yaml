@@ -1,16 +1,71 @@
 source: logretta
 year: 2014
-volume: null
+volume: 11
 issue: '1'
-label: Lögrétta, 1. tbl. (2014)
+label: Lögrétta, 11. árg. 1. tbl. (2014)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2014 1.tbl.pdf
 sha256: f2e87a70c93536ea6ae84f861337a9338342723a2620a42aea6d3f81c21fcce6
-pages: null
+pages: 94
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 11
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 94
+  segments:
+  - - 0
+    - 11
+    - 9
+  - - 12
+    - 37
+    - 11
+  - - 38
+    - 55
+    - 13
+  - - 56
+    - 67
+    - 19
+  - - 68
+    - 80
+    - 21
+  - - 81
+    - 93
+    - 22
+  contested: []
+  bin_ratio: 0.874
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2014 1.tbl.pdf
-articles: []
+articles:
+- title: a
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 10
+  page_end: 115
+  issue: null
+  pdf_pages:
+  - 1
+  - 93
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 11. árg. (2014); ekkert prentað árgangsnúmer fannst'
