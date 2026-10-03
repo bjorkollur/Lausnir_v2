@@ -1,6 +1,7 @@
 import io
 import re
 from collections import defaultdict
+from typing import Callable
 
 import pdfplumber
 
@@ -11,6 +12,66 @@ _NEW_PARA = re.compile(r'^\s*\d{1,3}\.\s+[A-ZÁÉÍÓÚÝÞÆÖ„\"\«]')
 _HEADING_LINE = re.compile(r'^\s*#')
 _PARA_NUM_ONLY = re.compile(r'^\s*\d{1,3}\.\s*$')  # "5." eða "99." ein á línu — aldrei heading (ekki ártöl)
 _MARGIN_NUM = re.compile(r'^\d{1,3}$')  # "2", "14" — málsgreinanúmer án punkts
+
+
+def _extract_pages(
+    content: bytes,
+    *,
+    header_pt: int,
+    footer_pt: int,
+    skip_header_on_first: bool,
+    heading_sizes: dict | None,
+    heading_fonts: dict | None,
+    extract_tables: bool,
+    footnotes: bool,
+    _plain_structured: bool,
+    join_hyphens: bool = False,
+) -> tuple[list[tuple[int, str]], list[tuple[int, str]]]:
+    """Per-page text as (pdf_page_index, text) for the pages that have text,
+    plus the footnotes collected along the way. Exactly the loop parse_pdf has
+    always run; parse_pdf_pages reads the same loop with the page index kept.
+
+    `join_hyphens` (footnote mode only, off for parse_pdf) joins wrapped lines
+    that end in a hyphen with the hyphen rules instead of a plain space."""
+    with pdfplumber.open(io.BytesIO(content)) as pdf:
+        pages: list[tuple[int, str]] = []
+        collected_notes: list[tuple[int, str]] = []
+        for i, page in enumerate(pdf.pages):
+            apply_header = header_pt and (i > 0 or not skip_header_on_first)
+            if apply_header or footer_pt:
+                y0 = header_pt if apply_header else 0
+                y1 = page.height - footer_pt if footer_pt else page.height
+                page = page.crop((0, y0, page.width, y1))
+
+            if footnotes:
+                text, notes = _extract_page_with_footnotes(
+                    page, footnotes=True, join_hyphens=join_hyphens,
+                )
+                if _plain_structured:
+                    # Numbering restarts per contribution, so notes cannot be
+                    # linked document-wide. They are still lifted out of the
+                    # prose and shown under the page they belong to — leaving
+                    # them inline breaks sentences mid-argument.
+                    if notes:
+                        text = f"{text}\n\n" + "\n".join(
+                            f"> {n}. {txt}" for n, txt in notes
+                        )
+                else:
+                    collected_notes.extend(notes)
+            elif extract_tables:
+                text = _extract_with_tables(
+                    page,
+                    heading_sizes=heading_sizes or {},
+                    heading_fonts=heading_fonts or {},
+                )
+            elif heading_sizes or heading_fonts:
+                text = _extract_with_headings(page, heading_sizes or {}, heading_fonts or {})
+            else:
+                text = page.extract_text(x_tolerance=2, y_tolerance=2)
+
+            if text and text.strip():
+                pages.append((i, text.strip()))
+    return pages, collected_notes
 
 
 def parse_pdf(
@@ -40,42 +101,15 @@ def parse_pdf(
                                  ([^1] í meginmáli, [^1]: skýring í lokin).
                                  Ætlað fræðiritum; dómaskjöl nota þetta ekki.
     """
-    with pdfplumber.open(io.BytesIO(content)) as pdf:
-        pages = []
-        collected_notes: list[tuple[int, str]] = []
-        for i, page in enumerate(pdf.pages):
-            apply_header = header_pt and (i > 0 or not skip_header_on_first)
-            if apply_header or footer_pt:
-                y0 = header_pt if apply_header else 0
-                y1 = page.height - footer_pt if footer_pt else page.height
-                page = page.crop((0, y0, page.width, y1))
-
-            if footnotes:
-                text, notes = _extract_page_with_footnotes(page, footnotes=True)
-                if _plain_structured:
-                    # Numbering restarts per contribution, so notes cannot be
-                    # linked document-wide. They are still lifted out of the
-                    # prose and shown under the page they belong to — leaving
-                    # them inline breaks sentences mid-argument.
-                    if notes:
-                        text = f"{text}\n\n" + "\n".join(
-                            f"> {n}. {txt}" for n, txt in notes
-                        )
-                else:
-                    collected_notes.extend(notes)
-            elif extract_tables:
-                text = _extract_with_tables(
-                    page,
-                    heading_sizes=heading_sizes or {},
-                    heading_fonts=heading_fonts or {},
-                )
-            elif heading_sizes or heading_fonts:
-                text = _extract_with_headings(page, heading_sizes or {}, heading_fonts or {})
-            else:
-                text = page.extract_text(x_tolerance=2, y_tolerance=2)
-
-            if text and text.strip():
-                pages.append(text.strip())
+    indexed, collected_notes = _extract_pages(
+        content,
+        header_pt=header_pt, footer_pt=footer_pt,
+        skip_header_on_first=skip_header_on_first,
+        heading_sizes=heading_sizes, heading_fonts=heading_fonts,
+        extract_tables=extract_tables, footnotes=footnotes,
+        _plain_structured=_plain_structured,
+    )
+    pages = [text for _, text in indexed]
 
     body = _join_pages(pages)
     if footnotes and not _plain_structured:
@@ -133,6 +167,135 @@ def _join_pages(pages: list[str]) -> str:
         else:
             result = result + "\n\n" + nxt
     return result
+
+
+# ── Hyphen at a line or page break (journals) ────────────────────────────────
+# A hyphen before a break is one of three different things in legal Icelandic,
+# and "always drop it" corrupts two of them: a suspended hyphen ("ríkis- og
+# sveitarfélaga", where "ríkis" is a word of its own) and a real hyphen after an
+# acronym or number ("EES-samningurinn", "10-ára"). Rules, first match wins:
+#   (a) the continuation is the whole word og/eða/né/auk → keep the hyphen, one space
+#   (b) the token before the hyphen is an acronym or holds a digit → keep the
+#       hyphen, join without the newline
+#   (c) a letter before the hyphen and a lowercase continuation → drop the hyphen
+#   (d) anything else → not ours: the caller's normal separator rules apply
+# Shared by the in-page path (extract.dehyphenate) and the cross-page join below.
+_HYPHEN_CONJ = re.compile(r"(?:og|eða|né|auk)\b")
+_HYPHEN_LOWER = re.compile(r"[a-záéíóúýðþæö]")
+_HYPHEN_ACRONYM = re.compile(r"[A-ZÁÉÍÓÚÝÐÞÆÖ]{2}")
+
+
+def resolve_hyphen_break(before: str, after: str) -> tuple[bool, str] | None:
+    """Decide what a hyphen at a line/page break becomes.
+
+    `before` is the text up to and including the hyphen (only its last ~80
+    characters are read); `after` is the text that follows the break (only its
+    first few characters are read). Returns (keep_hyphen, separator) to put in
+    place of the break, or None for rule (d): leave it to the caller.
+    """
+    if _HYPHEN_CONJ.match(after):
+        return True, " "
+    if not _HYPHEN_LOWER.match(after):
+        return None
+    tail = before[:-1][-80:]
+    token = "" if not tail or tail[-1].isspace() else tail.split()[-1]
+    if not token:
+        return None
+    if any(c.isdigit() for c in token) or _HYPHEN_ACRONYM.search(token):
+        return True, ""
+    if token[-1].isalpha():
+        return False, ""
+    return None
+
+
+def _join_wrapped_lines(lines: list[str], join_hyphens: bool = False) -> str:
+    """Join the wrapped lines of one paragraph (footnote-mode extraction).
+
+    Plain " " joining, as always, unless `join_hyphens`: then a line ending in a
+    hyphen is joined to the next by the hyphen rules (resolve_hyphen_break), and
+    where those say "leave it" the plain space stays."""
+    if not join_hyphens or len(lines) < 2:
+        return " ".join(lines)
+    out = lines[0]
+    for nxt in lines[1:]:
+        fix = resolve_hyphen_break(out, nxt) if out.endswith("-") else None
+        if fix is None:
+            out += " " + nxt
+        else:
+            keep_hyphen, sep = fix
+            out = (out if keep_hyphen else out[:-1]) + sep + nxt
+    return out
+
+
+def _join_pages_with_offsets(pages: list[str]) -> tuple[str, list[int]]:
+    """_join_pages, also returning the start offset of every page in the result.
+
+    Same three rules; additionally a page that ends in '-' is joined to a
+    lowercase page start by the hyphen rules (resolve_hyphen_break): a word
+    broken across the page break loses its hyphen, a suspended or real hyphen
+    keeps it. The recorded offset is always the next page's first character.
+    """
+    if not pages:
+        return "", []
+    result, starts = pages[0], [0]
+    for nxt in pages[1:]:
+        first_word = nxt.split()[0] if nxt.split() else ""
+        if _NEW_PARA.match(nxt) or _HEADING_LINE.match(nxt):
+            sep = "\n\n"
+        elif first_word and first_word[0].islower():
+            sep = "\n"
+            fix = resolve_hyphen_break(result, nxt) if result.endswith("-") else None
+            if fix is not None:
+                keep_hyphen, sep = fix
+                if not keep_hyphen:
+                    result = result[:-1]
+        else:
+            sep = "\n\n"
+        result += sep
+        starts.append(len(result))
+        result += nxt
+    return result, starts
+
+
+def parse_pdf_pages(
+    content: bytes,
+    *,
+    footnotes: bool = False,
+    page_filter: Callable[[list[str]], list[str]] | None = None,
+) -> tuple[str, list[tuple[int, int]]]:
+    """parse_pdf for journals: returns (body, [(pdf_page_index, char_start), …]).
+
+    One offset per page that contributed text, in document order. `page_filter`
+    sees the list of page texts before joining (running-line strip,
+    dehyphenation) and must return a list of the same length; a page it blanks
+    contributes no offset.
+
+    A journal article is one contribution, so footnote numbering is never split
+    per contribution here: the notes are linked to the body when their markers
+    are unique, and otherwise appended as a plain numbered list (nothing lost).
+    """
+    indexed, notes = _extract_pages(
+        content,
+        header_pt=0, footer_pt=0, skip_header_on_first=False,
+        heading_sizes=None, heading_fonts=None, extract_tables=False,
+        footnotes=footnotes, _plain_structured=False, join_hyphens=True,
+    )
+    idxs = [i for i, _ in indexed]
+    pages = [t for _, t in indexed]
+    if page_filter is not None:
+        pages = page_filter(pages)
+        if len(pages) != len(idxs):
+            raise ValueError("page_filter must preserve the number of pages")
+    keep = [(i, p.strip()) for i, p in zip(idxs, pages) if p and p.strip()]
+    body, starts = _join_pages_with_offsets([p for _, p in keep])
+    if footnotes:
+        if _numbering_restarts(body):
+            block = "\n".join(f"{n}. {txt}" for n, txt in notes if txt)
+        else:
+            block = _render_footnotes(notes, body)
+        if block:
+            body = f"{body}\n\n{block}"
+    return body, [(i, s) for (i, _), s in zip(keep, starts)]
 
 
 def _extract_with_headings(page, heading_sizes: dict, heading_fonts: dict) -> str:
@@ -524,7 +687,9 @@ _MAX_HEADING_LINES = 2
 _PARAGRAPH_GAP_FACTOR = 1.5
 
 
-def _extract_page_with_footnotes(page, *, footnotes: bool = True) -> tuple[str, list[tuple[int, str]]]:
+def _extract_page_with_footnotes(
+    page, *, footnotes: bool = True, join_hyphens: bool = False,
+) -> tuple[str, list[tuple[int, str]]]:
     """Return (body markdown, [(n, note text), ...]) for one page.
 
     Kept separate from the heading/table extractors: those serve ~88,000 court
@@ -534,6 +699,10 @@ def _extract_page_with_footnotes(page, *, footnotes: bool = True) -> tuple[str, 
     With `footnotes=False` the note block is left in the body untouched — used for
     documents whose numbering restarts per contribution, which still need the
     paragraph and heading structure this function reconstructs.
+
+    With `join_hyphens`, wrapped lines (body paragraphs and note text) that end in
+    a hyphen are joined by the hyphen rules rather than a plain space; the default
+    keeps the output of books and theses exactly as it was.
     """
     line_map, line_tops, body_size = _page_lines(page)
     if not line_tops:
@@ -556,7 +725,7 @@ def _extract_page_with_footnotes(page, *, footnotes: bool = True) -> tuple[str, 
 
     def flush() -> None:
         if current:
-            blocks.append(" ".join(current))
+            blocks.append(_join_wrapped_lines(current, join_hyphens))
             current.clear()
 
     for idx, top in enumerate(line_tops):
@@ -604,10 +773,10 @@ def _extract_page_with_footnotes(page, *, footnotes: bool = True) -> tuple[str, 
         prev_top = top
 
     flush()
-    notes, leftovers = _parse_footnote_lines(note_lines)
+    notes, leftovers = _parse_footnote_lines(note_lines, join_hyphens=join_hyphens)
     if leftovers:
         # Continuation of a note that began on an earlier page — keep the text.
-        blocks.append(" ".join(leftovers))
+        blocks.append(_join_wrapped_lines(leftovers, join_hyphens))
     return "\n\n".join(blocks), notes
 
 
@@ -677,6 +846,7 @@ def _footnote_block_start(
 
 def _parse_footnote_lines(
     note_lines: list[tuple[float, str]],
+    join_hyphens: bool = False,
 ) -> tuple[list[tuple[int, str]], list[str]]:
     """Turn the foot-of-page block into ([(number, text)], leftover lines).
 
@@ -707,7 +877,7 @@ def _parse_footnote_lines(
             notes[-1][1].append(text)
         else:
             leftovers.append(text)
-    return [(n, " ".join(parts).strip()) for n, parts in notes], leftovers
+    return [(n, _join_wrapped_lines(parts, join_hyphens).strip()) for n, parts in notes], leftovers
 
 
 def _render_footnotes(notes: list[tuple[int, str]], body: str) -> str:
