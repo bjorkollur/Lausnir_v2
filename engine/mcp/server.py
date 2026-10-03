@@ -45,7 +45,9 @@ INSTRUCTIONS = (
     f"`relaxed: true` þýðir að færri en {RELAX_BELOW} skjöl innihéldu öll leitarorðin; `match_tier` 1–2 "
     "innihalda aðeins hluta þeirra. `sql_query` er fyrir tölfræði og gagnaathuganir sem "
     "leitarverkfærin svara ekki; það er read-only og skilar mest 1000 röðum. Notaðu `citations` "
-    "til að sjá í hvaða dóma er vitnað og hverjir vitna í dóm.\n\n"
+    "til að sjá í hvaða dóma er vitnað og hverjir vitna í dóm. "
+    "Greinar úr tímaritum (scope `timarit`) eru vitnaðar með `urlausn` greinarinnar og `anchor` sem er "
+    "blaðsíðutal (bls. 23).\n\n"
     "English: Lausnir is a corpus of Icelandic court rulings and administrative decisions. Start "
     "with `search` (lemmatised keyword search; `scope` narrows by court tier or source, see "
     "`list_sources`). Each hit points at its best passage (`passage_id`, `anchor`); use "
@@ -53,7 +55,8 @@ INSTRUCTIONS = (
     f"Always cite with `urlausn` plus `anchor`. `relaxed: true` means fewer than {RELAX_BELOW} documents "
     "contained all query terms; `match_tier` 1–2 hits contain only some of them. `sql_query` is "
     "read-only SQL for statistics the search tools cannot answer (max 1000 rows). Use `citations` "
-    "to see which rulings a document cites and which cite it."
+    "to see which rulings a document cites and which cite it. "
+    "Journal articles (scope `timarit`) are cited with the article's `urlausn` plus a page anchor (bls. 23)."
 )
 
 _RO = ToolAnnotations(read_only_hint=True)

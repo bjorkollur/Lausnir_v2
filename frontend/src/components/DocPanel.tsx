@@ -219,6 +219,21 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
     ? doc.document_date?.slice(0, 4)
     : formatIcelandicDate(doc.document_date);
 
+  // Journal articles: the issue label and the article's page range stand where a
+  // ruling has its date and verdict type (the title is already the h1).
+  const j = doc.journal;
+  const pages =
+    j?.page_start != null
+      ? j.page_end != null && j.page_end !== j.page_start
+        ? `bls. ${j.page_start}–${j.page_end}`
+        : `bls. ${j.page_start}`
+      : null;
+  const metaParts = j
+    ? [j.label, pages]
+    : doc.case_number_is_title
+      ? [doc.source_display, dateLabel]
+      : [dateLabel, doc.verdict_type];
+
   // One heading line that names the document: court plus case number. The court
   // used to sit above it as a small-caps kicker, which is decoration where the
   // heading can simply carry the whole identity.
@@ -246,10 +261,7 @@ export function DocPanel({ doc }: { doc: DocumentDetail }) {
                 stefndi. "gegn" is correct for both. */}
             <h1 className="font-serif text-title text-ink">{heading}</h1>
             <p className="mt-1 text-meta text-ink-soft">
-              {(doc.case_number_is_title
-                ? [doc.source_display, dateLabel]
-                : [dateLabel, doc.verdict_type]
-              )
+              {metaParts
                 .filter(Boolean)
                 .map((part, i) => (
                   <span key={i}>

@@ -4,8 +4,9 @@ import { PageShell } from "../components/PageShell";
 import { ErrorState } from "../components/states";
 import { formatCount } from "../lib/formatNumber";
 
-// Heimildir sýnir einungis dóma og úrskurði; lagasafn og bókasafn hafa eigin síður
-const EXCLUDED_KEYS = new Set(["lagasafn", "baekur"]);
+// Heimildir sýnir einungis dóma og úrskurði; lagasafn og bókasafn hafa eigin síður og
+// tímarit og fræðigreinar eru hvorki dómar né úrskurðir (leitarsían geymir þau áfram)
+const EXCLUDED_KEYS = new Set(["lagasafn", "baekur", "timarit"]);
 
 export default function CatalogPage() {
   const { data, isPending, isError, error } = useSources();

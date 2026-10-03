@@ -217,3 +217,7 @@ def test_relaxed_hint_follows_relax_below(monkeypatch):
     finally:
         monkeypatch.undo()
         importlib.reload(srv)
+
+
+def test_instructions_mention_journal_citation():
+    assert "scope `timarit`" in srv.INSTRUCTIONS and "bls. 23" in srv.INSTRUCTIONS

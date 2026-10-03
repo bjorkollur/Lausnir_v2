@@ -72,6 +72,18 @@ export interface DocumentDetail {
   embargo_until: string | null;
   /** True → GET /api/document/:id/pdf serves the original PDF. */
   has_pdf: boolean;
+  /** Bibliographic columns — null for everything that is not a journal article. */
+  volume: number | null; issue: string | null;
+  page_start: number | null; page_end: number | null; lang: string | null;
+  /** Set for journal articles only: the issue the article sits in and its pages. */
+  journal: JournalRef | null;
+}
+
+/** Where a journal article sits: issue label (e.g. "Tímarit lögfræðinga, 60. árg. 1. hefti (2010)") and pages. */
+export interface JournalRef {
+  label: string; year: number;
+  volume: number | null; issue: string | null;
+  page_start: number | null; page_end: number | null;
 }
 
 export type Mode = "keyword" | "exact" | "prefix" | "substring" | "any" | "proximity" | "regex";

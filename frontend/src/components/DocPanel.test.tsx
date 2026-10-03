@@ -34,6 +34,7 @@ const doc: DocumentDetail = {
   citations_out: [], citations_out_total: 0,
   cited_by: [], cited_by_total: 0,
   citations_unresolved_total: 0,
+  volume: null, issue: null, page_start: null, page_end: null, lang: null, journal: null,
 };
 
 const cite = (over: Partial<CitationRef> = {}): CitationRef => ({
@@ -443,5 +444,42 @@ describe("DocPanel citations", () => {
     renderWithProviders(<DocPanel doc={{ ...doc, citations_out: [cite()], citations_out_total: 1 }} />);
     expect(screen.getByRole("heading", { name: "Tengd mál" })).toBeInTheDocument();
     expect(screen.getByText("Áfrýjað til:")).toBeInTheDocument();
+  });
+});
+
+describe("journal articles", () => {
+  const article: DocumentDetail = {
+    ...doc, source: "timarit_logfraedinga", source_display: "Tímarit lögfræðinga", case_number_is_title: true,
+    case_number: "Hvenær er vanhæfi smitandi?", court: "TL", verdict_type: "Fræðigrein", document_date: "2010-01-01",
+    plaintiffs: [{ name: "Kjartan Bjarni Björgvinsson", lawyer: null }], defendants: [],
+    urlausn: "Kjartan Bjarni Björgvinsson: „Hvenær er vanhæfi smitandi?“ Tímarit lögfræðinga, 60. árg. 1. hefti (2010), bls. 7–47",
+    volume: 60, issue: "1", page_start: 7, page_end: 47, lang: "is",
+    journal: { label: "Tímarit lögfræðinga, 60. árg. 1. hefti (2010)", year: 2010, volume: 60, issue: "1", page_start: 7, page_end: 47 },
+  };
+
+  it("shows the issue label and page range instead of a case number", async () => {
+    renderWithProviders(<DocPanel doc={article} />);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Hvenær er vanhæfi smitandi?");
+    expect(screen.getByText("Tímarit lögfræðinga, 60. árg. 1. hefti (2010)")).toBeInTheDocument();
+    expect(screen.getByText("bls. 7–47")).toBeInTheDocument();
+    expect(screen.getByText("Kjartan Bjarni Björgvinsson")).toBeInTheDocument();
+    expect(screen.queryByText(/mál nr\./i)).not.toBeInTheDocument();
+    expect(screen.queryByText("gegn")).not.toBeInTheDocument();
+  });
+
+  it("shows a single page without a range", () => {
+    renderWithProviders(<DocPanel doc={{ ...article, journal: { ...article.journal!, page_start: 23, page_end: 23 } }} />);
+    expect(screen.getByText("bls. 23")).toBeInTheDocument();
+  });
+
+  it("shows a single page when the end page is unknown", () => {
+    renderWithProviders(<DocPanel doc={{ ...article, journal: { ...article.journal!, page_start: 23, page_end: null } }} />);
+    expect(screen.getByText("bls. 23")).toBeInTheDocument();
+  });
+
+  it("shows only the issue label when the page range is unknown", () => {
+    renderWithProviders(<DocPanel doc={{ ...article, journal: { ...article.journal!, page_start: null, page_end: null } }} />);
+    expect(screen.getByText("Tímarit lögfræðinga, 60. árg. 1. hefti (2010)")).toBeInTheDocument();
+    expect(screen.queryByText(/bls\./)).not.toBeInTheDocument();
   });
 });

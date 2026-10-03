@@ -305,6 +305,7 @@ DOC_ROW = {
     "case_type": None, "plaintiffs": [], "defendants": [], "keywords": [],
     "summary": "reifun", "body_text": "texti", "lower_body_text": None, "raw_api_data": {},
     "verdict_filename": None,
+    "volume": None, "issue": None, "page_start": None, "page_end": None, "lang": None, "issue_label": None,
 }
 
 

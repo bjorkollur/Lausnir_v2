@@ -196,11 +196,17 @@ class SearchError(ValueError):
     """Raised for bad input (invalid regex, unknown field) — maps to HTTP 400."""
 
 
-def _citation(short_name: str | None, court, case_number, document_date, verdict_type) -> str:
-    """Build the urlausn citation, reusing renderer.to_urlausn where possible."""
+def _citation(short_name: str | None, court, case_number, document_date, verdict_type, *,
+              plaintiffs=None, volume=None, issue=None, page_start=None, page_end=None) -> str:
+    """Build the urlausn citation, reusing renderer.to_urlausn where possible.
+
+    The keyword-only bibliographic fields are what a journal citation is made of
+    (authors, volume, issue, pages); rulings ignore them.
+    """
     doc = Document(
         court=court, case_number=case_number,
         document_date=document_date, verdict_type=verdict_type,
+        plaintiffs=plaintiffs, volume=volume, issue=issue, page_start=page_start, page_end=page_end,
     )
     try:
         return to_urlausn(doc, get_config(short_name)) if short_name else ""
@@ -536,6 +542,7 @@ async def search_documents(
         SELECT d.id, s.short_name AS source, s.display_name AS source_display,
                d.court, d.case_number, d.document_date, d.verdict_type,
                d.summary, d.keywords, d.plaintiffs, d.defendants,
+               d.volume, d.issue, d.page_start, d.page_end,
                {snippet_select},
                {body_head_select},
                -- 'cites' is one-way (citing → cited), so this is exactly the
@@ -569,7 +576,9 @@ async def search_documents(
         results.append({
             "id": str(r["id"]),
             "urlausn": _citation(r["source"], r["court"], r["case_number"],
-                                 r["document_date"], r["verdict_type"]),
+                                 r["document_date"], r["verdict_type"],
+                                 plaintiffs=r["plaintiffs"], volume=r["volume"], issue=r["issue"],
+                                 page_start=r["page_start"], page_end=r["page_end"]),
             "source": r["source"],
             "source_display": r["source_display"],
             "court": r["court"],
@@ -869,6 +878,25 @@ async def get_stored_pdf(session: AsyncSession, doc_id: str | uuid.UUID) -> Path
     return _stored_pdf(cfg, row, raw)
 
 
+def _journal_block(cfg, row) -> dict[str, Any] | None:
+    """The reader's journal header: issue label, year and the article's place in the issue.
+
+    None unless the source is a journal. ``label`` comes from journal_issues (LEFT JOIN); an article
+    without an issue row falls back to the journal's display name so the field is always a string.
+    """
+    if not (cfg and cfg.kind == "journal"):
+        return None
+    d = row["document_date"]
+    return {
+        "label": row["issue_label"] or row["source_display"],
+        "year": d.year if d else None,
+        "volume": row["volume"],
+        "issue": row["issue"],
+        "page_start": row["page_start"],
+        "page_end": row["page_end"],
+    }
+
+
 async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[str, Any] | None:
     """Fetch one document with its full text, parties, appeal links and citations."""
     try:
@@ -881,8 +909,10 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
                d.external_id, d.url, d.court, d.case_number, d.document_date,
                d.verdict_type, d.instance_tier, d.case_type, d.verdict_filename,
                d.plaintiffs, d.defendants, d.keywords, d.summary,
-               d.body_text, d.lower_body_text, d.raw_api_data
+               d.body_text, d.lower_body_text, d.raw_api_data,
+               d.volume, d.issue, d.page_start, d.page_end, d.lang, ji.label AS issue_label
         FROM documents d JOIN sources s ON s.id = d.source_id
+        LEFT JOIN journal_issues ji ON ji.id = d.journal_issue_id
         WHERE d.id = :id
     """), {"id": did})).mappings().first()
     if row is None:
@@ -964,7 +994,9 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
         "locked": locked if isinstance(locked, bool) else None,
         "embargo_until": raw.get("embargo_until"),
         "urlausn": _citation(row["source"], row["court"], row["case_number"],
-                             row["document_date"], row["verdict_type"]),
+                             row["document_date"], row["verdict_type"],
+                             plaintiffs=row["plaintiffs"], volume=row["volume"], issue=row["issue"],
+                             page_start=row["page_start"], page_end=row["page_end"]),
         "court": row["court"],
         "case_number": row["case_number"],
         "document_date": row["document_date"].isoformat() if row["document_date"] else None,
@@ -977,6 +1009,13 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
         "summary": row["summary"],
         "body_text": row["body_text"],
         "lower_body_text": row["lower_body_text"],
+        # Bibliographic columns — NULL for everything that is not a journal article.
+        "volume": row["volume"],
+        "issue": row["issue"],
+        "page_start": row["page_start"],
+        "page_end": row["page_end"],
+        "lang": row["lang"],
+        "journal": _journal_block(cfg, row),
         "appeal_links": appeal_links,
         "citations_out": out["items"],
         "citations_out_total": out["total"],

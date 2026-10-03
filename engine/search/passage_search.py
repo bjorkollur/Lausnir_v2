@@ -415,6 +415,7 @@ async def search_by_passages(
         SELECT d.id, s.short_name AS source, s.display_name AS source_display,
                d.court, d.case_number, d.document_date, d.verdict_type,
                d.summary, d.keywords, d.plaintiffs, d.defendants,
+               d.volume, d.issue, d.page_start, d.page_end,
                h.best_rank, h.match_count, h.tier,
                bp.id AS passage_id, bp.layer, bp.section_kind, bp.section_path,
                bp.para_from, bp.para_to, bp.page_from, bp.page_to, bp.ordinal,
@@ -443,7 +444,9 @@ async def search_by_passages(
     for r in rows:
         results.append({
             "id": str(r["id"]),
-            "urlausn": _citation(r["source"], r["court"], r["case_number"], r["document_date"], r["verdict_type"]),
+            "urlausn": _citation(r["source"], r["court"], r["case_number"], r["document_date"], r["verdict_type"],
+                                 plaintiffs=r["plaintiffs"], volume=r["volume"], issue=r["issue"],
+                                 page_start=r["page_start"], page_end=r["page_end"]),
             "source": r["source"], "source_display": r["source_display"],
             "court": r["court"], "case_number": r["case_number"],
             "document_date": r["document_date"].isoformat() if r["document_date"] else None,
@@ -482,7 +485,8 @@ async def get_passages(session: AsyncSession, doc_id, *, from_ordinal: int, to_o
     section_kinds = validate_section_kinds(section_kinds)
 
     doc = (await session.execute(text("""
-        SELECT d.id, s.short_name AS source, d.court, d.case_number, d.document_date, d.verdict_type
+        SELECT d.id, s.short_name AS source, d.court, d.case_number, d.document_date, d.verdict_type,
+               d.plaintiffs, d.volume, d.issue, d.page_start, d.page_end
         FROM documents d JOIN sources s ON s.id = d.source_id WHERE d.id = :id"""), {"id": did})).mappings().first()
     if doc is None:
         return None
@@ -502,7 +506,9 @@ async def get_passages(session: AsyncSession, doc_id, *, from_ordinal: int, to_o
         {**params, "lo": from_ordinal, "hi": to_ordinal})).mappings().all()
     return {
         "document_id": str(doc["id"]),
-        "urlausn": _citation(doc["source"], doc["court"], doc["case_number"], doc["document_date"], doc["verdict_type"]),
+        "urlausn": _citation(doc["source"], doc["court"], doc["case_number"], doc["document_date"], doc["verdict_type"],
+                             plaintiffs=doc["plaintiffs"], volume=doc["volume"], issue=doc["issue"],
+                             page_start=doc["page_start"], page_end=doc["page_end"]),
         "total": total,
         "passages": [{
             "id": str(r["id"]), "ordinal": r["ordinal"], "layer": r["layer"],
