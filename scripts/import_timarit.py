@@ -27,6 +27,12 @@ to raw/{source}/hefti/, and the issue is marked imported, committing after every
 be imported say why in their `analysis_notes`; an issue that fails, or of which no article could be imported, gets
 status `failed`. Afterwards run backfill_passages.py and build_citations.py. `import --dry-run` reads the archive
 and the database but writes nothing (no documents, files, manifests or journal_issues); it prints every article.
+
+`import --prune` (opt-in) also deletes the issue's stored articles that its manifest no longer names, e.g. after a
+start page was edited and the article got a new id: the rows (their passages, citations and links follow by ON DELETE
+CASCADE), and their markdown and article PDF once the commit has gone through. An article that failed, had no text or
+collided this time is still named by the manifest and stays. Nothing is pruned from an issue where nothing was
+imported. `--dry-run --prune` lists what would go. The default is unchanged: such rows are only counted and listed.
 """
 from __future__ import annotations
 
@@ -564,6 +570,7 @@ _COUNT_LABELS = {
     "no_text": "greinar án texta", "failed": "greinar mistókust", "failed_issue": "hefti mistókust",
     "source_changed": "frumskjal breytt", "discovery_error": "fleiri en eitt heftisskjal",
     "not_analysed": "hefti ekki greint", "orphaned": "eldri greinar ekki í skránni",
+    "pruned": "úreltum greinum eytt",
 }
 
 
@@ -691,6 +698,35 @@ async def _stored_docs(session, source_id) -> list[tuple]:
     return [tuple(r) for r in rows]
 
 
+def _stale_ids(stored: list[tuple], issue_id, ids) -> list[str]:
+    """External ids of this issue's stored documents that its manifest no longer has (sorted). Other issues' rows,
+    and every id the manifest still names (whether or not it was imported this time), are never stale."""
+    if issue_id is None:
+        return []
+    keep = set(ids)
+    return sorted(eid for eid, jid, _ in stored if jid == issue_id and eid not in keep)
+
+
+# --prune. Every FK to documents.id is ON DELETE CASCADE (passages, document_links both ways, citations.from_doc_id) or
+# SET NULL (citations.to_doc_id), so this one DELETE takes the dependents with it; a citation of another document that
+# pointed at the row is left dangling, which build_citations picks up and re-resolves (_DANGLING_PRED). Source and
+# issue are in the WHERE clause so that another issue's or source's row can never go.
+_PRUNE = text("""DELETE FROM documents WHERE source_id = :source AND journal_issue_id = :issue
+                 AND external_id = ANY(:ids) RETURNING external_id, verdict_filename""")
+
+
+async def _prune_rows(session, source_id, issue_id, ids: list[str]) -> list[tuple[str, str | None]]:
+    """Delete the issue's rows with these external_ids; returns (external_id, verdict_filename) of those deleted."""
+    rows = (await session.execute(_PRUNE, {"source": source_id, "issue": issue_id, "ids": list(ids)})).all()
+    return [(r[0], r[1]) for r in rows]
+
+
+async def _has_stale_rows(session, m: IssueManifest, issue_id) -> bool:
+    """Whether the issue has stored articles its manifest no longer names (read only)."""
+    source_id = (await session.execute(select(Source.id).where(Source.short_name == m.source))).scalar_one_or_none()
+    return bool(_stale_ids(await _stored_docs(session, source_id), issue_id, assign_external_ids(m)))
+
+
 async def _mark_issue_failed(session, manifest_rel: str, error: str) -> None:
     await session.execute(text(
         "UPDATE journal_issues SET status = 'failed', error = :error, updated_at = now() WHERE manifest_path = :p"),
@@ -763,6 +799,7 @@ class _FileLog:
     previous content of each path (None: it did not exist) is remembered before its first write."""
     def __init__(self) -> None:
         self._before: dict[Path, bytes | None] = {}
+        self._removals: list[Path] = []
 
     def track(self, path: Path) -> Path:
         if path not in self._before:
@@ -774,7 +811,30 @@ class _FileLog:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(data)
 
+    def defer_removal(self, path: Path) -> None:
+        """Delete `path` once the caller's commit went through (apply_removals); undo() forgets it. This is for the
+        files of pruned rows: while the commit is open the rows may come back, and so must their files."""
+        if path not in self._removals:
+            self._removals.append(path)
+
+    def apply_removals(self) -> int:
+        """Delete the deferred files that exist; returns how many went. Never inside the archive, and a file that
+        cannot be deleted is logged, not raised (the commit is behind us)."""
+        n = 0
+        for path in self._removals:
+            try:
+                if path.resolve().is_relative_to(DROP.resolve()):
+                    log.error("refusing to delete %s: inside the archive", path)
+                elif path.exists():
+                    path.unlink()
+                    n += 1
+            except Exception:  # noqa: BLE001 — the commit is behind us; a file that stays is harmless
+                log.exception("could not delete %s", path)
+        self._removals.clear()
+        return n
+
     def undo(self) -> None:
+        self._removals.clear()
         for path, old in self._before.items():
             try:
                 if old is None:
@@ -826,7 +886,7 @@ def _check_raw_dir(raw_dir: Path) -> None:
 
 
 async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry_run: bool, workers: int,
-                          pool=None, files: _FileLog | None = None) -> dict[str, int]:
+                          pool=None, files: _FileLog | None = None, prune: bool = False) -> dict[str, int]:
     """Import one issue (spec §7.1 step 4) and return its counts. Only an `approved` manifest, or an `imported` one
     whose file differs from the version journal_issues recorded, is imported; a manifest the guards block
     (_blocked), or whose issue PDF no longer has the sha256 it was analysed with, is not.
@@ -841,6 +901,13 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
     Files come last, after all database work of the manifest: markdown and the article PDF of every imported
     article, and the issue PDF at raw/{source}/hefti/{year}_{volume}_{issue}.pdf. A failure before that leaves the
     disk untouched; what is written is recorded in `files`, so the caller can undo it when its commit fails.
+
+    With `prune`, and when at least one article was imported, the issue's stored rows whose external_id the manifest
+    no longer names are deleted in the same transaction (after the upserts), counted `pruned`; their files are
+    deferred in `files` (`apply_removals` after the commit), except those a remaining row also uses. An article that
+    failed, had no text or collided this time is still named by the manifest, so its row stays. Without `prune`
+    such rows are only counted `orphaned` and listed in the issue's `error`. An issue the manifest of which is
+    unchanged since its import is skipped as before, unless `prune` is set and the issue has such rows.
 
     With `dry_run` the database is only read and nothing is written anywhere; every article is printed."""
     m = load_manifest(path)
@@ -857,7 +924,8 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
         row = await _issue_row(session, manifest_rel)
     issue_id = uuid.UUID(str(row[0])) if row else None
     if m.status == "imported" and row is not None and row[1] == manifest_sha256(path):
-        return {"unchanged": 1}
+        if not (prune and await _has_stale_rows(session, m, issue_id)):
+            return {"unchanged": 1}
     if not dry_run:
         _check_raw_dir(raw_dir)
     files = files if files is not None else _FileLog()
@@ -890,11 +958,7 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
     by_id = dict(zip(ids, m.articles))
     for a in m.articles:
         a.analysis_notes = [n for n in a.analysis_notes if not _IMPORT_NOTE.fullmatch(n)]
-    orphans = sorted(eid for eid, jid, _ in stored if issue_id is not None and jid == issue_id and eid not in by_id)
-    if orphans:
-        counts["orphaned"] = len(orphans)
-        log.warning("%s: stored articles no longer in the manifest (left in place): %s", path.name, ", ".join(orphans))
-        _dry(dry_run, "", f"eldri greinar heftisins sem eru ekki lengur í skránni: {', '.join(orphans)}")
+    stale = _stale_ids(stored, issue_id, by_id)
 
     pdfs: dict[str, bytes] = {}
     stored_docs: list[tuple[Document, str]] = []
@@ -950,6 +1014,26 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
             await _upsert_doc(session, doc)
             stored_docs.append((doc, vf))
 
+    pruned: list[tuple[str, str | None]] = []
+    if prune and stale and counts["imported"]:
+        if dry_run:
+            vf_of = {eid: vf for eid, _, vf in stored}
+            pruned = [(eid, vf_of[eid]) for eid in stale]
+            for eid, vf in pruned:
+                _dry(True, eid, f"yrði eytt: úrelt grein, ekki lengur í skránni ({vf})")
+        else:
+            pruned = await _prune_rows(session, source_id, issue_id, stale)
+            for eid, vf in pruned:
+                log.info("pruned %s (%s) of %s: the manifest no longer has it", eid, vf, path.name)
+    gone = {eid for eid, _ in pruned}
+    orphans = [eid for eid in stale if eid not in gone]
+    if gone:
+        counts["pruned"] = len(gone)
+    if orphans:
+        counts["orphaned"] = len(orphans)
+        log.warning("%s: stored articles no longer in the manifest (left in place): %s", path.name, ", ".join(orphans))
+        _dry(dry_run, "", f"eldri greinar heftisins sem eru ekki lengur í skránni: {', '.join(orphans)}")
+
     summary = _import_summary(counts, orphans)
     if dry_run:
         if summary:
@@ -988,6 +1072,13 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
         files.write(cfg.pdf_path(vf), pdfs[doc.external_id])
     if issue_dest is not None and not (issue_dest.exists() and sha256_bytes(issue_dest.read_bytes()) == issue_sha):
         files.write(issue_dest, issue_bytes)
+    # The pruned rows' files go once the commit has: unless a row that remains (another issue's, one of this issue's
+    # that stays, one written just now) has the same name.
+    in_use = {vf for eid, _, vf in stored if vf and eid not in gone} | {vf for _, vf in stored_docs}
+    for _, vf in pruned:
+        if vf and vf not in in_use and vf == Path(vf).name:
+            files.defer_removal(cfg.markdown_path(vf))
+            files.defer_removal(cfg.pdf_path(vf))
     return dict(counts)
 
 
@@ -1003,19 +1094,34 @@ async def _import_one(path: Path, session, args, pool) -> tuple[dict[str, int], 
     the exception's type, or because the database no longer answers SELECT 1) raises _StopRun: the issue is not to
     blame and is left as it was. Any other error is the issue's: it gets status `failed` with the error (manifest
     and journal_issues, committed) and the run goes on. A manifest that does not load is left as it is (it is the
-    user's hand edit)."""
+    user's hand edit).
+
+    The one exception to the undo: a connection lost *during the commit* may have lost only the reply. The server
+    may have committed, and then the files are the right ones for the rows (undoing them would leave rows without
+    files, which the next run would call `unchanged`). If it did not commit, the next run imports the issue again
+    over the same paths, because the stored manifest_sha256 still differs. So those files stay, and so do the files
+    of pruned rows (they are deleted only after a commit that is known to have succeeded)."""
     files = _FileLog()
+    committing = False
     try:
         counts = await import_manifest(path, session=session, read_bytes=_read_drop,
                                        raw_dir=Path(sources_config.RAW_DIR), dry_run=args.dry_run,
-                                       workers=args.workers, pool=pool, files=files)
+                                       workers=args.workers, pool=pool, files=files,
+                                       prune=getattr(args, "prune", False))
         if not args.dry_run:
+            committing = True
             await session.commit()
+            committing = False
+            files.apply_removals()
         return counts, False
     except Exception as exc:  # noqa: BLE001 — one bad issue must not stop the run
-        files.undo()
         log.exception("import failed for %s", path.name)
-        if _is_connection_error(exc) or not await _session_alive(session):
+        lost = _is_connection_error(exc) or not await _session_alive(session)
+        if committing and lost:
+            log.warning("%s: the outcome of the commit is unknown; its files are kept", path.name)
+        else:
+            files.undo()
+        if lost:
             raise _StopRun(f"tengingin við gagnagrunninn brást við {path.name} ({_error_text(exc)}); "
                            "heftið var ekki merkt failed og ekkert hefti á eftir því var reynt") from exc
         if args.dry_run:
@@ -1073,8 +1179,11 @@ async def cmd_import(args) -> None:
         print(f"  {_COUNT_LABELS.get(k, k):30s} {n:5d}")
     if args.dry_run:
         print("Þurrkeyrsla: ekkert var skrifað (engin skjöl, engar skrár, ekkert í gagnagrunn).")
-    elif totals.get("imported"):
+    elif totals.get("imported") or totals.get("pruned"):
         print("Næst: keyrðu scripts/backfill_passages.py og scripts/build_citations.py.")
+    if totals.get("orphaned") and not getattr(args, "prune", False):
+        print("Ábending: eldri færslur sem skráin nefnir ekki lengur eru enn í gagnagrunninum; "
+              "import --prune eyðir þeim (og skrám þeirra).")
     if stop:
         raise SystemExit(f"import stöðvað: {stop}")
 
@@ -1104,7 +1213,12 @@ def main(argv=None) -> None:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--limit", type=int)
+    ap.add_argument("--prune", action="store_true",
+                    help="import: eyða greinum heftisins sem yfirlitsskráin nefnir ekki lengur (og skrám þeirra)")
     args = ap.parse_args(argv)
+    if args.prune and args.command != "import":
+        print(f"Aðvörun: --prune gildir aðeins um import; það er hunsað við {args.command}.", file=sys.stderr)
+        args.prune = False
     _setup_logging(args.command)
     cmd = {"discover": cmd_discover, "status": cmd_status, "analyze": cmd_analyze, "import": cmd_import}[args.command]
     asyncio.run(cmd(args))

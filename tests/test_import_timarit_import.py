@@ -76,6 +76,11 @@ class _Session:
             return _Res(first=self.issue_row)
         if sql.startswith("INSERT INTO documents"):
             return _Res(scalar=DOC_ID)
+        if sql.startswith("DELETE FROM documents"):       # --prune: what the WHERE clause would delete and return
+            gone = [(eid, vf) for eid, jid, vf in self.docs
+                    if jid == params["issue"] and eid in params["ids"]]
+            self.docs = [d for d in self.docs if d[0] not in {eid for eid, _ in gone}]
+            return _Res(rows=gone)
         if "FROM documents" in sql:
             return _Res(rows=self.docs)
         return _Res()
@@ -390,7 +395,7 @@ async def test_workers_run_in_a_process_pool(tmp_path, raw_dir):
 # --- cmd_import --------------------------------------------------------------------------------------------------
 
 def _args(**kw):
-    base = dict(source=None, issue=None, limit=None, dry_run=False, workers=1, command="import")
+    base = dict(source=None, issue=None, limit=None, dry_run=False, workers=1, command="import", prune=False)
     base.update(kw)
     return argparse.Namespace(**base)
 
@@ -651,6 +656,240 @@ async def test_a_success_resets_the_count_of_failures_in_a_row(tmp_path, raw_dir
     assert [load_manifest(p).status for p in paths] == ["failed"] * 4 + ["imported"] + ["failed"] * 4
 
 
+# --- Task 20a: --prune and the lost commit reply ------------------------------------------------------------------
+
+STALE = ("2010-60-1-5", ISSUE_ID, "TL_60-1_2010_bls-5")          # this issue's row; the manifest no longer has the id
+
+
+def _touch(raw_dir: Path, vf: str) -> tuple[Path, Path]:
+    """The derived files of a row (markdown and article PDF), as an earlier import left them."""
+    md = _md_dir(raw_dir) / "timarit_logfraedinga" / f"{vf}.md"
+    pdf = raw_dir / "timarit_logfraedinga" / f"{vf}.pdf"
+    for q in (md, pdf):
+        q.parent.mkdir(parents=True, exist_ok=True)
+        q.write_bytes(b"old")
+    return md, pdf
+
+
+def _deletes(session):
+    return [(s, p) for s, p in session.statements if s.startswith("DELETE FROM documents")]
+
+
+async def _prune(p, session, raw_dir, *, dry_run=False, read=lambda rel: ISSUE):
+    files = imp._FileLog()
+    counts = await import_manifest(p, session=session, read_bytes=read, raw_dir=raw_dir, dry_run=dry_run, workers=1,
+                                   prune=True, files=files)
+    return counts, files
+
+
+async def test_prune_deletes_only_this_issues_ids_the_manifest_no_longer_has(tmp_path, raw_dir):
+    p, _ = _manifest(tmp_path)
+    other = ("2010-60-2-3", OTHER_ISSUE, "TL_60-2_2010_bls-3")               # another issue's row
+    session = _Session(docs=[("2010-60-1-7", ISSUE_ID, "TL_60-1_2010_bls-7-8"), STALE, other])
+    stale_files, other_files = _touch(raw_dir, STALE[2]), _touch(raw_dir, other[2])
+    counts, files = await _prune(p, session, raw_dir)
+    assert counts["pruned"] == 1 and counts["imported"] == 2 and "orphaned" not in counts
+    (sql, params), = _deletes(session)
+    assert params["ids"] == ["2010-60-1-5"] and params["issue"] == ISSUE_ID and params["source"] == SOURCE_ID
+    assert "journal_issue_id = :issue" in sql and "source_id = :source" in sql and "RETURNING" in sql
+    kinds = [s.split()[0] for s, _ in session.statements]
+    assert kinds.index("DELETE") > max(i for i, k in enumerate(kinds) if k == "INSERT")            # after the upserts
+    assert all(q.exists() for q in stale_files + other_files)                  # files go only once the caller committed
+    files.apply_removals()
+    assert not any(q.exists() for q in stale_files) and all(q.exists() for q in other_files)
+    out = load_manifest(p)
+    assert out.error is None and session.issue_updates()[0][1]["error"] is None        # nothing stale is left to list
+
+
+async def test_without_prune_nothing_is_deleted_and_the_stale_row_is_still_listed(tmp_path, raw_dir):
+    p, _ = _manifest(tmp_path)
+    session = _Session(docs=[STALE])
+    counts = await _run(p, session, raw_dir)
+    assert counts["orphaned"] == 1 and "pruned" not in counts and not _deletes(session)
+    assert "úreltar færslur: 2010-60-1-5" in load_manifest(p).error
+
+
+async def test_articles_that_failed_had_no_text_or_collided_are_not_pruned(tmp_path, raw_dir, monkeypatch):
+    """Only ids absent from the manifest's article set go. Every id below is in the manifest, so its row stays."""
+    p, m = _manifest(tmp_path)
+    m.articles[0].pdf_pages = [40, 41]                                       # -7: cannot be cut → failed
+    m.articles.append(ArticleEntry(title="Þriðja", page_start=8, page_end=8, pdf_pages=[3, 3], lang="is"))   # -8: fine
+    m.articles.append(ArticleEntry(title="Fjórða", page_start=11, page_end=11, pdf_pages=[2, 2], lang="is"))  # -11: taken
+    save_manifest(m, p)
+    monkeypatch.setattr(imp, "_ocr", lambda b: None)
+    issue = _pdf(["Kápa", "Efnisyfirlit", f"11\nFjórða\n{_PAD}", f"8\nÞriðja\n{_PAD}", ""])      # -9: a scan → no_text
+    session = _Session(docs=[("2010-60-1-7", ISSUE_ID, "a"), ("2010-60-1-9", ISSUE_ID, "b"),
+                             ("2010-60-1-400", ISSUE_ID, "c"),                       # no pdf_pages
+                             ("2010-60-1-11", OTHER_ISSUE, "d"), STALE])
+    counts, _ = await _prune(p, session, raw_dir, read=lambda rel: issue)
+    assert (counts["failed"], counts["no_text"], counts["skipped_no_pages"], counts["collision"]) == (1, 1, 1, 1)
+    assert counts["imported"] == 1 and counts["pruned"] == 1
+    (_, params), = _deletes(session)
+    assert params["ids"] == ["2010-60-1-5"]
+
+
+async def test_nothing_is_pruned_from_an_issue_where_nothing_was_imported(tmp_path, raw_dir, monkeypatch):
+    p, _ = _manifest(tmp_path)
+    monkeypatch.setattr(imp, "_ocr", lambda b: None)
+    session = _Session(docs=[STALE])
+    counts, _ = await _prune(p, session, raw_dir, read=lambda rel: _pdf(["", "", "", "", ""]))
+    assert not _deletes(session) and counts["orphaned"] == 1 and "pruned" not in counts
+    out = load_manifest(p)
+    assert out.status == "failed" and "2010-60-1-5" in out.error
+
+
+async def test_dry_run_with_prune_lists_what_would_go_and_deletes_nothing(tmp_path, raw_dir, capsys):
+    p, _ = _manifest(tmp_path)
+    before = p.read_bytes()
+    session = _Session(docs=[STALE])
+    stale_files = _touch(raw_dir, STALE[2])
+    counts, files = await _prune(p, session, raw_dir, dry_run=True)
+    out = capsys.readouterr().out
+    assert counts["pruned"] == 1 and "orphaned" not in counts
+    assert "2010-60-1-5" in out and "yrði eytt" in out and "TL_60-1_2010_bls-5" in out
+    assert not _deletes(session) and not [s for s, _ in session.statements if not s.startswith("SELECT")]
+    files.apply_removals()
+    assert all(q.exists() for q in stale_files) and p.read_bytes() == before
+
+
+async def test_a_file_that_a_remaining_row_still_uses_is_kept(tmp_path, raw_dir):
+    p, _ = _manifest(tmp_path)
+    same_as_new = ("2010-60-1-5", ISSUE_ID, "TL_60-1_2010_bls-7-8")          # the name this run gives article -7
+    shared = ("2010-60-1-6", ISSUE_ID, "TL_shared")
+    held = ("1999-49-2-1", OTHER_ISSUE, "TL_shared")                          # another issue's row has it too
+    lone = ("2010-60-1-4", ISSUE_ID, "TL_lone")
+    session = _Session(docs=[same_as_new, shared, held, lone])
+    kept = _touch(raw_dir, "TL_shared")
+    gone = _touch(raw_dir, "TL_lone")
+    counts, files = await _prune(p, session, raw_dir)
+    assert counts["pruned"] == 3
+    files.apply_removals()
+    assert all(q.exists() for q in kept) and not any(q.exists() for q in gone)
+    assert (raw_dir / "timarit_logfraedinga" / "TL_60-1_2010_bls-7-8.pdf").read_bytes().startswith(b"%PDF")  # the new file
+
+
+async def test_pruned_files_are_removed_after_a_successful_commit_only(tmp_path, raw_dir, monkeypatch):
+    good, _ = _repo(tmp_path, monkeypatch)
+    seen = []
+
+    class Committing(_Ctx):
+        async def commit(self):
+            seen.append([q.exists() for q in stale_files])                    # at commit time the files are still there
+            await super().commit()
+    stale_files = _touch(raw_dir, STALE[2])
+    counts, raised = await imp._import_one(good, Committing(docs=[STALE]), _args(prune=True), None)
+    assert not raised and counts["pruned"] == 1 and seen == [[True, True]]
+    assert not any(q.exists() for q in stale_files)
+
+    class CommitFails(_Ctx):
+        async def commit(self):
+            raise RuntimeError("could not serialize access due to concurrent update")
+    stale_files = _touch(raw_dir, STALE[2])
+    counts, raised = await imp._import_one(good, CommitFails(docs=[STALE]), _args(prune=True), None)
+    assert raised and counts == {"failed_issue": 1}
+    assert all(q.exists() for q in stale_files)                                # the rows are back, so are their files
+
+
+async def test_prune_reaches_an_issue_whose_manifest_has_not_changed(tmp_path, raw_dir):
+    """The usual order: an import left the stale row behind and said so; the manifest has not changed since, so the
+    issue counts as unchanged. `--prune` has to look at it anyway (and only because it has stale rows)."""
+    p, _ = _manifest(tmp_path, status="imported")
+    session = _Session(issue_row=(ISSUE_ID, manifest_sha256(p)), docs=[STALE])
+    assert await _run(p, session, raw_dir) == {"unchanged": 1}
+    session = _Session(issue_row=(ISSUE_ID, manifest_sha256(p)), docs=[STALE])
+    counts, _ = await _prune(p, session, raw_dir)
+    assert counts["pruned"] == 1 and counts["imported"] == 2
+    session = _Session(issue_row=(ISSUE_ID, manifest_sha256(p)), docs=[("2010-60-1-7", ISSUE_ID, "x")])
+    counts, _ = await _prune(p, session, raw_dir)
+    assert counts == {"unchanged": 1} and not session.upserts()
+
+
+def test_deferred_removals_are_forgotten_by_undo_and_never_reach_into_the_archive(tmp_path, monkeypatch):
+    monkeypatch.setattr(imp, "DROP", tmp_path / "drop")
+    mine, theirs = tmp_path / "raw" / "a.pdf", tmp_path / "drop" / "b.pdf"
+    for q in (mine, theirs):
+        q.parent.mkdir(parents=True, exist_ok=True)
+        q.write_bytes(b"x")
+    files = imp._FileLog()
+    files.defer_removal(mine)
+    files.undo()                                                       # the commit failed: nothing is to be deleted
+    assert files.apply_removals() == 0 and mine.exists()
+    files.defer_removal(theirs)
+    files.defer_removal(tmp_path / "raw" / "missing.pdf")              # a file that is already gone is fine
+    assert files.apply_removals() == 0 and theirs.exists()             # the archive is read only
+
+
+def _main(monkeypatch, argv):
+    seen = []
+
+    async def spy(args):
+        seen.append(args)
+    monkeypatch.setattr(imp, "_setup_logging", lambda command: [])
+    for name in ("cmd_import", "cmd_status", "cmd_discover", "cmd_analyze"):
+        monkeypatch.setattr(imp, name, spy)
+    imp.main(argv)
+    return seen[0]
+
+
+def test_prune_is_an_import_option_and_ignored_with_a_warning_elsewhere(monkeypatch, capsys):
+    assert _main(monkeypatch, ["import", "--prune"]).prune is True
+    assert _main(monkeypatch, ["import"]).prune is False
+    capsys.readouterr()
+    args = _main(monkeypatch, ["status", "--prune"])
+    assert args.prune is False and "--prune" in capsys.readouterr().err
+
+
+async def test_the_run_summary_counts_pruned_and_hints_at_prune_otherwise(tmp_path, raw_dir, monkeypatch, capsys):
+    good, bad = _repo(tmp_path, monkeypatch)
+    _fake_db(monkeypatch, lambda: _Ctx(docs=[STALE]))
+    await imp.cmd_import(_args(prune=True))
+    out = capsys.readouterr().out
+    assert "úreltum greinum eytt" in out and "1" in out and "--prune" not in out
+    p, _ = _manifest(tmp_path / "again")
+    monkeypatch.setattr(imp, "_select_manifests", lambda args: [p])
+    _fake_db(monkeypatch, lambda: _Ctx(docs=[STALE]))
+    await imp.cmd_import(_args())
+    out = capsys.readouterr().out
+    assert "eldri greinar ekki í skránni" in out and "--prune" in out
+
+
+@pytest.mark.parametrize("failure", [ConnectionResetError(54, "Connection reset by peer"),
+                                     sa_exc.InterfaceError("COMMIT", {}, Exception("connection is closed"))])
+async def test_a_lost_commit_reply_keeps_the_files_and_stops_the_run(tmp_path, raw_dir, monkeypatch, failure):
+    """The server may have committed before the reply was lost; the files are right if it did, and if it did not the
+    next run re-imports over the same paths (the stored manifest_sha256 differs). Files to prune stay either way."""
+    good, _ = _repo(tmp_path, monkeypatch)
+    stale_files = _touch(raw_dir, STALE[2])
+
+    class ReplyLost(_Ctx):
+        async def commit(self):
+            raise failure
+    session = ReplyLost(docs=[STALE])
+    with pytest.raises(imp._StopRun, match="gagnagrunn"):
+        await imp._import_one(good, session, _args(prune=True), None)
+    assert "markdown/timarit_logfraedinga/TL_60-1_2010_bls-7-8.md" in _written(raw_dir)
+    assert "raw/timarit_logfraedinga/hefti/2010_60_1.pdf" in _written(raw_dir)
+    assert all(q.exists() for q in stale_files)
+    assert not [s for s, _ in session.statements if s.startswith("UPDATE") and "'failed'" in s]
+
+
+async def test_a_commit_that_fails_with_the_database_down_keeps_the_files_too(tmp_path, raw_dir, monkeypatch):
+    good, _ = _repo(tmp_path, monkeypatch)
+
+    class Down(_Ctx):
+        async def commit(self):
+            raise OSError("Multiple exceptions: [Errno 61] Connect call failed ('127.0.0.1', 5433)")
+
+        async def execute(self, stmt, params=None):
+            if " ".join(str(stmt).split()) == "SELECT 1":
+                raise OSError("Connect call failed")
+            return await super().execute(stmt, params)
+    with pytest.raises(imp._StopRun):
+        await imp._import_one(good, Down(), _args(), None)
+    assert len(_written(raw_dir)) == 5                       # two articles' markdown and PDF, and the issue PDF: all kept
+    assert any(f.endswith("TL_60-1_2010_bls-7-8.md") for f in _written(raw_dir))
+
+
 # --- the real schema (always rolled back) ------------------------------------------------------------------------
 
 needs_db = pytest.mark.skipif(not os.environ.get("DATABASE_URL"), reason="needs DATABASE_URL")
@@ -721,6 +960,91 @@ async def test_import_against_the_real_schema(tmp_path, raw_dir):
         assert counts["collision"] == 2
         kept = (await conn.execute(text("SELECT case_number FROM documents WHERE id = :id"), {"id": r.id})).scalar()
         assert kept == "Fyrsta greinin, leiðrétt"
+    finally:
+        await conn.rollback()
+        await conn.close()
+        await eng.dispose()
+
+
+@needs_db
+async def test_prune_against_the_real_schema(tmp_path, raw_dir):
+    """The DELETE is valid SQL for asyncpg, takes the rows of this issue and source only, and the FKs do the rest:
+    passages, the row's own citations and its document_links go (ON DELETE CASCADE), a citation of another document
+    that pointed at it is kept with to_doc_id NULL (ON DELETE SET NULL; build_citations re-resolves such rows)."""
+    eng = create_async_engine(os.environ["DATABASE_URL"])
+    conn = await eng.connect()
+
+    async def one(sql, **params):
+        return (await conn.execute(text(sql), params)).scalar_one()
+
+    async def doc(source, issue, eid, vf):
+        return await one("INSERT INTO documents (id, source_id, external_id, journal_issue_id, verdict_filename) "
+                         "VALUES (gen_random_uuid(), :s, :e, :j, :v) RETURNING id", s=source, e=eid, j=issue, v=vf)
+
+    async def passage(doc_id):
+        await conn.execute(text(
+            "INSERT INTO passages (id, document_id, ordinal, layer, section_kind, char_start, char_end, text, "
+            "word_count, fts_is) VALUES (gen_random_uuid(), :d, 0, 'body', 'body', 0, 1, 'x', 1, to_tsvector('simple', 'x'))"),
+            {"d": doc_id})
+
+    async def citation(from_id, to_id, start):
+        await conn.execute(text(
+            "INSERT INTO citations (id, from_doc_id, layer, char_start, char_end, raw_text, target_court, status, to_doc_id) "
+            "VALUES (gen_random_uuid(), :f, 'body', :c, :c + 1, 'x', 'x', 'resolved', :t)"), {"f": from_id, "t": to_id, "c": start})
+
+    try:
+        await conn.begin()
+        for short in ("timarit_logfraedinga", "timarit_prune_other"):
+            await conn.execute(text("INSERT INTO sources (id, short_name, display_name) VALUES (gen_random_uuid(), :n, 'x') "
+                                    "ON CONFLICT (short_name) DO NOTHING"), {"n": short})
+        s = _ConnSession(conn)
+        p, m = _manifest(tmp_path)
+        rel = imp._manifest_rel(p)
+        await imp.upsert_issue_row(s, m, rel)
+        assert (await _run(p, s, raw_dir))["imported"] == 2
+        src = await one("SELECT id FROM sources WHERE short_name = 'timarit_logfraedinga'")
+        other_src = await one("SELECT id FROM sources WHERE short_name = 'timarit_prune_other'")
+        issue = await one("SELECT id FROM journal_issues WHERE manifest_path = :p", p=rel)
+        m2 = load_manifest(p)
+        m2.issue = "2"
+        other_p = tmp_path / "other" / "timarit_logfraedinga" / "2010_60_2.yaml"
+        save_manifest(m2, other_p)
+        await imp.upsert_issue_row(s, m2, imp._manifest_rel(other_p))
+        issue2 = await one("SELECT id FROM journal_issues WHERE manifest_path = :p", p=imp._manifest_rel(other_p))
+
+        kept = await one("SELECT id FROM documents WHERE source_id = :s AND external_id = '2010-60-1-7'", s=src)
+        stale = await doc(src, issue, "2010-60-1-5", "TL_stale")
+        other_issue = await doc(src, issue2, "2010-60-2-5", "TL_other_issue")            # same source, another issue
+        other_source = await doc(other_src, issue, "2010-60-1-5", "TL_other_source")     # same id and issue, another source
+        for d in (stale, other_issue, other_source):
+            await passage(d)
+        await citation(stale, kept, 10)                      # the stale row cites a kept one: goes with the row
+        await citation(kept, stale, 20)                      # a kept row cites the stale one: stays, target cleared
+        await citation(other_issue, stale, 30)
+        for a, b in ((kept, stale), (stale, kept)):
+            await conn.execute(text("INSERT INTO document_links (id, from_doc_id, to_doc_id, relation) "
+                                    "VALUES (gen_random_uuid(), :a, :b, 'cites')"), {"a": a, "b": b})
+
+        # the clause alone keeps a row out of reach: asked for with the wrong issue, or the wrong source, nothing goes
+        assert await imp._prune_rows(s, src, issue2, ["2010-60-1-5"]) == []
+        assert await imp._prune_rows(s, await one("SELECT gen_random_uuid()"), issue, ["2010-60-1-5"]) == []
+        assert await one("SELECT count(*) FROM documents WHERE external_id = '2010-60-1-5'") == 2
+
+        counts, files = await _prune(p, s, raw_dir)
+        assert counts["pruned"] == 1 and counts["imported"] == 2 and "orphaned" not in counts
+        assert await one("SELECT count(*) FROM documents WHERE id = :d", d=stale) == 0
+        for table, col in (("passages", "document_id"), ("citations", "from_doc_id"), ("document_links", "from_doc_id"),
+                           ("document_links", "to_doc_id")):
+            assert await one(f"SELECT count(*) FROM {table} WHERE {col} = :d", d=stale) == 0, (table, col)
+        rows = (await conn.execute(text("SELECT from_doc_id, to_doc_id FROM citations WHERE char_start IN (20, 30) "
+                                        "ORDER BY char_start"))).all()
+        assert [tuple(r) for r in rows] == [(kept, None), (other_issue, None)]          # kept, dangling for build_citations
+        for d in (kept, other_issue, other_source):
+            assert await one("SELECT count(*) FROM documents WHERE id = :d", d=d) == 1
+        for d in (other_issue, other_source):
+            assert await one("SELECT count(*) FROM passages WHERE document_id = :d", d=d) == 1
+        assert await one("SELECT count(*) FROM documents WHERE journal_issue_id = :j", j=issue) == 3   # 2 articles + other source
+        assert len(files._removals) == 2                                                  # TL_stale.md and TL_stale.pdf
     finally:
         await conn.rollback()
         await conn.close()
