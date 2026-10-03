@@ -104,6 +104,19 @@ class Document(Base):
     passage_hash: Mapped[str | None] = mapped_column(Text)
     citation_hash: Mapped[str | None] = mapped_column(Text)   # sha256 of summary|body|lower; see build_citations.py
 
+    # ── Journals (spec 2026-10-03 §4.2) ──────────────────────────────────────
+    volume: Mapped[int | None] = mapped_column(SmallInteger)      # árgangur
+    issue: Mapped[str | None] = mapped_column(Text)               # "1", "3-4"; NULL for annual volumes / web articles
+    page_start: Mapped[int | None] = mapped_column(Integer)       # printed first page
+    page_end: Mapped[int | None] = mapped_column(Integer)
+    lang: Mapped[str | None] = mapped_column(Text)                # 'is' | 'en' | …; BÍN lemmatisation only for 'is'
+    # [{"char": 0, "pdf_page": 0, "printed": 7}, …] — where each PDF page starts in
+    # body_text and which printed number it carries. Bridge from text to page for
+    # every PDF source (books and theses get it in part 2).
+    page_offsets: Mapped[list[Any] | None] = mapped_column(JSONB)
+    journal_issue_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("journal_issues.id", ondelete="SET NULL"))
+
     # ── Paths ─────────────────────────────────────────────────────────────────
     verdict_filename: Mapped[str | None] = mapped_column(Text)
 
@@ -128,6 +141,7 @@ class Document(Base):
         Index("ix_doc_verdict_type", "verdict_type"),
         Index("ix_doc_instance_tier", "instance_tier"),
         Index("ix_doc_case_type", "case_type"),
+        Index("ix_doc_journal_issue", "journal_issue_id"),
         # NB: the pg_trgm GIN indexes used by regex search — ix_doc_body_trgm,
         # ix_doc_summary_trgm, ix_doc_case_number_trgm — are created by
         # scripts/setup_search_indexes.py, NOT here. They need the pg_trgm
@@ -217,6 +231,49 @@ class Citation(Base):
         return f"<Citation {self.from_doc_id} {self.layer}@{self.char_start} -> {self.target_case_number!r}>"
 
 
+class JournalIssue(Base):
+    """One hefti or árgangur of a journal (spec 2026-10-03 §4.3).
+
+    The row is both the user's overview and the pipeline's checkpoint: `status`
+    walks pending → review/approved → imported, `manifest_sha256` says which
+    version of the YAML review file was imported.
+    """
+    __tablename__ = "journal_issues"
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    source_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("sources.id", ondelete="CASCADE"), nullable=False)
+    year: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    volume: Mapped[int | None] = mapped_column(SmallInteger)
+    issue: Mapped[str | None] = mapped_column(Text)
+    label: Mapped[str] = mapped_column(Text, nullable=False)
+    file_path: Mapped[str | None] = mapped_column(Text)           # RAW copy of the issue PDF, relative to DATA_DIR
+    sha256: Mapped[str | None] = mapped_column(Text)
+    page_count: Mapped[int | None] = mapped_column(Integer)
+    toc_text: Mapped[str | None] = mapped_column(Text)
+    manifest_path: Mapped[str] = mapped_column(Text, nullable=False)  # relative to repo root
+    manifest_sha256: Mapped[str | None] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(Text, nullable=False)        # pending|review|approved|imported|failed
+    confidence: Mapped[float | None] = mapped_column(Float)
+    error: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(server_default=func.now(), nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(
+        server_default=func.now(), onupdate=func.now(), nullable=False)
+
+    __table_args__ = (
+        Index("ix_journal_issue_source", "source_id", "year"),
+        Index("ix_journal_issue_status", "status"),
+        # The manifest file is the issue's identity (later tasks upsert on it).
+        Index("uq_journal_issue_manifest", "manifest_path", unique=True),
+        # NB: uq_journal_issue — UNIQUE (source_id, year, coalesce(volume, -1),
+        # coalesce(issue, '')) — is an expression index created by migration 0005
+        # only; a plain Index() here would not express the coalesce.
+    )
+
+    def __repr__(self) -> str:
+        return f"<JournalIssue {self.label!r} ({self.status})>"
+
+
 class Passage(Base):
     """One citable passage of a document (spec: 2026-09-27-passages-design.md).
 
@@ -239,6 +296,8 @@ class Passage(Base):
     char_end: Mapped[int] = mapped_column(Integer, nullable=False)
     text: Mapped[str] = mapped_column(Text, nullable=False)
     word_count: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    page_from: Mapped[int | None] = mapped_column(SmallInteger)   # printed page range, from documents.page_offsets
+    page_to: Mapped[int | None] = mapped_column(SmallInteger)
     fts_is: Mapped[Any] = mapped_column(TSVECTOR, nullable=False)
 
     __table_args__ = (
