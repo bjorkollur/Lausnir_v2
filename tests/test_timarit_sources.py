@@ -33,6 +33,11 @@ def test_ten_journal_sources_registered_as_journals():
             "Fræðigrein", "Ritstjórnargrein", "Ritdómur", "Viðtal", "Frétt", "Dómareifun", "Annað"}
 
 
+def test_cite_by_date_only_for_vefrit():
+    assert {s for s in JOURNAL_SOURCES if get_config(s).cite_by_date} == {"ulfljotur_vefrit"}
+    assert get_config("haestirettur").cite_by_date is False
+
+
 def test_defaults_for_existing_kinds():
     assert get_config("haestirettur").kind == "ruling"
     assert get_config("logfraedibaekur").kind == "book"

@@ -54,7 +54,9 @@ class SourceConfig:
     # ── Kind of source (spec 2026-10-03 §4.1) ────────────────────────────────
     kind: str = "ruling"              # 'ruling' | 'book' | 'journal'
     issue_term: str | None = None     # 'hefti' | 'tbl.' — wording in urlausn; None → no issue level
-    citation_name: str | None = None  # name used in urlausn; defaults to display_name
+    citation_name: str | None = None  # journal name in urlausn; None (standalone works) → urlausn omits it,
+                                      # while labels (markdown header etc.) fall back to display_name
+    cite_by_date: bool = False        # web journal: urlausn gives the full publication date, no volume/pages
     lang_default: str = "is"
     # Year of volume 1. Used ONLY as a last resort when no registry, TOC or printed
     # header gives the volume — and then the article is flagged for review: Úlfljótur
@@ -877,6 +879,7 @@ _SOURCES: list[SourceConfig] = [
             case_number_prefix="", pdf_crop=None, h1_use_display_name=True,
             case_number_is_title=True, has_footnotes=True,
             kind="journal", issue_term=term, citation_name=cite, volume_base_year=base,
+            cite_by_date=(short == "ulfljotur_vefrit"),
         )
         for short, display, abbr, cite, term, base, default_type in [
             ("timarit_logfraedinga", "Tímarit lögfræðinga", "TL", "Tímarit lögfræðinga", "hefti", 1951, "Fræðigrein"),

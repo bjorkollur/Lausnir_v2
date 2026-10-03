@@ -329,8 +329,87 @@ def _format_parties(parties_json: list | None, config: "SourceConfig") -> str:
     return "\n".join(parts)
 
 
+def _author_part(plaintiffs) -> str | None:
+    """Authors are stored in ``plaintiffs``; cite one, two, or 'first o.fl.'."""
+    names = [p.get("name") for p in (plaintiffs or []) if isinstance(p, dict) and p.get("name")]
+    if not names:
+        return None
+    if len(names) == 1:
+        return names[0]
+    if len(names) == 2:
+        return f"{names[0]} og {names[1]}"
+    return f"{names[0]} o.fl."
+
+
+def journal_citation(doc: "Document", config: "SourceConfig") -> str:
+    """'Höfundur: „Titill“ Tímarit, 60. árg. 1. hefti (2010), bls. 7–47' (spec §4.5).
+
+    Parts whose value is NULL are omitted. The journal name is omitted when
+    ``config.citation_name`` is None (standalone works, e.g. fraedigreinar_ymsar).
+    Only sources with ``config.cite_by_date`` (web articles) cite by full date.
+    """
+    author = _author_part(doc.plaintiffs)
+    title = f"„{(doc.case_number or '').strip()}“"
+    head = f"{author}: {title}" if author else title
+    name = config.citation_name
+    if config.cite_by_date and doc.document_date:
+        # Web articles cite by date of publication, without pages.
+        label = f"{name}, " if name else ""
+        return f"{head} {label}{_date_str(doc.document_date)}"
+    bib: list[str] = []
+    if doc.volume is not None:
+        bib.append(f"{doc.volume}. árg.")
+    if doc.issue and config.issue_term:
+        bib.append(f"{doc.issue}. {config.issue_term}")
+    bib_s = " ".join(bib)
+    label = f"{name}, {bib_s}" if name and bib_s else (name or bib_s)
+    year = f"({doc.document_date.year})" if doc.document_date else ""
+    seg = " ".join(x for x in (label, year) if x)
+    tail: list[str] = [seg] if seg else []
+    if doc.page_start is not None:
+        if doc.page_end in (None, doc.page_start):
+            tail.append(f"bls. {doc.page_start}")
+        else:
+            tail.append(f"bls. {doc.page_start}–{doc.page_end}")
+    return f"{head} " + ", ".join(tail) if tail else head
+
+
+def _with_page_markers(body: str, page_offsets) -> str:
+    """Insert `<!-- bls. N -->` before the first character of every page that has a
+    printed number. Derived (RENDER); offsets index body_text, not this string."""
+    if not body or not page_offsets:
+        return body.strip()
+    out, last = [], 0
+    for p in sorted(page_offsets, key=lambda p: p["char"]):
+        c = min(max(int(p["char"]), 0), len(body))
+        out.append(body[last:c])
+        if p.get("printed") is not None:
+            out.append(f"\n<!-- bls. {p['printed']} -->\n" if c > 0 else f"<!-- bls. {p['printed']} -->\n")
+        last = c
+    out.append(body[last:])
+    return "".join(out).strip()
+
+
+def _journal_markdown(doc: "Document", config: "SourceConfig") -> str:
+    name = config.citation_name or config.display_name
+    authors = ", ".join(p.get("name", "") for p in (doc.plaintiffs or []) if p.get("name"))
+    lines = [f"# {doc.case_number or ''}"]
+    if authors:
+        lines.append(f"**{authors}**")
+    lines.append(f"*{journal_citation(doc, config)}*")
+    lines.append(f"##### {name} · {doc.verdict_type or config.verdict_type_default}")
+    if doc.keywords:
+        lines.append(f"### Lykilorð\n{'. '.join(doc.keywords)}")
+    if doc.summary:
+        lines.append(f"### Ágrip\n{doc.summary}")
+    header = "\n\n".join(lines) + "\n\n"
+    return header + "## Meginmál\n\n" + _with_page_markers(doc.body_text or "", doc.page_offsets) + "\n"
+
+
 def to_markdown(doc: "Document", config: "SourceConfig") -> str:
     """Build the full .md string from DB columns."""
+    if config.kind == "journal":
+        return _journal_markdown(doc, config)
     court_egnf = _court_eignarfall(doc.court or config.abbreviation)
     vt = doc.verdict_type or config.verdict_type_default
     case_nr = doc.case_number or ""
@@ -412,6 +491,8 @@ def to_markdown(doc: "Document", config: "SourceConfig") -> str:
 
 def to_urlausn(doc: "Document", config: "SourceConfig") -> str:
     """'Hrd. E-25/2020 5. maí 2020 – Dómur'"""
+    if config.kind == "journal":
+        return journal_citation(doc, config)
     abbr = doc.court or config.abbreviation
     parts = [abbr]
     if doc.case_number:
@@ -438,6 +519,13 @@ def _ascii(s: str) -> str:
     return s.translate(_ICELAND_TO_ASCII).replace("þ", "th").replace("Þ", "Th").replace("æ", "ae").replace("Æ", "Ae")
 
 
+_SLUG_RE = re.compile(r"[^a-z0-9]+")
+
+
+def _slug(s: str, n: int = 40) -> str:
+    return _SLUG_RE.sub("-", _ascii(s or "").lower()).strip("-")[:n].rstrip("-") or "x"
+
+
 def verdict_filename(doc: "Document", config: "SourceConfig") -> str:
     """Return the canonical filename stem (no extension) for a document.
 
@@ -459,6 +547,18 @@ def verdict_filename(doc: "Document", config: "SourceConfig") -> str:
     """
     abbr = doc.court or config.abbreviation
     court_part = _ascii(re.sub(r"[.\s]+", "", abbr))   # 'Hérd. Rvk.' → 'HerdRvk'
+    if config.kind == "journal":
+        # Multi-word names are CamelCased rather than just joined: 'Úlfljótur vefrit'
+        # → 'UlfljoturVefrit' (plain space removal would give 'Ulfljoturvefrit').
+        court_part = _ascii("".join(w[:1].upper() + w[1:] for w in abbr.replace(".", "").split()))
+        vol = str(doc.volume) if doc.volume is not None else "x"
+        iss = (doc.issue or "x").replace("/", "-").replace(" ", "")
+        year = str(doc.document_date.year) if doc.document_date else "x"
+        if doc.page_start is not None:
+            pages = f"bls-{doc.page_start}" + (f"-{doc.page_end}" if doc.page_end not in (None, doc.page_start) else "")
+        else:
+            pages = _slug(doc.case_number or doc.external_id or "")
+        return f"{court_part}_{vol}-{iss}_{year}_{pages}"
     case_part  = (doc.case_number or f"id{doc.external_id}").replace("/", "-").replace(" ", "_")
     verdict_code = _VERDICT_CODE.get(doc.verdict_type or "", "")
     verdict_part = f"_{verdict_code}" if verdict_code else ""
