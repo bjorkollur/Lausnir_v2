@@ -2,8 +2,9 @@
 
 Splits a document's text into citable passages along its own structure:
 ``##`` headings and numbered paragraphs ("4. Texti…"). Passages accumulate to
-``target_words`` and never exceed ``max_words`` unless a single block does, in
-which case that block is split on sentence (then word) boundaries.
+``target_words`` and never exceed ``max_words`` or ``max_chars`` unless a single
+block does, in which case that block is split on sentence (then whitespace run)
+boundaries.
 
 Pure function: no DB, no lemmatisation. Every passage carries exact offsets
 into the input so that ``text[char_start:char_end] == passage.text`` always.
@@ -26,6 +27,7 @@ _BOLD_ROMAN_HEADING_RE = re.compile(r'^\*\*[IVX]+\.(?:\*\*\*\*|\s+)[^*\n]{1,80}?
 _NUMBERED_RE = re.compile(r'^(\d{1,3})\.\s+[A-ZÁÉÍÓÚÝÞÆÖ]')
 _SENTENCE_END_RE = re.compile(r'(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÝÞÆÖ„"(])')
 _WORD_RE = re.compile(r'\S+')
+_WS_RUN_RE = re.compile(r'\s+')
 # Headings are short by construction. Some OCR-garbled paragraphs happen to start
 # with "# " (a stray hash from scan noise) and run for hundreds of words on one
 # line; without this cap that whole paragraph would be classified as a heading
@@ -113,25 +115,41 @@ def _classify_body(body: str) -> tuple[str, int | None]:
     return ("para", int(m.group(1))) if m else ("plain", None)
 
 
-def _explode(text: str, b: _Block, max_words: int) -> list[_Block]:
-    """Split an oversize block into sentence pieces (then word pieces) ≤ max_words."""
+def _explode(text: str, b: _Block, max_words: int, max_chars: int) -> list[_Block]:
+    """Split an oversize block into sentence pieces, then word pieces,
+    so every piece is ≤ max_words AND ≤ max_chars, unless a single token exceeds max_chars."""
     body = text[b.start:b.end]
-    # sentence spans relative to block
     cuts = [0] + [m.end() for m in _SENTENCE_END_RE.finditer(body)] + [len(body)]
     pieces: list[tuple[int, int]] = []
     for a, z in zip(cuts, cuts[1:]):
         seg = body[a:z]
-        if _word_count(seg) <= max_words:
+        if _word_count(seg) <= max_words and len(seg) <= max_chars:
             pieces.append((a, z))
             continue
-        # one sentence longer than max: cut on words
-        words = list(_WORD_RE.finditer(seg))
-        for i in range(0, len(words), max_words):
-            ws = words[i:i + max_words]
-            pieces.append((a + ws[0].start(), a + ws[-1].end()))
+        # One sentence over a limit: cut on words, greedily.
+        # Iterate words directly; check every word before accepting it.
+        start = a
+        first_word_start = a
+        last_word_end = a
+        n_words = 0
+        for m in _WORD_RE.finditer(seg):
+            word_start = a + m.start()
+            word_end = a + m.end()
+            # Check if adding this word would exceed limits
+            if n_words > 0 and (n_words + 1 > max_words or word_end - first_word_start > max_chars):
+                # Would exceed; flush previous piece
+                if last_word_end > first_word_start:
+                    pieces.append((first_word_start, last_word_end))
+                # Start new piece from this word
+                first_word_start = word_start
+                n_words = 0
+            n_words += 1
+            last_word_end = word_end
+        # Emit final piece
+        if last_word_end > first_word_start:
+            pieces.append((first_word_start, last_word_end))
     out: list[_Block] = []
     for a, z in pieces:
-        # trim whitespace inside the piece
         seg = body[a:z]
         lead = len(seg) - len(seg.lstrip())
         trail = len(seg) - len(seg.rstrip())
@@ -141,7 +159,7 @@ def _explode(text: str, b: _Block, max_words: int) -> list[_Block]:
     return out
 
 
-def segment(text: str, *, target_words: int = 250, max_words: int = 400) -> list[Passage]:
+def segment(text: str, *, target_words: int = 250, max_words: int = 400, max_chars: int = 6000) -> list[Passage]:
     if not text or not text.strip():
         return []
 
@@ -169,7 +187,7 @@ def segment(text: str, *, target_words: int = 250, max_words: int = 400) -> list
 
     def add(b: _Block) -> None:
         nonlocal cur_words, cur_section, cur_kind
-        if cur and cur_words + b.words > max_words:
+        if cur and (cur_words + b.words > max_words or (b.end - cur[0].start) > max_chars):
             flush()
         if not cur:
             cur_section, cur_kind = section, kind
@@ -185,8 +203,8 @@ def segment(text: str, *, target_words: int = 250, max_words: int = 400) -> list
             kind = classify_section(section)
             add(b)
             continue
-        if b.words > max_words:
-            for piece in _explode(text, b, max_words):
+        if b.words > max_words or (b.end - b.start) > max_chars:
+            for piece in _explode(text, b, max_words, max_chars):
                 add(piece)
             continue
         add(b)

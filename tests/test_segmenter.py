@@ -163,3 +163,69 @@ def test_short_hash_heading_is_still_a_heading():
     text = "## Niðurstaða\n\nTexti."
     ps = segment(text)
     assert ps[0].section_path == "Niðurstaða" and ps[0].section_kind == "nidurstada"
+
+
+def test_whitespace_padded_block_is_split_on_chars_not_only_words():
+    # 300 short entries separated by 180 spaces: ~600 words, ~60k chars.
+    entry = "mál C-120/99 Ítalía gegn ráðinu 264" + " " * 180
+    text = entry * 300
+    out = segment(text, max_words=400, max_chars=6000)
+    assert len(out) > 1
+    assert all(len(p.text) <= 6000 for p in out)
+    assert all(text[p.char_start:p.char_end] == p.text for p in out)
+    _check_integrity(text, out)
+    # Verify all passages respect word count
+    assert all(p.word_count <= 400 for p in out)
+    # Verify no content is lost
+    assert "".join("".join(p.text.split()) for p in out) == "".join(text.split())
+
+
+def test_max_chars_default_leaves_normal_prose_alone():
+    text = "Þetta er venjuleg málsgrein. " * 40
+    assert len(segment(text)) == 1
+
+
+def test_exactly_max_words_plus_one_is_split():
+    # 401 words with max_words=400 should split into pieces each ≤ 400 words
+    text = ("orð " * 401).strip()
+    out = segment(text, max_words=400)
+    _check_integrity(text, out)
+    assert len(out) >= 2  # Should have at least 2 passages
+    assert all(p.word_count <= 400 for p in out)
+
+
+def test_double_max_words_plus_one_is_split():
+    # 801 words with max_words=400 should split properly
+    text = ("orð " * 801).strip()
+    out = segment(text, max_words=400)
+    _check_integrity(text, out)
+    assert all(p.word_count <= 400 for p in out)
+
+
+def test_oversize_gap_before_final_word_is_handled():
+    # Large whitespace gap before the final word should not prevent splitting
+    text = "word1 word2 word3" + " " * 7000 + "finalword"
+    out = segment(text, max_chars=6000)
+    _check_integrity(text, out)
+    assert all(len(p.text) <= 6000 for p in out)
+    # Verify content is preserved (minus whitespace)
+    assert "".join("".join(p.text.split()) for p in out) == "".join(text.split())
+
+
+def test_single_oversize_token_is_emitted_whole():
+    # A single token longer than max_chars should be emitted as one passage
+    text = "x" * 20000
+    out = segment(text, max_chars=6000)
+    assert len(out) == 1
+    assert out[0].text == text
+
+
+def test_oversize_token_in_middle_splits_around_it():
+    # Oversized token in the middle: words before, oversized token, words after
+    text = "aa bb " + "x" * 20000 + " cc dd"
+    out = segment(text, max_chars=6000)
+    _check_integrity(text, out)
+    assert len(out) == 3
+    assert out[0].text == "aa bb"
+    assert out[1].text == "x" * 20000
+    assert out[2].text == "cc dd"
