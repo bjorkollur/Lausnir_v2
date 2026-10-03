@@ -1,0 +1,16 @@
+source: logbru
+year: 2015
+volume: null
+issue: '1'
+label: Lögbrú, 1. tbl. (2015)
+file: Tímarit og fræðigreinar/Lögbrú/2015-01-Lögbrú.pdf
+sha256: 47b12952d531ef4979296ac763eac7192ef6d67c1b6a6eefd581252284e542d0
+pages: null
+year_end: null
+page_map: {}
+status: pending
+confidence: 0.0
+error: null
+files:
+- Tímarit og fræðigreinar/Lögbrú/2015-01-Lögbrú.pdf
+articles: []

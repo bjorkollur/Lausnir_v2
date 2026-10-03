@@ -1,0 +1,16 @@
+source: logbru
+year: 2013
+volume: null
+issue: '1'
+label: Lögbrú, 1. tbl. (2013)
+file: Tímarit og fræðigreinar/Lögbrú/2013-01-Lögbrú.pdf
+sha256: 91e0cafba7ba225b22b9e89b36461226ff8baf9786552ccde902bf75f49ce555
+pages: null
+year_end: null
+page_map: {}
+status: pending
+confidence: 0.0
+error: null
+files:
+- Tímarit og fræðigreinar/Lögbrú/2013-01-Lögbrú.pdf
+articles: []
