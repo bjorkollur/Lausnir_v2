@@ -10,6 +10,7 @@ APPROVE_THRESHOLD = 0.85
 LLM_CONFIDENCE_CAP = 0.70
 OCR_BIN_RATIO_THRESHOLD: float | None = None   # None → never re-OCR a PDF that has a text layer
 PAGE_MAP_MIN_QUALITY = 0.5
+PAGE_MAP_RESTART_RATIO = 0.25  # Tunable reviewed in the Task 22 pilot; marks map ambiguous when runner-up votes ≥ this × winner votes
 MANIFEST_ROOT = Path("data/timarit/manifests")
 UNMATCHED_PATH = Path("data/timarit/_unmatched.yaml")
 # Caches are written, so they live outside the (read-only) user archive.
