@@ -111,3 +111,27 @@ async def test_rebuild_refreshes_fts_is_from_passage_lemmas():
         assert matched is True
     finally:
         await conn.rollback(); await eng.dispose()
+
+
+async def test_rebuild_persists_page_range_and_defaults_missing_keys():
+    """Caller-supplied rows carry page_from/page_to into the INSERT; rows from an
+    older caller (no page keys) are stored with NULLs instead of failing."""
+    from engine.search.passage_index import build_passage_rows, lemmatize_rows
+    eng, conn = await _conn()
+    try:
+        doc_id = (await conn.execute(text(
+            "SELECT id FROM documents WHERE body_text IS NOT NULL LIMIT 1"))).scalar()
+        body = ("Fyrsta síða. " * 8).strip() + "\n\n" + ("Önnur síða. " * 8).strip()
+        offsets = [{"char": 0, "pdf_page": 0, "printed": 7},
+                   {"char": body.index("Önnur"), "pdf_page": 1, "printed": 8}]
+        rows = lemmatize_rows(build_passage_rows(None, body, None, page_offsets=offsets), lang="en")
+        legacy = {k: v for k, v in rows[0].items() if k not in ("page_from", "page_to")}
+        legacy["ordinal"] = len(rows)
+        await rebuild_passages(conn, doc_id, rows_with_lemmas=[*rows, legacy])
+        got = (await conn.execute(text(
+            "SELECT page_from, page_to FROM passages WHERE document_id=:id ORDER BY ordinal"),
+            {"id": doc_id})).all()
+        assert (got[0][0], got[-2][1]) == (7, 8)
+        assert tuple(got[-1]) == (None, None)
+    finally:
+        await conn.rollback(); await eng.dispose()

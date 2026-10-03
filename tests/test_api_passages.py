@@ -73,7 +73,7 @@ def test_passages_happy_path_shape():
     doc = {"id": uuid.uuid4(), "source": "landsrettur", "court": "Lrd.", "case_number": "1/2024",
            "document_date": date(2024, 3, 6), "verdict_type": "Dómur"}
     row = {"id": uuid.uuid4(), "ordinal": 3, "layer": "body", "section_path": "Niðurstaða",
-           "section_kind": "nidurstada", "para_from": 4, "para_to": 7, "char_start": 10,
+           "section_kind": "nidurstada", "para_from": 4, "para_to": 7, "page_from": None, "page_to": None, "char_start": 10,
            "char_end": 50, "word_count": 8, "text": "Texti efnisgreinar."}
     c = _client([_Result(first=doc), _Result(first=1), _Result(rows=[row])])
     r = c.get(f"/api/document/{doc['id']}/passages?from=3&to=3")
@@ -82,6 +82,20 @@ def test_passages_happy_path_shape():
     assert body["total"] == 1 and body["urlausn"].startswith("Lrd. 1/2024")
     p = body["passages"][0]
     assert p["anchor"] == "4.–7. mgr." and p["section_kind"] == "nidurstada" and p["text"] == "Texti efnisgreinar."
+
+
+def test_passages_anchor_uses_printed_page_when_no_paragraph_numbers():
+    import uuid
+    from datetime import date
+    doc = {"id": uuid.uuid4(), "source": "timarit", "court": "Tímarit", "case_number": "1/2024",
+           "document_date": date(2024, 3, 6), "verdict_type": "Fræðigrein"}
+    row = {"id": uuid.uuid4(), "ordinal": 0, "layer": "body", "section_path": None,
+           "section_kind": "annad", "para_from": None, "para_to": None, "page_from": 12, "page_to": 12,
+           "char_start": 0, "char_end": 9, "word_count": 2, "text": "Texti hér."}
+    c = _client([_Result(first=doc), _Result(first=1), _Result(rows=[row])])
+    r = c.get(f"/api/document/{doc['id']}/passages?from=0&to=0")
+    assert r.status_code == 200
+    assert r.json()["passages"][0]["anchor"] == "bls. 12"
 
 
 def test_search_rejects_unknown_section_kind():

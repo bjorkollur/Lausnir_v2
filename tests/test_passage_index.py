@@ -58,3 +58,56 @@ def test_anchor_labels():
     assert passage_anchor("body", 4, 7, None, 3) == "4.–7. mgr."
     assert passage_anchor("body", None, None, "Niðurstaða", 3) == "Niðurstaða"
     assert passage_anchor("lower_body", None, None, None, 11) == "hluti 12"
+
+
+# --- printed page range, "bls." anchor, language-aware lemmas (journal import) ---
+from engine.search.passage_index import pages_for_span, lemmatize_rows
+
+OFFSETS = [{"char": 0, "pdf_page": 0, "printed": 7}, {"char": 100, "pdf_page": 1, "printed": 8},
+           {"char": 250, "pdf_page": 2, "printed": None}, {"char": 400, "pdf_page": 3, "printed": 10}]
+
+
+def test_pages_for_span_single_and_range():
+    assert pages_for_span(OFFSETS, 10, 50) == (7, 7)
+    assert pages_for_span(OFFSETS, 90, 120) == (7, 8)
+    assert pages_for_span(OFFSETS, 260, 300) == (None, None)   # page without a printed number
+    assert pages_for_span(OFFSETS, 120, 450) == (8, 10)        # skips the unnumbered page
+    assert pages_for_span(None, 0, 10) == (None, None)
+    assert pages_for_span([], 0, 10) == (None, None)
+
+
+def test_anchor_prefers_paragraph_then_page_then_section():
+    assert passage_anchor("body", 4, 4, "Niðurstaða", 3, page_from=12, page_to=12) == "4. mgr."
+    assert passage_anchor("body", None, None, "2.1 Söguleg þróun", 3, page_from=12, page_to=12) == "bls. 12"
+    assert passage_anchor("body", None, None, None, 3, page_from=12, page_to=14) == "bls. 12–14"
+    assert passage_anchor("body", None, None, "2.1 Söguleg þróun", 3, page_from=None, page_to=None) == "2.1 Söguleg þróun"
+    assert passage_anchor("summary", None, None, None, 0, page_from=1, page_to=1) == "Reifun"
+
+
+def test_rows_carry_page_range_from_offsets():
+    body = ("Fyrsta síða. " * 8).strip() + "\n\n" + ("Önnur síða. " * 8).strip()
+    offsets = [{"char": 0, "pdf_page": 0, "printed": 7},
+               {"char": body.index("Önnur"), "pdf_page": 1, "printed": 8}]
+    rows = build_passage_rows(None, body, None, page_offsets=offsets)
+    assert rows[0]["page_from"] == 7 and rows[-1]["page_to"] == 8
+
+
+def test_rows_without_offsets_have_null_pages():
+    rows = build_passage_rows(None, "Texti hér.", None)
+    assert rows[0]["page_from"] is None and rows[0]["page_to"] is None
+
+
+def test_page_range_only_on_body_layer():
+    offsets = [{"char": 0, "pdf_page": 0, "printed": 7}]
+    rows = build_passage_rows("Reifun.", "Meginmál.", "Neðri dómur.", page_offsets=offsets)
+    by_layer = {r["layer"]: r for r in rows}
+    assert (by_layer["body"]["page_from"], by_layer["body"]["page_to"]) == (7, 7)
+    for layer in ("summary", "lower_body"):
+        assert by_layer[layer]["page_from"] is None and by_layer[layer]["page_to"] is None
+
+
+def test_lemmatize_rows_skips_bin_for_english():
+    rows = [{"text": "The courts decided the matter", "ordinal": 0}]
+    assert lemmatize_rows(rows, lang="en")[0]["lemmas"] == "the courts decided the matter"
+    is_rows = [{"text": "dómararnir ákváðu", "ordinal": 0}]
+    assert lemmatize_rows(is_rows, lang="is")[0]["lemmas"] == "dómari ákveða"

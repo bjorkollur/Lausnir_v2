@@ -417,7 +417,7 @@ async def search_by_passages(
                d.summary, d.keywords, d.plaintiffs, d.defendants,
                h.best_rank, h.match_count, h.tier,
                bp.id AS passage_id, bp.layer, bp.section_kind, bp.section_path,
-               bp.para_from, bp.para_to, bp.ordinal,
+               bp.para_from, bp.para_to, bp.page_from, bp.page_to, bp.ordinal,
                ts_headline('simple', bp.text, {snippet_query}, {_HEADLINE_OPTS}) AS snippet,
                -- 'cites' is excluded on both sides: a citation is not an appeal
                -- relation, and the reader lists it under its own heading.
@@ -453,7 +453,8 @@ async def search_by_passages(
             "has_appeal_links": r["has_appeal_links"],
             "cited_by_count": r["cited_by_count"],
             "passage_id": str(r["passage_id"]),
-            "anchor": passage_anchor(r["layer"], r["para_from"], r["para_to"], r["section_path"], r["ordinal"]),
+            "anchor": passage_anchor(r["layer"], r["para_from"], r["para_to"], r["section_path"], r["ordinal"],
+                                     page_from=r["page_from"], page_to=r["page_to"]),
             "section_kind": r["section_kind"], "layer": r["layer"], "match_count": r["match_count"],
             "match_tier": r["tier"],
         })
@@ -496,7 +497,7 @@ async def get_passages(session: AsyncSession, doc_id, *, from_ordinal: int, to_o
     total = (await session.execute(text(f"SELECT count(*) FROM passages p WHERE {w}"), params)).scalar() or 0
     rows = (await session.execute(text(f"""
         SELECT p.id, p.ordinal, p.layer, p.section_path, p.section_kind, p.para_from, p.para_to,
-               p.char_start, p.char_end, p.word_count, p.text
+               p.page_from, p.page_to, p.char_start, p.char_end, p.word_count, p.text
         FROM passages p WHERE {w} AND p.ordinal BETWEEN :lo AND :hi ORDER BY p.ordinal"""),
         {**params, "lo": from_ordinal, "hi": to_ordinal})).mappings().all()
     return {
@@ -505,7 +506,8 @@ async def get_passages(session: AsyncSession, doc_id, *, from_ordinal: int, to_o
         "total": total,
         "passages": [{
             "id": str(r["id"]), "ordinal": r["ordinal"], "layer": r["layer"],
-            "anchor": passage_anchor(r["layer"], r["para_from"], r["para_to"], r["section_path"], r["ordinal"]),
+            "anchor": passage_anchor(r["layer"], r["para_from"], r["para_to"], r["section_path"], r["ordinal"],
+                                     page_from=r["page_from"], page_to=r["page_to"]),
             "section_path": r["section_path"], "section_kind": r["section_kind"],
             "para_from": r["para_from"], "para_to": r["para_to"],
             "char_start": r["char_start"], "char_end": r["char_end"],

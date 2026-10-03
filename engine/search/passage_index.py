@@ -7,6 +7,7 @@ caller's transaction.
 from __future__ import annotations
 
 import hashlib
+import re
 import uuid
 from typing import Any
 
@@ -29,21 +30,51 @@ def passage_hash(summary: str | None, body: str | None, lower: str | None) -> st
     return hashlib.md5(blob.encode("utf-8")).hexdigest()
 
 
+def pages_for_span(page_offsets: list[dict] | None, char_start: int, char_end: int
+                   ) -> tuple[int | None, int | None]:
+    """Printed page range covering [char_start, char_end). Pages whose printed
+    number is unknown are skipped; if none of the covered pages has one → (None, None)."""
+    if not page_offsets:
+        return None, None
+    starts = sorted(page_offsets, key=lambda p: p["char"])
+    covered: list[int] = []
+    for i, p in enumerate(starts):
+        p_start = p["char"]
+        p_end = starts[i + 1]["char"] if i + 1 < len(starts) else float("inf")
+        if p_end <= char_start or p_start >= char_end:
+            continue
+        if p.get("printed") is not None:
+            covered.append(int(p["printed"]))
+    if not covered:
+        return None, None
+    return min(covered), max(covered)
+
+
 def passage_anchor(layer: str, para_from: int | None, para_to: int | None,
-                   section_path: str | None, ordinal: int) -> str:
-    """Human-readable citation label. Derived, never stored (RENDER layer)."""
+                   section_path: str | None, ordinal: int,
+                   page_from: int | None = None, page_to: int | None = None) -> str:
+    """Human-readable citation label. Derived, never stored (RENDER layer).
+    Order: paragraph number (rulings) → printed page (journals, books) → section → hluti N."""
     if layer == "summary":
         return "Reifun"
     if para_from is not None and para_to is not None:
         return f"{para_from}. mgr." if para_from == para_to else f"{para_from}.–{para_to}. mgr."
+    if page_from is not None:
+        if page_to is None or page_to == page_from:
+            return f"bls. {page_from}"
+        return f"bls. {page_from}–{page_to}"
     if section_path:
         return section_path
     return f"hluti {ordinal + 1}"
 
 
 def build_passage_rows(summary: str | None, body: str | None,
-                       lower: str | None) -> list[dict[str, Any]]:
-    """Segment all three layers into insert-ready rows (without lemmas)."""
+                       lower: str | None, *,
+                       page_offsets: list[dict] | None = None) -> list[dict[str, Any]]:
+    """Segment all three layers into insert-ready rows (without lemmas).
+
+    page_offsets (documents.page_offsets) maps body_text characters to printed
+    pages, so only the body layer gets a page range; other layers get NULLs."""
     rows: list[dict[str, Any]] = []
     for layer, src in zip(LAYERS, (summary, body, lower)):
         if not src or not src.strip():
@@ -53,6 +84,8 @@ def build_passage_rows(summary: str | None, body: str | None,
             # is a segmenter bug: fail this document loudly rather than store bad rows.
             if src[p.char_start:p.char_end] != p.text:
                 raise ValueError(f"offset mismatch in layer {layer!r} at ordinal {len(rows)}")
+            page_from, page_to = (pages_for_span(page_offsets, p.char_start, p.char_end)
+                                  if layer == "body" else (None, None))
             rows.append({
                 "ordinal": len(rows),
                 "layer": layer,
@@ -64,21 +97,33 @@ def build_passage_rows(summary: str | None, body: str | None,
                 "char_end": p.char_end,
                 "text": p.text,
                 "word_count": p.word_count,
+                "page_from": page_from,
+                "page_to": page_to,
             })
     return rows
 
 
-def lemmatize_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """CPU-bound; safe to run in a worker process. Returns new dicts with 'lemmas'."""
-    return [{**r, "lemmas": lemmatize_text(r["text"])} for r in rows]
+_LATIN_WORD_RE = re.compile(r"\w+", re.UNICODE)
+
+
+def lemmatize_rows(rows: list[dict[str, Any]], lang: str = "is") -> list[dict[str, Any]]:
+    """CPU-bound; safe to run in a worker process. Returns new dicts with 'lemmas'.
+
+    BÍN only for Icelandic — on English text it 'lemmatises' real words into
+    noise. Other languages keep their lowercased tokens so keyword search still
+    matches literally."""
+    if lang == "is":
+        return [{**r, "lemmas": lemmatize_text(r["text"])} for r in rows]
+    return [{**r, "lemmas": " ".join(t.lower() for t in _LATIN_WORD_RE.findall(r["text"]))} for r in rows]
 
 
 _INSERT_SQL = text("""
     INSERT INTO passages (id, document_id, ordinal, layer, section_path, section_kind,
-                          para_from, para_to, char_start, char_end, text, word_count, fts_is)
+                          para_from, para_to, char_start, char_end, text, word_count,
+                          page_from, page_to, fts_is)
     VALUES (gen_random_uuid(), :doc_id, :ordinal, :layer, :section_path, :section_kind,
             :para_from, :para_to, :char_start, :char_end, :text, :word_count,
-            to_tsvector('simple', :lemmas))
+            :page_from, :page_to, to_tsvector('simple', :lemmas))
 """)
 
 
@@ -96,14 +141,18 @@ async def rebuild_passages(conn, doc_id: uuid.UUID | str, *,
     did = uuid.UUID(str(doc_id))
     row = (await conn.execute(text("""
         SELECT d.summary, d.body_text, d.lower_body_text,
-               d.case_number, d.court, d.verdict_type
+               d.case_number, d.court, d.verdict_type, d.lang, d.page_offsets
         FROM documents d WHERE d.id = :id
     """), {"id": did})).first()
     if row is None:
         raise ValueError(f"document {did} not found")
-    summary, body, lower, case_number, court, verdict_type = row
+    summary, body, lower, case_number, court, verdict_type, lang, page_offsets = row
     if rows_with_lemmas is None:
-        rows_with_lemmas = lemmatize_rows(build_passage_rows(summary, body, lower))
+        rows_with_lemmas = lemmatize_rows(
+            build_passage_rows(summary, body, lower, page_offsets=page_offsets), lang=lang or "is")
+    else:
+        # Callers that built rows before the page columns existed omit the keys.
+        rows_with_lemmas = [{"page_from": None, "page_to": None, **r} for r in rows_with_lemmas]
 
     await conn.execute(text("DELETE FROM passages WHERE document_id = :id"), {"id": did})
     if rows_with_lemmas:

@@ -101,7 +101,8 @@ def _row(**over):
         "other_id": OTHER_ID, "other_case": "12/2020", "other_court": "Lrd.",
         "other_date": date(2020, 5, 5), "other_verdict": "Dómur", "other_source": "landsrettur",
         "passage_id": uuid.UUID("33333333-3333-3333-3333-333333333333"),
-        "p_layer": "body", "para_from": 4, "para_to": 4, "section_path": "Niðurstaða", "ordinal": 7,
+        "p_layer": "body", "para_from": 4, "para_to": 4, "page_from": None, "page_to": None,
+        "section_path": "Niðurstaða", "ordinal": 7,
         "also_appeal": False, "total": 1,
     }
     row.update(over)
@@ -178,10 +179,19 @@ async def test_same_case_false_when_court_differs():
     assert res["items"][0]["same_case"] is False
 
 
+async def test_anchor_falls_back_to_printed_page_for_unnumbered_paragraphs():
+    s = KeyedSession(me=_Result(first=ME),
+                     out=_Result(rows=[_row(para_from=None, para_to=None, section_path=None,
+                                            page_from=12, page_to=14)]))
+    item = (await get_citations(s, DOC_ID, direction="out"))["items"][0]
+    assert item["anchor"] == "bls. 12–14"
+
+
 async def test_passage_id_and_anchor_null_when_no_passage_found():
     s = KeyedSession(me=_Result(first=ME),
                      out=_Result(rows=[_row(passage_id=None, p_layer=None, para_from=None,
-                                            para_to=None, section_path=None, ordinal=None)]))
+                                            para_to=None, page_from=None, page_to=None,
+                                            section_path=None, ordinal=None)]))
     item = (await get_citations(s, DOC_ID, direction="out"))["items"][0]
     assert item["passage_id"] is None and item["anchor"] is None
 

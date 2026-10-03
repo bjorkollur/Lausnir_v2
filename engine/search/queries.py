@@ -713,7 +713,7 @@ _CITATIONS_SQL = _CITATIONS_CTE + """
            o.document_date AS other_date, o.verdict_type AS other_verdict,
            os.short_name AS other_source,
            p.id AS passage_id, p.layer AS p_layer, p.para_from, p.para_to,
-           p.section_path, p.ordinal,
+           p.page_from, p.page_to, p.section_path, p.ordinal,
            EXISTS (SELECT 1 FROM document_links dl
                    WHERE dl.relation = ANY(:appeal_rels)
                      AND ((dl.from_doc_id = :id AND dl.to_doc_id = c.other_doc_id)
@@ -723,7 +723,8 @@ _CITATIONS_SQL = _CITATIONS_CTE + """
     JOIN documents o ON o.id = c.other_doc_id
     JOIN sources os ON os.id = o.source_id
     LEFT JOIN LATERAL (
-        SELECT p.id, p.layer, p.para_from, p.para_to, p.section_path, p.ordinal
+        SELECT p.id, p.layer, p.para_from, p.para_to, p.page_from, p.page_to,
+               p.section_path, p.ordinal
         FROM passages p
         WHERE p.document_id = {passage_doc} AND p.layer = c.layer AND p.char_start <= c.char_start
         ORDER BY p.char_start DESC LIMIT 1
@@ -769,7 +770,8 @@ def _citation_ref(r, my_court: str | None, my_norm_case: str | None) -> dict[str
         "layer": r["layer"],
         "passage_id": str(pid) if pid is not None else None,
         "anchor": passage_anchor(r["p_layer"], r["para_from"], r["para_to"],
-                                 r["section_path"], r["ordinal"]) if pid is not None else None,
+                                 r["section_path"], r["ordinal"],
+                                 page_from=r["page_from"], page_to=r["page_to"]) if pid is not None else None,
         "raw_text": r["raw_text"],
         "confidence": r["confidence"],
         "also_appeal": bool(r["also_appeal"]),

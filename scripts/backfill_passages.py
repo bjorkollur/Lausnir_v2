@@ -47,11 +47,12 @@ COMMIT_EVERY = 50
 
 
 def _work(item: tuple) -> tuple:
-    """Runs in a worker process. item = (doc_id, summary, body, lower, short_name)."""
-    doc_id, summary, body, lower, _short_name = item
+    """Runs in a worker process.
+    item = (doc_id, summary, body, lower, short_name, lang, page_offsets)."""
+    doc_id, summary, body, lower, _short_name, lang, page_offsets = item
     try:
-        rows = build_passage_rows(summary, body, lower)
-        return doc_id, lemmatize_rows(rows), None
+        rows = build_passage_rows(summary, body, lower, page_offsets=page_offsets)
+        return doc_id, lemmatize_rows(rows, lang=lang or "is"), None
     except Exception as exc:  # noqa: BLE001 — reported and skipped, never aborts the run
         return doc_id, None, f"{type(exc).__name__}: {exc}"
 
@@ -86,7 +87,8 @@ async def backfill(*, source: str | None, limit: int | None, all_docs: bool, wor
             for i in range(0, total, BATCH):
                 batch_ids = ids[i:i + BATCH]
                 rows = (await conn.execute(text("""
-                    SELECT d.id, d.summary, d.body_text, d.lower_body_text, s.short_name
+                    SELECT d.id, d.summary, d.body_text, d.lower_body_text, s.short_name,
+                           d.lang, d.page_offsets
                     FROM documents d JOIN sources s ON s.id = d.source_id
                     WHERE d.id = ANY(:ids)"""), {"ids": list(batch_ids)})).all()
                 items = [tuple(r) for r in rows]
