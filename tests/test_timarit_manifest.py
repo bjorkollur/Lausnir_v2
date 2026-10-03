@@ -630,3 +630,82 @@ def test_load_hand_edited_status_cannot_bypass_the_approved_check(tmp_path):
     old = _load(tmp_path, _HEAD + "status: Approved\n")
     merged = merge_preserving_user(old, _m(status="review"))
     assert merged.status == "approved"
+
+
+# --- R31 (revised): an article may carry its own issue -------------------------------------------------
+
+def test_article_issue_round_trips_with_and_without_a_value(tmp_path):
+    m = _m(source="ulfljotur", year=1947, volume=1, issue=None, file=None,
+           articles=[ArticleEntry(title="A", page_start=3, issue="4", provenance={"issue": "xlsx"}), ArticleEntry(title="B", page_start=5)])
+    p = tmp_path / "m.yaml"
+    save_manifest(m, p)
+    back = load_manifest(p)
+    assert back == m and back.articles[0].issue == "4" and back.articles[1].issue is None
+
+
+def test_load_coerces_an_unquoted_article_issue_to_text(tmp_path):
+    assert _load(tmp_path, _one_article("issue: 4")).articles[0].issue == "4"
+    assert _load(tmp_path, _one_article("issue: 3-4")).articles[0].issue == "3-4"
+    assert _load(tmp_path, _one_article("issue:")).articles[0].issue is None
+    with pytest.raises(ValueError, match="issue"):
+        _load(tmp_path, _one_article("issue: [4]"))
+
+
+def test_external_id_uses_the_article_issue_over_the_manifest_issue():
+    m = _m(source="ulfljotur", year=1947, volume=1, issue=None, file=None,
+           articles=[ArticleEntry(title="A", page_start=3, issue="4"), ArticleEntry(title="B", page_start=3, issue="3"),
+                     ArticleEntry(title="C", page_start=9)])
+    assert [external_id(m, a) for a in m.articles] == ["1947-1-4-3", "1947-1-3-3", "1947-1-x-9"]
+    assert assign_external_ids(m) == ["1947-1-4-3", "1947-1-3-3", "1947-1-x-9"]      # no suffix needed
+    n = _m(articles=[ArticleEntry(title="A", page_start=7, issue="3-4")])
+    assert external_id(n, n.articles[0]) == "2010-60-3-4-7"
+
+
+def test_merge_does_not_pair_articles_of_different_issues_by_page_alone():
+    """Bls restarts per issue in Úlfljótur vols 1–12: page 3 of issue 3 is not page 3 of issue 4."""
+    old = _mm(_art("Notandi", 3, issue="3", provenance={"title": "user"}), file=None)
+    new = _mm(_art("Vél 4", 3, issue="4"), _art("Vél 3", 3, issue="3"), file=None)
+    merged = merge_preserving_user(old, new)
+    assert [(a.title, a.issue) for a in merged.articles] == [("Vél 4", "4"), ("Notandi", "3")]
+
+
+def test_merge_keeps_an_issue_the_user_set():
+    old = _mm(_art("A", 3, issue="2", provenance={"issue": "user"}), file=None)
+    new = _mm(_art("A", 3, issue="4", provenance={"issue": "xlsx"}), file=None)
+    merged = merge_preserving_user(old, new)
+    assert merged.articles[0].issue == "2" and merged.articles[0].provenance["issue"] == "user"
+
+
+# --- R33: machine notes apart from the user's note ------------------------------------------------------
+
+def test_analysis_notes_round_trip_and_load_as_a_list(tmp_path):
+    m = _mm(_art("A", 3, analysis_notes=["upphafsbls. 3 er utan skjals", "leitir.is segir bls. 5"]), _art("B", 9))
+    p = tmp_path / "m.yaml"
+    save_manifest(m, p)
+    assert load_manifest(p) == m and load_manifest(p).articles[1].analysis_notes == []
+    assert _load(tmp_path, _one_article("analysis_notes: ein athugasemd")).articles[0].analysis_notes == ["ein athugasemd"]
+
+
+def test_analysis_notes_is_not_a_provenance_key(tmp_path):
+    with pytest.raises(ValueError, match="analysis_notes"):
+        _load(tmp_path, _one_article("provenance: {analysis_notes: user}"))
+
+
+def test_merge_keeps_the_users_note_even_when_the_new_analysis_has_notes():
+    old = _mm(_art("A", 7, note="Athugað: titill réttur", analysis_notes=["gömul vélarathugasemd"]))
+    new = _mm(_art("A", 7, analysis_notes=["ný vélarathugasemd"]))
+    a = merge_preserving_user(old, new).articles[0]
+    assert a.note == "Athugað: titill réttur" and a.analysis_notes == ["ný vélarathugasemd"]
+
+
+def test_merge_takes_analysis_notes_from_the_new_analysis_only():
+    old = _mm(_art("A", 7, analysis_notes=["a", "b"]))
+    assert merge_preserving_user(old, _mm(_art("A", 7))).articles[0].analysis_notes == []
+    assert merge_preserving_user(old, _mm(_art("A", 7, analysis_notes=["c"]))).articles[0].analysis_notes == ["c"]
+
+
+def test_merge_the_old_note_wins_over_a_note_in_the_new_manifest():
+    """`note` is the user's field: a non-empty old note is kept whatever the new manifest carries there."""
+    old = _mm(_art("A", 7, note="notandi"))
+    assert merge_preserving_user(old, _mm(_art("A", 7, note="annað"))).articles[0].note == "notandi"
+    assert merge_preserving_user(_mm(_art("A", 7)), _mm(_art("A", 7, note="annað"))).articles[0].note == "annað"

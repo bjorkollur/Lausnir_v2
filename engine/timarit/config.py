@@ -20,6 +20,10 @@ UNMATCHED_PATH = Path("data/timarit/_unmatched.yaml")
 CACHE_DIR = Path(_DATA_DIR) / "cache" / "timarit"
 # The spreadsheet is only ever read.
 XLSX_PATH = Path(TIMARIT_DROPFOLDER_DIR) / "_meta" / "Ulfljotur_efnisyfirlit.xlsx"
+# analyze.verify_article: a title / an author name counts as printed on an article's first page when a window of
+# the page's head is at least this similar (folded text; short names must occur as whole words). Pilot-tunable, Task 22.
+TITLE_ON_PAGE_MIN = 0.75
+AUTHOR_ON_PAGE_MIN = 0.8
 # Úlfljótur registry matcher (ulfljotur_xlsx.match_first_page); both are pilot-tunable in Task 22.
 XLSX_MATCH_MIN = 0.6      # a first page "hits" a registry row when its windowed title score reaches this
 XLSX_MATCH_MARGIN = 0.03  # a runner-up this close to the winner makes the match ambiguous (None)

@@ -28,6 +28,7 @@ class ArticleEntry:
     article_type: str | None = None
     page_start: int | None = None
     page_end: int | None = None
+    issue: str | None = None            # None → the manifest's issue; set when this article's own issue differs
     pdf_pages: list[int] | None = None
     lang: str | None = None
     date: str | None = None
@@ -39,7 +40,8 @@ class ArticleEntry:
     leitir_record_id: str | None = None
     xlsx_row: int | None = None
     source_file: str | None = None
-    note: str = ""
+    note: str = ""                      # the user's; analyze never writes it
+    analysis_notes: list[str] = field(default_factory=list)   # analyze's findings; replaced on every run (R33)
 
 
 @dataclass
@@ -225,8 +227,9 @@ def _checks(v):
 
 
 # A provenance key names the field a value came from; "pages" stands for page_start, page_end and pdf_pages.
+# analysis_notes has no provenance: it is analyze's own output and is replaced on every run.
 _PROVENANCE_ALIASES = {"pages": ("page_start", "page_end", "pdf_pages")}
-_PROVENANCE_KEYS = frozenset(f.name for f in fields(ArticleEntry)) | frozenset(_PROVENANCE_ALIASES)
+_PROVENANCE_KEYS = (frozenset(f.name for f in fields(ArticleEntry)) - {"analysis_notes"}) | frozenset(_PROVENANCE_ALIASES)
 
 
 def _provenance(v):
@@ -254,9 +257,11 @@ _ISSUE_COERCE = {
 }
 _ARTICLE_COERCE = {
     "title": _opt_str, "authors": _str_list, "author_titles": _str_list, "article_type": _opt_str,
-    "page_start": _opt_int, "page_end": _opt_int, "pdf_pages": _pdf_pages, "lang": _opt_str, "date": _opt_str,
+    "page_start": _opt_int, "page_end": _opt_int, "issue": _issue_str, "pdf_pages": _pdf_pages,
+    "lang": _opt_str, "date": _opt_str,
     "summary": _opt_str, "keywords": _str_list, "provenance": _provenance, "checks": _checks, "confidence": _float,
     "leitir_record_id": _opt_str, "xlsx_row": _opt_int, "source_file": _opt_str, "note": _note,
+    "analysis_notes": _str_list,
 }
 
 
@@ -384,18 +389,25 @@ def _is_standalone(m: IssueManifest) -> bool:
         return False
 
 
+def article_issue(m: IssueManifest, a: ArticleEntry) -> str | None:
+    """The issue an article belongs to: its own `issue` when set (a volume file whose articles come from
+    several issues, R31), else the manifest's."""
+    return a.issue if a.issue is not None else m.issue
+
+
 def external_id(m: IssueManifest, a: ArticleEntry) -> str:
     """Identity of an article inside its source (documents.external_id). Page-bearing articles are
-    '{year}-{volume}-{issue}-{page_start}', vefrit '{date}-{slug}', standalone works the slug of their file
-    stem. Two articles can still share an id (same start page, same title); use assign_external_ids
-    for a whole manifest."""
+    '{year}-{volume}-{issue}-{page_start}' (the article's own issue when it has one), vefrit '{date}-{slug}',
+    standalone works the slug of their file stem. Two articles can still share an id (same start page, same
+    title); use assign_external_ids for a whole manifest."""
     if _is_standalone(m):
         return _slug(_stem(a) or a.title or "")
     if a.date and a.page_start is None:
         return f"{a.date}-{_slug(a.title or '')}"
+    issue = article_issue(m, a)
     if a.page_start is not None:
-        return f"{_x(m.year)}-{_x(m.volume)}-{_x(m.issue)}-{a.page_start}"
-    return f"{_x(m.year)}-{_x(m.volume)}-{_x(m.issue)}-{_slug(a.title or _stem(a) or '')}"
+        return f"{_x(m.year)}-{_x(m.volume)}-{_x(issue)}-{a.page_start}"
+    return f"{_x(m.year)}-{_x(m.volume)}-{_x(issue)}-{_slug(a.title or _stem(a) or '')}"
 
 
 def assign_external_ids(m: IssueManifest) -> list[str]:
@@ -428,13 +440,18 @@ def _is_user(prov) -> bool:
     return USER in [p.strip().lower() for p in str(prov).split("+")]
 
 
+def _same_page(o: ArticleEntry, n: ArticleEntry) -> bool:
+    """Same start page in the same issue: page numbers restart per issue in some volumes (Úlfljótur 1–12)."""
+    return o.page_start is not None and o.page_start == n.page_start and o.issue == n.issue
+
+
 # Matching passes, strongest identity first. Each old article is matched at most once and so is each new one.
 _MATCH_PASSES = (
     lambda o, n: bool(o.source_file) and o.source_file == n.source_file,
     lambda o, n: o.xlsx_row is not None and o.xlsx_row == n.xlsx_row,
     lambda o, n: bool(o.leitir_record_id) and o.leitir_record_id == n.leitir_record_id,
-    lambda o, n: o.page_start is not None and o.page_start == n.page_start and bool(_fold(o.title)) and _fold(o.title) == _fold(n.title),
-    lambda o, n: o.page_start is not None and o.page_start == n.page_start,
+    lambda o, n: _same_page(o, n) and bool(_fold(o.title)) and _fold(o.title) == _fold(n.title),
+    lambda o, n: _same_page(o, n),
     lambda o, n: bool(_fold(o.title)) and _fold(o.title) == _fold(n.title),
 )
 
@@ -463,7 +480,7 @@ def _carry_user_values(oa: ArticleEntry, na: ArticleEntry) -> None:
             if hasattr(na, fld):
                 setattr(na, fld, getattr(oa, fld))
         na.provenance[key] = prov
-    if oa.note and not na.note:
+    if oa.note:                     # the note is the user's (R33); analyze writes analysis_notes, which the new run replaces
         na.note = oa.note
 
 
@@ -479,11 +496,11 @@ def merge_preserving_user(old: IssueManifest | None, new: IssueManifest) -> Issu
     """New analysis never overwrites what the user wrote.
 
     Old and new articles are paired one-to-one (source_file, xlsx_row, leitir_record_id, then start page with
-    title, start page, title). On a pair, every field whose provenance carries 'user' keeps the old value
-    ('pages' covers page_start, page_end and pdf_pages) and the note carries over. An old article that no
-    new one matches is kept, in page order, when it carries any user provenance, so a hand-added article, or one
-    whose title and start page the user both corrected, survives; other unmatched old articles are dropped (the
-    analysis no longer finds them). The flip side: an article the user deleted from the file comes back when
+    title, start page, title; a start page only pairs articles of the same article-level issue). On a pair,
+    every field whose provenance carries 'user' keeps the old value ('pages' covers page_start, page_end and
+    pdf_pages), the user's note carries over, and analysis_notes are the new analysis's. An old article that no new one matches is kept, in page order, when
+    it carries any user provenance, so a hand-added article, or one whose title and start page the user both
+    corrected, survives; other unmatched old articles are dropped (the analysis no longer finds them). The flip side: an article the user deleted from the file comes back when
     analyze re-runs on an issue that is not yet approved. An issue the user approved (or that was imported)
     keeps that status."""
     if old is None:
