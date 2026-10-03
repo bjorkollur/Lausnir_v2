@@ -11,6 +11,9 @@ LLM_CONFIDENCE_CAP = 0.70
 OCR_BIN_RATIO_THRESHOLD: float | None = None   # None → never re-OCR a PDF that has a text layer
 PAGE_MAP_MIN_QUALITY = 0.5
 PAGE_MAP_RESTART_RATIO = 0.25  # Tunable reviewed in the Task 22 pilot; marks map ambiguous when runner-up votes ≥ this × winner votes
+# Largest run of PDF pages that may lie outside every article of an issue file (cover, TOC, adverts: before the
+# first article, between articles, after the last) before issue_status sends the issue to review. Pilot-tunable, Task 22.
+COVERAGE_MAX_GAP_PAGES = 6
 MANIFEST_ROOT = Path("data/timarit/manifests")
 UNMATCHED_PATH = Path("data/timarit/_unmatched.yaml")
 # Caches are written, so they live outside the (read-only) user archive.
