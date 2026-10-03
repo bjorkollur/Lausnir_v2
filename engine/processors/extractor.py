@@ -15,7 +15,7 @@ import fitz  # PyMuPDF
 import pdfplumber
 from bs4 import BeautifulSoup
 
-from engine.config.sources import SourceConfig
+from engine.config.sources import JOURNAL_SOURCES, SourceConfig
 
 
 class Extractor:
@@ -2606,6 +2606,44 @@ def _extract_logfraedibaekur(raw: dict, config: SourceConfig) -> dict:
     }
 
 
+def _extract_timarit(raw: dict, config: SourceConfig) -> dict:
+    """Map one manifest article (scripts/import_timarit.py) to NORM fields.
+
+    Bibliographic values arrive already verified against the PDF (engine/timarit/
+    analyze.py); this only shapes them. raw_api_data keeps the manifest line
+    minus the text, so the provenance of every value survives in the row.
+    """
+    title = (raw.get("title") or "").strip() or None
+    authors = [a for a in (raw.get("authors") or []) if a]
+    iso = raw.get("date")
+    doc_date = _parse_icelandic_date(iso) if iso else (date(int(raw["year"]), 1, 1) if raw.get("year") else None)
+    article_type = raw.get("article_type") or config.verdict_type_default
+    if article_type not in config.verdict_types_allowed:
+        article_type = config.verdict_type_default
+    raw_meta = {k: v for k, v in raw.items() if k not in ("pdf_text", "page_offsets")}
+    return {
+        "case_number": title,
+        "document_date": doc_date,
+        "court": config.abbreviation,
+        "verdict_type": article_type,
+        "instance_tier": None,
+        "case_type": None,
+        "plaintiffs": [{"name": a, "lawyer": None} for a in authors] or None,
+        "defendants": None,
+        "keywords": raw.get("keywords") or None,
+        "summary": raw.get("summary") or None,
+        "body_text": raw.get("pdf_text") or None,
+        "lower_body_text": None,
+        "volume": raw.get("volume"),
+        "issue": raw.get("issue"),
+        "page_start": raw.get("page_start"),
+        "page_end": raw.get("page_end"),
+        "lang": raw.get("lang") or config.lang_default,
+        "page_offsets": raw.get("page_offsets"),
+        "raw_api_data": raw_meta,
+    }
+
+
 # ─── Registry ─────────────────────────────────────────────────────────────────
 
 _EXTRACTORS: dict[str, Any] = {
@@ -2659,4 +2697,5 @@ _EXTRACTORS: dict[str, Any] = {
     "utanr_raduneyti": _extract_stjornarradid,
     "logfraediritgerdir": _extract_logfraediritgerdir,
     "logfraedibaekur": _extract_logfraedibaekur,
+    **{short: _extract_timarit for short in JOURNAL_SOURCES},
 }

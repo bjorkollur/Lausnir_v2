@@ -94,8 +94,16 @@ def validate(doc: "Document", config: "SourceConfig") -> list[dict]:
         if has_plf and not has_dfd:
             err("defendants", "Empty")
 
-    # keywords
-    if not doc.keywords:
+    # journal articles: bibliographic checks (title/date/court/type rules above apply as-is;
+    # case_number_is_title already exempts the title from case-number shape rules)
+    if config.kind == "journal":
+        if not doc.plaintiffs and doc.verdict_type in ("Fræðigrein", "Ritdómur"):
+            err("plaintiffs", "Höfund vantar")
+        if doc.page_start is not None and doc.page_end is not None and doc.page_end < doc.page_start:
+            err("page_start", f"page_end ({doc.page_end}) < page_start ({doc.page_start})")
+
+    # keywords (journal articles rarely carry them — never flagged there)
+    if not doc.keywords and config.kind != "journal":
         err("keywords", "Missing")
 
     return errors
