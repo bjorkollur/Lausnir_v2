@@ -17,6 +17,12 @@ committing after every manifest. It never touches an approved/imported issue. An
 status `failed` and the exception's first line in `error`; the run goes on. `analyze --dry-run` saves nothing and
 opens no database session (it still reads leitir.is and Claude, through their caches under Lausnir_Data/cache).
 
+Without ANTHROPIC_API_KEY the Claude fallback for an unreadable table of contents works offline (Task 22a): a cached
+answer is used, otherwise the TOC text is queued in Lausnir_Data/cache/timarit/llm/pending/ (the issue is analysed
+without it, as before) and the run says how many are waiting. The Claude Code session answers them with
+scripts/timarit_llm_queue.py (list / show / answer); the next `analyze` of the issue then uses the answer (provenance
+`llm`, confidence capped, always reviewed).
+
 Discovery drops two kinds of duplicate: byte-identical files (`duplicate_of`) and files whose text lies inside
 a larger volume file of the same year (`contained_in`, spec 5.6); both are listed in data/timarit/_unmatched.yaml.
 
@@ -39,6 +45,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import contextlib
+import contextvars
 import datetime
 import logging
 import os
@@ -72,7 +79,7 @@ from engine.timarit import config as C
 from engine.timarit.analyze import AnalyzeDeps, analyze_issue
 from engine.timarit.extract import ExtractedText, extract_article
 from engine.timarit.leitir_articles import search_articles
-from engine.timarit.llm_toc import toc_via_llm
+from engine.timarit.llm_toc import PENDING_DIR, cache_key, is_pending, toc_via_llm
 from engine.timarit.manifest import (
     ArticleEntry, IssueManifest, article_issue, assign_external_ids, issue_label, load_manifest, manifest_path,
     manifest_sha256, merge_preserving_user, save_manifest,
@@ -439,19 +446,45 @@ def _select_manifests(args) -> list[Path]:
     return paths
 
 
+# The issue being analysed, for the offline Claude queue (Task 22a): `_analyse` sets it around analyze_issue, so that
+# the llm_toc dependency, which only receives the TOC text, can say which manifest the text came from.
+_ISSUE_CONTEXT: contextvars.ContextVar[dict | None] = contextvars.ContextVar("timarit_issue_context", default=None)
+
+
+def _llm_cache_dir() -> Path:
+    return C.CACHE_DIR / "llm"
+
+
+def _issue_context(m: IssueManifest, path: Path) -> dict:
+    return {"manifest": _manifest_rel(path), "source": m.source, "year": m.year, "volume": m.volume,
+            "issue": m.issue, "label": m.label}
+
+
 def _real_deps_factory(client: httpx.AsyncClient, llm_client=None):
-    """AnalyzeDeps over the real archive, leitir.is (one shared client) and, when `llm_client` is given, Claude.
-    Caches live in CACHE_DIR, never in the archive (R3)."""
+    """AnalyzeDeps over the real archive, leitir.is (one shared client) and Claude: through `llm_client` when it is
+    given, otherwise (no API key) offline, from the cache only, queuing the TOC texts it cannot answer. Caches live
+    in CACHE_DIR, never in the archive (R3). The returned factory has `queued`, the keys of the TOC texts that this
+    run left in the offline queue."""
     xlsx_rows = load_xlsx(C.XLSX_PATH) if C.XLSX_PATH.exists() else []
+    queued: set[str] = set()
 
     async def leitir(q, journal):
         return await search_articles(client, q, cache_dir=C.CACHE_DIR / "leitir", journal_filter=journal)
 
     async def llm(text_):
-        return await toc_via_llm(text_, cache_dir=C.CACHE_DIR / "llm", client=llm_client)
+        return await toc_via_llm(text_, cache_dir=_llm_cache_dir(), client=llm_client)
 
-    return lambda: AnalyzeDeps(read_bytes=lambda rel: (DROP / rel).read_bytes(), leitir=leitir,
-                               llm_toc=llm if llm_client is not None else None, xlsx_rows=xlsx_rows)
+    async def llm_offline(text_):
+        entries = await toc_via_llm(text_, cache_dir=_llm_cache_dir(), offline=True, context=_ISSUE_CONTEXT.get())
+        if not entries and is_pending(_llm_cache_dir(), cache_key(text_)):
+            queued.add(cache_key(text_))
+        return entries
+
+    def factory() -> AnalyzeDeps:
+        return AnalyzeDeps(read_bytes=lambda rel: (DROP / rel).read_bytes(), leitir=leitir,
+                           llm_toc=llm if llm_client is not None else llm_offline, xlsx_rows=xlsx_rows)
+    factory.queued = queued
+    return factory
 
 
 def _error_text(exc: BaseException, prefix: str = "") -> str:
@@ -471,12 +504,15 @@ async def _analyse(old: IssueManifest, path: Path, deps_factory) -> IssueManifes
     resolves it (by editing the files or approving), and discover removes it once it stops reporting it."""
     carried, _ = _split_discovery_error(old.error)
     frozen = old.status in _FROZEN
+    token = _ISSUE_CONTEXT.set(_issue_context(old, path))
     try:
         new = merge_preserving_user(old, await analyze_issue(old, get_config(old.source), deps_factory()))
     except Exception as exc:  # noqa: BLE001 — one bad issue must not stop the run
         log.exception("analyze failed for %s", path.name)
         old.status, old.error = "failed", _error_text(exc)
         new = old
+    finally:
+        _ISSUE_CONTEXT.reset(token)
     if carried:
         new.error = _join_errors(carried, new.error)
         if new.status != "failed" and not frozen:
@@ -536,14 +572,21 @@ async def cmd_analyze(args) -> None:
                 from anthropic import AsyncAnthropic
                 llm_client = await stack.enter_async_context(AsyncAnthropic())
             session = await stack.enter_async_context(_db.AsyncSessionLocal()) if save else None
-            counts = await analyze_manifests(paths, deps_factory=_real_deps_factory(client, llm_client), save=save,
-                                             session=session)
+            deps_factory = _real_deps_factory(client, llm_client)
+            counts = await analyze_manifests(paths, deps_factory=deps_factory, save=save, session=session)
     finally:
         if save:
             await _db.dispose_db()
     print(f"analyze: {len(paths)} hefti")
     for status, n in sorted(counts.items()):
         print(f"  {status:9s} {n:5d}")
+    waiting = len(getattr(deps_factory, "queued", ()))
+    if waiting:
+        where = _llm_cache_dir() / PENDING_DIR
+        log.info("%d TOC text(s) queued for the Claude Code session in %s", waiting, where)
+        print(f"{waiting} efnisyfirlit {'bíður' if waiting == 1 else 'bíða'} svars Claude (enginn ANTHROPIC_API_KEY): {where}\n"
+              "  Sjá biðröðina: uv run --env-file .env python scripts/timarit_llm_queue.py list; "
+              "keyrðu analyze aftur þegar svör eru komin.")
     if args.dry_run:
         print("Þurrkeyrsla: ekkert var vistað (engar yfirlitsskrár, enginn gagnagrunnur).")
 

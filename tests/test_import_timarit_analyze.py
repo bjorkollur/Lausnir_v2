@@ -2,6 +2,7 @@
 """Task 19: `import_timarit.py analyze`. The brief's fixtures were rebuilt so that they are consistent with the
 real TOC finder and page map (ruling R7); every change is listed in the task report."""
 import argparse
+import logging
 import os
 import shutil
 
@@ -12,6 +13,7 @@ from sqlalchemy.ext.asyncio import create_async_engine
 
 from engine.timarit.analyze import AnalyzeDeps
 from engine.timarit.leitir_articles import LeitirArticle
+from engine.timarit.llm_toc import pending_entries, write_answer
 from engine.timarit.manifest import ArticleEntry, IssueManifest, load_manifest, save_manifest
 from scripts import import_timarit as imp
 from scripts.import_timarit import analyze_manifests
@@ -557,7 +559,8 @@ async def test_real_deps_read_the_archive_and_wrap_leitir_with_the_shared_client
     monkeypatch.setattr(imp, "search_articles", search)
     client = object()
     deps = imp._real_deps_factory(client)()
-    assert deps.read_bytes("j/a.pdf") == b"bytes" and deps.xlsx_rows == [] and deps.llm_toc is None
+    assert deps.read_bytes("j/a.pdf") == b"bytes" and deps.xlsx_rows == []
+    assert deps.llm_toc is not None                       # no Claude client: the offline wrapper, never None (Task 22a)
     await deps.leitir("titill", "Tímarit lögfræðinga")
     assert calls == [(client, "titill", {"cache_dir": tmp_path / "cache" / "leitir", "journal_filter": "Tímarit lögfræðinga"})]
 
@@ -574,8 +577,93 @@ async def test_real_deps_use_the_shared_claude_client_only_when_given(tmp_path, 
     llm = object()
     deps = imp._real_deps_factory(object(), llm)()
     assert await deps.llm_toc("efnisyfirlit") == []
-    assert calls == [("efnisyfirlit", {"cache_dir": tmp_path / "cache" / "llm", "client": llm})]
-    assert imp._real_deps_factory(object(), None)().llm_toc is None
+    assert calls == [("efnisyfirlit", {"cache_dir": tmp_path / "cache" / "llm", "client": llm})]   # unchanged with a key
+
+
+async def test_real_deps_without_a_claude_client_use_the_offline_wrapper(tmp_path, monkeypatch):
+    """Task 22a: no ANTHROPIC_API_KEY → toc_via_llm only reads its cache and queues, under the issue's identity."""
+    monkeypatch.setattr(imp.C, "CACHE_DIR", tmp_path / "cache")
+    monkeypatch.setattr(imp.C, "XLSX_PATH", tmp_path / "none.xlsx")
+    calls = []
+
+    async def toc(text_, **kw):
+        calls.append((text_, kw))
+        return []
+    monkeypatch.setattr(imp, "toc_via_llm", toc)
+    deps = imp._real_deps_factory(object(), None)()
+    assert await deps.llm_toc("efnisyfirlit") == []
+    assert calls == [("efnisyfirlit", {"cache_dir": tmp_path / "cache" / "llm", "offline": True, "context": None})]
+
+
+# --- Task 22a: the offline Claude fallback through analyze ----------------------------------------------------
+
+def _unreadable_toc_pdf():
+    return _pdf(["Kápa", "Efnisyfirlit sem les ekki ...", f"1\nJón Jónsson\nFyrsta greinin\nTexti.\n{_PAD}",
+                 f"2\n{_PAD}", f"3\n{_PAD}"])
+
+
+def _anthropic_must_not_be_built(monkeypatch):
+    import anthropic
+
+    def boom(*a, **k):
+        raise AssertionError("no Claude client may be constructed without an API key")
+    monkeypatch.setattr(anthropic, "AsyncAnthropic", boom)
+
+
+async def test_an_unreadable_toc_is_queued_under_the_issue_identity_and_the_written_answer_is_used_next_run(tmp_path, monkeypatch):
+    p, repo = _archive(tmp_path, monkeypatch, _unreadable_toc_pdf())
+    _anthropic_must_not_be_built(monkeypatch)
+    llm_dir = tmp_path / "cache" / "llm"
+    factory = imp._real_deps_factory(object())
+    counts = await analyze_manifests([p], deps_factory=factory, save=True)
+    first = load_manifest(p)
+    assert counts == {"review": 1} and first.articles == [] and "efnisyfirlit" in first.error   # as without a key
+    (entry,) = pending_entries(llm_dir)
+    assert entry["context"] == {"manifest": "data/timarit/manifests/timarit_logfraedinga/2010_60_1.yaml",
+                                "source": SRC, "year": 2010, "volume": 60, "issue": "1", "label": LABEL}
+    assert entry["body_path"].read_text(encoding="utf-8").startswith("Kápa")
+    assert factory.queued == {entry["key"]}
+    assert imp._ISSUE_CONTEXT.get() is None                                    # the context does not leak out of the run
+
+    write_answer(llm_dir, entry["key"], [{"title": "Fyrsta greinin", "authors": ["Jón Jónsson"], "page_start": 1,
+                                          "article_type": "Fræðigrein"}])
+    again = imp._real_deps_factory(object())
+    await analyze_manifests([p], deps_factory=again, save=True)
+    out = load_manifest(p)
+    (a,) = out.articles
+    assert a.title == "Fyrsta greinin" and a.provenance["title"] == "llm" and a.confidence <= 0.70
+    assert out.status == "review" and a.article_type == "Fræðigrein" and a.pdf_pages == [2, 4]
+    assert pending_entries(llm_dir) == [] and again.queued == set()
+
+
+async def test_the_same_toc_text_in_two_issues_is_queued_once_and_counted_once(tmp_path, monkeypatch):
+    p, repo = _archive(tmp_path, monkeypatch, _unreadable_toc_pdf())
+    p2 = imp.manifest_path(repo / imp.C.MANIFEST_ROOT, SRC, 2010, 60, "2")
+    save_manifest(_manifest(issue="2", file="j/x.pdf"), p2)
+    factory = imp._real_deps_factory(object())
+    await analyze_manifests([p, p2], deps_factory=factory, save=True)
+    (entry,) = pending_entries(tmp_path / "cache" / "llm")
+    assert len(factory.queued) == 1 and entry["context"]["issue"] == "1"
+
+
+async def test_cmd_analyze_without_a_key_says_in_icelandic_how_many_tocs_wait_and_where(tmp_path, monkeypatch, capsys, caplog):
+    p, repo = _archive(tmp_path, monkeypatch, _unreadable_toc_pdf())
+    _anthropic_must_not_be_built(monkeypatch)
+    caplog.set_level(logging.INFO, logger="import_timarit")
+    await imp.cmd_analyze(_args(dry_run=True))
+    out = capsys.readouterr().out
+    pending = tmp_path / "cache" / "llm" / "pending"
+    assert "1 efnisyfirlit bíður svars Claude" in out and out.count(str(pending)) == 1
+    assert "timarit_llm_queue.py list" in out
+    assert len(pending_entries(tmp_path / "cache" / "llm")) == 1
+    assert [r.getMessage() for r in caplog.records if "queued" in r.getMessage()] == [
+        f"1 TOC text(s) queued for the Claude Code session in {pending}"]
+
+
+async def test_cmd_analyze_prints_no_queue_line_when_every_toc_was_readable(tmp_path, monkeypatch, capsys):
+    _archive(tmp_path, monkeypatch, _issue_pdf())
+    await imp.cmd_analyze(_args(dry_run=True))
+    assert "bíð" not in capsys.readouterr().out and not (tmp_path / "cache" / "llm").exists()
 
 
 # --- journal_issues against the real schema (always rolled back) ---------------------------------------------
