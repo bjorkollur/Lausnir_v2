@@ -27,3 +27,11 @@ AUTHOR_ON_PAGE_MIN = 0.8
 # Úlfljótur registry matcher (ulfljotur_xlsx.match_first_page); both are pilot-tunable in Task 22.
 XLSX_MATCH_MIN = 0.6      # a first page "hits" a registry row when its windowed title score reaches this
 XLSX_MATCH_MARGIN = 0.03  # a runner-up this close to the winner makes the match ambiguous (None)
+# discover: a file whose text is contained in a larger volume file of the same (source, year, volume) is a
+# content duplicate (spec 5.6; the same article is never imported twice). A candidate page counts as contained when
+# >= CONTAINED_PAGE_MIN of its word trigrams occur on one container page (pages with fewer than
+# CONTAINED_MIN_TRIGRAMS trigrams are not judged); the file is contained when >= CONTAINED_MIN_SHARE of its judged
+# pages are. Pilot-tunable, Task 22; measured 76-100% for true duplicates vs 0% for distinct files.
+CONTAINED_MIN_SHARE = 0.7
+CONTAINED_PAGE_MIN = 0.5
+CONTAINED_MIN_TRIGRAMS = 20
