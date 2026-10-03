@@ -1,12 +1,14 @@
 """Hierarchical scope catalog for the search picker (Fons Juris layout).
 
-Four top-level categories, mirroring the reference site:
+Six top-level categories, mirroring the reference site:
   - Dómstólar            — courts, with Hæstiréttur / Landsréttur / Héraðsdómar
                            each drilled into Dómar / Úrskurðir (by verdict_type),
                            plus Málskotsbeiðnir under Hæstiréttur.
   - Stjórnsýsla o.fl.    — regulatory agencies + ombudsman.
   - Nefndir o.fl.        — all appeal/ruling committees + ministry rulings.
   - Bækur og fræðiskrif  — academic writing (Skemman theses).
+  - Tímarit og fræðigreinar — journals and standalone articles (``kind="journal"``).
+  - Lagasafn Alþingis    — the 48 chapters of the consolidated statutes.
 
 A selection ("scope") is a list of node *keys*. ``resolve_scope`` turns those
 into a :class:`ScopeFilter` — a set of SQL clauses combining source IDs with an
@@ -25,7 +27,11 @@ from typing import Any
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from engine.config.sources import SOURCE_REGISTRY, LAGASAFN_KAFLAR as _LAGASAFN_KAFLAR
+from engine.config.sources import (
+    JOURNAL_SOURCES,
+    LAGASAFN_KAFLAR as _LAGASAFN_KAFLAR,
+    SOURCE_REGISTRY,
+)
 from engine.database.models import Source
 
 # ── Category → source membership (the partition of all sources) ────────────────
@@ -38,13 +44,14 @@ _STJORNSYSLA_SOURCES = [
     "samkeppni", "umbodsmadur", "hugverkastofa",
 ]
 _BAEKUR_SOURCES = ["logfraediritgerdir", "logfraedibaekur"]
+_TIMARIT_SOURCES = list(JOURNAL_SOURCES)
 _LAGASAFN_SOURCES = [f"lagasafn_{n:02d}" for n, _ in _LAGASAFN_KAFLAR]
 
 # Nefndir = everything else (self-maintaining: a new tribunal source lands here
 # automatically until explicitly reassigned), sorted by display name for the UI.
 _ASSIGNED = (
     set(_DOMSTOLAR_SOURCES) | set(_STJORNSYSLA_SOURCES)
-    | set(_BAEKUR_SOURCES) | set(_LAGASAFN_SOURCES)
+    | set(_BAEKUR_SOURCES) | set(_TIMARIT_SOURCES) | set(_LAGASAFN_SOURCES)
 )
 _NEFNDIR_SOURCES = sorted(
     (s for s in SOURCE_REGISTRY if s not in _ASSIGNED),
@@ -105,6 +112,10 @@ SCOPE_TREE: list[dict] = [
     {
         "key": "baekur", "label": "Bækur og fræðiskrif",
         "children": [_source_leaf(s) for s in _BAEKUR_SOURCES],
+    },
+    {
+        "key": "timarit", "label": "Tímarit og fræðigreinar",
+        "children": [_source_leaf(s) for s in _TIMARIT_SOURCES],
     },
     {
         "key": "lagasafn", "label": "Lagasafn Alþingis",
@@ -192,6 +203,7 @@ def validate_catalog() -> None:
         "stjornsysla": _STJORNSYSLA_SOURCES,
         "nefndir": _NEFNDIR_SOURCES,
         "baekur": _BAEKUR_SOURCES,
+        "timarit": _TIMARIT_SOURCES,
         "lagasafn": _LAGASAFN_SOURCES,
     }
     seen: dict[str, str] = {}

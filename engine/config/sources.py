@@ -15,6 +15,7 @@ _DATA_DIR = os.environ.get("DATA_DIR", "/Volumes/RuleOfLaw/Lausnir_Data")
 MARKDOWN_DIR: str = os.path.join(_DATA_DIR, "markdown")
 RAW_DIR: str = os.path.join(_DATA_DIR, "raw")
 DROPFOLDER_DIR: str = os.path.join(_DATA_DIR, "dropfolder")
+TIMARIT_DROPFOLDER_DIR: str = os.path.join(_DATA_DIR, "dropfolder_timarit")
 
 
 @dataclass
@@ -50,6 +51,15 @@ class SourceConfig:
     # tribunal decisions have no footnotes, so this stays off for them.
     has_footnotes: bool = False
     stjornarradid_source: bool = False  # True → source is on stjornarradid.is; sweep via sync_stjornarradid.py
+    # ── Kind of source (spec 2026-10-03 §4.1) ────────────────────────────────
+    kind: str = "ruling"              # 'ruling' | 'book' | 'journal'
+    issue_term: str | None = None     # 'hefti' | 'tbl.' — wording in urlausn; None → no issue level
+    citation_name: str | None = None  # name used in urlausn; defaults to display_name
+    lang_default: str = "is"
+    # Year of volume 1. Used ONLY as a last resort when no registry, TOC or printed
+    # header gives the volume — and then the article is flagged for review: Úlfljótur
+    # skipped a year after 1957, Lögfræðingur's 2nd volume is 2008 (spec §3).
+    volume_base_year: int | None = None
 
     def __post_init__(self) -> None:
         if not _SLUG_RE.match(self.short_name):
@@ -837,6 +847,7 @@ _SOURCES: list[SourceConfig] = [
         h1_use_display_name=True,
         case_number_is_title=True, # titill, ekki málsnúmer — slepptu málsnúmers-validation
             has_footnotes=True,   # fræðirit með neðanmálsgreinum
+        kind="book",               # bók eða ritgerð, ekki dómur (spec 2026-10-03 §4.1)
     ),
     # ── Lögfræðibækur (dropfolder) ────────────────────────────────────────────
     SourceConfig(
@@ -853,11 +864,39 @@ _SOURCES: list[SourceConfig] = [
         h1_use_display_name=True,
         case_number_is_title=True, # titill, ekki málsnúmer — sama og logfraediritgerdir
             has_footnotes=True,   # fræðirit með neðanmálsgreinum
+        kind="book",               # bók eða ritgerð, ekki dómur (spec 2026-10-03 §4.1)
     ),
+    # ── Tímarit og fræðigreinar (spec 2026-10-03) ─────────────────────────────
+    *[
+        SourceConfig(
+            short_name=short, display_name=display, abbreviation=abbr,
+            instance_tier=1, has_lower_court=False, parse_parties="none",
+            verdict_type_default=default_type,
+            verdict_types_allowed=["Fræðigrein", "Ritstjórnargrein", "Ritdómur",
+                                   "Viðtal", "Frétt", "Dómareifun", "Annað"],
+            case_number_prefix="", pdf_crop=None, h1_use_display_name=True,
+            case_number_is_title=True, has_footnotes=True,
+            kind="journal", issue_term=term, citation_name=cite, volume_base_year=base,
+        )
+        for short, display, abbr, cite, term, base, default_type in [
+            ("timarit_logfraedinga", "Tímarit lögfræðinga", "TL", "Tímarit lögfræðinga", "hefti", 1951, "Fræðigrein"),
+            ("ulfljotur", "Úlfljótur", "Úlfljótur", "Úlfljótur", "tbl.", 1947, "Fræðigrein"),
+            ("ulfljotur_vefrit", "Úlfljótur — vefrit", "Úlfljótur vefrit", "Úlfljótur vefrit", None, None, "Fræðigrein"),
+            ("logmannabladid", "Lögmannablaðið", "Lögmannablaðið", "Lögmannablaðið", "tbl.", 1995, "Annað"),
+            ("logretta", "Lögrétta", "Lögrétta", "Lögrétta", "tbl.", 2004, "Fræðigrein"),
+            ("logfraedingur", "Lögfræðingur (Þemis, HA)", "Lögfræðingur", "Lögfræðingur", "tbl.", None, "Fræðigrein"),
+            ("logbru", "Lögbrú", "Lögbrú", "Lögbrú", "tbl.", None, "Fræðigrein"),
+            ("stjornmal_stjornsysla", "Stjórnmál og stjórnsýsla", "Stjórnmál og stjórnsýsla", "Stjórnmál og stjórnsýsla", "tbl.", 2005, "Fræðigrein"),
+            ("rannsoknir_lagadeild", "Rannsóknir í félagsvísindum — Lagadeild", "Rannsóknir í félagsvísindum", "Rannsóknir í félagsvísindum", None, None, "Fræðigrein"),
+            ("fraedigreinar_ymsar", "Ýmsar fræðigreinar", "Fræðigrein", None, None, None, "Fræðigrein"),
+        ]
+    ],
 ]
 
 # Index by short_name for O(1) lookup
 SOURCE_REGISTRY: dict[str, SourceConfig] = {s.short_name: s for s in _SOURCES}
+
+JOURNAL_SOURCES: tuple[str, ...] = tuple(s.short_name for s in _SOURCES if s.kind == "journal")
 
 
 # ── Lagasafn Alþingis (48 chapters) ──────────────────────────────────────────
