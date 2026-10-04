@@ -18,6 +18,10 @@ page_map:
     - 1
   contested: []
   bin_ratio: 0.953
+  non_article:
+  - 4
+  - 18
+  - 30
 status: review
 confidence: 0.65
 error: null
@@ -30,11 +34,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 4
-  page_end: 5
+  page_end: 4
   issue: null
   pdf_pages:
   - 3
-  - 4
+  - 3
   lang: is
   date: null
   summary: null
@@ -267,19 +271,18 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'á síðunni stendur: Ágúst Þór Árnason'
+  analysis_notes: []
 - title: Mat á hæfni umsækjenda um embætti hæstaréttardómara
   authors:
   - Jónas Þór Guðmundsson
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 18
-  page_end: 19
+  page_end: 18
   issue: null
   pdf_pages:
   - 17
-  - 18
+  - 17
   lang: is
   date: null
   summary: null
@@ -336,11 +339,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 22
-  page_end: 23
+  page_end: 22
   issue: null
   pdf_pages:
   - 21
-  - 22
+  - 21
   lang: is
   date: null
   summary: null
@@ -430,7 +433,7 @@ articles:
   issue: null
   pdf_pages:
   - 27
-  - 30
+  - 29
   lang: is
   date: null
   summary: null

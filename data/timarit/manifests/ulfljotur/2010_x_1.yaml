@@ -18,6 +18,13 @@ page_map:
     - -1
   contested: []
   bin_ratio: 0.972
+  non_article:
+  - 92
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
 status: review
 confidence: 0.65
 error: null
@@ -90,11 +97,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 75
-  page_end: 96
+  page_end: 84
   issue: null
   pdf_pages:
   - 76
-  - 97
+  - 85
   lang: is
   date: null
   summary: null
@@ -114,4 +121,6 @@ articles:
   xlsx_row: 196
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Bandaríkjaför íslenskra laganema“ á bls. 85 sem skráin nefnir ekki; greinin er talin
+    enda þar'

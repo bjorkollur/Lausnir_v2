@@ -18,6 +18,7 @@ page_map:
     - 1
   contested: []
   bin_ratio: 0.962
+  non_article: []
 status: review
 confidence: 0.3
 error: null
@@ -54,7 +55,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 5 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
 - title: Eru lögmenn fjölmiðlafulltrúar?
   authors: []
   author_titles: []
@@ -288,7 +291,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 23 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
 - title: 37. norræna lögfræðingaþingið í Reykjavík í ágúst 2005
   authors: []
   author_titles: []
@@ -410,11 +415,11 @@ articles:
   author_titles: []
   article_type: Dómareifun
   page_start: 29
-  page_end: 30
+  page_end: 31
   issue: null
   pdf_pages:
   - 28
-  - 31
+  - 30
   lang: is
   date: null
   summary: null
@@ -433,4 +438,6 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 31 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'

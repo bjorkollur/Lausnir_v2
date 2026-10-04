@@ -18,6 +18,14 @@ page_map:
     - 1
   contested: []
   bin_ratio: 0.978
+  non_article:
+  - 9
+  - 31
+  - 85
+  - 205
+  - 269
+  - 351
+  - 387
 status: review
 confidence: 0.65
 error: null
@@ -30,11 +38,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 9
-  page_end: 10
+  page_end: 9
   issue: null
   pdf_pages:
   - 8
-  - 9
+  - 8
   lang: is
   date: null
   summary: null
@@ -61,11 +69,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 11
-  page_end: 32
+  page_end: 31
   issue: null
   pdf_pages:
   - 10
-  - 31
+  - 30
   lang: is
   date: null
   summary: null
@@ -123,11 +131,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 71
-  page_end: 86
+  page_end: 85
   issue: null
   pdf_pages:
   - 70
-  - 85
+  - 84
   lang: is
   date: null
   summary: null
@@ -247,11 +255,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 175
-  page_end: 206
+  page_end: 205
   issue: null
   pdf_pages:
   - 174
-  - 205
+  - 204
   lang: is
   date: null
   summary: null
@@ -371,11 +379,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 253
-  page_end: 270
+  page_end: 269
   issue: null
   pdf_pages:
   - 252
-  - 269
+  - 268
   lang: is
   date: null
   summary: null
@@ -464,11 +472,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 327
-  page_end: 352
+  page_end: 351
   issue: null
   pdf_pages:
   - 326
-  - 351
+  - 350
   lang: is
   date: null
   summary: null
@@ -495,11 +503,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 353
-  page_end: 388
+  page_end: 387
   issue: null
   pdf_pages:
   - 352
-  - 387
+  - 386
   lang: is
   date: null
   summary: null

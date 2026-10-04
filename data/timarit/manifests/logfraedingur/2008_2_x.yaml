@@ -18,6 +18,9 @@ page_map:
     - 0
   contested: []
   bin_ratio: 0.962
+  non_article:
+  - 56
+  - 100
 status: review
 confidence: 0.5
 error: null
@@ -54,7 +57,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 5'
 - title: Ávarp formanns Þemis
   authors:
   - Sindri Kristjánsson
@@ -117,7 +121,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 8'
 - title: Skýrslutaka hjá lögreglu
   authors:
   - Birkir Már Magnússon
@@ -154,11 +159,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 40
-  page_end: 56
+  page_end: 55
   issue: null
   pdf_pages:
   - 40
-  - 56
+  - 55
   lang: is
   date: null
   summary: null
@@ -208,18 +213,19 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 57'
 - title: Öryggisráð SÞ frá sjónarhóli þjóðaréttar
   authors:
   - Pétur Dam Leifsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 65
-  page_end: 99
+  page_end: 98
   issue: null
   pdf_pages:
   - 65
-  - 100
+  - 98
   lang: is
   date: null
   summary: null

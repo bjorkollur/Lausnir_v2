@@ -60,7 +60,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1041.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 8, prentað bls. 3
+  - 'FRÁVIK: taflan segir bls. 8, prentað bls. 3'
 - title: Um 142. - 144. Gr. Almennra hegningarlaga
   authors:
   - Jón G. Tómasson
@@ -122,7 +122,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1042.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 14, prentað bls. 13
+  - 'FRÁVIK: taflan segir bls. 14, prentað bls. 13'
 - title: Tillögur þjóðréttarnefndar Sameinuðu þjóðanna um landhelgi ríkja
   authors:
   - Jón Thors
@@ -154,18 +154,18 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1043.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 25, prentað bls. 15
+  - 'FRÁVIK: taflan segir bls. 25, prentað bls. 15'
 - title: Nokkrar athugasemdir í sambandi við skjöl, sem afhent eru til þinglýsingar
   authors:
   - Ólafur Pálsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 3
-  page_end: 12
+  page_end: 11
   issue: '2'
   pdf_pages:
   - 0
-  - 9
+  - 8
   lang: is
   date: null
   summary: null
@@ -185,7 +185,8 @@ articles:
   xlsx_row: 1155
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/187.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Juristforeningen 50 ára.“ á bls. 11 sem skráin nefnir ekki; greinin er talin enda þar'
 - title: Stúdentaskiptin við Þýzkaland
   authors:
   - Arnljótur Björnsson
@@ -217,7 +218,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1051.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 17, prentað bls. 13
+  - 'FRÁVIK: taflan segir bls. 17, prentað bls. 13'
 - title: Lögfræðingafélag Íslands
   authors:
   - Ármann Snævarr
@@ -249,7 +250,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1052.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 19, prentað bls. 18
+  - 'FRÁVIK: taflan segir bls. 19, prentað bls. 18'
 - title: Lagakennsla á Íslandi í 50 ár
   authors:
   - Magnús Thoroddsen
@@ -405,7 +406,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1059.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 31, prentað bls. 28
+  - 'FRÁVIK: taflan segir bls. 31, prentað bls. 28'
 - title: Lögfræðingafélag Íslands, stofnun þess og starfsemi
   authors:
   - Ármann Snævarr
@@ -437,7 +438,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1061.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 37, prentað bls. 35
+  - 'FRÁVIK: taflan segir bls. 37, prentað bls. 35'
 - title: Gerðardómar í milliríkjamálum og alþjóðadómstóllinn í Haag
   authors:
   - Jón P. Emils
@@ -469,7 +470,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1068.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 9, prentað bls. 3
+  - 'FRÁVIK: taflan segir bls. 9, prentað bls. 3'
 - title: Frá aðalfundi
   authors:
   - Jóhann J. Ragnarsson
@@ -501,4 +502,6 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1071.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 22, prentað bls. 21
+  - 'FRÁVIK: taflan segir bls. 22, prentað bls. 21'
+  - 'FRÁVIK: á eftir greininni hefst „Til laganema.“ á bls. 22 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: greinin er undirrituð (Gaukur Jörundsson) en höfundar skrárinnar eru aðrir (Jóhann J. Ragnarsson); skránni haldið'

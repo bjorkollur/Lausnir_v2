@@ -18,6 +18,15 @@ page_map:
     - 1
   contested: []
   bin_ratio: 0.953
+  non_article:
+  - 4
+  - 10
+  - 14
+  - 26
+  - 32
+  - 33
+  - 34
+  - 35
 status: review
 confidence: 0.3
 error: null
@@ -30,11 +39,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 4
-  page_end: 5
+  page_end: 4
   issue: null
   pdf_pages:
   - 3
-  - 4
+  - 3
   lang: is
   date: null
   summary: null
@@ -122,11 +131,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 10
-  page_end: 11
+  page_end: 10
   issue: null
   pdf_pages:
   - 9
-  - 10
+  - 9
   lang: is
   date: null
   summary: null
@@ -152,11 +161,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 12
-  page_end: 15
+  page_end: 14
   issue: null
   pdf_pages:
   - 11
-  - 14
+  - 13
   lang: is
   date: null
   summary: null
@@ -280,11 +289,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 25
-  page_end: 27
+  page_end: 26
   issue: null
   pdf_pages:
   - 24
-  - 26
+  - 25
   lang: is
   date: null
   summary: null
@@ -370,11 +379,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 32
-  page_end: 36
+  page_end: 32
   issue: null
   pdf_pages:
   - 31
-  - 35
+  - 31
   lang: is
   date: null
   summary: null

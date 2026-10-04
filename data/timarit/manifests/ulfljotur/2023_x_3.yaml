@@ -18,6 +18,20 @@ page_map:
     - 263
   contested: []
   bin_ratio: 0.834
+  non_article:
+  - 43
+  - 81
+  - 113
+  - 122
+  - 123
+  - 124
+  - 125
+  - 126
+  - 127
+  - 128
+  - 129
+  - 130
+  - 131
 status: review
 confidence: 0.65
 error: null
@@ -31,11 +45,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 271
-  page_end: 306
+  page_end: 305
   issue: null
   pdf_pages:
   - 8
-  - 43
+  - 42
   lang: is
   date: null
   summary: null
@@ -62,11 +76,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 307
-  page_end: 344
+  page_end: 343
   issue: null
   pdf_pages:
   - 44
-  - 81
+  - 80
   lang: is
   date: null
   summary: null
@@ -93,11 +107,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 345
-  page_end: 376
+  page_end: 375
   issue: null
   pdf_pages:
   - 82
-  - 113
+  - 112
   lang: is
   date: null
   summary: null
@@ -123,11 +137,11 @@ articles:
   author_titles: []
   article_type: Viðtal
   page_start: 377
-  page_end: 392
+  page_end: 384
   issue: null
   pdf_pages:
   - 114
-  - 131
+  - 121
   lang: is
   date: null
   summary: null

@@ -18,6 +18,11 @@ page_map:
     - 1
   contested: []
   bin_ratio: 0.948
+  non_article:
+  - 55
+  - 97
+  - 169
+  - 170
 status: review
 confidence: 0.3
 error: null
@@ -30,11 +35,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 5
-  page_end: 56
+  page_end: 55
   issue: null
   pdf_pages:
   - 4
-  - 55
+  - 54
   lang: is
   date: null
   summary: null
@@ -61,11 +66,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 57
-  page_end: 98
+  page_end: 97
   issue: null
   pdf_pages:
   - 56
-  - 97
+  - 96
   lang: is
   date: null
   summary: null
@@ -116,18 +121,20 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 154 sem er hvorki framhald hennar né upphaf annars
+    efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
 - title: Viðtöl við bifrestinga
   authors:
   - Kristján Örvar Sveinsson
   author_titles: []
   article_type: Viðtal
   page_start: 155
-  page_end: 171
+  page_end: 169
   issue: null
   pdf_pages:
   - 154
-  - 170
+  - 168
   lang: is
   date: null
   summary: null

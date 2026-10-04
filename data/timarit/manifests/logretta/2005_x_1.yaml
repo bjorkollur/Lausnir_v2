@@ -15,8 +15,9 @@ page_map:
   segments: []
   contested: []
   bin_ratio: 0.981
+  non_article: []
 status: review
-confidence: 0
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2005 1.tbl.pdf
@@ -26,10 +27,12 @@ articles:
   - Skúli Magnússon
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 3
+  page_end: 14
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 0
+  - 11
   lang: is
   date: null
   summary: null
@@ -38,17 +41,19 @@ articles:
     title: llm
     article_type: llm
     authors: llm
+    pages: page
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.5
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 3
 - title: Kröfugerð í málum gegn ríkinu og stjórnskipuleg valdmörk
   authors:
   - Róbert R. Spanó
@@ -78,14 +83,16 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á pdf-síðu 13
+  - 'FRÁVIK: greinin er á pdf-síðu 13 en blaðsíðutal hennar fannst ekki'
 - title: Félagsform íslensku sparisjóðanna hlutafélagavæðing og SPRON-málin
   authors:
   - Jóhannes Karl Sveinsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 35
+  page_end: 52
   issue: null
   pdf_pages:
   - 31
@@ -98,6 +105,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
+    pages: page
   checks:
     title_on_page: true
     printed_page_match: false
@@ -108,14 +116,15 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 35
 - title: Hlutverk og ábyrgð byggingarstjóra
   authors:
   - Erlendur Gíslason
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 17
+  page_end: 33
   issue: null
   pdf_pages:
   - 49
@@ -128,6 +137,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
+    pages: page
   checks:
     title_on_page: true
     printed_page_match: false
@@ -138,14 +148,15 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 17
 - title: Yfirtökuskylda
   authors:
   - Jóhannes Sigurðsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 55
+  page_end: 65
   issue: null
   pdf_pages:
   - 66
@@ -158,6 +169,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
+    pages: page
   checks:
     title_on_page: true
     printed_page_match: false
@@ -168,4 +180,5 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 55

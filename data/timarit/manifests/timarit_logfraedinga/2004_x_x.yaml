@@ -27,6 +27,58 @@ page_map:
     - -21
   contested: []
   bin_ratio: 0.891
+  non_article:
+  - 9
+  - 53
+  - 173
+  - 185
+  - 186
+  - 187
+  - 188
+  - 189
+  - 190
+  - 191
+  - 192
+  - 193
+  - 195
+  - 196
+  - 197
+  - 201
+  - 301
+  - 302
+  - 303
+  - 304
+  - 305
+  - 306
+  - 307
+  - 308
+  - 309
+  - 310
+  - 311
+  - 312
+  - 313
+  - 317
+  - 391
+  - 472
+  - 473
+  - 474
+  - 475
+  - 476
+  - 477
+  - 478
+  - 479
+  - 480
+  - 481
+  - 521
+  - 579
+  - 580
+  - 581
+  - 582
+  - 583
+  - 584
+  - 585
+  - 586
+  - 587
 status: review
 confidence: 0.8
 error: null
@@ -43,7 +95,7 @@ articles:
   issue: '1'
   pdf_pages:
   - 6
-  - 9
+  - 8
   lang: is
   date: null
   summary: null
@@ -71,11 +123,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 5
-  page_end: 48
+  page_end: 47
   issue: '1'
   pdf_pages:
   - 10
-  - 53
+  - 52
   lang: is
   date: null
   summary: null
@@ -103,11 +155,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 49
-  page_end: 168
+  page_end: 167
   issue: '1'
   pdf_pages:
   - 54
-  - 173
+  - 172
   lang: is
   date: null
   summary: null
@@ -139,7 +191,7 @@ articles:
   issue: '1'
   pdf_pages:
   - 174
-  - 197
+  - 184
   lang: is
   date: null
   summary: null
@@ -171,7 +223,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 198
-  - 201
+  - 200
   lang: is
   date: null
   summary: null
@@ -263,11 +315,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 265
-  page_end: 295
+  page_end: 289
   issue: '2'
   pdf_pages:
   - 276
-  - 313
+  - 300
   lang: is
   date: null
   summary: null
@@ -299,7 +351,7 @@ articles:
   issue: '3'
   pdf_pages:
   - 314
-  - 317
+  - 316
   lang: is
   date: null
   summary: null
@@ -364,7 +416,7 @@ articles:
   issue: '3'
   pdf_pages:
   - 352
-  - 391
+  - 390
   lang: is
   date: null
   summary: null
@@ -456,11 +508,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 445
-  page_end: 460
+  page_end: 454
   issue: '3'
   pdf_pages:
   - 462
-  - 481
+  - 471
   lang: is
   date: null
   summary: null
@@ -524,7 +576,7 @@ articles:
   issue: '4'
   pdf_pages:
   - 486
-  - 521
+  - 520
   lang: is
   date: null
   summary: null
@@ -617,11 +669,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 549
-  page_end: 563
+  page_end: 557
   issue: '4'
   pdf_pages:
   - 570
-  - 587
+  - 578
   lang: is
   date: null
   summary: null

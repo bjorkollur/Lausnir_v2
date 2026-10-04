@@ -27,6 +27,27 @@ page_map:
     - -17
   contested: []
   bin_ratio: 0.96
+  non_article:
+  - 78
+  - 79
+  - 144
+  - 145
+  - 146
+  - 147
+  - 148
+  - 149
+  - 150
+  - 151
+  - 153
+  - 218
+  - 219
+  - 220
+  - 221
+  - 222
+  - 223
+  - 225
+  - 294
+  - 295
 status: review
 confidence: 0.3
 error: null
@@ -290,7 +311,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Norrænt laganemamót á Íslandi
-  authors: []
+  authors:
+  - Helgi Sigurðsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 70
@@ -298,7 +320,7 @@ articles:
   issue: '1'
   pdf_pages:
   - 75
-  - 81
+  - 76
   lang: is
   date: null
   summary: null
@@ -308,6 +330,7 @@ articles:
     article_type: toc
     pages: leitir+toc
     issue: toc
+    authors: page
   checks:
     title_on_page: false
     printed_page_match: true
@@ -318,9 +341,11 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „MÁLÞING í SEPTEMBER 1985“ á bls. 71 sem skráin nefnir ekki; greinin er talin enda þar'
 - title: Stjórnvald eða dómstóll í barnaréttarmálum?
-  authors: []
+  authors:
+  - Guðrún Erlendsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 73
@@ -338,6 +363,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -350,7 +376,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Birgir Ásgeirsson — Páll Pálmason
-  authors: []
+  authors:
+  - Gunnlaugur Pétursson
+  - Hjörtur Hjartarson
+  - Brynjólfur Ingólfsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 75
@@ -368,6 +397,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: false
     printed_page_match: true
@@ -476,7 +506,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Frá Lögmannafélagi íslands
-  authors: []
+  authors:
+  - Hafþór Ingi Jónsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 128
@@ -494,6 +525,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -506,15 +538,16 @@ articles:
   note: ''
   analysis_notes: []
 - title: Þankabrot um nýstofnað embætti ríkislögmanns
-  authors: []
+  authors:
+  - Jónatan Þórmundsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 132
-  page_end: 134
+  page_end: 133
   issue: '2'
   pdf_pages:
   - 141
-  - 153
+  - 142
   lang: is
   date: null
   summary: null
@@ -524,6 +557,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: false
     printed_page_match: true
@@ -536,6 +570,7 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 70–71
+  - 'FRÁVIK: á eftir greininni hefst „NÝTT RIT UM HLUTAFÉLÖG“ á bls. 133 sem skráin nefnir ekki; greinin er talin enda þar'
 - title: Vinnubrögð við lagasetningu
   authors:
   - Jónatan Þórmundsson
@@ -569,7 +604,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Héðinn Finnbogason — Þórhallur Sæmundsson
-  authors: []
+  authors:
+  - Guðmundur Benediktsson
+  - Valgarður Kristjánsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 144
@@ -587,6 +624,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: false
     printed_page_match: true
@@ -799,7 +837,7 @@ articles:
   issue: '3'
   pdf_pages:
   - 215
-  - 225
+  - 217
   lang: is
   date: null
   summary: null
@@ -853,7 +891,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Árni Tryggvason — Jóhann Skaptason — Þormóður Ögmundsson
-  authors: []
+  authors:
+  - Benedikt Sigurjónsson
+  - Sigurður Gizurarson
+  - Baldvin Jónsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 211
@@ -871,6 +912,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: false
     printed_page_match: true
@@ -979,7 +1021,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Frá Lögfræðingafélagi íslands
-  authors: []
+  authors:
+  - Arnljótur Björnsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 259
@@ -997,6 +1040,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1009,15 +1053,16 @@ articles:
   note: ''
   analysis_notes: []
 - title: Frá Lagadeild Háskólans
-  authors: []
+  authors:
+  - Arnljótur Björnsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 265
-  page_end: 271
+  page_end: 268
   issue: '4'
   pdf_pages:
   - 282
-  - 288
+  - 285
   lang: is
   date: null
   summary: null
@@ -1027,6 +1072,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: false
     printed_page_match: true
@@ -1037,17 +1083,20 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „SKÝRSLA UM LAGASTOFNUN HÁSKÓLAÍSLANDS“ á bls. 268 sem skráin nefnir ekki; greinin er
+    talin enda þar'
 - title: Amnesty international
-  authors: []
+  authors:
+  - Hjördís Hákonardóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 272
-  page_end: 276
+  page_end: 275
   issue: '4'
   pdf_pages:
   - 289
-  - 295
+  - 292
   lang: is
   date: null
   summary: null
@@ -1057,6 +1106,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: false
     printed_page_match: true
@@ -1069,3 +1119,5 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 70–71
+  - 'FRÁVIK: á eftir greininni hefst „NÝ STJÓRNSÝSLULÖGGJÖF í DANMÖRKU“ á bls. 275 sem skráin nefnir ekki; greinin er talin
+    enda þar'

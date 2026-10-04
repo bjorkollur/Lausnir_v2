@@ -18,6 +18,8 @@ page_map:
     - 1
   contested: []
   bin_ratio: 0.922
+  non_article:
+  - 38
 status: review
 confidence: 0.3
 error: null
@@ -30,11 +32,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 6
-  page_end: 7
+  page_end: 6
   issue: null
   pdf_pages:
   - 5
-  - 6
+  - 5
   lang: is
   date: null
   summary: null
@@ -61,11 +63,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 8
-  page_end: 13
+  page_end: 12
   issue: null
   pdf_pages:
   - 7
-  - 12
+  - 11
   lang: is
   date: null
   summary: null
@@ -86,6 +88,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Frá hátíðarsamkomu sem haldin var í Þjóðleikhúsinu þann 16. febrúar SL. í tilefni 100
+    ára afmælis Hæstaréttar“ á bls. 13 sem skráin nefnir ekki; greinin er talin enda þar'
   - 'á síðunni stendur: Arnþór Gunnarsson Sagnfræðingur'
 - title: Viðtal við Markús Sigurbjörnsson. Þægilegt að kveðja eftir 25 ár
   authors:
@@ -187,11 +191,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 26
-  page_end: 31
+  page_end: 30
   issue: null
   pdf_pages:
   - 25
-  - 30
+  - 29
   lang: is
   date: null
   summary: null
@@ -277,11 +281,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 36
-  page_end: 39
+  page_end: 37
   issue: null
   pdf_pages:
   - 35
-  - 39
+  - 36
   lang: is
   date: null
   summary: null
@@ -300,4 +304,6 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Vinnuhópur um ákvörðun þóknunar í verjenda- og réttargæslumálum“ á bls. 38 sem skráin
+    nefnir ekki; greinin er talin enda þar'

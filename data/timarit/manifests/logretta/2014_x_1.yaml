@@ -33,6 +33,7 @@ page_map:
     - 22
   contested: []
   bin_ratio: 0.874
+  non_article: []
 status: review
 confidence: 0.7
 error: null
@@ -76,11 +77,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 23
-  page_end: 68
+  page_end: 48
   issue: null
   pdf_pages:
   - 12
-  - 55
+  - 37
   lang: is
   date: null
   summary: null
@@ -100,7 +101,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Áhrif Lissabonsáttmálans á rétt einstaklinga og lögpersóna til að höfða mál fyrir EFTA-dómstólnum“
+    á bls. 51 sem skráin nefnir ekki; greinin er talin enda þar'
 - title: Forgangsáhrif EES-réttar í íslenskum rétti
   authors:
   - Margrét Einarsdóttir

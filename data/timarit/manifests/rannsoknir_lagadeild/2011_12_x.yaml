@@ -18,6 +18,7 @@ page_map:
     - -4
   contested: []
   bin_ratio: 0.967
+  non_article: []
 status: review
 confidence: 0.7
 error: null

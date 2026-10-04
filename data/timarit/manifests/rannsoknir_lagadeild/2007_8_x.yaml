@@ -18,6 +18,7 @@ page_map:
     - 1
   contested: []
   bin_ratio: 0.964
+  non_article: []
 status: review
 confidence: 0.35
 error: null
@@ -87,7 +88,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - efnisyfirlitið segir bls. 11, prentað bls. 9
+  - 'FRÁVIK: efnisyfirlitið segir bls. 11, prentað bls. 9'
 - title: Ákvörðun miskabóta í ærumeiðingamálum
   authors:
   - Auður Björg Jónsdóttir

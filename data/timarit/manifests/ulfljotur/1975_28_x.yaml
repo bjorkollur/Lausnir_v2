@@ -181,7 +181,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/1741.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 168, prentað bls. 167
+  - 'FRÁVIK: taflan segir bls. 168, prentað bls. 167'
 - title: Tönnes Madsson Andenæs
   authors:
   - Guðmundur Benediktsson
@@ -212,8 +212,7 @@ articles:
   xlsx_row: 877
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/1750.pdf
   note: ''
-  analysis_notes:
-  - 'á síðunni stendur: In Memoriam'
+  analysis_notes: []
 - title: Ábyrgðartrygging bifreiða
   authors:
   - Arnljótur Björnsson
@@ -276,18 +275,18 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/1751.pdf
   note: ''
   analysis_notes:
-  - taflan segir bls. 227, prentað bls. 217
+  - 'FRÁVIK: taflan segir bls. 227, prentað bls. 217'
 - title: Sýning á lögfræðilegu efni
   authors:
   - Páll Sigurðsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 235
-  page_end: 238
+  page_end: 236
   issue: '3'
   pdf_pages:
   - 0
-  - 3
+  - 1
   lang: is
   date: null
   summary: null
@@ -307,10 +306,10 @@ articles:
   xlsx_row: 881
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/23.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Punktar frá Noregsferð“ á bls. 237 sem skráin nefnir ekki; greinin er talin enda þar'
 - title: Skrá yfir lögfræðibækur útgefnar 1974 og 1975
-  authors:
-  - Ritstjórn
+  authors: []
   author_titles: []
   article_type: Fræðigrein
   page_start: 241
@@ -339,7 +338,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/24.pdf
   note: ''
   analysis_notes:
-  - 'á síðunni stendur: Arnljótur Björnsson'
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
 - title: Þolendur eignaupptöku.
   authors:
   - Ingibjörg Benediktsdóttir

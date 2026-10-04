@@ -18,6 +18,13 @@ page_map:
     - 1
   contested: []
   bin_ratio: 0.964
+  non_article:
+  - 7
+  - 14
+  - 27
+  - 116
+  - 117
+  - 118
 status: review
 confidence: 0.8
 error: null
@@ -30,11 +37,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 5
-  page_end: 15
+  page_end: 7
   issue: null
   pdf_pages:
   - 4
-  - 14
+  - 6
   lang: is
   date: null
   summary: null
@@ -54,7 +61,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „VIÐTAL“ á bls. 9 sem skráin nefnir ekki; greinin er talin enda þar'
 - title: Túlkun laga um neytendalán
   authors:
   - Aðalsteinn Sigurðsson
@@ -62,11 +70,11 @@ articles:
   author_titles: []
   article_type: Viðtal
   page_start: 16
-  page_end: 28
+  page_end: 27
   issue: null
   pdf_pages:
   - 15
-  - 27
+  - 26
   lang: is
   date: null
   summary: null
@@ -93,11 +101,11 @@ articles:
   author_titles: []
   article_type: Viðtal
   page_start: 29
-  page_end: 45
+  page_end: 44
   issue: null
   pdf_pages:
   - 28
-  - 44
+  - 43
   lang: is
   date: null
   summary: null
@@ -155,11 +163,11 @@ articles:
   author_titles: []
   article_type: Viðtal
   page_start: 64
-  page_end: 119
+  page_end: 116
   issue: null
   pdf_pages:
   - 63
-  - 118
+  - 115
   lang: is
   date: null
   summary: null
