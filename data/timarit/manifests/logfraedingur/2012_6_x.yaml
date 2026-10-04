@@ -20,7 +20,7 @@ page_map:
   bin_ratio: 0.946
   non_article:
   - 95
-status: review
+status: approved
 confidence: 0.45
 error: null
 files:
@@ -245,7 +245,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: STEN A KS(0) 100 14 RA
+- title: Samsömun
   authors:
   - Þorsteinn Hjaltason
   author_titles: []
@@ -261,7 +261,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc

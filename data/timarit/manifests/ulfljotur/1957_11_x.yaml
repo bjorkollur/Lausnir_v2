@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.94
-status: review
+status: approved
 confidence: 0.55
 error: null
 files:
@@ -67,7 +67,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 9
-  page_end: 12
+  page_end: 13
   issue: '1'
   pdf_pages:
   - 0
@@ -81,6 +81,7 @@ articles:
     authors: xlsx
     pages: xlsx
     issue: xlsx
+    page_end: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -90,7 +91,7 @@ articles:
   leitir_record_id: null
   xlsx_row: 1152
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/485.pdf
-  note: ''
+  note: Niðurlag greinarinnar (neðst á bls. 13) er í næsta skjali, 1042.pdf.
   analysis_notes: []
 - title: Braziliskir í hríðarbyl
   authors: []
@@ -187,6 +188,36 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Juristforeningen 50 ára.“ á bls. 11 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Juristforeningen 50 ára
+  authors:
+  - Bragi Björnsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 11
+  page_end: 12
+  issue: '2'
+  pdf_pages:
+  - 8
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    article_type: user
+    pages: user
+    lang: user
+    issue: user
+    source_file: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/187.pdf
+  note: ''
+  analysis_notes: []
 - title: Stúdentaskiptin við Þýzkaland
   authors:
   - Arnljótur Björnsson
@@ -253,7 +284,7 @@ articles:
   - 'FRÁVIK: taflan segir bls. 19, prentað bls. 18'
 - title: Lagakennsla á Íslandi í 50 ár
   authors:
-  - Magnús Thoroddsen
+  - Ólafur Jóhannesson
   author_titles: []
   article_type: Fræðigrein
   page_start: 3
@@ -268,7 +299,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:
@@ -473,7 +504,7 @@ articles:
   - 'FRÁVIK: taflan segir bls. 9, prentað bls. 3'
 - title: Frá aðalfundi
   authors:
-  - Jóhann J. Ragnarsson
+  - Gaukur Jörundsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 21
@@ -488,7 +519,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: page
     issue: xlsx
   checks:
@@ -505,3 +536,33 @@ articles:
   - 'FRÁVIK: taflan segir bls. 22, prentað bls. 21'
   - 'FRÁVIK: á eftir greininni hefst „Til laganema.“ á bls. 22 sem skráin nefnir ekki; greinin er talin enda þar'
   - 'FRÁVIK: greinin er undirrituð (Gaukur Jörundsson) en höfundar skrárinnar eru aðrir (Jóhann J. Ragnarsson); skránni haldið'
+- title: Til laganema
+  authors:
+  - Jóhann J. Ragnarsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 22
+  page_end: 22
+  issue: '4'
+  pdf_pages:
+  - 1
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    article_type: user
+    pages: user
+    lang: user
+    issue: user
+    source_file: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/1071.pdf
+  note: ''
+  analysis_notes: []

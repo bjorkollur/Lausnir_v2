@@ -34,7 +34,7 @@ page_map:
   contested: []
   bin_ratio: 0.874
   non_article: []
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -104,6 +104,34 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Áhrif Lissabonsáttmálans á rétt einstaklinga og lögpersóna til að höfða mál fyrir EFTA-dómstólnum“
     á bls. 51 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Áhrif Lissabon-sáttmálans á rétt einstaklinga og lögpersóna til að höfða mál fyrir EFTA-dómstólnum
+  authors:
+  - Kristín Haraldsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: 68
+  issue: null
+  pdf_pages:
+  - 38
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    article_type: user
+    pages: user
+    lang: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Forgangsáhrif EES-réttar í íslenskum rétti
   authors:
   - Margrét Einarsdóttir
@@ -138,6 +166,7 @@ articles:
 - title: Áhrif sérfræðigagna á fjárhæð miskabóta til Þolenda kynferðisbrota í æsku
   authors:
   - Snædís Ósk Sigurjónsdóttir
+  - Svala Ísfeld Ólafsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 89
@@ -153,7 +182,7 @@ articles:
   provenance:
     title: page
     article_type: llm
-    authors: llm
+    authors: user
     pages: llm
   checks:
     title_on_page: true
@@ -166,7 +195,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Lögsaga AlÞjóðadómstólsins í Haag: Tilskipun breskra stjórnvalda nr. 2668/2008 varðandi kyrrsetningu'
+- title: 'Lögsaga Alþjóðadómstólsins í Haag: Tilskipun breskra stjórnvalda nr. 2668/2008 varðandi kyrrsetningu eigna Landsbanka
+    Íslands hf. og tengdra athafna'
   authors:
   - Þórdís Ingadóttir
   author_titles: []
@@ -182,7 +212,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm

@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.93
-status: review
+status: approved
 confidence: 0.55
 error: null
 files:
@@ -122,7 +122,7 @@ articles:
   authors:
   - Þorvaldur Garðar Kristjánsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 8
   page_end: 9
   issue: '1'
@@ -138,6 +138,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -147,7 +148,7 @@ articles:
   leitir_record_id: null
   xlsx_row: 1250
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1947 01 arg/753.pdf
-  note: ''
+  note: framhald greinarinnar (bls. 10–) vantar í safnið
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 9, prentað bls. 8'
 - title: Fjártjón og miski

@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.849
-status: review
+status: approved
 confidence: 0.55
 error: null
 files:
@@ -308,6 +308,36 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Punktar frá Noregsferð“ á bls. 237 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Punktar frá Noregsferð
+  authors:
+  - Bjarni Ásgeirsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 237
+  page_end: 238
+  issue: '3'
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    article_type: user
+    pages: user
+    lang: user
+    issue: user
+    source_file: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1975 28 arg/23.pdf
+  note: ''
+  analysis_notes: []
 - title: Skrá yfir lögfræðibækur útgefnar 1974 og 1975
   authors: []
   author_titles: []

@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.466
-status: review
+status: approved
 confidence: 0.8
 error: null
 files:
@@ -32,6 +32,7 @@ articles:
   - Agnar Freyr Helgason
   - Jón Gunnar Ólafsson
   - Eva H. Önnudóttir
+  - Hulda Thórisdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 1
@@ -46,7 +47,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    authors: page
+    authors: user
     pages: filename+page
     issue: page
   checks:

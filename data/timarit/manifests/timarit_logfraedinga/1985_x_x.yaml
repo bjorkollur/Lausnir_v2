@@ -48,7 +48,7 @@ page_map:
   - 225
   - 294
   - 295
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -505,11 +505,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá Lögmannafélagi íslands
+- title: Um starfsemi Lögmannafélags Íslands starfsárið 1984-1985
   authors:
   - Hafþór Ingi Jónsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 128
   page_end: 131
   issue: '2'
@@ -521,8 +521,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -1020,11 +1020,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá Lögfræðingafélagi íslands
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 5. nóvember 1985
   authors:
   - Arnljótur Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 259
   page_end: 264
   issue: '4'
@@ -1036,8 +1036,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -1086,6 +1086,35 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „SKÝRSLA UM LAGASTOFNUN HÁSKÓLAÍSLANDS“ á bls. 268 sem skráin nefnir ekki; greinin er
     talin enda þar'
+- title: Skýrsla um Lagastofnun Háskóla Íslands 29. febrúar 1984 — 28. febrúar 1985
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Annað
+  page_start: 268
+  page_end: 271
+  issue: '4'
+  pdf_pages:
+  - 285
+  - 288
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    article_type: user
+    pages: user
+    lang: user
+    issue: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Amnesty international
   authors:
   - Hjördís Hákonardóttir
@@ -1121,3 +1150,32 @@ articles:
   - leitir.is segir bls. 70–71
   - 'FRÁVIK: á eftir greininni hefst „NÝ STJÓRNSÝSLULÖGGJÖF í DANMÖRKU“ á bls. 275 sem skráin nefnir ekki; greinin er talin
     enda þar'
+- title: Ný stjórnsýslulöggjöf í Danmörku
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 275
+  page_end: 276
+  issue: '4'
+  pdf_pages:
+  - 292
+  - 293
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    article_type: user
+    pages: user
+    lang: user
+    issue: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

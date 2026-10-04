@@ -23,7 +23,7 @@ page_map:
   - 97
   - 169
   - 170
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -97,11 +97,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 99
-  page_end: 154
+  page_end: 153
   issue: null
   pdf_pages:
   - 98
-  - 153
+  - 152
   lang: is
   date: null
   summary: null
@@ -111,6 +111,8 @@ articles:
     article_type: toc
     authors: toc
     pages: toc
+    pdf_pages: user
+    page_end: user
   checks:
     title_on_page: true
     printed_page_match: true

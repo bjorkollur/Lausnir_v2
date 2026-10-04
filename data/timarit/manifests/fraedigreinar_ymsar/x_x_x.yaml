@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.9
-status: review
+status: approved
 confidence: 0.35
 error: null
 files:
@@ -43,8 +43,13 @@ articles:
   source_file: Tímarit og fræðigreinar/Ýmsar fræðigreinar/Skýrsla starfshóps um EES-samstarfið 092019.pdf
   note: ''
   analysis_notes: []
-- title: Þjóðareign - þýðing og áhrif stjórnarskrárákvæðis
-  authors: []
+- title: Þjóðareign – Þýðing og áhrif stjórnarskrárákvæðis um þjóðareign á auðlindum sjávar
+  authors:
+  - Davíð Þorláksson
+  - Guðrún Gauksdóttir
+  - Ragnar Árnason
+  - Sigurgeir B. Kristgeirsson
+  - Sigurður Líndal
   author_titles: []
   article_type: Fræðigrein
   page_start: null
@@ -58,7 +63,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: user
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -68,5 +74,5 @@ articles:
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Ýmsar fræðigreinar/Þjóðareign - þýðing og áhrif stjórnarskrárákvæðis.pdf
-  note: ''
+  note: 'Ritstjóri: Birgir Tjörvi Pétursson.'
   analysis_notes: []

@@ -25,7 +25,7 @@ page_map:
   - 116
   - 117
   - 118
-status: review
+status: approved
 confidence: 0.8
 error: null
 files:
@@ -63,12 +63,39 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „VIÐTAL“ á bls. 9 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Viðtal við Guðfinn Stefánsson
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 9
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 8
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    article_type: user
+    pages: user
+    lang: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: 'Viðmælandi: Guðfinnur Stefánsson; spyrjanda er ekki getið.'
+  analysis_notes: []
 - title: Túlkun laga um neytendalán
   authors:
   - Aðalsteinn Sigurðsson
   - Arnar Kristinsson
   author_titles: []
-  article_type: Viðtal
+  article_type: Fræðigrein
   page_start: 16
   page_end: 27
   issue: null
@@ -81,7 +108,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -99,7 +126,7 @@ articles:
   authors:
   - Gunnar J. Gunnarsson
   author_titles: []
-  article_type: Viðtal
+  article_type: Fræðigrein
   page_start: 29
   page_end: 44
   issue: null
@@ -112,7 +139,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -130,7 +157,7 @@ articles:
   authors:
   - Guðmundur Sveinn Einarsson
   author_titles: []
-  article_type: Viðtal
+  article_type: Fræðigrein
   page_start: 46
   page_end: 63
   issue: null
@@ -143,7 +170,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -161,7 +188,7 @@ articles:
   authors:
   - Einar Karl Hallvarðsson
   author_titles: []
-  article_type: Viðtal
+  article_type: Fræðigrein
   page_start: 64
   page_end: 116
   issue: null
@@ -174,7 +201,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

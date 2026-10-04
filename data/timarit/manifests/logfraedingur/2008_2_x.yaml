@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 56
   - 100
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
@@ -154,24 +154,28 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Um lögmæti valdbeitingar við sýnatöku vegna rannsóknar á ölvunarakstri!
-  authors: []
+- title: Helgar tilgangurinn meðalið? Um lögmæti valdbeitingar við sýnatöku vegna rannsóknar á ölvunarakstri!
+  authors:
+  - Hreiðar Eiríksson
   author_titles: []
   article_type: Fræðigrein
   page_start: 40
-  page_end: 55
+  page_end: 56
   issue: null
   pdf_pages:
   - 40
-  - 55
+  - 56
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     pages: toc
+    authors: user
+    pdf_pages: user
+    page_end: user
   checks:
     title_on_page: true
     printed_page_match: true

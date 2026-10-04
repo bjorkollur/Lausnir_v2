@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.757
-status: review
+status: approved
 confidence: 0.35
 error: null
 files:
@@ -29,7 +29,7 @@ articles:
   - Þórhallur Guðlaugsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 6
+  page_start: 5
   page_end: 31
   issue: '1'
   pdf_pages:
@@ -44,6 +44,7 @@ articles:
     authors: page
     pages: page
     issue: page
+    page_start: user
   checks:
     title_on_page: true
     printed_page_match: false

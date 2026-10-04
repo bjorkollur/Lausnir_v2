@@ -16,7 +16,7 @@ page_map:
   contested: []
   bin_ratio: 0.981
   non_article: []
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
@@ -54,13 +54,13 @@ articles:
   note: ''
   analysis_notes:
   - skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 3
-- title: Kröfugerð í málum gegn ríkinu og stjórnskipuleg valdmörk
+- title: Kröfugerð í málum gegn ríkinu og stjórnskipuleg valdmörk dómstóla
   authors:
   - Róbert R. Spanó
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 23
+  page_end: 41
   issue: null
   pdf_pages:
   - 12
@@ -70,9 +70,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     authors: llm
+    page_start: user
+    page_end: user
   checks:
     title_on_page: true
     printed_page_match: false

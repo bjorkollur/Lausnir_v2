@@ -27,7 +27,7 @@ page_map:
   - 33
   - 34
   - 35
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -101,11 +101,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 8
-  page_end: 9
+  page_end: 10
   issue: null
   pdf_pages:
   - 7
-  - 8
+  - 9
   lang: is
   date: null
   summary: null
@@ -115,6 +115,8 @@ articles:
     article_type: toc
     authors: toc
     pages: toc
+    pdf_pages: user
+    page_end: user
   checks:
     title_on_page: true
     printed_page_match: true
