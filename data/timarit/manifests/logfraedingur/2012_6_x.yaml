@@ -57,7 +57,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 5'
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 5
 - title: Störf Þemis síðastliðið ár
   authors:
   - Kolbrún Ríkharðsdóttir
@@ -120,7 +120,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 8'
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 8
 - title: Vernd kjarasamninga, hver eru lágmarkskjör?
   authors:
   - Andrés Már Magnússon
