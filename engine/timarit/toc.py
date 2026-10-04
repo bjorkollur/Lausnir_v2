@@ -64,6 +64,9 @@ _SECTION = re.compile(
     r"^(Fræðigreinar|Ritdómar|Ritstjórnargrein(?:ar)?|Viðtal|Viðtöl|Fréttir|Dómareifanir|Annað efni|Greinar|Erindi)\s*$",
     re.I,
 )
+# A heading in the singular names one piece, so it types the one row after it; the others (plural or mass nouns) head
+# every row up to the next heading or the next "N. hefti".
+_ONE_ROW_SECTION = re.compile(r"^(?:Viðtal|Ritstjórnargrein)\s*$", re.I)
 _NOISE = re.compile(r"^(?:efnisyfirlit|grein|bls\.?)\s*$", re.I)  # column heads and the TOC title itself
 _END = re.compile(r"^(?:höfundaskrá|atriðisorðaskrá)\s*$", re.I)  # back-matter indexes list "Nafn: Titill 7" again
 # Where a page_first TOC ends and the running footer begins: "1. hefti • 62. árgangur / vor 2012 /
@@ -625,9 +628,20 @@ def _chain(pending: list[str], text: str) -> list[str]:
     return lines
 
 
+def _page_alone(line: str) -> bool:
+    """The line is a page number (or range) and nothing else: the close of the row above it."""
+    closing = _closing(line) if line else None
+    return closing is not None and not closing[0]
+
+
 def _parse_page_last(lines: list[str]) -> list[TocEntry]:
+    """Rows are closed by their page number. A line that is only a section word is a heading: its section types the
+    rows under it until the next heading or "N. hefti" (a singular one, "Viðtal", types the next row only). It is a
+    row's own title when the row's page number follows on the next line (Lögbrú 2015-1: "Guðfinnur Stefánsson, /
+    Viðtal / 9"): a heading has no page of its own."""
     entries: list[TocEntry] = []
     section: str | None = None
+    one_row = False
     issue: str | None = None
     pending: list[str] = []
     last_page: int | None = None
@@ -635,10 +649,10 @@ def _parse_page_last(lines: list[str]) -> list[TocEntry]:
         if _END.match(line):
             break
         if m := _HEFTI.match(line):
-            issue, pending = m.group(1), []
+            issue, section, one_row, pending = m.group(1), None, False, []
             continue
-        if m := _SECTION.match(line):
-            section, pending = m.group(1), []
+        if (m := _SECTION.match(line)) and not _page_alone(lines[idx + 1] if idx + 1 < len(lines) else ""):
+            section, one_row, pending = m.group(1), bool(_ONE_ROW_SECTION.match(line)), []
             continue
         if _NOISE.match(line) or _is_role(line):
             pending = []
@@ -662,6 +676,8 @@ def _parse_page_last(lines: list[str]) -> list[TocEntry]:
         if entry:
             entries.append(entry)
             last_page = page if page is not None else last_page
+            if one_row:
+                section, one_row = None, False
     return entries
 
 

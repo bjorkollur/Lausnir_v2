@@ -85,7 +85,7 @@ from engine.timarit.manifest import (
     manifest_path, manifest_sha256, merge_preserving_user, save_manifest,
 )
 from engine.timarit.naming import FileIdentity, identify, issue_key, nfc, reject_reason
-from engine.timarit.splitter import cut_pages, sha256_bytes
+from engine.timarit.splitter import cut_pages, page_count, sha256_bytes
 from engine.timarit.ulfljotur_xlsx import load_xlsx
 
 log = logging.getLogger("import_timarit")
@@ -618,9 +618,18 @@ _COUNT_LABELS = {
 
 
 def article_pdf_bytes(m: IssueManifest, a: ArticleEntry, read_bytes) -> bytes:
-    """The article's PDF: its own file, unchanged (spec §4.5), or its pdf_pages cut out of the issue PDF."""
+    """The article's PDF: its own file, unchanged (spec §4.5), or its pdf_pages cut out of the issue PDF. An own
+    file that holds more than one item (Task 22c: the next item starts inside it; Task 22e: the user added the
+    item) is cut to the pages of this one, so that no text is stored twice; one that pdf_pages covers whole, or
+    that has no pdf_pages, is returned as it is."""
     if a.source_file:
-        return read_bytes(a.source_file)
+        data = read_bytes(a.source_file)
+        if not a.pdf_pages:
+            return data
+        first, last = a.pdf_pages
+        if first <= 0 and last >= page_count(data) - 1:        # the pages are the whole file (cut_pages clamps `last`)
+            return data
+        return cut_pages(data, first, last)
     if m.file is None:
         raise ValueError("greinin hefur hvorki eigið skjal (source_file) né hefti til að skera úr")
     if not a.pdf_pages:
@@ -803,6 +812,19 @@ def _import_note(a: ArticleEntry, note: str) -> None:
 def _dry(dry_run: bool, eid: str, what: str) -> None:
     if dry_run:
         print(f"  {eid:>26}  {what}")
+
+
+def _pages_text(a: ArticleEntry, pdf: bytes, read_bytes) -> str:
+    """For the dry run: how many pages the article's PDF has and, when it is cut out of an own file that holds
+    more (a shared file), which pages of that file."""
+    n = page_count(pdf)
+    text = f"{n} {'síða' if n % 10 == 1 and n % 100 != 11 else 'síður'}"
+    if a.source_file and a.pdf_pages:
+        total = page_count(read_bytes(a.source_file))
+        if n < total:
+            first, last = a.pdf_pages[0] + 1, min(a.pdf_pages[1], total - 1) + 1
+            text += f"  (úr {Path(a.source_file).name}, " + (f"pdf-síða {first}" if first == last else f"pdf-síður {first}–{last}") + f" af {total})"
+    return text
 
 
 def _articles(n: int) -> str:
@@ -1052,7 +1074,8 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
             counts["imported"] += 1
             if dry_run:
                 errors = "; ".join(f"{e['field']}: {e['message']}" for e in doc.validation_errors or [])
-                _dry(True, eid, f"{vf}  {len(doc.body_text or '')} stafir" + (f"  villur: {errors}" if errors else ""))
+                _dry(True, eid, f"{vf}  {len(doc.body_text or '')} stafir  {_pages_text(a, pdfs[eid], read)}"
+                     + (f"  villur: {errors}" if errors else ""))
                 continue
             await _upsert_doc(session, doc)
             stored_docs.append((doc, vf))

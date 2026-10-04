@@ -202,8 +202,48 @@ def test_section_and_hefti_headings_set_context_and_end_pending_text():
     assert got == [
         ("Fyrsta grein", 3, "Fræðigreinar", "1"),
         ("Bókadómur", 40, "Ritdómar", "1"),
-        ("Önnur grein", 61, "Ritdómar", "2"),
+        ("Önnur grein", 61, None, "2"),                 # a new hefti ends the heading's reach
     ]
+
+
+def test_a_contents_row_whose_title_is_a_label_word_is_an_entry_not_a_heading():
+    """Task 22e, Lögbrú 2015-1: the interview is listed as "Guðfinnur Stefánsson, / Viðtal / 9". "Viðtal" has an author
+    above it and its page below it, so it is the title of a row. As a heading it dropped the row and typed the four
+    articles after it as interviews."""
+    es = parse_toc(_load("logbru_2015_01.txt"), style="page_last")
+    assert [(e.page_start, e.section) for e in es] == [(5, None), (9, None), (16, None), (29, None), (46, None), (64, None)]
+    assert [e.title.split()[0] for e in es] == ["Kynning", "Viðtal", "Túlkun", "Hvaða", "Nýsköpun", "Fordæmi"]
+    assert es[1].title == "Viðtal"
+    assert es[1].authors == ["Guðfinnur Stefánsson"]
+
+
+def test_a_label_word_with_its_page_on_the_next_line_is_an_entry_whatever_stands_above():
+    text = "Jón Jónsson: Fyrsta grein ..... 3\nFréttir\n12\nPáll Pálsson: Önnur grein ..... 20\n"
+    assert [(e.title, e.page_start, e.section) for e in parse_toc(text, style="page_last")] == [
+        ("Fyrsta grein", 3, None), ("Fréttir", 12, None), ("Önnur grein", 20, None)]
+
+
+_SECTIONS_ONE_PER_LINE = (        # Lögbrú's layout: author line, title, page on a line of its own
+    "Fræðigreinar\nJón Jónsson,\nFyrsta grein\n3\nPáll Pálsson,\nÖnnur grein\n20\n"
+    "Ritdómar\nAnna Önnudóttir,\nBók A\n40\nGuðrún Gunnarsdóttir,\nBók B\n44\n")
+
+
+def test_a_heading_over_several_rows_types_all_of_them_until_the_next_heading():
+    got = [(e.title, e.page_start, e.section) for e in parse_toc(_SECTIONS_ONE_PER_LINE, style="page_last")]
+    assert got == [("Fyrsta grein", 3, "Fræðigreinar"), ("Önnur grein", 20, "Fræðigreinar"),
+                   ("Bók A", 40, "Ritdómar"), ("Bók B", 44, "Ritdómar")]
+
+
+def test_a_heading_in_the_singular_heads_one_row():
+    """A heading "Viðtal" or "Ritstjórnargrein" names one piece, so the row after it is the only one it types."""
+    text = ("Jón Jónsson: Fyrsta grein ..... 3\nViðtal\nGuðfinnur Stefánsson: Um laganám ..... 9\n"
+            "Páll Pálsson: Önnur grein ..... 20\nRitstjórnargrein\nAnna Önnudóttir: Leiðari ..... 22\n"
+            "Karl Karlsson: Þriðja grein ..... 30\n")
+    assert [(e.title, e.section) for e in parse_toc(text, style="page_last")] == [
+        ("Fyrsta grein", None), ("Um laganám", "Viðtal"), ("Önnur grein", None), ("Leiðari", "Ritstjórnargrein"),
+        ("Þriðja grein", None)]
+    plural = "Viðtöl\nJón Jónsson: Fyrra ..... 3\nPáll Pálsson: Síðara ..... 9\n"
+    assert [e.section for e in parse_toc(plural, style="page_last")] == ["Viðtöl", "Viðtöl"]
 
 
 def test_page_first_ignores_role_words_and_year_like_numbers():

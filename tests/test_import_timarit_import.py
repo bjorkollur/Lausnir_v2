@@ -156,6 +156,54 @@ def test_article_pdf_bytes_cuts_issue_or_reads_own_file():
         article_pdf_bytes(m2, ArticleEntry(pdf_pages=[0, 0]), lambda rel: own)
 
 
+_SHARED = _pdf([f"3\nAlfa fyrri greinin\nrefur sjóbjörn sérhljóði\n{_PAD}", f"4\nAlfa framhald\nrefur sjóbjörn sérhljóði\n{_PAD}",
+                f"5\nBeta síðari greinin\nsnæugla fjallalambið\n{_PAD}", f"6\nBeta framhald\nsnæugla fjallalambið\n{_PAD}"])
+
+
+def _pages_of(data: bytes) -> list[str]:
+    with fitz.open(stream=data, filetype="pdf") as d:
+        return [p.get_text() for p in d]
+
+
+def test_two_articles_sharing_an_own_file_each_get_only_their_pages():
+    """Task 22e: an own file that holds more than one item (Úlfljótur 1957 187.pdf) is cut to pdf_pages."""
+    m = IssueManifest(source="ulfljotur", year=1957, volume=11, issue=None, label="L", file=None)
+    first = article_pdf_bytes(m, ArticleEntry(source_file="s.pdf", pdf_pages=[0, 1]), lambda rel: _SHARED)
+    second = article_pdf_bytes(m, ArticleEntry(source_file="s.pdf", pdf_pages=[2, 3]), lambda rel: _SHARED)
+    one, two = " ".join(_pages_of(first)), " ".join(_pages_of(second))
+    assert len(_pages_of(first)) == 2 and len(_pages_of(second)) == 2
+    assert "Alfa" in one and "sjóbjörn" in one and "Beta" not in one and "snæugla" not in one
+    assert "Beta" in two and "snæugla" in two and "Alfa" not in two and "sjóbjörn" not in two
+
+
+def test_pages_sharing_a_boundary_page_are_both_cut():
+    m = IssueManifest(source="ulfljotur", year=1957, volume=11, issue=None, label="L", file=None)
+    a = article_pdf_bytes(m, ArticleEntry(source_file="s.pdf", pdf_pages=[0, 2]), lambda rel: _SHARED)
+    b = article_pdf_bytes(m, ArticleEntry(source_file="s.pdf", pdf_pages=[2, 3]), lambda rel: _SHARED)
+    assert len(_pages_of(a)) == 3 and len(_pages_of(b)) == 2 and "Beta" in _pages_of(a)[2] and "Beta" in _pages_of(b)[0]
+
+
+@pytest.mark.parametrize("pages", [None, [0, 3], [0, 9]])
+def test_an_own_file_that_the_pages_cover_whole_is_copied_unchanged(pages):
+    """pdf_pages None, [0, n-1] or running past the end: the bytes are the file's own (spec §4.5), sha256 equal."""
+    m = IssueManifest(source="ulfljotur", year=1957, volume=11, issue=None, label="L", file=None)
+    got = article_pdf_bytes(m, ArticleEntry(source_file="s.pdf", pdf_pages=pages), lambda rel: _SHARED)
+    assert got == _SHARED and sha256_bytes(got) == sha256_bytes(_SHARED)
+
+
+@pytest.mark.parametrize("pages", [[1, 3], [0, 2], [3, 3]])
+def test_an_own_file_that_the_pages_do_not_cover_is_cut(pages):
+    m = IssueManifest(source="ulfljotur", year=1957, volume=11, issue=None, label="L", file=None)
+    got = article_pdf_bytes(m, ArticleEntry(source_file="s.pdf", pdf_pages=pages), lambda rel: _SHARED)
+    assert got != _SHARED and len(_pages_of(got)) == pages[1] - pages[0] + 1
+
+
+def test_a_page_range_outside_an_own_file_is_an_error():
+    m = IssueManifest(source="ulfljotur", year=1957, volume=11, issue=None, label="L", file=None)
+    with pytest.raises(ValueError):
+        article_pdf_bytes(m, ArticleEntry(source_file="s.pdf", pdf_pages=[5, 6]), lambda rel: _SHARED)
+
+
 def test_build_article_raw_matches_extractor_contract():
     from engine.timarit.extract import ExtractedText
     m = IssueManifest(source="timarit_logfraedinga", year=2010, volume=60, issue="1", label="L", file="x.pdf")
@@ -292,6 +340,87 @@ async def test_article_issue_is_carried_into_document_filename_and_citation(tmp_
     md = (_md_dir(raw_dir) / "ulfljotur" / "Ulfljotur_1-4_1947_bls-3-4.md").read_text(encoding="utf-8")
     assert "Úlfljótur, 1. árg. 4. tbl. (1947), bls. 3–4" in md
     assert (raw_dir / "ulfljotur" / "hefti" / "1947_1_x.pdf").exists()
+
+
+def _shared_manifest(tmp_path):
+    """Two items in one own file (Úlfljótur 1957 187.pdf: an article and the item the user added after it)."""
+    p = tmp_path / "ulfljotur" / "1957_11_x.yaml"
+    m = IssueManifest(source="ulfljotur", year=1957, volume=11, issue=None, label="Úlfljótur, 11. árg. (1957)",
+                      file=None, files=["u/187.pdf"], status="approved")
+    m.articles = [
+        ArticleEntry(title="Alfa fyrri greinin", authors=["Jón Jónsson"], article_type="Fræðigrein", page_start=3, page_end=4,
+                     issue="1", pdf_pages=[0, 1], lang="is", source_file="u/187.pdf", checks={"printed_page_match": True},
+                     confidence=0.9),
+        ArticleEntry(title="Beta síðari greinin", authors=["Anna"], article_type="Fræðigrein", page_start=5, page_end=6,
+                     issue="1", pdf_pages=[2, 3], lang="is", source_file="u/187.pdf", provenance={"pages": "user"},
+                     checks={}, confidence=0.9),
+    ]
+    save_manifest(m, p)
+    return p
+
+
+async def test_items_sharing_an_own_file_are_imported_with_their_own_pages_only(tmp_path, raw_dir):
+    """Task 22e: the RAW copy, the text and the page anchors of each item are those of its pdf_pages; the manifest
+    still names the whole file as the source."""
+    p = _shared_manifest(tmp_path)
+    session = _Session()
+    counts = await _run(p, session, raw_dir, read=lambda rel: _SHARED)
+    assert counts["imported"] == 2
+    (_, a), (_, b) = session.upserts()
+    assert "Alfa" in a["body_text"] and "sjóbjörn" in a["body_text"] and "Beta" not in a["body_text"] and "snæugla" not in a["body_text"]
+    assert "Beta" in b["body_text"] and "snæugla" in b["body_text"] and "Alfa" not in b["body_text"] and "sjóbjörn" not in b["body_text"]
+    assert [o["pdf_page"] for o in a["page_offsets"]] == [0, 1] and [o["pdf_page"] for o in b["page_offsets"]] == [0, 1]
+    assert [o["printed"] for o in a["page_offsets"]] == [3, 4]              # verified start: counted from page_start
+    assert a["raw_api_data"]["source_filename"] == b["raw_api_data"]["source_filename"] == "u/187.pdf"
+    assert a["raw_api_data"]["pdf_pages"] == [0, 1] and b["raw_api_data"]["pdf_pages"] == [2, 3]
+    for params, mine, other in ((a, "Alfa", "Beta"), (b, "Beta", "Alfa")):
+        pages = _pages_of((raw_dir / "ulfljotur" / f"{params['verdict_filename']}.pdf").read_bytes())
+        assert len(pages) == 2 and all(mine in t for t in pages) and not any(other in t for t in pages)
+        md = (_md_dir(raw_dir) / "ulfljotur" / f"{params['verdict_filename']}.md").read_text(encoding="utf-8")
+        assert mine in md and other not in md
+
+
+async def test_page_anchors_of_a_cut_own_file_count_from_the_cut_and_its_start_page(tmp_path, raw_dir):
+    """A cut item whose start page was verified numbers its pages from its page_start, its pdf_page from the cut."""
+    p = _shared_manifest(tmp_path)
+    m = load_manifest(p)
+    m.articles[1].checks = {"printed_page_match": True}
+    save_manifest(m, p)
+    session = _Session()
+    await _run(p, session, raw_dir, read=lambda rel: _SHARED)
+    (_, _), (_, b) = session.upserts()
+    assert b["page_offsets"] == [{"char": 0, "pdf_page": 0, "printed": 5}, {"char": b["page_offsets"][1]["char"], "pdf_page": 1, "printed": 6}]
+    md = (_md_dir(raw_dir) / "ulfljotur" / f"{b['verdict_filename']}.md").read_text(encoding="utf-8")
+    assert "<!-- bls. 5 -->" in md and "<!-- bls. 6 -->" in md
+
+
+async def test_the_dry_run_says_which_pages_of_the_file_each_item_gets(tmp_path, raw_dir, capsys):
+    p = _shared_manifest(tmp_path)
+    before = p.read_bytes()
+    session = _Session()
+    counts = await _run(p, session, raw_dir, dry_run=True, read=lambda rel: _SHARED)
+    assert counts["imported"] == 2 and not raw_dir.exists() and p.read_bytes() == before and not session.upserts()
+    lines = [ln for ln in capsys.readouterr().out.splitlines() if "stafir" in ln]
+    assert len(lines) == 2
+    assert "2 síður" in lines[0] and "úr 187.pdf, pdf-síður 1–2 af 4" in lines[0]
+    assert "2 síður" in lines[1] and "úr 187.pdf, pdf-síður 3–4 af 4" in lines[1]
+
+
+async def test_an_own_file_covered_whole_is_stored_unchanged(tmp_path, raw_dir, capsys):
+    p = tmp_path / "ulfljotur" / "1947_1_x.yaml"
+    m = IssueManifest(source="ulfljotur", year=1947, volume=1, issue=None, label="Úlfljótur, 1. árg. (1947)",
+                      file=None, files=["u/173.pdf"], status="approved")
+    m.articles = [ArticleEntry(title="Alfa fyrri greinin", authors=["Jón Jónsson"], article_type="Fræðigrein", page_start=3,
+                               page_end=6, issue="1", pdf_pages=[0, 3], lang="is", source_file="u/173.pdf",
+                               checks={"printed_page_match": True}, confidence=0.9)]
+    save_manifest(m, p)
+    session = _Session()
+    await _run(p, session, raw_dir, dry_run=True, read=lambda rel: _SHARED)
+    out = capsys.readouterr().out
+    assert "4 síður" in out and "úr 173.pdf" not in out
+    await _run(p, session, raw_dir, read=lambda rel: _SHARED)
+    (_, params), = session.upserts()
+    assert (raw_dir / "ulfljotur" / f"{params['verdict_filename']}.pdf").read_bytes() == _SHARED
 
 
 # --- text ---------------------------------------------------------------------------------------------------
