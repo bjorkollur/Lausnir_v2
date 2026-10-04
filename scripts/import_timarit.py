@@ -39,6 +39,11 @@ start page was edited and the article got a new id: the rows (their passages, ci
 CASCADE), and their markdown and article PDF once the commit has gone through. An article that failed, had no text or
 collided this time is still named by the manifest and stays. Nothing is pruned from an issue where nothing was
 imported. `--dry-run --prune` lists what would go. The default is unchanged: such rows are only counted and listed.
+
+`import --reimport` (Task 22f) also takes issues that are already `imported` and whose manifest is unchanged (a plain
+import skips them), e.g. after a change to the importer itself: the same upsert by external_id updates their rows in
+place and their files are overwritten; their passages are rebuilt by backfill_passages.py afterwards (the upsert sets
+passage_hash to NULL). Issues in review/pending/failed are never touched; --source/--issue/--dry-run apply as usual.
 """
 from __future__ import annotations
 
@@ -613,7 +618,8 @@ _COUNT_LABELS = {
     "no_text": "greinar án texta", "failed": "greinar mistókust", "failed_issue": "hefti mistókust",
     "source_changed": "frumskjal breytt", "discovery_error": "fleiri en eitt heftisskjal",
     "not_analysed": "hefti ekki greint", "orphaned": "eldri greinar ekki í skránni",
-    "pruned": "úreltum greinum eytt",
+    "pruned": "úreltum greinum eytt", "reimported": "hefti flutt inn aftur",
+    "reimport_failed": "endurinnflutningur mistókst (fyrri innflutningur stendur)",
 }
 
 
@@ -641,7 +647,9 @@ def article_pdf_bytes(m: IssueManifest, a: ArticleEntry, read_bytes) -> bytes:
 def build_article_raw(m: IssueManifest, a: ArticleEntry, ex: ExtractedText, source_file: str) -> dict:
     """The raw dict _extract_timarit consumes (Task 6 contract): the manifest line as reviewed, the article's own
     issue (R31), the user's note and analyze's notes (R33), the issue it came from, and the extracted text with its
-    page offsets. raw_api_data keeps all of it but the text and the offsets (they have columns of their own)."""
+    page offsets. raw_api_data keeps all of it but the text and the offsets (they have columns of their own).
+    `page_note`, only when the print skips a number after printed_start (Task 22f), is import's own note: it is kept
+    in raw_api_data and never written to the manifest."""
     return {
         "title": a.title, "authors": list(a.authors), "author_titles": list(a.author_titles),
         "article_type": a.article_type, "page_start": a.page_start, "page_end": a.page_end, "lang": a.lang,
@@ -652,13 +660,36 @@ def build_article_raw(m: IssueManifest, a: ArticleEntry, ex: ExtractedText, sour
         "xlsx_row": a.xlsx_row, "ocr_source": ex.ocr_source, "date_precision": date_precision(a),
         "bin_ratio": round(ex.bin_ratio, 3), "issue_label": m.label, "issue_file": m.file,
         "note": a.note, "analysis_notes": list(a.analysis_notes),
-    }
+    } | ({"page_note": ex.page_note} if ex.page_note else {})
 
 
 def _ocr(pdf: bytes) -> str | None:
     """docling + tesseract (isl) for an article without a usable text layer. Only scans reach it, and those stay in
     review (analyze notes "ekkert textalag"), so import runs it only for a scan the user approved."""
     return docling_ocr_pdf(pdf, timeout=900)
+
+
+_PRINTED_SOURCES = frozenset({"page", "user"})
+
+
+def printed_start_of(a: ArticleEntry) -> int | None:
+    """The printed number of the article's first PDF page, for its page anchors (`bls. N`), or None (the
+    article-local page map numbers the pages then).
+
+    R17: only a start page that is known to be the printed one. R46 (Task 22f) says which those are: a page_start
+    read from the printed page (provenance `page`, also `filename+page`; analyze labels a number from the issue's
+    page map `page` as well) or set by the user (`user`, also `page+user`); and, as before, one that a registry gave
+    and the printed page confirmed (`printed_page_match`, R41). A registry number the page did not confirm (`toc`,
+    `xlsx`, `leitir`, `llm`, `filename` with the check False) anchors nothing. The provenance is read from the key
+    `page_start` when the manifest has it (the narrower key: the user may set the start page alone), else `pages`.
+    The later pages' numbers follow the print from there (pagemap.numbers_from_start)."""
+    if a.page_start is None:
+        return None
+    label = a.provenance.get("page_start") or a.provenance.get("pages")     # the narrower key first (manifest aliases)
+    sources = {s.strip().lower() for s in str(label or "").split("+")}
+    if sources & _PRINTED_SOURCES or a.checks.get("printed_page_match"):
+        return a.page_start
+    return None
 
 
 def _work(item: tuple) -> tuple[str, dict | None, str | None]:
@@ -671,7 +702,7 @@ def _work(item: tuple) -> tuple[str, dict | None, str | None]:
     except Exception as exc:  # noqa: BLE001 — one bad article must not stop its issue
         return key, None, _error_text(exc)
     return key, {"body": ex.body, "page_offsets": ex.page_offsets, "ocr_source": ex.ocr_source,
-                 "bin_ratio": ex.bin_ratio}, None
+                 "bin_ratio": ex.bin_ratio, "page_note": ex.page_note}, None
 
 
 @contextlib.contextmanager
@@ -783,6 +814,15 @@ async def _mark_issue_failed(session, manifest_rel: str, error: str) -> None:
     await session.execute(text(
         "UPDATE journal_issues SET status = 'failed', error = :error, updated_at = now() WHERE manifest_path = :p"),
         {"error": error, "p": manifest_rel})
+
+
+async def _record_reimport_error(session, manifest_rel: str, error: str | None, sha: str) -> None:
+    """A re-import of an `imported` issue that failed (Task 22f): the rows of the earlier import are still there, so
+    the issue keeps its status; only `error` and the saved manifest's hash are recorded (a plain import then leaves it
+    alone; --reimport, or an edit of the manifest, tries again)."""
+    await session.execute(text(
+        "UPDATE journal_issues SET error = :error, manifest_sha256 = :sha, updated_at = now() WHERE manifest_path = :p"),
+        {"error": error, "sha": sha, "p": manifest_rel})
 
 
 def _blocked(m: IssueManifest) -> str | None:
@@ -951,7 +991,8 @@ def _check_raw_dir(raw_dir: Path) -> None:
 
 
 async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry_run: bool, workers: int,
-                          pool=None, files: _FileLog | None = None, prune: bool = False) -> dict[str, int]:
+                          pool=None, files: _FileLog | None = None, prune: bool = False,
+                          reimport: bool = False) -> dict[str, int]:
     """Import one issue (spec §7.1 step 4) and return its counts. Only an `approved` manifest, or an `imported` one
     whose file differs from the version journal_issues recorded, is imported; a manifest the guards block
     (_blocked), or whose issue PDF no longer has the sha256 it was analysed with, is not.
@@ -974,6 +1015,13 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
     such rows are only counted `orphaned` and listed in the issue's `error`. An issue the manifest of which is
     unchanged since its import is skipped as before, unless `prune` is set and the issue has such rows.
 
+    With `reimport` (Task 22f) an `imported` issue is imported again even when its manifest is unchanged, exactly as an
+    approved one: the same upsert by external_id (a row whose id is unchanged is updated in place, its passage_hash
+    set to NULL so that backfill_passages.py rebuilds its passages) and the same files overwritten. Any `imported`
+    issue imported again is counted `reimported`. Issues in review/pending/failed are never touched. An `imported`
+    issue of which nothing could be imported this time (or whose import raised, see _import_one) keeps its status,
+    since the rows of its earlier import are still there: `error` says what went wrong (`reimport_failed`).
+
     With `dry_run` the database is only read and nothing is written anywhere; every article is printed."""
     m = load_manifest(path)
     if m.status not in _FROZEN:
@@ -988,9 +1036,10 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
         await upsert_issue_row(session, m, manifest_rel)
         row = await _issue_row(session, manifest_rel)
     issue_id = uuid.UUID(str(row[0])) if row else None
-    if m.status == "imported" and row is not None and row[1] == manifest_sha256(path):
+    if m.status == "imported" and row is not None and row[1] == manifest_sha256(path) and not reimport:
         if not (prune and await _has_stale_rows(session, m, issue_id)):
             return {"unchanged": 1}
+    again = m.status == "imported"
     if not dry_run:
         _check_raw_dir(raw_dir)
     files = files if files is not None else _FileLog()
@@ -1046,8 +1095,7 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
             _import_note(a, _NOTE_FAILED + _error_text(exc))
             _dry(dry_run, eid, f"mistókst: {_error_text(exc)}")
             continue
-        printed_start = a.page_start if a.checks.get("printed_page_match") else None      # R17
-        jobs.append((eid, pdfs[eid], m.source, cfg.has_footnotes, printed_start))
+        jobs.append((eid, pdfs[eid], m.source, cfg.has_footnotes, printed_start_of(a)))     # R17, R46
 
     with _extracting(jobs, workers, pool) as results:
         for eid, extracted, err in results:
@@ -1058,7 +1106,7 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
                 _dry(dry_run, eid, f"mistókst: {err}")
                 continue
             ex = ExtractedText(extracted["body"], extracted["page_offsets"], extracted["ocr_source"],
-                               extracted["bin_ratio"])
+                               extracted["bin_ratio"], page_note=extracted.get("page_note"))
             if ex.ocr_source == "none" or not ex.body.strip():                                     # R19
                 counts["no_text"] += 1
                 _import_note(a, _NOTE_NO_TEXT)
@@ -1072,10 +1120,12 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
             taken.add(vf)
             doc.verdict_filename = vf
             counts["imported"] += 1
+            if ex.page_note:
+                log.info("%s %s: %s", path.name, eid, ex.page_note)
             if dry_run:
                 errors = "; ".join(f"{e['field']}: {e['message']}" for e in doc.validation_errors or [])
                 _dry(True, eid, f"{vf}  {len(doc.body_text or '')} stafir  {_pages_text(a, pdfs[eid], read)}"
-                     + (f"  villur: {errors}" if errors else ""))
+                     + (f"  {ex.page_note}" if ex.page_note else "") + (f"  villur: {errors}" if errors else ""))
                 continue
             await _upsert_doc(session, doc)
             stored_docs.append((doc, vf))
@@ -1101,14 +1151,22 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
         _dry(dry_run, "", f"eldri greinar heftisins sem eru ekki lengur í skránni: {', '.join(orphans)}")
 
     summary = _import_summary(counts, orphans)
+    if again:
+        counts["reimported" if counts["imported"] else "reimport_failed"] = 1
     if dry_run:
         if summary:
-            print(f"  → {summary}" + ("" if counts["imported"] else "  (heftið fengi stöðuna failed)"))
+            outcome = "" if counts["imported"] else (
+                "  (heftið héldi stöðunni imported)" if again else "  (heftið fengi stöðuna failed)")
+            print(f"  → {summary}{outcome}")
         return dict(counts)
 
     if summary:
         log.warning("%s: %s", path.name, summary)
     m.error = _with_import_error(m.error, summary)
+    if not counts["imported"] and again:         # the earlier import's rows stay: so does the status
+        save_manifest(m, path)
+        await _record_reimport_error(session, manifest_rel, m.error, manifest_sha256(path))
+        return dict(counts)
     if not counts["imported"]:
         m.status = "failed"
         save_manifest(m, path)
@@ -1159,8 +1217,9 @@ async def _import_one(path: Path, session, args, pool) -> tuple[dict[str, int], 
     When it raises, the files it wrote are undone and the session is rolled back. A lost database connection (by
     the exception's type, or because the database no longer answers SELECT 1) raises _StopRun: the issue is not to
     blame and is left as it was. Any other error is the issue's: it gets status `failed` with the error (manifest
-    and journal_issues, committed) and the run goes on. A manifest that does not load is left as it is (it is the
-    user's hand edit).
+    and journal_issues, committed) and the run goes on, except an issue that was `imported` before this run: it keeps
+    that status and only `error` is recorded (`reimport_failed`, Task 22f). A manifest that does not load is left as it
+    is (it is the user's hand edit).
 
     The one exception to the undo: a connection lost *during the commit* may have lost only the reply. The server
     may have committed, and then the files are the right ones for the rows (undoing them would leave rows without
@@ -1170,10 +1229,15 @@ async def _import_one(path: Path, session, args, pool) -> tuple[dict[str, int], 
     files = _FileLog()
     committing = False
     try:
+        imported_before = load_manifest(path).status == "imported"
+    except (ValueError, OSError):
+        imported_before = False
+    try:
         counts = await import_manifest(path, session=session, read_bytes=_read_drop,
                                        raw_dir=Path(sources_config.RAW_DIR), dry_run=args.dry_run,
                                        workers=args.workers, pool=pool, files=files,
-                                       prune=getattr(args, "prune", False))
+                                       prune=getattr(args, "prune", False),
+                                       reimport=getattr(args, "reimport", False))
         if not args.dry_run:
             committing = True
             await session.commit()
@@ -1192,20 +1256,27 @@ async def _import_one(path: Path, session, args, pool) -> tuple[dict[str, int], 
                            "heftið var ekki merkt failed og ekkert hefti á eftir því var reynt") from exc
         if args.dry_run:
             print(f"  ✗ {path.name}: {_error_text(exc)}")
-            return {"failed_issue": 1}, True
+            return ({"reimport_failed": 1} if imported_before else {"failed_issue": 1}), True
         try:
             m = load_manifest(path)
         except (ValueError, OSError):
             return {"failed_issue": 1}, True
-        m.status, m.error = "failed", _with_import_error(m.error, _error_text(exc, _IMPORT_ERROR))
+        # An issue imported before this run keeps its status: the earlier rows are still there (Task 22f). The status
+        # on disk may be this run's own `imported`, written before the commit that failed, so the one read first counts.
+        again = imported_before
+        m.error = _with_import_error(m.error, _error_text(exc, _IMPORT_ERROR))
+        m.status = "imported" if again else "failed"
         save_manifest(m, path)
         try:
-            await _mark_issue_failed(session, _manifest_rel(path), m.error)
+            if again:
+                await _record_reimport_error(session, _manifest_rel(path), m.error, manifest_sha256(path))
+            else:
+                await _mark_issue_failed(session, _manifest_rel(path), m.error)
             await session.commit()
         except Exception:  # noqa: BLE001
             await session.rollback()
             log.exception("journal_issues update failed for %s", path.name)
-        return {"failed_issue": 1}, True
+        return ({"reimport_failed": 1} if again else {"failed_issue": 1}), True
 
 
 async def cmd_import(args) -> None:
@@ -1281,10 +1352,13 @@ def main(argv=None) -> None:
     ap.add_argument("--limit", type=int)
     ap.add_argument("--prune", action="store_true",
                     help="import: eyða greinum heftisins sem yfirlitsskráin nefnir ekki lengur (og skrám þeirra)")
+    ap.add_argument("--reimport", action="store_true",
+                    help="import: flytja aftur inn hefti sem þegar eru innflutt, þótt yfirlitsskráin sé óbreytt")
     args = ap.parse_args(argv)
-    if args.prune and args.command != "import":
-        print(f"Aðvörun: --prune gildir aðeins um import; það er hunsað við {args.command}.", file=sys.stderr)
-        args.prune = False
+    for flag in ("prune", "reimport"):
+        if getattr(args, flag) and args.command != "import":
+            print(f"Aðvörun: --{flag} gildir aðeins um import; það er hunsað við {args.command}.", file=sys.stderr)
+            setattr(args, flag, False)
     _setup_logging(args.command)
     cmd = {"discover": cmd_discover, "status": cmd_status, "analyze": cmd_analyze, "import": cmd_import}[args.command]
     asyncio.run(cmd(args))

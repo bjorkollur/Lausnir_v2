@@ -206,3 +206,58 @@ def test_extract_article_resolves_wrapped_hyphens_in_both_modes(footnotes):
 def test_extract_article_footnote_mode_keeps_a_capitalised_continuation_apart():
     ex = extract_article(_pdf([f"Um Reykjavíkur-\nBorg og nágrenni.{_FILLER}"]), source="default", footnotes=True)
     assert "Reykjavíkur- Borg" in ex.body
+
+
+# --- Task 22f fix round 1: printed numbers counted from printed_start follow the print -------------------------------
+
+import json
+from pathlib import Path
+
+from engine.timarit.pagemap import numbers_from_start
+
+_VOL04 = json.loads((Path(__file__).parent / "fixtures" / "timarit" / "ss_2008_vol04_edges.json").read_text(encoding="utf-8"))
+# The edge lines (first and last three) of every page of three real Stjórnmál og stjórnsýsla 2008 (Vol04) article files:
+# all that read_page_numbers and build_page_map look at.
+
+
+def test_a_printed_number_skipped_after_the_first_page_is_followed():
+    """S&S 2008-4-1-5: page 0 prints 5, then 7, 8, … 31 (6 is not printed). Counting from 5 put every later anchor one
+    below the print. Page 1's first line is a footnote mark "1"; the article-local map (offset +6) gives 7."""
+    got, note = numbers_from_start(_VOL04["5-32_The_position_of_the_political_parties_be.pdf"], "stjornmal_stjornsysla", 5)
+    assert got == [5] + list(range(7, 32))
+    assert note == "prentað blaðsíðutal sleppir bls. 6 (talið frá bls. 5)"
+
+
+def test_a_skip_is_followed_from_the_numbers_read_when_there_is_no_article_map():
+    """S&S 2008-4-2-133: 133, 135, 136, … 157. The number stands above the running footer "Stjórnmál og stjórnsýsla
+    veftímarit (fræðigreinar)"; no map was fitted before, so the anchors were 133, 134, 135, …"""
+    got, note = numbers_from_start(_VOL04["133-158_Icelandic_Security_Identity.pdf"], "stjornmal_stjornsysla", 133)
+    assert got == [133] + list(range(135, 158))
+    assert note == "prentað blaðsíðutal sleppir bls. 134 (talið frá bls. 133)"
+
+
+def test_an_article_numbered_without_a_gap_keeps_its_count():
+    """S&S 2008-4-2-159 (same volume): a blank page 2 and footnote numbers on some pages; print runs 159–180."""
+    got, note = numbers_from_start(_VOL04["159-180_Statutes_of_Limitation_for_Sexual_Offens.pdf"], "stjornmal_stjornsysla", 159)
+    assert got == list(range(159, 181)) and note is None
+
+
+@pytest.mark.parametrize("pages, expected", [
+    (["5", "6", "7", "8"], [5, 6, 7, 8]),
+    (["5", "", "", ""], [5, 6, 7, 8]),                      # nothing read: counted
+    (["5", "8", "", ""], [5, 6, 7, 8]),                     # a jump of 3 is no page number
+    (["5", "7", "", ""], [5, 6, 7, 8]),                     # +2 not confirmed by the next page or a map: counted
+    (["5", "7", "8", "9"], [5, 7, 8, 9]),                   # +2 confirmed by the next page
+    (["5", "4", "", ""], [5, 6, 7, 8]),                     # backwards: counted
+])
+def test_numbers_read_must_step_by_one_or_a_confirmed_two(pages, expected):
+    assert numbers_from_start(pages, "default", 5)[0] == expected
+
+
+def test_a_skipped_print_number_reaches_the_page_offsets_and_the_note():
+    pdf = _pdf([f"Fyrsta síða greinar.{_FILLER}\n5", f"Önnur síða.{_FILLER}\n7", f"Þriðja síða.{_FILLER}\n8",
+                f"Fjórða síða.{_FILLER}\n9"])
+    ex = extract_article(pdf, source="default", footnotes=False, printed_start=5)
+    assert [p["printed"] for p in ex.page_offsets] == [5, 7, 8, 9]
+    assert ex.page_note == "prentað blaðsíðutal sleppir bls. 6 (talið frá bls. 5)"
+    assert extract_article(pdf, source="default", footnotes=False).page_note is None

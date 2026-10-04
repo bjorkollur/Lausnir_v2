@@ -48,6 +48,10 @@ def _running(header: str) -> list[re.Pattern]:
 _ULFLJOTUR = r"(?:[ÚU]|L[IJ])LF(?:L[JI]|U)[ÓOÖQ][TR]UR"
 _LOGMANNABLADID = r"<?\s*LÖGMANNABLAÐIÐ(?:\s*[–-]?\s*(?:TBL\s*)?\d{1,2}\s*/\s*\d{2,4})?\s*>?"
 _TIMARIT_LOGFRAEDINGA = r"T\S{1,4}rit\s+l\S{3,}"
+# Stjórnmál og stjórnsýsla 2008 (Vol04): the number on the line above the running footer "Stjórnmál og stjórnsýsla
+# veftímarit (fræðigreinar)" (Task 22f). Whole lines only, so the footer's own text is never read as a number.
+_SOGS_FOOTER = [re.compile(r"^\s*(\d{1,4})\s*\n\s*Stjórnmál og stjórnsýsla\b[^\n]*$", re.I),
+                re.compile(r"^\s*Stjórnmál og stjórnsýsla\b[^\n]*\n\s*(\d{1,4})\s*$", re.I)]
 # Any short line, then the number on a line of its own: the article's running title or its author's name above the
 # number (Rannsóknir í félagsvísindum; TL 1951-1953 "Okur og skyld brot." / "67"). Tried on the first two lines.
 _TITLE_THEN_NUMBER = re.compile(r"^[^\n]{2,90}\n\s*(\d{1,4})\s*$")
@@ -62,7 +66,7 @@ PATTERNS: dict[str, list[re.Pattern]] = {
     "logmannabladid": [_BARE, *_running(_LOGMANNABLADID)],
     "logfraedingur": [_BARE, *_running("Lögfræðingur")],          # "Lögfræðingur 21", "22 Lögfræðingur"
     "rannsoknir_lagadeild": [_BARE, _TITLE_THEN_NUMBER],
-    "stjornmal_stjornsysla": [_BARE, _LEADING],
+    "stjornmal_stjornsysla": [_BARE, _LEADING, *_SOGS_FOOTER],
     "timarit_logfraedinga": [_BARE, _LEADING, *_running(_TIMARIT_LOGFRAEDINGA), _TITLE_THEN_NUMBER],
 }
 
@@ -301,3 +305,37 @@ def build_page_map(page_texts: list[str], source: str) -> PageMap:
     unmapped = sorted(p for p in printed if p is not None and p in contested)
     printed = [None if p in contested else p for p in printed]
     return PageMap(winner.offset, printed, agrees, sum(agrees) / n if n else 0.0, share, segments, unmapped)
+
+
+_MAX_SKIP = 2            # a printed number may skip one value between two pages (an unprinted page in the original)
+
+
+def numbers_from_start(page_texts: list[str], source: str, start: int) -> tuple[list[int], str | None]:
+    """The printed number of every page of an article whose first page prints `start` (R17, R46), and a note (in
+    Icelandic) when the print departs from counting on from `start`; None otherwise (Task 22f, fix round 1).
+
+    Page 0 is `start`. A later page takes the number read on it (read_page_numbers, the source's patterns) when that
+    number follows the page before by one, or by two (one value not printed: Stjórnmál og stjórnsýsla 2008 prints 5,
+    7, 8 …) and the jump is confirmed by the article-local page map or by the next page reading one more; where the
+    map has a number for the page, the read must agree with it. A page whose read does not qualify takes the map's
+    number when that follows the page before by one or two, else the page before + 1. So an article printed without
+    gaps is counted exactly as before, whatever stray numbers (footnote marks, years) its pages show."""
+    read = read_page_numbers(page_texts, PATTERNS.get(source, PATTERNS["default"]))
+    fitted = build_page_map(page_texts, source).printed if page_texts else []
+    out = [start] if page_texts else []
+    for i in range(1, len(page_texts)):
+        prev, r, mapped = out[-1], read[i], fitted[i]
+        nxt = read[i + 1] if i + 1 < len(read) else None
+        if r is not None and 1 <= r - prev <= _MAX_SKIP and (
+                r == mapped if mapped is not None else (r == prev + 1 or nxt == r + 1)):
+            out.append(r)
+        elif mapped is not None and 1 <= mapped - prev <= _MAX_SKIP:
+            out.append(mapped)
+        else:
+            out.append(prev + 1)
+    skipped = sorted(set(range(start, out[-1] + 1)) - set(out)) if out else []
+    note = None
+    if skipped:
+        listed = ", ".join(str(n) for n in skipped)
+        note = f"prentað blaðsíðutal sleppir bls. {listed} (talið frá bls. {start})"
+    return out, note

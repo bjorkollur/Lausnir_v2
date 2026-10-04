@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 
 from engine.timarit.toc import (
-    TocEntry, clean_title, find_toc_pages, label_type, parse_toc, split_label, style_of_text, toc_style,
+    TocEntry, clean_title, find_toc_pages, is_label, label_type, parse_toc, split_label, style_of_text, toc_style,
 )
 
 FIX = Path(__file__).parent / "fixtures" / "timarit" / "toc"
@@ -619,3 +619,152 @@ def test_a_page_first_source_with_a_page_last_toc_is_read_page_last():
     assert style_of_text(text, "page_first") == "page_last"
     assert style_of_text(_load("tl_2010_01.txt"), "page_first") == "page_first"
     assert style_of_text(text, "page_last") == "page_last"
+
+
+# --- Task 22f: a heading outside _SECTION ends a heading's reach (Úlfljótur 2010–2017 contents) ---------------------
+
+def _rows(text):
+    return [(e.title, e.page_start, e.section) for e in parse_toc(text, style="page_last")]
+
+
+def test_ulfljotur_column_headings_end_the_reach_of_greinar():
+    """Ulfljotur_2015_2_tbl.pdf, the contents page: "GREINAR" heads four articles; "RÖKSTÓLAR" (a debate column) and
+    "REKABÁLKUR" are headings of their own. They were taken for text: GREINAR typed every row after them as a
+    scholarly article and the heading was glued onto the next title ("RÖKSTÓLAR Starfsnám laganema …")."""
+    got = _rows(_load("ulfljotur_2015_2.txt"))
+    assert got[:5] == [
+        ("Frá ritstjóra", 129, None),
+        ("Um heimildir endurupptökunefndar í ljósi stjórnarskrárákvæða um dómsvald", 131, "GREINAR"),
+        ("Stjórnsýslukæra", 141, "GREINAR"),
+        ("Umboðsreglur hlutafélagaréttar", 179, "GREINAR"),
+        ("Skilyrði reglunnar um brostnar forsendur í samningarétti", 215, "GREINAR"),
+    ]
+    assert [(page, section) for _, page, section in got[5:]] == [(295, None), (297, None), (299, None), (301, None),
+                                                                (305, None), (308, None)]
+    assert got[5][0].startswith("Starfsnám laganema") and got[9][0] == "Alþjóðlega Philip C. Jessup málflutningskeppnin 2015"
+    assert not any("RÖKSTÓLAR" in t or "REKABÁLKUR" in t for t, _, _ in got)
+
+
+def test_ulfljotur_interview_and_news_columns_are_not_scholarly_articles():
+    """Ulfljotur_2017_1_tbl.pdf (one of the twelve pages of the Task 22e review): RÖKSTÓLAR, GESTABÁLKUR and
+    FRÉTTABÁLKUR each end GREINAR's reach; the news column types its row as news, the guest column leaves the type to
+    the title ("Viðtal við …"), the debate column types nothing."""
+    es = parse_toc(_load("ulfljotur_2017_1.txt"), style="page_last")
+    got = [(e.page_start, e.section) for e in es]
+    assert got == [(3, None), (5, "GREINAR"), (41, "GREINAR"), (87, "GREINAR"), (107, None), (108, None), (115, None),
+                   (120, None), (126, "Frétt")]
+    by_page = {e.page_start: e for e in es}
+    assert by_page[107].title == "Endurskoðun stjórnarskrárinnar"
+    assert by_page[108].authors == ["Salvör Nordal"] and by_page[115].authors == ["Skúli Magnússon"]
+    assert by_page[120].title == "Viðtal við Kristínu Edwald"
+    assert not any(e.title.startswith(("RÖKSTÓLAR", "GESTABÁLKUR", "FRÉTTABÁLKUR")) for e in es)
+
+
+def test_a_cover_listing_with_label_headings_in_lower_case():
+    """The cover of Ulfljotur_2011_3_tbl.pdf lists "Gestabálkur" / "Viðtal við Gest Jónsson, hrl." / "489": the label
+    is a heading (it has no page of its own) and is not part of the title."""
+    text = ("Þorgeir Örlygsson\nEfndabætur\n393\nGestabálkur\nViðtal við Gest Jónsson, hrl.\n489\n"
+            "Rekabálkur\nLögfræðiaðstoð Orators 30 ára\n495\n")
+    assert _rows(text) == [("Efndabætur", 393, None), ("Viðtal við Gest Jónsson, hrl.", 489, None),
+                           ("Lögfræðiaðstoð Orators 30 ára", 495, None)]
+
+
+def test_a_label_heading_with_a_colon_sets_its_type():
+    text = ("Greinar:\nJón Jónsson: Fyrsta grein ..... 3\nBókabálkur:\nPáll Pálsson: Um nýja bók ..... 40\n"
+            "Fréttabálkur\nAðalfundur Orators ..... 50\n")
+    assert _rows(text) == [("Fyrsta grein", 3, "Fræðigrein"), ("Um nýja bók", 40, "Ritdómur"),
+                           ("Aðalfundur Orators", 50, "Frétt")]
+
+
+def test_an_unknown_heading_in_capitals_types_nothing_and_ends_the_reach():
+    text = "GREINAR\nJón Jónsson: Fyrsta grein ..... 3\nMÁLSTOFA\nPáll Pálsson: Erindi um dóma ..... 20\n"
+    assert _rows(text) == [("Fyrsta grein", 3, "GREINAR"), ("Erindi um dóma", 20, None)]
+
+
+def test_lines_in_capitals_that_are_not_headings():
+    # an author line in capitals stays the author; a title in capitals over two lines stays whole; a title in capitals
+    # with its page on the next line is a row
+    text = ("GREINAR\nJÓN JÓNSSON\nFyrsta grein ..... 3\nUM STJÓRNARSKRÁ\nÍSLANDS ..... 20\nLOKAORÐ\n30\n")
+    es = parse_toc(text, style="page_last")
+    assert [(e.title, e.page_start, e.section) for e in es] == [
+        ("Fyrsta grein", 3, "GREINAR"), ("UM STJÓRNARSKRÁ ÍSLANDS", 20, "GREINAR"), ("LOKAORÐ", 30, "GREINAR")]
+    assert es[0].authors == ["Jón Jónsson"]                               # clean_author title-cases a shouted name
+
+
+def test_a_label_line_with_a_leader_is_a_row_whose_number_is_missing():
+    """A heading has no leader: "Á víð og dreif ......" is a row (its number lost by the OCR), not a heading."""
+    text = "Jón Jónsson: Fyrsta grein ..... 3\nÁ víð og dreif ..........\nNorrænt lögfræðingaþing — Ný rit\n12\n"
+    got = _rows(text)
+    assert got[-1][1] == 12 and got[-1][0].startswith("Á víð og dreif")
+
+
+def test_a_label_column_in_an_annual_volume_is_a_heading_not_part_of_the_title():
+    """TL 1995: "Á víð og dreif" heads the rows under it; it was glued onto the first one's title."""
+    text = ("Ragnar Aðalsteinsson ..... 227\nÁ víð og dreif\nVígsla Mannréttindabyggingarinnar í Strasbourg ..... 229\n"
+            "Aðalfundur Lögfræðingafélags íslands 1994 ..... 232\n")
+    assert _rows(text)[1:] == [("Vígsla Mannréttindabyggingarinnar í Strasbourg", 229, None),
+                               ("Aðalfundur Lögfræðingafélags íslands 1994", 232, None)]
+
+
+def test_the_contents_title_starts_the_list_anew_and_a_column_head_does_not():
+    """Úlfljótur 2005–2017 print a cover listing ("MEÐAL EFNIS:") before the contents page; its last column must not
+    type the contents' first rows. A column head ("Bls.") under a heading leaves the heading in force."""
+    text = "Fræðigreinar\nJón Jónsson: Fyrsta grein ..... 3\nEFNISYFIRLIT\nPáll Pálsson: Önnur grein ..... 20\n"
+    assert [s for _, _, s in _rows(text)] == ["Fræðigreinar", None]
+    text = "Fræðigreinar\nBls.\nJón Jónsson: Fyrsta grein ..... 3\nPáll Pálsson: Önnur grein ..... 20\n"
+    assert [s for _, _, s in _rows(text)] == ["Fræðigreinar", "Fræðigreinar"]
+
+
+def test_an_ulfljotur_column_heads_its_one_row():
+    """Ulfljotur_2005_2_tbl.pdf: "Bókabálkur:" heads the review under it; the moot court reports and "Lögfræðingatal"
+    after it have no heading of their own and are no reviews. A column ("-bálkur") is singular and heads one row; an
+    unknown one ("Lagabálkur", 2007-4) is a heading that types nothing."""
+    text = ("Bókabálkur:\nBjörn Þ. Guðmundsson, prófessor\nHæfisreglur stjórnsýslulaga eftir dr. Pál Hreinsson ..... 419\n"
+            "Alþjóðlega málflutningskeppnin Jessup 2005 ..... 423\nLögfræðingatal ..... 433\n"
+            "Fræðabálkur\nMálþing og fræðafundir ..... 440\nLagabálkur\nFréttir frá Alþingi ..... 450\n")
+    assert [(t, s) for t, _, s in _rows(text)] == [
+        ("Hæfisreglur stjórnsýslulaga eftir dr. Pál Hreinsson", "Ritdómur"), ("Alþjóðlega málflutningskeppnin Jessup 2005", None),
+        ("Lögfræðingatal", None), ("Málþing og fræðafundir", "Fræðigrein"), ("Fréttir frá Alþingi", None)]
+
+
+def test_a_row_whose_title_is_a_column_label_ends_the_heading_above():
+    """Ulfljotur_2008_2_tbl.pdf: "Rekabálkur" / "363" is a row, the column itself; it is not under the heading above it,
+    and neither is what follows it."""
+    text = "Greinar\nJón Jónsson: Fyrsta grein ..... 3\nRekabálkur\n363\nSkýrsla stjórnar Orators ..... 370\n"
+    assert _rows(text) == [("Fyrsta grein", 3, "Greinar"), ("Rekabálkur", 363, None), ("Skýrsla stjórnar Orators", 370, None)]
+
+
+def test_a_name_and_a_role_after_a_comma_is_not_an_author_and_a_title():
+    """Ulfljotur_2012_2_tbl.pdf: "GESTABÁLKUR" / "Ólafur Þór Hauksson, sérstakur saksóknari ..." / "265" (the guest
+    column's interviewee): a title never starts in lower case, so the comma does not split it."""
+    text = "GESTABÁLKUR\nÓlafur Þór Hauksson, sérstakur saksóknari . . . . . .\n265\n"
+    (e,) = parse_toc(text, style="page_last")
+    assert (e.title, e.authors, e.section) == ("Ólafur Þór Hauksson, sérstakur saksóknari", [], None)
+
+
+def test_ulfljotur_column_labels():
+    assert label_type("FRÉTTABÁLKUR") == "Frétt" and is_label("Rökstólar") and label_type("RÖKSTÓLAR") is None
+    assert split_label("RÖKSTÓLAR Geta fréttamenn sér að refsilausu birt upplýsingar") == (
+        "Rökstólar", "Geta fréttamenn sér að refsilausu birt upplýsingar")
+
+
+def test_the_author_index_ends_the_contents_also_with_a_colon():
+    """TL 1973–1975 and 1980 print "HÖFUNDASKRÁ:"; the index after it lists "Nafn: Titill 7" again."""
+    text = ("Jón Jónsson: Fyrsta grein ..... 3\nPáll Pálsson: Önnur grein ..... 20\nHÖFUNDASKRÁ:\n"
+            "Ajo, P.: Lögfræðingasamband Finnlands ..... 213\nJónsson, Jón: Fyrsta grein ..... 3\n")
+    assert [t for t, _, _ in _rows(text)] == ["Fyrsta grein", "Önnur grein"]
+
+
+def test_a_line_after_a_heading_is_an_author_only_when_it_reads_as_a_person():
+    """Úlfljótur 2003-4's cover: "MEÐAL EFNIS:" / "International Criminal Law" / "Universal jurisdiction in absentia" /
+    "537". With the heading gone, the subject line looked like an author line; after a heading only a list with a
+    personal name BÍN knows or a patronymic counts. Úlfljótur 2003-3 "Dómabálkur" / "Dóra Sif Tynes og Gunnar Þór
+    Pétursson" / title, and 2022-2 "Geir Gestsson & Peter Dalmay", keep their authors."""
+    text = "MEÐAL EFNIS:\nInternational Criminal Law\nUniversal jurisdiction in absentia\n537\n"
+    (e,) = parse_toc(text, style="page_last")
+    assert e.authors == [] and e.title == "International Criminal Law Universal jurisdiction in absentia"
+    text = ("Dómabálkur\nDóra Sif Tynes og Gunnar Þór Pétursson\nYfirlit yfir helstu dóma Evrópudómstólanna\n455\n"
+            "MEÐAL EFNIS:\nGeir Gestsson & Peter Dalmay\nLeitað í vasa nakins manns\n549\n"
+            "MEÐAL EFNIS:\nSigurður Líndal\nUm lagaskil og afturvirkni laga\n605\n")
+    assert [e.authors for e in parse_toc(text, style="page_last")] == [
+        ["Dóra Sif Tynes", "Gunnar Þór Pétursson"], ["Geir Gestsson", "Peter Dalmay"], ["Sigurður Líndal"]]

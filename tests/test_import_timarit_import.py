@@ -442,6 +442,98 @@ async def test_printed_start_is_passed_only_when_the_start_page_was_verified(tmp
     assert seen == [7, None]
 
 
+@pytest.mark.parametrize("pages, check, start, expected", [
+    ("page", False, 25, 25),            # R46: read from the printed page; the registry disagreed (R41 check False)
+    ("user", None, 9, 9),               # R46: the user's number (added or corrected item, empty checks)
+    ("page+user", None, 9, 9),
+    ("filename+page", True, 12, 12),
+    ("toc", False, 25, None),           # a registry number the page did not confirm
+    ("leitir+toc", False, 25, None),
+    ("filename", False, 4, None),
+    (None, False, 25, None),
+    ("xlsx", True, 41, 41),             # R17 (legacy): the registry number agrees with the printed one
+    ("toc", True, 41, 41),
+    ("page", False, None, None),        # no start page at all
+    ("user", None, None, None),
+])
+def test_printed_start_of_follows_r17_and_r46(pages, check, start, expected):
+    a = ArticleEntry(page_start=start, provenance={"pages": pages} if pages else {},
+                     checks={} if check is None else {"printed_page_match": check})
+    assert imp.printed_start_of(a) == expected
+
+
+@pytest.mark.parametrize("prov, expected", [
+    ({"page_start": "user"}, 23),                       # Lögrétta 2005 "Kröfugerð í málum gegn ríkinu" (2005-2-1-23)
+    ({"page_start": "user", "pages": "toc"}, 23),       # the narrower key decides
+    ({"page_start": "page+user", "pages": "llm"}, 23),
+    ({"page_start": "toc", "pages": "page"}, None),
+    ({"page_start": "llm"}, None),
+])
+def test_printed_start_of_reads_the_page_start_key_before_pages(prov, expected):
+    """R46: provenance may name page_start alone (manifest._PROVENANCE_ALIASES; _carry_user_values honours it)."""
+    a = ArticleEntry(page_start=23, provenance=prov, checks={"printed_page_match": False})
+    assert imp.printed_start_of(a) == expected
+
+
+async def test_page_read_and_user_start_pages_number_the_pages(tmp_path, raw_dir, monkeypatch):
+    """R46: an article whose page_start was read from the page (the registry disagreed, so printed_page_match is False)
+    and one the user added (provenance user, no checks) get printed page anchors from their page_start."""
+    p, m = _manifest(tmp_path)
+    m.articles[0].provenance, m.articles[0].checks = {"title": "toc", "pages": "page"}, {"printed_page_match": False}
+    m.articles[1].provenance, m.articles[1].checks = {"pages": "user"}, {}
+    save_manifest(m, p)
+    seen = []
+    real = imp.extract_article
+
+    def spy(pdf, **kw):
+        seen.append(kw["printed_start"])
+        return real(pdf, **kw)
+    monkeypatch.setattr(imp, "extract_article", spy)
+    session = _Session()
+    await _run(p, session, raw_dir)
+    assert seen == [7, 9]
+    (_, a), (_, b) = session.upserts()
+    assert [o["printed"] for o in a["page_offsets"]] == [7, 8] and [o["printed"] for o in b["page_offsets"]] == [9]
+    md = (_md_dir(raw_dir) / "timarit_logfraedinga" / "TL_60-1_2010_bls-9.md").read_text(encoding="utf-8")
+    assert "<!-- bls. 9 -->" in md
+
+
+async def test_an_item_the_user_added_to_a_shared_file_numbers_its_pages(tmp_path, raw_dir):
+    """Task 22e's three user-added cut items (Juristforeningen 50 ára, Til laganema, Punktar frá Noregsferð) had no
+    page anchors: a 2-page cut cannot be fitted by the article-local map. Their user page_start now numbers them."""
+    p = _shared_manifest(tmp_path)
+    session = _Session()
+    await _run(p, session, raw_dir, read=lambda rel: _SHARED)
+    (_, _), (_, b) = session.upserts()
+    assert [o["printed"] for o in b["page_offsets"]] == [5, 6]
+
+
+async def test_a_print_that_skips_a_number_is_noted_in_raw_api_data_not_in_the_manifest(tmp_path, raw_dir, capsys):
+    """Task 22f fix round 1 (S&S 2008 Vol04): the page anchors follow the print, which skips a number after the first
+    page; raw_api_data says so (page_note) and the dry run shows it. The manifest is not written for it."""
+    p, m = _manifest(tmp_path)
+    m.articles = [ArticleEntry(title="Fyrsta greinin", authors=["Jón Jónsson"], article_type="Fræðigrein", page_start=7,
+                               page_end=11, pdf_pages=[0, 3], lang="is", provenance={"pages": "page"},
+                               checks={"printed_page_match": False}, confidence=0.9)]
+    save_manifest(m, p)
+    skipping = _pdf([f"Fyrsta greinin\n{_PAD}\n7", f"Framhald.\n{_PAD}\n9", f"Meira.\n{_PAD}\n10", f"Lok.\n{_PAD}\n11"])
+    await _run(p, _Session(), raw_dir, dry_run=True, read=lambda rel: skipping)
+    assert "prentað blaðsíðutal sleppir bls. 8 (talið frá bls. 7)" in capsys.readouterr().out
+    before_notes = list(load_manifest(p).articles[0].analysis_notes)
+    session = _Session()
+    await _run(p, session, raw_dir, read=lambda rel: skipping)
+    (_, params), = session.upserts()
+    assert [o["printed"] for o in params["page_offsets"]] == [7, 9, 10, 11]
+    assert params["raw_api_data"]["page_note"] == "prentað blaðsíðutal sleppir bls. 8 (talið frá bls. 7)"
+    md = (_md_dir(raw_dir) / "timarit_logfraedinga" / f"{params['verdict_filename']}.md").read_text(encoding="utf-8")
+    assert "<!-- bls. 7 -->" in md and "<!-- bls. 9 -->" in md and "<!-- bls. 8 -->" not in md   # from page_offsets
+    assert load_manifest(p).articles[0].analysis_notes == before_notes
+    plain, _ = _manifest(tmp_path / "plain")
+    session = _Session()
+    await _run(plain, session, raw_dir)                                    # a print without a gap: no page_note
+    assert all("page_note" not in prm["raw_api_data"] for _, prm in session.upserts())
+
+
 async def test_an_article_without_text_is_not_imported(tmp_path, raw_dir, monkeypatch):
     """R19: no text layer and no OCR text → ocr_source "none" → the article fails, no empty document."""
     p, m = _manifest(tmp_path)
@@ -482,6 +574,45 @@ async def test_an_issue_with_nothing_imported_fails(tmp_path, raw_dir, monkeypat
     (sql, params), = session.issue_updates()
     assert "failed" in sql and params["error"] == out.error
     assert not (raw_dir / "timarit_logfraedinga" / "hefti").exists()
+
+
+@pytest.mark.parametrize("dry_run", [False, True])
+async def test_a_reimport_that_imports_nothing_keeps_the_issue_imported(tmp_path, raw_dir, monkeypatch, capsys, dry_run):
+    """Task 22f fix round 1: the rows of the earlier import stay in the database, so the issue stays `imported` (a
+    `failed` issue is never looked at again by import or --reimport); the error says what went wrong."""
+    p, _ = _manifest(tmp_path, status="imported")
+    before = p.read_bytes()
+    monkeypatch.setattr(imp, "_ocr", lambda b: None)
+    blank = _pdf(["", "", "", "", ""])
+    session = _Session(issue_row=(ISSUE_ID, manifest_sha256(p)), docs=[("2010-60-1-7", ISSUE_ID, "TL_60-1_2010_bls-7-8"),
+                                                                       ("2010-60-1-9", ISSUE_ID, "TL_60-1_2010_bls-9")])
+    counts = await imp.import_manifest(p, session=session, read_bytes=lambda rel: blank, raw_dir=raw_dir,
+                                       dry_run=dry_run, workers=1, reimport=True)
+    assert counts.get("imported", 0) == 0 and counts["reimport_failed"] == 1 and "failed_issue" not in counts
+    if dry_run:
+        assert p.read_bytes() == before and not session.issue_updates()
+        assert "heftið héldi stöðunni imported" in capsys.readouterr().out
+        return
+    out = load_manifest(p)
+    assert out.status == "imported" and "engin grein" in out.error
+    (sql, params), = session.issue_updates()
+    assert "'failed'" not in sql and "status" not in sql and params["error"] == out.error
+    assert params["sha"] == manifest_sha256(p)                    # the manifest as saved, so a plain import skips it
+    assert not raw_dir.exists()
+
+
+async def test_a_reimport_that_raises_keeps_the_issue_imported(tmp_path, raw_dir, monkeypatch):
+    good, _ = _repo(tmp_path, monkeypatch)
+    m = load_manifest(good)
+    m.status, m.file, m.files = "imported", "x/missing.pdf", ["x/missing.pdf"]
+    save_manifest(m, good)
+    session = _Ctx(issue_row=(ISSUE_ID, manifest_sha256(good)))
+    counts, raised = await imp._import_one(good, session, _args(reimport=True), None)
+    assert raised and counts == {"reimport_failed": 1}
+    out = load_manifest(good)
+    assert out.status == "imported" and out.error.startswith("innflutningur: FileNotFoundError")
+    updates = [(sql, prm) for sql, prm in session.statements if sql.startswith("UPDATE journal_issues")]
+    assert updates and all("'failed'" not in sql for sql, _ in updates) and updates[-1][1]["error"] == out.error
 
 
 # --- guards ---------------------------------------------------------------------------------------------------
@@ -537,7 +668,8 @@ async def test_workers_run_in_a_process_pool(tmp_path, raw_dir):
 # --- cmd_import --------------------------------------------------------------------------------------------------
 
 def _args(**kw):
-    base = dict(source=None, issue=None, limit=None, dry_run=False, workers=1, command="import", prune=False)
+    base = dict(source=None, issue=None, limit=None, dry_run=False, workers=1, command="import", prune=False,
+                reimport=False)
     base.update(kw)
     return argparse.Namespace(**base)
 
@@ -928,8 +1060,9 @@ async def test_pruned_files_are_removed_after_a_successful_commit_only(tmp_path,
             raise RuntimeError("could not serialize access due to concurrent update")
     stale_files = _touch(raw_dir, STALE[2])
     counts, raised = await imp._import_one(good, CommitFails(docs=[STALE]), _args(prune=True), None)
-    assert raised and counts == {"failed_issue": 1}
+    assert raised and counts == {"reimport_failed": 1}                         # imported above: it stays imported
     assert all(q.exists() for q in stale_files)                                # the rows are back, so are their files
+    assert load_manifest(good).status == "imported"
 
 
 async def test_prune_reaches_an_issue_whose_manifest_has_not_changed(tmp_path, raw_dir):
@@ -1032,9 +1165,133 @@ async def test_a_commit_that_fails_with_the_database_down_keeps_the_files_too(tm
     assert any(f.endswith("TL_60-1_2010_bls-7-8.md") for f in _written(raw_dir))
 
 
+# --- Task 22f: --reimport -------------------------------------------------------------------------------------------
+
+async def _reimport(p, session, raw_dir, *, dry_run=False, read=lambda rel: ISSUE):
+    return await import_manifest(p, session=session, read_bytes=read, raw_dir=raw_dir, dry_run=dry_run, workers=1,
+                                 reimport=True)
+
+
+async def test_reimport_imports_an_imported_issue_whose_manifest_is_unchanged(tmp_path, raw_dir):
+    """The pilot's manifests are unchanged since their import, so a plain import skips them; --reimport takes them as
+    if approved: the same upsert by external_id (the rows are updated in place) and the same files overwritten."""
+    p, _ = _manifest(tmp_path, status="imported")
+    session = _Session(issue_row=(ISSUE_ID, manifest_sha256(p)),
+                       docs=[("2010-60-1-7", ISSUE_ID, "TL_60-1_2010_bls-7-8"), ("2010-60-1-9", ISSUE_ID, "TL_60-1_2010_bls-9")])
+    md, pdf = _touch(raw_dir, "TL_60-1_2010_bls-7-8")
+    counts = await _reimport(p, session, raw_dir)
+    assert counts["imported"] == 2 and counts["reimported"] == 1 and "orphaned" not in counts
+    assert [params["external_id"] for _, params in session.upserts()] == ["2010-60-1-7", "2010-60-1-9"]
+    assert [params["verdict_filename"] for _, params in session.upserts()] == ["TL_60-1_2010_bls-7-8", "TL_60-1_2010_bls-9"]
+    assert md.read_bytes() != b"old" and pdf.read_bytes() != b"old"                     # the same files, overwritten
+    assert load_manifest(p).status == "imported"
+    (_, params), = session.issue_updates()
+    assert params["sha"] == manifest_sha256(p)
+
+
+async def test_reimport_dry_run_counts_and_writes_nothing(tmp_path, raw_dir, capsys):
+    p, _ = _manifest(tmp_path, status="imported")
+    before = p.read_bytes()
+    session = _Session(issue_row=(ISSUE_ID, manifest_sha256(p)))
+    counts = await _reimport(p, session, raw_dir, dry_run=True)
+    assert counts["imported"] == 2 and counts["reimported"] == 1
+    assert not [s for s, _ in session.statements if not s.startswith("SELECT")] and p.read_bytes() == before
+    assert not raw_dir.exists() and "2010-60-1-7" in capsys.readouterr().out
+
+
+@pytest.mark.parametrize("status", ["review", "pending", "failed"])
+async def test_reimport_leaves_issues_that_are_not_approved_or_imported_alone(tmp_path, raw_dir, status):
+    p, _ = _manifest(tmp_path, status=status)
+    before = p.read_bytes()
+    session = _Session(issue_row=(ISSUE_ID, manifest_sha256(p)))
+    assert await _reimport(p, session, raw_dir) == {"not_approved": 1}
+    assert not session.upserts() and not raw_dir.exists() and p.read_bytes() == before
+
+
+async def test_an_approved_issue_is_imported_as_before_and_not_counted_as_reimported(tmp_path, raw_dir):
+    p, _ = _manifest(tmp_path)
+    counts = await _reimport(p, _Session(), raw_dir)
+    assert counts["imported"] == 2 and "reimported" not in counts
+
+
+async def test_reimport_still_respects_the_guards(tmp_path, raw_dir):
+    p, _ = _manifest(tmp_path, status="imported", error=imp._CHANGED_AFTER_APPROVAL)
+    assert await _reimport(p, _Session(issue_row=(ISSUE_ID, manifest_sha256(p))), raw_dir) == {"source_changed": 1}
+
+
+async def test_cmd_import_reimport_respects_source_and_issue_and_prints_the_count(tmp_path, raw_dir, monkeypatch, capsys):
+    drop, repo = tmp_path / "drop", tmp_path / "repo"
+    (drop / "x").mkdir(parents=True)
+    (drop / "x" / "TL 2010_01.pdf").write_bytes(ISSUE)
+    monkeypatch.setattr(imp, "DROP", drop)
+    monkeypatch.setattr(imp, "REPO", repo)
+    root = repo / imp.C.MANIFEST_ROOT
+    one, _ = _manifest(root, status="imported")
+    two, _ = _manifest(root, "2010_60_2.yaml", issue="2", status="imported")
+    review, _ = _manifest(root, "2010_60_3.yaml", issue="3", status="review")
+    other = root / "logbru" / "2013_x_1.yaml"                       # another source's imported issue
+    lb = load_manifest(one)
+    lb.source, lb.year, lb.volume, lb.label = "logbru", 2013, None, "Lögbrú, 1. tbl. (2013)"
+    save_manifest(lb, other)
+
+    class Recorded(_Ctx):
+        def __init__(self):
+            super().__init__()
+            self.issue_row = None
+
+        async def execute(self, stmt, params=None):
+            sql = " ".join(str(stmt).split())
+            if "FROM journal_issues" in sql:                    # every issue is recorded as imported, unchanged
+                path = next(q for q in (one, two, review, other) if imp._manifest_rel(q) == params["p"])
+                self.issue_row = (ISSUE_ID, manifest_sha256(path))
+            return await super().execute(stmt, params)
+    sessions = _fake_db(monkeypatch, Recorded)
+    await imp.cmd_import(_args(dry_run=True, reimport=True, issue="2010_60_2"))
+    out = capsys.readouterr().out
+    line = next(ln for ln in out.splitlines() if "hefti flutt inn aftur" in ln)
+    assert line.split()[-1] == "1" and "2010_60_2.yaml" in out and "2010-60-2-7" in out
+    assert "2010_60_1.yaml" not in out and "2010_60_3.yaml" not in out
+    await imp.cmd_import(_args(dry_run=True))                                      # without the flag: all unchanged
+    out = capsys.readouterr().out
+    assert "hefti flutt inn aftur" not in out and "hefti óbreytt" in out and "hefti ekki samþykkt" in out
+    await imp.cmd_import(_args(dry_run=True, reimport=True, source="timarit_logfraedinga"))
+    out = capsys.readouterr().out
+    line = next(ln for ln in out.splitlines() if "hefti flutt inn aftur" in ln)
+    assert line.split()[-1] == "2" and "hefti ekki samþykkt" in out                 # the review issue is left alone
+    assert "2013_x_1.yaml" not in out
+    await imp.cmd_import(_args(dry_run=True, reimport=True, source="logbru"))
+    out = capsys.readouterr().out
+    line = next(ln for ln in out.splitlines() if "hefti flutt inn aftur" in ln)
+    assert line.split()[-1] == "1" and "2013_x_1.yaml" in out and "2010_60_" not in out
+    await imp.cmd_import(_args(dry_run=True, reimport=True))
+    out = capsys.readouterr().out
+    assert next(ln for ln in out.splitlines() if "hefti flutt inn aftur" in ln).split()[-1] == "3"
+    assert all(s.committed == 0 for s in sessions)
+
+
+def test_reimport_is_an_import_option_and_ignored_with_a_warning_elsewhere(monkeypatch, capsys):
+    assert _main(monkeypatch, ["import", "--reimport"]).reimport is True
+    assert _main(monkeypatch, ["import"]).reimport is False
+    capsys.readouterr()
+    args = _main(monkeypatch, ["analyze", "--reimport", "--dry-run"])
+    assert args.reimport is False and "--reimport" in capsys.readouterr().err
+
+
 # --- the real schema (always rolled back) ------------------------------------------------------------------------
+# Volume 960: the pilot import put the real TL 2010 1. hefti (2010-60-1-7 …) into the database, and these tests must not
+# collide with stored rows.
 
 needs_db = pytest.mark.skipif(not os.environ.get("DATABASE_URL"), reason="needs DATABASE_URL")
+
+
+async def _test_ids_are_free(conn) -> None:
+    """Fail loudly when the live database already holds what these tests create (they would collide with real rows, or
+    real rows with them): documents 2010-960-* and a journal issue for TL 2010, 960. árg."""
+    docs = (await conn.execute(text("SELECT count(*) FROM documents WHERE external_id LIKE '2010-960-%'"))).scalar_one()
+    issues = (await conn.execute(text("SELECT count(*) FROM journal_issues WHERE year = 2010 AND volume = 960"))).scalar_one()
+    if docs or issues:
+        pytest.fail(f"the live database already has the test ids: {docs} documents 2010-960-*, {issues} journal issues "
+                    "2010/960. The real-schema tests would collide with them; find out where they came from.")
 
 
 class _ConnSession:
@@ -1058,11 +1315,12 @@ async def test_import_against_the_real_schema(tmp_path, raw_dir):
     conn = await eng.connect()
     try:
         await conn.begin()
+        await _test_ids_are_free(conn)
         await conn.execute(text(
             "INSERT INTO sources (id, short_name, display_name) VALUES (gen_random_uuid(), 'timarit_logfraedinga', 'x') "
             "ON CONFLICT (short_name) DO NOTHING"))
         s = _ConnSession(conn)
-        p, m = _manifest(tmp_path)
+        p, m = _manifest(tmp_path, volume=960)
         rel = imp._manifest_rel(p)
         await imp.upsert_issue_row(s, m, rel)
         counts = await _run(p, s, raw_dir)
@@ -1072,12 +1330,12 @@ async def test_import_against_the_real_schema(tmp_path, raw_dir):
                    d.verdict_filename, d.passage_hash, ji.status, ji.manifest_sha256, ji.file_path
             FROM documents d JOIN journal_issues ji ON ji.id = d.journal_issue_id
             WHERE ji.manifest_path = :p ORDER BY d.external_id"""), {"p": rel})).all()
-        assert [r.external_id for r in rows] == ["2010-60-1-7", "2010-60-1-9"]
+        assert [r.external_id for r in rows] == ["2010-960-1-7", "2010-960-1-9"]
         r = rows[0]
-        assert (r.volume, r.issue, r.page_start, r.page_end, r.lang) == (60, "1", 7, 8, "is")
-        assert r.page_offsets[0]["printed"] == 7 and r.verdict_filename == "TL_60-1_2010_bls-7-8"
+        assert (r.volume, r.issue, r.page_start, r.page_end, r.lang) == (960, "1", 7, 8, "is")
+        assert r.page_offsets[0]["printed"] == 7 and r.verdict_filename == "TL_960-1_2010_bls-7-8"
         assert r.status == "imported" and r.manifest_sha256 == manifest_sha256(p)
-        assert r.file_path == "raw/timarit_logfraedinga/hefti/2010_60_1.pdf"
+        assert r.file_path == "raw/timarit_logfraedinga/hefti/2010_960_1.pdf"
 
         # re-import after an edit: the same rows are updated (same ids), passage_hash is reset so passages rebuild
         await conn.execute(text("UPDATE documents SET passage_hash = 'old' WHERE id = :id"), {"id": r.id})
@@ -1091,7 +1349,7 @@ async def test_import_against_the_real_schema(tmp_path, raw_dir):
 
         # the same article id from another issue is a collision: the stored row is left alone (the other manifest is
         # issue 2 of the same volume whose articles name issue 1 as their own, R31, so their ids are this issue's)
-        other = tmp_path / "other" / "timarit_logfraedinga" / "2010_60_2.yaml"
+        other = tmp_path / "other" / "timarit_logfraedinga" / "2010_960_2.yaml"
         m3 = load_manifest(p)
         m3.status, m3.issue = "approved", "2"
         for a in m3.articles:
@@ -1136,11 +1394,12 @@ async def test_prune_against_the_real_schema(tmp_path, raw_dir):
 
     try:
         await conn.begin()
+        await _test_ids_are_free(conn)
         for short in ("timarit_logfraedinga", "timarit_prune_other"):
             await conn.execute(text("INSERT INTO sources (id, short_name, display_name) VALUES (gen_random_uuid(), :n, 'x') "
                                     "ON CONFLICT (short_name) DO NOTHING"), {"n": short})
         s = _ConnSession(conn)
-        p, m = _manifest(tmp_path)
+        p, m = _manifest(tmp_path, volume=960)
         rel = imp._manifest_rel(p)
         await imp.upsert_issue_row(s, m, rel)
         assert (await _run(p, s, raw_dir))["imported"] == 2
@@ -1149,15 +1408,15 @@ async def test_prune_against_the_real_schema(tmp_path, raw_dir):
         issue = await one("SELECT id FROM journal_issues WHERE manifest_path = :p", p=rel)
         m2 = load_manifest(p)
         m2.issue = "2"
-        other_p = tmp_path / "other" / "timarit_logfraedinga" / "2010_60_2.yaml"
+        other_p = tmp_path / "other" / "timarit_logfraedinga" / "2010_960_2.yaml"
         save_manifest(m2, other_p)
         await imp.upsert_issue_row(s, m2, imp._manifest_rel(other_p))
         issue2 = await one("SELECT id FROM journal_issues WHERE manifest_path = :p", p=imp._manifest_rel(other_p))
 
-        kept = await one("SELECT id FROM documents WHERE source_id = :s AND external_id = '2010-60-1-7'", s=src)
-        stale = await doc(src, issue, "2010-60-1-5", "TL_stale")
-        other_issue = await doc(src, issue2, "2010-60-2-5", "TL_other_issue")            # same source, another issue
-        other_source = await doc(other_src, issue, "2010-60-1-5", "TL_other_source")     # same id and issue, another source
+        kept = await one("SELECT id FROM documents WHERE source_id = :s AND external_id = '2010-960-1-7'", s=src)
+        stale = await doc(src, issue, "2010-960-1-5", "TL_stale")
+        other_issue = await doc(src, issue2, "2010-960-2-5", "TL_other_issue")            # same source, another issue
+        other_source = await doc(other_src, issue, "2010-960-1-5", "TL_other_source")     # same id and issue, another source
         for d in (stale, other_issue, other_source):
             await passage(d)
         await citation(stale, kept, 10)                      # the stale row cites a kept one: goes with the row
@@ -1168,9 +1427,9 @@ async def test_prune_against_the_real_schema(tmp_path, raw_dir):
                                     "VALUES (gen_random_uuid(), :a, :b, 'cites')"), {"a": a, "b": b})
 
         # the clause alone keeps a row out of reach: asked for with the wrong issue, or the wrong source, nothing goes
-        assert await imp._prune_rows(s, src, issue2, ["2010-60-1-5"]) == []
-        assert await imp._prune_rows(s, await one("SELECT gen_random_uuid()"), issue, ["2010-60-1-5"]) == []
-        assert await one("SELECT count(*) FROM documents WHERE external_id = '2010-60-1-5'") == 2
+        assert await imp._prune_rows(s, src, issue2, ["2010-960-1-5"]) == []
+        assert await imp._prune_rows(s, await one("SELECT gen_random_uuid()"), issue, ["2010-960-1-5"]) == []
+        assert await one("SELECT count(*) FROM documents WHERE external_id = '2010-960-1-5'") == 2
 
         counts, files = await _prune(p, s, raw_dir)
         assert counts["pruned"] == 1 and counts["imported"] == 2 and "orphaned" not in counts
@@ -1191,3 +1450,69 @@ async def test_prune_against_the_real_schema(tmp_path, raw_dir):
         await conn.rollback()
         await conn.close()
         await eng.dispose()
+
+
+@needs_db
+async def test_reimport_against_the_real_schema(tmp_path, raw_dir):
+    """--reimport of an imported issue whose manifest is unchanged updates the same rows (same ids, no new rows, no
+    orphans), sets passage_hash to NULL so backfill_passages.py rebuilds the passages (the importer itself leaves the
+    old passages in place until then), and changes page_offsets where the anchors changed (R46)."""
+    eng = create_async_engine(os.environ["DATABASE_URL"])
+    conn = await eng.connect()
+
+    async def one(sql, **params):
+        return (await conn.execute(text(sql), params)).scalar_one()
+
+    try:
+        await conn.begin()
+        await _test_ids_are_free(conn)
+        await conn.execute(text(
+            "INSERT INTO sources (id, short_name, display_name) VALUES (gen_random_uuid(), 'timarit_logfraedinga', 'x') "
+            "ON CONFLICT (short_name) DO NOTHING"))
+        s = _ConnSession(conn)
+        p, m = _manifest(tmp_path, volume=960)
+        m.articles[1].provenance, m.articles[1].checks = {"pages": "toc"}, {"printed_page_match": False}
+        save_manifest(m, p)
+        rel = imp._manifest_rel(p)
+        await imp.upsert_issue_row(s, m, rel)
+        assert (await _run(p, s, raw_dir))["imported"] == 2
+        issue = await one("SELECT id FROM journal_issues WHERE manifest_path = :p", p=rel)
+        before = {r.external_id: r.id for r in (await conn.execute(text(
+            "SELECT id, external_id FROM documents WHERE journal_issue_id = :j"), {"j": issue})).all()}
+        doc9 = before["2010-960-1-9"]
+        assert (await one("SELECT page_offsets FROM documents WHERE id = :d", d=doc9))[0]["printed"] is None
+        await conn.execute(text("UPDATE documents SET passage_hash = 'old' WHERE journal_issue_id = :j"), {"j": issue})
+        await conn.execute(text(
+            "INSERT INTO passages (id, document_id, ordinal, layer, section_kind, char_start, char_end, text, "
+            "word_count, fts_is) VALUES (gen_random_uuid(), :d, 0, 'body', 'body', 0, 1, 'x', 1, to_tsvector('simple', 'x'))"),
+            {"d": doc9})
+
+        assert await _run(p, s, raw_dir) == {"unchanged": 1}                     # the manifest has not changed
+        m = load_manifest(p)
+        m.articles[1].provenance["pages"] = "user"                             # what the reviewer confirmed (R46)
+        save_manifest(m, p)
+        await conn.execute(text("UPDATE journal_issues SET manifest_sha256 = :s WHERE id = :j"),
+                           {"s": manifest_sha256(p), "j": issue})              # as if imported with this manifest
+        assert await _run(p, s, raw_dir) == {"unchanged": 1}
+        counts = await _reimport(p, s, raw_dir)
+        assert counts["imported"] == 2 and counts["reimported"] == 1 and "orphaned" not in counts
+        after = {r.external_id: r.id for r in (await conn.execute(text(
+            "SELECT id, external_id FROM documents WHERE journal_issue_id = :j"), {"j": issue})).all()}
+        assert after == before                                                 # updated in place: same rows, same ids
+        assert await one("SELECT count(*) FROM documents WHERE journal_issue_id = :j AND passage_hash IS NOT NULL",
+                         j=issue) == 0
+        assert (await one("SELECT page_offsets FROM documents WHERE id = :d", d=doc9))[0]["printed"] == 9
+        assert await one("SELECT count(*) FROM passages WHERE document_id = :d", d=doc9) == 1   # until the backfill
+        assert await one("SELECT status FROM journal_issues WHERE id = :j", j=issue) == "imported"
+    finally:
+        await conn.rollback()
+        await conn.close()
+        await eng.dispose()
+
+
+async def test_the_live_db_precheck_fails_loudly_when_the_test_ids_exist():
+    class Taken:
+        async def execute(self, stmt, params=None):
+            return _Res(scalar=2)
+    with pytest.raises(pytest.fail.Exception, match="already has the test ids"):
+        await _test_ids_are_free(Taken())

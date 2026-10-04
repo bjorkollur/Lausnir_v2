@@ -758,3 +758,15 @@ async def test_a_printed_date_outranks_a_distrusted_metadata_date():
     a = (await analyze_issue(m, get_config("ulfljotur_vefrit"),
                              _deps(_pdf([page], {"creationDate": _stamp(16, 52, 16), **SAFARI})))).articles[0]
     assert a.date == "2022-01-21" and a.provenance["date"] == "page" and REEXPORT_NOTE not in a.analysis_notes
+
+
+def test_a_contents_heading_that_names_an_article_type_types_its_rows():
+    """Task 22f: a column heading of a page-last contents page passes the type it stands for ("FRÉTTABÁLKUR" → Frétt,
+    "MINNINGARBÁLKUR" → Annað), as Claude's list does; no heading leaves the type to the title."""
+    from engine.timarit.analyze import _toc_entries
+    m = IssueManifest(source="ulfljotur", year=2017, volume=70, issue="1", label="L", file="u.pdf")
+    toc = [TocEntry("Vefrit Úlfljóts", [], 126, section="Frétt"), TocEntry("Arnljótur Björnsson", [], 130, section="Annað"),
+           TocEntry("Viðtal við Kristínu Edwald", [], 120, section=None), TocEntry("Um dóma", [], 5, section="GREINAR"),
+           TocEntry("Endurskoðun stjórnarskrárinnar", [], 107, section=None)]
+    got = [(a.article_type, a.provenance["article_type"]) for a in _toc_entries(toc, m, get_config("ulfljotur"), "toc")]
+    assert got == [("Frétt", "toc"), ("Annað", "toc"), ("Viðtal", "toc"), ("Fræðigrein", "toc"), ("Fræðigrein", "toc")]

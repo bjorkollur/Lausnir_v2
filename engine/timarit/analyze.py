@@ -394,7 +394,9 @@ def _toc_entries(toc: list[TocEntry], m: IssueManifest, cfg: SourceConfig, prov:
                 names.append(name)
             if tt:
                 titles.append(tt)
-        kind = t.section if prov == "llm" and t.section in ARTICLE_TYPES else \
+        # A section that names a type is that type: Claude's list, and a contents heading the parser knows (toc.
+        # SECTION_LABELS, Task 22f: "FRÉTTABÁLKUR" → Frétt, "MINNINGARBÁLKUR" → Annað)
+        kind = t.section if t.section in ARTICLE_TYPES else \
             infer_article_type(t.section, t.title, cfg.verdict_type_default)
         a = ArticleEntry(title=t.title, authors=names, author_titles=titles, article_type=kind,
                          page_start=t.page_start, provenance={"title": prov, "article_type": prov})

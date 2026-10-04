@@ -8,7 +8,7 @@ from typing import Callable
 
 from engine.processors.lemmatizer import _WORD_RE, _bin
 from engine.processors.pdf_parser import parse_pdf_pages, resolve_hyphen_break
-from engine.timarit.pagemap import build_page_map
+from engine.timarit.pagemap import build_page_map, numbers_from_start
 
 _HYPHEN_BREAK = re.compile(r"-\n(?=\S)")
 _DIGITS = re.compile(r"\d+")
@@ -22,6 +22,7 @@ class ExtractedText:
     ocr_source: str = "embedded"      # "embedded" | "tesseract-isl" | "none" (no text layer, no OCR text)
     bin_ratio: float = 0.0
     page_texts: list[str] = field(default_factory=list)
+    page_note: str | None = None      # the print departs from counting on from printed_start (numbers_from_start)
 
 
 def _edge_indices(lines: list[str]) -> set[int]:
@@ -110,9 +111,11 @@ def extract_article(pdf_bytes: bytes, *, source: str, footnotes: bool,
     """Text of one article PDF with the char offset of every page.
 
     `printed_start`: printed page number of the article's first PDF page, when
-    the caller already knows it (verified at issue level). Pages then number
-    printed_start + pdf_page; otherwise the article-local page map is used,
-    which cannot be fitted for articles of fewer than three numbered pages.
+    the caller knows it (R17, R46). The later pages then take the numbers that
+    pagemap.numbers_from_start finds: counted on from printed_start, unless the
+    print skips a value (`page_note` says so). Otherwise the article-local page
+    map is used, which cannot be fitted for articles of fewer than three
+    numbered pages.
     """
     page_texts = _page_texts(pdf_bytes)
 
@@ -138,9 +141,12 @@ def extract_article(pdf_bytes: bytes, *, source: str, footnotes: bool,
         if text:                      # a failed re-OCR keeps the embedded text
             return _ocr_result(text)
 
+    page_note = None
     if printed_start is not None:
+        numbers, page_note = numbers_from_start(page_texts, source, printed_start)
+
         def printed_for(i: int) -> int | None:
-            return printed_start + i
+            return numbers[i] if i < len(numbers) else None
     else:
         printed = build_page_map(page_texts, source).printed
 
@@ -148,4 +154,4 @@ def extract_article(pdf_bytes: bytes, *, source: str, footnotes: bool,
             return printed[i] if i < len(printed) else None
 
     page_offsets = [{"char": c, "pdf_page": i, "printed": printed_for(i)} for i, c in offsets]
-    return ExtractedText(body, page_offsets, "embedded", ratio, page_texts)
+    return ExtractedText(body, page_offsets, "embedded", ratio, page_texts, page_note)

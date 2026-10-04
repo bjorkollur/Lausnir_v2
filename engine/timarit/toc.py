@@ -65,10 +65,17 @@ _SECTION = re.compile(
     re.I,
 )
 # A heading in the singular names one piece, so it types the one row after it; the others (plural or mass nouns) head
-# every row up to the next heading or the next "N. hefti".
-_ONE_ROW_SECTION = re.compile(r"^(?:Viðtal|Ritstjórnargrein)\s*$", re.I)
+# every row up to the next heading or the next "N. hefti". Matched against the heading without its colon.
+_ONE_ROW_SECTION = re.compile(
+    r"^(?:Viðtal|Ritstjórnargrein|Leiðari|Formannspistill|Pistill formanns|Ritdómur|Bókarfregn|Minning|In memoriam)$",
+    re.I)
+_MAX_HEADING_WORDS = 4      # a heading in capitals is a word or a few ("MEÐAL EFNIS:", "GESTABÁLKUR")
+# Úlfljótur's columns ("Gestabálkur", "FRÉTTABÁLKUR", "Lagabálkur"): one word ending in -bálkur, a singular noun. In the
+# archive each heads one row, and the 2005–2006 contents list items without a heading after the last column.
+_COLUMN = re.compile(r"^\w+bálkur:?$", re.I)
+_CONTENTS_TITLE = re.compile(r"^efnisyfirlit\s*$", re.I)   # the list starts (anew, after a cover listing)
 _NOISE = re.compile(r"^(?:efnisyfirlit|grein|bls\.?)\s*$", re.I)  # column heads and the TOC title itself
-_END = re.compile(r"^(?:höfundaskrá|atriðisorðaskrá)\s*$", re.I)  # back-matter indexes list "Nafn: Titill 7" again
+_END = re.compile(r"^(?:höfundaskrá|atriðisorðaskrá)\s*:?\s*$", re.I)  # back-matter indexes list "Nafn: Titill 7" again
 # Where a page_first TOC ends and the running footer begins: "1. hefti • 62. árgangur / vor 2012 /
 # Lögfræðingafélag Íslands • Álftamýri 9 • 108 Reykjavík". Searched from the first entry on, because
 # 2019+ covers print "4. hefti • 71. árgangur" above the entries.
@@ -198,6 +205,9 @@ SECTION_LABELS: dict[str, str | None] = {
     "bókarfregn": "Ritdómur", "bókarfregnir": "Ritdómur", "bókabálkur": "Ritdómur", "dómareifanir": "Dómareifun", "fréttir": "Frétt",
     "viðtal": "Viðtal", "viðtöl": "Viðtal", "vefrit": None, "aðsent": None, "umfjöllun": None, "grein": None,
     "af vettvangi dómsmála": None, "af vettvangi": None,     # TL's column logo, OCR'd "Aí vettvangi" / "(lóinsinála"
+    # Úlfljótur 2010–2017 (Task 22f): the news column, and the debate column of signed commentary and opinion pieces,
+    # which may be legal analysis (2014, 2016) or short opinions (2015): the title decides.
+    "fréttabálkur": "Frétt", "rökstólar": None,
 }
 
 
@@ -377,6 +387,13 @@ def _label_word_in(name: str) -> bool:
     return any(len(t) >= 3 and (e := _bin.lookup(t)[1]) and all(x.hluti == "alm" for x in e) for t in name.split()[:-1])
 
 
+def _reads_as_person(names: list[str]) -> bool:
+    """At least one of the names has a patronymic surname or a token BÍN knows as a given name ("Peter Dalmay", "Sigurður
+    Líndal"): the shape check alone takes "International Criminal Law" for a name."""
+    return any(looks_like_person(n, strict=True) or any(e.hluti == "ism" for t in n.split() for e in _bin.lookup(t)[1])
+               for n in names)
+
+
 def _mononym(s: str) -> list[str]:
     """A lone capitalised word before a colon is an author only if BÍN knows it as a name ("Aðalsteinn:"),
     not when it is a label ("Viðtal:", "Ritdómur:")."""
@@ -445,7 +462,7 @@ def _lead_credit(body: str) -> tuple[list[str], str, bool] | None:
     return names, title.strip(), bool(m.group("review"))
 
 
-def _split_author_title(lines: list[str]) -> tuple[list[str], str]:
+def _split_author_title(lines: list[str], strict: bool = False) -> tuple[list[str], str]:
     """Split an entry's text lines (page number and leaders already removed) into authors and title.
 
     Tried in this order; the first that applies wins:
@@ -460,7 +477,9 @@ def _split_author_title(lines: list[str]) -> tuple[list[str], str]:
       5. Names without punctuation: the shortest run of 2–4 name tokens that ends in a patronymic
          (-son/-sen/-dóttir), when an upper-case word starts the rest ('Elín Sif Kjartansdóttir Frá ritstjóra').
          Family-name authors without punctuation are not recognised: that would take titles for names.
-    No author found → ([], whole text).
+    No author found → ([], whole text). With `strict` (the row right after a heading, which used to hide the line
+    under it: "MEÐAL EFNIS:" / "International Criminal Law" / title) an author line must read as a person
+    (_reads_as_person), not merely have a name's shape.
     """
     lines = _join_wrapped_surnames(lines)
     body = _join_lines(lines)
@@ -478,7 +497,8 @@ def _split_author_title(lines: list[str]) -> tuple[list[str], str]:
     for line in lines[:-1]:
         following = lines[used + 1]
         goes_on = _LIST_CONTINUES.search(line) or _LIST_START.match(following)
-        if (following[:1].islower() and not _LIST_START.match(following)) or not (names := _person_names(line)):
+        if (following[:1].islower() and not _LIST_START.match(following)) or not (names := _person_names(line)) \
+                or (strict and not _reads_as_person(names)):
             break
         if line.isupper() and following.isupper() and not goes_on:  # a heading in capitals over two lines
             break
@@ -495,8 +515,10 @@ def _split_author_title(lines: list[str]) -> tuple[list[str], str]:
                 used -= 1
                 break
             authors += names
-        if authors:
-            return authors, ",".join(parts[used:]).strip()
+        rest = ",".join(parts[used:]).strip()
+        if authors and _TITLE_START.match(rest):        # "Nafn, sérstakur saksóknari": a role, not a title
+            return authors, rest
+        authors = []
     words = body.split()
     for k in range(2, min(4, len(words) - 1) + 1):
         if looks_like_person(" ".join(words[:k]), strict=True) and _TITLE_START.match(words[k]):
@@ -576,14 +598,14 @@ def _parse_page_first(lines: list[str]) -> list[TocEntry]:
 
 
 def _entry(lines: list[str], page: int | None, section: str | None, issue: str | None,
-           before: list[TocEntry]) -> TocEntry | None:
+           before: list[TocEntry], strict: bool = False) -> TocEntry | None:
     """One TOC entry from its lines: a credit before the title ("Ritdómur eftir X: …") makes it a review by X;
     "Sami: …" is by the author of the entry before it."""
     if credit := _lead_credit(_join_lines(_join_wrapped_surnames(lines))):
         authors, title, review = credit
         section = "Ritdómar" if review else section
     else:
-        authors, title = _split_author_title(lines)
+        authors, title = _split_author_title(lines, strict)
     if not authors and (m := _SAME_AUTHOR.match(title)) and before:
         authors, title = list(before[-1].authors), title[m.end():]
     return TocEntry(title, authors, page, section, issue) if title else None
@@ -634,35 +656,73 @@ def _page_alone(line: str) -> bool:
     return closing is not None and not closing[0]
 
 
+def _caps_heading(line: str, nxt: str) -> bool:
+    """A line in capitals that can only be a heading: a few words with at least four letters and no digit, not a list
+    of names (an author printed in capitals), and not followed by another line in capitals (a title in capitals that
+    goes on, "UM STJÓRNARSKRÁ" / "ÍSLANDS ..... 20")."""
+    core = line.strip(" :.")
+    return (sum(c.isalpha() for c in core) >= 4 and core.isupper() and not any(c.isdigit() for c in core)
+            and len(core.split()) <= _MAX_HEADING_WORDS and not nxt.isupper() and not _person_names(core))
+
+
+def _heading(line: str, nxt: str) -> tuple[str | None, bool] | None:
+    """(the section it sets, whether it types one row only) when `line` is a heading, else None. A heading has no page
+    of its own: a line whose page number follows on the next line is a row's title (Lögbrú 2015-1: "Guðfinnur
+    Stefánsson, / Viðtal / 9"), and so is a line that ends in a dotted leader (a row whose number the OCR lost).
+
+    - a section word (_SECTION) sets itself;
+    - a section label (SECTION_LABELS: "GESTABÁLKUR", "Greinar:", "Á víð og dreif") or any other line in capitals
+      (_caps_heading: "RÖKSTÓLAR", "MEÐAL EFNIS:") sets the article type the label stands for, or None when it says
+      nothing about the type (the row's title decides) or is unknown (Task 22f: Úlfljótur 2010–2017 prints its columns
+      so, and they must end the reach of "GREINAR" above them)."""
+    if _page_alone(nxt) or _TRAIL_LEADER.search(line):
+        return None
+    if m := _SECTION.match(line):
+        return m.group(1), bool(_ONE_ROW_SECTION.match(m.group(1)))
+    if is_label(line) or _COLUMN.match(line) or _caps_heading(line, nxt):
+        key = _label_key(line)
+        return SECTION_LABELS.get(key), bool(_ONE_ROW_SECTION.match(key) or _COLUMN.match(key))
+    return None
+
+
+def _is_column(title: str) -> bool:
+    """A row whose title is a section label or an Úlfljótur column ("Rekabálkur" / "363"): the column itself."""
+    return is_label(title) or bool(_COLUMN.match(title))
+
+
 def _parse_page_last(lines: list[str]) -> list[TocEntry]:
-    """Rows are closed by their page number. A line that is only a section word is a heading: its section types the
-    rows under it until the next heading or "N. hefti" (a singular one, "Viðtal", types the next row only). It is a
-    row's own title when the row's page number follows on the next line (Lögbrú 2015-1: "Guðfinnur Stefánsson, /
-    Viðtal / 9"): a heading has no page of its own."""
+    """Rows are closed by their page number. A heading (_heading) types the rows under it until the next heading, "N.
+    hefti" or the contents' title "Efnisyfirlit" (after a cover listing the list starts anew); a singular one ("Viðtal",
+    an Úlfljótur column) types the next row only. A heading is never part of a row's title. A row whose title is a label
+    is a column of its own: a plural heading above it does not type it, and its reach ends there. A column head
+    ("Grein", "Bls.") leaves the heading in force."""
     entries: list[TocEntry] = []
     section: str | None = None
     one_row = False
     issue: str | None = None
     pending: list[str] = []
     last_page: int | None = None
+    after_heading = False             # the next row follows a heading: its author line must read as a person
     for idx, line in enumerate(lines):
+        nxt = lines[idx + 1] if idx + 1 < len(lines) else ""
         if _END.match(line):
             break
         if m := _HEFTI.match(line):
             issue, section, one_row, pending = m.group(1), None, False, []
             continue
-        if (m := _SECTION.match(line)) and not _page_alone(lines[idx + 1] if idx + 1 < len(lines) else ""):
-            section, one_row, pending = m.group(1), bool(_ONE_ROW_SECTION.match(line)), []
-            continue
         if _NOISE.match(line) or _is_role(line):
             pending = []
+            if _CONTENTS_TITLE.match(line):
+                section, one_row = None, False
+            continue
+        if (heading := _heading(line, nxt)) is not None:
+            (section, one_row), pending, after_heading = heading, [], True
             continue
         closing = _closing(line) or _garbled_closing(line, pending)
         if closing and closing[2]:
             # Text + number without leaders is ambiguous ("Hæstaréttardómur 1983, 1718", the footer
             # "Lögfræðingur 3"): accept it only if the page does not go back and no lower-case
             # continuation line follows.
-            nxt = lines[idx + 1] if idx + 1 < len(lines) else ""
             if (last_page is not None and closing[1] < last_page) or nxt[:1].islower():
                 closing = None
         if not closing:
@@ -671,9 +731,11 @@ def _parse_page_last(lines: list[str]) -> list[TocEntry]:
         text, page, _ = closing
         if page is not None and last_page is not None and page < last_page:
             page = None                     # "2" for 27 after page 8: an unknown start, located by the title later
-        entry = _entry(_chain(pending, text), page, section, issue, entries)
-        pending = []
+        entry = _entry(_chain(pending, text), page, section, issue, entries, strict=after_heading)
+        pending, after_heading = [], False
         if entry:
+            if _is_column(entry.title) and not one_row:     # a singular heading names this very row: it stays
+                entry.section, section = None, None
             entries.append(entry)
             last_page = page if page is not None else last_page
             if one_row:
