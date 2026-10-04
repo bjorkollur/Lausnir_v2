@@ -63,7 +63,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 33
-  page_end: 62
+  page_end: 63
   issue: '1'
   pdf_pages:
   - 0
@@ -77,6 +77,7 @@ articles:
     authors: page
     pages: page
     issue: page
+    page_end: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -86,7 +87,7 @@ articles:
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/33-64_The_Icelandic_states_online_web_services.pdf
-  note: ''
+  note: Síðasta prentaða blaðsíða leiðrétt (prentað blaðsíðutal sleppir einu númeri á eftir fyrstu síðu).
   analysis_notes:
   - skráarnafn segir bls. 33–64, PDF-skjalið bls. 33–62
 - title: Stefnumiðuð áætlanagerð félagasamtaka
@@ -159,7 +160,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 113
-  page_end: 131
+  page_end: 132
   issue: '2'
   pdf_pages:
   - 0
@@ -173,6 +174,7 @@ articles:
     pages: filename
     issue: page
     authors: page
+    page_end: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -182,7 +184,7 @@ articles:
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/113-132_Private_Sector_Investments_from_Small_St.pdf
-  note: ''
+  note: Síðasta prentaða blaðsíða leiðrétt (prentað blaðsíðutal sleppir einu númeri á eftir fyrstu síðu).
   analysis_notes:
   - skráarnafn segir bls. 113–132, PDF-skjalið bls. 113–131
 - title: Öryggissjálfsmynd Íslands Umræða um varnarmála- og almannavarnalög á Alþingi vorið 2008
@@ -191,7 +193,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 133
-  page_end: 156
+  page_end: 157
   issue: '2'
   pdf_pages:
   - 0
@@ -205,6 +207,7 @@ articles:
     authors: page
     pages: page
     issue: page
+    page_end: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -214,7 +217,7 @@ articles:
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/133-158_Icelandic_Security_Identity.pdf
-  note: ''
+  note: Síðasta prentaða blaðsíða leiðrétt (prentað blaðsíðutal sleppir einu númeri á eftir fyrstu síðu).
   analysis_notes:
   - skráarnafn segir bls. 133–158, PDF-skjalið bls. 133–156
 - title: Viðhorf dómara til fyrningar sakar í kynferðisbrotum gegn börnum
@@ -286,7 +289,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 205
-  page_end: 228
+  page_end: 229
   issue: '2'
   pdf_pages:
   - 0
@@ -300,6 +303,7 @@ articles:
     authors: page
     pages: page
     issue: page
+    page_end: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -309,7 +313,7 @@ articles:
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/205-230_Supply_or_demand__Women's_success_in_par.pdf
-  note: ''
+  note: Síðasta prentaða blaðsíða leiðrétt (prentað blaðsíðutal sleppir einu númeri á eftir fyrstu síðu).
   analysis_notes:
   - skráarnafn segir bls. 205–230, PDF-skjalið bls. 205–228
 - title: Íslenska efnahagsundrið Frá hagsæld til frjálshyggju og fjármálahruns
@@ -318,7 +322,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 231
-  page_end: 255
+  page_end: 256
   issue: '2'
   pdf_pages:
   - 0
@@ -332,6 +336,7 @@ articles:
     authors: page
     pages: page
     issue: page
+    page_end: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -341,6 +346,6 @@ articles:
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol04/231-256_The_Icelandic_Economic_Miracle.pdf
-  note: ''
+  note: Síðasta prentaða blaðsíða leiðrétt (prentað blaðsíðutal sleppir einu númeri á eftir fyrstu síðu).
   analysis_notes:
   - skráarnafn segir bls. 231–256, PDF-skjalið bls. 231–255
