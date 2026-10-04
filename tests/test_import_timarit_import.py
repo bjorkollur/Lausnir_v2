@@ -173,6 +173,19 @@ def test_build_article_raw_matches_extractor_contract():
     assert build_article_raw(m, a, ExtractedText("T"), "x.pdf")["issue"] == "4"
 
 
+@pytest.mark.parametrize("date, prov, precision", [
+    ("2022-01-21", {"date": "page"}, "day"), ("2022-01-21", {}, "day"), ("2022-03-05", {"date": "user"}, "day"),
+    ("2019-01-01", {"date": "user"}, "year"), ("2019-01-01", {"date": "page+user"}, "day"),     # R44
+    ("2020-01-01", {"date": "pdf_metadata"}, "year"), (None, {}, "year")])
+def test_build_article_raw_date_precision_is_day_only_for_a_date_that_was_printed(date, prov, precision):
+    # Task 22d: a vefrit article with no printed date takes the year from the PDF's metadata (2020-01-01): "year"
+    from engine.timarit.extract import ExtractedText
+    m = IssueManifest(source="ulfljotur_vefrit", year=None, volume=None, issue=None, label="L", file=None)
+    a = ArticleEntry(title="T", date=date, provenance=prov)
+    raw = build_article_raw(m, a, ExtractedText("Texti"), "x.pdf")
+    assert raw["date_precision"] == precision and raw["date"] == date
+
+
 # --- import_manifest: the happy path ----------------------------------------------------------------------
 
 async def test_import_writes_documents_pdfs_markdown_and_marks_imported(tmp_path, raw_dir):

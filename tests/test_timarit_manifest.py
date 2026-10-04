@@ -7,7 +7,7 @@ import yaml
 from engine.config.sources import get_config
 from engine.timarit import config as C
 from engine.timarit.manifest import (
-    ArticleEntry, IssueManifest, article_confidence, assign_external_ids, external_id, issue_label, issue_status,
+    ArticleEntry, IssueManifest, article_confidence, assign_external_ids, date_precision, external_id, issue_label, issue_status,
     load_manifest, manifest_path, manifest_sha256, merge_preserving_user, save_manifest,
 )
 
@@ -81,6 +81,19 @@ def test_roundtrip_yaml_keeps_everything(tmp_path):
     data = yaml.safe_load(p.read_text(encoding="utf-8"))
     assert data["articles"][0]["pdf_pages"] == [8, 48] and data["status"] == "pending"
     assert load_manifest(p) == _m()
+
+
+def test_a_date_taken_from_the_pdf_metadata_survives_a_save_and_load(tmp_path):
+    # Task 22d: provenance "pdf_metadata" is a label of its own; load_manifest refuses labels it does not know, and
+    # analyze's own output must load again (the pilot report, import and the review UI all read it)
+    a = ArticleEntry(title="Loftslagsváin og dómstólar", date="2020-01-01", provenance={"title": "filename", "date": "pdf_metadata"},
+                     analysis_notes=["birtingardagur fannst ekki á fyrstu síðu; ár úr lýsigögnum PDF-skjalsins: 2020"])
+    m = _m(source="ulfljotur_vefrit", year=None, volume=None, issue=None, articles=[a])
+    p = tmp_path / "x_x_x.yaml"
+    save_manifest(m, p)
+    back = load_manifest(p)
+    assert back.articles[0].date == "2020-01-01" and back.articles[0].provenance["date"] == "pdf_metadata"
+    assert date_precision(back.articles[0]) == "year"
 
 
 def test_roundtrip_with_every_field_filled(tmp_path):
@@ -210,11 +223,25 @@ def test_article_confidence_weights_and_llm_cap():
     assert article_confidence({}) == 0.0
 
 
-def test_article_confidence_exactly_at_threshold_is_not_lost_to_float_error():
-    # 0.35 + 0.30 + 0.20 is 0.8499999999999999 in floating point; an article with no
-    # author but everything else confirmed sits exactly on APPROVE_THRESHOLD and must pass it.
+def test_article_confidence_exactly_at_threshold_is_not_lost_to_float_error(monkeypatch):
+    # 0.35 + 0.30 + 0.20 is 0.8499999999999999 in floating point; an article with no author but everything else
+    # confirmed sits exactly on a threshold of 0.85 (the plan's default; the user's pilot choice, 0.9, only the
+    # article with all four checks reaches) and must pass it.
+    monkeypatch.setattr(C, "APPROVE_THRESHOLD", 0.85)
     checks = {"title_on_page": True, "printed_page_match": True, "author_on_page": False, "external_record": True}
     assert article_confidence(checks) >= C.APPROVE_THRESHOLD
+
+
+def test_the_pilot_thresholds_are_the_users_choices():
+    # Task 22d: chosen by the user after the pilot audits (2026-10-04)
+    assert (C.APPROVE_THRESHOLD, C.OCR_BIN_RATIO_THRESHOLD, C.COVERAGE_MAX_GAP_PAGES, C.PAGE_MAP_MIN_QUALITY) == (0.9, None, 6, 0.5)
+    every = {"title_on_page": True, "printed_page_match": True, "author_on_page": True, "external_record": True}
+    assert article_confidence(every) >= C.APPROVE_THRESHOLD
+    assert article_confidence({**every, "author_on_page": False}) < C.APPROVE_THRESHOLD      # 0.85: to review
+    m = _m(pages=72, articles=[ArticleEntry(title="A", page_start=1, pdf_pages=[3, 71], confidence=0.85)])
+    assert issue_status(m) == "review"
+    m.articles[0].confidence = 0.9
+    assert issue_status(m) == "approved"
 
 
 def test_article_confidence_is_rounded_so_pilot_weights_cannot_miss_a_threshold_on_float_error(monkeypatch):
@@ -258,6 +285,36 @@ def test_external_id_forms():
     assert external_id(v, v.articles[0]) == "2022-01-21-loftslagsvain-og-domstolar"
     r = _m(source="rannsoknir_lagadeild", year=2007, volume=8, issue=None, articles=[ArticleEntry(title="T", page_start=33)])
     assert external_id(r, r.articles[0]) == "2007-8-x-33"
+
+
+def test_external_id_of_a_vefrit_article_with_only_a_year_is_the_year_and_the_slug():
+    # Task 22d: the year came from the PDF's metadata, so the id carries the year, not an invented day
+    v = _m(source="ulfljotur_vefrit", year=None, volume=None, issue=None,
+           articles=[ArticleEntry(title="Loftslagsváin og dómstólar", date="2020-01-01", provenance={"date": "pdf_metadata"}),
+                     ArticleEntry(title="Loftslagsváin og dómstólar", date="2022-01-21", provenance={"date": "page"})])
+    assert assign_external_ids(v) == ["2020-loftslagsvain-og-domstolar", "2022-01-21-loftslagsvain-og-domstolar"]
+
+
+@pytest.mark.parametrize("date, prov, precision", [
+    ("2022-01-21", {"date": "page"}, "day"), ("2022-01-21", {}, "day"),                  # no provenance: as before
+    ("2022-01-21", {"title": "filename"}, "day"),
+    ("2020-01-01", {"date": "pdf_metadata"}, "year"), ("2020-01-01", {"date": "leitir"}, "year"),
+    (None, {}, "year"), (None, {"date": "page"}, "year"),
+    # R44: the user confirming or correcting an undated article's year writes YYYY-01-01 with provenance user: still a
+    # year; a user's date that is not the 1st of January is a whole date; labels combine with "+"
+    ("2019-01-01", {"date": "user"}, "year"), ("2019-03-22", {"date": "user"}, "day"),
+    ("2019-01-01", {"date": "pdf_metadata+user"}, "year"), ("2019-03-22", {"date": "pdf_metadata+user"}, "day"),
+    ("2019-01-01", {"date": "page+user"}, "day"), ("2019-01-01", {"date": "page"}, "day"),   # printed on the page: a day
+    ("2019-01-01", {"date": " User "}, "year")])
+def test_date_precision_is_day_for_a_printed_date_or_a_users_whole_date(date, prov, precision):
+    assert date_precision(ArticleEntry(title="T", date=date, provenance=prov)) == precision
+
+
+def test_external_id_of_a_vefrit_year_the_user_confirmed_is_still_year_and_slug():
+    v = _m(source="ulfljotur_vefrit", year=None, volume=None, issue=None,
+           articles=[ArticleEntry(title="Hugtakid Nauðgun", date="2019-01-01", provenance={"date": "user"}),
+                     ArticleEntry(title="Hugtakið nauðgun", date="2019-03-22", provenance={"date": "user"})])
+    assert assign_external_ids(v) == ["2019-hugtakid-naudgun", "2019-03-22-hugtakid-naudgun"]
 
 
 def test_external_id_standalone_work_and_unknown_year():

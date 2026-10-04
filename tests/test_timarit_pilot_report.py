@@ -395,6 +395,7 @@ def test_cli_prints_the_report_without_writing_anything(tmp_path, capsys):
     assert "APPROVE_THRESHOLD" in out and "PAGE_MAP_MIN_QUALITY" in out and "OCR_BIN_RATIO_THRESHOLD" in out
     assert "COVERAGE_MAX_GAP_PAGES" in out and "PAGE_MAP_RESTART_RATIO" in out
     assert "0.95" in out and "0.50" in out
+    assert "0.90 *" in out and "0.85 *" not in out and "(núna 0.9," in out         # the user's choice is the marked row
     assert "external_record" in out
     assert "samþykkt af greiningu" in out and "issue_status eingöngu" in out and "TILGÁTA" in out
     assert "n=1, vantar 1" in out                                            # ulfljotur: the failed container has no page-map values

@@ -357,7 +357,8 @@ def journal_citation(doc: "Document", config: "SourceConfig") -> str:
 
     Parts whose value is NULL are omitted, and so is an issue that is not a number (citable_issue).
     The journal name is omitted when ``config.citation_name`` is None (standalone works, e.g. fraedigreinar_ymsar).
-    Only sources with ``config.cite_by_date`` (web articles) cite by full date.
+    Only sources with ``config.cite_by_date`` (web articles) cite by full date, or by the year alone when the row's
+    ``raw_api_data.date_precision`` is "year" (no date was printed; document_date is then YYYY-01-01, Task 22d).
     """
     author = _author_part(doc.plaintiffs)
     title = f"„{(doc.case_number or '').strip()}“"
@@ -366,7 +367,9 @@ def journal_citation(doc: "Document", config: "SourceConfig") -> str:
     if config.cite_by_date and doc.document_date:
         # Web articles cite by date of publication, without pages.
         label = f"{name}, " if name else ""
-        return f"{head} {label}{_date_str(doc.document_date)}"
+        raw = doc.raw_api_data if isinstance(doc.raw_api_data, dict) else {}
+        when = str(doc.document_date.year) if raw.get("date_precision") == "year" else _date_str(doc.document_date)
+        return f"{head} {label}{when}"
     bib: list[str] = []
     if doc.volume is not None:
         bib.append(f"{doc.volume}. árg.")

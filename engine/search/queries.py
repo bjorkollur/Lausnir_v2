@@ -148,7 +148,7 @@ from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from engine.config.source_groups import resolve_scope
-from engine.config.sources import get_config
+from engine.config.sources import JOURNAL_SOURCES, get_config
 from engine.database.models import Document
 from engine.processors.citation_resolver import norm_case_number
 from engine.processors.lemmatizer import lemmatize_query
@@ -196,17 +196,33 @@ class SearchError(ValueError):
     """Raised for bad input (invalid regex, unknown field) — maps to HTTP 400."""
 
 
+# A web journal's article may know only the year it was published (no date printed, Task 22d): its row says so in
+# raw_api_data.date_precision, and its citation must not invent a day. The CASE leaves raw_api_data (large for
+# rulings) unread for every other source, so the hot search paths do not detoast it.
+def _date_precision_sql(web_journals) -> str:
+    """The select item giving documents.raw_api_data.date_precision for the web journals among `web_journals` (short
+    names) and NULL for every other row; NULL alone when there is no such journal (an empty IN () is a syntax error)."""
+    if not web_journals:
+        return "NULL AS date_precision"
+    shorts = ", ".join(f"'{short}'" for short in web_journals)
+    return f"CASE WHEN s.short_name IN ({shorts}) THEN d.raw_api_data->>'date_precision' END AS date_precision"
+
+
+DATE_PRECISION_SQL = _date_precision_sql(sorted(s for s in JOURNAL_SOURCES if get_config(s).cite_by_date))
+
+
 def _citation(short_name: str | None, court, case_number, document_date, verdict_type, *,
-              plaintiffs=None, volume=None, issue=None, page_start=None, page_end=None) -> str:
+              plaintiffs=None, volume=None, issue=None, page_start=None, page_end=None, date_precision=None) -> str:
     """Build the urlausn citation, reusing renderer.to_urlausn where possible.
 
     The keyword-only bibliographic fields are what a journal citation is made of
-    (authors, volume, issue, pages); rulings ignore them.
+    (authors, volume, issue, pages, whether the date is only a year); rulings ignore them.
     """
     doc = Document(
         court=court, case_number=case_number,
         document_date=document_date, verdict_type=verdict_type,
         plaintiffs=plaintiffs, volume=volume, issue=issue, page_start=page_start, page_end=page_end,
+        raw_api_data={"date_precision": date_precision} if date_precision else None,
     )
     try:
         return to_urlausn(doc, get_config(short_name)) if short_name else ""
@@ -542,7 +558,7 @@ async def search_documents(
         SELECT d.id, s.short_name AS source, s.display_name AS source_display,
                d.court, d.case_number, d.document_date, d.verdict_type,
                d.summary, d.keywords, d.plaintiffs, d.defendants,
-               d.volume, d.issue, d.page_start, d.page_end,
+               d.volume, d.issue, d.page_start, d.page_end, {DATE_PRECISION_SQL},
                {snippet_select},
                {body_head_select},
                -- 'cites' is one-way (citing → cited), so this is exactly the
@@ -578,7 +594,8 @@ async def search_documents(
             "urlausn": _citation(r["source"], r["court"], r["case_number"],
                                  r["document_date"], r["verdict_type"],
                                  plaintiffs=r["plaintiffs"], volume=r["volume"], issue=r["issue"],
-                                 page_start=r["page_start"], page_end=r["page_end"]),
+                                 page_start=r["page_start"], page_end=r["page_end"],
+                                 date_precision=r.get("date_precision")),
             "source": r["source"],
             "source_display": r["source_display"],
             "court": r["court"],
@@ -879,7 +896,7 @@ async def get_stored_pdf(session: AsyncSession, doc_id: str | uuid.UUID) -> Path
 
 
 def _journal_block(cfg, row) -> dict[str, Any] | None:
-    """The reader's journal header: issue label, year and the article's place in the issue.
+    """The reader's journal header: issue label, year, how precise the date is and the article's place in the issue.
 
     None unless the source is a journal. ``label`` comes from journal_issues (LEFT JOIN); an article
     without an issue row falls back to the journal's display name so the field is always a string.
@@ -887,6 +904,7 @@ def _journal_block(cfg, row) -> dict[str, Any] | None:
     if not (cfg and cfg.kind == "journal"):
         return None
     d = row["document_date"]
+    raw = row["raw_api_data"] if isinstance(row["raw_api_data"], dict) else {}
     return {
         "label": row["issue_label"] or row["source_display"],
         "year": d.year if d else None,
@@ -894,6 +912,9 @@ def _journal_block(cfg, row) -> dict[str, Any] | None:
         "issue": row["issue"],
         "page_start": row["page_start"],
         "page_end": row["page_end"],
+        # "year": document_date is only the 1st of January of `year` (no date was printed); "day": a whole date;
+        # None: not recorded.
+        "date_precision": raw.get("date_precision"),
     }
 
 
@@ -996,7 +1017,8 @@ async def get_document(session: AsyncSession, doc_id: str | uuid.UUID) -> dict[s
         "urlausn": _citation(row["source"], row["court"], row["case_number"],
                              row["document_date"], row["verdict_type"],
                              plaintiffs=row["plaintiffs"], volume=row["volume"], issue=row["issue"],
-                             page_start=row["page_start"], page_end=row["page_end"]),
+                             page_start=row["page_start"], page_end=row["page_end"],
+                             date_precision=raw.get("date_precision")),
         "court": row["court"],
         "case_number": row["case_number"],
         "document_date": row["document_date"].isoformat() if row["document_date"] else None,

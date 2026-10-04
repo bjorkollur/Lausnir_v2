@@ -327,7 +327,7 @@ async def search_by_passages(
     or_tsq_param: str | None = None, relax_params: tuple[str, str | None] | None = None,
     strict_total: int | None = None,
 ):
-    from engine.search.queries import SearchResults, _citation  # local import (cycle)
+    from engine.search.queries import DATE_PRECISION_SQL, SearchResults, _citation  # local import (cycle)
 
     tsq = f"{tsq_fn}('simple', :{tsq_param})"
     # OR-fallback recall stage, keyword mode only (proximity passes or_tsq_param=None).
@@ -415,7 +415,7 @@ async def search_by_passages(
         SELECT d.id, s.short_name AS source, s.display_name AS source_display,
                d.court, d.case_number, d.document_date, d.verdict_type,
                d.summary, d.keywords, d.plaintiffs, d.defendants,
-               d.volume, d.issue, d.page_start, d.page_end,
+               d.volume, d.issue, d.page_start, d.page_end, {DATE_PRECISION_SQL},
                h.best_rank, h.match_count, h.tier,
                bp.id AS passage_id, bp.layer, bp.section_kind, bp.section_path,
                bp.para_from, bp.para_to, bp.page_from, bp.page_to, bp.ordinal,
@@ -446,7 +446,8 @@ async def search_by_passages(
             "id": str(r["id"]),
             "urlausn": _citation(r["source"], r["court"], r["case_number"], r["document_date"], r["verdict_type"],
                                  plaintiffs=r["plaintiffs"], volume=r["volume"], issue=r["issue"],
-                                 page_start=r["page_start"], page_end=r["page_end"]),
+                                 page_start=r["page_start"], page_end=r["page_end"],
+                                 date_precision=r.get("date_precision")),
             "source": r["source"], "source_display": r["source_display"],
             "court": r["court"], "case_number": r["case_number"],
             "document_date": r["document_date"].isoformat() if r["document_date"] else None,
@@ -471,7 +472,7 @@ MAX_PASSAGE_WINDOW = 200
 async def get_passages(session: AsyncSession, doc_id, *, from_ordinal: int, to_ordinal: int,
                        section_kinds: list[str] | None, layer: str | None) -> dict[str, Any] | None:
     import uuid
-    from engine.search.queries import SearchError, _citation
+    from engine.search.queries import DATE_PRECISION_SQL, SearchError, _citation
     try:
         did = uuid.UUID(str(doc_id))
     except (ValueError, AttributeError):
@@ -484,9 +485,9 @@ async def get_passages(session: AsyncSession, doc_id, *, from_ordinal: int, to_o
         raise SearchError(f"Unknown layer {layer!r}")
     section_kinds = validate_section_kinds(section_kinds)
 
-    doc = (await session.execute(text("""
+    doc = (await session.execute(text(f"""
         SELECT d.id, s.short_name AS source, d.court, d.case_number, d.document_date, d.verdict_type,
-               d.plaintiffs, d.volume, d.issue, d.page_start, d.page_end
+               d.plaintiffs, d.volume, d.issue, d.page_start, d.page_end, {DATE_PRECISION_SQL}
         FROM documents d JOIN sources s ON s.id = d.source_id WHERE d.id = :id"""), {"id": did})).mappings().first()
     if doc is None:
         return None
@@ -508,7 +509,8 @@ async def get_passages(session: AsyncSession, doc_id, *, from_ordinal: int, to_o
         "document_id": str(doc["id"]),
         "urlausn": _citation(doc["source"], doc["court"], doc["case_number"], doc["document_date"], doc["verdict_type"],
                              plaintiffs=doc["plaintiffs"], volume=doc["volume"], issue=doc["issue"],
-                             page_start=doc["page_start"], page_end=doc["page_end"]),
+                             page_start=doc["page_start"], page_end=doc["page_end"],
+                             date_precision=doc.get("date_precision")),
         "total": total,
         "passages": [{
             "id": str(r["id"]), "ordinal": r["ordinal"], "layer": r["layer"],

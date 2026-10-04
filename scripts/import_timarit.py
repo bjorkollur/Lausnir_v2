@@ -81,8 +81,8 @@ from engine.timarit.extract import ExtractedText, extract_article
 from engine.timarit.leitir_articles import search_articles
 from engine.timarit.llm_toc import PENDING_DIR, cache_key, is_pending, toc_via_llm
 from engine.timarit.manifest import (
-    ArticleEntry, IssueManifest, article_issue, assign_external_ids, issue_label, load_manifest, manifest_path,
-    manifest_sha256, merge_preserving_user, save_manifest,
+    ArticleEntry, IssueManifest, article_issue, assign_external_ids, date_precision, issue_label, load_manifest,
+    manifest_path, manifest_sha256, merge_preserving_user, save_manifest,
 )
 from engine.timarit.naming import FileIdentity, identify, issue_key, nfc, reject_reason
 from engine.timarit.splitter import cut_pages, sha256_bytes
@@ -640,7 +640,7 @@ def build_article_raw(m: IssueManifest, a: ArticleEntry, ex: ExtractedText, sour
         "keywords": list(a.keywords), "pdf_text": ex.body, "page_offsets": ex.page_offsets,
         "source_filename": source_file, "pdf_pages": a.pdf_pages, "provenance": dict(a.provenance),
         "checks": dict(a.checks), "confidence": a.confidence, "leitir_record_id": a.leitir_record_id,
-        "xlsx_row": a.xlsx_row, "ocr_source": ex.ocr_source, "date_precision": "day" if a.date else "year",
+        "xlsx_row": a.xlsx_row, "ocr_source": ex.ocr_source, "date_precision": date_precision(a),
         "bin_ratio": round(ex.bin_ratio, 3), "issue_label": m.label, "issue_file": m.file,
         "note": a.note, "analysis_notes": list(a.analysis_notes),
     }

@@ -4,7 +4,7 @@ import uuid
 from datetime import date
 
 from engine.search.passage_search import get_passages, search_by_passages
-from engine.search.queries import _citation, get_document, search_documents
+from engine.search.queries import DATE_PRECISION_SQL, _citation, _date_precision_sql, get_document, search_documents
 from tests.test_api_citations import DOC_ROW, KeyedSession, _Result
 
 JOURNAL_ROW = {**DOC_ROW, "source": "timarit_logfraedinga", "source_display": "Tímarit lögfræðinga", "court": "TL",
@@ -24,11 +24,81 @@ def test_citation_renders_journal_form_when_given_bibliographic_fields():
     assert _citation("landsrettur", "Lrd.", "177/2024", date(2024, 3, 6), "Dómur") == "Lrd. 177/2024 6. mars 2024 – Dómur"
 
 
+def test_citation_of_a_vefrit_article_with_only_a_year_names_the_year():
+    # Task 22d: documents.raw_api_data.date_precision rides along as a query column; a missing one means a day
+    args = ("ulfljotur_vefrit", "Úlfljótur vefrit", "Loftslagsváin og dómstólar", date(2020, 1, 1), "Fræðigrein")
+    kw = dict(plaintiffs=[{"name": "Kári Hólmar Ragnarsson", "lawyer": None}])
+    assert _citation(*args, **kw, date_precision="year") == (
+        "Kári Hólmar Ragnarsson: „Loftslagsváin og dómstólar“ Úlfljótur vefrit, 2020")
+    for precision in ("day", None):
+        assert _citation(*args, **kw, date_precision=precision).endswith("Úlfljótur vefrit, 1. janúar 2020")
+    assert _citation("timarit_logfraedinga", "TL", "T", date(2010, 1, 1), "Fræðigrein",
+                     date_precision="year") == _citation("timarit_logfraedinga", "TL", "T", date(2010, 1, 1), "Fræðigrein")
+
+
+def test_the_date_precision_column_is_valid_sql_whatever_the_sources():
+    # no source citing by date: a CASE with an empty IN () list would be a syntax error on every search path
+    assert _date_precision_sql([]) == "NULL AS date_precision"
+    assert _date_precision_sql(["a", "b"]) == (
+        "CASE WHEN s.short_name IN ('a', 'b') THEN d.raw_api_data->>'date_precision' END AS date_precision")
+    assert DATE_PRECISION_SQL == _date_precision_sql(["ulfljotur_vefrit"]) and "IN ()" not in DATE_PRECISION_SQL
+
+
+async def test_the_journal_block_says_how_precise_the_date_is():
+    # an MCP agent reading document_date 2020-01-01 must be able to tell a year from a day (Task 22d)
+    year = {**JOURNAL_ROW, "raw_api_data": {"date_precision": "year"}}
+    day = {**JOURNAL_ROW, "raw_api_data": {"date_precision": "day"}}
+    for row, expected in ((year, "year"), (day, "day"), (JOURNAL_ROW, None)):
+        s = KeyedSession(doc=_Result(first=row), links=_Result(rows=[]), out=_Result(rows=[]), in_=_Result(rows=[]),
+                         unresolved=_Result(first=0))
+        assert (await get_document(s, row["id"]))["journal"]["date_precision"] == expected
+
+
+async def test_every_query_that_cites_a_journal_article_selects_its_date_precision_for_web_journals_only():
+    # the selected expression must leave raw_api_data (large for rulings) unread for every other source
+    VEFRIT_ROW = {**SEARCH_ROW, "source": "ulfljotur_vefrit", "court": "Úlfljótur vefrit", "volume": None, "issue": None,
+                  "page_start": None, "page_end": None, "document_date": date(2020, 1, 1), "date_precision": "year",
+                  "case_number": "Loftslagsváin og dómstólar"}
+    frag = "CASE WHEN s.short_name IN ('ulfljotur_vefrit') THEN d.raw_api_data->>'date_precision' END AS date_precision"
+    expect = "Kári Hólmar Ragnarsson: „Loftslagsváin og dómstólar“ Úlfljótur vefrit, 2020"
+
+    s = _SqlSession([{**VEFRIT_ROW, "plaintiffs": [{"name": "Kári Hólmar Ragnarsson", "lawyer": None}]}])
+    res = await search_documents(s, q="")
+    assert res.results[0]["urlausn"] == expect
+    assert frag in next(q for q in s.sql if "cited_by_count" in q)
+
+    p = _SqlSession([{**PASSAGE_ROW, **VEFRIT_ROW, "plaintiffs": [{"name": "Kári Hólmar Ragnarsson", "lawyer": None}]}])
+    res = await search_by_passages(p, tsq_fn="to_tsquery", tsq_param="q", where=[], params={"q": "loftslag"},
+                                   sort="relevance", page=1, page_size=20, section_kinds=None, strict_total=1)
+    assert res.results[0]["urlausn"] == expect
+    assert frag in next(q for q in p.sql if "bp.id AS passage_id" in q)
+
+    row = {**JOURNAL_ROW, **{k: VEFRIT_ROW[k] for k in ("source", "court", "case_number", "document_date", "volume", "issue",
+                                                       "page_start", "page_end")},
+           "plaintiffs": [{"name": "Kári Hólmar Ragnarsson", "lawyer": None}], "raw_api_data": {"date_precision": "year"}}
+    seen = KeyedSession(doc=_Result(first=row), links=_Result(rows=[]), out=_Result(rows=[]), in_=_Result(rows=[]),
+                        unresolved=_Result(first=0))
+    assert (await get_document(seen, row["id"]))["urlausn"] == expect
+
+    doc = {k: VEFRIT_ROW[k] for k in ("id", "source", "court", "case_number", "document_date", "verdict_type", "volume",
+                                      "issue", "page_start", "page_end", "date_precision")}
+    doc["plaintiffs"] = [{"name": "Kári Hólmar Ragnarsson", "lawyer": None}]
+    g = _SqlSession([])
+    answers = iter([_Result(first=doc), _Result(first=0), _Result(rows=[])])
+
+    async def execute(stmt, params=None, *a, **k):
+        g.sql.append(" ".join(str(stmt).split()))
+        return next(answers)
+    g.execute = execute
+    res = await get_passages(g, doc["id"], from_ordinal=0, to_ordinal=0, section_kinds=None, layer=None)
+    assert res["urlausn"] == expect and frag in g.sql[0]
+
+
 async def test_get_document_exposes_journal_block():
     s = KeyedSession(doc=_Result(first=JOURNAL_ROW), links=_Result(rows=[]), out=_Result(rows=[]), in_=_Result(rows=[]), unresolved=_Result(first=0))
     doc = await get_document(s, JOURNAL_ROW["id"])
     assert doc["journal"] == {"label": "Tímarit lögfræðinga, 60. árg. 1. hefti (2010)", "year": 2010, "volume": 60,
-                              "issue": "1", "page_start": 7, "page_end": 47}
+                              "issue": "1", "page_start": 7, "page_end": 47, "date_precision": None}
     assert (doc["volume"], doc["issue"], doc["page_start"], doc["page_end"], doc["lang"]) == (60, "1", 7, 47, "is")
     assert doc["urlausn"].startswith("Kjartan Bjarni Björgvinsson: „Hvenær")
     assert doc["urlausn"] == JOURNAL_URLAUSN

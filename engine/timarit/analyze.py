@@ -35,6 +35,7 @@ the issue to review.
 from __future__ import annotations
 
 import copy
+import datetime
 import difflib
 import re
 from collections import Counter
@@ -116,17 +117,74 @@ def _page_texts(pdf: bytes) -> list[str]:
         return [p.get_text() for p in d]
 
 
-def _read_article_pdf(pdf: bytes, every_page: bool = False) -> tuple[list[str], list[Page], list[float]]:
-    """An article PDF's page texts and its pages as visual lines (firstpage.read_page): every page with the share
-    pictures cover of each (`every_page`: its end is looked for, pagekind), else the first and the last only."""
+# "D:YYYYMMDDHHmmSSOHH'mm'": every part after the year is optional; O is +, - or Z (UTC).
+_META_DATE = re.compile(r"^(?:D:)?(\d{4})(\d{2})?(\d{2})?(\d{2})?(\d{2})?(\d{2})?\s*(?:(Z)|([+-])(\d{2})?(?:'?(\d{2}))?)?", re.I)
+_META_FIRST_YEAR = 1990       # web journals: nothing in the archive is older than the web
+# A PDF made by a web browser ("print to PDF") is dated by the day it was printed, not the day it was published (R45).
+_BROWSER = re.compile(r"\b(?:safari|chrome|chromium|firefox|edge|skia/pdf)\b", re.I)
+
+
+class PdfMeta(NamedTuple):
+    """What a PDF's metadata says about when an article was published, and how far that can be trusted (Task 22d)."""
+    year: int | None = None                  # the year of the creation date, else of the modification date, if plausible
+    when: datetime.datetime | None = None    # that date and time in UTC, naive: the key of a batch (None without an hour)
+    browser: bool = False                    # a web browser made the PDF
+
+
+def _meta_date(raw: str) -> tuple[int, datetime.datetime | None] | None:
+    """A PDF date as (year, UTC time or None without an hour), or None when it is not a date (a month 13, a 25-hour
+    offset: PyMuPDF hands the string over as the file has it)."""
+    mt = _META_DATE.match(raw)
+    if not mt:
+        return None
+    year, month, day, hour, minute, second = (int(g) if g is not None else None for g in mt.groups()[:6])
+    month, day, minute, second = (1 if month is None else month), (1 if day is None else day), minute or 0, second or 0
+    try:
+        datetime.date(year, month, day)                  # a month 13 or a day 40 is no date ("00" is none either)
+        if hour is None:
+            return year, None
+        when = datetime.datetime(year, month, day, hour, minute, second)
+        sign, off_h, off_m = mt.group(8), int(mt.group(9) or 0), int(mt.group(10) or 0)
+        if off_h > 23 or off_m > 59:
+            return None
+        offset = datetime.timedelta(hours=off_h, minutes=off_m)
+        return year, when - offset if sign == "+" else when + offset if sign == "-" else when
+    except (ValueError, OverflowError):                  # year 1 with a + offset, year 9999 with a - offset
+        return None
+
+
+def pdf_meta(meta: dict | None, this_year: int | None = None) -> PdfMeta:
+    """Read a PDF's metadata ("D:20201002123456+00'00'"): the creation date's year, else the modification date's,
+    whichever is a date and plausible for a web article (from _META_FIRST_YEAR to this year), that date's time in UTC
+    (the offset normalised) when it has an hour, and whether the creator or producer is a web browser."""
+    meta = meta or {}
+    last = this_year or datetime.date.today().year
+    year, when = None, None
+    for key in ("creationDate", "modDate"):
+        found = _meta_date(str(meta.get(key) or ""))
+        if found and _META_FIRST_YEAR <= found[0] <= last:
+            year, when = found
+            break
+    return PdfMeta(year, when, bool(_BROWSER.search(f"{meta.get('creator') or ''} {meta.get('producer') or ''}")))
+
+
+def metadata_year(meta: dict | None, this_year: int | None = None) -> int | None:
+    """The plausible year of a PDF's metadata date (pdf_meta(...).year), for callers that need nothing else."""
+    return pdf_meta(meta, this_year).year
+
+
+def _read_article_pdf(pdf: bytes, every_page: bool = False) -> tuple[list[str], list[Page], list[float], PdfMeta]:
+    """An article PDF's page texts, its pages as visual lines (firstpage.read_page): every page with the share
+    pictures cover of each (`every_page`: its end is looked for, pagekind), else the first and the last only, and what
+    its metadata says about the publication date."""
     with fitz.open(stream=pdf, filetype="pdf") as d:
-        texts = [p.get_text() for p in d]
+        texts, meta = [p.get_text() for p in d], pdf_meta(d.metadata)
         if not texts:
-            return texts, [], []
+            return texts, [], [], meta
         if not every_page:
-            return texts, [read_page(d[0]), read_page(d[len(texts) - 1])], []
+            return texts, [read_page(d[0]), read_page(d[len(texts) - 1])], [], meta
         reader = PageReader(d)
-        return texts, [reader(i) for i in range(len(texts))], [reader.picture(i) for i in range(len(texts))]
+        return texts, [reader(i) for i in range(len(texts))], [reader.picture(i) for i in range(len(texts))], meta
 
 
 def _visual_text(page: Page) -> str:
@@ -224,7 +282,7 @@ def _printed_at(pm: PageMap, idx: int) -> int | None:
 class _Doc(NamedTuple):
     """One article PDF: its page texts, the printed numbers of its first and last page (None when unknown), its pages
     as visual lines (every page, or the first and the last), the share pictures cover of each (every page only) and
-    the printed number of each page (its own map, when trusted)."""
+    the printed number of each page (its own map, when trusted) and what its metadata says of its date (Task 22d)."""
     rel: str
     texts: list[str]
     first_printed: int | None
@@ -232,6 +290,7 @@ class _Doc(NamedTuple):
     pages: list[Page] = []
     pictures: list[float] = []
     printed: list[int | None] = []
+    meta: PdfMeta = PdfMeta()
 
     @property
     def first_page(self) -> str:
@@ -252,20 +311,20 @@ class _Doc(NamedTuple):
 
 
 def _article_doc(rel: str, texts: list[str], source: str, pages: list[Page] | None = None,
-                 pictures: list[float] | None = None) -> _Doc:
+                 pictures: list[float] | None = None, meta: PdfMeta = PdfMeta()) -> _Doc:
     """R7: the number read on the first page, else the article's own page map when it fits well enough (one- and
     two-page articles cannot fit one). The last page's number comes from that map only. The read number comes
     first because it is on the very page: some Stjórnmál og stjórnsýsla PDFs lack a page after the first, so
     their map puts the first page one too high."""
     pages, pictures = pages or [], pictures or []
     if not texts:
-        return _Doc(rel, texts, None, None, pages, pictures)
+        return _Doc(rel, texts, None, None, pages, pictures, meta=meta)
     pm = build_page_map(texts, source)
     trusted = pm.offset is not None and pm.quality >= C.PAGE_MAP_MIN_QUALITY
     read0 = read_page_numbers(texts[:1], PATTERNS.get(source, PATTERNS["default"]))[0]
     printed0 = read0 if read0 is not None else (pm.printed[0] if trusted else None)
     return _Doc(rel, texts, printed0, pm.printed[-1] if trusted else None, pages, pictures,
-                list(pm.printed) if trusted else [])
+                list(pm.printed) if trusted else [], meta)
 
 
 # --- volume and year ---------------------------------------------------------------------------------------
@@ -705,7 +764,29 @@ def _sogs_articles(docs: list[_Doc], m: IssueManifest, cfg: SourceConfig, run: _
     return entries
 
 
-def _standalone_entry(doc: _Doc, cfg: SourceConfig) -> ArticleEntry:
+_BATCH_MIN = 3        # this many PDFs of one folder created within _BATCH_WINDOW: a batch (re-exported together, R45a)
+_BATCH_WINDOW = datetime.timedelta(minutes=60)
+
+
+def _reexported(docs: list[_Doc]) -> set[str]:
+    """The files whose metadata date is no publication date (R45, R45a): made by a web browser, or one of at least
+    _BATCH_MIN files of their folder whose creation times (UTC) fall in one sliding window of _BATCH_WINDOW (a re-export of
+    the archive: a clock hour would split it in two). Worked out once per folder from the metadata the files were read with."""
+    by_folder: dict[str, list[tuple[datetime.datetime, str]]] = {}
+    for d in docs:
+        if d.meta.when:
+            by_folder.setdefault(str(Path(d.rel).parent), []).append((d.meta.when, d.rel))
+    batch: set[str] = set()
+    for times in by_folder.values():
+        times.sort()
+        for i, (start, _) in enumerate(times):
+            window = [rel for when, rel in times[i:] if when - start <= _BATCH_WINDOW]
+            if len(window) >= _BATCH_MIN:
+                batch.update(window)
+    return {d.rel for d in docs if d.meta.browser or d.rel in batch}
+
+
+def _standalone_entry(doc: _Doc, cfg: SourceConfig, reexported: bool = False) -> ArticleEntry:
     """Vefrit and standalone works (spec §5.1): no printed pages; the file name is the title."""
     fid = identify(doc.rel)
     a = ArticleEntry(title=fid.title_hint if fid and fid.title_hint else nfc(Path(doc.rel).stem),
@@ -715,7 +796,16 @@ def _standalone_entry(doc: _Doc, cfg: SourceConfig) -> ArticleEntry:
     if date := publication_date(doc.first_page):
         a.date, a.provenance["date"] = date, "page"
     elif cfg.cite_by_date:
-        _add_analysis_note(a, "birtingardagur fannst ekki á fyrstu síðu")
+        # The user's rule (Task 22d): the year alone, from the PDF's metadata; import cites "2020", never a day. Not
+        # when the file is a browser print or one of a batch re-exported together: its date is the export's (R45).
+        if doc.meta.year and reexported:
+            _add_analysis_note(a, "birtingardagur fannst ekki á fyrstu síðu; dagsetning lýsigagnanna er frá "
+                                  "endurútflutningi eða vafraprentun og var ekki notuð")
+        elif doc.meta.year:
+            a.date, a.provenance["date"] = f"{doc.meta.year}-01-01", "pdf_metadata"
+            _add_analysis_note(a, f"birtingardagur fannst ekki á fyrstu síðu; ár úr lýsigögnum PDF-skjalsins: {doc.meta.year}")
+        else:
+            _add_analysis_note(a, "birtingardagur fannst ekki á fyrstu síðu")
     return a
 
 
@@ -763,18 +853,19 @@ async def _analyze_article_files(m: IssueManifest, cfg: SourceConfig, deps: Anal
     unreadable: list[ArticleEntry] = []
     for rel in m.files:
         try:
-            texts, pages, pictures = _read_article_pdf(deps.read_bytes(rel), every_page=cfg.short_name in _OWN_ENDS)
+            texts, pages, pictures, meta = _read_article_pdf(deps.read_bytes(rel), every_page=cfg.short_name in _OWN_ENDS)
         except _UNREADABLE as exc:             # one bad file must not fail a folder of 28
             unreadable.append(_unreadable_entry(rel, exc))
             run.review = True
             continue
-        docs.append(_article_doc(rel, texts, cfg.short_name, pages, pictures))
+        docs.append(_article_doc(rel, texts, cfg.short_name, pages, pictures, meta))
     if cfg.short_name == "ulfljotur":
         entries = _ulfljotur_articles(docs, m, cfg, deps.xlsx_rows, run)
     elif cfg.short_name == "stjornmal_stjornsysla":
         entries = _sogs_articles(docs, m, cfg, run)
     elif cfg.short_name in ("ulfljotur_vefrit", "fraedigreinar_ymsar"):
-        entries = [_standalone_entry(d, cfg) for d in docs]
+        reexported = _reexported(docs)
+        entries = [_standalone_entry(d, cfg, d.rel in reexported) for d in docs]
     else:
         named: list[_Named] = []
         entries = [_filename_entry(d, named) for d in docs]

@@ -107,11 +107,15 @@ def relocate_by_title(entries: list[ArticleEntry], registry_end: list[int | None
     different article. `skip`: TOC pages, the pages before them and the cover. `number(i)`: the printed number of PDF
     page i (default: the page map's); an unnumbered title page takes one less than the next page's.
     R42: a printed start that disagrees with the registry's, and an article found by its title alone (no registry page,
-    or one more than _NEAR pages off), are flagged."""
+    or one more than _NEAR pages off), are flagged. R43: not when the contents page lists the entry and its page number
+    is unreadable or missing, and the title is found between the starts of the entries around it (contents order):
+    that is a plain note (Lögfræðingur 2008, 2011, 2012: OCR-garbled numbers); a page that breaks the order, and an
+    entry with no contents line, stay deviations."""
     starts = {id(a): a.pdf_pages[0] for a in entries if a.pdf_pages}
     last_read = max((i for i, r in enumerate(pm.read) if r), default=-1)
     top_read = pm.printed[last_read] if last_read >= 0 else None
     moved = False
+    unnumbered: list[tuple[int, ArticleEntry, str, str]] = []
     for k, a in enumerate(entries):
         if not a.title or is_label(a.title):
             continue
@@ -153,10 +157,16 @@ def relocate_by_title(entries: list[ArticleEntry], registry_end: list[int | None
         registry, at = _registry_name(a), f"bls. {printed}" if printed is not None else f"pdf-síðu {new + 1}"
         # Not R42 deviations but notes: an entry of Claude's list found by its title (the list itself sends the issue
         # to review) and an unnumbered title page just before the registry's page (the title-page rule, fix 4).
-        claude = "llm" in a.provenance.get("title", "").split("+")
+        sources = a.provenance.get("title", "").split("+")
+        claude = "llm" in sources
         if s is None and a.page_start is None:
-            (add_note if claude else flag)(a, f"{registry} gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum "
-                                              f"á {at}")
+            text = f"{registry} gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á {at}"
+            if claude:
+                add_note(a, text)
+            elif "toc" in sources:
+                unnumbered.append((k, a, text, at))         # R43: a note or a deviation once every start is known
+            else:
+                flag(a, text)
         elif s is None and (printed is None or abs(printed - a.page_start) > _NEAR):
             (add_note if claude else flag)(a, f"{registry} segir bls. {a.page_start}; greinin fannst eftir titli sínum "
                                               f"á {at}")
@@ -165,6 +175,11 @@ def relocate_by_title(entries: list[ArticleEntry], registry_end: list[int | None
                 a, f"{registry} segir bls. {a.page_start}, prentað bls. {printed}")
         if printed is not None and printed != a.page_start:
             a.page_start, a.provenance["pages"] = printed, "page"
+    for k, a, text, at in unnumbered:
+        if _in_contents_order(entries, starts, k, len(page_texts)):
+            add_note(a, f"blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á {at}")
+        else:
+            flag(a, text)
     if not moved:
         return
     last_text = max((i for i, t in enumerate(page_texts) if t.strip()), default=len(page_texts) - 1)
@@ -174,6 +189,16 @@ def relocate_by_title(entries: list[ArticleEntry], registry_end: list[int | None
             a.page_end = end if a.provenance.get("pages") != "page" else None
             located.append((starts[id(a)], a))
     assign_ranges(located, pm, last_text)
+
+
+def _in_contents_order(entries: list[ArticleEntry], starts: dict[int, int], k: int, n_pages: int) -> bool:
+    """Does entry k start after every earlier entry's start and before every later entry's (those located)?"""
+    here = starts.get(id(entries[k]))
+    if here is None:
+        return False
+    lo = max((starts[id(b)] for b in entries[:k] if id(b) in starts), default=-1)
+    hi = min((starts[id(b)] for b in entries[k + 1:] if id(b) in starts), default=n_pages)
+    return lo < here < hi
 
 
 NOT_FOUND_NOTE = "greinar fundust ekki í skjalinu"

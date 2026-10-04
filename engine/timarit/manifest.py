@@ -20,7 +20,8 @@ from engine.timarit import config as C
 
 USER = "user"
 STATUSES = ("pending", "review", "approved", "imported", "failed")
-PROVENANCE_LABELS = frozenset({"xlsx", "leitir", "toc", "filename", "page", "llm", USER})
+# "pdf_metadata": a date that is only the year, taken from the PDF's metadata (Task 22d).
+PROVENANCE_LABELS = frozenset({"xlsx", "leitir", "toc", "filename", "page", "llm", "pdf_metadata", USER})
 
 
 @dataclass
@@ -426,15 +427,31 @@ def article_issue(m: IssueManifest, a: ArticleEntry) -> str | None:
     return a.issue if a.issue is not None else m.issue
 
 
+def date_precision(a: ArticleEntry) -> str:
+    """'day' or 'year' (raw_api_data.date_precision, spec 5.1). A date is a whole day when it is printed on the page
+    (label `page`, also in a combination such as `page+user`), or when the user set it and it is not the 1st of January;
+    the year taken from the PDF's metadata (`pdf_metadata`, kept as YYYY-01-01 because document_date is a date) is a
+    year, and so is the YYYY-01-01 a user writes when confirming or correcting an undated article's year (R44). A date
+    with no provenance at all is a whole day (manifests from before provenance was kept); anything else is a year."""
+    if not a.date:
+        return "year"
+    if "date" not in a.provenance:
+        return "day"
+    parts = {p.strip().lower() for p in str(a.provenance["date"]).split("+")}
+    if "page" in parts or (USER in parts and str(a.date)[5:10] != "01-01"):
+        return "day"
+    return "year"
+
+
 def external_id(m: IssueManifest, a: ArticleEntry) -> str:
     """Identity of an article inside its source (documents.external_id). Page-bearing articles are
-    '{year}-{volume}-{issue}-{page_start}' (the article's own issue when it has one), vefrit '{date}-{slug}',
-    standalone works the slug of their file stem. Two articles can still share an id (same start page, same
-    title); use assign_external_ids for a whole manifest."""
+    '{year}-{volume}-{issue}-{page_start}' (the article's own issue when it has one), vefrit '{date}-{slug}' ('{year}-{slug}'
+    when only the year is known), standalone works the slug of their file stem. Two articles can still share an id
+    (same start page, same title); use assign_external_ids for a whole manifest."""
     if _is_standalone(m):
         return _slug(_stem(a) or a.title or "")
     if a.date and a.page_start is None:
-        return f"{a.date}-{_slug(a.title or '')}"
+        return f"{a.date if date_precision(a) == 'day' else a.date[:4]}-{_slug(a.title or '')}"
     issue = article_issue(m, a)
     if a.page_start is not None:
         return f"{_x(m.year)}-{_x(m.volume)}-{_x(issue)}-{a.page_start}"

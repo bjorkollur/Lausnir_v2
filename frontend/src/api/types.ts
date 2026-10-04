@@ -84,6 +84,8 @@ export interface JournalRef {
   label: string; year: number;
   volume: number | null; issue: string | null;
   page_start: number | null; page_end: number | null;
+  /** "year": document_date is only 1 January of `year` (no date was printed); "day": a whole date; null: not recorded. */
+  date_precision?: "day" | "year" | null;
 }
 
 export type Mode = "keyword" | "exact" | "prefix" | "substring" | "any" | "proximity" | "regex";

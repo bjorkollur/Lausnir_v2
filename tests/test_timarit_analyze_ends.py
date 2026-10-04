@@ -237,3 +237,110 @@ def test_page_numbers_read_on_the_page_and_agreed_by_the_articles_own_pages():
     assert (n.at(0), n.at(1), n.at(1, 0, 3)) == (23, None, 24)        # its own pages agree on 24
     assert (n.at(4), n.at(4, 4, 7)) == (None, 3)                      # the next article's pages, not the one before
     assert (n.evidence(1), n.evidence(2)) == (None, 25)
+
+
+# --- Task 22d, ruling R43: a contents-page number that cannot be read is a note, not a deviation -------------------
+
+def _logfraedingur_2008(heading_of_fiskveidi_at: int = 8) -> bytes:
+    """Lögfræðingur 2. árg. 2008 (1. tbl.): the contents page as the text layer gives it (the first seven of its eight
+    entries), the page numbers of three of them garbled by OCR ("err", "ð", "Ð("); pdf page i is printed page i. The
+    heading of the second unreadable entry is printed on `heading_of_fiskveidi_at` (8, as in the issue)."""
+    toc = ["Efnisyfirlit", "Hilmar Vilberg Gylfason:", "Frá ritstjóra .............0.0eeeeeeeeessnnneneess", "err",
+           "Ð", "Sindri Kristjánsson:", "Ávarp formanns Þemis ...............0eeeneeeeeneneneeenenenereenenenrrrnn", "6",
+           "Aðalheiður Ámundadóttir:", "Um íslenska fiskveiðistjórnunarkerfið", "og skyldu íslenska ríkisins til að virða",
+           "álit Mannréttindanefndar Sameinuðu þjóðanna ...............000eeeeeeeee.", "ð",
+           "Birkir Már Magnússon:", "Skýrslutaka hjá lögreglu .....................0..0000000", "000 eeen", "23",
+           "Hreiðar Eiríksson:", "Helgar tilgangurinn meðalið?", "Um lögmæti valdbeitingar við sýnatöku vegna",
+           "rannsóknar á öÖlvunarakstri ....c...eeeeeeeeesssarrsssrrrrssssrrsssrr", "40",
+           "Höskuldur Þór Þórhallsson hdl.,:", "Hugtakið „kristið siðgæði“", "og Dómur Mannréttindadómstóls Evrópu frá 29. júní 2007,",
+           "Folgeró o.fl. gegn Noregi ...........0000000000000ee", "eee eeen", "Ð(",
+           "Pétur Dam Leifsson:", "Öryggisráð SÞ frá sjónarhóli þjóðaréttar eee.", "65"]
+    starts = {5: ("Hilmar Vilberg Gylfason", ["FRÁ RITSTJÓRA"]),
+              6: ("Sindri Kristjánsson", ["ÁVARP FORMANNS ÞEMIS"]),
+              heading_of_fiskveidi_at: ("Aðalheiður Ámundadóttir", ["Um íslenska fiskveiðistjórnunarkerfið",
+                                                                    "og skyldu íslenska ríkisins til að virða",
+                                                                    "álit Mannréttindanefndar Sameinuðu þjóðanna"]),
+              23: ("Birkir Már Magnússon", ["SKÝRSLUTAKA HJÁ LÖGREGLU"]),
+              40: ("Hreiðar Eiríksson", ["Helgar tilgangurinn meðalið?", "Um lögmæti valdbeitingar við sýnatöku vegna",
+                                          "rannsóknar á ölvunarakstri"]),
+              57: ("Höskuldur Þór Þórhallsson", ["Hugtakið „kristið siðgæði“", "og Dómur Mannréttindadómstóls Evrópu frá",
+                                                  "29. júní 2007, Folgerø o.fl. gegn Noregi"]),
+              65: ("Pétur Dam Leifsson", ["Öryggisráð SÞ frá sjónarhóli þjóðaréttar"])}
+    pages = [[(24, 200, "Lögfræðingur")], [(14, 200, "Lögfræðingur 1. tölublað - 2. árgangur - 2008")],
+             [(10, 100, "Lögfræðingur er tímarit laganema við Háskólann á Akureyri"), (10, 580, "2 Lögfræðingur")],
+             [(10, 60 + 14 * k, ln) for k, ln in enumerate(toc)] + [(10, 580, "Lögfræðingur 3")], [(10, 580, "4 Lögfræðingur")]]
+    for n in range(5, 74):
+        rows = [(10, 580, f"{n} Lögfræðingur" if n % 2 == 0 else f"Lögfræðingur {n}")]
+        if n in starts:
+            author, heading = starts[n]
+            rows += [(12, 90, author)] + [(18, 120 + 24 * k, h) for k, h in enumerate(heading)]
+            rows += _body(120 + 24 * len(heading) + 20, 20)
+        else:
+            rows += _body(60, 35)
+        pages.append(rows)
+    return _typeset(pages)
+
+
+async def _analyse_logfraedingur_2008(**kw):
+    m = _manifest("logfraedingur", year=2008, volume=2, issue=None, file="x/Lögfræðingur 2 arg 2008.pdf")
+    return await analyze_issue(m, get_config("logfraedingur"), _deps(_logfraedingur_2008(**kw)))
+
+
+async def test_a_contents_number_ocr_garbled_is_a_note_when_the_title_is_found_where_the_contents_order_puts_it():
+    # Lögfræðingur 2008 idx 0, 2, 5 (8 such notes in 2008, 2011 and 2012): the contents page lists the entry, its
+    # number is "err" / "ð" / "Ð("; the title is printed on p. 5 / 8 / 57, between its neighbours' pages
+    m = await _analyse_logfraedingur_2008()
+    by = {a.title.split()[0]: a for a in m.articles}
+    assert [a.page_start for a in m.articles] == [5, 6, 8, 23, 40, 57, 65]
+    for first_word, page in (("Frá", 5), ("Um", 8), ("Hugtakið", 57)):
+        a = by[first_word]
+        assert a.page_start == page and a.provenance["pages"] == "page", first_word
+        assert not _fravik(a), (first_word, a.analysis_notes)
+        assert f"blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. {page}" \
+            in a.analysis_notes
+    assert not any(_fravik(a) for a in m.articles)
+
+
+async def test_an_unreadable_contents_number_stays_a_deviation_when_the_found_page_breaks_the_contents_order():
+    # the same issue with the second unreadable entry's heading printed on p. 30, after the entry listed below it
+    # (Birkir Már Magnússon, p. 23): the contents order is broken, so the user is asked
+    m = await _analyse_logfraedingur_2008(heading_of_fiskveidi_at=30)
+    a = next(x for x in m.articles if x.title.startswith("Um íslenska fiskveiðistjórnunarkerfið"))
+    assert a.page_start == 30
+    assert _fravik(a) == ["FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 30"]
+    assert m.status == "review"
+
+
+def _title_search_case(second: ArticleEntry, title_page: int) -> ArticleEntry:
+    """Three articles in contents order, pages 1, (none) and 5 of a file of 8 pages; the second's heading on pdf page
+    `title_page`."""
+    texts = [f"{n}\nTexti." for n in range(1, 9)]
+    body = [FP.Line("Meginmál greinarinnar heldur áfram hér með nægum texta svo að síðan hafi meginmál.", 10.0,
+                    200 + 14 * k) for k in range(20)]
+    pages = [FP.Page(body, 600.0) for _ in texts]
+    pages[0] = FP.Page([FP.Line("FYRSTA GREININ", 16.0, 100)] + body, 600.0)
+    pages[title_page] = FP.Page([FP.Line("ÖNNUR GREININ", 16.0, 100)] + body, 600.0)
+    pages[4] = FP.Page([FP.Line("ÞRIÐJA GREININ", 16.0, 100)] + body, 600.0)
+    first = ArticleEntry(title="Fyrsta greinin", page_start=1, pdf_pages=[0, 2], provenance={"title": "toc", "pages": "toc"})
+    third = ArticleEntry(title="Þriðja greinin", page_start=5, pdf_pages=[4, 7], provenance={"title": "toc", "pages": "toc"})
+    P.relocate_by_title([first, second, third], [None, None, None], build_page_map(texts, "default"), texts,
+                        pages.__getitem__, set())
+    return second
+
+
+def test_an_unnumbered_contents_entry_found_between_its_neighbours_is_a_note():
+    second = _title_search_case(ArticleEntry(title="Önnur greinin", provenance={"title": "toc"}), 2)
+    assert second.page_start == 3 and not _fravik(second)
+    assert second.analysis_notes == [
+        "blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 3"]
+
+
+def test_an_unnumbered_contents_entry_found_outside_its_neighbours_or_with_no_contents_line_is_flagged():
+    wrong_order = _title_search_case(ArticleEntry(title="Önnur greinin", provenance={"title": "toc"}), 6)     # after the third
+    assert wrong_order.page_start == 7 and _fravik(wrong_order) == [
+        "FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 7"]
+    no_line = _title_search_case(ArticleEntry(title="Önnur greinin", provenance={"title": "leitir"}), 2)   # not from a contents page
+    assert no_line.page_start == 3 and _fravik(no_line) == [
+        "FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 3"]
+    claude = _title_search_case(ArticleEntry(title="Önnur greinin", provenance={"title": "llm"}), 2)         # Claude's list: a note
+    assert claude.page_start == 3 and not _fravik(claude)

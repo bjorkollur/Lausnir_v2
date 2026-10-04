@@ -53,6 +53,44 @@ def test_urlausn_vefrit_uses_full_date_and_no_pages():
     assert to_urlausn(d, VEF) == "Kári Hólmar Ragnarsson: „Loftslagsváin og dómstólar“ Úlfljótur vefrit, 21. janúar 2022"
 
 
+def _vefrit_doc(precision=None, when=date(2020, 1, 1)):
+    return _doc(court="Úlfljótur vefrit", volume=None, issue=None, page_start=None, page_end=None,
+                document_date=when, case_number="Loftslagsváin og dómstólar", external_id="2020-loftslagsvain-og-domstolar",
+                plaintiffs=[{"name": "Kári Hólmar Ragnarsson", "lawyer": None}],
+                raw_api_data={"date_precision": precision} if precision else None)
+
+
+def test_urlausn_vefrit_with_only_a_year_cites_the_year_never_an_invented_day():
+    # Task 22d: no date was printed; the year comes from the PDF's metadata and document_date is 2020-01-01
+    d = _vefrit_doc("year")
+    assert to_urlausn(d, VEF) == "Kári Hólmar Ragnarsson: „Loftslagsváin og dómstólar“ Úlfljótur vefrit, 2020"
+    assert "janúar" not in to_urlausn(d, VEF) and "janúar" not in to_markdown(d, VEF)
+    d.plaintiffs = None
+    assert to_urlausn(d, VEF) == "„Loftslagsváin og dómstólar“ Úlfljótur vefrit, 2020"
+
+
+def test_urlausn_vefrit_with_a_printed_day_is_cited_by_day_even_on_the_first_of_january():
+    for precision in ("day", None):                  # a row without date_precision is a day-precision one
+        d = _vefrit_doc(precision)
+        assert to_urlausn(d, VEF).endswith("Úlfljótur vefrit, 1. janúar 2020")
+    d = _vefrit_doc("day", date(2022, 1, 21))
+    assert to_urlausn(d, VEF).endswith("Úlfljótur vefrit, 21. janúar 2022")
+    assert "*Kári Hólmar Ragnarsson: „Loftslagsváin og dómstólar“ Úlfljótur vefrit, 21. janúar 2022*" in to_markdown(d, VEF)
+
+
+def test_year_precision_markdown_and_filename_for_a_vefrit_article():
+    md = to_markdown(_vefrit_doc("year"), VEF)
+    assert "*Kári Hólmar Ragnarsson: „Loftslagsváin og dómstólar“ Úlfljótur vefrit, 2020*" in md
+    assert "##### Úlfljótur vefrit · Fræðigrein" in md and "2020-01-01" not in md
+    # the file name carries the year only, for either precision (R6)
+    assert verdict_filename(_vefrit_doc("year"), VEF) == "UlfljoturVefrit_x-x_2020_loftslagsvain-og-domstolar"
+    assert verdict_filename(_vefrit_doc("day"), VEF) == "UlfljoturVefrit_x-x_2020_loftslagsvain-og-domstolar"
+
+
+def test_date_precision_changes_nothing_for_a_source_that_cites_by_volume_and_pages():
+    assert to_urlausn(_doc(raw_api_data={"date_precision": "year"}), TL) == to_urlausn(_doc(), TL)
+
+
 def test_urlausn_standalone_work_omits_journal_name():
     # fraedigreinar_ymsar has citation_name=None: there is no journal to cite (ruling R11).
     d = _doc(court="Fræðigrein", case_number="Titill", volume=None, issue=None,

@@ -1,10 +1,13 @@
 # tests/test_timarit_analyze.py
 """Task 17: one issue end to end. The brief's fixtures were rebuilt so they are consistent with the
 real page-map, TOC and matcher algorithms (ruling R7); every change is listed in the task report."""
+import datetime
+
 import fitz
+import pytest
 
 from engine.config.sources import get_config
-from engine.timarit.analyze import AnalyzeDeps, analyze_issue, locate_articles, verify_article
+from engine.timarit.analyze import AnalyzeDeps, PdfMeta, analyze_issue, locate_articles, metadata_year, pdf_meta, verify_article
 from engine.timarit.leitir_articles import LeitirArticle
 from engine.timarit.manifest import ArticleEntry, IssueManifest, merge_preserving_user
 from engine.timarit.pagemap import build_page_map
@@ -15,8 +18,10 @@ J = "Tímarit og fræðigreinar/"
 _PAD = "Meginmál greinarinnar heldur áfram hér með nægum texta til að síðan hafi textalag."
 
 
-def _pdf(pages: list[str]) -> bytes:
+def _pdf(pages: list[str], meta: dict | None = None) -> bytes:
     d = fitz.open()
+    if meta is not None:
+        d.set_metadata(meta)
     for t in pages:
         page = d.new_page()
         if t:
@@ -532,3 +537,224 @@ async def test_vefrit_birt_date_form():
     m = _manifest(source="ulfljotur_vefrit", year=None, volume=None, issue=None, label="x", file=None, files=[rel])
     a = (await analyze_issue(m, get_config("ulfljotur_vefrit"), _deps(_pdf([page])))).articles[0]
     assert a.date == "2022-01-21" and a.authors == ["Jón Jónsson"]
+
+
+# --- Task 22d: the year of an undated web article comes from the PDF's metadata --------------------------
+
+THIS_YEAR = datetime.date.today().year
+
+
+@pytest.mark.parametrize("meta, year", [
+    ({"creationDate": "D:20201002123456+00'00'"}, 2020),
+    ({"creationDate": "D:20201002", "modDate": "D:20230101"}, 2020),               # the creation date comes first
+    ({"creationDate": "", "modDate": "D:20211231235959Z"}, 2021),                  # ... else the modification date
+    ({"creationDate": "D:20201002123456", "modDate": "D:garbage"}, 2020),
+    ({"creationDate": "20201002123456"}, 2020),                                    # no "D:" prefix
+    ({"creationDate": "D:19900101"}, 1990), ({"creationDate": "D:19891231"}, None),
+    ({"creationDate": f"D:{THIS_YEAR}0101"}, THIS_YEAR), ({"creationDate": f"D:{THIS_YEAR + 1}0101"}, None),
+    ({"creationDate": "D:18991231", "modDate": "D:20150403"}, 2015),               # an implausible year is no date
+    ({"creationDate": "D:19700101000000Z", "modDate": "D:19700101000000Z"}, None),
+    ({"creationDate": "D:00000000"}, None), ({"creationDate": "garbage"}, None),
+    ({"creationDate": "D:2020"}, 2020), ({"creationDate": "D:202"}, None),
+    ({}, None), (None, None), ({"title": "x"}, None)])
+def test_metadata_year(meta, year):
+    assert metadata_year(meta) == year
+
+
+_VEFRIT = J + "Úlfljótur/Vefrit/Loftslagsváin og dómstólar.pdf"
+
+
+async def _vefrit(page: str, meta: dict | None, source: str = "ulfljotur_vefrit"):
+    m = _manifest(source=source, year=None, volume=None, issue=None, label="x", file=None, files=[_VEFRIT])
+    return (await analyze_issue(m, get_config(source), _deps(_pdf([page], meta)))).articles[0]
+
+
+async def test_an_undated_vefrit_article_takes_the_year_from_the_pdf_metadata():
+    a = await _vefrit(f"VEFRIT\nLoftslagsváin og dómstólar\nEftir dr. Jón Jónsson, prófessor\n{_PAD}",
+                      {"creationDate": "D:20201002123456+00'00'", "modDate": "D:20220101000000Z"})
+    assert a.date == "2020-01-01" and a.provenance["date"] == "pdf_metadata"
+    assert "birtingardagur fannst ekki á fyrstu síðu; ár úr lýsigögnum PDF-skjalsins: 2020" in a.analysis_notes
+    assert not any(n.startswith("FRÁVIK") for n in a.analysis_notes)          # the user chose this rule: a plain note
+
+
+async def test_a_printed_vefrit_date_outranks_the_metadata():
+    a = await _vefrit(f"VEFRIT\nLoftslagsváin og dómstólar\nBirt 21. janúar 2022\nEftir dr. Jón Jónsson\n{_PAD}",
+                      {"creationDate": "D:20201002123456"})
+    assert a.date == "2022-01-21" and a.provenance["date"] == "page"
+    assert not any("birtingardagur" in n for n in a.analysis_notes)
+
+
+@pytest.mark.parametrize("meta", [None, {}, {"creationDate": "D:19700101000000Z"}, {"creationDate": "D:18500101"}])
+async def test_a_vefrit_article_without_usable_metadata_keeps_no_date_and_the_old_note(meta):
+    a = await _vefrit(f"VEFRIT\nLoftslagsváin og dómstólar\nEftir dr. Jón Jónsson\n{_PAD}", meta)
+    assert a.date is None and "date" not in a.provenance
+    assert a.analysis_notes.count("birtingardagur fannst ekki á fyrstu síðu") == 1
+
+
+async def test_only_web_articles_take_a_year_from_metadata():
+    a = await _vefrit(f"Loftslagsváin og dómstólar\nEftir dr. Jón Jónsson\n{_PAD}", {"creationDate": "D:20201002"},
+                      source="fraedigreinar_ymsar")
+    assert a.date is None and not any("birtingardagur" in n for n in a.analysis_notes)
+
+
+# --- Task 22d, R45/R45a: a metadata date that comes from a batch re-export or a browser says nothing -----------------
+
+WORD = {"creator": "Microsoft® Word 2016", "producer": "Microsoft® Word 2016"}
+SAFARI = {"creator": "Safari", "producer": "macOS Version 14.2.1 (Build 23C71) Quartz PDFContext"}
+REEXPORT_NOTE = ("birtingardagur fannst ekki á fyrstu síðu; dagsetning lýsigagnanna er frá endurútflutningi eða "
+                 "vafraprentun og var ekki notuð")
+OLD_NOTE = "birtingardagur fannst ekki á fyrstu síðu"
+
+
+def _stamp(hour: int, minute: int, second: int = 0, offset: str = "Z00'00'", day: str = "20240301") -> str:
+    return f"D:{day}{hour:02d}{minute:02d}{second:02d}{offset}"
+
+
+def test_pdf_meta_reads_the_year_the_utc_time_and_whether_a_browser_made_the_pdf():
+    at = datetime.datetime
+    assert pdf_meta({"creationDate": "D:20240301165216Z00'00'", **SAFARI}) == PdfMeta(2024, at(2024, 3, 1, 16, 52, 16), True)
+    assert pdf_meta({"creationDate": "D:20181221121023+00'00'", **WORD}) == PdfMeta(2018, at(2018, 12, 21, 12, 10, 23), False)
+    # the offset is normalised: +01'00' is an hour ahead of UTC, -05'00' five behind; "+0100" and "+01" read the same
+    assert pdf_meta({"creationDate": "D:20240301165216+01'00'"}).when == at(2024, 3, 1, 15, 52, 16)
+    assert pdf_meta({"creationDate": "D:20240301105500-05'00'"}).when == at(2024, 3, 1, 15, 55, 0)
+    assert pdf_meta({"creationDate": "D:20240301165216+0100"}).when == at(2024, 3, 1, 15, 52, 16)
+    assert pdf_meta({"creationDate": "D:20240301165216+01"}).when == at(2024, 3, 1, 15, 52, 16)
+    assert pdf_meta({"creationDate": "D:20240301165216"}).when == at(2024, 3, 1, 16, 52, 16)       # no offset: as written
+    # without an hour there is a year but no time: no batch key
+    assert pdf_meta({"creationDate": "D:2020", **WORD}) == PdfMeta(2020, None, False)
+    assert pdf_meta({"creationDate": "D:20201002"}) == PdfMeta(2020, None, False)
+    assert pdf_meta({"creationDate": "D:19700101000000Z", **SAFARI}) == PdfMeta(None, None, True)
+    assert pdf_meta(None) == PdfMeta(None, None, False)
+
+
+@pytest.mark.parametrize("bad", ["D:20241340120000Z", "D:20240230120000Z", "D:20240301246000Z", "D:20240301126100Z",
+                                 "D:20240301120060Z", "D:20240301120000+25'00'", "D:20240301120000+01'75'", "D:20240001120000Z",
+                                 "D:00010101000000+01'00'", "D:99991231235959-05'00'"])
+def test_a_date_out_of_range_is_unparseable_not_a_crash(bad):
+    assert pdf_meta({"creationDate": bad}) == PdfMeta(None, None, False)
+    # ... and the modification date is tried instead
+    assert pdf_meta({"creationDate": bad, "modDate": "D:20230101120000Z"}) == PdfMeta(2023, datetime.datetime(2023, 1, 1, 12), False)
+
+
+def test_metadata_year_is_the_year_of_the_date_pdf_meta_reads():
+    assert metadata_year({"creationDate": "D:20201002123456+00'00'"}) == pdf_meta({"creationDate": "D:20201002123456+00'00'"}).year == 2020
+    assert metadata_year({"creationDate": "D:20241340120000Z"}) is None
+
+
+@pytest.mark.parametrize("creator, producer, browser", [
+    ("Safari", "macOS Version 14.2.1 (Build 23C71) Quartz PDFContext", True),
+    ("Chromium", "Skia/PDF m120", True), ("", "Skia/PDF m118", True), ("Google Chrome", "", True),
+    ("Mozilla Firefox 115.0", "cairo 1.17.6", True), ("Microsoft Edge", "", True), ("EDGE", "", True),
+    ("Microsoft® Word 2016", "Microsoft® Word 2016", False), ("Word", "macOS Version 12.4 Quartz PDFContext", False),
+    ("Microsoft Word", "", False), ("", "", False), ("Knowledge Base Editor", "Acrobat Distiller", False)])
+def test_a_web_browser_among_creator_and_producer(creator, producer, browser):
+    assert pdf_meta({"creationDate": "D:20200101120000", "creator": creator, "producer": producer}).browser is browser
+
+
+async def _vefrit_folder(metas: dict[str, dict | None]):
+    """An analysed folder of vefrit articles, one PDF per entry (file name -> metadata), none printing a date."""
+    rels = {f"{J}Úlfljótur/Vefrit/{name}.pdf": meta for name, meta in metas.items()}
+    pdfs = {rel: _pdf([f"VEFRIT\n{rel.rsplit('/', 1)[1][:-4]}\nEftir dr. Jón Jónsson, prófessor\n{_PAD}"], meta)
+            for rel, meta in rels.items()}
+    m = _manifest(source="ulfljotur_vefrit", year=None, volume=None, issue=None, label="x", file=None, files=list(rels))
+    m = await analyze_issue(m, get_config("ulfljotur_vefrit"), _deps(lambda rel: pdfs[rel]))
+    return {a.source_file.rsplit("/", 1)[1][:-4]: a for a in m.articles}
+
+
+def _word(stamp: str) -> dict:
+    return {"creationDate": stamp, **WORD}
+
+
+def _distrusted(art) -> bool:
+    return art.date is None and "date" not in art.provenance and art.analysis_notes.count(REEXPORT_NOTE) == 1 \
+        and not any(n.startswith("FRÁVIK") for n in art.analysis_notes)
+
+
+def _trusted(art, year: int) -> bool:
+    return art.date == f"{year}-01-01" and art.provenance["date"] == "pdf_metadata" and REEXPORT_NOTE not in art.analysis_notes
+
+
+async def test_three_pdfs_created_within_an_hour_are_a_batch_whose_date_is_not_used():
+    # three Word files re-exported together on 2024-03-01 (16:52:16, 16:52:50, 16:55:22); a lone original of 2019 beside them
+    arts = await _vefrit_folder({"A": _word(_stamp(16, 52, 16)), "B": _word(_stamp(16, 52, 50)),
+                                 "C": _word(_stamp(16, 55, 22)), "Lone": _word(_stamp(15, 37, 25, "+00'00'", "20190223"))})
+    assert all(_distrusted(arts[n]) for n in "ABC")
+    assert _trusted(arts["Lone"], 2019)
+    assert "birtingardagur fannst ekki á fyrstu síðu; ár úr lýsigögnum PDF-skjalsins: 2019" in arts["Lone"].analysis_notes
+
+
+async def test_three_pdfs_within_sixty_minutes_are_a_batch_across_a_clock_hour():
+    # 18:09:18, 18:44:01 and 19:00:01 lie in two clock hours but within 51 minutes
+    arts = await _vefrit_folder({"A": _word(_stamp(18, 9, 18, day="20200201")), "B": _word(_stamp(18, 44, 1, day="20200201")),
+                                 "C": _word(_stamp(19, 0, 1, day="20200201"))})
+    assert all(_distrusted(a) for a in arts.values())
+
+
+async def test_two_files_on_each_side_of_an_hour_boundary_are_a_batch():
+    # 18:30, 18:45 | 19:05, 19:20: no clock hour holds three, but all four lie within 50 minutes
+    arts = await _vefrit_folder({"A": _word(_stamp(18, 30)), "B": _word(_stamp(18, 45)),
+                                 "C": _word(_stamp(19, 5)), "D": _word(_stamp(19, 20))})
+    assert all(_distrusted(a) for a in arts.values())
+
+
+@pytest.mark.parametrize("third, batch", [((19, 0, 0), True),          # exactly 60 minutes after the first: inside the window
+                                          ((19, 0, 1), False), ((19, 1, 0), False), ((19, 31, 0), False)])
+async def test_the_window_is_sixty_minutes_and_two_files_do_not_make_a_batch(third, batch):
+    # 18:00 and 18:30 are two files within an hour; a third counts only if some 60-minute window holds all three
+    arts = await _vefrit_folder({"A": _word(_stamp(18, 0)), "B": _word(_stamp(18, 30)), "C": _word(_stamp(*third))})
+    assert all(_distrusted(a) for a in arts.values()) if batch else all(_trusted(a, 2024) for a in arts.values())
+
+
+async def test_two_pdfs_made_within_the_hour_are_no_batch():
+    arts = await _vefrit_folder({"A": _word(_stamp(18, 9, 18, day="20200201")), "B": _word(_stamp(18, 44, 1, day="20200201"))})
+    assert all(_trusted(a, 2020) for a in arts.values())
+
+
+async def test_creation_times_are_compared_in_utc():
+    # the local clocks span six hours (16:52+01:00, 10:55-05:00, 15:30Z) but all three are 15:30-15:55 UTC: a batch
+    arts = await _vefrit_folder({"A": _word(_stamp(16, 52, 16, "+01'00'")), "B": _word(_stamp(10, 55, 0, "-05'00'")),
+                                 "C": _word(_stamp(15, 30, 0, "Z00'00'"))})
+    assert all(_distrusted(a) for a in arts.values())
+    # the same local clock, offsets two hours apart (10:00Z, 12:00Z, 14:00Z): no batch
+    arts = await _vefrit_folder({"A": _word(_stamp(12, 0, 0, "+02'00'")), "B": _word(_stamp(12, 0, 0, "+00'00'")),
+                                 "C": _word(_stamp(12, 0, 0, "-02'00'"))})
+    assert all(_trusted(a, 2024) for a in arts.values())
+
+
+async def test_a_date_out_of_range_is_no_crash_and_falls_back_to_the_modification_date():
+    arts = await _vefrit_folder({"Bad": {"creationDate": "D:20241340120000Z", "modDate": "D:20230101120000Z", **WORD},
+                                 "Worse": {"creationDate": "D:20241340120000Z", **WORD}})
+    assert _trusted(arts["Bad"], 2023)
+    assert arts["Worse"].date is None and arts["Worse"].analysis_notes.count(OLD_NOTE) == 1
+
+
+async def test_a_batch_is_counted_per_folder():
+    # three PDFs created in the same minute, but each in a folder of its own (a manifest may hold subfolders): no batch
+    metas = {f"{J}Úlfljótur/Vefrit/{y}/F{y}.pdf": _word(_stamp(16, 52, 16)) for y in (1, 2, 3)}
+    pdfs = {rel: _pdf([f"VEFRIT\nF{rel[-5]}\nEftir dr. Jón Jónsson\n{_PAD}"], meta) for rel, meta in metas.items()}
+    m = _manifest(source="ulfljotur_vefrit", year=None, volume=None, issue=None, label="x", file=None, files=list(metas))
+    m = await analyze_issue(m, get_config("ulfljotur_vefrit"), _deps(lambda rel: pdfs[rel]))
+    assert {a.date for a in m.articles} == {"2024-01-01"}
+
+
+@pytest.mark.parametrize("agent", [SAFARI, {"creator": "Chromium", "producer": "Skia/PDF m120"},
+                                   {"creator": "Mozilla Firefox 115.0", "producer": "cairo 1.17.6"},
+                                   {"creator": "Microsoft Edge", "producer": ""}])
+async def test_a_pdf_printed_from_a_web_browser_has_no_usable_date(agent):
+    arts = await _vefrit_folder({"Web": {"creationDate": _stamp(16, 52, 16), **agent},
+                                 "Word": _word(_stamp(15, 37, 25, "+00'00'", "20190223"))})
+    assert _distrusted(arts["Web"]) and _trusted(arts["Word"], 2019)
+
+
+async def test_a_browser_pdf_without_a_plausible_year_keeps_the_plain_old_note():
+    arts = await _vefrit_folder({"Web": {"creationDate": "D:19700101000000Z", **SAFARI}})
+    assert arts["Web"].date is None and arts["Web"].analysis_notes.count(OLD_NOTE) == 1
+    assert REEXPORT_NOTE not in arts["Web"].analysis_notes
+
+
+async def test_a_printed_date_outranks_a_distrusted_metadata_date():
+    page = f"VEFRIT\nLoftslagsváin og dómstólar\nBirt 21. janúar 2022\nEftir dr. Jón Jónsson\n{_PAD}"
+    m = _manifest(source="ulfljotur_vefrit", year=None, volume=None, issue=None, label="x", file=None, files=[_VEFRIT])
+    a = (await analyze_issue(m, get_config("ulfljotur_vefrit"),
+                             _deps(_pdf([page], {"creationDate": _stamp(16, 52, 16), **SAFARI})))).articles[0]
+    assert a.date == "2022-01-21" and a.provenance["date"] == "page" and REEXPORT_NOTE not in a.analysis_notes
