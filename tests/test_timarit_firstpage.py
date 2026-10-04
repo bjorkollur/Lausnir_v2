@@ -206,6 +206,28 @@ def test_merge_authors(registry, printed, authors, from_page):
     assert (c.authors, c.from_page, c.note) == (authors, from_page, None)
 
 
+def test_a_list_of_name_title_entries_under_a_heading_is_no_byline():
+    # Úlfljótur 1975 idx 9 (24.pdf): the book list starts "Arnljótur Björnsson: Dómar í skaðabótamálum 1965—1972" under
+    # its heading; Arnljótur is no author of the list (Task 22c)
+    page = _page(1391.0, (51.9, 442.3, "SKRÁ YFIR LÖGFRÆÐIBÆKUR"), (51.2, 500.3, "ÚTGEFNAR 1974 OG 1975"),
+                 (23.6, 600.6, "Arnljótur Björnsson: Dómar í skaðabótamálum 1965—1972"),
+                 (23.7, 660.2, "Ármann Snævarr: Þættir úr refsirétti II (endurútg. m. breyt)"), body=24.3, body_from=41.7,
+                 body_lines=20)
+    title = "Skrá yfir lögfræðibækur útgefnar 1974 og 1975"
+    assert byline(page, printed_title(page, title), title) == []
+
+
+def test_a_photo_caption_under_the_title_is_no_byline():
+    # LMBL 2012-3 idx 7 (Task 22c fix round 1): "Ágúst Þór Árnason." captions a photograph under the title; the
+    # article is signed by its author at its end
+    page = _page(841.9, (12.0, 40.6, "umfjöllun"), (32.0, 328.9, "Nýr valkostur í aðdraganda"),
+                 (32.0, 367.3, "þjóðaratkvæðagreiðslu"), (10.0, 424.3, "Ágúst Þór Árnason."),
+                 (10.8, 449.2, "Í september sl. fluttu Ágúst Þór Árnason, formaður lagadeildar Háskólans á Akureyri og Skúli"),
+                 body=10.2, body_from=507.6)
+    title = "Nýr valkostur í aðdraganda þjóðaratkvæðagreiðslu"
+    assert byline(page, printed_title(page, title), title) == []
+
+
 def test_merge_authors_keeps_the_registry_when_the_page_names_someone_else():
     c = merge_authors(["Jóhann J. Ragnarsson"], ["Gaukur Jörundsson"])
     assert c.authors == ["Jóhann J. Ragnarsson"] and not c.from_page and "Gaukur Jörundsson" in c.note

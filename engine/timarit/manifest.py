@@ -363,7 +363,8 @@ def article_confidence(checks: dict[str, bool], *, llm: bool = False) -> float:
 def _coverage_ok(m: IssueManifest) -> bool:
     """For an issue PDF: the articles must account for (nearly) all of it. At most COVERAGE_MAX_GAP_PAGES
     pages may lie before the first article, between two articles and after the last one; an article
-    whose pages are unknown cannot vouch for anything. Article-granularity issues have no such file."""
+    whose pages are unknown cannot vouch for anything. Pages analysis found to be no article's (adverts, blank pages:
+    page_map["non_article"], Task 22c) are no gap. Article-granularity issues have no such file."""
     if m.file is None:
         return True
     if any(not a.pdf_pages for a in m.articles):
@@ -372,16 +373,21 @@ def _coverage_ok(m: IssueManifest) -> bool:
     if not spans:
         return True
     gap = C.COVERAGE_MAX_GAP_PAGES
+    outside = m.page_map.get("non_article") or []
+    covered = {p for p in outside if isinstance(p, int) and not isinstance(p, bool)}
+    for s, e in spans:
+        covered.update(range(s, e + 1))
+    first, last = min(covered), max(covered)
     if m.pages is not None:
-        if spans[0][0] > gap:                                  # pages 0 .. first-1
+        if first > gap:                                         # pages 0 .. first-1
             return False
-        if m.pages - 1 - max(e for _, e in spans) > gap:       # pages last+1 .. pages-1
+        if m.pages - 1 - last > gap:                            # pages last+1 .. pages-1
             return False
-    prev_end = spans[0][1]
-    for s, e in spans[1:]:
-        if s - prev_end - 1 > gap:
+    run = 0
+    for p in range(first, last + 1):
+        run = 0 if p in covered else run + 1
+        if run > gap:
             return False
-        prev_end = max(prev_end, e)
     return True
 
 

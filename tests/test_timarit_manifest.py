@@ -552,6 +552,22 @@ def test_issue_status_unknown_page_count_skips_head_and_tail_check():
     assert issue_status(m) == "approved"
 
 
+def test_pages_analysis_found_to_be_no_articles_are_no_gap():
+    # Task 22c: articles end on their own text; the adverts and blank pages after them (page_map["non_article"]) are
+    # covered, an unlisted item's pages are not
+    m = _covering()
+    m.articles[0].pdf_pages = [3, 40]
+    m.articles.append(ArticleEntry(title="B", pdf_pages=[52, 71], confidence=0.95))
+    assert issue_status(m) == "review"                                  # pages 41-51: a gap of 11
+    m.page_map["non_article"] = list(range(41, 47))
+    assert issue_status(m) == "approved"                                # 47-51: 5 pages, within the limit
+    m.page_map["non_article"] = [41, 42]
+    assert issue_status(m) == "review"
+    m.articles[1].pdf_pages = [52, 60]
+    m.page_map["non_article"] = list(range(41, 52)) + list(range(61, 72))
+    assert issue_status(m) == "approved"                                # the tail after the last article too
+
+
 def test_coverage_gap_limit_is_a_config_tunable(monkeypatch):
     assert C.COVERAGE_MAX_GAP_PAGES == 6
     m = _m()

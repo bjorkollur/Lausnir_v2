@@ -22,6 +22,11 @@ a number); entries past the last printed page are not in the file; the title, au
 the article's first page, an editorial's signature off its last. TOC titles are cleaned of OCR'd leaders and front
 matter is dropped; with no readable TOC Claude gets a digest of every page's head (fix 8).
 
+An article ends on the last page of its own text, not on the advert, blank page or unlisted item after it (Task 22c,
+pagekind.py); those pages are recorded in page_map["non_article"], which coverage allows. Where the page map is unusable
+the numbers printed on the located pages are read directly. Significant deviations between registry and print are
+flagged with a note starting FRAVIK ("FRÁVIK: ", R42), which sends the issue to review.
+
 Every machine finding goes to the articles' `analysis_notes` (R33; `note` is the user's). Issue-level findings
 the reviewer must see (a year or volume taken from a formula, a folder name that disagrees with the printed
 masthead) go on every article, since the manifest has no note of its own; a fallback of that kind also sends
@@ -42,6 +47,7 @@ import fitz
 from engine.config.sources import SourceConfig
 from engine.timarit import config as C
 from engine.timarit import firstpage as FP
+from engine.timarit import pagekind as PK
 from engine.timarit.article_type import infer_article_type
 from engine.timarit.authors import clean_author
 from engine.timarit.extract import bin_known_ratio, bin_known_share, has_text_layer
@@ -53,8 +59,9 @@ from engine.timarit.manifest import ArticleEntry, IssueManifest, article_confide
 from engine.timarit.naming import FileIdentity, identify, nfc
 from engine.timarit.pagemap import PATTERNS, PageMap, build_page_map, read_page_numbers
 from engine.timarit.printed import (
-    NOT_FOUND_NOTE, RegistryValues, add_note, assign_ranges, drop_beyond_document, last_body_page, read_printed_page,
-    registry_values, relocate_by_title,
+    FRAVIK, NOT_FOUND_NOTE, RegistryValues, add_note, assign_ranges, drop_beyond_document, end_in_file, end_ranges,
+    fill_printed_pages, flag, last_body_page, page_numbers, read_printed_page, registry_values, relocate_by_title,
+    signatures,
 )
 from engine.timarit.splitter import sha256_bytes
 from engine.timarit.toc import TocEntry, clean_title, find_toc_pages, is_front_matter, parse_toc, \
@@ -72,8 +79,10 @@ NO_ARTICLE_LIST = "enginn greinalisti: efnisyfirlit fannst ekki eða var ólæsi
 # them back from analysis_notes, so they are named here, not repeated there.
 FORMULA_VOLUME_NOTE = "árgangur reiknaður út frá ári"
 FORMULA_YEAR_NOTE = "ár reiknað út frá"
-# A note starting with one of these means analysis sent the issue to review whatever the scores say.
-FORCED_REVIEW_NOTES = (NO_TEXT_LAYER, FORMULA_VOLUME_NOTE, FORMULA_YEAR_NOTE, NOT_FOUND_NOTE)
+# A note starting with one of these means analysis sent the issue to review whatever the scores say. FRAVIK ("FRÁVIK: ")
+# marks a significant deviation between the registry and the printed pages for the user's review (R42).
+FORCED_REVIEW_NOTES = (NO_TEXT_LAYER, FORMULA_VOLUME_NOTE, FORMULA_YEAR_NOTE, NOT_FOUND_NOTE, FRAVIK)
+_UNPAGED = frozenset({"ulfljotur_vefrit", "fraedigreinar_ymsar"})   # works cited without page numbers
 _BIN_SAMPLE_PAGES = 20                        # pages (container) or files (article folder) behind page_map["bin_ratio"]
 
 
@@ -107,13 +116,17 @@ def _page_texts(pdf: bytes) -> list[str]:
         return [p.get_text() for p in d]
 
 
-def _read_article_pdf(pdf: bytes) -> tuple[list[str], Page, Page]:
-    """An article PDF's page texts, and its first and last page as visual lines (firstpage.read_page)."""
+def _read_article_pdf(pdf: bytes, every_page: bool = False) -> tuple[list[str], list[Page], list[float]]:
+    """An article PDF's page texts and its pages as visual lines (firstpage.read_page): every page with the share
+    pictures cover of each (`every_page`: its end is looked for, pagekind), else the first and the last only."""
     with fitz.open(stream=pdf, filetype="pdf") as d:
         texts = [p.get_text() for p in d]
         if not texts:
-            return texts, FP.EMPTY, FP.EMPTY
-        return texts, read_page(d[0]), read_page(d[len(texts) - 1])
+            return texts, [], []
+        if not every_page:
+            return texts, [read_page(d[0]), read_page(d[len(texts) - 1])], []
+        reader = PageReader(d)
+        return texts, [reader(i) for i in range(len(texts))], [reader.picture(i) for i in range(len(texts))]
 
 
 def _visual_text(page: Page) -> str:
@@ -209,32 +222,50 @@ def _printed_at(pm: PageMap, idx: int) -> int | None:
 
 
 class _Doc(NamedTuple):
-    """One article PDF: its page texts, the printed numbers of its first and last page (None when unknown), and its
-    first and last page as visual lines."""
+    """One article PDF: its page texts, the printed numbers of its first and last page (None when unknown), its pages
+    as visual lines (every page, or the first and the last), the share pictures cover of each (every page only) and
+    the printed number of each page (its own map, when trusted)."""
     rel: str
     texts: list[str]
     first_printed: int | None
     last_printed: int | None
-    first: Page = FP.EMPTY
-    last: Page = FP.EMPTY
+    pages: list[Page] = []
+    pictures: list[float] = []
+    printed: list[int | None] = []
 
     @property
     def first_page(self) -> str:
         return self.texts[0] if self.texts else ""
 
+    @property
+    def first(self) -> Page:
+        return self.pages[0] if self.pages else FP.EMPTY
 
-def _article_doc(rel: str, texts: list[str], source: str, first: Page = FP.EMPTY, last: Page = FP.EMPTY) -> _Doc:
+    def page(self, i: int) -> Page:
+        return self.pages[i] if len(self.pages) == len(self.texts) and 0 <= i < len(self.pages) else FP.EMPTY
+
+    def last_page(self, i: int | None = None) -> Page:
+        """Page i (every page read) or the last page."""
+        if i is not None and len(self.pages) == len(self.texts):
+            return self.pages[i]
+        return self.pages[-1] if self.pages else FP.EMPTY
+
+
+def _article_doc(rel: str, texts: list[str], source: str, pages: list[Page] | None = None,
+                 pictures: list[float] | None = None) -> _Doc:
     """R7: the number read on the first page, else the article's own page map when it fits well enough (one- and
     two-page articles cannot fit one). The last page's number comes from that map only. The read number comes
     first because it is on the very page: some Stjórnmál og stjórnsýsla PDFs lack a page after the first, so
     their map puts the first page one too high."""
+    pages, pictures = pages or [], pictures or []
     if not texts:
-        return _Doc(rel, texts, None, None, first, last)
+        return _Doc(rel, texts, None, None, pages, pictures)
     pm = build_page_map(texts, source)
     trusted = pm.offset is not None and pm.quality >= C.PAGE_MAP_MIN_QUALITY
     read0 = read_page_numbers(texts[:1], PATTERNS.get(source, PATTERNS["default"]))[0]
     printed0 = read0 if read0 is not None else (pm.printed[0] if trusted else None)
-    return _Doc(rel, texts, printed0, pm.printed[-1] if trusted else None, first, last)
+    return _Doc(rel, texts, printed0, pm.printed[-1] if trusted else None, pages, pictures,
+                list(pm.printed) if trusted else [])
 
 
 # --- volume and year ---------------------------------------------------------------------------------------
@@ -459,20 +490,28 @@ async def _analyze_container_pages(m: IssueManifest, cfg: SourceConfig, deps: An
         m.error = NO_ARTICLE_LIST
         return
     registry_end = [a.page_end for a in entries]
+    registry_ends = {id(a): end for a, end in zip(entries, registry_end)}
     registry = {id(a): registry_values(a) for a in entries}          # R41: what the checks compare with the page
+    numbers = page_numbers(pm, texts, PATTERNS.get(cfg.short_name, PATTERNS["default"]))
     locate_articles(entries, pm, texts)
-    # an unnumbered first page where no registry entry starts is the cover (it may list titles in large type)
-    cover = {0} if texts and not pm.read[0] and not any(a.pdf_pages and a.pdf_pages[0] == 0 for a in entries) else set()
+    # an unnumbered first page where no registry entry starts is the cover (it may list titles in large type); with an
+    # unusable map it is the page itself that tells (Lögrétta 2005's first page prints 3: its first article)
+    unnumbered = not pm.read[0] if pm.offset is not None else numbers.at(0) is None
+    cover = {0} if texts and unnumbered and not any(a.pdf_pages and a.pdf_pages[0] == 0 for a in entries) else set()
     relocate_by_title(entries, registry_end, pm, texts, reader,
-                      skip=set(toc_pages) | set(range(max(toc_pages, default=-1) + 1)) | cover)
+                      skip=set(toc_pages) | set(range(max(toc_pages, default=-1) + 1)) | cover, number=numbers.at)
     entries, beyond = drop_beyond_document(entries, pm)
     if beyond:
         run.flag(beyond, review=True)
+    ends = end_ranges(entries, reader, numbers.at, registry_ends)   # Task 22c: articles end on their own text
+    m.page_map["non_article"] = ends.outside
     for a in entries:
         if a.pdf_pages:
             first, last = a.pdf_pages
-            read_printed_page(a, reader(first), reader(last_body_page(reader, first, last)))
-            page, printed, body = _visual_text(reader(first)), _printed_at(pm, first), " ".join(texts[first:last + 1][:3])
+            fill_printed_pages(a, lambda i, f=first, la=last: numbers.at(i, f, la), first, last)
+            read_printed_page(a, reader(first), reader(last_body_page(reader, first, last)),
+                              sign=lambda x, f=first, e=ends.ends[id(a)]: signatures(x, reader, f, e))
+            page, printed, body = _visual_text(reader(first)), numbers.evidence(first), " ".join(texts[first:last + 1][:3])
         else:
             page, printed, body = "", None, ""
         a.article_type = a.article_type or infer_article_type(None, a.title or "", cfg.verdict_type_default)
@@ -508,7 +547,7 @@ def _ulfljotur_entry(first: str, printed0: int | None, m: IssueManifest, rows: l
         if printed_issue and not set(printed_issue.split("-")) & set(hit.issue.split("-")):
             _add_analysis_note(a, f"forsíðan segir {printed_issue}. tbl., taflan {hit.issue}. tbl.")
         if printed0 is not None and printed0 != hit.page_start:      # R40: the sheet's Bls locates, print cites
-            _add_analysis_note(a, f"taflan segir bls. {hit.page_start}, prentað bls. {printed0}")
+            flag(a, f"taflan segir bls. {hit.page_start}, prentað bls. {printed0}")
             a.page_start, a.provenance["pages"] = printed0, "page"
         return a
     a = ArticleEntry(analysis_notes=[f"engin röð í töflu passaði (best {score:.2f})"])
@@ -563,15 +602,30 @@ def _ulfljotur_articles(docs: list[_Doc], m: IssueManifest, cfg: SourceConfig, r
     return entries
 
 
-def _reconcile_pages(a: ArticleEntry, fid: FileIdentity | None, doc: _Doc) -> None:
+def count_word(n: int, one: str, many: str) -> str:
+    """A number and its noun in Icelandic agreement: the singular after a number ending in 1 but not in 11 ("1 síðu",
+    "21 grein"), the plural otherwise ("2 síðum", "11 greinar")."""
+    return f"{n} {one if n % 10 == 1 and n % 100 != 11 else many}"
+
+
+class _Named(NamedTuple):
+    """A file name's page range and the printed one, where they disagree (flagged by _flag_file_names)."""
+    entry: ArticleEntry
+    named: tuple[int, int | None]
+    printed: tuple[int, int | None]
+    note: str
+
+
+def _reconcile_pages(a: ArticleEntry, fid: FileIdentity | None, doc: _Doc) -> _Named | None:
     """A file-name page range is a hint (Task 7: two Stjórnmál og stjórnsýsla names carry typos, and some
     ranges disagree with the printed numbers): the printed first page wins; the end is the last page's
-    printed number, else the first plus the PDF's page count; any disagreement with the name is noted."""
+    printed number, else the first plus the PDF's page count; a disagreement with the name is returned for
+    _flag_file_names."""
     fn_start, fn_end = (fid.page_start, fid.page_end) if fid else (None, None)
     printed0 = doc.first_printed
     start = printed0 if printed0 is not None else fn_start
     if start is None:
-        return
+        return None
     if doc.last_printed is not None and doc.last_printed >= start:
         end = doc.last_printed
     else:
@@ -584,15 +638,41 @@ def _reconcile_pages(a: ArticleEntry, fid: FileIdentity | None, doc: _Doc) -> No
         prov = "filename+page"
     else:
         prov = "page"
+    a.page_start, a.page_end, a.provenance["pages"] = start, end, prov
     if fn_start is not None and (start != fn_start or fn_end not in (None, end)):
         named = f"{fn_start}–{fn_end}" if fn_end is not None else f"{fn_start}"
-        _add_analysis_note(a, f"skráarnafn segir bls. {named}, PDF-skjalið bls. {start}–{end}")
-    a.page_start, a.page_end, a.provenance["pages"] = start, end, prov
+        return _Named(a, (fn_start, fn_end), (start, end), f"skráarnafn segir bls. {named}, PDF-skjalið bls. {start}–{end}")
+    return None
+
+
+def _flag_file_names(named: list[_Named], run: _Run, files: int) -> None:
+    """R42 for file-name page ranges: when the names of a folder are all off the print by one offset (Stjórnmál og
+    stjórnsýsla 10. árg.: every name two pages ahead), that is one deviation for the issue, flagged once; a file whose
+    range is off otherwise, or whose start is off with no common offset, is flagged on its own; the rest are notes."""
+    offsets = Counter(n.named[0] - n.printed[0] for n in named)
+    common, count = offsets.most_common(1)[0] if offsets else (0, 0)
+    common = common if common and count >= 2 else 0
+    if common:
+        ex = next(n for n in named if n.named[0] - n.printed[0] == common)
+        run.flag(f"{FRAVIK}blaðsíðutal skráarnafnanna er {count_word(abs(common), 'síðu', 'síðum')} "
+                 f"{'hærra' if common > 0 else 'lægra'} en prentað blaðsíðutal í {count_word(count, 'skrá', 'skrám')} "
+                 f"af {files} (t.d. {ex.note})", review=True)
+
+    def off(n: _Named) -> bool:
+        if not common:
+            return n.named[0] != n.printed[0]
+        ends = n.named[1] is not None and n.printed[1] is not None
+        return n.named[0] - n.printed[0] != common or ends and n.named[1] - n.printed[1] != common
+    for n in named:
+        if off(n):
+            flag(n.entry, n.note)
+        else:
+            _add_analysis_note(n.entry, n.note)
 
 
 def _sogs_articles(docs: list[_Doc], m: IssueManifest, cfg: SourceConfig, run: _Run) -> list[ArticleEntry]:
     """R5: the folder gives only the volume; the first page prints "N. tbl. N. árg. YYYY"."""
-    entries, years = [], Counter()
+    entries, years, named = [], Counter(), []
     for doc in docs:
         fid = identify(doc.rel)
         title, authors = sogs_heading(doc.first_page)
@@ -603,7 +683,8 @@ def _sogs_articles(docs: list[_Doc], m: IssueManifest, cfg: SourceConfig, run: _
             a.title, a.provenance["title"] = fid.title_hint, "filename"    # the English title in the file name
         if authors:
             a.provenance["authors"] = "page"
-        _reconcile_pages(a, fid, doc)
+        if n := _reconcile_pages(a, fid, doc):
+            named.append(n)
         issue, volume, year = _printed_issue_volume_year(doc.texts[:2])
         if issue is not None and issue != m.issue:
             a.issue, a.provenance["issue"] = issue, "page"
@@ -612,6 +693,7 @@ def _sogs_articles(docs: list[_Doc], m: IssueManifest, cfg: SourceConfig, run: _
         if year is not None:
             years[year] += 1
         entries.append(a)
+    _flag_file_names(named, run, len(docs))
     if years:
         year = years.most_common(1)[0][0]
         if m.year is not None and m.year != year:
@@ -637,13 +719,14 @@ def _standalone_entry(doc: _Doc, cfg: SourceConfig) -> ArticleEntry:
     return a
 
 
-def _filename_entry(doc: _Doc) -> ArticleEntry:
+def _filename_entry(doc: _Doc, named: list[_Named]) -> ArticleEntry:
     """Any other article PDF (Tímarit lögfræðinga 1975): what the file name says, checked against the page."""
     fid = identify(doc.rel)
     a = ArticleEntry()
     if fid is not None and fid.title_hint:
         a.title, a.provenance["title"] = fid.title_hint, "filename"
-    _reconcile_pages(a, fid, doc)
+    if n := _reconcile_pages(a, fid, doc):
+        named.append(n)
     return a
 
 
@@ -680,12 +763,12 @@ async def _analyze_article_files(m: IssueManifest, cfg: SourceConfig, deps: Anal
     unreadable: list[ArticleEntry] = []
     for rel in m.files:
         try:
-            texts, first, last = _read_article_pdf(deps.read_bytes(rel))
+            texts, pages, pictures = _read_article_pdf(deps.read_bytes(rel), every_page=cfg.short_name in _OWN_ENDS)
         except _UNREADABLE as exc:             # one bad file must not fail a folder of 28
             unreadable.append(_unreadable_entry(rel, exc))
             run.review = True
             continue
-        docs.append(_article_doc(rel, texts, cfg.short_name, first, last))
+        docs.append(_article_doc(rel, texts, cfg.short_name, pages, pictures))
     if cfg.short_name == "ulfljotur":
         entries = _ulfljotur_articles(docs, m, cfg, deps.xlsx_rows, run)
     elif cfg.short_name == "stjornmal_stjornsysla":
@@ -693,7 +776,9 @@ async def _analyze_article_files(m: IssueManifest, cfg: SourceConfig, deps: Anal
     elif cfg.short_name in ("ulfljotur_vefrit", "fraedigreinar_ymsar"):
         entries = [_standalone_entry(d, cfg) for d in docs]
     else:
-        entries = [_filename_entry(d) for d in docs]
+        named: list[_Named] = []
+        entries = [_filename_entry(d, named) for d in docs]
+        _flag_file_names(named, run, len(docs))
     for d, a in zip(docs, entries):
         a.source_file = d.rel
         a.pdf_pages = [0, len(d.texts) - 1] if d.texts else None
@@ -704,11 +789,16 @@ async def _analyze_article_files(m: IssueManifest, cfg: SourceConfig, deps: Anal
         if not has_text_layer(d.texts):
             _add_analysis_note(a, NO_TEXT_LAYER)
             run.review = True
+    ends = {id(a): _end_in_file(a, d) for d, a in zip(docs, entries) if cfg.short_name in _OWN_ENDS and d.texts}
     await _enrich_with_leitir(entries, m, cfg, deps)
     rows = {r.row: r for r in deps.xlsx_rows}
     for d, a in zip(docs, entries):
         registry = registry_values(a)                              # R41
-        read_printed_page(a, d.first, d.last if d.texts else None)
+        e = ends.get(id(a))
+        read_printed_page(a, d.first, d.last_page(e.last if e else None) if d.texts else None,
+                          sign=(lambda x, d=d, e=e: signatures(x, d.page, 0, e)) if e else None)
+        if a.page_start is None and d.texts and cfg.short_name not in _UNPAGED:
+            flag(a, "blaðsíðutal greinarinnar fannst hvorki á síðunni né í skránni")
         a.article_type = a.article_type or infer_article_type(None, a.title or "", cfg.verdict_type_default)
         a.checks = verify_article(a, _visual_text(d.first) if d.first.lines else d.first_page, d.first_printed,
                                   registry)
@@ -716,6 +806,15 @@ async def _analyze_article_files(m: IssueManifest, cfg: SourceConfig, deps: Anal
         a.confidence = article_confidence(a.checks)
     m.articles = sorted(entries + unreadable, key=_reading_order)
     m.page_map = {"bin_ratio": _folder_bin_ratio(docs)}
+
+
+_OWN_ENDS = frozenset({"ulfljotur"})     # article files the user split from scans: they may run into the next item
+
+
+def _end_in_file(a: ArticleEntry, d: _Doc) -> PK.End:
+    """Where an article ends inside its own file (Task 22c): an Úlfljótur scan may go on into the next item (1957
+    187.pdf prints "Juristforeningen 50 ára" on its last two pages)."""
+    return end_in_file(a, d.page, len(d.texts), d.pictures, d.printed)
 
 
 def _folder_bin_ratio(docs: list[_Doc]) -> float:
@@ -756,6 +855,8 @@ async def analyze_issue(m: IssueManifest, cfg: SourceConfig, deps: AnalyzeDeps) 
     for a in m.articles:
         for note in run.notes:
             _add_analysis_note(a, note)
+    if any(n.startswith(FORCED_REVIEW_NOTES) for a in m.articles for n in a.analysis_notes):
+        run.review = True                    # a deviation (FRÁVIK) or a missing article: the user reviews the issue
     m.label = issue_label(cfg, m.year, m.volume, m.issue)
     m.confidence = min((a.confidence for a in m.articles), default=0.0)
     if not frozen:

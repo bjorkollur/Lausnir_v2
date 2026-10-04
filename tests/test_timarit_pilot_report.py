@@ -153,6 +153,39 @@ def test_forced_review_reasons():
         assert not rep.forced_review(_mf(file=None, arts=[_art(1)], page_map={"bin_ratio": 0.9}))
 
 
+def test_a_deviation_forces_review_and_is_listed_with_its_issue_and_counted_per_source():
+    # Task 22c (R42): an analysis note starting "FRÁVIK: " sends the issue to review; the report lists every one
+    dev = f"{A.FRAVIK}taflan segir bls. 25, prentað bls. 15"
+    a = _mf(source="ulfljotur", arts=[_art(1.0, ALL, title="Tillögur þjóðréttarnefndar", notes=[dev, "annað"])])
+    b = _mf(source="logretta", arts=[_art(1.0, ALL, title="Ó" * 70,
+                                          notes=[f"{A.FRAVIK}skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli"])])
+    c = _mf(source="logretta", issue="2", arts=[_art(1.0, ALL, notes=["leitir.is segir bls. 70–71"])])
+    with rep._override(PAGE_MAP_MIN_QUALITY=0.5):
+        assert rep.forced_review(a) and rep.forced_review(b) and not rep.forced_review(c)
+    loaded = [rep.Loaded("x", m) for m in (a, b, c)]
+    devs = rep.deviations(loaded)
+    assert [(d.source, d.title, d.note) for d in devs] == [
+        ("ulfljotur", "Tillögur þjóðréttarnefndar", "taflan segir bls. 25, prentað bls. 15"),
+        ("logretta", "Ó" * 60, "skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli")]
+    text = "\n".join(rep._deviation_lines(loaded))
+    assert "== Frávik til yfirferðar: 2 ==" in text and "Eftir heimild: logretta 1, ulfljotur 1" in text
+    assert "„Tillögur þjóðréttarnefndar“  — taflan segir bls. 25, prentað bls. 15" in text and "leitir.is" not in text
+
+
+def test_a_deviation_of_the_whole_issue_is_listed_once():
+    # fix round 1: Stjórnmál og stjórnsýsla 10. árg.: one common file-name offset, written on every article
+    issue_note = f"{A.FRAVIK}blaðsíðutal skráarnafnanna er 2 síðum hærra en prentað blaðsíðutal í 3 skrám af 3"
+    own = f"{A.FRAVIK}skráarnafn segir bls. 613–642, PDF-skjalið bls. 611–636"
+    m = _mf(source="stjornmal_stjornsysla", arts=[_art(1.0, ALL, title="A", notes=[issue_note]),
+                                                  _art(1.0, ALL, title="B", notes=[issue_note, own]),
+                                                  _art(1.0, ALL, title="C", notes=[issue_note])])
+    devs = rep.deviations([rep.Loaded("x", m)])
+    assert [(d.title, d.note, d.articles) for d in devs] == [(None, issue_note[len(A.FRAVIK):], 3),
+                                                             ("B", own[len(A.FRAVIK):], 1)]
+    text = "\n".join(rep._deviation_lines([rep.Loaded("x", m)]))
+    assert "[allt heftið, 3 greinar]  — blaðsíðutal skráarnafnanna" in text and "„(heftið" not in text
+
+
 def test_without_external_record_rescales_the_rest_to_the_same_total():
     alt = rep.without_external_record(C.WEIGHTS)
     assert "external_record" not in alt
@@ -374,6 +407,7 @@ def test_cli_prints_the_report_without_writing_anything(tmp_path, capsys):
     assert "boom" in out and "x" * 101 not in out                                    # error cut at 100 chars, on one line
     assert "TL 2003_02.pdf" in out and "TL 2003.pdf" in out                          # contained_in
     assert "1977_x_x" not in out                                                     # the pending issue is not listed as review/failed
+    assert "== Frávik til yfirferðar: 0 ==" in out and "Eftir heimild: engin" in out
 
 
 def test_cli_only_restricts_the_report_to_the_listed_manifests(tmp_path, capsys):

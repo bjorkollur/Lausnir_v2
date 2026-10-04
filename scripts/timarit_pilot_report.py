@@ -10,7 +10,9 @@ prints to stdout; nothing is saved, no database, no network. Per source and for 
 runner_up_share, (3) how the confidence signals are composed, (4) what-if tables for APPROVE_THRESHOLD (with the
 current weights and with weights where the external record is not required), PAGE_MAP_MIN_QUALITY,
 OCR_BIN_RATIO_THRESHOLD, COVERAGE_MAX_GAP_PAGES and PAGE_MAP_RESTART_RATIO, (5) the lowest-confidence articles and
-(6) the issues in review or failed with their error. Exit status 1 when a manifest is unreadable or listed in
+(6) the issues in review or failed with their error. Finally (7) "Frávik til yfirferðar": every significant deviation
+analysis flagged (an analysis note starting with analyze.FRAVIK, R42) with its issue and article, and the count per
+source. Exit status 1 when a manifest is unreadable or listed in
 --only but missing, or when nothing has been analysed.
 """
 from __future__ import annotations
@@ -30,7 +32,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from engine.timarit import config as C  # noqa: E402
-from engine.timarit.analyze import _BIN_SAMPLE_PAGES, FORCED_REVIEW_NOTES  # noqa: E402
+from engine.timarit.analyze import _BIN_SAMPLE_PAGES, FORCED_REVIEW_NOTES, FRAVIK, count_word  # noqa: E402
 from engine.timarit.manifest import ArticleEntry, IssueManifest, issue_status, load_manifest  # noqa: E402
 
 APPROVE_STEPS = tuple(round(0.50 + 0.05 * i, 2) for i in range(10))     # 0.50 … 0.95
@@ -130,8 +132,9 @@ def _has_llm(a: ArticleEntry) -> bool:
 def forced_review(m: IssueManifest) -> bool:
     """Whether analysis sends this issue to review whatever its scores say (analyze_issue: a fallback was used),
     read back from the manifest: an error (no text layer, no article list), a page map below PAGE_MAP_MIN_QUALITY,
-    an article list that came from Claude, or an analysis note saying a volume or year was computed by formula
-    or an article file had no text layer (analyze.FORCED_REVIEW_NOTES). An unreadable file in an article folder
+    an article list that came from Claude, or an analysis note saying a volume or year was computed by formula,
+    an article file had no text layer, registry entries were not found in the file, or a deviation the user is to
+    review ("FRÁVIK: ", R42) (analyze.FORCED_REVIEW_NOTES). An unreadable file in an article folder
     is not detected, but its article has confidence 0 and fails any threshold anyway."""
     q = _number(m.page_map.get("quality"))
     return (bool(m.error) or (q is not None and q < C.PAGE_MAP_MIN_QUALITY)
@@ -326,7 +329,8 @@ def _approve_lines(ms: list[IssueManifest]) -> list[str]:
         "  „samþykkt af greiningu“ = allar greinar ≥ þröskuldur og þekja í lagi (manifest.issue_status) OG engin þvinguð yfirferð;",
         "  „issue_status eingöngu“ sleppir síðara skilyrðinu og ofmetur því samþykkt hefti.",
         "  Þvinguð yfirferð (greining sendir hefti í yfirferð hvað sem stigum líður) = villa í skránni, ekkert textalag,",
-        f"  blaðsíðukort undir PAGE_MAP_MIN_QUALITY (núna {C.PAGE_MAP_MIN_QUALITY}), greinalisti frá Claude (llm), árgangur eða ár reiknað út frá formúlu.",
+        f"  blaðsíðukort undir PAGE_MAP_MIN_QUALITY (núna {C.PAGE_MAP_MIN_QUALITY}), greinalisti frá Claude (llm), árgangur eða ár reiknað út frá formúlu,",
+        "  greinar sem fundust ekki í skránni, eða frávik til yfirferðar (FRÁVIK, sjá neðst).",
         f"  Þvinguð yfirferð í úrtakinu: {forced}/{len(ms)} hefti.",
         "",
         f"  1) núverandi vogir (öryggi eins og greining geymdi það): {_weights_text(C.WEIGHTS)}",
@@ -422,6 +426,48 @@ def group_report(name: str, loaded: list[Loaded], *, detail: bool = True) -> lis
     return out
 
 
+class Deviation(NamedTuple):
+    source: str
+    issue: str                  # the issue's label
+    title: str | None           # the article's title (cut to TITLE_CHARS); None for a deviation of the whole issue
+    note: str                   # the note without the FRÁVIK prefix
+    articles: int = 1           # how many of the issue's articles carry it
+
+
+def deviations(loaded: list[Loaded]) -> list[Deviation]:
+    """Every significant deviation analysis flagged (an analysis note starting with analyze.FRAVIK), in manifest and
+    article order. A deviation of the issue as a whole, which analysis writes on every article (the manifest has no
+    note of its own), is listed once, for the issue."""
+    out: list[Deviation] = []
+    for ld in loaded:
+        arts = ld.manifest.articles
+        seen: set[str] = set()
+        for a in arts:
+            for n in a.analysis_notes:
+                if not n.startswith(FRAVIK) or n in seen:
+                    continue
+                many = sum(n in b.analysis_notes for b in arts)
+                if many > 1:
+                    seen.add(n)
+                title = None if many > 1 else _one_line(a.title, TITLE_CHARS) or "(enginn titill)"
+                out.append(Deviation(ld.manifest.source, ld.manifest.label or ld.key, title,
+                                     " ".join(n[len(FRAVIK):].split()), many))
+    return out
+
+
+def _deviation_lines(loaded: list[Loaded]) -> list[str]:
+    devs = deviations(loaded)
+    per = Counter(d.source for d in devs)
+    out = ["", f"== Frávik til yfirferðar: {len(devs)} ==",
+           "Greining merkti þessi frávik milli skrár (efnisyfirlits, töflu, Claude, skráarnafns) og prentaðra síðna;",
+           "hvert þeirra sendir heftið í yfirferð.",
+           "Eftir heimild: " + (", ".join(f"{src} {n}" for src, n in sorted(per.items())) if per else "engin")]
+    for d in devs:
+        what = f"„{d.title}“" if d.title is not None else f"[allt heftið, {count_word(d.articles, 'grein', 'greinar')}]"
+        out.append(f"  {d.issue}  {what}  — {d.note}")
+    return out
+
+
 def render_report(loaded: list[Loaded], problems: list[str], contained: list[tuple[str, str]]) -> str:
     by_src: dict[str, list[Loaded]] = defaultdict(list)
     for ld in loaded:
@@ -433,6 +479,7 @@ def render_report(loaded: list[Loaded], problems: list[str], contained: list[tup
         for src in sorted(by_src):
             out += group_report(src, by_src[src])
         out += group_report("Allar heimildir", loaded, detail=False)
+        out += _deviation_lines(loaded)
     if contained:
         out += ["", f"== Skrár innihaldnar í stærri bindisskrá (contained_in; hlutfall er ekki geymt): {len(contained)} ==",
                 *[f"  {p}\n    í: {d}" for p, d in contained]]

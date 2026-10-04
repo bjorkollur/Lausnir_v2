@@ -12,13 +12,13 @@ from engine.timarit.ulfljotur_xlsx import XlsxArticle
 _BODY = "Meginmál greinarinnar heldur áfram hér með nægum texta svo að síðan hafi textalag og meginmál."
 
 
-def _typeset(pages: list[list[tuple[float, float, str]]]) -> bytes:
-    """Pages of (font size, baseline y, text) lines on an A5 page, each followed by body lines in 10 pt."""
+def _typeset(pages: list[list[tuple]]) -> bytes:
+    """Pages of (font size, baseline y, text[, left edge x]) lines on an A5 page (x 40 unless given)."""
     d = fitz.open()
     for rows in pages:
         page = d.new_page(width=420, height=600)
-        for size, y, text in rows:
-            page.insert_text((40, y), text, fontsize=size)
+        for size, y, text, *x in rows:
+            page.insert_text((x[0] if x else 40, y), text, fontsize=size)
     return d.tobytes()
 
 
@@ -74,7 +74,7 @@ async def test_title_page_before_the_registry_page_and_front_matter():
     assert "Höfundalisti" not in titles and len(titles) == 3
     a = next(x for x in m.articles if x.title == "Ákvörðun miskabóta í ærumeiðingamálum")
     assert a.pdf_pages == [7, 10] and a.page_start == 8 and a.page_end == 11 and a.provenance["pages"] == "page"
-    assert "efnisyfirlitið segir bls. 9, prentað bls. 8" in a.analysis_notes
+    assert "efnisyfirlitið segir bls. 9, prentað bls. 8" in a.analysis_notes    # a title page: a note, not FRÁVIK
     first = next(x for x in m.articles if x.title == "Fyrsta greinin um eignarrétt")
     assert first.pdf_pages == [4, 6] and first.page_start == 5 and first.page_end == 7
     assert first.provenance["pages"] == "toc" and first.analysis_notes == []
@@ -103,7 +103,7 @@ async def test_an_editorial_takes_its_type_from_the_printed_label_and_its_author
     toc = "Efnisyfirlit\n1\nNý löggjöf um skipun dómara\n3\nAnna Pálsdóttir:\nÖnnur greinin\n5\nPáll Pálsson:\nÞriðja greinin"
     pages = [[(10, 60 + 14 * k, ln) for k, ln in enumerate(toc.splitlines())],
              [(12.5, 580, "1"), (11, 160, "RITSTJÓRNARGREIN: Ný löggjöf um skipun dómara")] + _body(200),
-             [(12.5, 580, "2")] + _body(60, 10) + [(10.5, 260, "Róbert R. Spanó")],
+             [(12.5, 580, "2")] + _body(60, 10) + [(10.5, 260, "Róbert R. Spanó", 226)],   # set right, as printed
              [(12.5, 580, "3"), (11, 160, "Anna Pálsdóttir:"), (11, 175, "ÖNNUR GREININ")] + _body(200),
              [(12.5, 580, "4")] + _body(60, 20),
              [(12.5, 580, "5"), (11, 160, "Páll Pálsson:"), (11, 175, "ÞRIÐJA GREININ")] + _body(200)]
@@ -125,7 +125,7 @@ async def test_the_printed_page_number_outranks_the_spreadsheet_for_an_article_f
     m = await analyze_issue(m, get_config("ulfljotur"), _deps(_typeset(pages), xlsx=rows))
     a = m.articles[0]
     assert (a.page_start, a.page_end, a.provenance["pages"]) == (15, 18, "page")
-    assert "taflan segir bls. 25, prentað bls. 15" in a.analysis_notes
+    assert "FRÁVIK: taflan segir bls. 25, prentað bls. 15" in a.analysis_notes        # Task 22c: a deviation
     assert a.xlsx_row == 7 and not a.checks["printed_page_match"]      # the sheet and the print disagree: review
 
 
@@ -194,7 +194,7 @@ async def test_a_label_title_and_a_signature_do_not_confirm_themselves():
     toc = "Efnisyfirlit\n1\nLeiðari\n3\nAnna Pálsdóttir:\nÖnnur greinin\n5\nPáll Pálsson:\nÞriðja greinin"
     pages = [[(10, 60 + 14 * k, ln) for k, ln in enumerate(toc.splitlines())],
              [(12.5, 580, "1"), (24, 120, "Ný löggjöf um skipun dómara")] + _body(200),
-             [(12.5, 580, "2")] + _body(60, 10) + [(10.5, 260, "Róbert R. Spanó")],
+             [(12.5, 580, "2")] + _body(60, 10) + [(10.5, 260, "Róbert R. Spanó", 226)],   # set right, as printed
              [(12.5, 580, "3"), (11, 160, "Anna Pálsdóttir:"), (11, 175, "ÖNNUR GREININ")] + _body(200),
              [(12.5, 580, "4")] + _body(60, 20),
              [(12.5, 580, "5"), (11, 160, "Páll Pálsson:"), (11, 175, "ÞRIÐJA GREININ")] + _body(200)]

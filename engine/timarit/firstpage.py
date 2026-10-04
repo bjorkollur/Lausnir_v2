@@ -53,12 +53,15 @@ class Line:
     size: float
     y: float               # top of the line, in points from the top of the page
     bold: bool = False
+    x0: float = 0.0        # left and right edge (points; 0.0 when unknown)
+    x1: float = 0.0
 
 
 @dataclass(frozen=True)
 class Page:
     lines: list[Line]      # top to bottom
     height: float
+    width: float = 0.0     # 0.0 when unknown
 
 
 EMPTY = Page([], 1.0)
@@ -88,9 +91,9 @@ def read_page(page: fitz.Page) -> Page:
             prev[6] = min(prev[6], it[6])
         else:
             merged.append(it)
-    lines = [Line(unicodedata.normalize("NFC", t), round(size, 1), round(top, 1), bold)
-             for _, _, _, size, bold, t, top in merged]
-    return Page(lines, page.rect.height or 1.0)
+    lines = [Line(unicodedata.normalize("NFC", t), round(size, 1), round(top, 1), bold, round(x0, 1), round(x1, 1))
+             for _, x0, x1, size, bold, t, top in merged]
+    return Page(lines, page.rect.height or 1.0, page.rect.width)
 
 
 def _main_size(spans: list[dict]) -> float:
@@ -118,6 +121,21 @@ class PageReader:
         if i not in self._pages:
             self._pages[i] = read_page(self._doc[i])
         return self._pages[i]
+
+    def drawings(self, i: int) -> int:
+        """How many vector drawings page i has (an article's text drawn as outlines has hundreds)."""
+        if self._doc is None or not 0 <= i < len(self._doc):
+            return 0
+        return len(self._doc[i].get_cdrawings())
+
+    def picture(self, i: int) -> float:
+        """The share of page i that pictures cover (an advert's photograph; a scan's whole page), at most 1.0."""
+        if self._doc is None or not 0 <= i < len(self._doc):
+            return 0.0
+        page = self._doc[i]
+        area = page.rect.width * page.rect.height or 1.0
+        boxes = [fitz.Rect(info["bbox"]) & page.rect for info in page.get_image_info()]
+        return min(1.0, sum(b.width * b.height for b in boxes if not b.is_empty) / area)
 
 
 # --- text measures ---------------------------------------------------------------------------------------------
@@ -744,6 +762,7 @@ _CREDIT_END = re.compile(r"\s+[-–—|]\s+|\s+(?:Myndir?|Ljósmynd(?:ir)?|Ljós
 _FOOTNOTE_MARKS = re.compile(r"[*†‡¹²³⁴⁵⁶⁷⁸⁹⁰]+|(?<=[^\W\d_])\d{1,2}(?=[\s,;:)]|$)")
 _SKRIFA = re.compile(r"\s+skrifa(?:r|ði|ðu)?\s*$", re.I)
 _ROLE_LINE = re.compile(r"^(?:ritstjóri|formaður|forseti|deildarforseti|framkvæmdastjóri|ritari|stjórn)\b", re.I)
+_LIST_ENTRY = re.compile(r"^([^:]{4,40}):\s*\S")         # "Arnljótur Björnsson: Dómar í skaðabótamálum 1965—1972"
 _BYLINE_STOP = re.compile(r"^(?:efnisyfirlit|ágrip|útdráttur|abstract|summary|inngangur|\d+(?:\.\d+)*\.?\s+\S|"
                           r"[IVX]+\.\s)", re.I)
 
@@ -836,6 +855,13 @@ _ROLE_WORDS = re.compile(r"\b(?:professor|prófessor|dósent|lektor|lögmaður|l
                          r"hdl\.|hrl\.|fellow|research\w*)\b", re.I)
 
 
+def _caption(text: str) -> bool:
+    """A photo's caption naming its person, ending in a period ("Ágúst Þór Árnason.", LMBL 2012): no byline. A byline
+    may end in a title's period ("hdl.") or an initial's, never in a full name and a period."""
+    m = re.search(r"([^\W\d_]{3,})\.\s*$", text)
+    return bool(m) and m.group(1)[:1].isupper() and _name_token_ok(m.group(1)) and bool(names_in(text))
+
+
 def byline(page: Page, heading: Heading | None, title: str | None) -> list[str]:
     """Authors printed with the heading: credits anywhere in the top part ("Texti: Kristján Örvar Sveinsson",
     "Grein eftir Margréti Steinarsdóttur", "Ritdómur eftir …", "Reviewed by …"); name lines just under the heading,
@@ -853,11 +879,12 @@ def byline(page: Page, heading: Heading | None, title: str | None) -> list[str]:
         name_style = None             # (size, bold) of the first name line: later lines in that style are bylines too
         skipped = 0
         for ln in lines[heading.last + 1:heading.last + 10]:
-            if _BYLINE_STOP.match(ln.text) or len(ln.text) > 100:
-                break
+            if _BYLINE_STOP.match(ln.text) or len(ln.text) > 100 or (
+                    (entry := _LIST_ENTRY.match(ln.text)) and names_in(entry.group(1))):
+                break                                # (a list of "Name: Title" entries under a heading is no byline)
             if ln.text[:1].islower() and not _ROLE_WORDS.search(ln.text) and len(ln.text) > 40:
                 break                                # body text
-            if ln.text[:1].islower() or _ROLE_LINE.match(ln.text) or _credit_line(ln, body):
+            if ln.text[:1].islower() or _ROLE_LINE.match(ln.text) or _credit_line(ln, body) or _caption(ln.text):
                 continue
             apart = ln.bold or abs(ln.size - body) >= 0.08 * body
             styled = not _plain_words(ln.text) and (
