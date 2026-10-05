@@ -24,6 +24,17 @@ PAGE_MAP_RESTART_RATIO = 0.25
 # first article, between articles, after the last) before issue_status sends the issue to review.
 # User's choice, Task 22 pilot, 2026-10-04: 6, unchanged.
 COVERAGE_MAX_GAP_PAGES = 6
+# Task 23b (R47), contents quality gate (tocgate.py): a contents list the parser read is replaced by Claude's list when
+# fewer than this share of its entries are found on their start pages (the title or a form of it, a person the entry
+# names, the label of its kind). Column rubrics such as "Frá ritstjórn" are not counted; rows read without a title
+# ("—") are, and a list with nothing to measure fails. Pilot-tunable: the user chooses from the distribution that
+# scripts/timarit_pilot_report.py prints ("Efnisyfirlit á síðunum"). Default 0.8, measured again in fix rounds 1 and 2
+# (2026-10-05): the lowest value that keeps every audited whole-issue failure of audit 4 gated (TL 1974 at 0.71, TL
+# 2017-2 at 0.75, TL 1982 at 0.77, TL 1979 at 0.78). It gates 35 bulk lists (fix round 2 adds TL 1971, 8 of its 11 rows
+# "—"), and the 22 working lists the review named (Lögmannablaðið 2016-2024, TL 1951-1, 2012-3, 2012-4, 2022-4) stand
+# at 0.80 or above. The two groups still overlap between 0.75 and 0.80: working lists TL 1952-1 (0.75) and TL 1999
+# (0.77) beside failing TL 1979, 1981 and 1983 (0.78-0.79).
+TOC_MIN_TITLE_SHARE = 0.8
 MANIFEST_ROOT = Path("data/timarit/manifests")
 UNMATCHED_PATH = Path("data/timarit/_unmatched.yaml")
 # Caches are written, so they live outside the (read-only) user archive.

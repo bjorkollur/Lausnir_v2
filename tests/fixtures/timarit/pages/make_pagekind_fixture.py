@@ -7,8 +7,9 @@ pictures cover, its vector drawings and its visual lines [text, size, top, bold,
 text is not kept verbatim: a line of running text in the middle of the page (30 characters or more, set in the page's
 body size or smaller and not bold, no name, no advert mark or firm, not a part heading, neither of the page's first two nor last
 two text lines) becomes filler of the same length that keeps its first and last character, so sizes, positions,
-lengths, initial case, sentence ends and every line the classifier reads for its words stay as printed. One page per
-line in the JSON.
+lengths, initial case, sentence ends and every line the classifier reads for its words stay as printed. A file may keep
+every line above a share of the page's height (Task 23b: a first page's title and byline, which the reading of them
+needs). One page per line in the JSON.
 """
 from __future__ import annotations
 
@@ -53,6 +54,54 @@ FILES = {
                   [26, 27, 28, 29]),
     "ranns2003": ("Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2003 - IV.pdf", [211]),
     "logbru2015": ("Lögbrú/2015-01-Lögbrú.pdf", [44]),
+    # Task 23b: bulk audit 4. Stjórnmál og stjórnsýsla first pages (their top kept whole: title and byline) …
+    "ss01": ("Stjórnmál og Stjórnsýsla/Vol01/5-26_When_is_a_minority_a_majority.pdf", [0], 0.75),
+    "ss03": ("Stjórnmál og Stjórnsýsla/Vol03/5-42_Government_formation_negotiations_in_Ice.pdf", [0], 0.75),
+    "ss05a": ("Stjórnmál og Stjórnsýsla/Vol05/225-248_Iceland’s_Neighbours_in_the_EU_Entry_Que.pdf", [0], 0.75),
+    "ss05b": ("Stjórnmál og Stjórnsýsla/Vol05/363-382_Human_right,_disability_and_family_life.pdf", [0], 0.75),
+    "ss07a": ("Stjórnmál og Stjórnsýsla/Vol07/5-22_The_European_Citizens’_Initiative.pdf", [0], 0.45),
+    "ss07b": ("Stjórnmál og Stjórnsýsla/Vol07/333-352_From_soft_to_hard_downsizing_methods.pdf", [0], 0.45),
+    "ss08a": ("Stjórnmál og Stjórnsýsla/Vol08/389-412_The_effects_of_cutbacks_on_motivation_an.pdf", [0], 0.45),
+    "ss08b": ("Stjórnmál og Stjórnsýsla/Vol08/451-468_Smelter_Jobs__Societal_changes_and_emplo.pdf", [0], 0.45),
+    "ss09a": ("Stjórnmál og Stjórnsýsla/Vol09/1-20_Scotland_as_an_Independent_Small_State.pdf", [0], 0.45),
+    "ss09b": ("Stjórnmál og Stjórnsýsla/Vol09/531-548_The_Faroe_Islands_and_the_Arctic.pdf", [0], 0.45),
+    "ss10": ("Stjórnmál og Stjórnsýsla/Vol10/77-98_The_status_of_preschool_teachers_in_two.pdf", [0], 0.45),
+    "ss11": ("Stjórnmál og Stjórnsýsla/Vol11/55-70_Self_Censorship_among_Icelandic_Journali.pdf", [0], 0.45),
+    "ss14": ("Stjórnmál og Stjórnsýsla/Vol14/19-44_Internal_audit_in_the_public_sector_–.pdf", [0], 0.6),
+    "ss21": ("Stjórnmál og Stjórnsýsla/Vol21/35-58_Local_parliamentarians_in_a_global_world.pdf", [0], 0.45),
+    # … signatures, swallowed items, interviews and bylines, page kinds at an article's end, contents on its pages
+    "lmbl2021": ("Lögmannablaðið/Lögmannablaðið 2021 03.pdf", [27, 28]),
+    "lmbl2012": ("Lögmannablaðið/Lögmannablaðið 2012 02 .pdf", [26]),
+    "tl1996": ("Tímarit Lögfræðinga/TL 1996.pdf", [330, 335, 336, 342, 348]),
+    "lmbl2017b": ("Lögmannablaðið/Lögmannablaðið 2017 02 .pdf", [17]),
+    "tl1964": ("Tímarit Lögfræðinga/TL 1964_01.pdf", [63]),
+    "lmbl2004c": ("Lögmannablaðið/Lögmannablaðið 2004 03.pdf", [27]),
+    "logretta2014b": ("Lögrétta/Lögrétta 2014 2.tbl.pdf", [131]),
+    "tl1968": ("Tímarit Lögfræðinga/TL 1968_02.pdf", [14, 15, 16, 17]),
+    "tl2014": ("Tímarit Lögfræðinga/TL 2014_03.pdf", [4, 5, 37, 38, 39]),
+    "tl1970": ("Tímarit Lögfræðinga/TL 1970_01.pdf", [38, 39, 40, 41]),
+    "lmbl2004d": ("Lögmannablaðið/Lögmannablaðið 2004 04.pdf", [3, 4, 5, 8, 9, 10, 11]),
+    "ulf1983": ("Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/86.pdf", [0, 1, 7, 8], 0.5),
+    "tl1991": ("Tímarit Lögfræðinga/TL 1991_02.pdf", [2, 7, 12, 53, 69]),
+    "tl2017": ("Tímarit Lögfræðinga/TL 2017_02.pdf", [4, 5, 48, 94], 0.5),
+    "tl1971": ("Tímarit Lögfræðinga/TL 1971_1972.pdf", [270, 284]),
+    # … and lists that work although their titles are not printed as the registry has them (fix round 1)
+    "lmbl2016c": ("Lögmannablaðið/Lögmannablaðið 2016 03 .pdf", [35]),
+    "lmbl2017d": ("Lögmannablaðið/Lögmannablaðið 2017 04 .pdf", [7], 0.33),
+    "lmbl2020b": ("Lögmannablaðið/Lögmannablaðið 2020 01 .pdf", [13]),
+    "lmbl2023": ("Lögmannablaðið/Lögmannablaðið 2023 01.pdf", [22, 23]),
+    "tl2022": ("Tímarit Lögfræðinga/TL 2022_04.pdf", [2], 0.3),
+    "tl1951": ("Tímarit Lögfræðinga/TL 1951_01.pdf", [11]),
+    "tl2012": ("Tímarit Lögfræðinga/TL 2012_04.pdf", [2]),
+    "logbru2013": ("Lögbrú/2013-01-Lögbrú.pdf", [154]),
+    "tl1979": ("Tímarit Lögfræðinga/TL 1979.pdf", [112]),
+    "lmbl2013": ("Lögmannablaðið/Lögmannablaðið 2013 03.pdf", [13]),
+    # fix round 2: a label over the wrong entry, interviews' leads and credits, TL's "Name:" heading
+    "lmbl2016b": ("Lögmannablaðið/Lögmannablaðið 2016 02 .pdf", [3, 5]),
+    "lmbl2005b": ("Lögmannablaðið/Lögmannablaðið 2005 04.pdf", [9]),
+    "lmbl2006": ("Lögmannablaðið/Lögmannablaðið 2006 02.pdf", [9, 10]),
+    "tl2024d": ("Tímarit Lögfræðinga/TL 2024_04.pdf", [4]),
+    "tl1971b": ("Tímarit Lögfræðinga/TL 1971_1972.pdf", [50]),
 }
 _WORDS = ("og það sem fram kemur í máli þessu var talið rétt að líta til þess hvort ákvæðin ættu við um þau atvik "
           "sem um ræðir enda verður ekki séð að annað hafi legið fyrir ").split()
@@ -68,8 +117,10 @@ def _filler(text: str) -> str:
     return text[0] + middle + text[-1]
 
 
-def _keep(page: FP.Page, k: int, ln: FP.Line, text_lines: list[FP.Line]) -> bool:
+def _keep(page: FP.Page, k: int, ln: FP.Line, text_lines: list[FP.Line], keep_top: float = 0.0) -> bool:
     body = FP.body_size(page)
+    if ln.y < keep_top * page.height:
+        return True                                   # (a first page's title and byline, for the reading of them)
     if len(ln.text) < 30 or not ln.text[:1].isalpha() or ln in text_lines[:2] or ln in text_lines[-2:]:
         return True
     if ln.bold or ln.size > 1.07 * body:
@@ -83,14 +134,14 @@ def _keep(page: FP.Page, k: int, ln: FP.Line, text_lines: list[FP.Line]) -> bool
 def build() -> str:
     """The fixture's text, from the archive."""
     pages: dict[str, dict] = {}
-    for key, (rel, numbers) in FILES.items():
+    for key, (rel, numbers, *top) in FILES.items():
         with fitz.open(ARCHIVE / rel) as d:
             reader = FP.PageReader(d)
             for i in numbers:
                 p = reader(i)
                 text_lines = [ln for ln in p.lines if re.search(r"[^\W\d_]{2}", ln.text)]
-                lines = [[ln.text if _keep(p, k, ln, text_lines) else _filler(ln.text), ln.size, ln.y, ln.bold, ln.x0,
-                          ln.x1] for k, ln in enumerate(p.lines)]
+                lines = [[ln.text if _keep(p, k, ln, text_lines, *top) else _filler(ln.text), ln.size, ln.y, ln.bold,
+                          ln.x0, ln.x1] for k, ln in enumerate(p.lines)]
                 pages[f"{key}/{i}"] = {"height": round(p.height, 1), "width": round(p.width, 1),
                                        "picture": round(reader.picture(i), 2), "drawings": reader.drawings(i),
                                        "lines": lines}

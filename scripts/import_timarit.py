@@ -503,7 +503,9 @@ def _real_deps_factory(client: httpx.AsyncClient, llm_client=None):
 
     def factory() -> AnalyzeDeps:
         return AnalyzeDeps(read_bytes=lambda rel: (DROP / rel).read_bytes(), leitir=leitir,
-                           llm_toc=llm if llm_client is not None else llm_offline, xlsx_rows=xlsx_rows)
+                           llm_toc=llm if llm_client is not None else llm_offline, xlsx_rows=xlsx_rows,
+                           llm_pending=None if llm_client is not None else
+                           (lambda text_: is_pending(_llm_cache_dir(), cache_key(text_))))
     factory.queued = queued
     return factory
 

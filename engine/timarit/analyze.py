@@ -14,7 +14,10 @@ Registry per source (spec §5.1):
   and authors from the first page, no printed pages.
 - every other issue or volume PDF: its own TOC (page-first or page-last by source and file kind, R22),
   enriched with leitir.is records for timarit_logfraedinga (R26); Claude reads the TOC when the
-  parser finds nothing (provenance llm, confidence capped, issue in review).
+  parser finds nothing (provenance llm, confidence capped, issue in review), and when the parsed list fails on the
+  issue's own pages (tocgate.py, Task 23b, R47: too few of its titles printed on their start pages, rows shifted by
+  one): Claude's list replaces it, or, while the offline queue waits for Claude's answer, the
+  parsed list stays with a note that sends the issue to review.
 
 The printed page decides (Task 22b, R40; printed.py and firstpage.py): the registry's page number locates an article,
 the page that prints its title is where it starts (a title page before it, a number one or two off, an entry without
@@ -49,6 +52,8 @@ from engine.config.sources import SourceConfig
 from engine.timarit import config as C
 from engine.timarit import firstpage as FP
 from engine.timarit import pagekind as PK
+from engine.timarit import sogs
+from engine.timarit import tocgate as TG
 from engine.timarit.article_type import infer_article_type
 from engine.timarit.authors import clean_author
 from engine.timarit.extract import bin_known_ratio, bin_known_share, has_text_layer
@@ -61,8 +66,8 @@ from engine.timarit.naming import FileIdentity, identify, nfc
 from engine.timarit.pagemap import PATTERNS, PageMap, build_page_map, read_page_numbers
 from engine.timarit.printed import (
     FRAVIK, NOT_FOUND_NOTE, RegistryValues, add_note, assign_ranges, drop_beyond_document, end_in_file, end_ranges,
-    fill_printed_pages, flag, last_body_page, page_numbers, read_printed_page, registry_values, relocate_by_title,
-    signatures,
+    fill_printed_pages, flag, given_first, last_body_page, page_heading_text, page_numbers, read_printed_page,
+    registry_values, relocate_by_title, signatures,
 )
 from engine.timarit.splitter import sha256_bytes
 from engine.timarit.toc import TocEntry, clean_title, find_toc_pages, is_front_matter, parse_toc, \
@@ -76,13 +81,18 @@ _FROZEN = ("approved", "imported")           # statuses only the user or import 
 _LEITIR_SOURCES = frozenset({"timarit_logfraedinga"})
 NO_TEXT_LAYER = "ekkert textalag — þarf OCR"
 NO_ARTICLE_LIST = "enginn greinalisti: efnisyfirlit fannst ekki eða var ólæsilegt"
+# R47 (Task 23b): the parsed contents list failed on the issue's pages (tocgate); Claude's list replaces it
+TOC_GATE_NOTE = "efnisyfirlitið stóðst ekki á síðunum"
+# Task 23b fix round 2: an entry of a list that holds, placed by its author, its interviewee or its kind's label, not by
+# its title; a plain note for the reviewer (no deviation, no forced review)
+PROXY_NOTE = "titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir"
 # Notes that analysis writes when it fell back to a formula (and forced the issue to review); the pilot report reads
 # them back from analysis_notes, so they are named here, not repeated there.
 FORMULA_VOLUME_NOTE = "árgangur reiknaður út frá ári"
 FORMULA_YEAR_NOTE = "ár reiknað út frá"
 # A note starting with one of these means analysis sent the issue to review whatever the scores say. FRAVIK ("FRÁVIK: ")
 # marks a significant deviation between the registry and the printed pages for the user's review (R42).
-FORCED_REVIEW_NOTES = (NO_TEXT_LAYER, FORMULA_VOLUME_NOTE, FORMULA_YEAR_NOTE, NOT_FOUND_NOTE, FRAVIK)
+FORCED_REVIEW_NOTES = (NO_TEXT_LAYER, FORMULA_VOLUME_NOTE, FORMULA_YEAR_NOTE, NOT_FOUND_NOTE, FRAVIK, TOC_GATE_NOTE)
 _UNPAGED = frozenset({"ulfljotur_vefrit", "fraedigreinar_ymsar"})   # works cited without page numbers
 _BIN_SAMPLE_PAGES = 20                        # pages (container) or files (article folder) behind page_map["bin_ratio"]
 
@@ -94,6 +104,8 @@ class AnalyzeDeps:
     leitir: Callable[[str, str | None], Awaitable[list[LeitirArticle]]] | None  # (query, journal) → records
     llm_toc: Callable[[str], Awaitable[list[TocEntry]]] | None                  # TOC text → entries (Claude)
     xlsx_rows: list[XlsxArticle]                                                # the Úlfljótur spreadsheet
+    # Is this text in the offline queue, waiting for the session's answer? (None: no queue; an empty answer is an answer)
+    llm_pending: Callable[[str], bool] | None = None
 
 
 @dataclass
@@ -173,16 +185,18 @@ def metadata_year(meta: dict | None, this_year: int | None = None) -> int | None
     return pdf_meta(meta, this_year).year
 
 
-def _read_article_pdf(pdf: bytes, every_page: bool = False) -> tuple[list[str], list[Page], list[float], PdfMeta]:
+def _read_article_pdf(pdf: bytes, every_page: bool = False,
+                      drop_shadows: bool = False) -> tuple[list[str], list[Page], list[float], PdfMeta]:
     """An article PDF's page texts, its pages as visual lines (firstpage.read_page): every page with the share
-    pictures cover of each (`every_page`: its end is looked for, pagekind), else the first and the last only, and what
-    its metadata says about the publication date."""
+    pictures cover of each (`every_page`: its end is looked for, pagekind), else the first and the last only (words
+    typeset twice read once, `drop_shadows`), and what its metadata says about the publication date."""
     with fitz.open(stream=pdf, filetype="pdf") as d:
         texts, meta = [p.get_text() for p in d], pdf_meta(d.metadata)
         if not texts:
             return texts, [], [], meta
         if not every_page:
-            return texts, [read_page(d[0]), read_page(d[len(texts) - 1])], [], meta
+            return texts, [read_page(d[0], drop_shadows=drop_shadows),
+                           read_page(d[len(texts) - 1], drop_shadows=drop_shadows)], [], meta
         reader = PageReader(d)
         return texts, [reader(i) for i in range(len(texts))], [reader.picture(i) for i in range(len(texts))], meta
 
@@ -419,20 +433,30 @@ def _container_kind(m: IssueManifest) -> str:
     return "volume" if m.issue is None else "issue"
 
 
-async def _toc_entries_or_llm(texts: list[str], toc_pages: list[int], pm: PageMap, reader: PageReader,
-                              m: IssueManifest, cfg: SourceConfig, deps: AnalyzeDeps, run: _Run) -> list[ArticleEntry]:
+def _parsed_toc(texts: list[str], toc_pages: list[int], m: IssueManifest, cfg: SourceConfig) -> list[ArticleEntry]:
     text = "\n".join(texts[i] for i in toc_pages)
     style = style_of_text(text, toc_style(cfg.short_name, _container_kind(m)))
     toc = parse_toc(text, style=style) if toc_pages else []
-    if toc:
-        return _toc_entries(toc, m, cfg, "toc")
+    return _toc_entries(toc, m, cfg, "toc") if toc else []
+
+
+async def _llm_entries(texts: list[str], toc_pages: list[int], pm: PageMap, reader: PageReader, m: IssueManifest,
+                       cfg: SourceConfig, deps: AnalyzeDeps) -> list[ArticleEntry]:
+    """Claude's list (provenance llm): asked of the API, or of the cache and the offline queue ([] while it waits)."""
     if deps.llm_toc is None:
         return []
     toc = await deps.llm_toc(_fallback_text(texts, toc_pages, pm, reader))
-    if not toc:
-        return []
-    run.llm = True
-    return _toc_entries(toc, m, cfg, "llm")
+    return _toc_entries(toc, m, cfg, "llm") if toc else []
+
+
+def _no_claude_list(texts: list[str], toc_pages: list[int], pm: PageMap, reader: PageReader, deps: AnalyzeDeps) -> str:
+    """Why a failed list stays (R47): Claude's answer is still in the offline queue, or Claude found no articles (an
+    empty answer, cached), or there is no Claude to ask."""
+    if deps.llm_toc is None:
+        return "greinalisti Claude ekki tiltækur; efnisyfirlitinu haldið til yfirferðar"
+    if deps.llm_pending is not None and deps.llm_pending(_fallback_text(texts, toc_pages, pm, reader)):
+        return "greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan"
+    return "Claude fann engar greinar í heftinu; efnisyfirlitinu haldið til yfirferðar"
 
 
 def _fallback_text(texts: list[str], toc_pages: list[int], pm: PageMap, reader: PageReader) -> str:
@@ -471,8 +495,8 @@ def _apply_leitir(a: ArticleEntry, rec: LeitirArticle, m: IssueManifest) -> None
     a.leitir_record_id = rec.record_id
     if not a.title and rec.title:
         a.title, a.provenance["title"] = rec.title.replace(" : ", ": "), "leitir"
-    if rec.authors and len(rec.authors) >= len(a.authors):
-        a.authors, a.provenance["authors"] = list(rec.authors), "leitir"
+    if rec.authors and len(rec.authors) >= len(a.authors):          # "Yoran, Aaron" as printed: "Aaron Yoran"
+        a.authors, a.provenance["authors"] = [given_first(x) for x in rec.authors], "leitir"
     if rec.page_start is not None:
         if a.page_start is None:
             a.page_start, a.page_end, a.provenance["pages"] = rec.page_start, rec.page_end, "leitir"
@@ -542,14 +566,35 @@ async def _analyze_container_pages(m: IssueManifest, cfg: SourceConfig, deps: An
         if m.volume is not None:
             entries = [_row_entry(r, m) for r in articles_for(deps.xlsx_rows, volume=m.volume, issue=m.issue)]
     toc_pages = [] if _starts_inside_pagination(pm) else find_toc_pages(texts)
-    if not entries:
-        entries = await _toc_entries_or_llm(texts, toc_pages, pm, reader, m, cfg, deps, run)
+    if not entries and (entries := _parsed_toc(texts, toc_pages, m, cfg)):
+        before = (list(run.notes), run.review, m.volume)
+        gate = await _place(entries, m, cfg, deps, run, pm, texts, reader, toc_pages, parsed=True)
+        if gate is None or not (why := gate.failures()):
+            return
+        note = f"{TOC_GATE_NOTE} ({'; '.join(why + gate.context())})"
+        if not (claude := await _llm_entries(texts, toc_pages, pm, reader, m, cfg, deps)):
+            run.flag(f"{note} — {_no_claude_list(texts, toc_pages, pm, reader, deps)}", review=True)
+            return
+        run.notes, run.review, m.volume = before          # R47: the parsed list fails on its pages; Claude's replaces it
+        run.llm, entries = True, claude
+        run.flag(f"{note} — greinalisti Claude notaður")
+    elif not entries and (entries := await _llm_entries(texts, toc_pages, pm, reader, m, cfg, deps)):
+        run.llm = True
+    await _place(entries, m, cfg, deps, run, pm, texts, reader, toc_pages)
+
+
+async def _place(entries: list[ArticleEntry], m: IssueManifest, cfg: SourceConfig, deps: AnalyzeDeps, run: _Run,
+                 pm: PageMap, texts: list[str], reader: PageReader, toc_pages: list[int],
+                 parsed: bool = False) -> TG.TocCheck | None:
+    """Locate a registry's entries in the issue PDF, end them on their own text, read their pages and verify them
+    (m.articles, m.page_map["non_article"]). For a list the contents parser read (`parsed`), how it fares on its pages
+    (tocgate, R47; kept in m.page_map["toc_check"]); None otherwise."""
     entries = _tidy_registry(entries)
     await _enrich_with_leitir(entries, m, cfg, deps)
     _fallback_volume(m, cfg, run)
     if not entries:
-        m.error = NO_ARTICLE_LIST
-        return
+        m.articles, m.error = [], NO_ARTICLE_LIST
+        return None
     registry_end = [a.page_end for a in entries]
     registry_ends = {id(a): end for a, end in zip(entries, registry_end)}
     registry = {id(a): registry_values(a) for a in entries}          # R41: what the checks compare with the page
@@ -580,6 +625,33 @@ async def _analyze_container_pages(m: IssueManifest, cfg: SourceConfig, deps: An
         a.checks = verify_article(a, page, printed, registry[id(a)])
         a.confidence = article_confidence(a.checks, llm=run.llm)
     m.articles = entries
+    if not parsed:
+        return None
+    gate = TG.check(entries, {k: r.title for k, r in registry.items()}, reader, reader.picture, ends.outside,
+                    lambda title, i: _on_page(title, _visual_text(reader(i)), C.TITLE_ON_PAGE_MIN), len(texts),
+                    lambda i: _visual_text(reader(i)), {k: r.authors for k, r in registry.items()},
+                    front=max([*toc_pages, *cover], default=-1) + 1)   # (unclaimed counts after cover and contents)
+    m.page_map["toc_check"] = gate.as_dict()
+    for k, by in gate.proxies:                   # fix round 2: placed by a name or a label, its title unverified
+        a = entries[k]
+        heading = page_heading_text(reader(a.pdf_pages[0])) if a.pdf_pages else None
+        if note := _proxy_note(by, heading, registry[id(a)]):
+            add_note(a, note)
+    return gate
+
+
+_SAME_HEADING = 0.8            # a page heading this like the registry title is that title (a drop cap, an OCR slip)
+
+
+def _proxy_note(by: str, heading: str | None, registry: RegistryValues) -> str | None:
+    """The plain note on an entry the gate found by a name or a label only (tocgate's proxies), with the page's heading
+    for the reviewer; None when that heading is the registry title after all ("SamMmsömun" / "Samsömun"). A heading
+    that is the author's name says nothing and is left out."""
+    if heading and registry.title and FP.match_score(heading, registry.title).score >= _SAME_HEADING:
+        return None
+    if heading and any(_fold(heading) == _fold(x) for x in registry.authors):
+        heading = None
+    return f"{PROXY_NOTE} {by}" + (f" (fyrirsögn síðunnar: „{heading}“)" if heading else "")
 
 
 # --- one PDF per article ---------------------------------------------------------------------------------
@@ -731,12 +803,27 @@ def _flag_file_names(named: list[_Named], run: _Run, files: int) -> None:
             _add_analysis_note(n.entry, n.note)
 
 
+def _cited(doc: _Doc) -> _Doc:
+    """A Stjórnmál og stjórnsýsla file whose page numbers were not read (Vol 7 and 8): the first page of the range the
+    journal prints in its citation on the first page is its printed start (sogs.printed_range, Task 23b), checked
+    against the folio of the second page where one is printed (Vol 7 idx 10 cites "(204-226)", its second page prints
+    206); the file is the whole article, so it ends as many pages on."""
+    if doc.first_printed is None and doc.texts and (cited := sogs.printed_range(doc.first, len(doc.texts))):
+        second = sogs.folio(doc.texts[1], cited[0] + 1) if len(doc.texts) > 1 else None
+        return doc._replace(first_printed=second - 1 if second is not None else cited[0])
+    return doc
+
+
 def _sogs_articles(docs: list[_Doc], m: IssueManifest, cfg: SourceConfig, run: _Run) -> list[ArticleEntry]:
-    """R5: the folder gives only the volume; the first page prints "N. tbl. N. árg. YYYY"."""
+    """R5: the folder gives only the volume; the first page prints "N. tbl. N. árg. YYYY". Title and authors are read
+    off the first page as printed (sogs.read_first_page, Task 23b), the text layer's lines only when it shows no title;
+    the file name's English title only when neither does."""
     entries, years, named = [], Counter(), []
     for doc in docs:
         fid = identify(doc.rel)
-        title, authors = sogs_heading(doc.first_page)
+        title, authors = sogs.read_first_page(doc.first)
+        if title is None:
+            title, authors = sogs_heading(doc.first_page)
         a = ArticleEntry(authors=authors)
         if title:
             a.title, a.provenance["title"] = title, "page"
@@ -855,7 +942,8 @@ async def _analyze_article_files(m: IssueManifest, cfg: SourceConfig, deps: Anal
     unreadable: list[ArticleEntry] = []
     for rel in m.files:
         try:
-            texts, pages, pictures, meta = _read_article_pdf(deps.read_bytes(rel), every_page=cfg.short_name in _OWN_ENDS)
+            texts, pages, pictures, meta = _read_article_pdf(deps.read_bytes(rel), every_page=cfg.short_name in _OWN_ENDS,
+                                                             drop_shadows=cfg.short_name == "stjornmal_stjornsysla")
         except _UNREADABLE as exc:             # one bad file must not fail a folder of 28
             unreadable.append(_unreadable_entry(rel, exc))
             run.review = True
@@ -864,6 +952,7 @@ async def _analyze_article_files(m: IssueManifest, cfg: SourceConfig, deps: Anal
     if cfg.short_name == "ulfljotur":
         entries = _ulfljotur_articles(docs, m, cfg, deps.xlsx_rows, run)
     elif cfg.short_name == "stjornmal_stjornsysla":
+        docs = [_cited(d) for d in docs]
         entries = _sogs_articles(docs, m, cfg, run)
     elif cfg.short_name in ("ulfljotur_vefrit", "fraedigreinar_ymsar"):
         reexported = _reexported(docs)

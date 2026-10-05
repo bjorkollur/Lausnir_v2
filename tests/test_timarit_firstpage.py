@@ -620,3 +620,14 @@ def test_a_title_set_low_on_the_page_keeps_its_registry_form():
                 + [Line(_BODY, 14.0, 692.9)], 842.0)
     t = "Hægir á fjölgun félagsmanna í Lögmannafélagi Íslands"
     assert choose_title(t, page) == (t, None, False)
+
+
+def test_read_page_drops_shadows_only_when_asked():
+    # Task 23b, Stjórnmál og stjórnsýsla 2012 (Vol 8): the title set twice, a few points apart and over itself
+    d = fitz.open()
+    p = d.new_page()
+    for x, y, text in ((72, 100, "Akademískt frelsi"), (72, 103, "Akademískt frelsi1"), (72, 140, "Annar texti"),
+                       (73, 140, "Annar texti")):
+        p.insert_text((x, y), text, fontsize=20)
+    assert [ln.text for ln in read_page(d[0], drop_shadows=True).lines] == ["Akademískt frelsi", "Annar texti"]
+    assert len(read_page(d[0]).lines) == 3              # (the second copy on one baseline is merged by default)

@@ -10,9 +10,11 @@ prints to stdout; nothing is saved, no database, no network. Per source and for 
 runner_up_share, (3) how the confidence signals are composed, (4) what-if tables for APPROVE_THRESHOLD (with the
 current weights and with weights where the external record is not required), PAGE_MAP_MIN_QUALITY,
 OCR_BIN_RATIO_THRESHOLD, COVERAGE_MAX_GAP_PAGES and PAGE_MAP_RESTART_RATIO, (5) the lowest-confidence articles and
-(6) the issues in review or failed with their error. Finally (7) "Frávik til yfirferðar": every significant deviation
+(6) the issues in review or failed with their error. Then (7) "Frávik til yfirferðar": every significant deviation
 analysis flagged (an analysis note starting with analyze.FRAVIK, R42) with its issue and article, and the count per
-source. Exit status 1 when a manifest is unreadable or listed in
+source, and (8) "Efnisyfirlit á síðunum" (Task 23b): for every issue whose contents list the parser read, the share of
+its titles found on their start pages (page_map["toc_check"]), a what-if table for TOC_MIN_TITLE_SHARE and one line per
+issue, lowest share first, the issues listed in --merkja (audited failures) marked with *. Exit status 1 when a manifest is unreadable or listed in
 --only but missing, or when nothing has been analysed.
 """
 from __future__ import annotations
@@ -32,7 +34,9 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from engine.timarit import config as C  # noqa: E402
-from engine.timarit.analyze import _BIN_SAMPLE_PAGES, FORCED_REVIEW_NOTES, FRAVIK, count_word  # noqa: E402
+from engine.timarit.analyze import (  # noqa: E402
+    _BIN_SAMPLE_PAGES, FORCED_REVIEW_NOTES, FRAVIK, TOC_GATE_NOTE, count_word,
+)
 from engine.timarit.manifest import ArticleEntry, IssueManifest, issue_status, load_manifest  # noqa: E402
 
 APPROVE_STEPS = tuple(round(0.50 + 0.05 * i, 2) for i in range(10))     # 0.50 … 0.95
@@ -50,6 +54,7 @@ _CHECK_SHORT = {"title_on_page": "title", "printed_page_match": "page", "author_
 class Loaded(NamedTuple):
     key: str                    # the manifest's file stem (YEAR_VOLUME_ISSUE), what `import_timarit.py analyze --issue` takes
     manifest: IssueManifest
+    path: Path | None = None    # the manifest's file
 
 
 # --- pure computations ------------------------------------------------------------------------------------
@@ -261,7 +266,7 @@ def load_manifests(root: Path, only: list[Path] | None = None) -> tuple[list[Loa
     loaded = []
     for p in paths:
         try:
-            loaded.append(Loaded(p.stem, load_manifest(p)))
+            loaded.append(Loaded(p.stem, load_manifest(p), p))
         except (ValueError, OSError) as e:
             problems.append(f"ólæsilegt: {e}")
     return loaded, problems
@@ -468,7 +473,60 @@ def _deviation_lines(loaded: list[Loaded]) -> list[str]:
     return out
 
 
-def render_report(loaded: list[Loaded], problems: list[str], contained: list[tuple[str, str]]) -> str:
+class TocRow(NamedTuple):
+    key: str                    # the manifest's file stem
+    issue: str                  # the issue's label
+    check: dict                 # page_map["toc_check"] (tocgate.TocCheck.as_dict)
+    to_claude: bool             # analysis replaced the list by Claude's, or waits for it (analyze.TOC_GATE_NOTE)
+    marked: bool                # listed in --merkja (an audited failure)
+
+
+TOC_STEPS = (0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
+
+
+def toc_rows(loaded: list[Loaded], marked: Iterable[Path] = ()) -> list[TocRow]:
+    """Every issue whose contents list the parser read (page_map["toc_check"], Task 23b), the lowest share first."""
+    marks = {Path(p).resolve() for p in marked}
+    rows = []
+    for ld in loaded:
+        check = ld.manifest.page_map.get("toc_check")
+        if not isinstance(check, dict) or _number(check.get("share")) is None:
+            continue
+        gated = any(n.startswith(TOC_GATE_NOTE) for a in ld.manifest.articles for n in a.analysis_notes)
+        rows.append(TocRow(ld.key, ld.manifest.label or ld.key, check, gated,
+                           ld.path is not None and ld.path.resolve() in marks))
+    return sorted(rows, key=lambda r: (r.check["share"], r.key))
+
+
+def toc_what_if(rows: list[TocRow], steps: Iterable[float] = TOC_STEPS) -> list[tuple[float, int, int]]:
+    """(threshold, lists below it, of them marked): what TOC_MIN_TITLE_SHARE would send to Claude by the share alone."""
+    return [(t, sum(r.check["share"] < t for r in rows), sum(r.check["share"] < t and r.marked for r in rows))
+            for t in steps]
+
+
+def _toc_lines(loaded: list[Loaded], marked: Iterable[Path]) -> list[str]:
+    rows = toc_rows(loaded, marked)
+    out = ["", f"== Efnisyfirlit á síðunum: {len(rows)} hefti með lesið efnisyfirlit ==",
+           f"TOC_MIN_TITLE_SHARE (núna {C.TOC_MIN_TITLE_SHARE}): efnisyfirlit þar sem lægra hlutfall titla fannst á "
+           "upphafssíðum greinanna víkur fyrir greinalista Claude",
+           "(eins líka ef fleiri titlar standa einni grein frá en á sinni síðu; „á auglýsingu“ og „síður utan lista“ eru til upplýsingar).",
+           "* = merkt í --merkja (endurskoðuð villa); → Claude = greining skipti listanum út eða bíður svars Claude.",
+           f"  hlutfall titla   {format_histogram(r.check['share'] for r in rows)}"]
+    if not rows:
+        return out
+    cells = [[_mark(t, C.TOC_MIN_TITLE_SHARE), str(n), str(m)] for t, n, m in toc_what_if(rows)]
+    out += _table(["mörk", "undir", "þar af merkt"], cells)
+    for r in rows:
+        c = r.check
+        extra = ", ".join(f"{label} {c[k]}" for k, label in (("shifted", "hliðrað"), ("on_filler", "á auglýsingu"),
+                                                               ("unclaimed", "síður utan lista")) if c.get(k))
+        out.append(f"  {'*' if r.marked else ' '} {c['share']:.2f} ({c['found']}/{c['entries']})  {r.issue}  [{r.key}]"
+                   f"{f'  {extra}' if extra else ''}{'  → Claude' if r.to_claude else ''}")
+    return out
+
+
+def render_report(loaded: list[Loaded], problems: list[str], contained: list[tuple[str, str]],
+                  marked: Iterable[Path] = ()) -> str:
     by_src: dict[str, list[Loaded]] = defaultdict(list)
     for ld in loaded:
         by_src[ld.manifest.source].append(ld)
@@ -480,6 +538,7 @@ def render_report(loaded: list[Loaded], problems: list[str], contained: list[tup
             out += group_report(src, by_src[src])
         out += group_report("Allar heimildir", loaded, detail=False)
         out += _deviation_lines(loaded)
+        out += _toc_lines(loaded, marked)
     if contained:
         out += ["", f"== Skrár innihaldnar í stærri bindisskrá (contained_in; hlutfall er ekki geymt): {len(contained)} ==",
                 *[f"  {p}\n    í: {d}" for p, d in contained]]
@@ -493,9 +552,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--manifests", default=str(C.MANIFEST_ROOT), help="mappa með skrám (relative = miðað við rót verkefnisins)")
     ap.add_argument("--only", metavar="SKRÁ", help="textaskrá með einni slóð á manifest í línu (miðað við rót verkefnisins); aðeins þau eru tekin með")
     ap.add_argument("--unmatched", default=str(C.UNMATCHED_PATH), help="_unmatched.yaml (contained_in-línur)")
+    ap.add_argument("--merkja", metavar="SKRÁ", help="textaskrá með slóðum á manifest (eins og --only) sem eru merkt með * "
+                                                      "í dreifingu efnisyfirlita, t.d. endurskoðaðar villur")
     args = ap.parse_args(argv)
     try:
         only = read_paths_file(_abs(args.only)) if args.only else None
+        marked = read_paths_file(_abs(args.merkja)) if args.merkja else []
     except ValueError as e:
         print(f"Villa: {e}", file=sys.stderr)
         return 1
@@ -505,7 +567,7 @@ def main(argv: list[str] | None = None) -> int:
     except ValueError as e:
         contained = []
         problems.append(str(e))
-    print(render_report(loaded, problems, contained))
+    print(render_report(loaded, problems, contained, marked))
     return 1 if problems or not any(is_analysed(ld.manifest) for ld in loaded) else 0
 
 

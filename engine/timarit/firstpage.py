@@ -67,10 +67,12 @@ class Page:
 EMPTY = Page([], 1.0)
 
 
-def read_page(page: fitz.Page) -> Page:
+def read_page(page: fitz.Page, *, drop_shadows: bool = False) -> Page:
     """The page as visual lines: PyMuPDF lines sorted by their baseline, then left edge; two lines on the same baseline
     whose horizontal gap is under one font size are one line (spans set in two sizes, OCR'd words). A wider gap is a
-    column gutter: the columns stay apart. A line's size is the size most of its characters are set in."""
+    column gutter: the columns stay apart. A line's size is the size most of its characters are set in.
+    `drop_shadows` (Task 23b, Stjórnmál og stjórnsýsla 2012, typeset twice): words drawn again over themselves on the
+    same baseline are read once. (Not by default: the Claude digest's cache key is over the pages as read.)"""
     items = []
     for block in page.get_text("dict", flags=0)["blocks"]:
         for ln in block.get("lines", []):
@@ -85,6 +87,12 @@ def read_page(page: fitz.Page) -> Page:
     merged: list[list] = []
     for it in items:
         prev = merged[-1] if merged else None
+        if drop_shadows and prev and abs(it[0] - prev[0]) <= 2 and it[1] > prev[1] \
+                and prev[2] - it[1] > 0.5 * (it[2] - it[1]) and prev[5].endswith(it[5]):
+            continue                    # the same words drawn again over themselves
+        if drop_shadows and any(_shadow_key(m[5]) == _shadow_key(it[5]) and abs(it[0] - m[0]) < 0.5 * max(it[3], m[3])
+                                and min(it[2], m[2]) - max(it[1], m[1]) > 0.5 * (it[2] - it[1]) for m in merged[-4:]):
+            continue                    # ... or a few points lower
         if prev and abs(it[0] - prev[0]) <= 2 and it[1] > prev[1] and it[1] - prev[2] <= max(it[3], prev[3]):
             size = prev[3] if len(prev[5]) >= len(it[5]) else it[3]       # the type most of the line is set in
             prev[2], prev[3], prev[4], prev[5] = it[2], size, prev[4] or it[4], f"{prev[5]} {it[5]}"
@@ -94,6 +102,11 @@ def read_page(page: fitz.Page) -> Page:
     lines = [Line(unicodedata.normalize("NFC", t), round(size, 1), round(top, 1), bold, round(x0, 1), round(x1, 1))
              for _, x0, x1, size, bold, t, top in merged]
     return Page(lines, page.rect.height or 1.0, page.rect.width)
+
+
+def _shadow_key(text: str) -> str:
+    """A line's words without the footnote mark one copy of a shadow may carry ("Process of Devolution.1")."""
+    return re.sub(r"[\s.,;:*\d]+$", "", text)
 
 
 def _main_size(spans: list[dict]) -> float:
@@ -302,10 +315,10 @@ _TRAILING_MARK = re.compile(r"(?:(?<=[^\W\d_])|(?<=[?!”“\"]))\d{1,2}(?:\)\d{
 _GLUED_YEAR = re.compile(r"([^\W\d_]{2,})(\d{4})\b")                # OCR: "MAÍ1985"
 
 
-def join_title(lines: list[str]) -> str | None:
+def join_title(lines: list[str], *, strip_marks: bool = True) -> str | None:
     """Title lines as one title: a soft hyphen or a hyphen before a lower-case word joins the word ("Rök-" /
     "semdir"); "EES-" / "launþega" keeps its hyphen; "lífs-" / "og" keeps its compound dash. A footnote mark at the end
-    goes ("ærumeiðingamálum1", "höfundaréttar*")."""
+    goes ("ærumeiðingamálum1", "höfundaréttar*"), unless the caller has told marks from numbers (`strip_marks`)."""
     out = ""
     for ln in lines:
         ln = ln.strip()
@@ -321,10 +334,11 @@ def join_title(lines: list[str]) -> str | None:
             out = out + ln                       # "EES-" / "launþega", "Norður-" / "Íshafsins": the hyphen stays
         else:
             out = f"{out} {ln}" if out else ln
-    out = _TRAILING_MARK.sub("", out.replace("\xad", "").strip()).strip()
+    out = out.replace("\xad", "").strip()
+    out = _TRAILING_MARK.sub("", out).strip() if strip_marks else out
     out = re.sub(r"\s+([?!.,:;])", r"\1", out)                      # "Íslandi ?" as set by some layouts
     out = re.sub(r"\s+[-–—]$", "", out)                              # "- Gjaldfelling lánasamninga -"
-    out = _TRAILING_MARK.sub("", out).strip()
+    out = _TRAILING_MARK.sub("", out).strip() if strip_marks else out.strip()
     if re.search(r"[^\W\d_]{4}\.$", out) and not out.endswith(".."):
         out = out[:-1]                                                  # "Frá aðalfundi." (not "o.fl.")
     return (out[:1].upper() + out[1:]) if out else None
@@ -754,7 +768,8 @@ def _word_ok(w: str) -> bool:
 # A credit names the author: "Texti: X" and "Viðtal tók X" wherever they stand; "eftir X", "Grein eftir X",
 # "Ritdómur eftir X", "Reviewed by X" only at the start of a line that stands apart from the body (set in other type
 # or short), never inside running text ("Í bók eftir Pál Sigurðsson segir …").
-_CREDIT_ANYWHERE = re.compile(r"(?:^|(?<=\s))(?P<word>texti|viðtal tók|viðtalið tók)\s*:?\s+(?P<rest>\S.*)$", re.I)
+_CREDIT_ANYWHERE = re.compile(r"(?:^|(?<=\s))(?P<word>texti|viðtal tók|viðtalið tók|viðt[aö]l(?=\s*:))\s*:?\s+(?P<rest>\S.*)$",
+                              re.I)   # "Viðtal: Eyrún Ingadóttir", "Viðtöl: Ásta … og Eyrún …" (the colon makes the credit)
 _CREDIT_LEAD = re.compile(r"^(?P<word>eftir|grein eftir|ritdómur eftir|ritdómar eftir|reviewed by)\s*:?\s+(?P<rest>\S.*)$",
                           re.I)
 _CREDIT_LINE_CHARS = 60
@@ -800,6 +815,12 @@ def names_in(text: str, *, credit: bool = False, styled: bool = False) -> list[s
             if not (_is_name_token(tok) or _is_initial(tok)):
                 break
             toks.append(tok)
+        if part.isupper():                    # a rubric before the name: "JÓLAHUGVEKJA SVANHILDUR HÓLM VALSDÓTTIR"
+            rest = toks
+            while len(rest) > 2 and not _name_token_ok(rest[0]) and _bin.lookup(rest[0].lower())[1]:
+                rest = rest[1:]
+            if rest is not toks and looks_like_person(" ".join(rest), strict=True):
+                toks = rest
         cand = " ".join(toks)
         if not 2 <= len(toks) <= 4 or (not credit and _oblique(toks[0])):
             if not out:
@@ -850,6 +871,10 @@ def _plain_words(text: str) -> bool:
     return any(len(t) >= 2 and (e := _bin.lookup(t)[1]) and all(x.hluti in _NO_PERSON for x in e) for t in toks[:-1])
 
 
+# A word after a name in a byline that is its role ("lögmaður", "framkvæmdastjóri", "doktorsnemi", "skrifar"), not a verb
+_ROLE_WORD = re.compile(r"\w*(?:maður|stjóri|nemi|fræðingur|dómari|ritari|fulltrúi|forseti|kennari|ráðgjafi|saksóknari|"
+                        r"dósent|lektor|prófessor|professor|aðjúnkt|adjunkt|nemandi|stúdent|kandídat|þýðandi|"
+                        r"skrifa\w*|og|and|hdl|hrl|dr|cand|stud|mag|jur|phd|ph)$", re.I)
 _ROLE_WORDS = re.compile(r"\b(?:professor|prófessor|dósent|lektor|lögmaður|lögfræðingur|dómari|héraðsdómari|"
                          r"faculty|university|háskól\w*|lagadeild\w*|ráðuneyti\w*|stofnun\w*|ritstjóri|stud\.|cand\.|"
                          r"hdl\.|hrl\.|fellow|research\w*)\b", re.I)
@@ -860,6 +885,45 @@ def _caption(text: str) -> bool:
     may end in a title's period ("hdl.") or an initial's, never in a full name and a period."""
     m = re.search(r"([^\W\d_]{3,})\.\s*$", text)
     return bool(m) and m.group(1)[:1].isupper() and _name_token_ok(m.group(1)) and bool(names_in(text))
+
+
+_LIST_LEADERS = re.compile(r"\.{4,}|…{2,}|(?:\s\.){3,}")     # "Jónatan Þórmundsson ........ I. eink. 240 stig"
+
+
+def _verb(word: str) -> bool:
+    """BÍN knows the word only as a verb ("segir", "skrifar")."""
+    entries = _bin.lookup(word)[1]
+    return bool(entries) and all(e.ofl == "so" for e in entries)
+
+
+def _in_sentence(ln: Line, nxt: Line | None) -> bool:
+    """A line that names people inside running text, not a byline (Task 23b): a name, a comma and a verb ("Hans
+    Gammeltoft-Hansen, segir í" in a column of text), or a long line without a comma that runs on into a line in
+    lower case (LMBL 2017-2: the lead "Þórunn Guðmundsdóttir hrl. og fyrrverandi formaður Lögmannafélags Íslands
+    stjórnaði" / "málstofu á ensku …")."""
+    head, comma, rest = ln.text.partition(",")
+    if comma and (words := re.findall(r"[^\W\d_]+", rest)) and words[0].islower() and _verb(words[0]):
+        return True
+    if nxt is None or not nxt.text[:1].islower() or abs(nxt.size - ln.size) > 0.1 * ln.size:
+        return False
+    if not comma and len(ln.text) > 70:
+        return True
+    words = head.split()                 # the name, then a word that is no role: "Róbert R. Spanó var kjörinn" / "dómari …"
+    k = next((i for i, w in enumerate(words) if not (_is_name_token(w) or _is_initial(w))), len(words))
+    return 2 <= k < len(words) and words[k][:1].islower() and not _ROLE_WORD.match(words[k].strip(".,;:"))
+
+
+def _next_lines(lines: Sequence[Line], k: int) -> list[Line | None]:
+    """The lines that may continue lines[k]: the next in reading order, and the next in its own column, the next one
+    that starts where it starts (LMBL 2013-3 sets its lead beside the interview's first column, and reading order runs
+    across both)."""
+    ln = lines[k]
+    nxt = lines[k + 1] if k + 1 < len(lines) else None
+    below = next((x for x in lines[k + 1:] if x.y > ln.y and abs(x.x0 - ln.x0) <= _COLUMN_SLACK), None)
+    return [nxt] if below is None or below is nxt else [nxt, below]
+
+
+_COLUMN_SLACK = 6.0            # points: lines of one column start within this of each other
 
 
 def byline(page: Page, heading: Heading | None, title: str | None) -> list[str]:
@@ -878,10 +942,13 @@ def byline(page: Page, heading: Heading | None, title: str | None) -> list[str]:
         below: list[str] = []
         name_style = None             # (size, bold) of the first name line: later lines in that style are bylines too
         skipped = 0
-        for ln in lines[heading.last + 1:heading.last + 10]:
-            if _BYLINE_STOP.match(ln.text) or len(ln.text) > 100 or (
+        window = lines[heading.last + 1:heading.last + 10]
+        for k, ln in enumerate(window):
+            if _BYLINE_STOP.match(ln.text) or len(ln.text) > 100 or _LIST_LEADERS.search(ln.text) or (
                     (entry := _LIST_ENTRY.match(ln.text)) and names_in(entry.group(1))):
-                break                                # (a list of "Name: Title" entries under a heading is no byline)
+                break                                # (a list of "Name: Title" or "Name ........ I. eink." entries)
+            if any(_in_sentence(ln, nxt) for nxt in _next_lines(window, k)):
+                break                                # a lead that names people, a citation: running text (Task 23b)
             if ln.text[:1].islower() and not _ROLE_WORDS.search(ln.text) and len(ln.text) > 40:
                 break                                # body text
             if ln.text[:1].islower() or _ROLE_LINE.match(ln.text) or _credit_line(ln, body) or _caption(ln.text):
@@ -954,6 +1021,14 @@ def _spelling(registry: str, printed: str) -> str:
     return " ".join(out)
 
 
+def _rubric_before(registry: str, printed: str) -> bool:
+    """The registry's name is the printed one after a word that is no name (a contents list's rubric glued on:
+    "Jólahugvekja Svanhildur Hólm Valsdóttir", LMBL 2018-4; Task 23b)."""
+    r, p = registry.split(), printed.split()
+    return len(p) >= 2 and len(r) > len(p) and [_fold(x) for x in r[-len(p):]] == [_fold(x) for x in p] \
+        and not any(_name_token_ok(x) for x in r[:-len(p)])
+
+
 class AuthorChoice(NamedTuple):
     authors: list[str]
     from_page: bool
@@ -970,7 +1045,7 @@ def merge_authors(registry: list[str], printed: list[str]) -> AuthorChoice:
         return AuthorChoice(list(registry), False, None)
     if not registry:
         return AuthorChoice(list(printed), True, None)
-    match = {r: next((p for p in printed if _same_person(r, p)), None) for r in registry}
+    match = {r: next((p for p in printed if _same_person(r, p) or _rubric_before(r, p)), None) for r in registry}
     if all(match.values()) and len(printed) >= len(registry):
         back = {p: r for r, p in match.items()}
         names = [_spelling(back[p], p) if p in back else p for p in printed]

@@ -7,7 +7,11 @@ each article on the last page of its own text (pagekind.py, Task 22c), and read_
 and last page (firstpage.py) for the metadata.
 
 Significant deviations between the registry and the printed pages are flagged for the user's review (R42): an analysis
-note that starts with FRAVIK, which sends the issue to review.
+note that starts with FRAVIK, which sends the issue to review. Task 23b took out the flags audit 4 found false: an
+interview's page names the person interviewed, name forms ("Yoran, Aaron" / "Aharon Yoran", "Róbert R." / "Róbert
+Ragnar") are one person, a title search keeps the registry's page when it prints the title, a title found on a page
+whose running head prints the registry's number is a note, and a signature after the next item's heading ends the range
+there (flagged as such).
 """
 from __future__ import annotations
 
@@ -19,10 +23,11 @@ from engine.timarit import config as C
 from engine.timarit import firstpage as FP
 from engine.timarit import pagekind as PK
 from engine.timarit.article_type import infer_article_type
+from engine.timarit.authors import looks_like_person
 from engine.timarit.firstpage import Page, PageReader
 from engine.timarit.manifest import ArticleEntry
 from engine.timarit.pagemap import PageMap, read_page_numbers
-from engine.timarit.toc import is_label, label_type, split_label
+from engine.timarit.toc import _nominative, is_label, label_type, split_label
 from engine.timarit.ulfljotur_xlsx import _fold
 
 # R42: a significant deviation between the registry and the printed page, for the user to review later. analyze
@@ -142,11 +147,19 @@ def relocate_by_title(entries: list[ArticleEntry], registry_end: list[int | None
                                 "fannst ekki á síðunum")
                     continue
         else:
+            # Task 23b: the page that prints the registry's number first, when it prints the title (a map too ambiguous
+            # to locate by: TL 1971's "Um örorkumöt" on p. 51, not Páll Sigurðsson's "Örorkumöt" on p. 37)
+            at_registry = [i for i in range(len(page_texts)) if number is not None and a.page_start is not None
+                           and i not in skip and i not in taken and number(i) == a.page_start]
+            new = next((i for i in at_registry if _heading_at(reader, i, a.title, loose=loose, min_share=0.6)), None)
             lo = max((starts[id(b)] for b in entries[:k] if id(b) in starts), default=-1)
             hi = min((starts[id(b)] for b in entries[k + 1:] if id(b) in starts), default=len(page_texts))
-            order = list(range(lo + 1, hi)) + [i for i in range(len(page_texts)) if not lo < i < hi]
-            new = next((i for i in order if i not in skip and i not in taken          # registry order first: a
-                        and _heading_at(reader, i, a.title, loose=loose, min_share=0.6)), None)   # jumbled TOC may err
+            if new is None and a.page_start in pm.contested and len(between := [i for i in at_registry if lo < i < hi]) == 1:
+                new = between[0]          # a number two pages print: the one in registry order (TL 2000, p. 261)
+            if new is None:
+                order = list(range(lo + 1, hi)) + [i for i in range(len(page_texts)) if not lo < i < hi]
+                new = next((i for i in order if i not in skip and i not in taken          # registry order first: a
+                            and _heading_at(reader, i, a.title, loose=loose, min_share=0.6)), None)   # jumbled TOC may err
         if new is None:
             continue
         starts[id(a)], moved = new, True
@@ -167,6 +180,11 @@ def relocate_by_title(entries: list[ArticleEntry], registry_end: list[int | None
                 unnumbered.append((k, a, text, at))         # R43: a note or a deviation once every start is known
             else:
                 flag(a, text)
+        elif s is None and printed is None and a.page_start is not None and (
+                _margin_prints(page_texts[new], a.page_start) or number is not None
+                and number(new, max(0, new - 3), min(len(page_texts) - 1, new + 3)) == a.page_start):
+            add_note(a, f"{registry} segir bls. {a.page_start}; greinin fannst eftir titli sínum á {at}, sem ber það "
+                        "blaðsíðutal þótt það yrði ekki lesið í blaðsíðukortið")   # (Task 23b: no deviation)
         elif s is None and (printed is None or abs(printed - a.page_start) > _NEAR):
             (add_note if claude else flag)(a, f"{registry} segir bls. {a.page_start}; greinin fannst eftir titli sínum "
                                               f"á {at}")
@@ -189,6 +207,16 @@ def relocate_by_title(entries: list[ArticleEntry], registry_end: list[int | None
             a.page_end = end if a.provenance.get("pages") != "page" else None
             located.append((starts[id(a)], a))
     assign_ranges(located, pm, last_text)
+
+
+def _margin_prints(text: str, page: int) -> bool:
+    """The page's running head or foot (its first or last two lines) is the folio `page`: the number alone, or with the
+    journal's name or a running word before or after it ("Afmælisrit  379" on Úlfljótur 2017-3's spreads, which the page
+    map cannot read: two printed pages to a PDF page); "12. árg." is no folio."""
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    side = r"[^\W\d_][^\W\d_.]*(?:\s+[^\W\d_][^\W\d_.]*){0,2}"      # the journal's name, up to three words
+    folio = re.compile(rf"{page}|{side}\s*[/|•–-]?\s*{page}|{page}\s*[/|•–-]?\s*{side}")
+    return any(folio.fullmatch(ln) for ln in lines[:2] + lines[-2:])
 
 
 def _in_contents_order(entries: list[ArticleEntry], starts: dict[int, int], k: int, n_pages: int) -> bool:
@@ -339,10 +367,35 @@ def end_ranges(entries: Sequence[ArticleEntry], reader: PageReader, number: Call
             continue
         first, last = a.pdf_pages
         e = PK.article_end(reader, first, last, a.title, reader.picture, a.authors, reader.drawings)
+        cut = _signed_after_item(a, reader, first, e)
+        if cut is not None:
+            e = PK.article_end(reader, first, cut[0] - 1, a.title, reader.picture, a.authors, reader.drawings)
         end_article(a, e, lambda i, f=first, la=e.last: number(i, f, la), (registry_ends or {}).get(id(a)))
+        if cut is not None:
+            at = number(cut[0], first, last)
+            flag(a, f"undirritunin ({', '.join(cut[2])}) stendur á eftir fyrirsögninni „{cut[1]}“ á "
+                    f"{f'bls. {at}' if at is not None else f'pdf-síðu {cut[0] + 1}'}; greinin er talin enda á undan "
+                    "henni")
         ends[id(a)] = e
         outside |= set(e.outside)
     return Ends(ends, sorted(outside))
+
+
+def _signed_after_item(a: ArticleEntry, reader: PageReader, first: int, e: PK.End) -> tuple[int, str, list[str]] | None:
+    """A range that ran on into the next item (Task 23b): the signature where its text ends names other people than
+    the registry (TL 1996: "Allan V. Magnússon" under the Dómarafélag report, the registry's "Jón L. Arnalds"), and a
+    page between its start and that signature starts another item (pagekind.item_heading). (that page, its heading, the
+    signature), else None: the signature belongs to that item, and the article ends before it."""
+    if not e.signed or not a.authors or not _conflict(a.authors, list(e.signed)):
+        return None
+    t = PK.typography([reader(i) for i in range(first, min(first + PK._PROFILE_PAGES, e.last + 1))])
+    if not t.sizes:
+        return None
+    own = {_fold(ln.text) for ln in reader(first).lines[:8]}      # a section's label over all its pages ("UMFJÖLLUN")
+    for i in range(first + 1, e.last + 1):
+        if (heading := PK.item_heading(reader(i), t, a.title)) and _fold(heading.split(" — ")[0]) not in own:
+            return i, heading, list(e.signed)
+    return None
 
 
 def last_body_page(reader: PageReader, first: int, last: int) -> int:
@@ -416,7 +469,12 @@ def read_printed_page(a: ArticleEntry, first: Page, last: Page | None, *,
     authors = FP.merge_authors(registry, printed)
     if authors.from_page:
         a.authors, a.provenance["authors"] = authors.authors, "page"
-    if authors.note and _conflict(registry, printed):
+    # the person an interview's title names is the interviewee, not its author (Task 23b), and so are the people its
+    # lead introduces (fix round 2): a note, no deviation
+    others = [p for p in printed if not any(_person(p, r) for r in registry)]
+    introduced = a.article_type == "Viðtal" and bool(others) and all(_in_running_text(p, first) for p in others)
+    if authors.note and _conflict(registry, printed) and not _interviewees_only(a.title, registry, printed) \
+            and not introduced:
         flag(a, f"höfundar skrárinnar ({', '.join(registry)}) stangast á við síðuna ({', '.join(printed)}); "
                 "skránni haldið")
     elif authors.note:
@@ -432,15 +490,91 @@ def read_printed_page(a: ArticleEntry, first: Page, last: Page | None, *,
         a.authors, a.provenance["authors"] = names, "page"   # (an editorial's name at its end, signed or not)
 
 
+_VIDTAL_VID = re.compile(r"viðtal\w*\s+við\s+([^,:;–—(]+)", re.I)
+
+
+def interviewees(title: str | None) -> list[str]:
+    """The people an interview's title names ("… Viðtal við Pál Hreinsson, dómara …" → "Páll Hreinsson"), in the
+    nominative, and the names the title is otherwise about (pagekind._subjects)."""
+    return interview_subjects(title) + PK._subjects(title)
+
+
+def interview_subjects(title: str | None) -> list[str]:
+    """The people "Viðtal við …" in a title names, in the nominative ("VIÐTAL VIÐ JÓNAS HARALDSSON …" → "Jónas
+    Haraldsson")."""
+    names = []
+    for m in _VIDTAL_VID.finditer(title or ""):
+        toks: list[str] = []
+        for t in m.group(1).split():
+            caps = toks and toks[0].isupper()          # a name in capitals ends where the title's words begin
+            if not (t[:1].isupper() or t.endswith(".")) or len(toks) == 4 or caps and not t.isupper():
+                break
+            if t.endswith(".") and len(t) > 2:         # "Viðtal við Markús Sigurbjörnsson. Þægilegt …": the name ends
+                toks.append(t.rstrip("."))
+                break
+            toks.append(t)
+        if len(toks) >= 2:
+            names.append(_nominative(" ".join(recase_name(t) for t in toks)))
+    return names
+
+
+def recase_name(token: str) -> str:
+    """A name token printed in capitals as a name is written ("HELGU" → "Helgu")."""
+    return token.capitalize() if token.isupper() and len(token) > 1 else token
+
+
+def _in_running_text(name: str, page: Page) -> bool:
+    """Every line of the page's top part that prints the name runs on after it into a sentence, past any "og <Name>"
+    ("Ástríður Gísladóttir er fulltrúi …", "Hjördís E. Harðardóttir og Arnór Halldórsson eru …"): an interview's lead
+    introducing its people, no byline. A line that ends with the name, or goes on with a role ("hrl.", "lögmaður"), is
+    a byline."""
+    key = _fold(name).split()
+    seen = False
+    for ln in FP.top_lines(page):
+        toks = ln.text.split()
+        folded = [_fold(t) for t in toks]
+        for i in range(len(toks) - len(key) + 1):
+            if folded[i:i + len(key)] != key:
+                continue
+            seen = True
+            rest = toks[i + len(key):]
+            j = 0
+            while j < len(rest) and (rest[j] in ("og", "&") or FP._is_name_token(rest[j]) or FP._is_initial(rest[j])):
+                j += 1
+            if j == len(rest) or not rest[j][:1].islower() or FP._ROLE_WORD.match(rest[j].strip(".,;:")):
+                return False
+    return seen
+
+
+def _interviewees_only(title: str | None, registry: Sequence[str], printed: Sequence[str]) -> bool:
+    """Every name the page prints that the registry lacks is a person the interview's title names."""
+    others = [p for p in printed if not any(_person(p, r) for r in registry)]
+    named = interviewees(title)
+    return bool(others) and all(any(_person(p, n) for n in named) for p in others)
+
+
+def given_first(name: str) -> str:
+    """A catalogue's "Surname, Given" as the name is printed, "Given Surname" ("Yoran, Aaron" → "Aaron Yoran"; Task
+    23b); any other name as it is."""
+    head, comma, rest = name.partition(",")
+    if comma and "," not in rest and rest.strip() and len(head.split()) <= 2 and rest.strip()[:1].isupper():
+        return f"{rest.strip()} {head.strip()}"
+    return name
+
+
 def _person(a: str, b: str) -> bool:
-    """The same person in two spellings, with a word more ("Arnþór Gunnarsson" / "Arnþór Gunnarsson Sagnfræðingur") or
-    a given name cut short ("Ben. Sigurjónsson" / "Benedikt Sigurjónsson")."""
+    """The same person in two spellings, with a word more ("Arnþór Gunnarsson" / "Arnþór Gunnarsson Sagnfræðingur"), a
+    given name cut short ("Ben. Sigurjónsson" / "Benedikt Sigurjónsson"), a middle name as its initial ("Róbert R.
+    Spanó" / "Róbert Ragnar Spanó") or in a catalogue's order ("Yoran, Aaron" / "Aharon Yoran")."""
+    a, b = given_first(a), given_first(b)
     fa, fb = _fold(a).split(), _fold(b).split()
     ta, tb = set(fa), set(fb)
     if FP._same_person(a, b) or ta and tb and (ta <= tb or tb <= ta):
         return True
     if not (fa and fb and fa[-1] == fb[-1]):
         return False
+    if fa[0] == fb[0] and len(fa) == len(fb) and all(x.startswith(y) or y.startswith(x) for x, y in zip(fa, fb)):
+        return True                                   # "R." for "Ragnar"
     a0, b0 = a.split()[0], b.split()[0]                # the cut name ends in a period
     return a0.endswith(".") and fb[0].startswith(fa[0]) or b0.endswith(".") and fa[0].startswith(fb[0])
 
@@ -448,7 +582,7 @@ def _person(a: str, b: str) -> bool:
 def _conflict(registry: Sequence[str], printed: Sequence[str]) -> bool:
     """The page names someone the registry does not and the registry someone the page does not: not merely a co-author
     the page adds (R42). An outline heading the byline reader took for a name ("I Introduction") names nobody."""
-    printed = [p for p in printed if not re.match(r"(?:[IVX]+|\d+)\.?\s", p)]
+    printed = [p for p in printed if not re.match(r"(?:[IVX]+|\d+)\.?\s|[A-Z]\.\s+\S+$", p)]   # "A. Perspectives"
     return any(not any(_person(p, r) for r in registry) for p in printed) and \
         any(not any(_person(r, p) for p in printed) for r in registry)
 
@@ -458,10 +592,41 @@ _OTHER_TITLE = 0.5            # a page heading this little like the registry tit
 
 def _other_heading(a: ArticleEntry, first: Page, registry_title: str) -> None:
     """The registry title is not printed at the top of the article's first page and the page's main heading is
-    another title altogether (R42): the registry title is kept and the pair flagged."""
-    h = FP.page_heading(first)
-    if h is None or FP.is_label(h.text) or FP.is_label_line(h.text) or PK.part_of_title(h.text, registry_title):
+    another title altogether (R42): the registry title is kept and the pair flagged. Without a heading set larger than
+    the body, the title under the author's "Name:" line (_named_heading) is the heading."""
+    text = page_heading_text(first)
+    if text is None or FP.is_label(text) or FP.is_label_line(text) or PK.part_of_title(text, registry_title):
         return                                        # (a double obituary's page heads its first name)
-    if FP.match_score(h.text, registry_title).score < _OTHER_TITLE:
-        flag(a, f"fyrirsögnin á fyrstu síðu („{h.text}“) er annar titill en skrárinnar („{registry_title}“); "
+    if FP.match_score(text, registry_title).score < _OTHER_TITLE:
+        flag(a, f"fyrirsögnin á fyrstu síðu („{text}“) er annar titill en skrárinnar („{registry_title}“); "
                 "titli skrárinnar haldið")
+
+
+def page_heading_text(page: Page) -> str | None:
+    """The page's main heading (FP.page_heading), or failing that the title under the author's "Name:" line."""
+    h = FP.page_heading(page)
+    return h.text if h is not None else _named_heading(page)
+
+
+_NAME_COLON = re.compile(r"^(?P<name>[^:]{4,60}):$")
+
+
+def _named_heading(page: Page) -> str | None:
+    """TL's heading: the lines in capitals under the author's "Name:" line, in the line's type ("Trausti Fannar
+    Valsson:" / "SÉRSTAKT HÆFI Í SVEITARFÉLÖGUM*", TL 2024-4, under the DOI line, where an outline in smaller type makes
+    the page's body size the outline's and page_heading finds nothing larger). Fix round 2."""
+    lines = FP.top_lines(page)
+    for k, ln in enumerate(lines):
+        m = _NAME_COLON.match(ln.text.strip())
+        if not m or not looks_like_person(m.group("name"), strict=False):
+            continue
+        title: list[str] = []
+        for nxt in lines[k + 1:k + 5]:
+            letters = re.sub(r"[^\w]|\d|_", "", nxt.text)
+            if abs(nxt.size - ln.size) > 0.05 * ln.size or not letters or not letters.isupper() \
+                    or nxt.text.rstrip().endswith(":") or re.match(r"\s*\d", nxt.text) \
+                    or FP.is_label_line(nxt.text) or label_type(nxt.text.strip(" :")):
+                break                                 # (the outline: "EFNISYFIRLIT:", "1. INNGANGUR")
+            title.append(nxt.text)
+        return FP.join_title(title) if title else None
+    return None

@@ -21,6 +21,12 @@ An item may also start half way down a page of the article's text, right under i
 dreif"). The article ends on its last TEXT page. OTHER pages right after its text are kept and the end is uncertain
 (R42 flags it). Signatures are read where the article's text ends (signature) and, for a memorial with several
 contributors, where each part ends (part_signatures).
+
+Task 23b (audit 4) made the uncertain end and the signature more precise: a page whose first line goes on with the
+sentence before it is the article's (its chart, its abstract run on); a scan's page is measured in its own scale; a
+page without text, or with only an advert's box in its lower half, after text that has ended a sentence is no part of
+it; a name set as large as a heading, a caption in the margin or a name over an advert's contact signs nothing; and
+item_heading tells where a range that swallowed the next, signed, item should end.
 """
 from __future__ import annotations
 
@@ -364,6 +370,26 @@ def item_below_signature(page: Page, t: Typography, title: str | None) -> tuple[
     return None
 
 
+def item_heading(page: Page, t: Typography, title: str | None) -> str | None:
+    """The page starts another item in the way a contents-less news section does (Task 23b): its first line is a
+    section label ("Á VÍÐ OG DREIF", "REKABÁLKUR") or a heading in capitals set in bold or larger than the body ("ÚR
+    SKÝRSLU STJÓRNAR DÓMARAFÉLAGS ÍSLANDS STARFS-") that is no part of the article (an outline, its bibliography) and
+    not its own title. The heading's text, or None. Weaker evidence than a NEW page: analysis asks it only where a
+    signature that names other people than the registry shows that the range ran on into the next item."""
+    lines = [ln for ln in content(page) if len(re.findall(r"[^\W\d_]", ln.text)) >= 3]
+    if not lines or lines[0].y > 0.4 * page.height:
+        return None
+    first = lines[0]
+    if FP.is_label_line(first.text):
+        nxt = lines[1] if len(lines) > 1 and (lines[1].bold or not _is_running(lines[1], t)) else None
+        return f"{first.text} — {nxt.text}" if nxt is not None and FP._all_caps(nxt.text) else first.text
+    if not FP._all_caps(first.text) or not (first.bold or first.size >= 1.1 * t.body) or len(first.text.split()) < 2:
+        return None
+    if _article_part(first.text) or part_of_title(first.text, title):
+        return None
+    return first.text
+
+
 # --- classification ------------------------------------------------------------------------------------------------
 
 def _own_head(page: Page, title: str | None, authors: Sequence[str]) -> bool:
@@ -426,9 +452,40 @@ def classify(page: Page, t: Typography, title: str | None, picture: float = 0.0,
     if text or _part_page(lines):
         return Kind.TEXT
     if after_text and marks < 2 and picture < _PICTURE and (
-            running and running[0] is lines[0] and lines[0].y <= 0.25 * page.height or _in_type(lines, t)):
+            running and running[0] is lines[0] and lines[0].y <= 0.25 * page.height or _in_type(lines, t)
+            or _goes_on(lines, t, page)):
         return Kind.TEXT                              # its last lines at the top of the page; a list or table that ends it
     return Kind.ADVERT if advert else Kind.OTHER
+
+
+def _goes_on(lines: list[Line], t: Typography, page: Page) -> bool:
+    """The page's first line goes on with a sentence of the page before (Task 23b): it starts in lower case at the top
+    of the page, in a size near the article's (a scan's type measures a little larger on some pages: TL 1968-2 p. 78
+    "þennan hátt er þá og minnzt …" over a chart; TL 2014-3 p. 307, its English abstract run on)."""
+    first = lines[0] if lines else None
+    return first is not None and first.text[:1].islower() and len(first.text) >= 15 \
+        and first.y <= 0.25 * page.height and 0.85 * min(t.sizes) <= first.size <= 1.15 * max(t.sizes) \
+        and (not page.width or first.x1 - first.x0 >= 0.4 * page.width)    # (not a stamp in the margin)
+
+
+def text_ends(page: Page, t: Typography) -> bool:
+    """The article's text ends a sentence on this page (Task 23b): the last line in its body size in reading order
+    (the foot of its rightmost column; footnotes below it do not count) ends in a full stop, a question mark or a
+    closing quote, a footnote mark after it allowed."""
+    run = [ln for ln in content(page) if _same(ln.size, t.body) and len(re.findall(r"[^\W\d_]", ln.text)) >= 2]
+    if not run:
+        return False
+    right = [ln for ln in run if page.width and ln.x0 >= 0.45 * page.width]
+    last = max(right if right and _columns(page, t) else run, key=lambda ln: ln.y)
+    return bool(_SENTENCE_END.search(last.text))
+
+
+def _apart(page: Page, t: Typography) -> bool:
+    """A page that is no part of the text before it: nothing in text lines (a picture, a drawing), or only a block in
+    the lower half of the page in a type not the article's (an advert under a blank upper half: Úlfljótur 1983 p. 27)."""
+    lines = [ln for ln in content(page) if len(ln.text.strip()) >= 2]      # (text in a broken font is text too)
+    return not lines or (min(ln.y for ln in lines) > 0.5 * page.height
+                         and sum(1 for ln in lines if _in_sizes(ln, t)) < _CAPTIONS)
 
 
 def continues(page: Page, t: Typography, title: str | None, authors: Sequence[str] = ()) -> bool:
@@ -473,6 +530,15 @@ def ends_mid_sentence(page: Page, t: Typography) -> bool:
     page of columns the lowest line need not be the last one read)."""
     last = _last_body_line(page, t)
     return last is not None and not _columns(page, t) and not _SENTENCE_END.search(last.text)
+
+
+def _scaled(t: Typography, page: Page) -> Typography:
+    """A scan's type measured on one page: the article's sizes scaled to the page's own body size when that is off the
+    article's by more than _TOL but within 15% (an OCR'd scan reads the same type a little larger on some pages: TL
+    1970-1 p. 39 at 12.1 pt over 11.2 pt; Task 23b)."""
+    r = FP.body_size(page) / t.body if t.body else 1.0
+    return Typography(tuple(round(x * r, 2) for x in t.sizes), t.line) if 0.87 <= r <= 1.15 and abs(r - 1) > _TOL \
+        else t                                        # (within _TOL the article's own sizes already fit)
 
 
 class End(NamedTuple):
@@ -551,8 +617,8 @@ def article_end(page: Callable[[int], Page], first: int, last: int, title: str |
     def kind(i: int, after_text: bool = False) -> Kind:
         if i not in kinds:
             bare = ink is not None and not scan and not any(re.search(r"[^\W\d_]{2}", ln.text) for ln in content(page(i)))
-            kinds[i] = classify(page(i), t, title, 0.0 if scan else picture(i), after_text=after_text, authors=authors,
-                                drawings=ink(i) if bare else 0)
+            kinds[i] = classify(page(i), _scaled(t, page(i)) if scan else t, title, 0.0 if scan else picture(i),
+                                after_text=after_text, authors=authors, drawings=ink(i) if bare else 0)
         return kinds[i]
 
     def starts(i: int, heading: str | None, after: int = -1) -> tuple[int, str] | None:
@@ -568,6 +634,7 @@ def article_end(page: Callable[[int], Page], first: int, last: int, title: str |
                  and len(re.findall(r"[^\W\d_]", ln.text)) >= 3]
         return h or (max(upper, key=lambda ln: ln.size).text[:60] if upper else "")
     end, pending, unlisted, signed_at, stop = first, [], None, None, last + 1
+    apart: set[int] = set()                           # pending pages that are no part of the text before them (23b)
     own = next((k for k, ln in enumerate(content(page(first))) if part_of_title(ln.text, title)), None)
     if own is not None and (mid := item_below_signature(page(first), t, title)) and mid[0] > own \
             and _has_text(page(first), t, mid[0]):                  # (below its own title only)
@@ -590,8 +657,12 @@ def article_end(page: Callable[[int], Page], first: int, last: int, title: str |
             if (mid := item_below_signature(page(i), t, title)) and _has_text(page(i), t, mid[0]):
                 stop, signed_at, unlisted = i + 1, mid[0], starts(i, mid[1], mid[0])
         elif k == Kind.OTHER and (pending[-1] if pending else end) == i - 1:
+            if all(j in apart for j in pending) and _apart(page(i), t) and text_ends(page(end), t):
+                apart.add(i)                          # its text has ended; a picture or an advert's box (23b)
             pending.append(i)
         i += 1
+    if pending and all(j in apart for j in pending):
+        pending = []                                  # no text of its own after them: they are not the article's
     if pending:
         end = pending[-1]
     outside = tuple(j for j in range(end + 1, last + 1) if j != stop and _filler(page(j), kind(j)))
@@ -642,12 +713,38 @@ def _after_text(lines: list[Line], k: int, t: Typography) -> bool:
                                                                  for x in above)
 
 
+_SIGNATURE_MAX = 1.4      # a name set this many times the body or larger is an advert's or a heading, no signature
+_AD_BLOCK = 6             # lines under a name line that are read for an advert's contact (Task 23b)
+
+
+def _caption_or_advert(lines: list[Line], k: int, t: Typography) -> bool:
+    """The name line is no signature (Task 23b): set much larger than the body (a translator's classified advert,
+    "Lúðvík Emil Kaaber" in 21 pt), a caption in the margin beside the text column (LMBL 2012 pdf 26: "Guðrún Helga /
+    Brynleifsdóttir hrl." under a photo left of the column), or the head of a block that prints an advert's contact
+    (a phone number, an address on the web) in the lines that follow it closely."""
+    ln = lines[k]
+    if ln.size >= _SIGNATURE_MAX * t.body:
+        return True
+    body = [x for x in lines if _is_running(x, t) and _same(x.size, t.body)]
+    if body and ln.x1 and ln.x1 <= min(x.x0 for x in body):
+        return True
+    block, prev = [], ln
+    for x in lines[k + 1:k + 1 + _AD_BLOCK]:
+        if x.x1 and ln.x1 and (x.x1 < ln.x0 or x.x0 > ln.x1):
+            continue                                  # beside it, not under it (a download stamp up the margin)
+        if not 0 < x.y - prev.y <= _GAP * max(x.size, prev.size):
+            break
+        block.append(x)
+        prev = x
+    return any(_STRONG_MARKS.search(_CITED_URL.sub(" ", x.text)) or _FIRM.search(x.text) for x in block)
+
+
 def signature(page: Page, t: Typography, title: str | None, *, before: int | None = None) -> list[str]:
     """The name(s) the article is signed with where its text ends on this page: a name line right after its running
     text, set apart (bold, another size, indented or right, a role after a comma or below), after which no line of
     running text in the body size follows (footnotes and a short last line beside it may), on a page that is no list
-    of names; or the name line just above an item that starts half way down the page (`before`, an index in
-    content(page)). [] otherwise."""
+    of names, and no caption or advert (_caption_or_advert); or the name line just above an item that starts half way
+    down the page (`before`, an index in content(page)). [] otherwise."""
     lines = content(page)
     if before is not None:
         return _not_subject(signed_names(lines, before), title)
@@ -658,7 +755,8 @@ def signature(page: Page, t: Typography, title: str | None, *, before: int | Non
         if k and re.search(r"\s(?:og|and|&)$", lines[k - 1].text) and _name_only(_joined(lines, k - 1)):
             continue                                  # the second line of a two-person signature
         if ln.size >= 0.8 * t.body and len(ln.text) <= 60 and _set_apart(lines, k, t, page) \
-                and _after_text(lines, k, t) and (names := _not_subject(signed_names(lines, k), title)):
+                and _after_text(lines, k, t) and not _caption_or_advert(lines, k, t) \
+                and (names := _not_subject(signed_names(lines, k), title)):
             return names
         if _is_running(ln, t) and _same(ln.size, t.body):
             return []                                 # running text after any name line: not signed here

@@ -186,6 +186,26 @@ def test_a_deviation_of_the_whole_issue_is_listed_once():
     assert "[allt heftið, 3 greinar]  — blaðsíðutal skráarnafnanna" in text and "„(heftið" not in text
 
 
+def test_the_share_of_contents_titles_found_is_listed_per_issue_with_the_audited_failures_marked(tmp_path):
+    # Task 23b (R47): every issue whose contents list the parser read, lowest share first, marked from --merkja
+    def check(found, entries, **more):
+        return {"toc_check": {"entries": entries, "found": found, "share": round(found / entries, 3), "shifted": 0,
+                              "on_filler": 0, "unclaimed": 0, **more}}
+    gate = f"{A.TOC_GATE_NOTE} (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður"
+    a = _mf(issue="1", page_map=check(0, 5, shifted=4), arts=[_art(0.7, notes=[gate])])
+    b = _mf(issue="2", page_map=check(9, 10))
+    c = _mf(issue="3", page_map={})                                     # a list from a registry or from Claude only
+    paths = [tmp_path / f"{k}.yaml" for k in "abc"]
+    loaded = [rep.Loaded(p.stem, m, p) for p, m in zip(paths, (a, b, c))]
+    rows = rep.toc_rows(loaded, marked=[paths[0]])
+    assert [(r.key, r.check["share"], r.to_claude, r.marked) for r in rows] == [("a", 0.0, True, True), ("b", 0.9, False, False)]
+    assert rep.toc_what_if(rows, (0.5, 0.95)) == [(0.5, 1, 1), (0.95, 2, 1)]
+    text = "\n".join(rep._toc_lines(loaded, [paths[0]]))
+    assert "== Efnisyfirlit á síðunum: 2 hefti með lesið efnisyfirlit ==" in text
+    assert "  * 0.00 (0/5)  logretta 2010  [a]  hliðrað 4  → Claude" in text
+    assert "    0.90 (9/10)  logretta 2010  [b]" in text
+
+
 def test_without_external_record_rescales_the_rest_to_the_same_total():
     alt = rep.without_external_record(C.WEIGHTS)
     assert "external_record" not in alt
@@ -418,6 +438,18 @@ def test_cli_only_restricts_the_report_to_the_listed_manifests(tmp_path, capsys)
     assert rep.main(["--manifests", str(root), "--only", str(pilot), "--unmatched", str(unmatched)]) == 0
     out = capsys.readouterr().out
     assert "== logretta" in out and "== ulfljotur" not in out
+
+
+def test_cli_marks_the_issues_listed_in_merkja(tmp_path, capsys):
+    root, paths, unmatched = _pilot(tmp_path)
+    m = load_manifest(paths[0])
+    m.page_map["toc_check"] = {"entries": 4, "found": 1, "share": 0.25, "shifted": 0, "on_filler": 0, "unclaimed": 0}
+    save_manifest(m, paths[0])
+    marks = tmp_path / "audited.txt"
+    marks.write_text(f"{paths[0]}\n", encoding="utf-8")
+    assert rep.main(["--manifests", str(root), "--unmatched", str(unmatched), "--merkja", str(marks)]) == 0
+    out = capsys.readouterr().out
+    assert f"  * 0.25 (1/4)  {m.label}  [{paths[0].stem}]" in out and "TOC_MIN_TITLE_SHARE (núna 0.8)" in out
 
 
 def test_cli_exits_1_and_says_so_when_a_listed_manifest_is_missing(tmp_path, capsys):
