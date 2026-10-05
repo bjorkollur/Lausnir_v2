@@ -16,7 +16,7 @@ Registry per source (spec §5.1):
   enriched with leitir.is records for timarit_logfraedinga (R26); Claude reads the TOC when the
   parser finds nothing (provenance llm, confidence capped, issue in review), and when the parsed list fails on the
   issue's own pages (tocgate.py, Task 23b, R47: too few of its titles printed on their start pages, rows shifted by
-  one): Claude's list replaces it, or, while the offline queue waits for Claude's answer, the
+  one; Task 23c: much of the volume's article text claimed by no entry): Claude's list replaces it, or, while the offline queue waits for Claude's answer, the
   parsed list stays with a note that sends the issue to review.
 
 The printed page decides (Task 22b, R40; printed.py and firstpage.py): the registry's page number locates an article,

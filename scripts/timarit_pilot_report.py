@@ -14,8 +14,10 @@ OCR_BIN_RATIO_THRESHOLD, COVERAGE_MAX_GAP_PAGES and PAGE_MAP_RESTART_RATIO, (5) 
 analysis flagged (an analysis note starting with analyze.FRAVIK, R42) with its issue and article, and the count per
 source, and (8) "Efnisyfirlit á síðunum" (Task 23b): for every issue whose contents list the parser read, the share of
 its titles found on their start pages (page_map["toc_check"]), a what-if table for TOC_MIN_TITLE_SHARE and one line per
-issue, lowest share first, the issues listed in --merkja (audited failures) marked with *. Exit status 1 when a manifest is unreadable or listed in
---only but missing, or when nothing has been analysed.
+issue, lowest share first, the issues listed in --merkja (audited failures) marked with *. Task 23c adds the pages no
+entry claims ("síður utan lista", page_map["toc_check"]["unclaimed"]): their distribution with the issues sent to Claude
+marked, and a what-if table for TOC_MAX_UNCLAIMED_PAGES and TOC_MAX_UNCLAIMED_SHARE. Exit status 1 when a manifest is
+unreadable or listed in --only but missing, or when nothing has been analysed.
 """
 from __future__ import annotations
 
@@ -482,6 +484,11 @@ class TocRow(NamedTuple):
 
 
 TOC_STEPS = (0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
+# Task 23c: ranges of unclaimed pages (low, high, label) and the what-if steps for the page count and the share of the volume
+UNCLAIMED_BINS = ((0, 0, "0"), (1, 4, "1–4"), (5, 9, "5–9"), (10, 19, "10–19"), (20, 49, "20–49"), (50, 99, "50–99"),
+                  (100, None, "100+"))
+UNCLAIMED_PAGE_STEPS = (10, 20, 30, 50, 100)
+UNCLAIMED_SHARE_STEPS = (0.1, 0.15, 0.2, 0.25, 0.3, 0.5)
 
 
 def toc_rows(loaded: list[Loaded], marked: Iterable[Path] = ()) -> list[TocRow]:
@@ -504,22 +511,85 @@ def toc_what_if(rows: list[TocRow], steps: Iterable[float] = TOC_STEPS) -> list[
             for t in steps]
 
 
+def _unclaimed(row: TocRow) -> int | None:
+    n = _number(row.check.get("unclaimed"))
+    return None if n is None else int(n)
+
+
+def unclaimed_histogram(rows: list[TocRow]) -> list[tuple[str, int, int]]:
+    """(range of unclaimed pages, lists, of them sent to Claude) over the lists that have the count (Task 23c)."""
+    out = []
+    for lo, hi, label in UNCLAIMED_BINS:
+        inside = [r for r in rows if (n := _unclaimed(r)) is not None and n >= lo and (hi is None or n <= hi)]
+        out.append((label, len(inside), sum(r.to_claude for r in inside)))
+    return out
+
+
+def _fails_on_titles(check: dict) -> bool:
+    """The list fails on its titles alone (analyze's gate before Task 23c), from the numbers page_map keeps."""
+    found, shifted = _number(check.get("found")) or 0, _number(check.get("shifted")) or 0
+    return not check.get("entries") or (_number(check.get("share")) or 0.0) < C.TOC_MIN_TITLE_SHARE or (
+        shifted >= 2 and shifted > found)
+
+
+def unclaimed_what_if(rows: list[TocRow], pages: Iterable[int] = UNCLAIMED_PAGE_STEPS,
+                      shares: Iterable[float] = UNCLAIMED_SHARE_STEPS) -> list[tuple[int, list[tuple[int, int]]]]:
+    """Per page limit, per share limit: (lists whose unclaimed pages exceed both, of them that pass on their titles, so
+    that the limits alone would send them to Claude). A list analysed before Task 23c has no page count and is left out."""
+    shares = list(shares)
+    measured = [(n, _number(r.check.get("pages")), r) for r in rows if (n := _unclaimed(r)) is not None]
+    measured = [(n, p, r) for n, p, r in measured if p]
+    out = []
+    for limit in pages:
+        cells = []
+        for share in shares:
+            over = [r for n, p, r in measured if n > limit and n > share * p]
+            cells.append((len(over), sum(not _fails_on_titles(r.check) for r in over)))
+        out.append((limit, cells))
+    return out
+
+
+def _unclaimed_lines(rows: list[TocRow]) -> list[str]:
+    out = ["",
+           "Síður utan lista (Task 23c): síður með greinatexta sem engin grein listans nær yfir, án fyrstu "
+           f"{C.COVERAGE_MAX_GAP_PAGES} síðnanna eftir efnisyfirlitið (kápu- og aðfaraefni) og án síðna með ólæsilegt textalag.",
+           "Efnisyfirlit víkur fyrir greinalista Claude þegar þær eru fleiri en TOC_MAX_UNCLAIMED_PAGES og fleiri en "
+           "TOC_MAX_UNCLAIMED_SHARE af síðum heftisins eftir kápu og efnisyfirlit."]
+    hist = unclaimed_histogram(rows)
+    out += _table(["síður utan lista", *[label for label, _, _ in hist]],
+                  [["öll hefti", *[str(n) for _, n, _ in hist]], ["þar af → Claude", *[str(g) for _, _, g in hist]]])
+    lacking = sum(1 for r in rows if not _number(r.check.get("pages")))
+    out += ["", f"  TOC_MAX_UNCLAIMED_PAGES (núna {C.TOC_MAX_UNCLAIMED_PAGES}) og TOC_MAX_UNCLAIMED_SHARE "
+                f"(núna {C.TOC_MAX_UNCLAIMED_SHARE}): hefti sem fara yfir bæði mörkin (þar af þau sem standast á titlum, "
+                f"þ.e. bættust við)" + (f"; vantar síðufjölda í {lacking} hefti (ekki talin með)" if lacking else "")]
+    steps = list(UNCLAIMED_SHARE_STEPS)
+    out += _table(["síður \\ hlutfall", *[_mark(x, C.TOC_MAX_UNCLAIMED_SHARE) for x in steps]],
+                  [[f"{limit}" + (" *" if limit == C.TOC_MAX_UNCLAIMED_PAGES else ""),
+                    *[f"{n} ({new})" for n, new in cells]] for limit, cells in unclaimed_what_if(rows)])
+    return out
+
+
 def _toc_lines(loaded: list[Loaded], marked: Iterable[Path]) -> list[str]:
     rows = toc_rows(loaded, marked)
     out = ["", f"== Efnisyfirlit á síðunum: {len(rows)} hefti með lesið efnisyfirlit ==",
            f"TOC_MIN_TITLE_SHARE (núna {C.TOC_MIN_TITLE_SHARE}): efnisyfirlit þar sem lægra hlutfall titla fannst á "
            "upphafssíðum greinanna víkur fyrir greinalista Claude",
-           "(eins líka ef fleiri titlar standa einni grein frá en á sinni síðu; „á auglýsingu“ og „síður utan lista“ eru til upplýsingar).",
+           "(eins líka ef fleiri titlar standa einni grein frá en á sinni síðu, eða ef of margar síður eru utan lista, sjá neðar; "
+           "„á auglýsingu“ er aðeins til upplýsingar).",
            "* = merkt í --merkja (endurskoðuð villa); → Claude = greining skipti listanum út eða bíður svars Claude.",
            f"  hlutfall titla   {format_histogram(r.check['share'] for r in rows)}"]
     if not rows:
         return out
     cells = [[_mark(t, C.TOC_MIN_TITLE_SHARE), str(n), str(m)] for t, n, m in toc_what_if(rows)]
     out += _table(["mörk", "undir", "þar af merkt"], cells)
+    out += _unclaimed_lines(rows)
+    out += ["", "Hefti eitt og eitt, lægsta hlutfall titla fyrst:"]
     for r in rows:
         c = r.check
-        extra = ", ".join(f"{label} {c[k]}" for k, label in (("shifted", "hliðrað"), ("on_filler", "á auglýsingu"),
-                                                               ("unclaimed", "síður utan lista")) if c.get(k))
+        parts = [f"{label} {c[k]}" for k, label in (("shifted", "hliðrað"), ("on_filler", "á auglýsingu")) if c.get(k)]
+        if c.get("unclaimed"):
+            parts.append(f"síður utan lista {c['unclaimed']}" + (f" af {int(c['pages'])}" if _number(c.get("pages")) else ""))
+        extra = ", ".join(parts)
         out.append(f"  {'*' if r.marked else ' '} {c['share']:.2f} ({c['found']}/{c['entries']})  {r.issue}  [{r.key}]"
                    f"{f'  {extra}' if extra else ''}{'  → Claude' if r.to_claude else ''}")
     return out

@@ -102,6 +102,11 @@ FILES = {
     "lmbl2006": ("Lögmannablaðið/Lögmannablaðið 2006 02.pdf", [9, 10]),
     "tl2024d": ("Tímarit Lögfræðinga/TL 2024_04.pdf", [4]),
     "tl1971b": ("Tímarit Lögfræðinga/TL 1971_1972.pdf", [50]),
+    # Task 23c: front matter between the contents and the first article (TL's inner title and masthead; Úlfljótur's
+    # contents, masthead and editor's note), and a page whose text layer is garbled (TL 2010-2: replacement characters)
+    "tl2024e": ("Tímarit Lögfræðinga/TL 2024_04.pdf", [1]),
+    "ulf2024": ("Úlfljótur/Tímarit/Ulfljotur_2024-1tbl.pdf", [2, 3, 4]),
+    "tl2010": ("Tímarit Lögfræðinga/TL 2010_02.pdf", [14]),
 }
 _WORDS = ("og það sem fram kemur í máli þessu var talið rétt að líta til þess hvort ákvæðin ættu við um þau atvik "
           "sem um ræðir enda verður ekki séð að annað hafi legið fyrir ").split()

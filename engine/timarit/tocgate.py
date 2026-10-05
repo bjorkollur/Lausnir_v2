@@ -17,17 +17,22 @@ pages is replaced by Claude's (analyze). After the list is located and every art
 - `shifted`: of the others, those whose title is printed on the next or the previous entry's start page instead;
 - `on_filler`: the entries whose start page is an advert or a blank page (pagekind) without their title;
 - `unclaimed`: pages of article text that no entry's range covers and that are no advert or blank page (non_article),
-  from the first page after the cover and the contents (fix round 2: TL 1971's pdf 0–231, before its first located
-  entry, in the type of the page itself): articles the list does not have.
+  from the first page after the cover and the contents (fix round 2: TL 1971's pdf 0-231, before its first located
+  entry, in the type of the page itself): articles the list does not have. Task 23c: the first COVERAGE_MAX_GAP_PAGES
+  pages after the contents are front matter (masthead, editor's note, adverts) and never counted, and a page whose text
+  layer is garbled (replacement characters) is no readable article text: in TL 2009-2012 ranges are cut short in those
+  pages, which is no article missing from the list. `pages` is the document's pages from the same first page on.
 
 The list fails when the share found is below config.TOC_MIN_TITLE_SHARE, when nothing could be measured (only rubrics
-and section labels: fix round 2, such a list passed at a share of 1.0), or when more titles stand one entry off than on
-their own page. (The second test implies a share below one half, so at any threshold from 0.5 up it fails no list the
-first does not; it stays to name the kind of failure in the note, and as the test if the threshold is set lower.)
-`on_filler` and `unclaimed` are recorded for the report and named in the note, but decide nothing: measured on the bulk,
-a magazine article that opens on a full-page photograph with its title set as a picture looks like an advert
-(Lögmannablaðið's interviews: five lists that hold), and a range that pagekind cut short in a garbled text layer leaves
-unclaimed pages too (TL 2011-2), not only a list that lacks articles."""
+and section labels: fix round 2, such a list passed at a share of 1.0), when more titles stand one entry off than on
+their own page, or (Task 23c) when the unclaimed pages exceed both config.TOC_MAX_UNCLAIMED_PAGES and
+config.TOC_MAX_UNCLAIMED_SHARE of `pages`: the titles alone pass a list that covers only the end of a volume (TL 1989:
+6 of 7 found, the first entry on pdf 224 of 304). (The shift test implies a share below one half, so at any threshold
+from 0.5 up it fails no list the share test does not; it stays to name the kind of failure in the note, and as the test
+if the threshold is set lower.) `on_filler` is recorded for the report and named in the note, but decides nothing:
+measured on the bulk, a magazine article that opens on a full-page photograph with its title set as a picture looks like
+an advert (Lögmannablaðið's interviews: five lists that hold).
+"""
 from __future__ import annotations
 
 import difflib
@@ -50,8 +55,9 @@ class TocCheck(NamedTuple):
     found: int              # ... that their own start page holds (found_at)
     shifted: int            # ... printed on the next or previous entry's start page instead
     on_filler: int          # entries that start on an advert or a blank page (no text of their own)
-    unclaimed: int          # pages of text no entry covers
+    unclaimed: int          # pages of readable article text no entry covers (not the front matter)
     proxies: tuple[tuple[int, str], ...] = ()   # (index, by what) of the entries found by a name or a label only
+    pages: int = 0          # the document's pages after the cover and the contents (what `unclaimed` is a share of)
 
     @property
     def share(self) -> float:
@@ -61,11 +67,14 @@ class TocCheck(NamedTuple):
 
     def as_dict(self) -> dict:
         return {"entries": self.entries, "found": self.found, "share": round(self.share, 3), "shifted": self.shifted,
-                "on_filler": self.on_filler, "unclaimed": self.unclaimed, "by_proxy": len(self.proxies)}
+                "on_filler": self.on_filler, "unclaimed": self.unclaimed, "pages": self.pages, "by_proxy": len(self.proxies)}
 
-    def failures(self, min_share: float | None = None) -> list[str]:
+    def failures(self, min_share: float | None = None, max_unclaimed: int | None = None,
+                 max_unclaimed_share: float | None = None) -> list[str]:
         """Why the list fails on its pages, in Icelandic for the analysis note; [] when it holds."""
         min_share = C.TOC_MIN_TITLE_SHARE if min_share is None else min_share
+        max_unclaimed = C.TOC_MAX_UNCLAIMED_PAGES if max_unclaimed is None else max_unclaimed
+        max_unclaimed_share = C.TOC_MAX_UNCLAIMED_SHARE if max_unclaimed_share is None else max_unclaimed_share
         out = []
         if not self.entries:
             out.append("enginn titill efnisyfirlitsins var mælanlegur á síðunum")
@@ -73,6 +82,9 @@ class TocCheck(NamedTuple):
             out.append(f"{self.found} af {self.entries} titlum fundust á upphafssíðum sínum")
         if self.shifted >= 2 and self.shifted > self.found:       # (implies share < 0.5: see the module docstring)
             out.append(f"{self.shifted} titlar standa á upphafssíðu greinarinnar á undan eða eftir")
+        if self.unclaimed > max_unclaimed and self.unclaimed > max_unclaimed_share * self.pages:
+            n = self.unclaimed
+            out.append(f"efnisyfirlitið nær ekki yfir {n} {'síðu' if n % 10 == 1 and n % 100 != 11 else 'síður'} heftisins")
         return out
 
     def context(self) -> list[str]:
@@ -90,10 +102,18 @@ _RUBRICS = frozenset({"frá ritstjórn", "ávarp", "formálsorð", "formáli", "
 _HEAD_CHARS = 1500             # as analyze._on_page: titles stand near the top of their first page
 _TOP_CHARS = 600               # bylines and an interview's subject stand at the very top
 _WORD_MATCH = 0.8              # a word of the title printed with a letter or two different ("Clausen" / "Claessen")
+_UNREADABLE = 0.5              # a page this much of whose characters are replacement characters has no readable text
 
 
 def _rubric(title: str) -> bool:
     return " ".join(re.sub(r"[^\w\s]", " ", title).split()).lower() in _RUBRICS
+
+
+def _unreadable(page: Page) -> bool:
+    """The page's text layer is garbled: most of its characters are replacement characters (TL 2009-2012: a font the
+    extraction cannot map, 53 of TL 2010-2's 110 pages). It says nothing about articles the list lacks."""
+    text = "".join(ln.text for ln in PK.content(page))
+    return text.count("\ufffd") >= _UNREADABLE * max(len(text), 1)
 
 
 def _letterless(title: str) -> bool:
@@ -258,13 +278,21 @@ def check(entries: Sequence[ArticleEntry], titles: dict[int, str | None], reader
                 on_filler += 1                        # (a scan's page is one picture: that says nothing)
     claimed = {i for a in entries if a.pdf_pages for i in range(a.pdf_pages[0], a.pdf_pages[1] + 1)}
     skip = claimed | set(non_article)
-    unclaimed = 0
-    if located and t.sizes:
+    unclaimed = pages = 0
+    if located:
         start = located[0] if front is None else min(front, located[0])
-        unclaimed = sum(1 for i in range(start, n_pages) if i not in skip and (PK._has_text(reader(i), t) or (
-            i < located[0] and PK._has_text(reader(i), PK.typography([reader(i)])))))   # (before it: any type)
+        pages = max(n_pages - start, 0)
+        matter = min(start + C.COVERAGE_MAX_GAP_PAGES, located[0])        # (the front matter: Task 23c)
+
+        def article_text(i: int) -> bool:
+            page = reader(i)
+            return not _unreadable(page) and (PK._has_text(page, t) or (
+                i < located[0] and PK._has_text(page, PK.typography([page]))))     # (before it: any type)
+        if t.sizes:
+            unclaimed = sum(1 for i in range(start, n_pages) if i not in skip and not start <= i < matter
+                            and article_text(i))
     proxies = tuple((k, by) for k, by in sorted(how.items()) if by != "titli")
-    return TocCheck(len(titled), len(how), shifted, on_filler, unclaimed, proxies)
+    return TocCheck(len(titled), len(how), shifted, on_filler, unclaimed, proxies, pages)
 
 
 def _issue_typography(entries: Sequence[ArticleEntry], reader: Callable[[int], Page]) -> PK.Typography:

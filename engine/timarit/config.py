@@ -35,6 +35,21 @@ COVERAGE_MAX_GAP_PAGES = 6
 # at 0.80 or above. The two groups still overlap between 0.75 and 0.80: working lists TL 1952-1 (0.75) and TL 1999
 # (0.77) beside failing TL 1979, 1981 and 1983 (0.78-0.79).
 TOC_MIN_TITLE_SHARE = 0.8
+# Task 23c, the same gate: a parsed contents list also fails when the pages of article text that no entry claims exceed
+# BOTH of these: TOC_MAX_UNCLAIMED_PAGES pages and TOC_MAX_UNCLAIMED_SHARE of the pages after the cover and the contents.
+# The titles alone pass a list that covers only the end of a volume (TL 1989: 6 of 7 found, the first entry on pdf 224 of
+# 304, 195 pages of articles before it unclaimed). The first COVERAGE_MAX_GAP_PAGES pages after the contents (masthead,
+# editor's note, adverts) are front matter and not counted, nor are pages whose text layer is garbled (TL 2009-2012: their
+# ranges are cut short there, which is no article missing from the list). Pilot-tunable: the user chooses from the
+# distribution of `unclaimed` that scripts/timarit_pilot_report.py prints next to the share ("Efnisyfirlit á síðunum").
+# Defaults 20 and 0.2, measured on the 170 parsed lists of the bulk run (2026-10-05): the 135 that pass on their titles leave
+# at most 12 pages (0.13 of the volume) unclaimed, except two, TL 1989 (195 pages, 0.65; its first entry is on pdf 224) and
+# Úlfljótur 2023-4 (43 pages, 0.24; three of the contents' Rökstólar items are not in the list), which are real partial
+# lists. 20 pages and a fifth of the volume lie in the gap between those and the rest, and above the 22 working lists the
+# review named (at most 3 pages, 0.10). Lists that already fail on their titles leave far more (Lögrétta 2018-2: 237
+# pages, Lögrétta 2017-1: 204, TL 1971: 199, TL 1993: 185, Lögrétta 2018-1: 178), so this test would catch them too.
+TOC_MAX_UNCLAIMED_PAGES = 20
+TOC_MAX_UNCLAIMED_SHARE = 0.2
 MANIFEST_ROOT = Path("data/timarit/manifests")
 UNMATCHED_PATH = Path("data/timarit/_unmatched.yaml")
 # Caches are written, so they live outside the (read-only) user archive.

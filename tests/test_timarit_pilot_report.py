@@ -206,6 +206,55 @@ def test_the_share_of_contents_titles_found_is_listed_per_issue_with_the_audited
     assert "    0.90 (9/10)  logretta 2010  [b]" in text
 
 
+def _toc_issues(tmp_path):
+    """Four issues whose contents list the parser read: TL 1989 (a good share of titles, 195 of 300 pages unclaimed, sent
+    to Claude by the pages alone), a list that leaves 30 of 100 pages unclaimed, one that leaves 3, and one analysed
+    before Task 23c (no page count in its toc_check)."""
+    def check(found, entries, unclaimed, pages=None):
+        c = {"entries": entries, "found": found, "share": round(found / entries, 3), "shifted": 0, "on_filler": 0,
+             "unclaimed": unclaimed}
+        return {"toc_check": {**c, "pages": pages} if pages is not None else c}
+    gate = f"{A.TOC_GATE_NOTE} (efnisyfirlitið nær ekki yfir 195 síður heftisins) — greinalisti Claude notaður"
+    ms = [_mf(issue="1", page_map=check(6, 7, 195, 300), arts=[_art(0.7, notes=[gate])]),
+          _mf(issue="2", page_map=check(10, 10, 30, 100)), _mf(issue="3", page_map=check(10, 10, 3, 100)),
+          _mf(issue="4", page_map=check(9, 10, 5))]
+    paths = [tmp_path / f"{k}.yaml" for k in "abcd"]
+    return [rep.Loaded(p.stem, m, p) for p, m in zip(paths, ms)]
+
+
+def test_the_unclaimed_pages_are_counted_in_ranges_with_the_issues_sent_to_claude(tmp_path):
+    # Task 23c: the distribution that TOC_MAX_UNCLAIMED_PAGES and TOC_MAX_UNCLAIMED_SHARE are chosen from
+    rows = rep.toc_rows(_toc_issues(tmp_path))
+    assert rep.unclaimed_histogram(rows) == [("0", 0, 0), ("1–4", 1, 0), ("5–9", 1, 0), ("10–19", 0, 0), ("20–49", 1, 0),
+                                             ("50–99", 0, 0), ("100+", 1, 1)]
+
+
+def test_what_if_for_the_unclaimed_pages_counts_the_lists_that_pass_on_their_titles(tmp_path):
+    rows = rep.toc_rows(_toc_issues(tmp_path))
+    # (pages limit, [(lists over both limits, of them that pass on their titles) per share limit]); the list without a
+    # page count (analysed before Task 23c) can not be measured and is left out
+    assert rep.unclaimed_what_if(rows, (20, 50), (0.25, 0.5, 0.7)) == [(20, [(2, 2), (1, 1), (0, 0)]),
+                                                                       (50, [(1, 1), (1, 1), (0, 0)])]
+    assert rep.unclaimed_what_if(rows[:0], (20,), (0.25,)) == [(20, [(0, 0)])]
+
+
+def test_the_report_prints_the_unclaimed_distribution_with_the_gated_issues_and_what_if(tmp_path):
+    loaded = _toc_issues(tmp_path)
+    text = "\n".join(rep._toc_lines(loaded, []))
+    lines = text.split("\n")
+    header = next(ln for ln in lines if ln.lstrip().startswith("síður utan lista"))
+    assert header.split()[-1] == "100+"
+    gated = next(ln for ln in lines if ln.lstrip().startswith("þar af → Claude"))
+    assert gated.split()[-1] == "1" and gated.split()[-2] == "0"                          # one list, in the last range
+    assert f"TOC_MAX_UNCLAIMED_PAGES (núna {C.TOC_MAX_UNCLAIMED_PAGES}) og TOC_MAX_UNCLAIMED_SHARE " \
+           f"(núna {C.TOC_MAX_UNCLAIMED_SHARE})" in text
+    assert f"{C.TOC_MAX_UNCLAIMED_PAGES} *" in text and f"{C.TOC_MAX_UNCLAIMED_SHARE:.2f} *" in text
+    assert "vantar síðufjölda í 1 hefti" in text
+    # the issue lines say how many pages of how many
+    assert "síður utan lista 195 af 300" in text and "→ Claude" in text
+    assert "síður utan lista 5\n" in text + "\n"                                          # (no page count: just the number)
+
+
 def test_without_external_record_rescales_the_rest_to_the_same_total():
     alt = rep.without_external_record(C.WEIGHTS)
     assert "external_record" not in alt
