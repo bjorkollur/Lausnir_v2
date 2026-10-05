@@ -44,6 +44,9 @@ imported. `--dry-run --prune` lists what would go. The default is unchanged: suc
 import skips them), e.g. after a change to the importer itself: the same upsert by external_id updates their rows in
 place and their files are overwritten; their passages are rebuilt by backfill_passages.py afterwards (the upsert sets
 passage_hash to NULL). Issues in review/pending/failed are never touched; --source/--issue/--dry-run apply as usual.
+
+A re-import that gives an article a new file name (its page_end was corrected) removes the old markdown and PDF after
+the commit; `--dry-run` lists them. `status` also lists `imported` issues that carry an error.
 """
 from __future__ import annotations
 
@@ -392,21 +395,34 @@ async def cmd_discover(args) -> None:
              len(planned), len(unmatched), C.UNMATCHED_PATH)
 
 
+async def _status_lines(session) -> list[str]:
+    """What `status` prints: issues per source and status; the error of every `failed` issue; and, under a heading of
+    their own, the issues that are `imported` but carry an `error` (Task 23a): a partial import (articles without
+    text, collisions, stale rows) or a re-import that failed and left the earlier rows standing. Those would otherwise
+    be listed nowhere."""
+    rows = (await session.execute(text("""
+        SELECT s.short_name, ji.status, count(*) FROM journal_issues ji JOIN sources s ON s.id = ji.source_id
+        GROUP BY 1, 2 ORDER BY 1, 2"""))).all()
+    lines = ["Engin hefti í gagnagrunni enn (keyrðu discover)."] if not rows else []
+    lines += [f"{short:28s} {status:9s} {n:5d}" for short, status, n in rows]
+    failed = (await session.execute(text(
+        "SELECT label, error FROM journal_issues WHERE status = 'failed' ORDER BY label"))).all()
+    lines += [f"  ✗ {label}: {err}" for label, err in failed]
+    flawed = (await session.execute(text(
+        "SELECT label, error FROM journal_issues WHERE status = 'imported' AND coalesce(error, '') <> '' "
+        "ORDER BY label"))).all()
+    if flawed:
+        lines.append("Innflutt hefti með villu (heftið stendur, villan segir hvað vantar eða mistókst):")
+        lines += [f"  ! {label}: {err}" for label, err in flawed]
+    return lines
+
+
 async def cmd_status(args) -> None:
     await _db.init_db(create_tables=False)
     try:
         async with _db.AsyncSessionLocal() as session:
-            rows = (await session.execute(text("""
-                SELECT s.short_name, ji.status, count(*) FROM journal_issues ji JOIN sources s ON s.id = ji.source_id
-                GROUP BY 1, 2 ORDER BY 1, 2"""))).all()
-            if not rows:
-                print("Engin hefti í gagnagrunni enn (keyrðu discover).")
-            for short, status, n in rows:
-                print(f"{short:28s} {status:9s} {n:5d}")
-            failed = (await session.execute(text(
-                "SELECT label, error FROM journal_issues WHERE status = 'failed' ORDER BY label"))).all()
-            for label, err in failed:
-                print(f"  ✗ {label}: {err}")
+            for line in await _status_lines(session):
+                print(line)
     finally:
         await _db.dispose_db()
 
@@ -618,7 +634,7 @@ _COUNT_LABELS = {
     "no_text": "greinar án texta", "failed": "greinar mistókust", "failed_issue": "hefti mistókust",
     "source_changed": "frumskjal breytt", "discovery_error": "fleiri en eitt heftisskjal",
     "not_analysed": "hefti ekki greint", "orphaned": "eldri greinar ekki í skránni",
-    "pruned": "úreltum greinum eytt", "reimported": "hefti flutt inn aftur",
+    "pruned": "úreltum greinum eytt", "renamed": "greinar með nýtt skráarnafn", "reimported": "hefti flutt inn aftur",
     "reimport_failed": "endurinnflutningur mistókst (fyrri innflutningur stendur)",
 }
 
@@ -816,13 +832,21 @@ async def _mark_issue_failed(session, manifest_rel: str, error: str) -> None:
         {"error": error, "p": manifest_rel})
 
 
-async def _record_reimport_error(session, manifest_rel: str, error: str | None, sha: str) -> None:
-    """A re-import of an `imported` issue that failed (Task 22f): the rows of the earlier import are still there, so
-    the issue keeps its status; only `error` and the saved manifest's hash are recorded (a plain import then leaves it
-    alone; --reimport, or an edit of the manifest, tries again)."""
+async def _record_reimport_error(session, manifest_rel: str, error: str | None) -> None:
+    """A failed import of an `imported` issue (Task 22f, 23a): the rows of the earlier import are still there, so the
+    issue keeps its status; only `error` is recorded. The stored `manifest_sha256` stays what it was, on purpose: it is
+    the version of the manifest the rows belong to. Storing the hash of the manifest as it is now would say that an
+    edit the import could not carry out had been processed, and the next plain import would call the issue `unchanged`
+    (the edit would land only with --reimport). Kept, it differs from the saved manifest (which now carries the error
+    and the user's edit), so the next plain import tries again."""
     await session.execute(text(
-        "UPDATE journal_issues SET error = :error, manifest_sha256 = :sha, updated_at = now() WHERE manifest_path = :p"),
-        {"error": error, "sha": sha, "p": manifest_rel})
+        "UPDATE journal_issues SET error = :error, updated_at = now() WHERE manifest_path = :p"),
+        {"error": error, "p": manifest_rel})
+
+
+def _files_of(cfg, vf: str) -> tuple[Path, Path]:
+    """The derived files of a stored row: its markdown and its article PDF."""
+    return cfg.markdown_path(vf), cfg.pdf_path(vf)
 
 
 def _blocked(m: IssueManifest) -> str | None:
@@ -1020,7 +1044,14 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
     set to NULL so that backfill_passages.py rebuilds its passages) and the same files overwritten. Any `imported`
     issue imported again is counted `reimported`. Issues in review/pending/failed are never touched. An `imported`
     issue of which nothing could be imported this time (or whose import raised, see _import_one) keeps its status,
-    since the rows of its earlier import are still there: `error` says what went wrong (`reimport_failed`).
+    since the rows of its earlier import are still there: `error` says what went wrong (`reimport_failed`). It keeps its
+    stored manifest_sha256 too (Task 23a): the manifest was edited, the edit did not land, so the next plain import
+    must see a manifest that differs and try again.
+
+    When an upsert gives a stored row a different verdict_filename (a corrected page_end, a new title), the row's old
+    markdown and article PDF are deferred in `files` like a pruned row's (`apply_removals` after the commit; never
+    inside the archive), unless another row has that name afterwards, and the articles are counted `renamed`; with
+    `dry_run` the old files that exist are printed ("yrði eytt") and nothing is removed.
 
     With `dry_run` the database is only read and nothing is written anywhere; every article is printed."""
     m = load_manifest(path)
@@ -1076,6 +1107,7 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
 
     pdfs: dict[str, bytes] = {}
     stored_docs: list[tuple[Document, str]] = []
+    named: dict[str, str] = {}                    # external_id -> the verdict_filename of every article imported now
     jobs: list[tuple] = []
     for eid, a in by_id.items():
         if a.pdf_pages is None:
@@ -1119,6 +1151,7 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
             vf = unique_verdict_filename(verdict_filename(doc, cfg), taken)
             taken.add(vf)
             doc.verdict_filename = vf
+            named[eid] = vf
             counts["imported"] += 1
             if ex.page_note:
                 log.info("%s %s: %s", path.name, eid, ex.page_note)
@@ -1150,6 +1183,21 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
         log.warning("%s: stored articles no longer in the manifest (left in place): %s", path.name, ", ".join(orphans))
         _dry(dry_run, "", f"eldri greinar heftisins sem eru ekki lengur í skránni: {', '.join(orphans)}")
 
+    # Files no row has once this import commits: a pruned row's, and those of a row whose verdict_filename changed now
+    # (a corrected page_end, a new title). A name that a row still has afterwards, under its new name or another's,
+    # stays; so does a name that is no plain file name.
+    old_name = {eid: vf for eid, _, vf in stored}
+    renamed = {eid: old_name[eid] for eid, vf in named.items() if old_name.get(eid) and old_name[eid] != vf}
+    in_use = {named.get(eid, vf) for eid, _, vf in stored if vf and eid not in gone} | set(named.values())
+    leaving = {vf: eid for eid, vf in (*pruned, *renamed.items()) if vf and vf not in in_use and vf == Path(vf).name}
+    if renamed:
+        counts["renamed"] = len(renamed)
+    if dry_run:
+        for eid, vf in renamed.items():
+            there = [q.name for q in _files_of(cfg, vf) if q.exists()] if vf in leaving else []
+            if there:
+                _dry(True, eid, f"gamla skráin yrði eytt: {', '.join(there)} (nýtt nafn: {named[eid]})")
+
     summary = _import_summary(counts, orphans)
     if again:
         counts["reimported" if counts["imported"] else "reimport_failed"] = 1
@@ -1165,7 +1213,7 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
     m.error = _with_import_error(m.error, summary)
     if not counts["imported"] and again:         # the earlier import's rows stay: so does the status
         save_manifest(m, path)
-        await _record_reimport_error(session, manifest_rel, m.error, manifest_sha256(path))
+        await _record_reimport_error(session, manifest_rel, m.error)
         return dict(counts)
     if not counts["imported"]:
         m.status = "failed"
@@ -1196,13 +1244,12 @@ async def import_manifest(path: Path, *, session, read_bytes, raw_dir: Path, dry
         files.write(cfg.pdf_path(vf), pdfs[doc.external_id])
     if issue_dest is not None and not (issue_dest.exists() and sha256_bytes(issue_dest.read_bytes()) == issue_sha):
         files.write(issue_dest, issue_bytes)
-    # The pruned rows' files go once the commit has: unless a row that remains (another issue's, one of this issue's
-    # that stays, one written just now) has the same name.
-    in_use = {vf for eid, _, vf in stored if vf and eid not in gone} | {vf for _, vf in stored_docs}
-    for _, vf in pruned:
-        if vf and vf not in in_use and vf == Path(vf).name:
-            files.defer_removal(cfg.markdown_path(vf))
-            files.defer_removal(cfg.pdf_path(vf))
+    # The files of the pruned and the renamed rows go once the commit has (see `leaving` above).
+    for vf, eid in leaving.items():
+        if eid in renamed:
+            log.info("%s %s: file name %s → %s; the old files go after the commit", path.name, eid, vf, named[eid])
+        for q in _files_of(cfg, vf):
+            files.defer_removal(q)
     return dict(counts)
 
 
@@ -1218,8 +1265,9 @@ async def _import_one(path: Path, session, args, pool) -> tuple[dict[str, int], 
     the exception's type, or because the database no longer answers SELECT 1) raises _StopRun: the issue is not to
     blame and is left as it was. Any other error is the issue's: it gets status `failed` with the error (manifest
     and journal_issues, committed) and the run goes on, except an issue that was `imported` before this run: it keeps
-    that status and only `error` is recorded (`reimport_failed`, Task 22f). A manifest that does not load is left as it
-    is (it is the user's hand edit).
+    that status and only `error` is recorded (`reimport_failed`, Task 22f), with the stored manifest_sha256 left as it was
+    (Task 23a: an edited manifest that failed to import is tried again by the next plain import). A manifest that does
+    not load is left as it is (it is the user's hand edit).
 
     The one exception to the undo: a connection lost *during the commit* may have lost only the reply. The server
     may have committed, and then the files are the right ones for the rows (undoing them would leave rows without
@@ -1269,7 +1317,7 @@ async def _import_one(path: Path, session, args, pool) -> tuple[dict[str, int], 
         save_manifest(m, path)
         try:
             if again:
-                await _record_reimport_error(session, _manifest_rel(path), m.error, manifest_sha256(path))
+                await _record_reimport_error(session, _manifest_rel(path), m.error)
             else:
                 await _mark_issue_failed(session, _manifest_rel(path), m.error)
             await session.commit()

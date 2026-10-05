@@ -36,6 +36,7 @@ FILES = {
     "lmbl2005": ("Lögmannablaðið/Lögmannablaðið 2005 02.pdf", [21, 22, 28, 29, 30]),
     "tl1985": ("Tímarit Lögfræðinga/TL 1985.pdf", [83, 84, 88, 141, 142, 143, 144, 215, 216, 217, 224, 281, 289, 290,
                                                    291, 292, 293, 294]),
+    "tl1974": ("Tímarit Lögfræðinga/TL 1974.pdf", [181, 193, 194]),
     "tl2004": ("Tímarit Lögfræðinga/TL 2004.pdf", [184, 185, 194, 471, 480]),
     "tl2024": ("Tímarit Lögfræðinga/TL 2024_01.pdf", [9, 10, 143, 149]),
     "ulf1957": ("Úlfljótur/Tímarit/Ulfljotur_1957 11 arg/187.pdf", [0, 1, 2, 3, 7, 8, 9]),

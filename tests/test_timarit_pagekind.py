@@ -9,6 +9,7 @@ from pathlib import Path
 
 import pytest
 
+from engine.timarit import firstpage as FP
 from engine.timarit import pagekind as K
 from engine.timarit.firstpage import Line, Page
 from engine.timarit.pagekind import Kind, Typography
@@ -98,6 +99,57 @@ def test_a_running_head_a_citation_or_a_footnote_naming_an_issue_is_no_cover():
     body = [Line("meginmál greinarinnar heldur hér áfram með nægum texta í línunni", 10.0, 60 + 14 * k) for k in range(20)]
     biblio = Page(body + [Line("Úlfljótur, 4. tbl. 56. árg. 2003", 10.0, 250)], 600.0)
     assert not K._issue_cover(biblio)
+
+
+def test_an_inner_cover_is_a_cover_by_its_issue_line_and_its_contents_whatever_the_type_size():
+    # Task 23a: TL 1974 pdf 194 is an inner cover with "EFNI:". Its issue line "3. HEFTI 25. ÁRGANGUR" is set at 0.85 of
+    # the body size, under the 0.95 a lone issue line needs; the contents line beside it makes the page a cover.
+    cover = page("tl1974/194")
+    body = FP.body_size(cover)
+    assert next(ln.size for ln in cover.lines if ln.text.startswith("3. HEFTI")) < 0.95 * body
+    assert K._issue_cover(cover)
+    # the article before it ends on its own text: the cover is no unlisted item (it was flagged before)
+    e = end("tl1974", [181, 193, 194], "Dómar Alþjóðadómstólsins")
+    assert e.unlisted is None
+
+
+def _edit_cover(**over):
+    """An edit of the TL 1974 inner cover: line 2 is the issue line, line 4 the contents line."""
+    def edit(lines):
+        for k, change in over.items():
+            line = int(k[1:])
+            if change is None:
+                lines[line][0] = "meginmál greinarinnar heldur hér áfram með nægum texta í línunni"
+            elif isinstance(change, str):
+                lines[line][0] = change
+            else:
+                lines[line][change[0]] = change[1]
+    return edit
+
+
+@pytest.mark.parametrize("contents", ["EFNI:", "EFNI", "Efnisyfirlit", "EFNISYFIRLIT:"])
+def test_a_contents_line_is_efni_or_efnisyfirlit(contents):
+    assert K._issue_cover(page("tl1974/194", _edit_cover(l4=contents)))
+
+
+@pytest.mark.parametrize("why,edit", [
+    ("no contents line", _edit_cover(l4=None)),
+    ("a line that only starts with the word", _edit_cover(l4="Efnið er hér rakið í stuttu máli")),
+    ("contents in the lower half", _edit_cover(l4=(2, 0.7 * 631.2))),
+    ("contents in the top margin band", _edit_cover(l4=(2, 10.0))),
+    ("a citation naming the pages", _edit_cover(l2="3. hefti 25. árg. 1975, bls. 98")),
+    ("a long line", _edit_cover(l2="3. HEFTI 25. ÁRGANGUR og meira efni sem var sett á línuna sjálfa")),
+    ("an issue line that does not start the line", _edit_cover(l2="Sjá 3. HEFTI 25. ÁRGANGUR")),
+    ("an issue line in the lower half", _edit_cover(l2=(2, 0.7 * 631.2))),
+])
+def test_a_small_issue_line_needs_its_contents_line_in_the_upper_half(why, edit):
+    # every other condition of Task 22c stays: starts the line, short, no "bls.", below the margin band, upper half
+    assert not K._issue_cover(page("tl1974/194", edit)), why
+
+
+def test_a_contents_line_makes_no_cover_without_an_issue_line():
+    # the page of a contents list under another heading ("EFNI:" with entries) is not a cover by itself
+    assert not K._issue_cover(page("tl1974/194", _edit_cover(l2=None, l3=None)))
 
 
 def test_a_footnote_citing_an_issue_keeps_the_unlisted_item_flag():

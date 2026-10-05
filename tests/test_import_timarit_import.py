@@ -597,7 +597,7 @@ async def test_a_reimport_that_imports_nothing_keeps_the_issue_imported(tmp_path
     assert out.status == "imported" and "engin grein" in out.error
     (sql, params), = session.issue_updates()
     assert "'failed'" not in sql and "status" not in sql and params["error"] == out.error
-    assert params["sha"] == manifest_sha256(p)                    # the manifest as saved, so a plain import skips it
+    assert "manifest_sha256" not in sql and "sha" not in params   # the stored hash stays (Task 23a): see below
     assert not raw_dir.exists()
 
 
@@ -613,6 +613,115 @@ async def test_a_reimport_that_raises_keeps_the_issue_imported(tmp_path, raw_dir
     assert out.status == "imported" and out.error.startswith("innflutningur: FileNotFoundError")
     updates = [(sql, prm) for sql, prm in session.statements if sql.startswith("UPDATE journal_issues")]
     assert updates and all("'failed'" not in sql for sql, _ in updates) and updates[-1][1]["error"] == out.error
+    assert all("manifest_sha256" not in sql for sql, _ in updates)
+
+
+class _Tracking(_Session):
+    """Keeps journal_issues.manifest_sha256 the way the UPDATEs set it, so that the next import sees what the last one
+    recorded (the plain `_Session` keeps the row it was given)."""
+    async def execute(self, stmt, params=None):
+        sql = " ".join(str(stmt).split())
+        res = await super().execute(stmt, params)
+        if sql.startswith("UPDATE journal_issues") and "manifest_sha256" in sql and params and params.get("sha"):
+            self.issue_row = (self.issue_row[0], params["sha"])
+        return res
+
+
+_STORED = [("2010-60-1-7", ISSUE_ID, "TL_60-1_2010_bls-7-8"), ("2010-60-1-9", ISSUE_ID, "TL_60-1_2010_bls-9")]
+
+
+async def test_a_failed_import_of_an_edited_manifest_is_retried_by_the_next_plain_import(tmp_path, raw_dir, monkeypatch):
+    """Task 23a: the user edited an imported manifest and the plain import failed. The rows are still the old ones, so
+    the stored manifest_sha256 must stay the old one: the next plain import then sees a manifest that differs from the
+    stored version and tries again, instead of calling the issue `unchanged` (the edit would land only with --reimport)."""
+    p, m = _manifest(tmp_path, status="imported")
+    stored = manifest_sha256(p)                                    # what the earlier import recorded
+    m.articles[0].title = "Fyrsta greinin, leiðrétt"               # the user's edit
+    save_manifest(m, p)
+    assert manifest_sha256(p) != stored
+    monkeypatch.setattr(imp, "_ocr", lambda b: None)
+    session = _Tracking(issue_row=(ISSUE_ID, stored), docs=_STORED)
+    counts = await _run(p, session, raw_dir, read=lambda rel: _pdf(["", "", "", "", ""]))     # a plain import, no scan text
+    assert counts["reimport_failed"] == 1 and counts.get("imported", 0) == 0
+    out = load_manifest(p)
+    assert out.status == "imported" and "engin grein" in out.error                           # the error is recorded
+    (sql, params), = session.issue_updates()
+    assert params["error"] == out.error and "manifest_sha256" not in sql
+    assert session.issue_row[1] == stored                                                     # the old hash
+    counts = await _run(p, session, raw_dir)                       # the next plain import (the scan is readable now)
+    assert counts["imported"] == 2 and counts["reimported"] == 1 and "unchanged" not in counts
+    assert load_manifest(p).error is None and session.issue_row[1] == manifest_sha256(p)     # success records the new hash
+
+
+async def test_a_failed_reimport_of_an_unchanged_manifest_keeps_the_issue_imported_and_the_old_hash(tmp_path, raw_dir,
+                                                                                                    monkeypatch):
+    p, _ = _manifest(tmp_path, status="imported")
+    stored = manifest_sha256(p)
+    monkeypatch.setattr(imp, "_ocr", lambda b: None)
+    session = _Tracking(issue_row=(ISSUE_ID, stored), docs=_STORED)
+    counts = await imp.import_manifest(p, session=session, read_bytes=lambda rel: _pdf(["", "", "", "", ""]),
+                                       raw_dir=raw_dir, dry_run=False, workers=1, reimport=True)
+    assert counts["reimport_failed"] == 1 and "failed_issue" not in counts
+    assert load_manifest(p).status == "imported" and session.issue_row[1] == stored
+    (sql, params), = session.issue_updates()
+    assert "manifest_sha256" not in sql and "'failed'" not in sql and "error" in params
+
+
+async def test_an_edited_manifest_whose_import_raises_is_retried_by_the_next_plain_import(tmp_path, raw_dir, monkeypatch):
+    good, _ = _repo(tmp_path, monkeypatch)
+    m = load_manifest(good)
+    m.status = "imported"
+    save_manifest(m, good)
+    stored = manifest_sha256(good)
+    m.file, m.files = "x/missing.pdf", ["x/missing.pdf"]            # the edit: the import cannot read this file
+    save_manifest(m, good)
+    session = _Tracking(issue_row=(ISSUE_ID, stored), docs=_STORED)
+    counts, raised = await imp._import_one(good, session, _args(), None)                     # a plain import
+    assert raised and counts == {"reimport_failed": 1}
+    assert load_manifest(good).status == "imported" and session.issue_row[1] == stored
+    m = load_manifest(good)
+    m.file, m.files = "x/TL 2010_01.pdf", ["x/TL 2010_01.pdf"]     # the user fixes it
+    save_manifest(m, good)
+    counts, raised = await imp._import_one(good, session, _args(), None)
+    assert not raised and counts["imported"] == 2 and counts["reimported"] == 1 and "unchanged" not in counts
+
+
+# --- Task 23a: status ---------------------------------------------------------------------------------------------
+
+class _StatusSession:
+    """Answers the three queries of `status` by their SQL text."""
+    def __init__(self, groups=(), failed=(), imported_with_error=()):
+        self.groups, self.failed, self.imported = list(groups), list(failed), list(imported_with_error)
+        self.sql = []
+
+    async def execute(self, stmt, params=None):
+        sql = " ".join(str(stmt).split())
+        self.sql.append(sql)
+        if "GROUP BY" in sql:
+            return _Res(rows=self.groups)
+        if "status = 'failed'" in sql:
+            return _Res(rows=self.failed)
+        if "status = 'imported'" in sql:
+            return _Res(rows=self.imported)
+        raise AssertionError(sql)
+
+
+async def test_status_lists_errors_of_imported_issues_under_their_own_heading():
+    session = _StatusSession(
+        groups=[("logbru", "imported", 3), ("ulfljotur", "failed", 1)],
+        failed=[("Úlfljótur 1947", "FileNotFoundError: x")],
+        imported_with_error=[("Lögbrú 2013", "innflutningur: 1 grein ekki inn (enginn texti 1)")])
+    lines = await imp._status_lines(session)
+    assert "Innflutt hefti með villu" in "\n".join(lines)
+    at = next(i for i, ln in enumerate(lines) if "Innflutt hefti með villu" in ln)
+    assert lines[at + 1:] == ["  ! Lögbrú 2013: innflutningur: 1 grein ekki inn (enginn texti 1)"]
+    assert "  ✗ Úlfljótur 1947: FileNotFoundError: x" in lines[:at]                  # the failed ones stay as they were
+    assert any("status = 'imported'" in q and "error" in q for q in session.sql)
+
+
+async def test_status_without_errors_on_imported_issues_has_no_such_heading():
+    lines = await imp._status_lines(_StatusSession(groups=[("logbru", "imported", 3)]))
+    assert lines == [f"{'logbru':28s} {'imported':9s} {3:5d}"]
 
 
 # --- guards ---------------------------------------------------------------------------------------------------
@@ -1277,6 +1386,141 @@ def test_reimport_is_an_import_option_and_ignored_with_a_warning_elsewhere(monke
     assert args.reimport is False and "--reimport" in capsys.readouterr().err
 
 
+# --- Task 23a: renamed article files ------------------------------------------------------------------------------
+# The manifest's article -7 has page_end 8 and so the file name TL_60-1_2010_bls-7-8. Its stored row still carries the
+# name from before its page_end was corrected (S&S 2008: bls-33-62 → bls-33-63 in the pilot).
+
+OLD_7 = "TL_60-1_2010_bls-7-9"
+NEW_7 = "TL_60-1_2010_bls-7-8"
+NINE = "TL_60-1_2010_bls-9"
+
+
+def _after_correction(**kw):
+    return _Session(issue_row=(ISSUE_ID, "an-older-version"),
+                    docs=[("2010-60-1-7", ISSUE_ID, OLD_7), ("2010-60-1-9", ISSUE_ID, NINE)], **kw)
+
+
+def _new_files(raw_dir: Path, vf: str = NEW_7) -> tuple[Path, Path]:
+    return _md_dir(raw_dir) / "timarit_logfraedinga" / f"{vf}.md", raw_dir / "timarit_logfraedinga" / f"{vf}.pdf"
+
+
+async def _edited(p, session, raw_dir, *, dry_run=False):
+    files = imp._FileLog()
+    counts = await import_manifest(p, session=session, read_bytes=lambda rel: ISSUE, raw_dir=raw_dir, dry_run=dry_run,
+                                   workers=1, files=files)
+    return counts, files
+
+
+async def test_a_reimport_with_a_changed_page_end_removes_the_old_files_and_writes_the_new_ones(tmp_path, raw_dir):
+    p, _ = _manifest(tmp_path, status="imported")
+    session = _after_correction()
+    old = _touch(raw_dir, OLD_7)
+    kept = _touch(raw_dir, NINE)                                         # -9 has not changed: its files are overwritten
+    counts, files = await _edited(p, session, raw_dir)
+    assert counts["imported"] == 2 and counts["renamed"] == 1
+    new_md, new_pdf = _new_files(raw_dir)
+    assert new_md.read_text(encoding="utf-8").startswith("# Fyrsta greinin") and new_pdf.read_bytes().startswith(b"%PDF")
+    assert [params["verdict_filename"] for _, params in session.upserts()] == [NEW_7, NINE]       # the row is renamed
+    assert all(q.exists() for q in old)                                  # the old files go once the caller has committed
+    assert files.apply_removals() == 2
+    assert not any(q.exists() for q in old)
+    assert new_md.exists() and new_pdf.exists() and all(q.exists() and q.read_bytes() != b"old" for q in kept)
+
+
+async def test_a_dry_run_lists_the_old_files_it_would_remove_and_removes_nothing(tmp_path, raw_dir, capsys):
+    p, _ = _manifest(tmp_path, status="imported")
+    before = p.read_bytes()
+    session = _after_correction()
+    old = _touch(raw_dir, OLD_7)
+    counts, files = await _edited(p, session, raw_dir, dry_run=True)
+    out = capsys.readouterr().out
+    removal, = [ln for ln in out.splitlines() if "yrði eytt" in ln]
+    assert "2010-60-1-7" in removal and f"{OLD_7}.pdf" in removal and f"{OLD_7}.md" in removal and NEW_7 in removal
+    assert counts["renamed"] == 1
+    assert files.apply_removals() == 0 and all(q.exists() for q in old)
+    assert not any(q.exists() for q in _new_files(raw_dir)) and not session.upserts() and p.read_bytes() == before
+
+
+async def test_a_dry_run_says_nothing_about_old_files_that_are_not_there(tmp_path, raw_dir, capsys):
+    p, _ = _manifest(tmp_path, status="imported")
+    counts, _ = await _edited(p, _after_correction(), raw_dir, dry_run=True)       # the old files were deleted by hand
+    assert "yrði eytt" not in capsys.readouterr().out and counts["renamed"] == 1
+
+
+async def test_the_old_files_stay_when_the_commit_fails_and_go_after_it_succeeds(tmp_path, raw_dir, monkeypatch):
+    good, _ = _repo(tmp_path, monkeypatch)
+    seen = []
+
+    class Committing(_Ctx):
+        async def commit(self):
+            seen.append([q.exists() for q in old])                     # at commit time the old files are still there
+            await super().commit()
+    old = _touch(raw_dir, OLD_7)
+    session = Committing(docs=[("2010-60-1-7", ISSUE_ID, OLD_7)])
+    counts, raised = await imp._import_one(good, session, _args(), None)
+    assert not raised and counts["renamed"] == 1 and seen == [[True, True]]
+    assert not any(q.exists() for q in old) and all(q.exists() for q in _new_files(raw_dir))
+
+    class CommitFails(_Ctx):
+        async def commit(self):
+            raise RuntimeError("could not serialize access due to concurrent update")
+    old = _touch(raw_dir, OLD_7)
+    for q in _new_files(raw_dir):
+        q.unlink()
+    m = load_manifest(good)
+    m.status = "approved"
+    save_manifest(m, good)
+    counts, raised = await imp._import_one(good, CommitFails(docs=[("2010-60-1-7", ISSUE_ID, OLD_7)]), _args(), None)
+    assert raised
+    assert all(q.exists() and q.read_bytes() == b"old" for q in old)   # the rows are back to the old name, so are the files
+    assert not any(q.exists() for q in _new_files(raw_dir))            # and the new ones were undone
+
+
+async def test_an_unchanged_name_leaves_the_files_and_a_row_without_a_name_has_none_to_remove(tmp_path, raw_dir):
+    p, _ = _manifest(tmp_path, status="imported")
+    session = _Session(issue_row=(ISSUE_ID, "an-older-version"), docs=[("2010-60-1-7", ISSUE_ID, NEW_7), ("2010-60-1-9", ISSUE_ID, None)])
+    counts, files = await _edited(p, session, raw_dir)
+    assert counts["imported"] == 2 and "renamed" not in counts and files.apply_removals() == 0
+
+
+async def test_a_name_that_another_row_uses_or_takes_over_is_kept(tmp_path, raw_dir):
+    """The old name of -7 is another issue's file (kept); the old name of -9 is the name -7 now takes (kept, and it is
+    written anew); the old name of -7 below it is nobody's any more."""
+    p, _ = _manifest(tmp_path, status="imported")
+    session = _Session(issue_row=(ISSUE_ID, "an-older-version"),
+                       docs=[("2010-60-1-7", ISSUE_ID, "TL_other"), ("1999-49-2-1", OTHER_ISSUE, "TL_other"),
+                             ("2010-60-1-9", ISSUE_ID, NEW_7)])
+    other = _touch(raw_dir, "TL_other")
+    taken = _touch(raw_dir, NEW_7)
+    counts, files = await _edited(p, session, raw_dir)
+    assert counts["renamed"] == 2 and files.apply_removals() == 0
+    assert all(q.exists() for q in other) and all(q.exists() and q.read_bytes() != b"old" for q in taken)
+    # the swap: -7 and -9 exchange their names
+    session = _Session(issue_row=(ISSUE_ID, "an-older-version"),
+                       docs=[("2010-60-1-7", ISSUE_ID, NINE), ("2010-60-1-9", ISSUE_ID, NEW_7)])
+    counts, files = await _edited(p, session, raw_dir)
+    assert [params["verdict_filename"] for _, params in session.upserts()] == [NEW_7, NINE]
+    assert files.apply_removals() == 0 and all(q.exists() for q in _new_files(raw_dir) + _new_files(raw_dir, NINE))
+
+
+async def test_a_stored_name_that_is_not_a_plain_file_name_is_never_removed(tmp_path, raw_dir):
+    p, _ = _manifest(tmp_path, status="imported")
+    outside = raw_dir / "outside.pdf"
+    outside.parent.mkdir(parents=True, exist_ok=True)
+    outside.write_bytes(b"x")
+    counts, files = await _edited(p, _Session(issue_row=(ISSUE_ID, "an-older-version"),
+                                              docs=[("2010-60-1-7", ISSUE_ID, "../outside")]), raw_dir)
+    assert files.apply_removals() == 0 and outside.exists()
+
+
+async def test_the_run_summary_counts_the_renamed_files(tmp_path, raw_dir, monkeypatch, capsys):
+    good, _ = _repo(tmp_path, monkeypatch)
+    _fake_db(monkeypatch, lambda: _Ctx(docs=[("2010-60-1-7", ISSUE_ID, OLD_7)]))
+    monkeypatch.setattr(sources_config, "RAW_DIR", str(raw_dir))
+    await imp.cmd_import(_args(source="timarit_logfraedinga", issue="2010_60_1"))
+    assert "greinar með nýtt skráarnafn" in capsys.readouterr().out
+
+
 # --- the real schema (always rolled back) ------------------------------------------------------------------------
 # Volume 960: the pilot import put the real TL 2010 1. hefti (2010-60-1-7 …) into the database, and these tests must not
 # collide with stored rows.
@@ -1504,6 +1748,81 @@ async def test_reimport_against_the_real_schema(tmp_path, raw_dir):
         assert (await one("SELECT page_offsets FROM documents WHERE id = :d", d=doc9))[0]["printed"] == 9
         assert await one("SELECT count(*) FROM passages WHERE document_id = :d", d=doc9) == 1   # until the backfill
         assert await one("SELECT status FROM journal_issues WHERE id = :j", j=issue) == "imported"
+    finally:
+        await conn.rollback()
+        await conn.close()
+        await eng.dispose()
+
+
+@needs_db
+async def test_status_queries_against_the_real_schema(tmp_path):
+    """Only imported issues with a non-empty error are listed; failed ones as before. Rolled back."""
+    eng = create_async_engine(os.environ["DATABASE_URL"])
+    conn = await eng.connect()
+    try:
+        await conn.begin()
+        await _test_ids_are_free(conn)
+        await conn.execute(text(
+            "INSERT INTO sources (id, short_name, display_name) VALUES (gen_random_uuid(), 'timarit_logfraedinga', 'x') "
+            "ON CONFLICT (short_name) DO NOTHING"))
+        for n, (status, error) in enumerate([("imported", "innflutningur: úreltar færslur: x"), ("imported", None),
+                                             ("imported", ""), ("failed", "FileNotFoundError: y"),
+                                             ("pending", "villa sem á ekki heima hér")]):
+            await conn.execute(text(
+                "INSERT INTO journal_issues (id, source_id, year, volume, issue, label, manifest_path, status, error) "
+                "SELECT gen_random_uuid(), id, 2010, 960, :n, :label, :mp, :st, :err FROM sources "
+                "WHERE short_name = 'timarit_logfraedinga'"),
+                {"n": str(n), "label": f"Prófun 960-{n}", "mp": f"test/prof_960_{n}.yaml", "st": status, "err": error})
+        lines = await imp._status_lines(_ConnSession(conn))
+        text_ = "\n".join(lines)
+        at = next(i for i, ln in enumerate(lines) if "Innflutt hefti með villu" in ln)
+        assert "  ! Prófun 960-0: innflutningur: úreltar færslur: x" in lines[at + 1:]
+        assert not any("Prófun 960-1" in ln or "Prófun 960-2" in ln or "Prófun 960-4" in ln for ln in lines)
+        assert "  ✗ Prófun 960-3: FileNotFoundError: y" in lines[:at] and text_.count("Prófun 960-") == 2
+    finally:
+        await conn.rollback()
+        await conn.close()
+        await eng.dispose()
+
+
+@needs_db
+async def test_a_changed_page_end_renames_the_row_and_removes_the_old_files_against_the_real_schema(tmp_path, raw_dir):
+    """The stored verdict_filename read from the real table is what decides: the same row id gets the new name and the
+    old markdown and PDF go once the caller has committed (the pilot's S&S 2008 articles, bls-33-62 → bls-33-63)."""
+    eng = create_async_engine(os.environ["DATABASE_URL"])
+    conn = await eng.connect()
+
+    async def one(sql, **params):
+        return (await conn.execute(text(sql), params)).scalar_one()
+
+    try:
+        await conn.begin()
+        await _test_ids_are_free(conn)
+        await conn.execute(text(
+            "INSERT INTO sources (id, short_name, display_name) VALUES (gen_random_uuid(), 'timarit_logfraedinga', 'x') "
+            "ON CONFLICT (short_name) DO NOTHING"))
+        s = _ConnSession(conn)
+        p, m = _manifest(tmp_path, volume=960)
+        rel = imp._manifest_rel(p)
+        await imp.upsert_issue_row(s, m, rel)
+        assert (await _run(p, s, raw_dir))["imported"] == 2
+        first = await one("SELECT id FROM documents WHERE external_id = '2010-960-1-7'")
+        assert await one("SELECT verdict_filename FROM documents WHERE id = :d", d=first) == "TL_960-1_2010_bls-7-8"
+        old = _new_files(raw_dir, "TL_960-1_2010_bls-7-8")
+        assert all(q.exists() for q in old)
+
+        m = load_manifest(p)
+        m.articles[0].page_end = 9                                       # the correction
+        save_manifest(m, p)
+        files = imp._FileLog()
+        counts = await import_manifest(p, session=s, read_bytes=lambda r: ISSUE, raw_dir=raw_dir, dry_run=False,
+                                       workers=1, files=files)
+        assert counts["imported"] == 2 and counts["renamed"] == 1 and counts["reimported"] == 1
+        assert await one("SELECT id FROM documents WHERE external_id = '2010-960-1-7'") == first
+        assert await one("SELECT verdict_filename FROM documents WHERE id = :d", d=first) == "TL_960-1_2010_bls-7-9"
+        assert all(q.exists() for q in old)                              # until the commit
+        assert files.apply_removals() == 2
+        assert not any(q.exists() for q in old) and all(q.exists() for q in _new_files(raw_dir, "TL_960-1_2010_bls-7-9"))
     finally:
         await conn.rollback()
         await conn.close()

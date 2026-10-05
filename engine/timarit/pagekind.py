@@ -502,16 +502,21 @@ def _has_text(page: Page, t: Typography, after: int = -1) -> bool:
 _ISSUE_LINE = re.compile(r"\s*\d{1,2}\.\s*(?:hefti|tbl\.?|tölublað)\b.*\b(?:árg|ÁRG)", re.I)
 
 
+_CONTENTS_LINE = re.compile(r"\s*efni(?:syfirlit)?\s*:?\s*$", re.I)
+
+
 def _issue_cover(page: Page) -> bool:
     """The page is the cover of the next issue in a volume: it prints the issue line on its own ("4. HEFTI 35. ÁRGANGUR
-    DESEMBER 1985", "4. hefti • 54. árgangur"), short, at the body's size or larger, in its upper half below the margin
-    band. A running head ("3. tbl. 2023 – 76. árg. Úlfljóts"), a citation ("Tímarit lögfræðinga, 1. hefti 74. árg.
-    2024, bls. 9–61"), a bibliography line or a footnote is no cover. (Read on every line: content() drops the issue
-    line as furniture.)"""
+    DESEMBER 1985", "4. hefti • 54. árgangur"), short, in its upper half below the margin band, and either at 95% of
+    the body size or larger, or together with a contents line ("EFNI:", "Efnisyfirlit") in that same part of the page
+    whatever the type size (an inner cover, TL 1974 pdf 194: "3. HEFTI 25. ÁRGANGUR" at 85% above its "EFNI:"). A running
+    head ("3. tbl. 2023 – 76. árg. Úlfljóts"), a citation ("Tímarit lögfræðinga, 1. hefti 74. árg. 2024, bls. 9–61"), a
+    bibliography line or a footnote is no cover. (Read on every line: content() drops the issue line as furniture.)"""
     body = FP.body_size(page)
-    return any(_ISSUE_LINE.match(ln.text) and len(ln.text) <= 50 and "bls" not in ln.text.lower()
-               and FP._MARGIN_BAND * page.height < ln.y < 0.5 * page.height and ln.size >= 0.95 * body
-               for ln in page.lines)
+    upper = [ln for ln in page.lines if FP._MARGIN_BAND * page.height < ln.y < 0.5 * page.height]
+    issue = [ln for ln in upper if _ISSUE_LINE.match(ln.text) and len(ln.text) <= 50 and "bls" not in ln.text.lower()]
+    return any(ln.size >= 0.95 * body for ln in issue) or (
+        bool(issue) and any(_CONTENTS_LINE.match(ln.text) for ln in upper))
 
 
 def _contact(page: Page, after: int = -1) -> bool:
