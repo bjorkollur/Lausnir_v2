@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2023
 volume: 19
 issue: null
-label: Stjórnmál og stjórnsýsla, 19. árg.
+label: Stjórnmál og stjórnsýsla, 19. árg. (2023)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.589
+status: review
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/1-18_The_theoretical_and_practical_dilemma_of.pdf
@@ -19,4 +20,228 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/19-44_Covid-19_crisis_management_in_Mýrdalshre.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/45-70_Implementation_of_the_Monarchy_in_the_Ki.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/71-106__Tell_the_truth.pdf
-articles: []
+articles:
+- title: The theoretical and practical dilemma of creating a new organisational design for a municipality using sub-municipal
+    units
+  authors:
+  - Eva Marín Hlynsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 18
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/1-18_The_theoretical_and_practical_dilemma_of.pdf
+  note: ''
+  analysis_notes: []
+- title: Áfallastjórnun í Mýrdalshreppi vegna Covid-19 faraldursins og þýðing stuðningsaðgerða stjórnvalda fyrir sveitarfélagið
+  authors:
+  - Hugrún Hannesdóttir
+  - Ásthildur Elva Bernharðsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 19
+  page_end: 44
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/19-44_Covid-19_crisis_management_in_Mýrdalshre.pdf
+  note: ''
+  analysis_notes: []
+- title: Inntak konungdóms í konungsríkinu Íslandi
+  authors:
+  - Björn Jón Bragason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 70
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/45-70_Implementation_of_the_Monarchy_in_the_Ki.pdf
+  note: ''
+  analysis_notes: []
+- title: '„Segðu satt“: Pólitískt traust og væntingar til stjórnmálafólks á Íslandi, 2020-2023'
+  authors:
+  - Viktor Orri Valgarðsson
+  - Sigurbjörg Sigurgeirsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 106
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/71-106__Tell_the_truth.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Meira traust hjá þeim sem meira hafa: Áhrif auðmagns og upplifunar af ójöfnuði á traust til stjórnmála'
+  authors:
+  - Sigrún Ólafsdóttir
+  - Jón Gunnar Bernburg
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 130
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/107-130_More_trust_among_those_who_have_more.pdf
+  note: ''
+  analysis_notes: []
+- title: The Wicked Problem of Regional Development Policy in Iceland
+  authors:
+  - Anna Guðrún Edvardsdóttir
+  - Rannveig Ólafsdóttir
+  - Allison Williams
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 131
+  page_end: 152
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/131-152_Wicked_Problem_of_Regional_Development_P.pdf
+  note: ''
+  analysis_notes: []
+- title: Eru vannýtt tækifæri til að draga úr skattsvikum? Spjótum beint að siðferði og persónuleika
+  authors:
+  - Arna Laufey Steinarsdóttir
+  - Auður Hermannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: 180
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol19/153-180_Is_there_an_unexplored_possibility_to_re.pdf
+  note: ''
+  analysis_notes: []

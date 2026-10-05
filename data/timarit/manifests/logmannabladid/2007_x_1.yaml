@@ -1,16 +1,513 @@
 source: logmannabladid
 year: 2007
-volume: null
+volume: 13
 issue: '1'
-label: Lögmannablaðið, 1. tbl. (2007)
+label: Lögmannablaðið, 13. árg. 1. tbl. (2007)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2007 01.pdf
 sha256: 61a215e315ff5ec41f3de1b7c4022d207e571f5f3a01622717dbfcd8d7c37b67
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.812
+  runner_up_share: 0.038
+  pages: 32
+  segments:
+  - - 3
+    - 30
+    - 1
+  contested: []
+  bin_ratio: 0.933
+  non_article:
+  - 6
+  - 30
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2007 01.pdf
-articles: []
+articles:
+- title: Frá ritstjórn
+  authors:
+  - Hrafnhildur Stefánsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Útgjöld til réttaraðstoðar og málskostnaðar í opinberum málum. Bréf LMFÍ til stjórnvalda
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Afmælisfagnaður LMFÍ
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 9 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Breytingar á félagatali nýliðins starfsárs
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 10
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 9
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Hádegisfundur Lögfræðingafélags Íslands: Er dómaframkvæmd um aðild ríkisins lent í öngstræti?'
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 12
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 11
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Umsagnir laganefndar LMFÍ
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Könnun Lögmannablaðsins: Lögmenn á lögmannsstofum'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 13
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Formannspistill
+  authors:
+  - Helgi Jóhannesson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 19
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 18
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rannsóknasetur vinnuréttar og jafnréttismála
+  authors:
+  - Elín Blöndal
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 19
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af vettvangi félagsins
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 21
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 20
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skákmót LMFÍ 2007
+  authors:
+  - Árni Á. Árnason
+  author_titles: []
+  article_type: Frétt
+  page_start: 23
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 22
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fréttir frá félagsdeild
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 24
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 23
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: greinin er undirrituð (Lára V. Júlíusdóttir, Benedikt Ólafsson) en höfundar skrárinnar eru aðrir (Eyrún Ingadóttir);
+    skránni haldið'
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 25
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 24
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Þjónustutilskipunin og áhrif hennar á lögmenn
+  authors:
+  - Sigrún H. Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 26
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 25
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvernig héraðsdómslögmaðurinn varð advokat í Noregi
+  authors:
+  - Margrét Gunnarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 27
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmannanámskeið
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 30
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 29
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

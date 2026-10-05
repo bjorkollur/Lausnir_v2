@@ -1,16 +1,842 @@
 source: logmannabladid
 year: 2025
-volume: null
+volume: 30
 issue: '1'
-label: Lögmannablaðið, 1. tbl. (2025)
+label: Lögmannablaðið, 30. árg. 1. tbl. (2025)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2025 01.pdf
 sha256: 2c57be5a2cd00d585de4928cec9a45a573c0e72dd27a1b324a670a3d616d06e5
-pages: null
+pages: 68
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.868
+  runner_up_share: 0.0
+  pages: 68
+  segments:
+  - - 2
+    - 64
+    - 1
+  contested: []
+  bin_ratio: 0.936
+  non_article:
+  - 4
+  - 6
+  - 18
+  - 65
+  - 66
+  - 67
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2025 01.pdf
-articles: []
+articles:
+- title: Sjálfstæði lögmanna
+  authors:
+  - Stefán A. Svensson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmannablað í 30 ár
+  authors:
+  - Unnur Lilja Hermannsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Til stuðnings American Bar Association
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frelsi krefst fyrirhafnar
+  authors:
+  - Þórdís Kolbrún Reykfjörð Gylfadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 10
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 9
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um forflutning – eru efni til að breyta réttarvenju?
+  authors:
+  - Arnar Þór Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 14
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 13
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kaupréttir stjórnarmanna – Þegar „miða skal við“ hlutina en samt kannski ekki
+  authors:
+  - Kristófer Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 16
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um 300 manns sóttu ráðgjöf 2024
+  authors:
+  - Kristófer Jónasson
+  author_titles: []
+  article_type: Frétt
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Til að nýta heimild“) er annar titill en skrárinnar („Um 300 manns sóttu ráðgjöf
+    2024“); titli skrárinnar haldið'
+- title: Listamaður lögfræðinnar
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Þjónn, það er súpa í minnisblaðinu mínu!
+  authors:
+  - Ásgeir Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 22
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 21
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er prófmál mál?
+  authors:
+  - Ólafur Lúther Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 26
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 25
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögregluaðgerðir yfirvofandi
+  authors:
+  - Elías Blöndal Guðjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 27
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gluggað í félagatal
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 31
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 30
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Gervigreind: Lögfræðin er mætt til leiks'
+  authors:
+  - Kristín Jóna Þorsteinsdóttir
+  - Peter Dalmey
+  author_titles: []
+  article_type: Frétt
+  page_start: 32
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 31
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: page
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Hádegisverðarfundur Lögfræðingafélags Íslands: Gríðarlegur áhugi á gervigreind'
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 36
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 35
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gervigreindin er nýja rafmagnið
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 40
+  page_end: 40
+  issue: null
+  pdf_pages:
+  - 39
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sáttmáli Evrópuráðsins til verndar lögmannastéttinni
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 41
+  page_end: 41
+  issue: null
+  pdf_pages:
+  - 40
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ný tækni mætir gömlum lagaramma
+  authors:
+  - Margrét Anna Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 42
+  page_end: 43
+  issue: null
+  pdf_pages:
+  - 41
+  - 42
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skylda um endurmenntun lögmanna
+  authors:
+  - Samúel Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 44
+  page_end: 46
+  issue: null
+  pdf_pages:
+  - 43
+  - 45
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af vettvangi úrskurðarnefndar lögmanna
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 47
+  page_end: 47
+  issue: null
+  pdf_pages:
+  - 46
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmennska úr fjarlægð
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Viðtal
+  page_start: 48
+  page_end: 53
+  issue: null
+  pdf_pages:
+  - 47
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norræn ráðstefna um verktakarétt
+  authors:
+  - Gunnar Atli Gunnarsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 54
+  page_end: 55
+  issue: null
+  pdf_pages:
+  - 53
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Breytt fyrirkomulag við úthlutun þrotabúa
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 56
+  page_end: 59
+  issue: null
+  pdf_pages:
+  - 55
+  - 58
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýjar reglur um hámarkslengd stefnu og greinargerða í einkamálum
+  authors:
+  - Dómstólasýslan
+  author_titles: []
+  article_type: Frétt
+  page_start: 60
+  page_end: 60
+  issue: null
+  pdf_pages:
+  - 59
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stafrænn sérfræðingur
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 61
+  page_end: 61
+  issue: null
+  pdf_pages:
+  - 60
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 30 ára afmæli Lögmannablaðs
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 62
+  page_end: 64
+  issue: null
+  pdf_pages:
+  - 61
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýir lögmenn útskrifast
+  authors:
+  - Kristín Jóna Þorsteinsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 65
+  page_end: 65
+  issue: null
+  pdf_pages:
+  - 64
+  - 64
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

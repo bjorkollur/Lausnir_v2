@@ -1,16 +1,424 @@
 source: logmannabladid
 year: 2004
-volume: null
+volume: 10
 issue: '1'
-label: Lögmannablaðið, 1. tbl. (2004)
+label: Lögmannablaðið, 10. árg. 1. tbl. (2004)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2004 01.pdf
 sha256: 1ee8af1b8f98c19cfcd76dbb909f25c9112682858a83927698b636d6594e249a
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.75
+  runner_up_share: 0.0
+  pages: 36
+  segments:
+  - - 2
+    - 34
+    - 1
+  contested: []
+  bin_ratio: 0.943
+  non_article:
+  - 4
+  - 31
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2004 01.pdf
-articles: []
+articles:
+- title: Frá ritstjórn
+  authors:
+  - Guðrún Björg Birgisdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Breytingar á félagatali nýliðins starfsárs
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 6
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 5
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 9 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: 'Lögmannafrumvarpið umdeilda: Frá félagsfundi LMFÍ 22. janúar sl.'
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 10
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 9
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fáein orð um öflun lögmannsréttinda
+  authors:
+  - Jóhannes Rúnar Jóhannsson
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 13
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norræna málflutningskeppnin
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 15
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 14
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögvirki – lögmaður – málflytjandi
+  authors:
+  - Einar Karl Hallvarðsson
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 15
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norræn endurmenntunarstofnun á sviði lögfræði
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 23
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 22
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Pistill formanns
+  authors:
+  - Gunnar Jónsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 24
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 23
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fréttir frá félagsdeild
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Stofnun félags kvenna í lögmennsku: Helmingur kvenna í LMFÍ stofnfélagar!'
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Reynsla af málflutningi einskis metin?
+  authors:
+  - Dögg Pálsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 27
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dómur Hæstaréttar 18. september 2003 í máli nr. 520/2002. Tengsl skaðabótaréttar og bótaréttar frá almannatryggingum
+  authors:
+  - Guðmundur Sigurðsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 33
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 32
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

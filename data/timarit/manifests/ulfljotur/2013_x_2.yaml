@@ -1,16 +1,129 @@
 source: ulfljotur
 year: 2013
-volume: null
+volume: 66
 issue: '2'
-label: Úlfljótur, 2. tbl. (2013)
+label: Úlfljótur, 66. árg. 2. tbl. (2013)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2013_2_tbl.pdf
 sha256: 9a7863f6ef53fffbb999e678ddd3a5f316dc4fc7456ae49ef6984b9d66adad90
-pages: null
+pages: 146
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 93
+  quality: 0.966
+  runner_up_share: 0.007
+  pages: 146
+  segments:
+  - - 4
+    - 145
+    - 93
+  contested: []
+  bin_ratio: 0.91
+  non_article:
+  - 41
+  - 104
+  - 114
+  - 132
+  - 139
+  - 140
+  - 141
+  - 142
+  - 143
+  - 144
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2013_2_tbl.pdf
-articles: []
+articles:
+- title: Vernd auðkenna og atvinnuleyndarmála í lögum nr. 57/2005
+  authors:
+  - Eiríkur Jónsson
+  - Halldóra Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 99
+  page_end: 133
+  issue: null
+  pdf_pages:
+  - 6
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 160
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Neyðarvörn: Heimspekin á bak við neyðarvörn og almenn skilyrði neyðarvarnar'
+  authors:
+  - Ólafur Egill Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 172
+  issue: null
+  pdf_pages:
+  - 42
+  - 79
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 161
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkrar hugleiðingar um stöðu alþjóðastofnana að þjóðarétti
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 196
+  issue: null
+  pdf_pages:
+  - 80
+  - 103
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 162
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 198 sem skráin nefnir ekki; greinin er talin enda þar'

@@ -1,16 +1,128 @@
 source: ulfljotur
 year: 2008
-volume: null
+volume: 61
 issue: '3'
-label: Úlfljótur, 3. tbl. (2008)
+label: Úlfljótur, 61. árg. 3. tbl. (2008)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2008_3_tbl.pdf
 sha256: 87f436d198e705b650a8be58c2deeb8b8d1a331f6f278e19a52f852fdb6e8d82
-pages: null
+pages: 146
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 375
+  quality: 0.966
+  runner_up_share: 0.007
+  pages: 146
+  segments:
+  - - 2
+    - 143
+    - 375
+  contested: []
+  bin_ratio: 0.947
+  non_article:
+  - 59
+  - 123
+  - 139
+  - 140
+  - 141
+  - 142
+  - 143
+  - 144
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2008_3_tbl.pdf
-articles: []
+articles:
+- title: Eiga sérhagsmunir að vera rétthærri almannahagsmunum?
+  authors:
+  - Eiríkur Tómasson
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 381
+  page_end: 396
+  issue: null
+  pdf_pages:
+  - 6
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 233
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: The specificity of the free movement of pharmaceutical products in the light of recent European case law
+  authors:
+  - M. Elvira Méndez Pinedo
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 397
+  page_end: 433
+  issue: null
+  pdf_pages:
+  - 22
+  - 58
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 234
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýting auðlindarinnar andrúmslofts – umfjöllun um reglur íslensks réttar um öflun og meðferð losunarheimilda
+  authors:
+  - Hrafnhildur Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 435
+  page_end: 497
+  issue: null
+  pdf_pages:
+  - 60
+  - 122
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 235
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Norræna málflutningskeppnin“ á bls. 499 sem skráin nefnir ekki; greinin er talin enda
+    þar'

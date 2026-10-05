@@ -1,16 +1,326 @@
 source: ulfljotur
 year: 2003
-volume: null
+volume: 56
 issue: '4'
-label: Úlfljótur, 4. tbl. (2003)
+label: Úlfljótur, 56. árg. 4. tbl. (2003)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_4_tbl.pdf
 sha256: c12c6792e743aa25898fa12f3ca5ca16fcfebcf01fb7dd247aadfc99a557ad31
-pages: null
+pages: 188
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 531
+  quality: 0.963
+  runner_up_share: 0.006
+  pages: 188
+  segments:
+  - - 2
+    - 185
+    - 531
+  contested: []
+  bin_ratio: 0.391
+  non_article:
+  - 33
+  - 47
+  - 61
+  - 77
+  - 101
+  - 116
+  - 117
+  - 118
+  - 119
+  - 120
+  - 121
+  - 122
+  - 123
+  - 124
+  - 125
+  - 133
+  - 175
+  - 176
+  - 177
+  - 178
+  - 179
+  - 180
+  - 181
+  - 182
+  - 183
+  - 184
+  - 185
+  - 186
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_4_tbl.pdf
-articles: []
+articles:
+- title: Universal jurisdiction in absentia
+  authors:
+  - Alexander Poels
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 537
+  page_end: 563
+  issue: null
+  pdf_pages:
+  - 6
+  - 32
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 340
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: The Nuremberg trials
+  authors:
+  - Sandra M. Lyngdorf
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 565
+  page_end: 577
+  issue: null
+  pdf_pages:
+  - 34
+  - 46
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 341
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Akstur utan vega
+  authors:
+  - Særún María Gunnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 579
+  page_end: 591
+  issue: null
+  pdf_pages:
+  - 48
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 342
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ákvæði fasteignakaupalaga nr. 40/2002 um stöðvunarrétt og framkvæmd þeirra
+  authors:
+  - Arnar Þór Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 593
+  page_end: 607
+  issue: null
+  pdf_pages:
+  - 62
+  - 76
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 343
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Forkaupsréttur
+  authors:
+  - Gestur Óskar Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 609
+  page_end: 618
+  issue: null
+  pdf_pages:
+  - 78
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 344
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttaráhrif afhendingar fasteignar í fasteignakaupum
+  authors:
+  - Guðbjörg Helga Hjartardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 619
+  page_end: 631
+  issue: null
+  pdf_pages:
+  - 88
+  - 100
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 345
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „ORAtOR 75 áRA“ á bls. 633 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: 'Nýtt kosningakerfi: Jafnari atkvæðisréttur'
+  authors:
+  - Ólafur Þ. Harðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 676
+  page_end: 679
+  issue: null
+  pdf_pages:
+  - 145
+  - 148
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 346
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Framkvæmd Alþingiskosninga 2003
+  authors:
+  - Þórunn Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 680
+  page_end: 682
+  issue: null
+  pdf_pages:
+  - 149
+  - 151
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 347
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um framkvæmd alþingiskosninga
+  authors:
+  - Haraldur Blöndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 683
+  page_end: 705
+  issue: null
+  pdf_pages:
+  - 152
+  - 174
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 348
+  source_file: null
+  note: ''
+  analysis_notes: []

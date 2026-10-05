@@ -1,16 +1,130 @@
 source: timarit_logfraedinga
 year: 2021
-volume: null
+volume: 71
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2021)
+label: Tímarit lögfræðinga, 71. árg. 4. hefti (2021)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2021_04.pdf
 sha256: f06414d9b1a6cf729376a8db86bab123586f6bdc77790ed26bca80441aca7034
-pages: null
+pages: 120
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 473
+  quality: 0.958
+  runner_up_share: 0.0
+  pages: 120
+  segments:
+  - - 2
+    - 117
+    - 473
+  contested: []
+  bin_ratio: 0.95
+  non_article:
+  - 13
+  - 41
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2021_04.pdf
-articles: []
+articles:
+- title: Einkavæðing fjármálafyrirtækja og nýjar verklags- og ritrýnireglur fyrir Tímarit lögfræðinga
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 475
+  page_end: 485
+  issue: null
+  pdf_pages:
+  - 2
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skörun bóta samkvæmt reglugerð Evrópuþingsins og ráðsins (EB) nr. 883/2004 um samhæfingu almannatrygginga
+  authors:
+  - Ingvar Sverrisson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 487
+  page_end: 513
+  issue: null
+  pdf_pages:
+  - 14
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 478–514
+- title: Um hraða málsmeðferð — málsmeðferð innan hæfilegs tíma
+  authors:
+  - Þorgeir Ingi Njálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 515
+  page_end: 585
+  issue: null
+  pdf_pages:
+  - 42
+  - 112
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

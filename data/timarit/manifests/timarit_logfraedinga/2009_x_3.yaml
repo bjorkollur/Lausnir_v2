@@ -1,16 +1,221 @@
 source: timarit_logfraedinga
 year: 2009
-volume: null
+volume: 59
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2009)
+label: Tímarit lögfræðinga, 59. árg. 3. hefti (2009)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2009_03.pdf
 sha256: 373d72d6abfe356161d42f7eee6f5e8508d9b92181165672400060bf093ec232
-pages: null
+pages: 105
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 234
+  quality: 0.981
+  runner_up_share: 0.0
+  pages: 105
+  segments:
+  - - 1
+    - 103
+    - 234
+  contested: []
+  bin_ratio: 0.974
+  non_article:
+  - 28
+  - 70
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2009_03.pdf
-articles: []
+articles:
+- title: Eftirlit Alþingis með framkvæmdarvaldinu
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 235
+  page_end: 238
+  issue: null
+  pdf_pages:
+  - 1
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: leitir+toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ráðherraábyrgð
+  authors:
+  - Andri Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 239
+  page_end: 261
+  issue: null
+  pdf_pages:
+  - 5
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Pólitísk ábyrgð ráðherra - Samspil þingræðisreglu og þingeftirlits
+  authors:
+  - Ragnhildur Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 263
+  page_end: 280
+  issue: null
+  pdf_pages:
+  - 29
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sérskipaðar rannsóknarnefndir
+  authors:
+  - Bryndís Hlöðversdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 281
+  page_end: 303
+  issue: null
+  pdf_pages:
+  - 47
+  - 69
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Upplýsingaskylda ráðherra við Alþingi
+  authors:
+  - Ásmundur Helgason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 305
+  page_end: 328
+  issue: null
+  pdf_pages:
+  - 71
+  - 94
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá framkvæmdastjóra Tímarits lögfræðinga – Ný vefverslun
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 329
+  page_end: 329
+  issue: null
+  pdf_pages:
+  - 95
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

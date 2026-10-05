@@ -1,16 +1,130 @@
 source: ulfljotur
 year: 2017
-volume: null
+volume: 70
 issue: '1'
-label: Úlfljótur, 1. tbl. (2017)
+label: Úlfljótur, 70. árg. 1. tbl. (2017)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2017_1_tbl.pdf
 sha256: 905df44d2dacebc335cf2fd4eb342c050cbb6fc06433a6e3214d914ec7cc26aa
-pages: null
+pages: 137
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.927
+  runner_up_share: 0.008
+  pages: 137
+  segments:
+  - - 3
+    - 131
+    - 0
+  contested: []
+  bin_ratio: 0.778
+  non_article:
+  - 40
+  - 86
+  - 110
+  - 112
+  - 116
+  - 126
+  - 127
+  - 128
+  - 129
+  - 130
+  - 131
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2017_1_tbl.pdf
-articles: []
+articles:
+- title: Um inntak og eðli ���������������������
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 5
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 94
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Falsvonir Öryrkjabandalagsdómsins? - nýleg dómaframkvæmd um félagsleg réttindi
+  authors:
+  - Kári Hólmar Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 85
+  issue: null
+  pdf_pages:
+  - 41
+  - 85
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 95
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málskostnaður stjórnsýslumáls
+  authors:
+  - Sindri M Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 106
+  issue: null
+  pdf_pages:
+  - 87
+  - 106
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 96
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Endurskoðun stjórnarskrárinnar“ á bls. 107 sem skráin nefnir ekki; greinin er talin
+    enda þar'

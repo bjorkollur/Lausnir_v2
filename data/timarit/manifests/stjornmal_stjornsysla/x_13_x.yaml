@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2017
 volume: 13
 issue: null
-label: Stjórnmál og stjórnsýsla, 13. árg.
+label: Stjórnmál og stjórnsýsla, 13. árg. (2017)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.691
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/1-26_Elites_in_Iceland_–_homogeneity_and_inte.pdf
@@ -24,4 +25,394 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/287-310_Young_people’s_views_on_political_partic.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/53-82_Althingi_and_the_executive_power.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/83-102_Elections,_Democracy_and_Disabled_People.pdf
-articles: []
+articles:
+- title: Elítur á Íslandi – einsleitni og innbyrðis tengsl
+  authors:
+  - Magnús Þór Torfason
+  - Þorgerður Einarsdóttir
+  - Guðbjörg Linda Rafnsdóttir
+  - Margrét Sigrún Sigurðardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 26
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/1-26_Elites_in_Iceland_–_homogeneity_and_inte.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Að þjóna sömu herrum en keppa þó: Sameiginlegt eignarhald á íslenskum hlutabréfamarkaði'
+  authors:
+  - Ásta Dís Óladóttir
+  - Friðrik Árni Friðriksson
+  - Gylfi Magnússon
+  - Valur Þráinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 27
+  page_end: 52
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/27-52_Serving_the_same_masters_while_competing.pdf
+  note: ''
+  analysis_notes: []
+- title: Alþingi og framkvæmdarvaldið
+  authors:
+  - Haukur Arnþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 82
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/53-82_Althingi_and_the_executive_power.pdf
+  note: ''
+  analysis_notes: []
+- title: Kosningar, lýðræði og fatlað fólk
+  authors:
+  - Rannveig Traustadóttir
+  - James G. Rice
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 102
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/83-102_Elections,_Democracy_and_Disabled_People.pdf
+  note: ''
+  analysis_notes: []
+- title: Does research activity decline with age?
+  authors:
+  - Gylfi Zoega
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 103
+  page_end: 118
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/103-118_Does_research_activity_decline_with_age.pdf
+  note: ''
+  analysis_notes: []
+- title: Viðhorf íslenskra og danskra stjórnenda til starfsumhverfis í ljósi norrænna gilda
+  authors:
+  - Bergþóra Hlín Arnórsdóttir
+  - Einar Svansson
+  - Kári Joensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 119
+  page_end: 150
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/119-150_Comparison_of_Icelandic_and_Danish_manag.pdf
+  note: ''
+  analysis_notes: []
+- title: Hagnýting menntunar meðal háskólamenntaðs starfsfólks einkarekinna fyrirtækja og opinberra stofnana
+  authors:
+  - Ingi Rúnar Eðvarðsson
+  - Guðmundur Kristján Óskarsson
+  - Jason Már Bergsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 151
+  page_end: 168
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/151-168_The_utilization_of_education_among_unive.pdf
+  note: ''
+  analysis_notes: []
+- title: 'The opening of Costco in Iceland: Unexpected meanings of globalized phenomenon'
+  authors:
+  - Kristín Loftsdóttir
+  - Már Wolfgang Mixa Assistant
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 189
+  page_end: 210
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/189-2010_The_opening_of_Costco_in_Iceland.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 189–2010, PDF-skjalið bls. 189–210
+- title: Fjöldi ferðamanna og tekjur og kostnaður íslenskra sveitarfélaga
+  authors:
+  - Vífill Karlsson
+  - Hjalti Jóhannesson
+  - Jón Óskar Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 211
+  page_end: 238
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/2011-238_Tourists_and_municipal_finance.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: skráarnafn segir bls. 2011–238, PDF-skjalið bls. 211–238'
+- title: Meðhöndlun trúnaðarupplýsinga hjá löggæslustofnunum ríkisins
+  authors:
+  - Kristín Guðmundsdóttir
+  - Jóhanna Gunnlaugsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 239
+  page_end: 264
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/239-264_Handling_of_confidential_Information_at.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Stjórnun sérfræðinga: Fremstir meðal jafninga'
+  authors:
+  - Árelía Eydís Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 265
+  page_end: 286
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/265-286_Leadership_for_experts.pdf
+  note: ''
+  analysis_notes: []
+- title: Viðhorf ungs fólks til pólitískrar þátttöku
+  authors:
+  - Ragný Þóra Guðjohnsen
+  - Sigrún Aðalbjarnardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 287
+  page_end: 310
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol13/287-310_Young_people’s_views_on_political_partic.pdf
+  note: ''
+  analysis_notes: []

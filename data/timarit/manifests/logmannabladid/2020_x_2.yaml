@@ -1,16 +1,337 @@
 source: logmannabladid
 year: 2020
-volume: null
+volume: 26
 issue: '2'
-label: Lögmannablaðið, 2. tbl. (2020)
+label: Lögmannablaðið, 26. árg. 2. tbl. (2020)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2020 02 .pdf
 sha256: a09664eb10f53924166af2773cc33fb9db11e64b2d3ca17baa241dae86d0d0a3
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.812
+  runner_up_share: 0.0
+  pages: 32
+  segments:
+  - - 1
+    - 30
+    - 1
+  contested: []
+  bin_ratio: 0.951
+  non_article:
+  - 4
+  - 6
+  - 26
+  - 31
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2020 02 .pdf
-articles: []
+articles:
+- title: Réttarríki á tímum COVID-19
+  authors:
+  - Berglind Svavarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'SKÝRSLA VINNUHÓPS UM LÖGMENN OG #METOO: Kynbundin og kynferðisleg áreitni ásamt einelti viðgengst í stétt lögmanna'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Átök á aðalfundi
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 7
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Námskeið til öflunar réttinda til málflutnings fyrir héraðsdómstólum
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Konur nær helmingur nýliða sl. tíu ár
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 13
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um endurupptöku dæmdra sakamála
+  authors:
+  - Ragnar Halldór Hall
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 15
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmennskan á tímum kórónunnar
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 19
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'VIÐTAL VIÐ ARNLJÓT ÁSTVALDSSON: Spennandi að tengja praktík og fræðimennsku'
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 24
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 23
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ekki er þörf á að mótmæla nýjum málsástæðum
+  authors:
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 27
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skattaundanskot skekur Danmörku
+  authors:
+  - Guðrún Olsen
+  author_titles: []
+  article_type: Annað
+  page_start: 29
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 28
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

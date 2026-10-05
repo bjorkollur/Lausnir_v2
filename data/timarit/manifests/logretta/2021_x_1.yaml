@@ -1,16 +1,54 @@
 source: logretta
 year: 2021
-volume: null
+volume: 18
 issue: '1'
-label: Lögrétta, 1. tbl. (2021)
+label: Lögrétta, 18. árg. 1. tbl. (2021)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2021 1.tbl.pdf
 sha256: f9e8f57d7fd39aa2cd4f21da5e51c3623c28f5768f12c8ec0efc6ba95e4d7438
-pages: null
+pages: 25
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 25
+  segments: []
+  contested: []
+  bin_ratio: 0.854
+  non_article: []
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2021 1.tbl.pdf
-articles: []
+articles:
+- title: Sjálfsþvætti og sönnunarkröfur í peningaþvættismálum þegar frumbrot peningaþvættis liggur ekki fyrir
+  authors:
+  - Jenný Þórunn Stefánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'

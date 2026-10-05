@@ -1,16 +1,127 @@
 source: ulfljotur
 year: 2019
-volume: null
+volume: 72
 issue: '4'
-label: Úlfljótur, 4. tbl. (2019)
+label: Úlfljótur, 72. árg. 4. tbl. (2019)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2019_4_tbl.pdf
 sha256: 11de6135ee5b0fb5b8ac4a8b95610a979da222bbc706104962fd79010d4d885a
-pages: null
+pages: 114
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 496
+  quality: 0.921
+  runner_up_share: 0.019
+  pages: 114
+  segments:
+  - - 5
+    - 111
+    - 496
+  contested: []
+  bin_ratio: 0.903
+  non_article:
+  - 80
+  - 81
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2019_4_tbl.pdf
-articles: []
+articles:
+- title: Makríldómarnir, afbrigði af sakarábyrgð eða af hlutlægri ábyrgð?
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 501
+  page_end: 522
+  issue: null
+  pdf_pages:
+  - 5
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 75
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um heimildir dómkvaddra matsmanna til öflunar gagna
+  authors:
+  - Kristín Benediktsdóttir
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 523
+  page_end: 540
+  issue: null
+  pdf_pages:
+  - 27
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 76
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjárfestingar erlendra aðila í fasteignum á Íslandi
+  authors:
+  - Kristín Edda Frímannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 541
+  page_end: 575
+  issue: null
+  pdf_pages:
+  - 45
+  - 79
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 77
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 578 sem skráin nefnir ekki; greinin er talin enda þar'

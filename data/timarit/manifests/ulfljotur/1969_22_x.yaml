@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.89
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/119.pdf
@@ -30,4 +31,564 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/553.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/69.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/70.pdf
-articles: []
+articles:
+- title: FR AM K VÆ M D A V aldið
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 35
+  page_end: 37
+  issue: null
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/351.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.56)
+- title: Dansk-íslenzku sambandslögin
+  authors:
+  - Bjarni Benediktsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 10
+  page_end: 17
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 992
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/69.pdf
+  note: ''
+  analysis_notes: []
+- title: Stjórnarskráin og löggjafarvaldið. (Fjögur seminarerindi um stjórnarskrána)
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 18
+  page_end: 26
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 993
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/352.pdf
+  note: ''
+  analysis_notes: []
+- title: Meðferð dómsvaldsins
+  authors:
+  - Baldur Möller
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 27
+  page_end: 34
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 994
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/349.pdf
+  note: ''
+  analysis_notes: []
+- title: Mannréttindaákvæði íslenzku stjórnarskrárinnar
+  authors:
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 38
+  page_end: 48
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 996
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/350.pdf
+  note: ''
+  analysis_notes: []
+- title: Frá sakfræðingafélagi Íslands
+  authors:
+  - Hallvarður Einvarðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 76
+  page_end: 77
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1000
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/1457.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 77, prentað bls. 76'
+- title: Lagasjónarmið varðandi meðferð á látnum mönnum
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 93
+  page_end: 108
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1001
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/150.pdf
+  note: ''
+  analysis_notes: []
+- title: Landflótti lærdómsmanna
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 109
+  page_end: 123
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1002
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/1465.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 123, prentað bls. 109'
+- title: Íslenzk mannanöfn Löggjöf, er þau varðar, og framkvæmd hennar
+  authors:
+  - Baldur Guðlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 124
+  page_end: 156
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1003
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/149.pdf
+  note: ''
+  analysis_notes: []
+- title: Nordisk institutt for sjörett
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 157
+  page_end: 169
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1004
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/283.pdf
+  note: ''
+  analysis_notes: []
+- title: Stjórnarskrárinnar frá 17. Júní 1944
+  authors:
+  - Jón Ögmundur Þormóðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 170
+  page_end: 179
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1005
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/353.pdf
+  note: ''
+  analysis_notes: []
+- title: Firma og firmavernd
+  authors:
+  - Sigurgeir Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 213
+  page_end: 227
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1006
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/267.pdf
+  note: ''
+  analysis_notes: []
+- title: Um útivistarmál
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 228
+  page_end: 249
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1007
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/553.pdf
+  note: ''
+  analysis_notes: []
+- title: Námsdvöl hjá Sameinuðu þjóðunum
+  authors:
+  - Baldur Guðlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 270
+  page_end: 271
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 1009
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/1478.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 271, prentað bls. 270'
+- title: BOKASKRA Sigurgeirs Sigurjónssonar hrl. varðandi eignarréttindi á sviði iðnaðar, óréttmæta verzlunarháttu, rithöfundarétt
+    og prentrétt
+  authors:
+  - Sigurgeir Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 276
+  page_end: 281
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1011
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/20.pdf
+  note: ''
+  analysis_notes: []
+- title: Prentfrelsi og nafnleynd
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 309
+  page_end: 322
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1012
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/354.pdf
+  note: ''
+  analysis_notes: []
+- title: Æðsta stjórn í Íslandsmálum 1262-1319
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 323
+  page_end: 356
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1013
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/70.pdf
+  note: ''
+  analysis_notes: []
+- title: Fordæmi sem réttarheimild í enskum og bandarískum rétti
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 357
+  page_end: 376
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1014
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/119.pdf
+  note: ''
+  analysis_notes: []

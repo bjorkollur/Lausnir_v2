@@ -1,15 +1,16 @@
 source: ulfljotur
 year: 2018
-volume: null
+volume: 71
 issue: '2'
-label: Úlfljótur, 2. tbl. (2018)
+label: Úlfljótur, 71. árg. 2. tbl. (2018)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.958
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201820.pdf
@@ -18,4 +19,192 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201823.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201824.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201825.pdf
-articles: []
+articles:
+- title: Frá ritstjóra
+  authors:
+  - Jóhannes Tómasson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 173
+  page_end: 173
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+    article_type: page
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201820.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.43)
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+- title: Dyflinnarreglugerðin og framkvæmd íslenskra stjórnvalda
+  authors:
+  - Arndís Anna Kristínardóttir Gunnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 175
+  page_end: 228
+  issue: null
+  pdf_pages:
+  - 0
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 84
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201821.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+- title: Stjórnarskrár eftir stríðsátök
+  authors:
+  - Auður Tinna Aðalbjarnardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 282
+  issue: null
+  pdf_pages:
+  - 0
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 85
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201822.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+- title: Nýtt aðlægt belti við landhelgi Íslands
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 283
+  page_end: 304
+  issue: null
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 86
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201823.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+- title: 'Málþing Orators í samstarfi við ELSA: Ný persónuverndarlöggjöf'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 305
+  page_end: 315
+  issue: null
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201824.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.48)
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+- title: 'Ár í Japan: Öðruvísi skiptinámsreynsla'
+  authors:
+  - Marta Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 317
+  page_end: 322
+  issue: null
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201825.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.50)
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'

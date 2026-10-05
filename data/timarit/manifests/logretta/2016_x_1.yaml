@@ -1,16 +1,258 @@
 source: logretta
 year: 2016
-volume: null
+volume: 13
 issue: '1'
-label: Lögrétta, 1. tbl. (2016)
+label: Lögrétta, 13. árg. 1. tbl. (2016)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2016 1.tbl.pdf
 sha256: 41aa3b8285923bb165e182e96cf99e2e395a0a00527db80ea120c0be29ede067
-pages: null
+pages: 223
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 7
+  quality: 0.202
+  runner_up_share: 0.022
+  pages: 223
+  segments:
+  - - 21
+    - 71
+    - 7
+  contested: []
+  bin_ratio: 0.0
+  non_article:
+  - 72
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2016 1.tbl.pdf
-articles: []
+articles:
+- title: Í spennu og togstreitu býr tækifæri til skilnings, vaxtar - og ávaxtar
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - upphafsbls. 4 er utan skjals
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 80–224; síðasta lesna blaðsíðutal 78) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: „Tími til kominn að kona sitji í Hæstarétti“
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 12
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 5
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 80–224; síðasta lesna blaðsíðutal 78) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Lágt hlutfall kvenna er vísbending um að konur gjaldi kynferðis síns
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 22
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 15
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 80–224; síðasta lesna blaðsíðutal 78) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: 'Dómarastéttin þarf að endurspegla þjóðina: Viðtal við Guðrúnu Erlendsdóttur'
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 28
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 21
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 80–224; síðasta lesna blaðsíðutal 78) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: 'Raddir fólks berast inn til dómstólanna: Viðtal við Ingibjörgu K. Benediktsdóttur'
+  authors:
+  - Stefán Eiríksson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 40
+  page_end: 51
+  issue: null
+  pdf_pages:
+  - 33
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 80–224; síðasta lesna blaðsíðutal 78) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: 'Auka þarf hlut siðfræði og gagnrýninnar hugsunar í laganámi: Viðtal við Hjördísi Björk Hákonardóttur'
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 52
+  page_end: 63
+  issue: null
+  pdf_pages:
+  - 45
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 80–224; síðasta lesna blaðsíðutal 78) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: 'Þurfum að hugsa um ásýnd Hæstaréttar: Viðtal við Gretu Baldursdóttur'
+  authors:
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 64
+  page_end: 78
+  issue: null
+  pdf_pages:
+  - 57
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 80–224; síðasta lesna blaðsíðutal 78) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'

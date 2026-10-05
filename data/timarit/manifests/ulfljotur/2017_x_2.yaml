@@ -1,16 +1,159 @@
 source: ulfljotur
 year: 2017
-volume: null
+volume: 70
 issue: '2'
-label: Úlfljótur, 2. tbl. (2017)
+label: Úlfljótur, 70. árg. 2. tbl. (2017)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2017_2_tbl.pdf
 sha256: 78ed484ef8e02e5ccb83c27e01b4dbf19c2c9cdaa86f2eb764ed0d84d51b2b91
-pages: null
+pages: 129
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 132
+  quality: 0.891
+  runner_up_share: 0.009
+  pages: 129
+  segments:
+  - - 3
+    - 122
+    - 132
+  contested: []
+  bin_ratio: 0.914
+  non_article:
+  - 40
+  - 66
+  - 94
+  - 106
+  - 114
+  - 118
+  - 119
+  - 120
+  - 121
+  - 122
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2017_2_tbl.pdf
-articles: []
+articles:
+- title: Úrskurðarnefnd umhverfis- og auðlindamála með hliðsjón af skuldbindingum Árósasamningsins og EES-réttar
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  - Kristín Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 137
+  page_end: 171
+  issue: null
+  pdf_pages:
+  - 5
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 97
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sjálfræði, sjálfsmynd og líkamleg friðhelgi - vernd einkalífs samkvæmt 8. gr. mannréttindasáttmála Evrópu
+  authors:
+  - Aagot Vigdís Óskarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 197
+  issue: null
+  pdf_pages:
+  - 41
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 98
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um almennar takmarkanir
+  authors:
+  - Kristín Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 199
+  page_end: 225
+  issue: null
+  pdf_pages:
+  - 67
+  - 93
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 99
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Millidómstig“ á bls. 227 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Starfsnám við EFTA-dómstólinn í Lúxemborg
+  authors:
+  - Guðmundur Heiðar Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 247
+  page_end: 249
+  issue: null
+  pdf_pages:
+  - 115
+  - 117
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 100
+  source_file: null
+  note: ''
+  analysis_notes: []

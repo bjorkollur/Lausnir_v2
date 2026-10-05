@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.903
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/166.pdf
@@ -27,4 +28,471 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/590.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/647.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/648.pdf
-articles: []
+articles:
+- title: Hugleiðing um hið nýja sakamálaréttarfar
+  authors:
+  - Þórður Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 13
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 577
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/590.pdf
+  note: ''
+  analysis_notes: []
+- title: Alþjóðlegur refsiréttur á síðari tímum
+  authors:
+  - Iouri A. Rechetov
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 15
+  page_end: 20
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 578
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/521.pdf
+  note: ''
+  analysis_notes: []
+- title: Stríðsglæpir og vond VERK1 11
+  authors:
+  - Ágúst Hjörtur Ingþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 27
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 579
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/2435.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 27, prentað bls. 21'
+- title: Meginreglur Evrópubandalagsins á sviði almannatrygginga
+  authors:
+  - Dögg Pálsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: 37
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 580
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/308.pdf
+  note: ''
+  analysis_notes: []
+- title: Erasmus
+  authors:
+  - Jóhann Á. Karlsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 49
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 582
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/2439.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 49, prentað bls. 45'
+- title: Réttaráhrif erlendra úrlausna á sviði sifjaréttar
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 132
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 584
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/166.pdf
+  note: ''
+  analysis_notes: []
+- title: Lagareglur EB og EES um jafnrétti á vinnumarkaði
+  authors:
+  - Birna Hreiðarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 142
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 585
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/331.pdf
+  note: ''
+  analysis_notes: []
+- title: Samningur Sameinuðu þjóðanna um réttindi barnsins
+  authors:
+  - Guðmundur Eiríksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 145
+  page_end: 150
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 586
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/167.pdf
+  note: ''
+  analysis_notes: []
+- title: Ákvæði um afkynjun með skurðaðgerð gegn vilja sjúklings verði numin úr gildi
+  authors:
+  - Ólafur Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 151
+  page_end: 151
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 587
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/647.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkrir þættir um réttarstöðu ríkisstarfsmanna
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 205
+  page_end: 235
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 591
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/648.pdf
+  note: ''
+  analysis_notes: []
+- title: Barnalög nr. 20/1992. Um forsjá barna, umgengnisrétt o.fl.
+  authors:
+  - Drífa Pálsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 237
+  page_end: 251
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 592
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/168.pdf
+  note: ''
+  analysis_notes: []
+- title: Skattlagning hjóna og sambýlisfólks
+  authors:
+  - Gylfi Knudsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 293
+  page_end: 317
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 595
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/462.pdf
+  note: ''
+  analysis_notes: []
+- title: Frádráttur frá tekjum við ákvörðun tekjuskattsstofns
+  authors:
+  - Helgi V. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 319
+  page_end: 344
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 596
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/464.pdf
+  note: ''
+  analysis_notes: []
+- title: Samræmd skattframkvæmd - markmið og leiðir
+  authors:
+  - Steinþór Haraldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 345
+  page_end: 348
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 597
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/456.pdf
+  note: ''
+  analysis_notes: []
+- title: Um málsmeðferðarreglur á skattstjórastigi
+  authors:
+  - Kristján Gunnar Valdimarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 349
+  page_end: 385
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 598
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/461.pdf
+  note: ''
+  analysis_notes: []

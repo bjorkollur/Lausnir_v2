@@ -1,16 +1,134 @@
 source: ulfljotur
 year: 2005
-volume: null
+volume: 58
 issue: '2'
-label: Úlfljótur, 2. tbl. (2005)
+label: Úlfljótur, 58. árg. 2. tbl. (2005)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_2_tbl.pdf
 sha256: 39dc520f61fc92755ade206d1c6551224d26f1cf3f243f2aa4e782e6443bc7d4
-pages: null
+pages: 189
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 256
+  quality: 0.979
+  runner_up_share: 0.0
+  pages: 189
+  segments:
+  - - 1
+    - 188
+    - 256
+  contested: []
+  bin_ratio: 0.962
+  non_article:
+  - 60
+  - 154
+  - 162
+  - 171
+  - 172
+  - 179
+  - 180
+  - 181
+  - 182
+  - 183
+  - 184
+  - 185
+  - 186
+  - 187
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_2_tbl.pdf
-articles: []
+articles:
+- title: Um ógildingu stjórnvaldsákvarðana
+  authors:
+  - Arnar Þór Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 261
+  page_end: 315
+  issue: null
+  pdf_pages:
+  - 5
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 288
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Valdmörk úrskurðarnefndar skipulags- og byggingarmála vegna breytinga á deiliskipulagi
+  authors:
+  - Heiða Björg Pálmadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 317
+  page_end: 346
+  issue: null
+  pdf_pages:
+  - 61
+  - 90
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 289
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðild að málum sem varða umhverfið
+  authors:
+  - Særún María Gunnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 347
+  page_end: 409
+  issue: null
+  pdf_pages:
+  - 91
+  - 153
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 290
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 345, prentað bls. 347'
+  - 'FRÁVIK: á eftir greininni hefst „Viðtal við dr. juris Pál Hreinsson, prófessor og deildarforseta lagadeildar Háskóla
+    Íslands“ á bls. 411 sem skráin nefnir ekki; greinin er talin enda þar'

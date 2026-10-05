@@ -1,16 +1,256 @@
 source: timarit_logfraedinga
 year: 1975
-volume: null
+volume: 25
 issue: null
-label: Tímarit lögfræðinga (1975)
+label: Tímarit lögfræðinga, 25. árg. (1975)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1975.pdf
 sha256: dbbee858661ea72eda66d4619c1efa9f29489f554d8b1e8207747f876c8fe4e2
-pages: null
+pages: 176
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 31
+  quality: 0.761
+  runner_up_share: 0.018
+  pages: 176
+  segments:
+  - - 7
+    - 45
+    - -5
+  - - 59
+    - 97
+    - -9
+  - - 111
+    - 167
+    - 31
+  contested: []
+  bin_ratio: 0.94
+  non_article:
+  - 168
+  - 169
+  - 170
+  - 173
+  - 174
+  - 175
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1975.pdf
-articles: []
+articles:
+- title: Stjórnsýslulöggjöf
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 142
+  page_end: 143
+  issue: null
+  pdf_pages:
+  - 111
+  - 112
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Slysatrygging samkvæmt lögum um almannatryggingar
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 144
+  page_end: 163
+  issue: null
+  pdf_pages:
+  - 113
+  - 132
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sænsku stjórnsýslulögin frá 1971
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 164
+  page_end: 182
+  issue: null
+  pdf_pages:
+  - 133
+  - 151
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögfræðingafélagi íslands
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 183
+  page_end: 186
+  issue: null
+  pdf_pages:
+  - 152
+  - 155
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur 1975 með fræðilegum þætti — Skýrsla um félagsstörfin 1974—1975 ra Bandalagi háskólamanna
+  authors:
+  - Magnús Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 187
+  page_end: 191
+  issue: null
+  pdf_pages:
+  - 156
+  - 160
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ráðstefna um atvinnumál háskólamanna — Nýr aðalkjarasamningur ra Lagadeild Háskólans
+  authors:
+  - Kjartan Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 192
+  page_end: 194
+  issue: null
+  pdf_pages:
+  - 161
+  - 163
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: ®i°f til lagadeildar — Orator A v'ð og dreif
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 195
+  page_end: 198
+  issue: null
+  pdf_pages:
+  - 164
+  - 167
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Félagið íslensk réttarvernd“) er annar titill en skrárinnar („®i°f til lagadeildar
+    — Orator A v''ð og dreif“); titli skrárinnar haldið'

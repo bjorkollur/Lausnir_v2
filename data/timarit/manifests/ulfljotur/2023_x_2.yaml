@@ -1,16 +1,130 @@
 source: ulfljotur
 year: 2023
-volume: null
+volume: 76
 issue: '2'
-label: Úlfljótur, 2. tbl. (2023)
+label: Úlfljótur, 76. árg. 2. tbl. (2023)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2023-2tbl.pdf
 sha256: 4d268447abd3a2c94ada8283edbd9655c486966a71642ed1fa43aafc28424a27
-pages: null
+pages: 156
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 111
+  quality: 0.942
+  runner_up_share: 0.007
+  pages: 156
+  segments:
+  - - 2
+    - 152
+    - 111
+  contested: []
+  bin_ratio: 0.883
+  non_article:
+  - 147
+  - 148
+  - 149
+  - 150
+  - 151
+  - 152
+  - 153
+  - 154
+  - 155
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2023-2tbl.pdf
-articles: []
+articles:
+- title: Bótaregla 1. mgr. 51. gr. skipulagslaga nr. 123/2010. Skilyrði, stofnun og fyrning
+  authors:
+  - Arnar Heimir Lárusson
+  - Jörgen Már Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 119
+  page_end: 154
+  issue: null
+  pdf_pages:
+  - 8
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 5
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Reglur FIFA um félagaskipti leikmanna yngri en 18 ára
+  authors:
+  - Birgir Ólafur Helgason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 184
+  issue: null
+  pdf_pages:
+  - 44
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 6
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýting rekstrartaps samkvæmt ESB- og EES-rétti Er kominn tími til að endurskoða Marks & Spencer undanþáguna?
+  authors:
+  - Gerður Guðmundsdóttir
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 185
+  page_end: 228
+  issue: null
+  pdf_pages:
+  - 74
+  - 117
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 7
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Yfirburðameistararitgerðir“ á bls. 229 sem skráin nefnir ekki; greinin er talin enda
+    þar'

@@ -1,16 +1,154 @@
 source: ulfljotur
 year: 2014
-volume: null
+volume: 67
 issue: '4'
-label: Úlfljótur, 4. tbl. (2014)
+label: Úlfljótur, 67. árg. 4. tbl. (2014)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2014_4_tbl.pdf
 sha256: 45af400382e9ccfaf264855b5da93e235758a33842879fbc91d8435506853978
-pages: null
+pages: 161
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 516
+  quality: 0.95
+  runner_up_share: 0.007
+  pages: 161
+  segments:
+  - - 3
+    - 156
+    - 516
+  contested: []
+  bin_ratio: 0.794
+  non_article:
+  - 42
+  - 88
+  - 153
+  - 154
+  - 155
+  - 156
+status: approved
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2014_4_tbl.pdf
-articles: []
+articles:
+- title: Sjúkrakostnaður og annað fjártjón skv. 1. mgr. 1. gr. laga nr. 50/1993
+  authors:
+  - Haukur Freyr Axelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 521
+  page_end: 557
+  issue: null
+  pdf_pages:
+  - 5
+  - 41
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 152
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Réttmætar væntingar í þjóðlendumálum: Um tengsl réttmætra væntinga við hefð, venjurétt og ómunahefð'
+  authors:
+  - Karl Axelsson
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 559
+  page_end: 603
+  issue: null
+  pdf_pages:
+  - 43
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 153
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Markalína eignarnáms og skatta
+  authors:
+  - Sindri M Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 605
+  page_end: 662
+  issue: null
+  pdf_pages:
+  - 89
+  - 146
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 154
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tíund hin nýja
+  authors:
+  - Garðar Valdimarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 663
+  page_end: 668
+  issue: null
+  pdf_pages:
+  - 147
+  - 152
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 155
+  source_file: null
+  note: ''
+  analysis_notes: []

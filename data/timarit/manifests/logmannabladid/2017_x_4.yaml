@@ -1,16 +1,306 @@
 source: logmannabladid
 year: 2017
-volume: null
+volume: 23
 issue: '4'
-label: Lögmannablaðið, 4. tbl. (2017)
+label: Lögmannablaðið, 23. árg. 4. tbl. (2017)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2017 04 .pdf
 sha256: 8a0aba989aab0d84cf201a955d42af48be6704c3364d8c7086c88311f522d784
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.781
+  runner_up_share: 0.0
+  pages: 32
+  segments:
+  - - 1
+    - 30
+    - 1
+  contested: []
+  bin_ratio: 0.944
+  non_article:
+  - 8
+  - 12
+  - 28
+  - 29
+  - 30
+  - 31
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2017 04 .pdf
-articles: []
+articles:
+- title: Taka tölvurnar yfir?
+  authors:
+  - Eva Halldórsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 3
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Friðhelgi einkalífs á tölvuöld
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Jólahugvekja: Fjórða iðnbyltingin'
+  authors:
+  - Jóhann Alfreð Kristinsson
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 7
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ HERVÖRU ÞORVALDS- DÓTTUR Að Landsréttur tali einu máli
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 10
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 9
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: HÁDEGISVERÐARFUNDUR Fyrirkomulag Landsréttar í Danmörku
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 13
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Námskeið um millidómstig
+  authors:
+  - Eva Halldórsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 15
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: SKÝRSLA OG FÉLAGSFUNDUR LMFÍ skorar á dómsmálaráðherra að tryggja réttindi hælisleitenda
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: SAGA ANNARS STOFNANDA MÁLFLUTNINGSMANNAFÉLAGS ÍSLANDS Ævisaga og aldarspegill
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 21
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Hugleiðingar um #METOO byltinguna'
+  authors:
+  - Kolbrún Garðarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 27
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

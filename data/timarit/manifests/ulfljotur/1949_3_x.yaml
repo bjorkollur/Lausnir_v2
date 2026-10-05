@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.95
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/2.pdf
@@ -19,4 +20,223 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/614.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/818.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/819.pdf
-articles: []
+articles:
+- title: Lög og lagaframkvæmd um vexti
+  authors:
+  - Þórður Eyjólfsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 11
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1231
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/212.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um rannsóknarlögregluna í Reykjavík
+  authors:
+  - Valdimar Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 13
+  page_end: 18
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 1232
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/536.pdf
+  note: ''
+  analysis_notes: []
+- title: Áfrýjunardómstólar á Íslandi
+  authors:
+  - Árni Tryggvason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 8
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1233
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/537.pdf
+  note: ''
+  analysis_notes: []
+- title: Húsvitjanir Úlfljóts II. Lögreglan í Reykjavík
+  authors:
+  - Sigurjón Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 6
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 1234
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/614.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Nokkur orð um rit Bjarna Benediktssonar: Deildir Alþingis'
+  authors:
+  - Ármann Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 9
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1235
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/2.pdf
+  note: ''
+  analysis_notes: []
+- title: Nýir hættir um kennslu og próf í lagadeild
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 14
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1236
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/818.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 9, prentað bls. 3'
+- title: Yfirlit yfir störf Orators 1948-49
+  authors:
+  - Jón Ísberg
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 15
+  page_end: 17
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 1237
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/819.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 17, prentað bls. 15'

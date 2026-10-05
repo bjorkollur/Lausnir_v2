@@ -1,16 +1,161 @@
 source: timarit_logfraedinga
 year: 2009
-volume: null
+volume: 59
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2009)
+label: Tímarit lögfræðinga, 59. árg. 2. hefti (2009)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2009_02.pdf
 sha256: c9ddd9d08ebb3ed9b4e9b0e16196db18eb54d841ad6e1dbc4b148e40cb9bf3dd
-pages: null
+pages: 119
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 117
+  quality: 0.975
+  runner_up_share: 0.0
+  pages: 119
+  segments:
+  - - 2
+    - 117
+    - 117
+  contested: []
+  bin_ratio: 0.837
+  non_article:
+  - 47
+  - 79
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+status: review
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2009_02.pdf
-articles: []
+articles:
+- title: Ne bis in idem – Mannréttindadómstóll Evrópu víkur frá fyrri fordæmum
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 119
+  page_end: 122
+  issue: null
+  pdf_pages:
+  - 2
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Friður og fælingarmáttur — Er hægt að friðlýsa Ísland fyrir kjarnorkuvopnum?
+  authors:
+  - Bjarni Már Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 123
+  page_end: 163
+  issue: null
+  pdf_pages:
+  - 6
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Foreldra firringar heilkenni (PAS) í forsjár- og umgengnisdeilum: Þekking eða blekking?'
+  authors:
+  - Gunnar Hrafn Birgisson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 165
+  page_end: 195
+  issue: null
+  pdf_pages:
+  - 48
+  - 78
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Markaðsmisnotkun í formi rangrar upplýsingagjafar
+  authors:
+  - Andri Fannar Bergþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 197
+  page_end: 226
+  issue: null
+  pdf_pages:
+  - 80
+  - 109
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

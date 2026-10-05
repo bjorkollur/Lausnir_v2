@@ -1,16 +1,204 @@
 source: timarit_logfraedinga
 year: 2016
-volume: null
+volume: 66
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2016)
+label: Tímarit lögfræðinga, 66. árg. 2. hefti (2016)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2016_02.pdf
 sha256: 5a2616bc3f089915e82579b90f023f02dc43754e8a4520defec8436cdd0732d4
-pages: null
+pages: 206
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 125
+  quality: 0.976
+  runner_up_share: 0.0
+  pages: 206
+  segments:
+  - - 2
+    - 202
+    - 125
+  contested: []
+  bin_ratio: 0.927
+  non_article:
+  - 63
+  - 154
+  - 169
+  - 170
+  - 183
+  - 185
+  - 193
+  - 194
+  - 195
+  - 196
+  - 197
+  - 198
+  - 199
+  - 200
+  - 201
+  - 202
+  - 203
+  - 204
+  - 205
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2016_02.pdf
-articles: []
+articles:
+- title: Nýjungar hjá Tímariti lögfræðinga
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 127
+  page_end: 128
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttmætisregla stjórnsýsluréttar og samspil hennar við jafnræðisreglu - Í tengslum við mats-kenndar stjórnvaldsákvarðanir•1
+  authors:
+  - Elín Ósk Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 129
+  page_end: 187
+  issue: null
+  pdf_pages:
+  - 4
+  - 62
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 187 sem er hvorki framhald hennar né upphaf annars
+    efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Hvenær eiga aðilar að ná sáttum? réttarhag-fræðilegar kenningar um sáttir með hliðsjón af rannsókn á 386 einkamálum
+    fyrir hæsta-rétti Íslands•1
+  authors:
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 189
+  page_end: 226
+  issue: null
+  pdf_pages:
+  - 64
+  - 101
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögréttur og lagaráð - Nýjungar í endurskoðun á því hvort lög og lagafrumvörp samrýmast stjórnarskrá samkvæmt tillögum
+    Stjórnlagaráðs
+  authors:
+  - Kári Hólmar Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 227
+  page_end: 270
+  issue: null
+  pdf_pages:
+  - 102
+  - 145
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skattlagning gjafa
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 271
+  page_end: 278
+  issue: null
+  pdf_pages:
+  - 146
+  - 153
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 273–316

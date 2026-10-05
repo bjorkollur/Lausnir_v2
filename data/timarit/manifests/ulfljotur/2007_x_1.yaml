@@ -1,16 +1,217 @@
 source: ulfljotur
 year: 2007
-volume: null
+volume: 60
 issue: '1'
-label: Úlfljótur, 1. tbl. (2007)
+label: Úlfljótur, 60. árg. 1. tbl. (2007)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2007_1_tbl.pdf
 sha256: 0e0b896adfacc840496cc935e797fa3f9a89583c99724d84f6cb1b05e766cc9c
-pages: null
+pages: 202
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.946
+  runner_up_share: 0.0
+  pages: 202
+  segments:
+  - - 11
+    - 201
+    - -1
+  contested: []
+  bin_ratio: 0.962
+  non_article:
+  - 25
+  - 189
+  - 198
+  - 199
+  - 200
+  - 201
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2007_1_tbl.pdf
-articles: []
+articles:
+- title: Jafnréttislög í þrjátíu ár
+  authors:
+  - Brynhildur G. Flóvenz
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 6
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 240
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Miskabætur vegna ólögmætrar meingerðar gegn æru
+  authors:
+  - Eiríkur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 96
+  issue: null
+  pdf_pages:
+  - 26
+  - 97
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 241
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnsýsludómstólar á Íslandi
+  authors:
+  - Jana Friðfinnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 120
+  issue: null
+  pdf_pages:
+  - 98
+  - 121
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 242
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gerð og túlkun tvísköttunarsamninga
+  authors:
+  - Ásmundur G. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 121
+  page_end: 172
+  issue: null
+  pdf_pages:
+  - 122
+  - 173
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 243
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Málfrelsi hluthafa samkvæmt 3. mgr 80. gr hlutafélagalaga“ á bls. 173 sem skráin nefnir
+    ekki; greinin er talin enda þar'
+- title: Málfrelsi hluthafa á hluthafafundum
+  authors:
+  - Áslaug Björgvinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 175
+  page_end: 181
+  issue: null
+  pdf_pages:
+  - 176
+  - 182
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 244
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málfrelsið er grundvöllur,,hluthafalýðræðisins“ skv. X. kafla hlutafélagalaganna
+  authors:
+  - Víglundur Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 182
+  page_end: 182
+  issue: null
+  pdf_pages:
+  - 183
+  - 183
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 245
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ákæruvaldinu skipt í þrjú stjórnsýslustig“ á bls. 183 sem skráin nefnir ekki; greinin
+    er talin enda þar'

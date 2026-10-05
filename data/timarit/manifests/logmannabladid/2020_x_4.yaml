@@ -1,16 +1,433 @@
 source: logmannabladid
 year: 2020
-volume: null
+volume: 26
 issue: '4'
-label: Lögmannablaðið, 4. tbl. (2020)
+label: Lögmannablaðið, 26. árg. 4. tbl. (2020)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2020 04.pdf
 sha256: 574927326c4990584e245484f1c5828b22fd33b251664b6a4645b4a0503041ff
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.861
+  runner_up_share: 0.0
+  pages: 36
+  segments:
+  - - 1
+    - 34
+    - 1
+  contested: []
+  bin_ratio: 0.954
+  non_article:
+  - 4
+  - 6
+  - 9
+  - 24
+  - 32
+  - 34
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2020 04.pdf
-articles: []
+articles:
+- title: Áfellisdómur – Hvað svo?
+  authors:
+  - Berglind Svavarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aukastörf dómara í ljósi sjálfstæðis dómstóla og dómara
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hlutverk dómstóla í ljósi dóms Mannréttindadómstóls Evrópu í Landsréttarmálinu
+  authors:
+  - Daníel Isebarn Ágústsson
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dagatal dómnefndar um hæfi umsækjenda um embætti dómara fyrir árið 2020
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 11
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 10
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hegðun, atferli og framkoma lögmanna á samfélagsmiðlum
+  authors:
+  - Áslaug Árnadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 13
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ BÖRK I. JÓNSSON UM LÖGFRÆÐINÖRDA Á FACEBOOK
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 18
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 17
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („„Gæi kýldi mig má ég ekki örugglega kýla hann til Baka?““) er annar titill en skrárinnar
+    („VIÐTAL VIÐ BÖRK I. JÓNSSON UM LÖGFRÆÐINÖRDA Á FACEBOOK“); titli skrárinnar haldið'
+- title: 'VIÐTAL VIÐ SKÚLA MAGNÚSSON: Spjall um hagnýt atriði fyrir héraðsdómi'
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 20
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 19
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Jóla-Mörður
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Notkun lögreglu á bakvaktarþjónustu lögmanna: Bréfaskipti félagsins við embætti lögreglustjóra.'
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er munnlegur málflutningur óþarfi?
+  authors:
+  - Heiðar Ásberg Atlason
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 27
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eru lögmenn með einokun á markaði fyrir lögfræðilega þjónustu?
+  authors:
+  - Guðrún Olsen
+  - Bergþór Bergsson
+  author_titles: []
+  article_type: Annað
+  page_start: 30
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 29
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sögur af dr. Gunnlaugi Þórðarsyni
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 32
+  page_end: 32
+  issue: null
+  pdf_pages:
+  - 31
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kompás fyrir lögmenn og lögmannsstofur
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 34
+  page_end: 34
+  issue: null
+  pdf_pages:
+  - 33
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

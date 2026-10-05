@@ -1,16 +1,392 @@
 source: logmannabladid
 year: 1998
-volume: null
+volume: 4
 issue: '2'
-label: Lögmannablaðið, 2. tbl. (1998)
+label: Lögmannablaðið, 4. árg. 2. tbl. (1998)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1998 02.pdf
 sha256: e82f44684182afff1a021f3011a3ca2114428d4f4d75fe1f317784d8aa938fea
-pages: null
+pages: 28
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.5
+  runner_up_share: 0.0
+  pages: 28
+  segments:
+  - - 1
+    - 26
+    - 1
+  contested: []
+  bin_ratio: 0.961
+  non_article:
+  - 27
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1998 02.pdf
-articles: []
+articles:
+- title: Hvöss gagnrýni og siðareglur lögmanna
+  authors:
+  - Jakob R. Möller
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 3
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 5 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Hæstarétti Íslands
+  authors:
+  - Pétur Kr. Hafstein
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 7
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttarbót í skattamálum
+  authors:
+  - Halldór Jóns
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 8
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: page
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lög um lögmenn, nr. 77/1998
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 11
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 10
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Úrskurðarnefnd í vátryggingamálum – nokkrar upplýsingar um starfsemi nefndarinnar
+  authors:
+  - Rúnar Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 12
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 11
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um lögmannafélög í Bandaríkjunum
+  authors:
+  - Jón Ögmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 14
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 13
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rafbréf
+  authors:
+  - Tryggvi Axels
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 18
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 17
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: page
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skatta- og tollatíðindi – nýtt tímarit
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Úrskurðir og álitsgerðir stjórnar L.M.F.Í.
+  authors: []
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 22
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 21
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Íslenska liðið í þriðja sæti í Norrænu málflutningskeppninni
+  authors:
+  - Sif Konráðsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málþing L.M.F.Í. og D.Í. 5. júní
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

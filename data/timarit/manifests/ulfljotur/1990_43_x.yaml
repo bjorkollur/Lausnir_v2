@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.921
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/176.pdf
@@ -24,4 +25,381 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/297.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/43.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/679.pdf
-articles: []
+articles:
+- title: Um höfundarétt og arkitekta
+  authors:
+  - Ragnar Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 15
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 637
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/277.pdf
+  note: ''
+  analysis_notes: []
+- title: Bótaréttur flugfarþega vegna seinkunar, þ.á.m. vegna svonefndrar „yfirbókunar“ („denied boarding“)i)
+  authors:
+  - Gunnar Helgason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 17
+  page_end: 24
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 638
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/297.pdf
+  note: ''
+  analysis_notes: []
+- title: Norræn vika í Stokkhólmi
+  authors:
+  - Áslaug Björgvinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 41
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 639
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/2299.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 41, prentað bls. 39'
+- title: Norræn vika í Kaupmannahöfn
+  authors:
+  - Ólöf Nordal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 47
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 640
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/2301.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 47, prentað bls. 45'
+- title: Lagaárekstrar og lagasamræming
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 119
+  page_end: 153
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 642
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/43.pdf
+  note: ''
+  analysis_notes: []
+- title: Erfðalögin í ljósi tveggja lagabreytinga frá 1985 og 1989
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 175
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 643
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/176.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um tafabætur í verksamningum
+  authors:
+  - Othar Örn Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 209
+  page_end: 218
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 644
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/183.pdf
+  note: ''
+  analysis_notes: []
+- title: Pappírslaus viðskipti
+  authors:
+  - Jón H. Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 219
+  page_end: 227
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 645
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/182.pdf
+  note: ''
+  analysis_notes: []
+- title: Eignar-og afnotaréttur yfir hálendi Íslands
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 239
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 646
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/198.pdf
+  note: ''
+  analysis_notes: []
+- title: Um lög og siðferði
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 241
+  page_end: 254
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 647
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/679.pdf
+  note: ''
+  analysis_notes: []
+- title: Mannréttindaráðstefna ELSA
+  authors:
+  - Ólöf Nordal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 257
+  page_end: 260
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 648
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/2328.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 260, prentað bls. 257'
+- title: Så spiste vi rådden haj!
+  authors:
+  - Einar Gunnarsson
+  - Hafdís Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 261
+  page_end: 262
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 649
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1990 43 arg/2329.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 262, prentað bls. 261'

@@ -1,16 +1,286 @@
 source: timarit_logfraedinga
 year: 2007
-volume: null
+volume: 57
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2007)
+label: Tímarit lögfræðinga, 57. árg. 4. hefti (2007)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2007_04.pdf
 sha256: a308a70e0bf2b4cd14cd71c379f7fc208976dad10ed91e8044ad802515ee0dbc
-pages: null
+pages: 105
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 338
+  quality: 0.962
+  runner_up_share: 0.0
+  pages: 105
+  segments:
+  - - 1
+    - 101
+    - 338
+  contested: []
+  bin_ratio: 0.953
+  non_article:
+  - 6
+  - 74
+  - 78
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2007_04.pdf
-articles: []
+articles:
+- title: Er Hæstiréttur „hæstiréttur“?
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 339
+  page_end: 343
+  issue: null
+  pdf_pages:
+  - 1
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skaðabótaábyrgð fasteignasala
+  authors:
+  - Eiríkur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 345
+  page_end: 370
+  issue: null
+  pdf_pages:
+  - 7
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bókun 35 og staða EES-samningsins að íslenskum rétti
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 371
+  page_end: 411
+  issue: null
+  pdf_pages:
+  - 33
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rangar staðhæfingar um ákæruvaldið í dómi Hæstaréttar Íslands í máli nr. 406/2007
+  authors:
+  - Bogi Nilsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 413
+  page_end: 415
+  issue: null
+  pdf_pages:
+  - 75
+  - 77
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ferðin til Indlands, ferðin á enda veraldar
+  authors:
+  - Lára V. Júlíusdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 417
+  page_end: 425
+  issue: null
+  pdf_pages:
+  - 79
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Lára V. Júlíusdóttir) stangast á við síðuna (Á Víð); skránni haldið'
+- title: Lið lagadeildar Háskóla Íslands á leið til Washington í Jessup-málflutningskeppnina
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 426
+  page_end: 427
+  issue: null
+  pdf_pages:
+  - 88
+  - 88
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögfræðingafélagi Íslands
+  authors:
+  - Benedikt Bogason
+  author_titles: []
+  article_type: Frétt
+  page_start: 427
+  page_end: 430
+  issue: null
+  pdf_pages:
+  - 89
+  - 91
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Benedikt Bogason) stangast á við síðuna (Kristín Edwald); skránni haldið'
+- title: Frá Lögmannafélagi Íslands 2007
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 430
+  page_end: 432
+  issue: null
+  pdf_pages:
+  - 92
+  - 94
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

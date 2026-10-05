@@ -1,16 +1,133 @@
 source: timarit_logfraedinga
 year: 2015
-volume: null
+volume: 65
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2015)
+label: Tímarit lögfræðinga, 65. árg. 3. hefti (2015)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2015_03.pdf
 sha256: 72bf8cdaa9304059f028a028b3e2da4102cb83042f9350147f0a3710a2336592
-pages: null
+pages: 150
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 395
+  quality: 0.967
+  runner_up_share: 0.0
+  pages: 150
+  segments:
+  - - 2
+    - 146
+    - 395
+  contested: []
+  bin_ratio: 0.96
+  non_article:
+  - 138
+  - 139
+  - 140
+  - 141
+  - 142
+  - 143
+  - 144
+  - 145
+  - 146
+  - 147
+  - 148
+  - 149
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2015_03.pdf
-articles: []
+articles:
+- title: Til minningar um Þór Vilhjálmsson (1930-2015)
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 397
+  page_end: 398
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samaðild
+  authors:
+  - Sigurður Tómas Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 399
+  page_end: 464
+  issue: null
+  pdf_pages:
+  - 4
+  - 69
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ábyrgð farmflytjanda á einingaflutningum til og frá Íslandi
+  authors:
+  - Guðmundur Sigurðsson
+  - Einar Baldvin Axelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 465
+  page_end: 532
+  issue: null
+  pdf_pages:
+  - 70
+  - 137
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -1,15 +1,16 @@
 source: ulfljotur
 year: 2018
-volume: null
+volume: 71
 issue: '3'
-label: Úlfljótur, 3. tbl. (2018)
+label: Úlfljótur, 71. árg. 3. tbl. (2018)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.959
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201830.pdf
@@ -18,4 +19,185 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201833.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201834.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201835.pdf
-articles: []
+articles:
+- title: 'Samningar sem hafa að markmiði að raska samkeppni: Dómur EFTA-dómstólsins í máli E-3/16'
+  authors:
+  - Peter Dalmay
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 329
+  page_end: 329
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.2
+  leitir_record_id: null
+  xlsx_row: 87
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201830.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 331, prentað bls. 329'
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+- title: 'Samningar sem hafa að markmiði að raska samkeppni: Dómur EFTA-dómstólsins í máli E-3/16'
+  authors:
+  - Peter Dalmay
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 331
+  page_end: 351
+  issue: null
+  pdf_pages:
+  - 0
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 87
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201831.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+- title: null
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 353
+  page_end: 385
+  issue: null
+  pdf_pages:
+  - 0
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201832.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.50)
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+- title: Áhrif(aleysi) ólögfestra mann-
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 387
+  page_end: 424
+  issue: null
+  pdf_pages:
+  - 0
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201833.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.37)
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+- title: Lagasnið lagafrumvarpa
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 425
+  page_end: 438
+  issue: null
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201834.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.57)
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+- title: null
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 439
+  page_end: 459
+  issue: null
+  pdf_pages:
+  - 0
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201835.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.36)
+  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'

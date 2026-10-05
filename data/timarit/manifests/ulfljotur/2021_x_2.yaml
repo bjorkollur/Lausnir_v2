@@ -1,16 +1,159 @@
 source: ulfljotur
 year: 2021
-volume: null
+volume: 74
 issue: '2'
-label: Úlfljótur, 2. tbl. (2021)
+label: Úlfljótur, 74. árg. 2. tbl. (2021)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2021-2tbl.pdf
 sha256: d2ce17f98460308b4d91ed99d2bd32c3225d1b4f1896dee222c49d63d81771ef
-pages: null
+pages: 148
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 173
+  quality: 0.919
+  runner_up_share: 0.007
+  pages: 148
+  segments:
+  - - 2
+    - 144
+    - 173
+  contested: []
+  bin_ratio: 0.899
+  non_article:
+  - 117
+  - 139
+  - 140
+  - 141
+  - 142
+  - 143
+  - 144
+  - 145
+  - 146
+  - 147
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2021-2tbl.pdf
-articles: []
+articles:
+- title: 'Nauðgun og skilyrðið um samþykki: Áhrif laga nr. 16/2018 á inntak og refsivernd 1. mgr. 194. gr. hgl.'
+  authors:
+  - Karitas Rán Garðarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 183
+  page_end: 218
+  issue: null
+  pdf_pages:
+  - 10
+  - 45
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 28
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipta gæði lagasetningar máli við endurskoðun dómstóla á stjórnskipulegu gildi laga?
+  authors:
+  - Kári Hólmar Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 219
+  page_end: 250
+  issue: null
+  pdf_pages:
+  - 46
+  - 77
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 29
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sky?ring EES-réttar
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 251
+  page_end: 289
+  issue: null
+  pdf_pages:
+  - 78
+  - 116
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 30
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvað er dogmatísk rannsóknaraðferð á sviði lögfræði?
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 291
+  page_end: 300
+  issue: null
+  pdf_pages:
+  - 118
+  - 127
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 31
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Viðtal við Tryggva Gunnarsson, fyrrum umboðsmann Alþingis“ á bls. 301 sem skráin nefnir
+    ekki; greinin er talin enda þar'

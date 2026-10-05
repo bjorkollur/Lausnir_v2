@@ -1,16 +1,262 @@
 source: ulfljotur
 year: 2017
-volume: null
+volume: 70
 issue: '3'
-label: Úlfljótur, 3. tbl. (2017)
+label: Úlfljótur, 70. árg. 3. tbl. (2017)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2017_3_tbl.pdf
 sha256: bba1420457a1d9bbf5abc38cc182276bfe3118f4abab42a4e9428a8c062ac219
-pages: null
+pages: 220
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 220
+  segments: []
+  contested: []
+  bin_ratio: 0.836
+  non_article:
+  - 55
+  - 91
+  - 119
+  - 150
+  - 199
+  - 216
+  - 217
+  - 218
+  - 219
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2017_3_tbl.pdf
-articles: []
+articles:
+- title: Samanburður valkosta sem hluti af undirbúningi ákvörðunar í ljósi umhverfisréttar
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  - Ásgerður Ragnarsdóttir
+  - Kristín Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 265
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 11
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 101
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 265 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: taflan segir bls. 265; greinin fannst eftir titli sínum á pdf-síðu 12'
+- title: Re-integra og culpa in contrahendo
+  authors:
+  - Ása Ólafsdóttir
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 311
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 56
+  - 90
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 102
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 311 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: taflan segir bls. 311; greinin fannst eftir titli sínum á pdf-síðu 57'
+- title: Um samningu héraðsdóma í einkamálum
+  authors:
+  - Benedikt Bogason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 349
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 92
+  - 118
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 103
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 349 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: taflan segir bls. 349; greinin fannst eftir titli sínum á pdf-síðu 93'
+- title: Dómar Mannréttindadómstóls Evrópu í ærumeiðingarmálum gegn Íslandi
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 379
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 120
+  - 149
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 104
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 379 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: taflan segir bls. 379; greinin fannst eftir titli sínum á pdf-síðu 121'
+  - 'á síðunni stendur: Davíð Þór'
+- title: Fyrning skaðabótakrafna utan samninga
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 411
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 151
+  - 176
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 105
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 411 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: taflan segir bls. 411; greinin fannst eftir titli sínum á pdf-síðu 152'
+- title: Skaðabótaábyrgð stjórnenda og stjórnendatryggingar
+  authors:
+  - Hildur Þórarinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 439
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 177
+  - 198
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 106
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 439 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: taflan segir bls. 439; greinin fannst eftir titli sínum á pdf-síðu 178'
+- title: Úrsögn úr Evrópusambandinu
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 463
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 200
+  - 215
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 107
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 463 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: taflan segir bls. 463; greinin fannst eftir titli sínum á pdf-síðu 201'
+  - 'á síðunni stendur: Stefán Már'

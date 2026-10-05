@@ -1,16 +1,169 @@
 source: timarit_logfraedinga
 year: 1952
-volume: null
+volume: 2
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1952)
+label: Tímarit lögfræðinga, 2. árg. 1. hefti (1952)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1952_01.pdf
 sha256: 9f49f03e665d0861d12ff7afaeb207367f908745630e4b6dbf384f5fe1b3eb7e
-pages: null
+pages: 72
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -5
+  quality: 0.597
+  runner_up_share: 0.023
+  pages: 72
+  segments:
+  - - 8
+    - 54
+    - -5
+  contested: []
+  bin_ratio: 0.903
+  non_article:
+  - 55
+  - 56
+  - 57
+  - 58
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 67
+  - 68
+  - 69
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1952_01.pdf
-articles: []
+articles:
+- title: Lögmannafélag Islands 40 ára
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 1
+  issue: null
+  pdf_pages:
+  - 6
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 12 (bls. 51–247; síðasta lesna blaðsíðutal 49) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Sveinn Björnsson. In memoriam
+  authors:
+  - Lárus Fjeldsted
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 2
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 7
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 12 (bls. 51–247; síðasta lesna blaðsíðutal 49) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Dómur í máli Stóra-Bretlands gegn Noregi
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 40
+  issue: null
+  pdf_pages:
+  - 12
+  - 45
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 12 (bls. 51–247; síðasta lesna blaðsíðutal 49) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Réttur }3egna erlendra ríkja til fiskveiða í hafinu umhverfis ísland síðan 28. marz 1903
+  authors:
+  - E. A
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 49
+  issue: null
+  pdf_pages:
+  - 46
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Lögfræðingar ganga jafnan vel til fara“ á bls. 54 sem skráin nefnir ekki; greinin er
+    talin enda þar'
+  - 'greinar fundust ekki í skjalinu: 12 (bls. 51–247; síðasta lesna blaðsíðutal 49) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'

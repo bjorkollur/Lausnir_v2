@@ -1,16 +1,122 @@
 source: ulfljotur
 year: 2013
-volume: null
+volume: 66
 issue: '4'
-label: Úlfljótur, 4. tbl. (2013)
+label: Úlfljótur, 66. árg. 4. tbl. (2013)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2013_4_tbl.pdf
 sha256: bf84fa8b8c824685a874f1d575e4ef0908aef857809d0d3cb7fac96ddea91e2e
-pages: null
+pages: 130
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 397
+  quality: 0.931
+  runner_up_share: 0.008
+  pages: 130
+  segments:
+  - - 4
+    - 126
+    - 397
+  contested: []
+  bin_ratio: 0.863
+  non_article:
+  - 122
+  - 123
+  - 124
+  - 125
+  - 126
+status: approved
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2013_4_tbl.pdf
-articles: []
+articles:
+- title: Lagareglur um verðbréfa-, fjárfestingar- og fagfjárfestasjóði
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 403
+  page_end: 440
+  issue: null
+  pdf_pages:
+  - 6
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 166
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gæsluvarðhald samkvæmt 2. mgr. 95. gr. Laga nr. 88/2008 um meðferð sakamála
+  authors:
+  - Gunnar Páll Baldvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 441
+  page_end: 482
+  issue: null
+  pdf_pages:
+  - 44
+  - 85
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 167
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samspil íþrótta og lögfræði
+  authors:
+  - Tanja Tómasdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 483
+  page_end: 518
+  issue: null
+  pdf_pages:
+  - 86
+  - 121
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 168
+  source_file: null
+  note: ''
+  analysis_notes: []

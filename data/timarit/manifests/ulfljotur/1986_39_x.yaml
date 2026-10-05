@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.89
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/2196.pdf
@@ -26,4 +27,442 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/634.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/676.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/88.pdf
-articles: []
+articles:
+- title: Meginreglur laga
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 15
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 725
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/676.pdf
+  note: ''
+  analysis_notes: []
+- title: Kirknaítök. Yfirlit um sögu þeirra og réttarþróun
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 19
+  page_end: 22
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 726
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/88.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Fe^rktofi flav“ á bls. 23 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Okur og misneyting
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 101
+  page_end: 106
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 728
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/507.pdf
+  note: ''
+  analysis_notes: []
+- title: Starfsemi íslenska fjármagnsmarkaðarins og lög um hann
+  authors:
+  - Davíð Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 109
+  page_end: 114
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 729
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/220.pdf
+  note: ''
+  analysis_notes: []
+- title: Vörumerki1’
+  authors:
+  - Rán Tryggvadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 129
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 730
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/270.pdf
+  note: ''
+  analysis_notes: []
+- title: Samstarf og samningar um verndun lífrænna auðlinda úthafsins og fiskveiðisamningar Íslands
+  authors:
+  - Jón L. Arnalds
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 131
+  page_end: 167
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 731
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/474.pdf
+  note: ''
+  analysis_notes: []
+- title: Hvernig er haganlegast að vitna í dóma?
+  authors:
+  - Bjarni K. Bjarnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 168
+  page_end: 168
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 732
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/40.pdf
+  note: ''
+  analysis_notes: []
+- title: Bókasafn Lögbergs
+  authors:
+  - Auður Gestsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 174
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 733
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/33.pdf
+  note: ''
+  analysis_notes: []
+- title: Almennt hæfi stjórnsýsluhafa
+  authors:
+  - Ingvar Þóroddsson
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 260
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 734
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/633.pdf
+  note: ''
+  analysis_notes: []
+- title: Sérstakt hæfi stjórnvalds
+  authors:
+  - Elsa Þorkelsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 263
+  page_end: 285
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 735
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/632.pdf
+  note: ''
+  analysis_notes: []
+- title: Reglur að íslenskum rétti um sérstakt hæfi við töku ákvarðana í stjórnsýslu
+  authors:
+  - Baldur Möller
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 287
+  page_end: 288
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 736
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/630.pdf
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um ráðherravanhæfi
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 291
+  page_end: 300
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 737
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/631.pdf
+  note: ''
+  analysis_notes: []
+- title: Vanhæfi á sviði sveitarstjórnarréttar
+  authors:
+  - Magnús E. Guðjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 301
+  page_end: 305
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 738
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/634.pdf
+  note: ''
+  analysis_notes: []
+- title: Shalom Ísrael
+  authors:
+  - Sigríður Logadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 315
+  page_end: 322
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 739
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1986 39 arg/2196.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 327, prentað bls. 315'
+  - 'FRÁVIK: á eftir greininni hefst „Opið hús“ á bls. 324 sem skráin nefnir ekki; greinin er talin enda þar'

@@ -1,16 +1,163 @@
 source: logretta
 year: 2011
-volume: null
+volume: 8
 issue: '2'
-label: Lögrétta, 2. tbl. (2011)
+label: Lögrétta, 8. árg. 2. tbl. (2011)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2011 2.tbl.pdf
 sha256: 70ad56f17a9c42922d86badc94b59e23d7d5feb46aa478dcd8b264f8ea6c3011
-pages: null
+pages: 86
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 11
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 86
+  segments:
+  - - 0
+    - 19
+    - 9
+  - - 20
+    - 51
+    - 11
+  - - 52
+    - 74
+    - 13
+  - - 75
+    - 85
+    - 14
+  contested: []
+  bin_ratio: 0.943
+  non_article: []
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2011 2.tbl.pdf
-articles: []
+articles:
+- title: Gildissvið upplýsingalaga gagnvart störfum sýslumanna og við meðferð sakamála
+  authors:
+  - Kjartan Bjarni Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rétturinn til að fella ekki á sig sök og rannsóknin á bankahruninu
+  authors:
+  - Sigríður Árnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 31
+  page_end: 62
+  issue: null
+  pdf_pages:
+  - 20
+  - 51
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Getur Það talist til bágrar stöðu skv. 1. tl. 1. mgr. 227. gr. a. hgl. um mansal að stunda vændi? þörf ákvæðis 5.
+    mgr. 206. gr. hgl. um flutning fólks á milli landa til að stunda vændi.1
+  authors:
+  - Klara Dögg Steingrímsdóttir
+  - Hulda María Stefánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 87
+  issue: null
+  pdf_pages:
+  - 52
+  - 74
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skattlagning á eftirgjöf skulda samkvæmt bráðabirgðaákvæðum XXXVI og XLVI við lög nr. 90/2003 um tekjuskatt með síðari
+    breytingum
+  authors:
+  - Ásta Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 89
+  page_end: 99
+  issue: null
+  pdf_pages:
+  - 75
+  - 85
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

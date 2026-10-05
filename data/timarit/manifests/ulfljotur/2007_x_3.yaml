@@ -1,16 +1,367 @@
 source: ulfljotur
 year: 2007
-volume: null
+volume: 60
 issue: '3'
-label: Úlfljótur, 3. tbl. (2007)
+label: Úlfljótur, 60. árg. 3. tbl. (2007)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2007_3_tbl.pdf
 sha256: 2b44ccbab20ebedc1f086de0eaac642301d3abb41c0eaa4f3dcded96370566fa
-pages: null
+pages: 433
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 346
+  quality: 0.478
+  runner_up_share: 0.0
+  pages: 433
+  segments:
+  - - 10
+    - 428
+    - 346
+  contested: []
+  bin_ratio: 0.885
+  non_article:
+  - 116
+  - 134
+  - 242
+  - 304
+  - 423
+  - 424
+  - 425
+  - 426
+  - 427
+  - 428
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2007_3_tbl.pdf
-articles: []
+articles:
+- title: Inngangur að meginreglum umhverfisréttar
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 357
+  page_end: 398
+  issue: null
+  pdf_pages:
+  - 11
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 252
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnarskráin og meðferð utanríkismála
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 399
+  page_end: 461
+  issue: null
+  pdf_pages:
+  - 53
+  - 115
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 253
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Leiðardómar Mannréttindadómstóls Evrópu
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 463
+  page_end: 479
+  issue: null
+  pdf_pages:
+  - 117
+  - 133
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 254
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sitt er hvað, sönnunarbyrði og sönnunarmat
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 481
+  page_end: 516
+  issue: null
+  pdf_pages:
+  - 135
+  - 170
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 255
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttarríkið og andstæðingar þess
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 517
+  page_end: 534
+  issue: null
+  pdf_pages:
+  - 171
+  - 188
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 256
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjárdráttur
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 535
+  page_end: 587
+  issue: null
+  pdf_pages:
+  - 189
+  - 241
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 257
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málsmeðferð fyrir Alþjóðadómstólnum í Haag - tiltekin útgáfa einkamálaréttarfars á alþjóðavísu?
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 589
+  page_end: 620
+  issue: null
+  pdf_pages:
+  - 243
+  - 274
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 258
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Markmiðsskýring
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 621
+  page_end: 649
+  issue: null
+  pdf_pages:
+  - 275
+  - 303
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 259
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnspeki Snorra Sturlusonar
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 651
+  page_end: 732
+  issue: null
+  pdf_pages:
+  - 305
+  - 386
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 260
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er draugur í dómsalnum?
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 733
+  page_end: 746
+  issue: null
+  pdf_pages:
+  - 387
+  - 400
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 261
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bein krafa
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 747
+  page_end: 768
+  issue: null
+  pdf_pages:
+  - 401
+  - 422
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 262
+  source_file: null
+  note: ''
+  analysis_notes: []

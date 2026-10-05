@@ -1,16 +1,332 @@
 source: logmannabladid
 year: 2011
-volume: null
+volume: 17
 issue: '3'
-label: Lögmannablaðið, 3. tbl. (2011)
+label: Lögmannablaðið, 17. árg. 3. tbl. (2011)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2011 03 .pdf
 sha256: 63d64b998dd87f44c2e6cee66146da8137c598c86b4c31df11d8b035629e81dc
-pages: null
+pages: 28
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.714
+  runner_up_share: 0.05
+  pages: 28
+  segments:
+  - - 1
+    - 26
+    - 1
+  contested: []
+  bin_ratio: 0.969
+  non_article:
+  - 4
+  - 6
+  - 20
+  - 26
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2011 03 .pdf
-articles: []
+articles:
+- title: Mælistika á árangur réttarkerfisins
+  authors:
+  - Borgar Þór Einarsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vantraust á dómstólum
+  authors:
+  - Brynjar Níelsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Árangursríkur málflutningur
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 8
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 7
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Golfsumarið 2011: Jafntefli sætasti sigurinn'
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 12
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 11
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 13
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Langaði að gera eitthvað allt annað
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 15
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 14
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tilurð og tillögur stjórnlagaráðs
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 20
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 19
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvers vegna á að fjölga þingmönnum? Stjórnarskráin og hugmyndir stjórnlagaráðs
+  authors:
+  - Þorsteinn Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 22
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 21
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Nýjar bækur á bókasafni“ á bls. 24 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Áhrif fjármagnstekna á tekjutengdar bætur við uppgjör bóta skv. 4. mgr. 5. gr. skaðabótalaga
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 24
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kínversk sendinefnd í heimsókn
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

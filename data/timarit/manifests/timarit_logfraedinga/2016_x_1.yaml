@@ -1,16 +1,165 @@
 source: timarit_logfraedinga
 year: 2016
-volume: null
+volume: 66
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2016)
+label: Tímarit lögfræðinga, 66. árg. 1. hefti (2016)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2016_01.pdf
 sha256: 69b4b88712477683c80c37744109753e0dd496f7db94ad812d48bfc5282fbb82
-pages: null
+pages: 130
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.962
+  runner_up_share: 0.0
+  pages: 130
+  segments:
+  - - 2
+    - 126
+    - -1
+  contested: []
+  bin_ratio: 0.867
+  non_article:
+  - 117
+  - 118
+  - 119
+  - 120
+  - 121
+  - 122
+  - 123
+  - 124
+  - 125
+  - 126
+  - 127
+  - 128
+  - 129
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2016_01.pdf
-articles: []
+articles:
+- title: Í tilefni af Brexit
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 2
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Upptaka afleiddrar löggjafar í EES-samninginn – Hvað er unnt að gera betur?
+  authors:
+  - Margrét Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 54
+  issue: null
+  pdf_pages:
+  - 4
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sönnun erlendra réttarreglna að íslenskum rétti
+  authors:
+  - Eiríkur Elís Þorláksson
+  - Fríða Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 55
+  page_end: 84
+  issue: null
+  pdf_pages:
+  - 56
+  - 85
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Efnislegt mat á samrunum samkvæmt 17. gr. c samkeppnislaga nr. 44/2005
+  authors:
+  - Snorri Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 85
+  page_end: 115
+  issue: null
+  pdf_pages:
+  - 86
+  - 116
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,164 @@
 source: ulfljotur
 year: 2004
-volume: null
+volume: 57
 issue: '1'
-label: Úlfljótur, 1. tbl. (2004)
+label: Úlfljótur, 57. árg. 1. tbl. (2004)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_1_tbl.pdf
 sha256: 03b4847c891f2b1f8e3af1d02449db8f1a4d0cff86bc72882ee3f8775de448b8
-pages: null
+pages: 168
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.964
+  runner_up_share: 0.0
+  pages: 168
+  segments:
+  - - 2
+    - 165
+    - -1
+  contested: []
+  bin_ratio: 0.841
+  non_article:
+  - 51
+  - 127
+  - 129
+  - 153
+  - 154
+  - 155
+  - 156
+  - 157
+  - 158
+  - 159
+  - 160
+  - 161
+  - 162
+  - 163
+  - 164
+  - 165
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_1_tbl.pdf
-articles: []
+articles:
+- title: Mat á lögmæti samruna
+  authors:
+  - Grímur Sigurðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 49
+  issue: null
+  pdf_pages:
+  - 6
+  - 50
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 305
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugtakið markaðsráðandi staða í samkeppnisrétti
+  authors:
+  - Oddgeir Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: 86
+  issue: null
+  pdf_pages:
+  - 52
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 306
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fyrning samkeppnislagabrota lögaðila
+  authors:
+  - Þórunn Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 102
+  issue: null
+  pdf_pages:
+  - 88
+  - 103
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 307
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mega keppinautar ekki hittast, heyrast né sjást?
+  authors:
+  - Heimir Örn Herbertsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 103
+  page_end: 125
+  issue: null
+  pdf_pages:
+  - 104
+  - 126
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 308
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „FRÆðABÁLKUR“ á bls. 127 sem skráin nefnir ekki; greinin er talin enda þar'

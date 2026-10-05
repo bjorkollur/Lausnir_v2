@@ -1,16 +1,123 @@
 source: ulfljotur
 year: 2015
-volume: null
+volume: 68
 issue: '1'
-label: Úlfljótur, 1. tbl. (2015)
+label: Úlfljótur, 68. árg. 1. tbl. (2015)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2015_1_tbl.pdf
 sha256: a0cf1899ff1a8940d140ee67eade436b2764560357c49ccbbeedf160f2ab03b7
-pages: null
+pages: 129
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.93
+  runner_up_share: 0.008
+  pages: 129
+  segments:
+  - - 3
+    - 124
+    - 0
+  contested: []
+  bin_ratio: 0.788
+  non_article:
+  - 56
+  - 121
+  - 122
+  - 123
+  - 124
+  - 125
+status: approved
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2015_1_tbl.pdf
-articles: []
+articles:
+- title: Aðferðir við lagasetningu um fjármálafyrirtæki og fjármálamarkaði - Samspil reglna og vísireglna
+  authors:
+  - Arnaldur Hjartarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 55
+  issue: null
+  pdf_pages:
+  - 5
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 123
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Varnarþingsreglur í vátryggingamálum á sviði alþjóðlegs einkamálaréttar
+  authors:
+  - Eiríkur Elís Þorláksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 72
+  issue: null
+  pdf_pages:
+  - 57
+  - 72
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 124
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samvinna EFTA-dómstólsins og íslenskra dómstóla
+  authors:
+  - Kjartan Bjarni Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 120
+  issue: null
+  pdf_pages:
+  - 73
+  - 120
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 125
+  source_file: null
+  note: ''
+  analysis_notes: []

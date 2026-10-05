@@ -1,16 +1,189 @@
 source: ulfljotur
 year: 2014
-volume: null
+volume: 67
 issue: '2'
-label: Úlfljótur, 2. tbl. (2014)
+label: Úlfljótur, 67. árg. 2. tbl. (2014)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2014_2_tbl.pdf
 sha256: 63614489a85fe7770aef0b1a5847cd47911be054fd09ddfc01c0831053bf0a51
-pages: null
+pages: 245
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 148
+  quality: 0.967
+  runner_up_share: 0.004
+  pages: 245
+  segments:
+  - - 3
+    - 242
+    - 148
+  contested: []
+  bin_ratio: 0.876
+  non_article:
+  - 193
+  - 194
+  - 204
+  - 229
+  - 236
+  - 237
+  - 238
+  - 239
+  - 240
+  - 241
+  - 242
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2014_2_tbl.pdf
-articles: []
+articles:
+- title: Endurupptaka og afturköllun stjórnvaldsákvörðunar
+  authors:
+  - Þorvaldur Heiðar Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: 216
+  issue: null
+  pdf_pages:
+  - 5
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 144
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nauðung í samningarétti
+  authors:
+  - Ása Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 217
+  page_end: 246
+  issue: null
+  pdf_pages:
+  - 69
+  - 98
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 145
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Myndvöktun
+  authors:
+  - Katrín Þórðardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 247
+  page_end: 334
+  issue: null
+  pdf_pages:
+  - 99
+  - 186
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 146
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er ríkisábyrgð á skuldbindingum Íbúðalánasjóðs?
+  authors:
+  - Ragnar Halldór Hall
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 335
+  page_end: 336
+  issue: null
+  pdf_pages:
+  - 187
+  - 188
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 147
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Verulegur vafi er á ríkisábyrgð Íbúðalánasjóðs
+  authors:
+  - Daníel Isebarn Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 337
+  page_end: 340
+  issue: null
+  pdf_pages:
+  - 189
+  - 192
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 148
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 343 sem skráin nefnir ekki; greinin er talin enda þar'

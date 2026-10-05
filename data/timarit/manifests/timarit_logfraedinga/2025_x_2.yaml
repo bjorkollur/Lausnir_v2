@@ -1,16 +1,159 @@
 source: timarit_logfraedinga
 year: 2025
-volume: null
+volume: 75
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2025)
+label: Tímarit lögfræðinga, 75. árg. 2. hefti (2025)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2025_02.pdf
 sha256: 25c3369f5fed9ab07b0c8bb7760aee84646c95953039ef49dd1ee40420ed8348
-pages: null
+pages: 224
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 223
+  quality: 0.982
+  runner_up_share: 0.0
+  pages: 224
+  segments:
+  - - 0
+    - 222
+    - 223
+  contested: []
+  bin_ratio: 0.959
+  non_article:
+  - 3
+  - 218
+  - 219
+  - 220
+  - 221
+  - 222
+  - 223
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2025_02.pdf
-articles: []
+articles:
+- title: Nýmæli í evrópskri vinnulöggjöf – stafrænn launamaður
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 223
+  page_end: 225
+  issue: null
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðilasamlag
+  authors:
+  - Sigurður Tómas Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 227
+  page_end: 294
+  issue: null
+  pdf_pages:
+  - 4
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Riftun verksamninga
+  authors:
+  - Gunnar Atli Gunnarsson
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 295
+  page_end: 398
+  issue: null
+  pdf_pages:
+  - 72
+  - 175
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um læknisvottorð til atvinnurekenda II
+  authors:
+  - Gunnar Ármannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 399
+  page_end: 440
+  issue: null
+  pdf_pages:
+  - 176
+  - 217
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

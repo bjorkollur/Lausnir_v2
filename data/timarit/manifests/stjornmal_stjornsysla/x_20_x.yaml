@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2023
 volume: 20
 issue: null
-label: Stjórnmál og stjórnsýsla, 20. árg.
+label: Stjórnmál og stjórnsýsla, 20. árg. (2023)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.691
+status: review
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/1-24_Policy_Capacity.pdf
@@ -22,4 +23,328 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/49-64_A_place-based_approach_and_innovation_in.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/65-86_Work_culture_undermining_equality_object.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/87-110_More_efficient_matriculation_examination.pdf
-articles: []
+articles:
+- title: Stefnugeta í íslenska stjórnkerfinu
+  authors:
+  - Pétur Berg Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 24
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/1-24_Policy_Capacity.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Íslenskir blaðamenn í breyttum heimi: Aukin áhersla á klassísk gildi en undir vaxandi þrýstingi'
+  authors:
+  - Birgir Guðmundsson
+  - Jón Gunnar Ólafsson
+  - Valgerður Jóhannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 48
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/25-48_Icelandic_journalists_in_a_changing_medi.pdf
+  note: ''
+  analysis_notes: []
+- title: Staðbundin nálgun og nýsköpun í hverfum Reykjavíkurborgar
+  authors:
+  - Óskar Dýrmundur Ólafsson
+  - Hervör Alma Árnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 64
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/49-64_A_place-based_approach_and_innovation_in.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Vinnumenning sem grefur undan jafnréttismarkmiðum lögreglu: fjölgun kvenna í starfsumhverfi sem litað er af kynbundinni
+    áreitni'
+  authors:
+  - Finnborg Salome Steinþórsdóttir
+  - Gyða Margrét Pétursdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 86
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/65-86_Work_culture_undermining_equality_object.pdf
+  note: ''
+  analysis_notes: []
+- title: Skilvirkara stúdentspróf eftir styttingu? Reynsla háskólanema og háskólakennara af stefnubreytingum á framhaldsskólastiginu
+  authors:
+  - Guðrún Ragnarsdóttir
+  - Valgerður S. Bjarnadóttir
+  - María Jónasdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 110
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/87-110_More_efficient_matriculation_examination.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Í upphafi skyldi endinn skoða: Stefna stjórnvalda og þróun á sviði nýsköpunar á Íslandi 2003–2022'
+  authors:
+  - Hannes Ottósson
+  - Rögnvaldur Jóhann Sæmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 111
+  page_end: 138
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/111-138_Knowing_Where_You_Are_Heading.pdf
+  note: ''
+  analysis_notes: []
+- title: Áhrif blandaðrar gagnaöflunar á brottfall í Íslensku kosningarannsókninni 2021
+  authors:
+  - Hafsteinn Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 139
+  page_end: 156
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/139-156_The_Effects_of_Mixed-Mode_Data_Collectio.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Representing Iceland on the UN Security Council: Does Nordic membership matter?'
+  authors:
+  - Svanhildur Þorvaldsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 157
+  page_end: 180
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/157-180_Representing_Iceland_on_the_UN_Security.pdf
+  note: ''
+  analysis_notes: []
+- title: 'The Icelandic presidential election of 2024: strategic voting in a second order election?'
+  authors:
+  - Viktor Orri Valgarðsson
+  - Indriði H. Indriðason
+  - Gunnar Helgi Kristinsson
+  - Agnar Freyr Helgason
+  - Hafsteinn Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 181
+  page_end: 246
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 65
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/181-246_The_Icelandic_presidential_election_of_2.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Ég er ekki opinber persóna, ég er opinber starfsmaður: Upplifun opinberra starfsmanna af óvæginni umræðu og áreitni
+    og tillögur þeirra að úrbótum'
+  authors:
+  - Þóra Bjarnadóttir
+  - Jón Gunnar Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 247
+  page_end: 272
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol20/247-272_I_am_not_a_public_figure,_I.pdf
+  note: ''
+  analysis_notes: []

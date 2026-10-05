@@ -1,16 +1,195 @@
 source: timarit_logfraedinga
 year: 2013
-volume: null
+volume: 63
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2013)
+label: Tímarit lögfræðinga, 63. árg. 4. hefti (2013)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2013_04.pdf
 sha256: 480bd3379d4d373646a60418be7ffd0671c3c01c46badfd0d77b9368a895ed19
-pages: null
+pages: 88
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 347
+  quality: 0.943
+  runner_up_share: 0.0
+  pages: 88
+  segments:
+  - - 2
+    - 84
+    - 347
+  contested: []
+  bin_ratio: 0.896
+  non_article:
+  - 31
+  - 55
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2013_04.pdf
-articles: []
+articles:
+- title: Staða héraðsdómstólanna
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 349
+  page_end: 350
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um afstöðu Bandaríkjanna til þjóðaréttar
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 351
+  page_end: 377
+  issue: null
+  pdf_pages:
+  - 4
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lög og siðferði - Hugleiðing um hlutverk siðferðis og dyggða á tímum sívaxandi regluvæðingar
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 379
+  page_end: 401
+  issue: null
+  pdf_pages:
+  - 32
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um lögskýringarleiðirnar
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 403
+  page_end: 414
+  issue: null
+  pdf_pages:
+  - 56
+  - 67
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Anna Guðrún Björnsdóttir: Argentína: Svo miklu meira en tangó, steikur og rauðvín Eyrún Ingadóttir: Starfsemi Lögfræðingafélags
+    Íslands 2011-2014'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 415
+  page_end: 422
+  issue: null
+  pdf_pages:
+  - 68
+  - 75
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

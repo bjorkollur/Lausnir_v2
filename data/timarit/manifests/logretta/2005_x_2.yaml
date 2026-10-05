@@ -1,16 +1,116 @@
 source: logretta
 year: 2005
-volume: null
+volume: 2
 issue: '2'
-label: Lögrétta, 2. tbl. (2005)
+label: Lögrétta, 2. árg. 2. tbl. (2005)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2005 2.tbl.pdf
 sha256: c70651d65f11b16be3ca67366dfaf2ea8f4c1aacbda96e659418f6045aee6b94
-pages: null
+pages: 144
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 1.0
+  pages: 144
+  segments: []
+  contested: []
+  bin_ratio: 0.948
+  non_article: []
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2005 2.tbl.pdf
-articles: []
+articles:
+- title: Skaðabótareglur laga um lausafjárkaup
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 3 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Dómarastarfið og meðferð dómsvaldsins
+  authors:
+  - Sigríður Ingvarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 102
+  - 143
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 5 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: 'Vinnuslys, slysatrygging sjómanna: Hver á rétt á bótum? Ákvörðun bóta. Seinni hluti'
+  authors:
+  - Guðmundur Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 169
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 169 fannst ekki: blaðsíðutal skjalsins óljóst'

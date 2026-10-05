@@ -1,16 +1,398 @@
 source: logmannabladid
 year: 2016
-volume: null
+volume: 22
 issue: '1'
-label: Lögmannablaðið, 1. tbl. (2016)
+label: Lögmannablaðið, 22. árg. 1. tbl. (2016)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2016 01 .pdf
 sha256: e22f6a288b2f816b61bc847cecf81c4b04437474da1e7cc72a19a1319bdce101
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.531
+  runner_up_share: 0.059
+  pages: 32
+  segments:
+  - - 0
+    - 30
+    - 1
+  contested: []
+  bin_ratio: 0.945
+  non_article:
+  - 4
+  - 14
+  - 18
+  - 24
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2016 01 .pdf
-articles: []
+articles:
+- title: Jafnrétti og jólasveinar
+  authors:
+  - Þyrí Steingrímsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tölfræði um félagsmenn LMFÍ
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 6
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 5
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Viðtal við Ólöfu Nordal innanríkisráðherra: Vil gjarnan skilja við þetta ráðuneyti með millidómstigið frágengið'
+  authors:
+  - Ólöf Nordal Innanríkisráðherra
+  author_titles: []
+  article_type: Viðtal
+  page_start: 10
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 9
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sjálfstæði og ábyrgð
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 14
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 13
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 8% kynbundinn launamunur hjá fulltrúum með hdl. réttindi
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 16
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmannsskikkjur hjá héraðsdómstólum
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjarfundabúnaður
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögmannsskikkjur hjá héraðsdómstólum“) er annar titill en skrárinnar („Fjarfundabúnaður“);
+    titli skrárinnar haldið'
+- title: Tjáningarfrelsi lögmanna og matsmenn
+  authors:
+  - Eva Halldórsdóttir
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „matsaðila?“ á bls. 21 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Jólasnapsmót LMFÍ í innanhússknattspyrnu árið 2015
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 24
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 23
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ólögmætar símhlustanir og bannregla leidd fram með gagnályktun
+  authors:
+  - Oddur Ástráðsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 25
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmannablaðið komið á
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 31
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 30
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Breytingar á félagatali“) er annar titill en skrárinnar („Lögmannablaðið komið á“);
+    titli skrárinnar haldið'

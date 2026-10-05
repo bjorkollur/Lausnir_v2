@@ -1,16 +1,163 @@
 source: timarit_logfraedinga
 year: 2011
-volume: null
+volume: 61
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2011)
+label: Tímarit lögfræðinga, 61. árg. 3. hefti (2011)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2011_03.pdf
 sha256: e26ac3cdca050600507b5858684dfa716aa5cb2917606fe70149b15081ce12ce
-pages: null
+pages: 124
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 227
+  quality: 0.976
+  runner_up_share: 0.0
+  pages: 124
+  segments:
+  - - 2
+    - 122
+    - 227
+  contested: []
+  bin_ratio: 0.962
+  non_article:
+  - 5
+  - 45
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+  - 120
+  - 121
+  - 122
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2011_03.pdf
-articles: []
+articles:
+- title: Stjórnskipunar- og eftirlitsnefnd Alþingis
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 229
+  page_end: 231
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Endurupptaka útivistarmáls samkvæmt xxiii. kafla laga nr. 91/1991 um meðferð einkamála
+  authors:
+  - Þorgeir Ingi Njálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 233
+  page_end: 271
+  issue: null
+  pdf_pages:
+  - 6
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Heimild dómara til að dæma sameiginlega forsjá
+  authors:
+  - Hrefna Friðriksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 273
+  page_end: 326
+  issue: null
+  pdf_pages:
+  - 46
+  - 99
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frumvarpi stjórnlagaráðs ber að hafna
+  authors:
+  - Reimar Snæfells Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 327
+  page_end: 340
+  issue: null
+  pdf_pages:
+  - 100
+  - 113
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Reimar Pétursson'

@@ -1,16 +1,230 @@
 source: timarit_logfraedinga
 year: 2014
-volume: null
+volume: 64
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2014)
+label: Tímarit lögfræðinga, 64. árg. 2. hefti (2014)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2014_02.pdf
 sha256: 25f85c719bf214b4b6e9c5f2480d2eb7a040133371f16c8c42d285e5cafcf22f
-pages: null
+pages: 172
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 101
+  quality: 0.971
+  runner_up_share: 0.0
+  pages: 172
+  segments:
+  - - 2
+    - 168
+    - 101
+  contested: []
+  bin_ratio: 0.928
+  non_article:
+  - 160
+  - 161
+  - 162
+  - 163
+  - 164
+  - 165
+  - 166
+  - 167
+  - 168
+  - 169
+  - 170
+  - 171
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2014_02.pdf
-articles: []
+articles:
+- title: Dr. Páll Sigurðsson lætur af störfum
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 103
+  page_end: 104
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hriktir í stoðum réttarríkis?
+  authors:
+  - Jóhannes Sigurðsson
+  - Þórir Júlíusson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 105
+  page_end: 168
+  issue: null
+  pdf_pages:
+  - 4
+  - 67
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Heimildir stjórnvalda til að fresta réttaráhrifum stjórnvaldsákvarðana
+  authors:
+  - Þorvaldur Heiðar Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 169
+  page_end: 218
+  issue: null
+  pdf_pages:
+  - 68
+  - 117
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Litis pendens áhrif í einkamálum samkvæmt lögum nr. 7/2011 um Lúganósamninginn
+  authors:
+  - Eiríkur Elís Þorláksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 219
+  page_end: 239
+  issue: null
+  pdf_pages:
+  - 118
+  - 139
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýjar reglur um málsgögn í einkamálum og sakamálum
+  authors:
+  - Ingveldur Einarsdóttir
+  - Viðar Már Matthíasson
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 241
+  page_end: 256
+  issue: null
+  pdf_pages:
+  - 140
+  - 155
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um kerfi til styrkingar íslensku krónunni
+  authors:
+  - Stefán Már Stefánsson
+  - Einar Guðbjartsson
+  - Peter Ørebeck
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 257
+  page_end: 260
+  issue: null
+  pdf_pages:
+  - 156
+  - 159
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

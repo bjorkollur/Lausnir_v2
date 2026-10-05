@@ -1,16 +1,492 @@
 source: logmannabladid
 year: 2017
-volume: null
+volume: 23
 issue: '2'
-label: Lögmannablaðið, 2. tbl. (2017)
+label: Lögmannablaðið, 23. árg. 2. tbl. (2017)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2017 02 .pdf
 sha256: ef8b8a7e4dd396ddb1002fe0d1c3e2c30742482f7c72323d0c08128f29fa7896
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.889
+  runner_up_share: 0.0
+  pages: 36
+  segments:
+  - - 1
+    - 34
+    - 1
+  contested: []
+  bin_ratio: 0.947
+  non_article:
+  - 4
+  - 33
+  - 35
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2017 02 .pdf
-articles: []
+articles:
+- title: „Blessað veri grasið“
+  authors:
+  - Eva Halldórsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipun dómara
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dómstólar á tímamótum
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 7
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sögulegt uppgjör á aðalfundi
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 12
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 11
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðild Lögmannafélags Íslands að kærumálum fyrir úrskurðarnefnd lögmanna
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 15
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 14
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af landaheitum og lífeyri, verkþekkingu og hrelliklámi
+  authors:
+  - Auður Björg Jónsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sjálfstæði lögmannastéttarinnar
+  authors:
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 17
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Víðir Smári Petersen) stangast á við síðuna (Þórunn Guðmundsdóttir); skránni haldið'
+- title: Ábyrgð stjórnarmanna og starfsmanna fyrirtækja
+  authors:
+  - Guðríður Svana Bjarnadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Upplýsingalög í opnu og lýðfrjálsu samfélagi
+  authors:
+  - Ívar Pálsson
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 21
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rafrænt réttarkerfi
+  authors:
+  - Katrín Smári Ólafsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 24
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 23
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dómstólanna
+  authors:
+  - Guðný Hjaltadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 25
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Síðast en ekki síst - að loknum lagadegi
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 30
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 29
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðgangur að gögnum og ræðutími lögmanna
+  authors:
+  - Valgeir Þór Þorvaldsson
+  author_titles: []
+  article_type: Annað
+  page_start: 32
+  page_end: 32
+  issue: null
+  pdf_pages:
+  - 31
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Athugasemd vegna fundar: Frummælandinn á að fá að vera fyrstur'
+  authors:
+  - Konráð Jónsson
+  author_titles: []
+  article_type: Annað
+  page_start: 33
+  page_end: 33
+  issue: null
+  pdf_pages:
+  - 32
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ný stjórn FKL Málstofa I, Lagadagurinn 2017. Elfur Logadóttir.
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 35
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 34
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

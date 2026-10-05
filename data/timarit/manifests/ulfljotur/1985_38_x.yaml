@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.56
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/132.pdf
@@ -24,4 +25,379 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/513.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/674.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/675.pdf
-articles: []
+articles:
+- title: Villan og hið ólögmæta atferli hins brotlega
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 52
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 740
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/513.pdf
+  note: ''
+  analysis_notes: []
+- title: Í boði hennar hátignar den Gulblakke Hoppe
+  authors:
+  - Jóhannes Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 74
+  page_end: 75
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 741
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/2205.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 76, prentað bls. 74'
+- title: Vanskil og framleiga sem riftunarástæður húsaleigusamnings
+  authors:
+  - Þorsteinn Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 95
+  page_end: 105
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 742
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/219.pdf
+  note: ''
+  analysis_notes: []
+- title: Bótaréttur vegna alkalískemmda í mannvirkjum
+  authors:
+  - Hrafn Bragason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 118
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 743
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/218.pdf
+  note: ''
+  analysis_notes: []
+- title: Um byggingarleyfis- og fasteignagjöld af nýju flugstöðvarbyggingunni á Keflavíkurflugvelli
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 119
+  page_end: 127
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 744
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/457.pdf
+  note: ''
+  analysis_notes: []
+- title: Af siðferðis og réttarreglum
+  authors:
+  - Þorsteinn Hjaltason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 129
+  page_end: 133
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 745
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/675.pdf
+  note: ''
+  analysis_notes: []
+- title: Athugasemdir frá Garðari Gíslasyni, borgardómara
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 134
+  page_end: 134
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 746
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/674.pdf
+  note: ''
+  analysis_notes: []
+- title: Erstattning för miljöskador
+  authors:
+  - Bengtsson
+  - Bertil
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 162
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 747
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/471.pdf
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Bertil Bengtsson'
+- title: Juridiske infaldsvinkler på den danske lovgivning om fysisk planlægning
+  authors:
+  - Ole Christiansen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 163
+  page_end: 178
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 748
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/132.pdf
+  note: ''
+  analysis_notes: []
+- title: Miljöskyddet speciellt ur vattenrattslig synspunkt
+  authors:
+  - Erkki J. Hollo
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 179
+  page_end: 187
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 749
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/473.pdf
+  note: ''
+  analysis_notes: []
+- title: Forholdet mellem klassisk jura og moderne miljöret
+  authors:
+  - W.E.v. Eyben
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 189
+  page_end: 197
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 750
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/472.pdf
+  note: ''
+  analysis_notes: []
+- title: Kort oversigt over dansk miljöret
+  authors:
+  - W.E. von Eyben
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 199
+  page_end: 208
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 751
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/133.pdf
+  note: ''
+  analysis_notes: []

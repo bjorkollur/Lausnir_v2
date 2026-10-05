@@ -1,16 +1,162 @@
 source: timarit_logfraedinga
 year: 2023
-volume: null
+volume: 73
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2023)
+label: Tímarit lögfræðinga, 73. árg. 2. hefti (2023)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2023_02.pdf
 sha256: a683e21e0ea408c4ff0e3d7a7983f1dbc2c73fd37a29b314c5cdf73f0ec500e3
-pages: null
+pages: 214
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 243
+  quality: 0.977
+  runner_up_share: 0.0
+  pages: 214
+  segments:
+  - - 2
+    - 211
+    - 243
+  contested: []
+  bin_ratio: 0.944
+  non_article:
+  - 7
+  - 207
+  - 208
+  - 209
+  - 210
+  - 211
+  - 212
+  - 213
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2023_02.pdf
-articles: []
+articles:
+- title: Réttarstaða trans fólks á Íslandi
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 245
+  page_end: 249
+  issue: null
+  pdf_pages:
+  - 2
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Dreifðir fjármagnsmarkaðir á bálkakeðjum: Fjárfestavernd í viðskiptum með sýndareignir og snjallsamninga á stafrænum
+    viðskiptavettvöngum'
+  authors:
+  - Þorvarður A. Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 251
+  page_end: 348
+  issue: null
+  pdf_pages:
+  - 8
+  - 105
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Reglur um hagsmunaárekstra og skipulagskröfur með tilkomu MiFID II
+  authors:
+  - Aðalsteinn E. Jónasson
+  - Andri Fannar Bergþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 349
+  page_end: 388
+  issue: null
+  pdf_pages:
+  - 106
+  - 145
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sératkvæði dómara
+  authors:
+  - Eiríkur Elís Þorláksson
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 389
+  page_end: 449
+  issue: null
+  pdf_pages:
+  - 146
+  - 206
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

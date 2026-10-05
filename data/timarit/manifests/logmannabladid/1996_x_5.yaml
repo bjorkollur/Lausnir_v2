@@ -5,12 +5,19 @@ issue: '5'
 label: Lögmannablaðið, 5. tbl. (1996)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1996 05.pdf
 sha256: 76bfbd75bd051f83208e522501b32271726c6dde60125a765cd44b40c7d7b827
-pages: null
+pages: 13
 year_end: null
-page_map: {}
-status: pending
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 13
+  segments: []
+  contested: []
+  bin_ratio: 0.0
+status: review
 confidence: 0.0
-error: null
+error: ekkert textalag — þarf OCR
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1996 05.pdf
 articles: []

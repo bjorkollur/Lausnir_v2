@@ -1,16 +1,436 @@
 source: logmannabladid
 year: 2015
-volume: null
+volume: 21
 issue: '4'
-label: Lögmannablaðið, 4. tbl. (2015)
+label: Lögmannablaðið, 21. árg. 4. tbl. (2015)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2015 04 .pdf
 sha256: 304d58295ed789f1007b870f83b9c67ef854219c6816e11c633b0b6d656331a8
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.667
+  runner_up_share: 0.042
+  pages: 36
+  segments:
+  - - 1
+    - 34
+    - 1
+  contested: []
+  bin_ratio: 0.926
+  non_article:
+  - 4
+  - 6
+  - 8
+  - 14
+  - 17
+  - 20
+  - 22
+  - 26
+  - 27
+  - 31
+  - 34
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2015 04 .pdf
-articles: []
+articles:
+- title: Ping pong
+  authors:
+  - Þyrí Steingrímsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Námskeið til öflunar réttinda til að vera héraðsdómslögmaður
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Jólahádegisverður
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 8
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 7
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Jólahugvekja Jóhönnu Vigdísar Arnardóttur: Að leika lögfræðing og vera „multipotentialite“'
+  authors:
+  - Jóhanna Vigdís Arnardóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 9
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Leiðin langa að hrl.
+  authors:
+  - Eyrún Ingadóttir
+  - Þyrí Steingrímsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 12
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 11
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Af hádegisverðarfundi LMFÍ og DÍ: Markvissari málsmeðferð – málflutningur, skjalagerð og gagnaframlagning'
+  authors:
+  - Anna Lilja Hallgrímsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 16
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hagsmunagæsla lögmanna og hlutlæg álit
+  authors:
+  - Eva Halldórsdóttir
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 19
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 18
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Með storminn í fangið
+  authors:
+  - Kristrún Elsa Harðardóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 24
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 23
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Símhlustanir
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: „Staðfest með vísan til forsendna“
+  authors:
+  - Hróbjartur Jónatansson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 28
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugmyndir um millidómstig
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 33
+  page_end: 33
+  issue: null
+  pdf_pages:
+  - 32
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Umsögn um frumvarp til laga um fullnustu refsinga
+  authors:
+  - Laganefnd LMFÍ
+  author_titles: []
+  article_type: Annað
+  page_start: 34
+  page_end: 34
+  issue: null
+  pdf_pages:
+  - 33
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

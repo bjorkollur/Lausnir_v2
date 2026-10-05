@@ -1,16 +1,423 @@
 source: logmannabladid
 year: 2009
-volume: null
+volume: 15
 issue: '3'
-label: Lögmannablaðið, 3. tbl. (2009)
+label: Lögmannablaðið, 15. árg. 3. tbl. (2009)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2009 03.pdf
 sha256: d272eb816d03c54c245c91dc7414e1196306c1dd4a096d5ad3e7f7c63a025814
-pages: null
+pages: 28
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.857
+  runner_up_share: 0.0
+  pages: 28
+  segments:
+  - - 1
+    - 26
+    - 1
+  contested: []
+  bin_ratio: 0.94
+  non_article:
+  - 4
+  - 26
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2009 03.pdf
-articles: []
+articles:
+- title: Styrkja þarf stoðirnar
+  authors:
+  - Borgar Þór Einarsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Könnun Lögmannablaðsins: Mikil áhrif bankahrunsins á störf lögmanna'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 5
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Innheimtulög og efling dómstóla ásamt fleiru
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 10
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 9
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Hringborðsumræður: Eru verkefnin framundan réttarkerfinu ofviða?'
+  authors:
+  - Borgar Þór Einarsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 12
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 11
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mikil aðsókn á hdl. námskeið
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 15
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 14
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Úr myndasafni: Söguleg stund: Tvær konur í stjórn LMFÍ'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 15
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kleinufundir
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 17
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 16
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Að efla rétt og hrinda órétti?
+  authors:
+  - Gestur Jónsson
+  - Sigríður Rut Júlíusdóttir
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 17
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Námskeið haustannar“ á bls. 20 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Staða dómstólanna
+  authors:
+  - Lárentsínus Kristjánsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 21
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 20
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félagslíf og fjallamennska
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 23
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 22
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gott golfsumar að baki
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 24
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 23
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Reynslan af sáttamiðlun í einkamálum
+  authors:
+  - Helgi I. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.838
+status: review
+confidence: 0.55
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/2073.pdf
@@ -24,4 +25,381 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/637.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/638.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/639.pdf
-articles: []
+articles:
+- title: Um viðskiptabréf
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 39
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 681
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/223.pdf
+  note: ''
+  analysis_notes: []
+- title: Laun sjómanna í slysa- eða veikindaforföllum
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 43
+  page_end: 49
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 682
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/327.pdf
+  note: ''
+  analysis_notes: []
+- title: Lagamál. Athugasemd við grein Þorsteins Hjaltasonar í 3. Tbl. Úlfljóts 1987
+  authors:
+  - Sigurgeir Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 61
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 684
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/273.pdf
+  note: ''
+  analysis_notes: []
+- title: Aðgreiningarhæfi vörumerkja skv. vörumerkjalögunum
+  authors:
+  - Jón L. Arnalds
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 123
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 686
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/2073.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 123, prentað bls. 117'
+- title: Endurgreiðsla ofgreidds fjár
+  authors:
+  - Sigríður Jósepsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 168
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 687
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/224.pdf
+  note: ''
+  analysis_notes: []
+- title: Starfsvitjun. Af sjónarhóli sýslumanns
+  authors:
+  - Friðjón Guðröðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 187
+  page_end: 190
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 689
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/639.pdf
+  note: ''
+  analysis_notes: []
+- title: Hälsingar från Sverige
+  authors:
+  - Svala Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 201
+  page_end: 203
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 690
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/2083.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 202, prentað bls. 201'
+- title: Lagamál
+  authors:
+  - Þórey Aðalsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 60
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 693
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/637.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 259, prentað bls. 53'
+- title: Lagamál
+  authors:
+  - Þórey Aðalsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 176
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 693
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/638.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 259, prentað bls. 173'
+- title: Skuldaröðin við gjaldþrotaskipti og skipti skuldafrágöngubúa
+  authors:
+  - Markús Sigurbjörnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 219
+  page_end: 245
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 691
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/580.pdf
+  note: ''
+  analysis_notes: []
+- title: Sönnun og sönnunarbyrði. Síðari hluti
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 247
+  page_end: 256
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 692
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/579.pdf
+  note: ''
+  analysis_notes: []
+- title: 03.00.10. heimspekilegum forspjallsvísindum
+  authors:
+  - Baldvin Björn
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 269
+  page_end: 270
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 694
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/2095.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 270, prentað bls. 269'

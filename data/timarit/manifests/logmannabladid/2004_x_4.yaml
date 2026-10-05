@@ -1,16 +1,430 @@
 source: logmannabladid
 year: 2004
-volume: null
+volume: 10
 issue: '4'
-label: Lögmannablaðið, 4. tbl. (2004)
+label: Lögmannablaðið, 10. árg. 4. tbl. (2004)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2004 04.pdf
 sha256: 17b9647b492e7a15a68495f25d9977d32f8e916da4f885748e326e11f6a2fe91
-pages: null
+pages: 40
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.8
+  runner_up_share: 0.0
+  pages: 40
+  segments:
+  - - 2
+    - 37
+    - 1
+  contested: []
+  bin_ratio: 0.96
+  non_article:
+  - 33
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2004 04.pdf
-articles: []
+articles:
+- title: Frá ritstjórn
+  authors:
+  - Guðrún Björg Birgisdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 3
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 5 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: „Þar sem peningar eru, þar eru konur ekki“ – Konur í lögmannastéttinni
+  authors:
+  - Eyrún Ingadóttir
+  - Guðrún Björg Birgisdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 5
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kvennaboð LOGOS
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vinnutími og starfsumhverfi kvenna – spurningar og svör
+  authors:
+  - Ragnheiður Margrét Ólafsdóttir
+  - Lára V. Júlíusdóttir
+  - Herdís Hallmarsdóttir
+  - Berglind Svavarsdóttir
+  - Þórdís Bjarnadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 13
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „hrl.“ á bls. 15 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'á síðunni stendur: Ragnheiður Margrét'
+- title: Stofnun FKL hefur haft mikil áhrif
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 17
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 16
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tölulegar upplýsingar í víðara samhengi
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 19
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 18
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Jólin koma
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 24
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 23
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af námsstörfum í Róm
+  authors:
+  - Hilmar Gunnlaugs
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 25
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: page
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 29
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 28
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Pistill formanns
+  authors:
+  - Gunnar Jónsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 30
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 29
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Meistaramót LMFÍ í knattspyrnu utanhúss anno 2004. Hið 10. í röðinni
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 32
+  page_end: 33
+  issue: null
+  pdf_pages:
+  - 31
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Meist-“) er annar titill en skrárinnar („Meistaramót LMFÍ í knattspyrnu utanhúss
+    anno 2004. Hið 10. í röðinni“); titli skrárinnar haldið'
+- title: Fréttir frá félagsdeild
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 35
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 34
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kínversk sendinefnd í heimsókn hjá LMFÍ
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 36
+  page_end: 38
+  issue: null
+  pdf_pages:
+  - 35
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

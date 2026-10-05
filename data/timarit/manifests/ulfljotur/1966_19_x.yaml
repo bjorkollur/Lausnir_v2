@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.869
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/115.pdf
@@ -19,4 +20,224 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/192.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/64.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/667.pdf
-articles: []
+articles:
+- title: Um vernd mannréttinda og náttúrurétt
+  authors:
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 21
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1043
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/667.pdf
+  note: ''
+  analysis_notes: []
+- title: Nordisk rättsgemenskab och nordisk lagstiftningssamarbete
+  authors:
+  - Gustaf Petrèn
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 22
+  page_end: 30
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1044
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/1320.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 30, prentað bls. 22'
+- title: Grennd
+  authors:
+  - Magnús Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 75
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1045
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/192.pdf
+  note: ''
+  analysis_notes: []
+- title: Umboðsmenn þjóðþinga á Norðurlöndum
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 108
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1047
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/115.pdf
+  note: ''
+  analysis_notes: []
+- title: Codex 25 ára
+  authors:
+  - Þorsteinn Skúlason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 119
+  page_end: 122
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1050
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/1337.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 122, prentað bls. 119'
+- title: Viðtaka pólitískra flóttamanna
+  authors:
+  - Þórður Eyjólfsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 145
+  page_end: 158
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1051
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/1345.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 158, prentað bls. 145'
+- title: Þættir úr sögu landhelgisgæzlunnar
+  authors:
+  - Garðar Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 159
+  page_end: 164
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1052
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/64.pdf
+  note: ''
+  analysis_notes: []

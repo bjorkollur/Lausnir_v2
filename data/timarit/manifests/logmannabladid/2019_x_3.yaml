@@ -1,16 +1,378 @@
 source: logmannabladid
 year: 2019
-volume: null
+volume: 25
 issue: '3'
-label: Lögmannablaðið, 3. tbl. (2019)
+label: Lögmannablaðið, 25. árg. 3. tbl. (2019)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2019 03 .pdf
 sha256: 9ac5c78e19269417252404d49f41914322903eab1f2b4c681bb165fcb6672790
-pages: null
+pages: 44
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.795
+  runner_up_share: 0.0
+  pages: 44
+  segments:
+  - - 1
+    - 41
+    - 1
+  contested: []
+  bin_ratio: 0.949
+  non_article:
+  - 4
+  - 14
+  - 17
+  - 30
+  - 34
+  - 41
+  - 42
+  - 43
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2019 03 .pdf
-articles: []
+articles:
+- title: Samkeppnisumhverfi lögmanna
+  authors:
+  - Berglind Svavarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aldarminning um Ármann Snævarr
+  authors:
+  - Flóki Ásgeirsson
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ætlum við að fylgja nágrönnum okkar í nýjustu tæknibyltingunni?
+  authors:
+  - Guðrún Ólöf Olsen
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 7
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Starfsnám laganema
+  authors:
+  - Eleonora Bergþórsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 12
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 11
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ríkið byggði á lögum
+  authors:
+  - Erla S. Árnadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fram og aftur Reykjanesbrautina Viðtal við Vilhjálm H. Vilhjálmsson
+  authors:
+  - Daníel Isebarn Ágústsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 19
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 18
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hlustunarpípa dómstólanna
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 25
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Eyrún Ingadóttir) stangast á við síðuna (Könnun Meðal Lögmanna, Ákærenda Um Dómstólana);
+    skránni haldið'
+- title: Margt býr í skikkjunni
+  authors:
+  - Marín Guðrún Hrafnsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 32
+  page_end: 34
+  issue: null
+  pdf_pages:
+  - 31
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Marín Guðrún Hrafnsdóttir) stangast á við síðuna (Í Svíþjóð, Finnlandi Tíðkast Ekki Að);
+    skránni haldið'
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 36
+  page_end: 37
+  issue: null
+  pdf_pages:
+  - 35
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Áhrif nýrrar peningaþvættislöggjafar á störf lögmanna
+  authors:
+  - Kristín Ólafsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 38
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 37
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um rétt sakborninga til að fá upplýsingar um sakarefni áður en lögregluskýrsla fer fram
+  authors:
+  - Sara Pálsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 40
+  page_end: 41
+  issue: null
+  pdf_pages:
+  - 39
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

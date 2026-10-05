@@ -1,16 +1,547 @@
 source: logmannabladid
 year: 2002
-volume: null
+volume: 8
 issue: '3'
-label: Lögmannablaðið, 3. tbl. (2002)
+label: Lögmannablaðið, 8. árg. 3. tbl. (2002)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2002 03.pdf
 sha256: 4277ff4cc7a02ce5df97d30fe3df8686999db8b1ffd058688e0b0daf3547bf32
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.694
+  runner_up_share: 0.0
+  pages: 36
+  segments:
+  - - 2
+    - 31
+    - 1
+  contested: []
+  bin_ratio: 0.925
+  non_article:
+  - 4
+  - 17
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2002 03.pdf
-articles: []
+articles:
+- title: Frá ritstjórn
+  authors:
+  - Þórður Bogason
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Forsætisfundur norrænu lögmannafélaganna
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 6
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 5
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 9 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Lögmenn á slóðum Einars Benediktssonar skálds
+  authors:
+  - Lúðvík E. Kaaber
+  author_titles: []
+  article_type: Frétt
+  page_start: 10
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 9
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félag um vátryggingarétt
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipting lífeyrisréttinda milli sjóðfélaga og maka
+  authors:
+  - Þórey S. Þórðardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 14
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 13
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Pistill formanns
+  authors:
+  - Gunnar Jónsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 16
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 19
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 18
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Framtíð laganáms á Íslandi – sérstaða Háskóla Íslands
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Framtíð laganáms á Íslandi – sérstaða Háskólans í Reykjavík
+  authors:
+  - Þórður S. Gunnarsson
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Framtíð laganáms á Íslandi – sérstaða Viðskiptaháskólans á Bifröst
+  authors:
+  - Ingibjörg Þorsteinsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 23
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 22
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Framtíð laganáms á Íslandi – laganám við Háskólann á Akureyri
+  authors:
+  - Þorsteinn Gunnarsson
+  author_titles: []
+  article_type: Annað
+  page_start: 25
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 24
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Starfsmannabreytingar á skrifstofu Lögmannafélags Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipting lífeyrisréttinda við skilnað – Dómur Hæstaréttar frá 26. apríl 2002
+  authors:
+  - Helgi Jóhannesson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Groa@leiti.is
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 27
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: NIR ráðstefna í Reykjavík
+  authors:
+  - Jón Vilberg Guðjónsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 29
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 28
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fréttir frá félagsdeild
+  authors:
+  - Jóna K. Kristinsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 31
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 30
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Námsferð til New York
+  authors:
+  - Ragnar H. Hall
+  author_titles: []
+  article_type: Frétt
+  page_start: 32
+  page_end: 32
+  issue: null
+  pdf_pages:
+  - 31
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

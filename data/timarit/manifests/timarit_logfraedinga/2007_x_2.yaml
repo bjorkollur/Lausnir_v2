@@ -1,16 +1,163 @@
 source: timarit_logfraedinga
 year: 2007
-volume: null
+volume: 57
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2007)
+label: Tímarit lögfræðinga, 57. árg. 2. hefti (2007)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2007_02.pdf
 sha256: 2255d90342081f2bd3822d92b51e864c8bb0d217429620d78636e80535d47387
-pages: null
+pages: 105
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 102
+  quality: 0.952
+  runner_up_share: 0.0
+  pages: 105
+  segments:
+  - - 1
+    - 100
+    - 102
+  contested: []
+  bin_ratio: 0.897
+  non_article:
+  - 74
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2007_02.pdf
-articles: []
+articles:
+- title: Nýjar úrlausnir Mannréttindadómstóls Evrópu um ne bis in idem
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 103
+  page_end: 106
+  issue: null
+  pdf_pages:
+  - 1
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hinn kennilegi grundvöllur 73. gr. stjórnarskrárinnar
+  authors:
+  - Eiríkur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 146
+  issue: null
+  pdf_pages:
+  - 5
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Erla María: Viðurkennd réttarsköpun dómstóla'
+  authors:
+  - Baudenbacher, Carl
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 147
+  page_end: 175
+  issue: null
+  pdf_pages:
+  - 45
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Carl Baudenbacher'
+- title: Áhrifamáttur refsinga
+  authors:
+  - Margrét Sæmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 177
+  page_end: 194
+  issue: null
+  pdf_pages:
+  - 75
+  - 92
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

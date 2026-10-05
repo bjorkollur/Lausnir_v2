@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2013
 volume: 9
 issue: null
-label: Stjórnmál og stjórnsýsla, 9. árg.
+label: Stjórnmál og stjórnsýsla, 9. árg. (2013)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.523
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/1-20_Scotland_as_an_Independent_Small_State.pdf
@@ -40,4 +41,879 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/549-566_EU´s_image_among_Icelandic_voters_and_th.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/567-584_What_is_the_value_of_volunteers_for.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/79-99_Excellence,_Innovation_and_Academic_Free.pdf
-articles: []
+articles:
+- title: 'Scotland as an Independent Small State: Where would it seek shelter? Alyson JK Bailes, Adjunct Professor of Political
+    Science, University of Iceland, Baldur Thorhallsson, Professor of Political Science, University of Iceland and Rachael
+    Lorna Johnstone, Senior Lecturer in Law, University of Akureyri'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 20
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/1-20_Scotland_as_an_Independent_Small_State.pdf
+  note: ''
+  analysis_notes: []
+- title: Boðhlaup kynslóðanna
+  authors:
+  - Gylfi Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 51
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/21-51_The_generational_relay_race.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Hvernig opinber stefna gerist: Stefnurek í málefnum lesblindra á Íslandi 1990-2007'
+  authors:
+  - Nanna Björk Bjarnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 77
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/53-77_How_public_policies_happen.pdf
+  note: ''
+  analysis_notes: []
+- title: Excellence, Innovation and Academic Freedom in University Policy in Iceland
+  authors:
+  - Ingólfur Ásgeir Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 79
+  page_end: 99
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 20
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/79-99_Excellence,_Innovation_and_Academic_Free.pdf
+  note: ''
+  analysis_notes: []
+- title: Áhrif hvata á störf lækna
+  authors:
+  - Una Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 101
+  page_end: 112
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/101-112_The_Impact_of_Incentives_on_Physician_Pr.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Iceland’s External Affairs from 1400 to the Reformation: Anglo-German Economic and Societal Shelter in a Danish
+    Political Vacuum'
+  authors:
+  - Baldur Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 113
+  page_end: 137
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 24
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/113-137_Iceland’s_External_Affairs_from_1400_to.pdf
+  note: ''
+  analysis_notes: []
+- title: Vestnorden. A functional region?
+  authors:
+  - Grétar Thór Eythórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 139
+  page_end: 154
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/139-154_Vestnorden.pdf
+  note: ''
+  analysis_notes: []
+- title: Útgjöld ríkisins í Norðausturkjördæmi og tekjur ímyndaðs „Norðausturríkis“
+  authors:
+  - Þóroddur Bjarnason
+  - Jón Þorvaldur Heiðarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 170
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/155-179_State_expenditure_in_the_Northeast_distr.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 155–179, PDF-skjalið bls. 155–170
+- title: „Við gerum bara eins og við getum“ - Þjónusta við fólk með fjölþættar skerðingar
+  authors:
+  - Guðný Jónsdóttir
+  - Snæfríður Þ. Egilson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 190
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/171-190__We_do_as_well_as_we_can.pdf
+  note: ''
+  analysis_notes: []
+- title: Stjórnskipunin og meðferð á fé lífeyrissjóða
+  authors:
+  - Ragnhildur Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 191
+  page_end: 210
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/191-210_The_Constitution_and_the_Use_of_Pension.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Gefa viðbrögð við eldgosi innsýn í krísustjórnun: Dæmi frá Icelandair'
+  authors:
+  - Regína Ásdísardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 211
+  page_end: 236
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/211-236_Do_reactions_to_volcanic_eruptions_give.pdf
+  note: ''
+  analysis_notes: []
+- title: Good Administration as a Fundamental Right
+  authors:
+  - Margrét Vala Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 237
+  page_end: 255
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 18
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/237-255_Good_Administration_as_a_Fundamental_Rig.pdf
+  note: ''
+  analysis_notes: []
+- title: Raunhæf skynsemi eða stefnufálm? Samband þings og framkvæmdarvalds við undirbúning opinberrar stefnumótunar
+  authors:
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 257
+  page_end: 277
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/257-277_Bounded_rationality_or_policy_fumble__Pa.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Staðgöngumæður: Frjálsar og fórnfúsar konur'
+  authors:
+  - Jónína Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 279
+  page_end: 300
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/279-300_The_surrogate_mothers.pdf
+  note: ''
+  analysis_notes: []
+- title: A Small-States Perspective on the European Citizens’ Initiative
+  authors:
+  - Maximilian Conrad
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 301
+  page_end: 322
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/301-322_A_Small-States_Perspective_on_the_Europe.pdf
+  note: ''
+  analysis_notes: []
+- title: Equal rights to paid parental leave and caring fathers- the case of Iceland
+  authors:
+  - Ásdís A. Arnalds
+  - Ingólfur V. Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 323
+  page_end: 344
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/323-344_Equal_rights_to_paid_parental_leave_and.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Well-Being in the Nordic Countries:'
+  authors:
+  - An International Comparison
+  - Stefán Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 345
+  page_end: 372
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/345-372_Well-Being_in_the_Nordic_Countries.pdf
+  note: ''
+  analysis_notes: []
+- title: Er heilsa metin með hlutfallslegum eða algildum hætti?
+  authors:
+  - Agnar Hafliði Andrésson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 373
+  page_end: 394
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/373-394_Is_health_valued_in_relative_or_absolute.pdf
+  note: ''
+  analysis_notes: []
+- title: Fíkniefni, íslenskt samfélag og nýir kostir í stefnumótun
+  authors:
+  - Helgi Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 395
+  page_end: 414
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/395-414_Drugs,_Icelandic_society_and_new_policy.pdf
+  note: ''
+  analysis_notes: []
+- title: Þjónandi forysta og rannsóknir hér á landi
+  authors:
+  - Sigrún Gunnarsdóttir
+  - Birna Gerður Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 415
+  page_end: 438
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/415-438_Servant_leadership_and_research_in_Icela.pdf
+  note: ''
+  analysis_notes: []
+- title: Einelti og líðan starfsfólks sveitarfélaga á tímum efnahagsþrenginga
+  authors:
+  - Hjördís Sigursteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 439
+  page_end: 454
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/439-454_Bullying_and_well-being_of_municipalitie.pdf
+  note: ''
+  analysis_notes: []
+- title: Íslensk menningarstefna
+  authors:
+  - Njörður Sigurjónssson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 455
+  page_end: 472
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/455-472_Icelandic_Cultural_Policy.pdf
+  note: ''
+  analysis_notes: []
+- title: Pension benefits outside of the pension system
+  authors:
+  - Ólafur Ísleifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 473
+  page_end: 488
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/473-488_Pension_benefits_outside_of_the_pension.pdf
+  note: ''
+  analysis_notes: []
+- title: Verðtrygging, þjóðarsátt og inntak kjarasamninga
+  authors:
+  - Þórólfur Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 489
+  page_end: 508
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/489-508_Indexation,_national_consent,_and_collec.pdf
+  note: ''
+  analysis_notes: []
+- title: Pólitísk markaðsfjölmiðlun
+  authors:
+  - Birgir Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 509
+  page_end: 530
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/509-530_A_Politically_Commercial_Media_System.pdf
+  note: ''
+  analysis_notes: []
+- title: 'The Faroe Islands and the Arctic: Genesis of a Strategy Alyson J.K. Bailes, Adjunct Professor, University of Iceland
+    and Beinta í Jákupsstovu, Associate Professor in Political Science at Molde University College, Norway'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 531
+  page_end: 548
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/531-548_The_Faroe_Islands_and_the_Arctic.pdf
+  note: ''
+  analysis_notes: []
+- title: Ímynd ESB meðal íslenskra kjósenda og mikilvægi áhersluþátta í umræðunni um aðild
+  authors:
+  - Friðrik Eysteinsson
+  - Dagbjört Ágústa H. Diego
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 549
+  page_end: 566
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/549-566_EU´s_image_among_Icelandic_voters_and_th.pdf
+  note: ''
+  analysis_notes: []
+- title: Hverju skipta sjálfboðaliðar fyrir íslensk félagasamtök?
+  authors:
+  - Ómar H. Kristmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 567
+  page_end: 584
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/567-584_What_is_the_value_of_volunteers_for.pdf
+  note: ''
+  analysis_notes: []

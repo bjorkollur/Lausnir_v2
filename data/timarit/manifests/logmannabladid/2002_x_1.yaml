@@ -1,16 +1,164 @@
 source: logmannabladid
 year: 2002
-volume: null
+volume: 8
 issue: '1'
-label: Lögmannablaðið, 1. tbl. (2002)
+label: Lögmannablaðið, 8. árg. 1. tbl. (2002)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2002 01.pdf
 sha256: 3cc9d53a89df4512a2e52daf30ea5c33a561d4c6ad78f10948d2eae9f8891375
-pages: null
+pages: 28
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.464
+  runner_up_share: 0.0
+  pages: 28
+  segments:
+  - - 1
+    - 26
+    - 1
+  contested: []
+  bin_ratio: 0.932
+  non_article:
+  - 12
+  - 17
+  - 20
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2002 01.pdf
-articles: []
+articles:
+- title: Ónákvæmni í dómsorði Bls.
+  authors:
+  - Viðar Lúðvíksson
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Fjöldi og samsetning félagsmanna í Lögmannafélagi Íslands í lok starfsársins 2001-2002“)
+    er annar titill en skrárinnar („Ónákvæmni í dómsorði Bls.“); titli skrárinnar haldið'
+- title: Mismunandi forræði á beiðni um dómkvatt mat Bls.
+  authors:
+  - Björn L. Bergsson
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 7
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Ónákvæmni í dómsorði“) er annar titill en skrárinnar („Mismunandi forræði á beiðni
+    um dómkvatt mat Bls.“); titli skrárinnar haldið'
+- title: „Handbókarlögfræði“ Bls.
+  authors:
+  - Þórður Bogason
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 9
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Pistill formanns í febrúar 2002“ á bls. 11 sem skráin nefnir ekki; greinin er talin
+    enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Mismunandi forræði á beiðni um dómkvatt mat“) er annar titill en skrárinnar („„Handbókarlögfræði“
+    Bls.“); titli skrárinnar haldið'
+- title: Hópurinn sem sæmdur var gullmerki LMFÍ á 90 ára afmæli félagsins.
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 13
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Mál til afgreiðslu hjá úrskurðarnefnd lögmanna á árinu 2001“ á bls. 17 sem skráin nefnir
+    ekki; greinin er talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („„Handbókarlögfræði“ Um lagasnið og tilvísanir til lagagreina“) er annar titill en
+    skrárinnar („Hópurinn sem sæmdur var gullmerki LMFÍ á 90 ára afmæli félagsins.“); titli skrárinnar haldið'

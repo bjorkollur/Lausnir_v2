@@ -1,16 +1,304 @@
 source: logmannabladid
 year: 2024
-volume: null
+volume: 30
 issue: '2'
-label: Lögmannablaðið, 2. tbl. (2024)
+label: Lögmannablaðið, 30. árg. 2. tbl. (2024)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2024 02.pdf
 sha256: e05a98be28fa1b2befcb2fce9f305d47d62e7987c193c568ef74d8815ae621b6
-pages: null
+pages: 28
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.893
+  runner_up_share: 0.0
+  pages: 28
+  segments:
+  - - 1
+    - 26
+    - 1
+  contested: []
+  bin_ratio: 0.94
+  non_article:
+  - 4
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2024 02.pdf
-articles: []
+articles:
+- title: Að gæta heiðurs og sæmdar stéttar
+  authors:
+  - Stefán A. Svensson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá ritstjórn
+  authors:
+  - Ari Karlsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Sólarfárviðri – sólarsamviskubit“) er annar titill en skrárinnar („Frá ritstjórn“);
+    titli skrárinnar haldið'
+- title: 'Aðalfundur LMFÍ: Af óhreyfðum erindum og öðru'
+  authors:
+  - Eyrún Ingadóttir
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 7
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 6
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félagsmönnum fækkar
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 9
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: HRINGBORÐSUMRÆÐUR Konur, lögmannsstarfið og samfélagið
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 12
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kynjafræðinemi kíkir á karlastétt
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 17
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 16
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mentorprógramm LÍ og LMFÍ
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 19
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 18
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ HJÖRT TORFASON Lögfræðin eitthvað til að halda sér í
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 22
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 21
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: EELA ráðstefna í Hörpu
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

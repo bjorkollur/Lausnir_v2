@@ -1,16 +1,163 @@
 source: timarit_logfraedinga
 year: 2015
-volume: null
+volume: 65
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2015)
+label: Tímarit lögfræðinga, 65. árg. 1. hefti (2015)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2015_01.pdf
 sha256: 7ffedb8ecab8425989181aa0f1f859a57e52e87a395ccf343523777f41899947
-pages: null
+pages: 144
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.965
+  runner_up_share: 0.0
+  pages: 144
+  segments:
+  - - 2
+    - 140
+    - -1
+  contested: []
+  bin_ratio: 0.914
+  non_article:
+  - 132
+  - 133
+  - 134
+  - 135
+  - 136
+  - 137
+  - 138
+  - 139
+  - 140
+  - 141
+  - 142
+  - 143
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2015_01.pdf
-articles: []
+articles:
+- title: Fangelsið á Hólmsheiði
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 1
+  page_end: 2
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Inngangur að alþjóðlegum refsirétti
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 63
+  issue: null
+  pdf_pages:
+  - 4
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frjálsar fjármagnshreyfingar innan Evrópusambandsins og Evrópska efnahagssvæðisins
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 98
+  issue: null
+  pdf_pages:
+  - 66
+  - 99
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Almannaréttur – frjáls för og dvöl
+  authors:
+  - Aagot Vigdís Óskarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 99
+  page_end: 130
+  issue: null
+  pdf_pages:
+  - 100
+  - 131
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,330 @@
 source: timarit_logfraedinga
 year: 1964
-volume: null
+volume: 14
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1964)
+label: Tímarit lögfræðinga, 14. árg. 1. hefti (1964)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1964_01.pdf
 sha256: 4383580341f8fd41b691eacd0cbbb0b82e5f2627cd2a7e679150910acd7b5d12
-pages: null
+pages: 88
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -5
+  quality: 0.489
+  runner_up_share: 0.047
+  pages: 88
+  segments:
+  - - 7
+    - 63
+    - -5
+  contested: []
+  bin_ratio: 0.862
+  non_article:
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 73
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+status: review
+confidence: 0.35
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1964_01.pdf
-articles: []
+articles:
+- title: Dr. jur. Björn Þórðarson. Minning
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Annað
+  page_start: 1
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 6
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um sögulegar undirstöður laganna
+  authors:
+  - Ebel, Wilhelm
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 33
+  issue: null
+  pdf_pages:
+  - 16
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Ebel, Wilhelm) stangast á við síðuna (Sigurður Gizurarson); skránni haldið'
+- title: Stutt spjall um þinglýsingalöggjöfina
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 34
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 39
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögfræðingar á Íslandi 1. júní 1964
+  authors:
+  - Theodór B. Líndal
+  - Jón Ögmundur Þormóðsson
+  author_titles: []
+  article_type: Annað
+  page_start: 40
+  page_end: 42
+  issue: null
+  pdf_pages:
+  - 45
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagatímarit á Norðurlöndum, auk nokkurra árbóka
+  authors:
+  - Björn Sigfússon
+  author_titles: []
+  article_type: Annað
+  page_start: 43
+  page_end: 44
+  issue: null
+  pdf_pages:
+  - 48
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bandalag háskólamanna. Frá heimsókn B. Östergrens framkvstj. SACO
+  authors:
+  - Östergren, Bertil
+  author_titles: []
+  article_type: Annað
+  page_start: 45
+  page_end: 55
+  issue: null
+  pdf_pages:
+  - 50
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Hæstarétti
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 56
+  page_end: 56
+  issue: null
+  pdf_pages:
+  - 61
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýir hæstaréttarlögmenn 1964
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 57
+  page_end: 57
+  issue: null
+  pdf_pages:
+  - 62
+  - 62
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Háskólanum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 58
+  page_end: 58
+  issue: null
+  pdf_pages:
+  - 63
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Jónatan Þórmundsson); skránni haldið'

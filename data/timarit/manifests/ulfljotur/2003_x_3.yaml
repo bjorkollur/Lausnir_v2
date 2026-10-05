@@ -1,15 +1,41 @@
 source: ulfljotur
 year: 2003
-volume: null
+volume: 56
 issue: '3'
-label: Úlfljótur, 3. tbl. (2003)
+label: Úlfljótur, 56. árg. 3. tbl. (2003)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_3_tbl/Ulfljotur_2003_3_tbl x TU.pdf
 sha256: a94e5061e07ac812ae1a05cf180129da4030379309f2ba7756c7f9c483ab8361
-pages: null
+pages: 216
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 317
+  quality: 0.986
+  runner_up_share: 0.0
+  pages: 216
+  segments:
+  - - 0
+    - 212
+    - 317
+  contested: []
+  bin_ratio: 0.935
+  non_article:
+  - 87
+  - 171
+  - 179
+  - 201
+  - 202
+  - 203
+  - 204
+  - 205
+  - 206
+  - 207
+  - 208
+  - 209
+  - 210
+  - 211
+  - 212
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_3_tbl/3173.pdf
@@ -18,4 +44,156 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_3_tbl/3177.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_3_tbl/3179.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_3_tbl/Ulfljotur_2003_3_tbl x TU.pdf
-articles: []
+articles:
+- title: Skaðabótareglur laga um fasteignakaup, nr. 40/2002
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 321
+  page_end: 352
+  issue: null
+  pdf_pages:
+  - 4
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 335
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Verðleikar laganna
+  authors:
+  - Kjartan Bjarni Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 353
+  page_end: 403
+  issue: null
+  pdf_pages:
+  - 36
+  - 86
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 336
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Grunnreglur 7. gr. laga nr. 77/2000 um persónuvernd og meðferð persónuupplýsinga
+  authors:
+  - Þórður Sveinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 405
+  page_end: 454
+  issue: null
+  pdf_pages:
+  - 88
+  - 137
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 337
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Yfirlit yfir helstu dóma Evrópudómstólanna og EFTA-dómstólsins á árinu 2002
+  authors:
+  - Dóra Sif Tynes
+  - Gunnar Þór Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 455
+  page_end: 487
+  issue: null
+  pdf_pages:
+  - 138
+  - 170
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 338
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mannréttindadómstóll Evrópu - annáll ársins 2002
+  authors:
+  - Páll Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 489
+  page_end: 495
+  issue: null
+  pdf_pages:
+  - 172
+  - 178
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 339
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Fréttir frá Alþingi“ á bls. 497 sem skráin nefnir ekki; greinin er talin enda þar'

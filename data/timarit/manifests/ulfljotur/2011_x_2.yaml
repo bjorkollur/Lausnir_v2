@@ -1,16 +1,127 @@
 source: ulfljotur
 year: 2011
-volume: null
+volume: 64
 issue: '2'
-label: Úlfljótur, 2. tbl. (2011)
+label: Úlfljótur, 64. árg. 2. tbl. (2011)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2011_2_tbl.pdf
 sha256: 2e83c0c41091b88747cce8671d9df0c2cd54201a940921baf1363c668e951b1f
-pages: null
+pages: 172
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 127
+  quality: 0.948
+  runner_up_share: 0.0
+  pages: 172
+  segments:
+  - - 4
+    - 166
+    - 127
+  contested: []
+  bin_ratio: 0.75
+  non_article:
+  - 83
+  - 119
+  - 153
+  - 167
+  - 168
+  - 169
+  - 170
+  - 171
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2011_2_tbl.pdf
-articles: []
+articles:
+- title: Siðferðilegur grundvöllur refsinga
+  authors:
+  - Arndís Anna K. Gunnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 209
+  issue: null
+  pdf_pages:
+  - 8
+  - 82
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 185
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mikilvægi þess að gætt sé trúnaðar í skiptum lögmanna og skjólstæðinga þeirra
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 211
+  page_end: 245
+  issue: null
+  pdf_pages:
+  - 84
+  - 118
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 186
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gluggað í náttúrurétt, einkum kenningu Johns Finnis
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 247
+  page_end: 279
+  issue: null
+  pdf_pages:
+  - 120
+  - 152
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 187
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Landsdómur og ráðherraábyrgð“ á bls. 281 sem skráin nefnir ekki; greinin er talin enda
+    þar'

@@ -1,16 +1,158 @@
 source: timarit_logfraedinga
 year: 2020
-volume: null
+volume: 70
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2020)
+label: Tímarit lögfræðinga, 70. árg. 2. hefti (2020)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2020_02.pdf
 sha256: 1deae4173623ff3afe5033d8bdf2202da8d6285d5d61d4990aee841007902356
-pages: null
+pages: 242
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 91
+  quality: 0.979
+  runner_up_share: 0.0
+  pages: 242
+  segments:
+  - - 2
+    - 239
+    - 91
+  contested: []
+  bin_ratio: 0.851
+  non_article:
+  - 233
+  - 234
+  - 235
+  - 236
+  - 237
+  - 238
+  - 239
+  - 240
+  - 241
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2020_02.pdf
-articles: []
+articles:
+- title: Lögfræðingar og erindi í þjóðfélagsmálin
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 93
+  page_end: 94
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Svipting ríkisborgararéttar vígamanna: Evrópsk framkvæmd í ljósi þjóðaréttarlegra skuldbindinga'
+  authors:
+  - Diljá Ragnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 95
+  page_end: 162
+  issue: null
+  pdf_pages:
+  - 4
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skaðabætur í aðdraganda samningsgerðar – Culpa in Contrahendo
+  authors:
+  - Jóhannes Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 163
+  page_end: 232
+  issue: null
+  pdf_pages:
+  - 72
+  - 141
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Matsgerðir dómkvaddra matsmanna í einkamálum - samanburður á vestnorrænum rétti
+  authors:
+  - Sigmar Aron Ómarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 233
+  page_end: 322
+  issue: null
+  pdf_pages:
+  - 142
+  - 231
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,129 @@
 source: ulfljotur
 year: 2022
-volume: null
+volume: 75
 issue: '3'
-label: Úlfljótur, 3. tbl. (2022)
+label: Úlfljótur, 75. árg. 3. tbl. (2022)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2022-3tbl.pdf
 sha256: 8b1975c44a8be2f2e605bba9d0e9f050afc169c4e9bbfb4ba80bdc46d4e5761f
-pages: null
+pages: 136
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 253
+  quality: 0.949
+  runner_up_share: 0.008
+  pages: 136
+  segments:
+  - - 2
+    - 134
+    - 253
+  contested: []
+  bin_ratio: 0.763
+  non_article:
+  - 71
+  - 121
+  - 129
+  - 130
+  - 131
+  - 132
+  - 133
+  - 134
+  - 135
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2022-3tbl.pdf
-articles: []
+articles:
+- title: Kelsen bjargað - Svar við gagnrýni Raz og Finnis
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 261
+  page_end: 292
+  issue: null
+  pdf_pages:
+  - 8
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 16
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Starfsheiður og sálarheill - Miskabótakröfur starfsmanna í íslenskum vinnurétti
+  authors:
+  - Halldór Kr. Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 293
+  page_end: 323
+  issue: null
+  pdf_pages:
+  - 40
+  - 70
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 17
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Milli stríðs og orða*1 Um sértækar þvingunaraðgerðir, árangur þeirra og óviljandi afleiðingar
+  authors:
+  - Kolfinna Tómasdóttir
+  - Kári Hólmar Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 325
+  page_end: 368
+  issue: null
+  pdf_pages:
+  - 72
+  - 115
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 18
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Viðtal við Viðar Má Matthíasson, fyrrverandi prófessor og hæstaréttardómara“ á bls.
+    369 sem skráin nefnir ekki; greinin er talin enda þar'

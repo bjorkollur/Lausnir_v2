@@ -1,16 +1,197 @@
 source: timarit_logfraedinga
 year: 1991
-volume: null
+volume: 41
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1991)
+label: Tímarit lögfræðinga, 41. árg. 2. hefti (1991)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1991_02.pdf
 sha256: ad8c2dd27cebe01fbcc819fcd8d00910fe22fef96fdc1d4c54d004c499aa7929
-pages: null
+pages: 84
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 79
+  quality: 0.917
+  runner_up_share: 0.0
+  pages: 84
+  segments:
+  - - 2
+    - 81
+    - 79
+  contested: []
+  bin_ratio: 0.985
+  non_article:
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1991_02.pdf
-articles: []
+articles:
+- title: Benedikt Blöndal. In memoriam
+  authors:
+  - Hjörtur Torfason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 81
+  page_end: 85
+  issue: null
+  pdf_pages:
+  - 2
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 86–90
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögfræðinga“) er annar titill en skrárinnar („Benedikt Blöndal. In memoriam“); titli
+    skrárinnar haldið'
+- title: Réttarfar í þinglýsingarmálum og málskotsreglur
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 86
+  page_end: 90
+  issue: null
+  pdf_pages:
+  - 7
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 91–131
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Benedikt blöndal“) er annar titill en skrárinnar („Réttarfar í þinglýsingarmálum
+    og málskotsreglur“); titli skrárinnar haldið'
+  - 'FRÁVIK: greinin er undirrituð (Hjörtur Torfason) en höfundar skrárinnar eru aðrir (Þorgeir Örlygsson); skránni haldið'
+- title: Erþörfálögumumútboðhérálandi
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 91
+  page_end: 131
+  issue: null
+  pdf_pages:
+  - 12
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („RÉTTARFAR í ÞINGLÝSINGARMÁLUM OG MÁLSKOTSREGLUR Gildistaka nýrra reglna 1. júlí 1992“)
+    er annar titill en skrárinnar („Erþörfálögumumútboðhérálandi“); titli skrárinnar haldið'
+- title: Á víð og dreif Aðalfundur Lögmannafélags íslands 1991
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 132
+  page_end: 147
+  issue: null
+  pdf_pages:
+  - 53
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Er þörf á lögum um útboð hér á Landi?“) er annar titill en skrárinnar („Á víð og
+    dreif Aðalfundur Lögmannafélags íslands 1991“); titli skrárinnar haldið'
+- title: Starfsnám við Mannréttindanefnd Evrópu
+  authors:
+  - Guðrún Gauksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 148
+  page_end: 155
+  issue: null
+  pdf_pages:
+  - 69
+  - 76
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

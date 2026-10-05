@@ -1,16 +1,756 @@
 source: logmannabladid
 year: 2009
-volume: null
+volume: 15
 issue: '2'
-label: Lögmannablaðið, 2. tbl. (2009)
+label: Lögmannablaðið, 15. árg. 2. tbl. (2009)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2009 02.pdf
 sha256: 9182e4297173868bf4d2422802acad4b59a77f9c11b044a7654daef80bfde973
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.875
+  runner_up_share: 0.0
+  pages: 32
+  segments:
+  - - 1
+    - 30
+    - 1
+  contested: []
+  bin_ratio: 0.895
+  non_article:
+  - 25
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2009 02.pdf
-articles: []
+articles:
+- title: Engin stemmning fyrir skynseminni
+  authors:
+  - Borgar Þór Einarsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 3
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 5 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: 'Aðalfundur LMFÍ 2009: Varnarbarátta í algleymingi'
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ályktun stjórnar Lögmannafélags Íslands
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 7
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 6
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnarskrárbreytingar í deiglunni?
+  authors:
+  - Borgar Þór Einarsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 8
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 7
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málstofa um ábyrgð stjórnenda
+  authors:
+  - Ari Karlsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 9
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 8
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skjól fyrir sköttum eða eðlileg samkeppni um skatta?
+  authors:
+  - Áslaug Gunnlaugsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 10
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 9
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Auðlindir nýrrar aldar
+  authors:
+  - Arnar Þór Stefánsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 11
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 10
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttlausir viðskiptavinir? Kröfur til fjármálafyrirtækja og úrlausn ágreinings
+  authors:
+  - Ingvi Snær Einarsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 12
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 11
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Pólitísk ábyrgð ráðherra: Refsiábyrgð og réttarfar í málum vegna embættisbrota ráðherra'
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Voru neyðarlögin nauðsynleg? Var gengið of langt eða of skammt með setningu þeirra?
+  authors:
+  - Katrín Helga Hallgrímsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 14
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 13
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dag skal að kveldi lofa
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 15
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 14
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Pro bono publico: Samfélagsleg skylda lögmanna?'
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vegvísir í völundarhúsi laganna. Viðtal við Ingimar Ingason
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Veitir ekki af þjónustunni
+  authors:
+  - Indriði Þorkelsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    pages: llm
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Umræðan
+  authors:
+  - Lárentsínus Kristjánsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 19
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 18
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjöldi félagsmanna LMFÍ yfir 800 félagasamtök
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sumarblíða
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 23
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 22
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tjallar í tuðrutraðki
+  authors:
+  - Ian Cater
+  author_titles: []
+  article_type: Frétt
+  page_start: 24
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 23
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gönguferð að hliði Helvítis
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 25
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 24
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hdl.-námskeið í tíu ár
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („„Hef áhuga á að fara í sakamálin““) er annar titill en skrárinnar („Hdl.-námskeið
+    í tíu ár“); titli skrárinnar haldið'
+- title: „Hef áhuga á að fara í sakamálin“. Viðtal við Jóhannes Stefán Ólafsson
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af nauðsynjalausu laganna Reformatio
+  authors:
+  - Hróbjartur Jónatansson
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 27
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Úr myndasafni: Arnbjörg Edda ráðin til félagsins'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 31
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 30
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,160 @@
 source: logretta
 year: 2008
-volume: null
+volume: 5
 issue: '2'
-label: Lögrétta, 2. tbl. (2008)
+label: Lögrétta, 5. árg. 2. tbl. (2008)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2008 2.tbl.pdf
 sha256: 5239d99885f3f4de5919ed242bd71571951956773a498345fd6066a6e269d397
-pages: null
+pages: 100
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 98
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 100
+  segments:
+  - - 0
+    - 12
+    - 97
+  - - 13
+    - 44
+    - 98
+  - - 45
+    - 68
+    - 100
+  - - 69
+    - 99
+    - 102
+  contested: []
+  bin_ratio: 0.994
+  non_article: []
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2008 2.tbl.pdf
-articles: []
+articles:
+- title: „Mál af þessu tagi“
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 109
+  issue: null
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Þróun löggjafar um verðbréfaviðskipti: Einkavæðing, alþjóðavæðing og vöxtur fjármálamarkaða'
+  authors:
+  - Aðalsteinn Egill Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 111
+  page_end: 142
+  issue: null
+  pdf_pages:
+  - 13
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tilskipun Evrópusambandsins um viðurkenningu starfsréttinda, nr. 2005/36/EB
+  authors:
+  - Ingvar Sverrisson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 145
+  page_end: 168
+  issue: null
+  pdf_pages:
+  - 45
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skyldur fjármálafyrirtækja í aðgerðum gegn peningaþvætti og fjármögnun hryðjuverka
+  authors:
+  - Lilja Björg Arngrímsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 201
+  issue: null
+  pdf_pages:
+  - 69
+  - 99
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

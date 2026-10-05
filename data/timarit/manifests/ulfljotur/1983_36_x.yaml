@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.933
+status: review
+confidence: 0.85
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/32.pdf
@@ -20,4 +21,254 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/84.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/85.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/86.pdf
-articles: []
+articles:
+- title: Áhrif upplýsingarinnar á íslenska refsilöggjöf. (Inngangur að athugun)
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 17
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 768
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/85.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um fornan rétt varðandi manntjón af völdum dýra
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 19
+  page_end: 27
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 769
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/86.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 27 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Samruni löggjafar- og framkvæmdarvalds
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 52
+  page_end: 55
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 770
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/360.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Athugun á tíðni gæsluvarðhaldsúrskurða á aðalstarfssvæði RLR frá 1. Jan. 1972 til 31. Des. 1982
+  authors:
+  - Jón H. B. Snorrason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 67
+  page_end: 82
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 771
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/574.pdf
+  note: ''
+  analysis_notes: []
+- title: Er þörf á nýjum lagaákvæðum um aukna vernd einkalífs og um starfsemi fjölmiðla
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 91
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 772
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/512.pdf
+  note: ''
+  analysis_notes: []
+- title: Um lagatölvu
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 93
+  page_end: 96
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 773
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/32.pdf
+  note: ''
+  analysis_notes: []
+- title: Stutt samantekt um lagastörf Íslendinga á fyrri tíð, lagafræðslu og aðdraganda að skipulegu laganámi
+  authors:
+  - Páll Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 115
+  page_end: 131
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 776
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/84.pdf
+  note: ''
+  analysis_notes: []
+- title: Laganám Íslendinga 1736-1983
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 149
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 777
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/83.pdf
+  note: ''
+  analysis_notes: []

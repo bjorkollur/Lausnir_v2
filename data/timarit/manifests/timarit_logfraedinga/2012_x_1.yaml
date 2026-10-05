@@ -1,16 +1,163 @@
 source: timarit_logfraedinga
 year: 2012
-volume: null
+volume: 62
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2012)
+label: Tímarit lögfræðinga, 62. árg. 1. hefti (2012)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2012_01.pdf
 sha256: 760a817fe304137cb3b83bddf2902a5730f303d1c7ee90942a9724f5be1a4de8
-pages: null
+pages: 126
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.952
+  runner_up_share: 0.0
+  pages: 126
+  segments:
+  - - 2
+    - 122
+    - -1
+  contested: []
+  bin_ratio: 0.955
+  non_article:
+  - 79
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+  - 120
+  - 121
+  - 122
+  - 123
+  - 124
+status: review
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2012_01.pdf
-articles: []
+articles:
+- title: Hljóðritanir á ríkisstjórnarfundum og dómur Landsdóms
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 2
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Meginreglur um lagaval innan samninga og undantekningar frá þeim
+  authors:
+  - Eiríkur Elís Þorláksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 50
+  issue: null
+  pdf_pages:
+  - 6
+  - 51
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Markaðsmisnotkun við opnun og lokun markaðar
+  authors:
+  - Andri Fannar Bergþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: 77
+  issue: null
+  pdf_pages:
+  - 52
+  - 78
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skaðabætur vegna kynferðisbrota – Er réttur brotaþola ekki að fullu sóttur?
+  authors:
+  - Eiríkur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 79
+  page_end: 112
+  issue: null
+  pdf_pages:
+  - 80
+  - 113
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

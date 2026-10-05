@@ -1,16 +1,183 @@
 source: timarit_logfraedinga
 year: 2012
-volume: null
+volume: 62
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2012)
+label: Tímarit lögfræðinga, 62. árg. 3. hefti (2012)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2012_03.pdf
 sha256: 9a7dd57a0fc76b70906b28272c35c441d1701be291668f60f9ebe92f08c41b97
-pages: null
+pages: 104
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 237
+  quality: 0.952
+  runner_up_share: 0.0
+  pages: 104
+  segments:
+  - - 2
+    - 100
+    - 237
+  contested: []
+  bin_ratio: 0.91
+  non_article:
+  - 23
+  - 31
+  - 39
+  - 42
+  - 44
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  - 89
+  - 91
+  - 92
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2012_03.pdf
-articles: []
+articles:
+- title: Fullkomin lögjöfnun og 7. gr. Mannréttindasáttmála Evrópu
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 239
+  page_end: 244
+  issue: null
+  pdf_pages:
+  - 2
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    authors: leitir
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Framfærsluskyldur milli hjóna
+  authors:
+  - Birgir Örn Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 245
+  page_end: 259
+  issue: null
+  pdf_pages:
+  - 8
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 284, prentuð lokasíða er bls. 259
+  - 'FRÁVIK: á eftir greininni hefst „b) Upphafsdagur meðlagsgreiðslna“ á bls. 261 sem skráin nefnir ekki; greinin er talin
+    enda þar'
+- title: Foreldrar í forsjárdeilu - Rannsókn á umfangi, ferli og félagslegum þáttum forsjármála fyrir héraðsdómstólum á Íslandi
+  authors:
+  - Sigrún Júlíusdóttir
+  - Helena Konráðsdóttir
+  - Dögg Pálsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 285
+  page_end: 318
+  issue: null
+  pdf_pages:
+  - 48
+  - 81
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af hverju voru upplýsingarnar aldrei birtar?
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 319
+  page_end: 319
+  issue: null
+  pdf_pages:
+  - 82
+  - 82
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „������������������������������������������������������������“ á bls. 327 sem skráin
+    nefnir ekki; greinin er talin enda þar'

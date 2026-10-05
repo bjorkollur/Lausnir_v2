@@ -1,16 +1,254 @@
 source: ulfljotur
 year: 2004
-volume: null
+volume: 57
 issue: '4'
-label: Úlfljótur, 4. tbl. (2004)
+label: Úlfljótur, 57. árg. 4. tbl. (2004)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_4_tbl.pdf
 sha256: 6fdf8edf8056dfb595f24eb5cd3bf09fb07494b973a0ae3f2adba8cb3a533cb1
-pages: null
+pages: 208
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 497
+  quality: 0.986
+  runner_up_share: 0.0
+  pages: 208
+  segments:
+  - - 0
+    - 207
+    - 497
+  contested: []
+  bin_ratio: 0.948
+  non_article:
+  - 77
+  - 93
+  - 111
+  - 145
+  - 165
+  - 193
+  - 198
+  - 199
+  - 200
+  - 201
+  - 202
+  - 203
+  - 204
+  - 205
+  - 206
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_4_tbl.pdf
-articles: []
+articles:
+- title: Stjórnarskrárhyggja og stjórnarskrárígildi alþjóðlegra mannréttindasáttmála
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 501
+  page_end: 573
+  issue: null
+  pdf_pages:
+  - 4
+  - 76
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 319
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnskipuleg staða Barnaverndarstofu
+  authors:
+  - Berglind Bára Sigurjónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 575
+  page_end: 589
+  issue: null
+  pdf_pages:
+  - 78
+  - 92
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 320
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Álitsgerð um stjórnskipulag Löggildingarstofu
+  authors:
+  - Tómas Hrafn Sveinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 591
+  page_end: 607
+  issue: null
+  pdf_pages:
+  - 94
+  - 110
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 321
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Minnihlutavernd í hlutafélagalögunum
+  authors:
+  - Daði Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 609
+  page_end: 622
+  issue: null
+  pdf_pages:
+  - 112
+  - 125
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 322
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sjálfsfjármögnunarbann
+  authors:
+  - Davíð Þorláksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 623
+  page_end: 630
+  issue: null
+  pdf_pages:
+  - 126
+  - 133
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 323
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnarhættir fyrirtækja
+  authors:
+  - Sesselja Sigurðardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 631
+  page_end: 641
+  issue: null
+  pdf_pages:
+  - 134
+  - 144
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 324
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rape as an International Crime
+  authors:
+  - Kolbrún Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 643
+  page_end: 656
+  issue: null
+  pdf_pages:
+  - 146
+  - 159
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 325
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Alþjóðlega málflutningskeppnin Jessup 2004“ á bls. 657 sem skráin nefnir ekki; greinin
+    er talin enda þar'

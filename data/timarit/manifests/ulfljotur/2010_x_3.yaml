@@ -1,16 +1,128 @@
 source: ulfljotur
 year: 2010
-volume: null
+volume: 63
 issue: '3'
-label: Úlfljótur, 3. tbl. (2010)
+label: Úlfljótur, 63. árg. 3. tbl. (2010)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2010_3_tbl.pdf
 sha256: 3f150d36070f2e38473bdaa4315c92795771ba34294263c75a64de16ccf3d022
-pages: null
+pages: 177
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 212
+  quality: 0.831
+  runner_up_share: 0.007
+  pages: 177
+  segments:
+  - - 3
+    - 172
+    - 212
+  contested: []
+  bin_ratio: 0.893
+  non_article:
+  - 44
+  - 169
+  - 170
+  - 171
+  - 172
+  - 173
+  - 174
+  - 175
+  - 176
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2010_3_tbl.pdf
-articles: []
+articles:
+- title: Einkafjármögnunarsjóðir - atriði er huga ber að
+  authors:
+  - Einar B. Sigurbergsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 217
+  page_end: 255
+  issue: null
+  pdf_pages:
+  - 5
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 203
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skattlagning valréttarsamninga starfsmanna og framkvæmd skattyfirvalda
+  authors:
+  - Garðar Valdimarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 257
+  page_end: 290
+  issue: null
+  pdf_pages:
+  - 45
+  - 78
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 204
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Orðhefnd og sannindi ummæla sem ábyrgðarleysisástæður í meiðyrðamálum
+  authors:
+  - Hólmgeir Elías Flosason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 291
+  page_end: 340
+  issue: null
+  pdf_pages:
+  - 79
+  - 128
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 205
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Alþjóðlega Philip C. Jessup Málflutningskeppnin 2010“ á bls. 341 sem skráin nefnir ekki;
+    greinin er talin enda þar'

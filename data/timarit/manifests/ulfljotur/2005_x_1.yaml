@@ -1,16 +1,193 @@
 source: ulfljotur
 year: 2005
-volume: null
+volume: 58
 issue: '1'
-label: Úlfljótur, 1. tbl. (2005)
+label: Úlfljótur, 58. árg. 1. tbl. (2005)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_1_tbl.pdf
 sha256: c1166f65b9a1ae6bbe39d17472754753e17c230c481f7d637e2d0b1effa130c7
-pages: null
+pages: 257
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.992
+  runner_up_share: 0.0
+  pages: 257
+  segments:
+  - - 1
+    - 256
+    - 0
+  contested: []
+  bin_ratio: 0.927
+  non_article:
+  - 228
+  - 243
+  - 244
+  - 245
+  - 246
+  - 247
+  - 248
+  - 249
+  - 250
+  - 251
+  - 252
+  - 253
+  - 255
+  - 256
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_1_tbl.pdf
-articles: []
+articles:
+- title: Réttindi samkynhneigðra samkvæmt ákvæði 8. gr. Mannréttindasáttmála Evrópu um friðhelgi einkalífs og fjölskyldu
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 40
+  issue: null
+  pdf_pages:
+  - 5
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 283
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sérstök skilyrði fyrir vinnslu viðkvæmra persónuupplýsinga, skv. 1. mgr. 9. gr. laga nr. 77/2000
+  authors:
+  - Ingvi Snær Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 110
+  issue: null
+  pdf_pages:
+  - 41
+  - 110
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 284
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mörk tjáningarfrelsis og friðhelgi einkalífs í umfjöllun um opinberar persónur
+  authors:
+  - Sigríður Rut Júlíusdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 111
+  page_end: 138
+  issue: null
+  pdf_pages:
+  - 111
+  - 138
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 285
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Miðlun persónuupplýsinga úr landi
+  authors:
+  - Þórður Sveinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 139
+  page_end: 192
+  issue: null
+  pdf_pages:
+  - 139
+  - 192
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 286
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ákvæði 1. mgr. 8. gr. laga nr. 77/2000 um persónuvernd og meðferð persónuupplýsinga
+  authors:
+  - Þuríður Björk Sigurjónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 193
+  page_end: 227
+  issue: null
+  pdf_pages:
+  - 193
+  - 227
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 287
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Prófessor í Lundi og forstöðumaður Raoul Wallenberg-stofnunarinnar“ á bls. 229 sem skráin
+    nefnir ekki; greinin er talin enda þar'

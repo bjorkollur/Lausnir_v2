@@ -1,16 +1,157 @@
 source: timarit_logfraedinga
 year: 2019
-volume: null
+volume: 69
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2019)
+label: Tímarit lögfræðinga, 69. árg. 1. hefti (2019)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2019_01.pdf
 sha256: 441eed3a945c950c975d91aa3e90bc7e47d2374c859d7d365598f6441cded021
-pages: null
+pages: 158
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.962
+  runner_up_share: 0.0
+  pages: 158
+  segments:
+  - - 2
+    - 155
+    - -1
+  contested: []
+  bin_ratio: 0.903
+  non_article:
+  - 151
+  - 152
+  - 153
+  - 154
+  - 155
+  - 156
+  - 157
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2019_01.pdf
-articles: []
+articles:
+- title: Hlutverk Hæstaréttar við túlkun
+  authors:
+  - Ragnhildur Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 2
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvaða upplýsingar ber útgefanda að birta? Hugtakið innherjaupplýsingar í tengslum við upplýsingaskyldu útgefanda
+  authors:
+  - Andri Fannar Bergþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 4
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttarvernd fatlaðs fólks. Stefnubreyting í túlkun dómstóla?
+  authors:
+  - Brynhildur G. Flóvenz
+  - Sigurlaug Soffía Friðþjófsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 87
+  issue: null
+  pdf_pages:
+  - 26
+  - 89
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Dr. jur. Páll Hreinsson forseti EFTA-dómstólsins: Samræmd EES-túlkun landsréttar í 25 ár'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 89
+  page_end: 149
+  issue: null
+  pdf_pages:
+  - 90
+  - 150
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

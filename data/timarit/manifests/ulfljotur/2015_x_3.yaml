@@ -1,16 +1,244 @@
 source: ulfljotur
 year: 2015
-volume: null
+volume: 68
 issue: '3'
-label: Úlfljótur, 3. tbl. (2015)
+label: Úlfljótur, 68. árg. 3. tbl. (2015)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2015_3_tbl.pdf
 sha256: 7424d51b742b2c27d21582c3609a7164f49135ae35d372b27bae8bac91efe00e
-pages: null
+pages: 168
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 318
+  quality: 0.97
+  runner_up_share: 0.006
+  pages: 168
+  segments:
+  - - 3
+    - 166
+    - 318
+  contested: []
+  bin_ratio: 0.871
+  non_article:
+  - 163
+  - 164
+  - 165
+  - 166
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2015_3_tbl.pdf
-articles: []
+articles:
+- title: Er helmingaskiptaregla hjúskaparlaga úrelt?
+  authors:
+  - Hrefna Friðriksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 323
+  page_end: 343
+  issue: null
+  pdf_pages:
+  - 5
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 130
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Jafnréttislög og stöðuveitingar - Um sjónarmið og viðmið sem þróast hafa í framkvæmd
+  authors:
+  - Elín Hrefna Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 344
+  page_end: 390
+  issue: null
+  pdf_pages:
+  - 26
+  - 72
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 131
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um áhrif breytinga á ríkisyfirráðum samkvæmt reglum þjóðaréttarins
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 391
+  page_end: 413
+  issue: null
+  pdf_pages:
+  - 73
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 132
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hófsemd í refsingum
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 414
+  page_end: 424
+  issue: null
+  pdf_pages:
+  - 96
+  - 106
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 133
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Afbrotið hefndarklám: Vandamál við saksókn brots sem ekki hefur verið skilgreint í lögum'
+  authors:
+  - Kolbrún Benediktsdóttir
+  - Þorbjörg S. Gunnlaugsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 425
+  page_end: 436
+  issue: null
+  pdf_pages:
+  - 107
+  - 118
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 134
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vistmorð
+  authors:
+  - Hjördís Björk Hákonardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 437
+  page_end: 451
+  issue: null
+  pdf_pages:
+  - 119
+  - 133
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 135
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Njóta foreldrar í fæðingarorlofi verndar í starfi á Íslandi?
+  authors:
+  - Lára V. Júlíusdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 452
+  page_end: 480
+  issue: null
+  pdf_pages:
+  - 134
+  - 162
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 136
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: greinin er undirrituð (Ragnheiður Kristín Finnbogadóttir) en höfundar skrárinnar eru aðrir (Lára V. Júlíusdóttir);
+    skránni haldið'

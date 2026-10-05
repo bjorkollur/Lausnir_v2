@@ -1,16 +1,221 @@
 source: timarit_logfraedinga
 year: 2006
-volume: null
+volume: 56
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2006)
+label: Tímarit lögfræðinga, 56. árg. 4. hefti (2006)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2006_04.pdf
 sha256: d6f4e0e68ea327b5357b335989e9f300b5e80b33e4ede2b7e7897f502f1f1e17
-pages: null
+pages: 129
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 344
+  quality: 0.977
+  runner_up_share: 0.008
+  pages: 129
+  segments:
+  - - 1
+    - 126
+    - 344
+  contested: []
+  bin_ratio: 0.877
+  non_article:
+  - 4
+  - 58
+  - 88
+  - 108
+  - 119
+  - 120
+  - 121
+  - 122
+  - 123
+  - 124
+  - 125
+  - 126
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2006_04.pdf
-articles: []
+articles:
+- title: Stjórnsýslumat við undirbúning lagafrumvarpa
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 345
+  page_end: 347
+  issue: null
+  pdf_pages:
+  - 1
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lýsandi merki og krafan um sérkenni – skráning Evrópuvörumerkis og áhrif þess á íslenskan vörumerkjarétt
+  authors:
+  - Hafdís Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 349
+  page_end: 401
+  issue: null
+  pdf_pages:
+  - 5
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dreifing tónlistar og kvikmynda á netinu. Jafningjanet og skráardeiliforrit
+  authors:
+  - Rán Tryggvadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 403
+  page_end: 431
+  issue: null
+  pdf_pages:
+  - 59
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stofnun kaupsamnings um fasteign
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 433
+  page_end: 451
+  issue: null
+  pdf_pages:
+  - 89
+  - 107
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögfræðingafélagi Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 453
+  page_end: 456
+  issue: null
+  pdf_pages:
+  - 109
+  - 112
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögmannafélagi Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 457
+  page_end: 462
+  issue: null
+  pdf_pages:
+  - 113
+  - 118
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.805
+status: approved
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1981 34 arg/130.pdf
@@ -18,4 +19,190 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1981 34 arg/469.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1981 34 arg/673.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1981 34 arg/80.pdf
-articles: []
+articles:
+- title: Óvígð sambúð og almannatryggingar. Hvert ber að stefna?
+  authors:
+  - Þorgerður Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 16
+  issue: 1-2
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 791
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1981 34 arg/306.pdf
+  note: ''
+  analysis_notes: []
+- title: Yfirlit yfir bótakerfi á Íslandi
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 17
+  page_end: 40
+  issue: 1-2
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 792
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1981 34 arg/305.pdf
+  note: ''
+  analysis_notes: []
+- title: Athugasemdir um nokkra þætti íslenskrar umhverfislöggjafar
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 44
+  page_end: 61
+  issue: 1-2
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 793
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1981 34 arg/469.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur atriði um réttarstöðu sakbornings samkvæmt bandarískum rétti
+  authors:
+  - Sigríður Ingvarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 93
+  page_end: 99
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 794
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1981 34 arg/130.pdf
+  note: ''
+  analysis_notes: []
+- title: Courts as theater of beginning
+  authors:
+  - Milner S. Ball
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 115
+  page_end: 122
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 7
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 795
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1981 34 arg/673.pdf
+  note: ''
+  analysis_notes: []
+- title: Ábending um sýsluvöld kvenna
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 123
+  page_end: 124
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 796
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1981 34 arg/80.pdf
+  note: ''
+  analysis_notes: []

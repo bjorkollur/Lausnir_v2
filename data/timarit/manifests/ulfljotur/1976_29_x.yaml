@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.935
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/127.pdf
@@ -27,4 +28,470 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/566.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/567.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/568.pdf
-articles: []
+articles:
+- title: null
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 209
+  page_end: 209
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/26.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.48)
+- title: Um próf í almennri lögfræði og fleira
+  authors:
+  - Kjartan Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 245
+  page_end: 252
+  issue: null
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/1803.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 1.00)
+- title: I. kafli laga um hluta-félag nr. 77 frá 1929
+  authors:
+  - Ingólfur Hjartarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 4
+  page_end: 15
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 853
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/313.pdf
+  note: ''
+  analysis_notes: []
+- title: Dómstólaskipunin
+  authors:
+  - Hrafn Bragason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 16
+  page_end: 38
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 854
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/566.pdf
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur Orators 1975
+  authors:
+  - Ragnhildur Hjaltadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 40
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 855
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/1772.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 40, prentað bls. 39'
+- title: Samanburðarlögfræði
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 69
+  page_end: 81
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 857
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/127.pdf
+  note: ''
+  analysis_notes: []
+- title: Um ógildingu samningsbundinna gerðardóma
+  authors:
+  - Steinunn Margrét Lárusdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 82
+  page_end: 117
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 858
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/567.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkrar athugasemdir um próf í almennri lögfræði í lagadeild 1976
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 118
+  page_end: 122
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 859
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/1783.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 122, prentað bls. 118'
+- title: Skrá yfir ritgerðir stúdenta í þriðja hluta náms í lögfræði
+  authors:
+  - Gísli Baldur Garðarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 130
+  page_end: 131
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 860
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/25.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Líknardráp
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: 171
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 861
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/501.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkrar hugleiðingar um líknardauða
+  authors:
+  - Björn Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 172
+  page_end: 176
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 862
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/500.pdf
+  note: ''
+  analysis_notes: []
+- title: Euthanasia frá sjónarhóli læknis
+  authors:
+  - Örn Bjarnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 177
+  page_end: 181
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 863
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/502.pdf
+  note: ''
+  analysis_notes: []
+- title: Útburðargerðir
+  authors:
+  - Þorsteinn Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 182
+  page_end: 208
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 864
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/568.pdf
+  note: ''
+  analysis_notes: []
+- title: Lillehammerseminarið 1976
+  authors:
+  - Bjarni Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 210
+  page_end: 212
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 866
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/1794.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 212, prentað bls. 210'
+- title: Orsakatengsl og skaðvæni atferlis. Takmörkun refsiábyrgðar við fyrirsjáanlegar eða sennilegar afleiðingar háttsemi.
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 244
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 867
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/503.pdf
+  note: ''
+  analysis_notes: []

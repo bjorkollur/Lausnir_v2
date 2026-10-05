@@ -5,12 +5,465 @@ issue: afmaelisrit
 label: Úlfljótur (2007)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_afmaelistimarit_2007.pdf
 sha256: 7a23c30aee79871535e56add18862173eb59b78583497ac49922b00a5b975f65
-pages: null
+pages: 432
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 347
+  quality: 0.479
+  runner_up_share: 0.0
+  pages: 432
+  segments:
+  - - 9
+    - 427
+    - 347
+  contested: []
+  bin_ratio: 0.886
+  non_article:
+  - 5
+  - 7
+  - 115
+  - 133
+  - 241
+  - 303
+  - 422
+  - 423
+  - 424
+  - 425
+  - 426
+  - 427
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_afmaelistimarit_2007.pdf
-articles: []
+articles:
+- title: Afmælisrit
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 351
+  page_end: 351
+  issue: null
+  pdf_pages:
+  - 4
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá ritstjóra
+  authors:
+  - Þórhildur Líndal
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 353
+  page_end: 353
+  issue: null
+  pdf_pages:
+  - 6
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kveðja frá lagadeild Háskóla Íslands
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 355
+  page_end: 356
+  issue: null
+  pdf_pages:
+  - 8
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Inngangur að meginreglum umhverfisréttar
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 357
+  page_end: 398
+  issue: null
+  pdf_pages:
+  - 10
+  - 51
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnarskráin og meðferð utanríkismála
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 399
+  page_end: 461
+  issue: null
+  pdf_pages:
+  - 52
+  - 114
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Leiðardómar Mannréttindadómstóls Evrópu
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 463
+  page_end: 479
+  issue: null
+  pdf_pages:
+  - 116
+  - 132
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sitt er hvað, sönnunarbyrði og sönnunarmat. Umfjöllun um dóm Hæstaréttar 20. október 2005 í máli nr. 148/2005
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 481
+  page_end: 516
+  issue: null
+  pdf_pages:
+  - 134
+  - 169
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttarríkið og andstæðingar þess
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 517
+  page_end: 534
+  issue: null
+  pdf_pages:
+  - 170
+  - 187
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjárdráttur
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 535
+  page_end: 587
+  issue: null
+  pdf_pages:
+  - 188
+  - 240
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málsmeðferð fyrir Alþjóðadómstólnum í Haag – tiltekin útgáfa einkamálaréttarfars á alþjóðavísu?
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 589
+  page_end: 620
+  issue: null
+  pdf_pages:
+  - 242
+  - 273
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Markmiðsskýring
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 621
+  page_end: 649
+  issue: null
+  pdf_pages:
+  - 274
+  - 302
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnspeki Snorra Sturlusonar, eins og hún birtist í Heimskringlu
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 651
+  page_end: 732
+  issue: null
+  pdf_pages:
+  - 304
+  - 385
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er draugur í dómsalnum? Um vilja löggjafans sem lögskýringasjónarmið
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 733
+  page_end: 746
+  issue: null
+  pdf_pages:
+  - 386
+  - 399
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bein krafa. Um rétt kaupanda fasteignar til að hafa uppi kröfu gegn viðsemjanda seljanda eða öðrum fyrri samningsaðilum
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 747
+  page_end: 768
+  issue: null
+  pdf_pages:
+  - 400
+  - 421
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

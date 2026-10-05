@@ -1,18 +1,113 @@
 source: ulfljotur
 year: 2009
-volume: null
+volume: 62
 issue: '4'
-label: Úlfljótur, 4. tbl. (2009)
+label: Úlfljótur, 62. árg. 4. tbl. (2009)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.95
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_4_tbl/2758.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_4_tbl/711.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_4_tbl/712.pdf
-articles: []
+articles:
+- title: Skilyrði umboðssvika
+  authors:
+  - Andrés Þorleifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 365
+  page_end: 419
+  issue: null
+  pdf_pages:
+  - 0
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 220
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_4_tbl/712.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 62. árg. (2009); ekkert prentað árgangsnúmer fannst'
+- title: Stjórnskipuleg lögmætisregla
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 421
+  page_end: 494
+  issue: null
+  pdf_pages:
+  - 0
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 221
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_4_tbl/2758.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 62. árg. (2009); ekkert prentað árgangsnúmer fannst'
+- title: Dómstólar geta ekki vikið sér undan því að taka afstöðu - Um vernd efnahagslegra, félagslegra og menningarlegra réttinda
+    fyrir dómstólum
+  authors:
+  - Kári Hólmar Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 495
+  page_end: 591
+  issue: null
+  pdf_pages:
+  - 0
+  - 96
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 222
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_4_tbl/711.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 62. árg. (2009); ekkert prentað árgangsnúmer fannst'

@@ -1,16 +1,130 @@
 source: ulfljotur
 year: 2021
-volume: null
+volume: 74
 issue: '4'
-label: Úlfljótur, 4. tbl. (2021)
+label: Úlfljótur, 74. árg. 4. tbl. (2021)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2021-4tbl.pdf
 sha256: 8740beaac3aa7c3bbb61cb83029a26073e5ea68658a094f937d079a61388db14
-pages: null
+pages: 138
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 466
+  quality: 0.935
+  runner_up_share: 0.008
+  pages: 138
+  segments:
+  - - 1
+    - 134
+    - 466
+  contested: []
+  bin_ratio: 0.875
+  non_article:
+  - 72
+  - 113
+  - 130
+  - 131
+  - 132
+  - 133
+  - 134
+  - 135
+  - 136
+  - 137
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2021-4tbl.pdf
-articles: []
+articles:
+- title: Enn um tvöfalda refsingu í skattamálum
+  authors:
+  - Bjarnfreður Ólafsson
+  - Sigurbjörn B. Edvardsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 473
+  page_end: 506
+  issue: null
+  pdf_pages:
+  - 7
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 36
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lóðarleigusamningar
+  authors:
+  - Karl Axelsson
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 507
+  page_end: 537
+  issue: null
+  pdf_pages:
+  - 41
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 37
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Ólögleg varsla, sala og innflutningur á lyfjum: Refsiábyrgð einstaklinga sem gerast sekir um slíka háttsemi'
+  authors:
+  - Kristín Una Pétursdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 539
+  page_end: 578
+  issue: null
+  pdf_pages:
+  - 73
+  - 112
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 38
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 580 sem skráin nefnir ekki; greinin er talin enda þar'

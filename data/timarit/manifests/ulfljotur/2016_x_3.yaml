@@ -1,16 +1,126 @@
 source: ulfljotur
 year: 2016
-volume: null
+volume: 69
 issue: '3'
-label: Úlfljótur, 3. tbl. (2016)
+label: Úlfljótur, 69. árg. 3. tbl. (2016)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2016_3_tbl.pdf
 sha256: c08815a12e816f23e0cfde4308f048289b418f72a088a9a032fb04a96809385d
-pages: null
+pages: 177
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 220
+  quality: 0.949
+  runner_up_share: 0.0
+  pages: 177
+  segments:
+  - - 3
+    - 171
+    - 220
+  contested: []
+  bin_ratio: 0.954
+  non_article:
+  - 44
+  - 167
+  - 168
+  - 169
+  - 170
+  - 171
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2016_3_tbl.pdf
-articles: []
+articles:
+- title: Um notkun vörumerkja við stofnun og viðhald vörumerkjaréttar
+  authors:
+  - Þorvaldur Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 225
+  page_end: 263
+  issue: null
+  pdf_pages:
+  - 5
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 118
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugtakið raunverulegur eigandi í alþjóðlegum skattarétti
+  authors:
+  - Kristján Gunnar Valdimarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 265
+  page_end: 328
+  issue: null
+  pdf_pages:
+  - 45
+  - 108
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 119
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um hagnýtingu séreignar í fjöleignarhúsi og nábýlisréttarleg álitamál henni tengd
+  authors:
+  - Helgi Áss Grétarsson
+  - Karl Axelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 329
+  page_end: 382
+  issue: null
+  pdf_pages:
+  - 109
+  - 162
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 120
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Norræna málflutningskeppnin 2016“ á bls. 382 sem skráin nefnir ekki; greinin er talin
+    enda þar'

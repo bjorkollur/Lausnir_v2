@@ -1,16 +1,217 @@
 source: ulfljotur
 year: 2006
-volume: null
+volume: 59
 issue: '2'
-label: Úlfljótur, 2. tbl. (2006)
+label: Úlfljótur, 59. árg. 2. tbl. (2006)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2006_2_tbl.pdf
 sha256: 199ef85444eae2a2fb7ffa77f7a649570bc3080ebbbbbf9263060257c359afb5
-pages: null
+pages: 238
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 183
+  quality: 0.992
+  runner_up_share: 0.0
+  pages: 238
+  segments:
+  - - 2
+    - 237
+    - 183
+  contested: []
+  bin_ratio: 0.973
+  non_article:
+  - 13
+  - 17
+  - 61
+  - 193
+  - 234
+  - 235
+  - 236
+  - 237
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2006_2_tbl.pdf
-articles: []
+articles:
+- title: Fræðasjóður Úlfljóts
+  authors:
+  - Jóhannes Eiríksson
+  - Einar Björgvin Sigurbergsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 193
+  page_end: 195
+  issue: null
+  pdf_pages:
+  - 10
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 271
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Hátíðisdagur Úlfljóts“ á bls. 197 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Túlkun reglugerðarheimilda
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 201
+  page_end: 243
+  issue: null
+  pdf_pages:
+  - 18
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 272
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Milliverðlagning
+  authors:
+  - Ágúst Karl Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 245
+  page_end: 280
+  issue: null
+  pdf_pages:
+  - 62
+  - 97
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 273
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um gildi fyrirvara í samskiptasendingum og vernd rafrænna fjarskipta
+  authors:
+  - Haraldur Steinþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 281
+  page_end: 330
+  issue: null
+  pdf_pages:
+  - 98
+  - 147
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 274
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Áhættutaka í knattspyrnu - réttarstaða leikmanna
+  authors:
+  - Höskuldur Eiríksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 331
+  page_end: 375
+  issue: null
+  pdf_pages:
+  - 148
+  - 192
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 275
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vegarollur og umferðaröryggi
+  authors:
+  - Ólafur Páll Vignisson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 377
+  page_end: 416
+  issue: null
+  pdf_pages:
+  - 194
+  - 233
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 276
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,195 @@
 source: logretta
 year: 2013
-volume: null
+volume: 10
 issue: '1'
-label: Lögrétta, 1. tbl. (2013)
+label: Lögrétta, 10. árg. 1. tbl. (2013)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2013 1.tbl.pdf
 sha256: 5707b410781e0dc5a4b5b5f54e5783e02053fb6c06a5ca371e58d6fa7f31616e
-pages: null
+pages: 61
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 15
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 61
+  segments:
+  - - 0
+    - 13
+    - 9
+  - - 14
+    - 19
+    - 11
+  - - 20
+    - 33
+    - 13
+  - - 34
+    - 54
+    - 15
+  - - 55
+    - 60
+    - 16
+  contested: []
+  bin_ratio: 0.896
+  non_article: []
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2013 1.tbl.pdf
-articles: []
+articles:
+- title: Hvenær telst lán vera erlent? Ályktanir af dómaframkvæmd
+  authors:
+  - Stefán A. Svensson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Endurskoðun dóms
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 14
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tjón vegna missis hagnaðar við verkframkvæmdir. Um dóm Hæstaréttar 20. september 2012 í máli nr. 416/2011
+  authors:
+  - Eiríkur Elís Þorláksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 33
+  page_end: 46
+  issue: null
+  pdf_pages:
+  - 20
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Reglur Evrópuréttar um heilbrigðisþjónustu yfir landamæri
+  authors:
+  - Margrét Einarsdóttir
+  - Lena Mjöll Markusdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 69
+  issue: null
+  pdf_pages:
+  - 34
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Heildarendurskoðun höfundalaga og Þróun íslensks höfundaréttar frá 20091
+  authors:
+  - Rán Tryggvadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 76
+  issue: null
+  pdf_pages:
+  - 55
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

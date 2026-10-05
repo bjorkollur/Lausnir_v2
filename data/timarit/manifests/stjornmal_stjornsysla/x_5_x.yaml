@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2009
 volume: 5
 issue: null
-label: Stjórnmál og stjórnsýsla, 5. árg.
+label: Stjórnmál og stjórnsýsla, 5. árg. (2009)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.675
+status: review
+confidence: 0.35
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/123-158_Turbulent_Finances_of_Labour_Market_Pens.pdf
@@ -28,4 +29,507 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/5-26_Gender_Bias_in_Politics.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/69-92_The_impact_of_EU_membership_on_Iceland's.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/93-122_The_Top_Income_Groups.pdf
-articles: []
+articles:
+- title: Stofnun stjórnsýslufræða og stjórnmála, Odda v/Sturlugötu 101 R. Sími 525-4928 http://www.stjornsyslustofnun.hi.is
+    5 Kynjaskekkja í stjórnmálum Breytingar og áhrifaþættir
+  authors:
+  - Þorgerður Einarsdóttir
+  - Guðbjörg Lilja Hjartardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 26
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/5-26_Gender_Bias_in_Politics.pdf
+  note: ''
+  analysis_notes: []
+- title: Staða kvenna í landbúnaði Kynjafræðilegur sjónarhóll
+  authors:
+  - Hjördís Sigursteinsdóttir
+  - Guðbjörg Linda Rafnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 27
+  page_end: 48
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/27-48_Women_in_agriculture.pdf
+  note: ''
+  analysis_notes: []
+- title: Þróun refsinga fyrir kynferðisbrot
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 68
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/49-68_The_development_of_sentences_for_sexual.pdf
+  note: ''
+  analysis_notes: []
+- title: Áhrif aðildar að Evrópusambandinu á fullveldi Íslands
+  authors:
+  - Jóhanna Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 69
+  page_end: 92
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/69-92_The_impact_of_EU_membership_on_Iceland's.pdf
+  note: ''
+  analysis_notes: []
+- title: Heimur hátekjuhópanna Um þróun tekjuskiptingar á Íslandi 1993-2007
+  authors:
+  - Arnaldur Sölvi Kristjánsson
+  - Stefán Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 93
+  page_end: 122
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/93-122_The_Top_Income_Groups.pdf
+  note: ''
+  analysis_notes: []
+- title: Sviptingar í fjárhag lífeyrissjóðanna
+  authors:
+  - Ólafur Ísleifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 123
+  page_end: 158
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/123-158_Turbulent_Finances_of_Labour_Market_Pens.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Studying Judicial Activism: A Review of the Quantitative Literature'
+  authors:
+  - Svandís Nína Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 159
+  page_end: 180
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/159-180_Studying_Judicial_Activism.pdf
+  note: ''
+  analysis_notes: []
+- title: Public Impact Citizen influence in local government in Iceland
+  authors:
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 181
+  page_end: 202
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/181-202_Public_Impact.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Iceland’s Neighbours in the EU Entry Queue:'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 225
+  page_end: 248
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/225-248_Iceland’s_Neighbours_in_the_EU_Entry_Que.pdf
+  note: ''
+  analysis_notes: []
+- title: Sense of Sovereignty
+  authors:
+  - Eiríkur Bergmann
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 203
+  page_end: 224
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/203-224_Sense_of_Sovereignty.pdf
+  note: ''
+  analysis_notes: []
+- title: The Changing Relationship Between the Government and the Nonprofit Sector in Iceland
+  authors:
+  - Ómar H. Kristmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 249
+  page_end: 266
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/249-266_The_Changing_Relationship_Between_the_Go.pdf
+  note: ''
+  analysis_notes: []
+- title: „Neyðarlögin“ og stjórnsýsluréttur
+  authors:
+  - Margrét Vala Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 267
+  page_end: 294
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/267-294__The_Financial_Crisis_Act__and_administr.pdf
+  note: ''
+  analysis_notes: []
+- title: Traust á sögulegum grunni – rannsókn á fréttareglum Ríkisútvarpsins
+  authors:
+  - Birgir Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 295
+  page_end: 310
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/295-310_Trust_Derived_From_History_-_a_Study.pdf
+  note: ''
+  analysis_notes: []
+- title: Ímynd og markaðsstarf sveitarfélaga
+  authors:
+  - Þórhallur Guðlaugsson
+  - Elfa Björk Erlingsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 311
+  page_end: 334
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/311-334_Image_and_marketing_of_municipalities.pdf
+  note: ''
+  analysis_notes: []
+- title: Information Technology Capabilities and Their Impact on the Transfer of External Information Implications for both
+    private and public sector organizations
+  authors:
+  - Gunnar Óskarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 335
+  page_end: 362
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/335-362_Information_Technology_Capabilities_and.pdf
+  note: ''
+  analysis_notes: []
+- title: Mannréttindi, fötlun og fjölskyldulíf Í tilefni yfirfærslu málefna fatlaðs fólks til sveitarfélaga
+  authors:
+  - Hanna Björg Sigurjónsdóttir
+  - Rannveig Traustadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 363
+  page_end: 382
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/363-382_Human_right,_disability_and_family_life.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Hanna Björg Sigurjónsdóttir, Rannveig Traustadóttir) stangast á við síðuna (Hanna Björg
+    Sigurjónsdóttir, Helga Baldvins); skránni haldið'

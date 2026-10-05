@@ -1,16 +1,783 @@
 source: timarit_logfraedinga
 year: 2001
-volume: null
+volume: 51
 issue: null
-label: Tímarit lögfræðinga (2001)
+label: Tímarit lögfræðinga, 51. árg. (2001)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2001.pdf
 sha256: 47514a2bf35f002e6f64b0451de2e62f3ef66156134d2813cf438339d9ae47a7
-pages: null
+pages: 428
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -23
+  quality: 0.911
+  runner_up_share: 0.007
+  pages: 428
+  segments:
+  - - 6
+    - 74
+    - -5
+  - - 82
+    - 160
+    - -11
+  - - 166
+    - 272
+    - -15
+  - - 282
+    - 422
+    - -23
+  contested: []
+  bin_ratio: 0.869
+  non_article:
+  - 47
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 80
+  - 81
+  - 85
+  - 117
+  - 155
+  - 156
+  - 157
+  - 158
+  - 159
+  - 160
+  - 161
+  - 162
+  - 164
+  - 165
+  - 217
+  - 259
+  - 267
+  - 268
+  - 269
+  - 270
+  - 271
+  - 272
+  - 273
+  - 274
+  - 275
+  - 276
+  - 277
+  - 278
+  - 280
+  - 281
+  - 363
+  - 417
+  - 418
+  - 419
+  - 420
+  - 421
+  - 422
+  - 423
+  - 424
+  - 425
+  - 426
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2001.pdf
-articles: []
+articles:
+- title: Um réttarheimildir og norskan dóm
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 3
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögsöguvald Alþjóðlega sakamáladómstólsins
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 24
+  issue: '1'
+  pdf_pages:
+  - 10
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Itrekunartíðni afbrota á Islandi eftir dr. Eric Baumer, dr. Helga Gunnlaugsson, Kristrúnu Kristmundsdóttur og dr.
+    Richard Wright
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 41
+  issue: '1'
+  pdf_pages:
+  - 30
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: „Traustir skulu hornsteinar...“
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 43
+  page_end: 52
+  issue: '1'
+  pdf_pages:
+  - 48
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: A víð og dreif Skýrsla um Lagastofnun Háskóla Islands 27. febrúar 1999 til 1. marz 2000
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 63
+  issue: '1'
+  pdf_pages:
+  - 58
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur Íslands“ á pdf-síðu 79 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Opinber málsmeðferð
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 73
+  issue: '2'
+  pdf_pages:
+  - 82
+  - 84
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Beiting ákvæða um efnahagsleg og félagsleg mannréttindi í stjórnarskrá og alþjóðasamningum
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 75
+  page_end: 105
+  issue: '2'
+  pdf_pages:
+  - 86
+  - 116
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Grunnreglur stjórnsýsluréttar og siðferði
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 126
+  issue: '2'
+  pdf_pages:
+  - 118
+  - 137
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: A víð og dreif Frá Lögfræðingafélagi íslands Aðalfundur Lögfræðingafélags íslands 2000
+  authors:
+  - Brynhildur Flóvenz
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 127
+  page_end: 127
+  issue: '2'
+  pdf_pages:
+  - 138
+  - 138
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla Stjórnar Lögfræðingafélags íslands 2000
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 128
+  page_end: 132
+  issue: '2'
+  pdf_pages:
+  - 139
+  - 143
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá lagadeild Háskóla íslands Skýrsla um Lagastofnun Háskóla íslands 27. febrúar 1997- 28. febrúar 1998
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 143
+  issue: '2'
+  pdf_pages:
+  - 144
+  - 154
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um löggjafarvald og dómsvald
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 151
+  page_end: 154
+  issue: '3'
+  pdf_pages:
+  - 166
+  - 169
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Umhverfisvernd í gíslingu rökvillu? Hugleiðingar um mat á umhverfisáhrifum
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 201
+  issue: '3'
+  pdf_pages:
+  - 170
+  - 216
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjármálaleg tæki - undirliggjandi verðmæti - afleiður
+  authors:
+  - Ásmundur G. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 203
+  page_end: 243
+  issue: '3'
+  pdf_pages:
+  - 218
+  - 258
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ferð dómara til Berlínar
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 245
+  page_end: 251
+  issue: '3'
+  pdf_pages:
+  - 260
+  - 266
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmannafélag íslands 90 ára
+  authors:
+  - Ásgeir Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 259
+  page_end: 262
+  issue: '4'
+  pdf_pages:
+  - 282
+  - 285
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmannafélag íslands 90 ára - söguágrip
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 263
+  page_end: 324
+  issue: '4'
+  pdf_pages:
+  - 286
+  - 347
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttaráhrif varnarþingssamninga samkvæmt 1. mgr. 17. gr. Lúganósamningsins
+  authors:
+  - Ása Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 325
+  page_end: 339
+  issue: '4'
+  pdf_pages:
+  - 348
+  - 362
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Upphaf samfélagsþjónustu sem viðurlagategundar - danskur réttur
+  authors:
+  - Jón Þór Ölason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 341
+  page_end: 382
+  issue: '4'
+  pdf_pages:
+  - 364
+  - 405
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur Lögfræðingafélags íslands 2001
+  authors:
+  - Brynhildur Flóvenz
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 383
+  page_end: 383
+  issue: '4'
+  pdf_pages:
+  - 406
+  - 406
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla Stjórnar Lögfræðingafélags íslands 2000-2001
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 384
+  page_end: 389
+  issue: '4'
+  pdf_pages:
+  - 407
+  - 412
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur Lögmannafélags íslands 2001
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 390
+  page_end: 393
+  issue: '4'
+  pdf_pages:
+  - 413
+  - 416
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

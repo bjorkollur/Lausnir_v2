@@ -1,19 +1,144 @@
 source: ulfljotur
 year: 2002
-volume: null
+volume: 55
 issue: '3'
-label: Úlfljótur, 3. tbl. (2002)
+label: Úlfljótur, 55. árg. 3. tbl. (2002)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.938
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/401.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/454.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/659.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/702.pdf
-articles: []
+articles:
+- title: Þróun andmælareglunnar eftir gildistöku 13. gr.* 1 stjórnsýslulaga
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 363
+  page_end: 416
+  issue: null
+  pdf_pages:
+  - 0
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 364
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/454.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Tjáningarfrelsið og bann við útbreiðslu kynþáttafordóma
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 417
+  page_end: 442
+  issue: null
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 365
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/401.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Samlagshlutafélög
+  authors:
+  - Grímur Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 443
+  page_end: 471
+  issue: null
+  pdf_pages:
+  - 0
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 366
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/702.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Ys og þys út af engu? - Hugleiðingar um bókun 35 við samninginn um Evrópska efnahagssvæðið
+  authors:
+  - Dóra Sif Tynes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 473
+  page_end: 496
+  issue: null
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 367
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/659.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'

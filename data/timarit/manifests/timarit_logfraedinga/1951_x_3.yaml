@@ -1,16 +1,107 @@
 source: timarit_logfraedinga
 year: 1951
-volume: null
+volume: 1
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (1951)
+label: Tímarit lögfræðinga, 1. árg. 3. hefti (1951)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1951_03.pdf
 sha256: 752885aae544afe05f07bf3a8fed7dd8fe8d53e2d22aeca026d4c2a0aa948027
-pages: null
+pages: 68
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 171
+  quality: 0.544
+  runner_up_share: 0.027
+  pages: 68
+  segments:
+  - - 3
+    - 45
+    - 171
+  contested: []
+  bin_ratio: 0.922
+  non_article:
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 53
+  - 55
+  - 56
+  - 57
+  - 59
+  - 61
+  - 63
+  - 64
+  - 65
+  - 66
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1951_03.pdf
-articles: []
+articles:
+- title: Niðgjöld — Manngjöld
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 210
+  issue: null
+  pdf_pages:
+  - 2
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögbókarfrumvarp Vindings Kruse
+  authors:
+  - Ólafur Lárusson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 211
+  page_end: 216
+  issue: null
+  pdf_pages:
+  - 40
+  - 45
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Lögfræðingar ganga jafnan vel til fara“ á bls. 223 sem skráin nefnir ekki; greinin er
+    talin enda þar'

@@ -1,16 +1,402 @@
 source: logmannabladid
 year: 2022
-volume: null
+volume: 28
 issue: '2'
-label: Lögmannablaðið, 2. tbl. (2022)
+label: Lögmannablaðið, 28. árg. 2. tbl. (2022)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2022 02.pdf
 sha256: 486fbd5a262f5defbd2f3e79cd2b0ccf1ec1c724c95dfb43709f2f3555e4a898
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.861
+  runner_up_share: 0.0
+  pages: 36
+  segments:
+  - - 1
+    - 34
+    - 1
+  contested: []
+  bin_ratio: 0.96
+  non_article:
+  - 4
+  - 34
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2022 02.pdf
-articles: []
+articles:
+- title: Teamsfundirnir við sundlaugarbakkann
+  authors:
+  - Sigurður Örn Hilmarsson
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá ritstjórn
+  authors:
+  - Ari Karlsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Frá Sjöundá til stafrænnar framtíðar“) er annar titill en skrárinnar („Frá ritstjórn“);
+    titli skrárinnar haldið'
+- title: Brottfall kvenna úr lögmannastétt til umræðu á aðalfundi LMFÍ
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stafræn framtíð dómstólanna
+  authors:
+  - Arnar Vilhjálmur Arnarson
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 9
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Réttarsöguferð Lögfræðingafélags Íslands: Um sekt eða sakleysi í Sjöundármálum'
+  authors:
+  - Eyrún Ingadóttir
+  - Katrín Smári Ólafsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 13
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ JÓN KARL HELGASON Glæpir og refsing í bókmenntum
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagaumhverfi sjálfbærni í mótun
+  authors:
+  - Eva Margrét Ævarsdóttir
+  - Lex Lögmannsstofu
+  - Ráðgjafi Í Sjálfbærni
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 21
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagadeild Háskólans í Reykjavík setur á stofn sjálfbærni- og loftslags
+  authors:
+  - Ingi Poulsen
+  author_titles: []
+  article_type: Annað
+  page_start: 24
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 23
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Norræna réttarfarsráðstefnan á Íslandi: Endurupptaka sakamála og nýjungar í gjaldþrotaskiptarétti'
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Annað
+  page_start: 25
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 24
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Norræna lögfræðingaþingið í Reykjavík: Gefandi, fræðandi og skemmtilegt'
+  authors:
+  - María Rún Bjarnadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Kóðuð fjármál og lög: Táknreiddir fjármálagerningar og rafmyntaafleiður'
+  authors:
+  - Þorvarður A. Ágústsson
+  author_titles: []
+  article_type: Annað
+  page_start: 27
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 26
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ SVÖLU THORLACIUS Það var klassi yfir fulltrúaembættinu
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 30
+  page_end: 34
+  issue: null
+  pdf_pages:
+  - 29
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

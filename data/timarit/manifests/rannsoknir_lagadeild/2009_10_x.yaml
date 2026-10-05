@@ -5,12 +5,402 @@ issue: null
 label: Rannsóknir í félagsvísindum, 10. árg. (2009)
 file: Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2009 - X.pdf
 sha256: d35f705b8c8c847f3f54a23552fcd5d392639e95f4f8d5b6b19d9eff55efcf6d
-pages: null
+pages: 265
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.902
+  runner_up_share: 0.0
+  pages: 265
+  segments:
+  - - 11
+    - 264
+    - 1
+  contested: []
+  bin_ratio: 0.907
+  non_article:
+  - 9
+  - 59
+  - 113
+  - 153
+  - 215
+  - 237
+  - 251
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2009 - X.pdf
-articles: []
+articles:
+- title: Formáli
+  authors:
+  - Trausti Fannar Valsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 9
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 8
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kynbundið ofbeldi og forsendur við lagasetningu
+  authors:
+  - Brynhildur G. Flóvenz
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 38
+  issue: null
+  pdf_pages:
+  - 10
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Methods of Interpretation in EU and EEA Law: Courts as Institutional Actors'
+  authors:
+  - Dóra Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 59
+  issue: null
+  pdf_pages:
+  - 38
+  - 58
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Áhrif heimilisofbeldis á ákvarðanir í umgengnismálum
+  authors:
+  - Elísabet Gísladóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 80
+  issue: null
+  pdf_pages:
+  - 60
+  - 79
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmætisreglan í framkvæmd opinberra eftirlitsstofnana
+  authors:
+  - Eiríkur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 81
+  page_end: 96
+  issue: null
+  pdf_pages:
+  - 80
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: A Sketch of an Answer.1
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 113
+  issue: null
+  pdf_pages:
+  - 96
+  - 112
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af handfæra- og strandveiðibátum Lagaþróun 1996–2009
+  authors:
+  - Helgi Áss Grétarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 115
+  page_end: 153
+  issue: null
+  pdf_pages:
+  - 114
+  - 152
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Að nota samning SÞ um réttindi barnsins með hendi og vendi að hingað til brúkanlegum siðvana
+  authors:
+  - Hrefna Friðriksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 172
+  issue: null
+  pdf_pages:
+  - 154
+  - 171
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kosningar í nefndir, ráð og stjórnir sveitarfélaga samkvæmt sveitarstjórnar- og jafnréttislögum
+  authors:
+  - Kári Hólmar Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 215
+  issue: null
+  pdf_pages:
+  - 172
+  - 214
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: A European Court with a “constitutional” mission for a sui generis Legal Order
+  authors:
+  - M. Elvira Méndez-Pinedo
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 217
+  page_end: 237
+  issue: null
+  pdf_pages:
+  - 216
+  - 236
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkrar hugleiðingar um eðli almenns þjóðaréttar borið saman við Evrópurétt
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 239
+  page_end: 251
+  issue: null
+  pdf_pages:
+  - 238
+  - 250
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Viðhorf til kynferðisbrota gegn börnum
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 253
+  page_end: 265
+  issue: null
+  pdf_pages:
+  - 252
+  - 264
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

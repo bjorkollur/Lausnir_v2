@@ -1,16 +1,149 @@
 source: ulfljotur
 year: 2013
-volume: null
+volume: 66
 issue: '1'
-label: Úlfljótur, 1. tbl. (2013)
+label: Úlfljótur, 66. árg. 1. tbl. (2013)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2013_1_tbl.pdf
 sha256: 6b26ecd224abf1515594acca24ea011d0c8bf6607df5dd6f12ebb16e4a4a31f5
-pages: null
+pages: 98
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.888
+  runner_up_share: 0.011
+  pages: 98
+  segments:
+  - - 4
+    - 94
+    - -1
+  contested: []
+  bin_ratio: 0.846
+  non_article:
+  - 29
+  - 67
+status: review
+confidence: 0.85
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2013_1_tbl.pdf
-articles: []
+articles:
+- title: Ekki má dæma ákærða fyrir aðra hegðun en þá sem í ákæru greinir
+  authors:
+  - Eiríkur Elís Þorláksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 6
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 156
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: “Eignarrétturinn er friðhelgur.” Eru upphafsorð 72. gr. Stjórnarskrárinnar aðeins stefnuyfirlýsing?
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: 65
+  issue: null
+  pdf_pages:
+  - 30
+  - 66
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 157
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norræna sakfræðiráðið
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 67
+  page_end: 84
+  issue: null
+  pdf_pages:
+  - 68
+  - 85
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 158
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rogastans
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 85
+  page_end: 93
+  issue: null
+  pdf_pages:
+  - 86
+  - 94
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 159
+  source_file: null
+  note: ''
+  analysis_notes: []

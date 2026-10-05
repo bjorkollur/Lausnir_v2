@@ -1,16 +1,101 @@
 source: logmannabladid
 year: 2001
-volume: null
+volume: 7
 issue: '3'
-label: Lögmannablaðið, 3. tbl. (2001)
+label: Lögmannablaðið, 7. árg. 3. tbl. (2001)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2001 03.pdf
 sha256: 9df860656592c0079eebdcfbecad0ce1f4231cc1a619da102446942354a4eec3
-pages: null
+pages: 28
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.214
+  runner_up_share: 0.0
+  pages: 28
+  segments:
+  - - 1
+    - 24
+    - 1
+  contested: []
+  bin_ratio: 0.951
+  non_article:
+  - 18
+  - 19
+  - 20
+  - 22
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2001 03.pdf
-articles: []
+articles:
+- title: Samningsbundið uppgjör afleiðusamninga Bls.
+  authors:
+  - Bjarki H. Diego
+  author_titles: []
+  article_type: Annað
+  page_start: 7
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 6
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Umsögn um frumvarp til tóbaksvarnarlaga“ á bls. 9 sem skráin nefnir ekki; greinin er
+    talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Bann við áfengisauglýsingum“) er annar titill en skrárinnar („Samningsbundið uppgjör
+    afleiðusamninga Bls.“); titli skrárinnar haldið'
+- title: 90 ára 1911 - 2001
+  authors:
+  - Lögmannafélag Íslands
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 12
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Málþing Lögmannafélags Íslands og Dómarafélags Íslands“ á bls. 16 sem skráin nefnir
+    ekki; greinin er talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Um samningsbundið uppgjör afleiðusamninga“) er annar titill en skrárinnar („90 ára
+    1911 - 2001“); titli skrárinnar haldið'

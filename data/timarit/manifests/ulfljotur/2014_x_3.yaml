@@ -1,16 +1,122 @@
 source: ulfljotur
 year: 2014
-volume: null
+volume: 67
 issue: '3'
-label: Úlfljótur, 3. tbl. (2014)
+label: Úlfljótur, 67. árg. 3. tbl. (2014)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2014_3_tbl.pdf
 sha256: 261e3655e923ee4c03400bcaa9c12ab2e525f4d570d00eab81e0a9e561243812
-pages: null
+pages: 125
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 392
+  quality: 0.944
+  runner_up_share: 0.008
+  pages: 125
+  segments:
+  - - 3
+    - 121
+    - 392
+  contested: []
+  bin_ratio: 0.724
+  non_article:
+  - 118
+  - 119
+  - 120
+  - 121
+status: approved
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2014_3_tbl.pdf
-articles: []
+articles:
+- title: Fjármálastöðugleiki - ný löggjöf og helstu álitaefni
+  authors:
+  - Arnaldur Hjartarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 397
+  page_end: 436
+  issue: null
+  pdf_pages:
+  - 5
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 149
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Þjónustugjöld
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 437
+  page_end: 480
+  issue: null
+  pdf_pages:
+  - 45
+  - 88
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 150
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Oft er gígur granna á milli - um 55. gr. laga um fjöleignarhús
+  authors:
+  - Karl Axelsson
+  - Helgi Áss Grétarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 481
+  page_end: 509
+  issue: null
+  pdf_pages:
+  - 89
+  - 117
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 151
+  source_file: null
+  note: ''
+  analysis_notes: []

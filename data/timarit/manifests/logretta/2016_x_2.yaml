@@ -5,12 +5,19 @@ issue: '2'
 label: Lögrétta, 2. tbl. (2016)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2016 2.tbl.pdf
 sha256: ced691114c1d23cc34859042da7dfc634a09b8b1771ec59f82a50b8bbc4a28b0
-pages: null
+pages: 183
 year_end: null
-page_map: {}
-status: pending
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 183
+  segments: []
+  contested: []
+  bin_ratio: 0.0
+status: review
 confidence: 0.0
-error: null
+error: ekkert textalag — þarf OCR
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2016 2.tbl.pdf
 articles: []

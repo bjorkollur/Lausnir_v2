@@ -5,12 +5,19 @@ issue: '1'
 label: Lögmannablaðið, 1. tbl. (1997)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1997 01.pdf
 sha256: 632c5e783c2015ca184bc14c0a6a9fe9e71f0958e6420062fc3478e33ba13540
-pages: null
+pages: 11
 year_end: null
-page_map: {}
-status: pending
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 11
+  segments: []
+  contested: []
+  bin_ratio: 0.0
+status: review
 confidence: 0.0
-error: null
+error: ekkert textalag — þarf OCR
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1997 01.pdf
 articles: []

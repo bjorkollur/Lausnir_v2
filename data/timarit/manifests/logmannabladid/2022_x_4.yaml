@@ -1,16 +1,339 @@
 source: logmannabladid
 year: 2022
-volume: null
+volume: 28
 issue: '4'
-label: Lögmannablaðið, 4. tbl. (2022)
+label: Lögmannablaðið, 28. árg. 4. tbl. (2022)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2022 04.pdf
 sha256: 71ce78ccf5fd010734bfe80a1a76cf0358edbd0555d00ac4557a07b1b7ffe3d8
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.844
+  runner_up_share: 0.0
+  pages: 32
+  segments:
+  - - 1
+    - 30
+    - 1
+  contested: []
+  bin_ratio: 0.908
+  non_article:
+  - 6
+  - 8
+  - 30
+  - 31
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2022 04.pdf
-articles: []
+articles:
+- title: Pistill formanns
+  authors:
+  - Sigurður Örn Hilmarsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 3
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá ritstjórn
+  authors:
+  - Ari Karlsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 8
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 7
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Um form og efni“) er annar titill en skrárinnar („Frá ritstjórn“); titli skrárinnar
+    haldið'
+- title: VIÐTAL VIÐ ÓSKAR MAGNÚSSON Hef skáldað mér friðhelgi
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 10
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 9
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málstofa um opinber störf
+  authors:
+  - Ari Karlsson
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 12
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af vettvangi félagsins
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Víðtækara hlutverk og valdsvið kærunefndar jafnréttismála
+  authors:
+  - Ari Karlsson
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 17
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bókmenntir og lög
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Það er ekki skilnaðurinn sjálfur sem veldur skaða
+  authors:
+  - Gyða Hjartardóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Pattstaða í dómskerfinu
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 24
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 23
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ ÓLAF H. RAGNARSSON Hef bara tíma fyrir gott fólk
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 26
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 25
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

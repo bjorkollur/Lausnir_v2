@@ -1,16 +1,953 @@
 source: timarit_logfraedinga
 year: 1999
-volume: null
+volume: 49
 issue: null
-label: Tímarit lögfræðinga (1999)
+label: Tímarit lögfræðinga, 49. árg. (1999)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1999.pdf
 sha256: acc520d3f79740fa10a525770536afb57712ba2b0851ee2256329e1614faa1ef
-pages: null
+pages: 408
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -13
+  quality: 0.919
+  runner_up_share: 0.0
+  pages: 408
+  segments:
+  - - 6
+    - 73
+    - -5
+  - - 79
+    - 162
+    - -9
+  - - 168
+    - 294
+    - -13
+  - - 300
+    - 403
+    - -17
+  contested: []
+  bin_ratio: 0.953
+  non_article:
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 75
+  - 76
+  - 77
+  - 103
+  - 158
+  - 159
+  - 160
+  - 161
+  - 162
+  - 163
+  - 165
+  - 166
+  - 167
+  - 171
+  - 290
+  - 291
+  - 292
+  - 293
+  - 294
+  - 295
+  - 297
+  - 298
+  - 299
+  - 333
+  - 393
+  - 399
+  - 400
+  - 401
+  - 402
+  - 403
+  - 404
+  - 405
+  - 406
+  - 407
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1999.pdf
-articles: []
+articles:
+- title: Tvískipt ríkisvald?
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 4
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 1
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Dómstólar setja ekki lög
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 16
+  issue: '1'
+  pdf_pages:
+  - 10
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    issue: toc
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Um vansvefta skipstjóra og afladrjúga stýrimenn
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 17
+  page_end: 30
+  issue: '1'
+  pdf_pages:
+  - 22
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    issue: toc
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Fiskur, eignir og réttlæti
+  authors:
+  - Hannes Hólmsteinn Gissurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 31
+  page_end: 55
+  issue: '1'
+  pdf_pages:
+  - 36
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    issue: toc
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: greinin er undirrituð (Helgi Jóhannesson) en höfundar skrárinnar eru aðrir (Hannes Hólmsteinn Gissurarson); skránni
+    haldið'
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Frá Lögfræðingafélagi íslands Aðalfundur 1998
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '1'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Skýrsla stjómar
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '1'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Leiðrétting
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 61
+  issue: '1'
+  pdf_pages:
+  - 66
+  - 66
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 61
+  - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur Íslands“ á pdf-síðu 75 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Fangelsismál
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 69
+  page_end: 72
+  issue: '2'
+  pdf_pages:
+  - 78
+  - 81
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+    authors: leitir
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - upphafsbls. 69 er á engri síðu skjalsins (eyða í blaðsíðutali)
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Hvað er ranglátt við kvótann?
+  authors:
+  - Vilhjálmur Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 84
+  issue: '2'
+  pdf_pages:
+  - 82
+  - 93
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 73
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Hámark á skaðabætur - Fullar bætur
+  authors:
+  - Hörður Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 85
+  page_end: 93
+  issue: '2'
+  pdf_pages:
+  - 94
+  - 102
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    issue: toc
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Forsjársvipting samkvæmt 25. gr. barnaverndarlaga nr. 58/1992
+  authors:
+  - Ingveldur Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 95
+  page_end: 110
+  issue: '2'
+  pdf_pages:
+  - 104
+  - 119
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 95
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Ráðgefandi álit EFTA-dómstólsins í máli Erlu Maríu Sveinbjörnsdóttur gegn íslenska ríkinu - Meginregla um skaðabótaábyrgð
+  authors:
+  - Óttar Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 111
+  page_end: 148
+  issue: '2'
+  pdf_pages:
+  - 120
+  - 157
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: page
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 111
+  - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur íslands.**. t o <5 ó> Q ce S A'' lEl“ á pdf-síðu 165 sem skráin nefnir ekki;
+    greinin er talin enda þar'
+  - 'FRÁVIK: greinin er undirrituð (Lára V. Júlíusdóttir) en höfundar skrárinnar eru aðrir (Óttar Pálsson); skránni haldið'
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Kínaför lögfræðingafélagsins í apríl 1998
+  authors:
+  - Lára V. Júlíusdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '2'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Þakkir og árnaðaróskir
+  authors:
+  - Þorsteinn Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 157
+  issue: '3'
+  pdf_pages:
+  - 168
+  - 170
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    issue: toc
+    pages: page
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 155
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Um bótaábyrgð ríkisins samkvæmt 49. gr. þinglýsingalaga nr. 39/1978
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 159
+  page_end: 186
+  issue: '3'
+  pdf_pages:
+  - 172
+  - 199
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: page
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 159
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: íslensku skaðabótalögin. Misheppnuð lagasmíð
+  authors:
+  - Jón Erlingur Þorláksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 187
+  page_end: 196
+  issue: '3'
+  pdf_pages:
+  - 200
+  - 209
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 187
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Ráðgefandi álit EFTA-dómstólsins í máli Erlu Maríu Sveinbjörnsdóttur og takmarkanir á framsali löggjafarvalds til
+    stofnana EES
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 197
+  page_end: 218
+  issue: '3'
+  pdf_pages:
+  - 210
+  - 231
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 197
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Skattasniðganga
+  authors:
+  - Kristján Gunnar Valdimarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 219
+  page_end: 276
+  issue: '3'
+  pdf_pages:
+  - 232
+  - 289
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    issue: toc
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 262, prentuð lokasíða er bls. 276
+  - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur Íslands“ á pdf-síðu 297 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: greinin er undirrituð (Kolbrún Linda Isleifsdóttir) en höfundar skrárinnar eru aðrir (Kristján Gunnar Valdimarsson);
+    skránni haldið'
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Frá lagadeild Háskóla íslands Deildarfréttir 1998
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '3'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Breytingar á lögum um meðferð opinberra mála
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 283
+  page_end: 286
+  issue: '4'
+  pdf_pages:
+  - 300
+  - 303
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+    authors: leitir
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Dómstólar og fjölmiðlar
+  authors:
+  - Hrafn Bragason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 287
+  page_end: 298
+  issue: '4'
+  pdf_pages:
+  - 304
+  - 315
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    issue: toc
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Um lagalega ábyrgð aðila sem standa fyrir félags- og tómstundastarfi fyrir börn og unglinga
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 299
+  page_end: 315
+  issue: '4'
+  pdf_pages:
+  - 316
+  - 332
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 299
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Varnarþingsreglur Lúganósamningsins
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 317
+  page_end: 370
+  issue: '4'
+  pdf_pages:
+  - 334
+  - 387
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 317
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Enn af skrímslinu
+  authors:
+  - Lúðvík Emil Kaaber
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 371
+  page_end: 375
+  issue: '4'
+  pdf_pages:
+  - 388
+  - 392
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    issue: toc
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „A VIÐ OG DREIF“ á bls. 377 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Frá Lögfræðingafélagi íslands Aðalfundur 1999
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Skýrsla stjómar 1999
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'

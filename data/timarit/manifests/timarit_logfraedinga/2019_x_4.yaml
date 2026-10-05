@@ -1,16 +1,190 @@
 source: timarit_logfraedinga
 year: 2019
-volume: null
+volume: 69
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2019)
+label: Tímarit lögfræðinga, 69. árg. 4. hefti (2019)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2019_04.pdf
 sha256: 615577af154c6de39ef7c1d7e6fe8ca0d62a2cda27471462b3c7d58fb74ec205
-pages: null
+pages: 162
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 395
+  quality: 0.963
+  runner_up_share: 0.0
+  pages: 162
+  segments:
+  - - 2
+    - 159
+    - 395
+  contested: []
+  bin_ratio: 0.979
+  non_article:
+  - 155
+  - 156
+  - 157
+  - 158
+  - 159
+  - 160
+  - 161
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2019_04.pdf
-articles: []
+articles:
+- title: 'Stjórnarskrárbreytingar: Að mörgu er að hyggja'
+  authors:
+  - Ragnhildur Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 397
+  page_end: 398
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skaðabótaábyrgð og starfsábyrgðartryggingar lögmanna
+  authors:
+  - Hildur Ýr Viðarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 399
+  page_end: 441
+  issue: null
+  pdf_pages:
+  - 4
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ákvarðanir stjórnvalda um ráðstöfun á takmörkuðum gæðum til atvinnustarfsemi – Reglur um gagnsæi í EES- og landsrétti
+  authors:
+  - Kristín Haraldsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 443
+  page_end: 482
+  issue: null
+  pdf_pages:
+  - 48
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kröfur EES-réttar til innleiðingar á reglugerðum og tilskipunum
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 483
+  page_end: 527
+  issue: null
+  pdf_pages:
+  - 88
+  - 133
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Strassborg er þetta helst
+  authors:
+  - Hildur Hjörvar
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 529
+  page_end: 549
+  issue: null
+  pdf_pages:
+  - 134
+  - 154
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 365–390

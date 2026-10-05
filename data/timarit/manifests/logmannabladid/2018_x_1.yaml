@@ -1,16 +1,331 @@
 source: logmannabladid
 year: 2018
-volume: null
+volume: 24
 issue: '1'
-label: Lögmannablaðið, 1. tbl. (2018)
+label: Lögmannablaðið, 24. árg. 1. tbl. (2018)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2018 01.pdf
 sha256: 6e4299090d047f85b6b93a158890271e881254140969c318c174380663bc6d81
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.778
+  runner_up_share: 0.0
+  pages: 36
+  segments:
+  - - 1
+    - 33
+    - 1
+  contested: []
+  bin_ratio: 0.969
+  non_article:
+  - 4
+  - 18
+  - 31
+  - 35
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2018 01.pdf
-articles: []
+articles:
+- title: Ríkið sem aðili að dómsmáli
+  authors:
+  - Eva Halldórsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Áskoranir nútímans
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félagsmönnum LMFÍ fækkar
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 7
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: HRINGBORÐSUMRÆÐUR Fjölskylduábyrgðin þarf að komast í umræðuna
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 12
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 11
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ný heimasíða LMFÍ
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ KATRÍNU JOHNSON Vinnustaðasamskipti og kynjapólitík
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 20
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 19
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: MÁLÞING FKL Jafnréttisparadísin Ísland?
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 25
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 24
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: HÁDEGISVERÐARFUNDUR Réttlát málsmeðferð við málskot til æðri dóms samkvæmt 6. gr. MSE
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 25
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Jólasnapsmót LMFÍ: Ný kynslóð komin fram á sjónarsviðið'
+  authors:
+  - Magnús Björn Brynjólfsson
+  author_titles: []
+  article_type: Annað
+  page_start: 30
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 29
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: HÁDEGISVERÐARFUNDUR Skilyrði áfrýjunarleyfis fyrir Hæstarétti Noregs
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 33
+  page_end: 34
+  issue: null
+  pdf_pages:
+  - 32
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

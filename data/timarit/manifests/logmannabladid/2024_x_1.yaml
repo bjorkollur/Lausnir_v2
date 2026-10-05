@@ -1,16 +1,365 @@
 source: logmannabladid
 year: 2024
-volume: null
+volume: 30
 issue: '1'
-label: Lögmannablaðið, 1. tbl. (2024)
+label: Lögmannablaðið, 30. árg. 1. tbl. (2024)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2024 01.pdf
 sha256: fe9b99dc49ee937ed5cd690a3d27de48492506e2530e51622ccc2d1238ea62f9
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.875
+  runner_up_share: 0.0
+  pages: 32
+  segments:
+  - - 1
+    - 30
+    - 1
+  contested: []
+  bin_ratio: 0.96
+  non_article:
+  - 30
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2024 01.pdf
-articles: []
+articles:
+- title: Allt opið upp á gátt hjá okkur í dag
+  authors:
+  - Sigurður Örn Hilmarsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 3
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá ritstjórn
+  authors:
+  - Ari Karlsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 7 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („WARUM es einfach machen…“) er annar titill en skrárinnar („Frá ritstjórn“); titli
+    skrárinnar haldið'
+- title: 'Könnun meðal lögmanna: Laun, launamunur, vinnutími og ábyrgð'
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Könnun meðal lögmanna: Lögmenn að bugast undan álagi'
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 9
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félag kvenna í lögmennsku 20 ára
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmennska og málflutningur fyrir dómi
+  authors:
+  - Jóhannes Karl Sveinsson
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 13
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'ÚRSKURÐARNEFND LÖGMANNA: Kvörtunum fjölgar á milli ára'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 17
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 43. norræna lögfræðingaþingið í Kaupmannahöfn í ágúst 2024
+  authors:
+  - Ragnar Tómas Árnason
+  author_titles: []
+  article_type: Annað
+  page_start: 21
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 20
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Námskeið LMFÍ
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 23
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 22
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Af þrumandi léttleika tilverunnar: Jólasnapsmótið í innanhússknattspyrnu anno 2023'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 24
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 23
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ GEST JÓNSSON Lít fyrst og fremst á mig sem málflytjanda
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 26
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 25
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

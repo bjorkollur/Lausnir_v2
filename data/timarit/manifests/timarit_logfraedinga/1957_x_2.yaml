@@ -1,16 +1,289 @@
 source: timarit_logfraedinga
 year: 1957
-volume: null
+volume: 7
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1957)
+label: Tímarit lögfræðinga, 7. árg. 2. hefti (1957)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1957_02.pdf
 sha256: 4eca109cc7ba34cf20b0bb998d62a5f367552d0cb29831cb9b761081b378ee02
-pages: null
+pages: 88
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 47
+  quality: 0.705
+  runner_up_share: 0.0
+  pages: 88
+  segments:
+  - - 2
+    - 68
+    - 47
+  contested: []
+  bin_ratio: 0.845
+  non_article:
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 75
+  - 76
+  - 77
+  - 78
+  - 81
+  - 82
+  - 84
+  - 85
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1957_02.pdf
-articles: []
+articles:
+- title: Laganám Íslendinga í Danmörku og upphaf lögfræðikennslu á Íslandi
+  authors:
+  - Gísli Sveinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 64
+  issue: null
+  pdf_pages:
+  - 2
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sejlads under isforhold og isklausuler
+  authors:
+  - Kjeld Rördam
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 88
+  issue: null
+  pdf_pages:
+  - 18
+  - 41
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tuttugasta og fyrsta norræna lögfræðingaþingið í Helsinki 1957
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 89
+  page_end: 95
+  issue: null
+  pdf_pages:
+  - 42
+  - 48
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá sakadómi Reykjavíkur
+  authors:
+  - Halldór Þorbjörnsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 96
+  page_end: 105
+  issue: null
+  pdf_pages:
+  - 49
+  - 58
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norræna embættismannabandið
+  authors:
+  - Einar Bjarnason
+  author_titles: []
+  article_type: Frétt
+  page_start: 106
+  page_end: 108
+  issue: null
+  pdf_pages:
+  - 59
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögmannafélagi Íslands starfsárið 1956
+  authors:
+  - Ágúst Fjeldsted
+  author_titles: []
+  article_type: Frétt
+  page_start: 109
+  page_end: 111
+  issue: null
+  pdf_pages:
+  - 62
+  - 64
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Ólafur Lárusson: „Víxlar og tékkar“'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 112
+  page_end: 114
+  issue: null
+  pdf_pages:
+  - 65
+  - 67
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 115
+  page_end: 115
+  issue: null
+  pdf_pages:
+  - 68
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 45–47

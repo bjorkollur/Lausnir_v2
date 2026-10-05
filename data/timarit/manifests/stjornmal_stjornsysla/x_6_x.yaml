@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2010
 volume: 6
 issue: null
-label: Stjórnmál og stjórnsýsla, 6. árg.
+label: Stjórnmál og stjórnsýsla, 6. árg. (2010)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.758
+status: review
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/123-150_The_greatest_number_of_party_members__Me.pdf
@@ -23,4 +24,352 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/57-72_What_is_environment__About_the_concepts.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/73-94_Feminist_Impact_on_Icelandic_Foreign_Pol.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/95-122_Equality_education_in_schools.pdf
-articles: []
+articles:
+- title: Gildissvið upplýsingalaga
+  authors:
+  - Kjartan Bjarni Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 34
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/5-34_The_Scope_of_the_Icelandic_Freedom_of.pdf
+  note: ''
+  analysis_notes: []
+- title: Bankahrun, ímynd og traust
+  authors:
+  - Þórhallur Guðlaugsson
+  - Friðrik Eysteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 35
+  page_end: 56
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/35-56_Banking_collapse,_image_and_trust.pdf
+  note: ''
+  analysis_notes: []
+- title: Hvað er umhverfi? Um hugtökin umhverfi og umhverfisáhrif í ljósi niðurstöðu Hæstaréttar í máli nr. 671/2008
+  authors:
+  - Ásdís Hlökk Theodórsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 72
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/57-72_What_is_environment__About_the_concepts.pdf
+  note: ''
+  analysis_notes: []
+- title: Áhrif feminisma á utanríkisstefnu Íslands 1999-2009
+  authors:
+  - Silja Bára Ómarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 94
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/73-94_Feminist_Impact_on_Icelandic_Foreign_Pol.pdf
+  note: ''
+  analysis_notes: []
+- title: Jafnréttisfræðsla í skólum Frá dauðum lagabókstaf til jákvæðrar aðgerðaskyldu
+  authors:
+  - Eygló Árnadóttir
+  - Þorgerður Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 95
+  page_end: 122
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/95-122_Equality_education_in_schools.pdf
+  note: ''
+  analysis_notes: []
+- title: Fjölmennustu flokkar heims Meðlimaskipulag íslenskra stjórnmálaflokka
+  authors:
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 123
+  page_end: 150
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/123-150_The_greatest_number_of_party_members__Me.pdf
+  note: ''
+  analysis_notes: []
+- title: Lög á verkföll á Íslandi 1985-2010 Um forsendur lagasetningar
+  authors:
+  - Friðrik Friðriksson
+  - Gylfi Dalmann Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 151
+  page_end: 184
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/151-184_Legislation_intervening_strikes_in_Icela.pdf
+  note: ''
+  analysis_notes: []
+- title: Nýtt norrænt jafnvægi Öryggisstefnur Norðurlandanna og áhrif þeirra á Ísland
+  authors:
+  - Silja Bára Ómarsdóttir
+  - Baldvin Þór Bergsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 185
+  page_end: 206
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/185-206_A_New_Nordic_Balance.pdf
+  note: ''
+  analysis_notes: []
+- title: The Missing Link in EU Democracy? Why a Transnational Public Sphere Matters
+  authors:
+  - Maximilian Conrad
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 207
+  page_end: 228
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/207-228_The_Missing_Link_in_EU_Democracy__Why.pdf
+  note: ''
+  analysis_notes: []
+- title: Íslensk vinnustaðamenning Skýr og markviss stefna en skortur á samhæfingu og samþættingu
+  authors:
+  - Gylfi Dalmann Aðalsteinsson
+  - Þórhallur Örn Guðlaugsson
+  - Ester Rós Gústavsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 252
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/229-252_Icelandic_organizational_culture;_Clear.pdf
+  note: ''
+  analysis_notes: []
+- title: Ákvarðanataka skipulagsheilda Samanburður einkafyrirtækja og opinberra stofnana
+  authors:
+  - Ingi Rúnar Eðvarðsson
+  - Ása Líney Sigurðardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 253
+  page_end: 275
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol06/253-275_Decision_making_in_organisations.pdf
+  note: ''
+  analysis_notes: []

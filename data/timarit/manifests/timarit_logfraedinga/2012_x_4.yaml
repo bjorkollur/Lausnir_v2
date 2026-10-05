@@ -1,16 +1,187 @@
 source: timarit_logfraedinga
 year: 2012
-volume: null
+volume: 62
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2012)
+label: Tímarit lögfræðinga, 62. árg. 4. hefti (2012)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2012_04.pdf
 sha256: 77020d5356bd7117a17d4424e636dc747de190c6c698c57250751a519bc7d6f4
-pages: null
+pages: 122
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 337
+  quality: 0.959
+  runner_up_share: 0.0
+  pages: 122
+  segments:
+  - - 2
+    - 118
+    - 337
+  contested: []
+  bin_ratio: 0.633
+  non_article:
+  - 3
+  - 5
+  - 39
+  - 40
+  - 42
+  - 43
+  - 45
+  - 49
+  - 54
+  - 56
+  - 57
+  - 58
+  - 60
+  - 61
+  - 63
+  - 65
+  - 100
+  - 104
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+  - 120
+  - 121
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2012_04.pdf
-articles: []
+articles:
+- title: Lögfesting barnasáttmála Sameinuðu þjóðanna
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 339
+  page_end: 339
+  issue: null
+  pdf_pages:
+  - 2
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 341 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Úrræði vegna umgengnistálmana
+  authors:
+  - Hrefna Friðriksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 343
+  page_end: 375
+  issue: null
+  pdf_pages:
+  - 6
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 385, prentuð lokasíða er bls. 375
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 378 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Eru dómarar mildari en almenningur í málum er tengjast kynferðisbrotum gegn börnum og fjárdrætti í banka?
+  authors:
+  - Helgi Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 387
+  page_end: 390
+  issue: null
+  pdf_pages:
+  - 50
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „�������������������������������hanging judge����������������“ á bls. 392 sem skráin
+    nefnir ekki; greinin er talin enda þar'
+- title: Endurheimta ofgreidds fjár
+  authors:
+  - Benedikt Bogason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 407
+  page_end: 436
+  issue: null
+  pdf_pages:
+  - 70
+  - 99
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 445, prentuð lokasíða er bls. 436
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 438 sem skráin nefnir ekki; greinin er talin enda þar'

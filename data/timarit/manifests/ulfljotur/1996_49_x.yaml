@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.883
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/170.pdf
@@ -30,4 +31,572 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/527.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/651.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/689.pdf
-articles: []
+articles:
+- title: Búvörusamningurinn
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 98
+  page_end: 98
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/651.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.57)
+- title: Um vexti og dráttarvexti í lögum og lagaframkvæmd
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 72
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 67
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 497
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/228.pdf
+  note: ''
+  analysis_notes: []
+- title: Tilurð reglna um slysatryggingu ökumanns og tilgangur slíkrar lagasetningar
+  authors:
+  - Logi Guðbrandsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 74
+  page_end: 74
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 498
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/310.pdf
+  note: ''
+  analysis_notes: []
+- title: Slysatrygging ökumanns, samkvæmt 92. Gr. umferðalaga
+  authors:
+  - Guðný Björnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 75
+  page_end: 78
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 500
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/254.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 79, prentað bls. 75'
+- title: Gildissvið slysatryggingar ökumanns samkvæmt 92. Gr. Umferðarlaga
+  authors:
+  - Guðný Björnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 79
+  page_end: 81
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 500
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/309.pdf
+  note: ''
+  analysis_notes: []
+- title: Jákvæð mismunun
+  authors:
+  - Lára V. Júlíusdóttir
+  - Haukur Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 95
+  page_end: 95
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 502
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/388.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Búvörusamningurinn
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 99
+  page_end: 100
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 504
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/255.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 98, prentað bls. 99'
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Bótaábyrgð lækna
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 101
+  page_end: 103
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.2
+  leitir_record_id: null
+  xlsx_row: 505
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/689.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 99, prentað bls. 101'
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Bernarsáttmálinn til verndar bókmenntum og listum
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 125
+  page_end: 143
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 507
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/278.pdf
+  note: ''
+  analysis_notes: []
+- title: Um sjónarmið í forsjármálum
+  authors:
+  - Gizur Bergsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 145
+  page_end: 172
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 508
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/170.pdf
+  note: ''
+  analysis_notes: []
+- title: Lagalegur grundvöllur fyrir stofnun Alþjóðastríðsglæpadómstólsins í Haag
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 179
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 509
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/527.pdf
+  note: ''
+  analysis_notes: []
+- title: Tilgangur refsingar er að hindra hið illa
+  authors:
+  - Ólafur Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 181
+  page_end: 182
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 510
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/526.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Kynning á Max-Planck-stofnuninni í þjóðarétti,“ á bls. 183 sem skráin nefnir ekki; greinin
+    er talin enda þar'
+- title: Réttindi kynskiptinga
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 197
+  page_end: 200
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 511
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/389.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Mannréttindastarf Sameinuðu þjóðanna
+  authors:
+  - Guðmundur S. Alfreðsson
+  - Jakob Þ. Möller
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 225
+  page_end: 274
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 512
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/2662.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 274, prentað bls. 225'
+- title: 'At the crossroads: Domestic violence and legal reform in Iceland'
+  authors:
+  - Claire A. Smearman
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 275
+  page_end: 377
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 102
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 513
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/525.pdf
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Claire A.'
+- title: Friðhelgi einkalífs, fjölskyldu, heimilis og bréfaskipta samkvæmt 8. Gr. Mannréttindasáttmála Evrópu
+  authors:
+  - Stefán Eiríksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 379
+  page_end: 416
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 514
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/387.pdf
+  note: ''
+  analysis_notes: []
+- title: The precautionary principle
+  authors:
+  - Wybe Th. Douma
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 417
+  page_end: 430
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 13
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 515
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/2664.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 430, prentað bls. 417'
+- title: Breytingar á reglum um próf í lagadeild
+  authors:
+  - Jónas Þór Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 431
+  page_end: 447
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 516
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/2665.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 447, prentað bls. 431'

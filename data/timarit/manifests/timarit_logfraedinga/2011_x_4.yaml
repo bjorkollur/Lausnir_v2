@@ -1,16 +1,192 @@
 source: timarit_logfraedinga
 year: 2011
-volume: null
+volume: 61
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2011)
+label: Tímarit lögfræðinga, 61. árg. 4. hefti (2011)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2011_04.pdf
 sha256: 7ef50748e25c9cb26a150b6b896b36b70150abc384633f130d1fba256f769bae
-pages: null
+pages: 117
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 347
+  quality: 0.957
+  runner_up_share: 0.0
+  pages: 117
+  segments:
+  - - 2
+    - 114
+    - 347
+  contested: []
+  bin_ratio: 0.928
+  non_article:
+  - 5
+  - 89
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+status: review
+confidence: 0.85
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2011_04.pdf
-articles: []
+articles:
+- title: Skýrleiki refsiheimilda og innherjasvik – nýr dómur MDE
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 349
+  page_end: 351
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Neyðarlagadómarnir og friðhelgi eignarréttar
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 353
+  page_end: 416
+  issue: null
+  pdf_pages:
+  - 6
+  - 69
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Efndir kröfu
+  authors:
+  - Benedikt Bogason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 417
+  page_end: 435
+  issue: null
+  pdf_pages:
+  - 70
+  - 88
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Schengen samstarfið
+  authors:
+  - Valgerður María Sigurðardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 437
+  page_end: 448
+  issue: null
+  pdf_pages:
+  - 90
+  - 101
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sagnfræðin og endurskoðun stjórnarskrárinnar
+  authors:
+  - Guðni Th. Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 449
+  page_end: 454
+  issue: null
+  pdf_pages:
+  - 102
+  - 107
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

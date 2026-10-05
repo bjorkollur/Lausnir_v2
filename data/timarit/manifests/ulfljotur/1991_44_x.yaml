@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.943
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/199.pdf
@@ -29,4 +30,533 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/643.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/644.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/645.pdf
-articles: []
+articles:
+- title: Hugleiðing um handhafa ríkisvaldsins
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 19
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 615
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/363.pdf
+  note: ''
+  analysis_notes: []
+- title: Agaábyrgð lögmanna
+  authors:
+  - Halldór Halldórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 40
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 616
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/584.pdf
+  note: ''
+  analysis_notes: []
+- title: Um brot gegn 211. grein Almennra hegningarlaga
+  authors:
+  - Ragnheiður Harðardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 43
+  page_end: 54
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 617
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/518.pdf
+  note: ''
+  analysis_notes: []
+- title: Stjórnsýsla háskólans
+  authors:
+  - Jónas Fr. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 62
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 618
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/643.pdf
+  note: ''
+  analysis_notes: []
+- title: Alþjóðleg mannúðarlög. Hvað er nú það?
+  authors:
+  - Sölvi Sölvason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 68
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 619
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/2341.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 68, prentað bls. 65'
+- title: Lagamál
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 69
+  page_end: 72
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 620
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/642.pdf
+  note: ''
+  analysis_notes: []
+- title: Um forsendur stjórnsýsluathafna, fyrri hluti
+  authors:
+  - Ástráður Haraldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 139
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 622
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/644.pdf
+  note: ''
+  analysis_notes: []
+- title: Samfélagsþjónusta
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 191
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 623
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/519.pdf
+  note: ''
+  analysis_notes: []
+- title: Um eignarrétt að eldis- og hafbeitarfiski
+  authors:
+  - Runólfur Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 199
+  page_end: 205
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 624
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/199.pdf
+  note: ''
+  analysis_notes: []
+- title: Um forsendur stjórnsýsluathafna, síðari hluti
+  authors:
+  - Ástráður Haraldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 245
+  page_end: 275
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 627
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/645.pdf
+  note: ''
+  analysis_notes: []
+- title: Sakhæfi
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 277
+  page_end: 297
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 628
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/520.pdf
+  note: ''
+  analysis_notes: []
+- title: Lagamál
+  authors:
+  - Ólafur Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 299
+  page_end: 303
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 629
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/226.pdf
+  note: ''
+  analysis_notes: []
+- title: Skammtímaávöxtun fjármuna
+  authors:
+  - Arna Harðardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 305
+  page_end: 307
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 630
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/225.pdf
+  note: ''
+  analysis_notes: []
+- title: Um sönnunargögn og sönnunarfærslu í sakamálum
+  authors:
+  - Bogi Nilsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 341
+  page_end: 356
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 632
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/585.pdf
+  note: ''
+  analysis_notes: []
+- title: Um ákæruvald lögreglustjóra
+  authors:
+  - Pétur Kr. Hafstein
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 357
+  page_end: 366
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 633
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/586.pdf
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um nýja refsiréttarfarið
+  authors:
+  - Ragnar Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 369
+  page_end: 374
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 634
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/587.pdf
+  note: ''
+  analysis_notes: []
+- title: Jeg er født med en bayer i hånden
+  authors:
+  - Sesselja Árnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 381
+  page_end: 383
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 635
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/2384.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 383, prentað bls. 381'

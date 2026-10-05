@@ -1,16 +1,161 @@
 source: logretta
 year: 2008
-volume: null
+volume: 5
 issue: '3'
-label: Lögrétta, 3. tbl. (2008)
+label: Lögrétta, 5. árg. 3. tbl. (2008)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2008 3.tbl.pdf
 sha256: 8357d8a4e17373846c6f7c983bea3c52b98defe13420b3d3336fd883d04f1acd
-pages: null
+pages: 150
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 221
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 150
+  segments:
+  - - 0
+    - 78
+    - 221
+  - - 79
+    - 101
+    - 222
+  - - 102
+    - 124
+    - 223
+  - - 125
+    - 149
+    - 224
+  contested: []
+  bin_ratio: 0.971
+  non_article:
+  - 124
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2008 3.tbl.pdf
-articles: []
+articles:
+- title: Viðskipti innherja
+  authors:
+  - Aðalsteinn E. Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 221
+  page_end: 299
+  issue: null
+  pdf_pages:
+  - 0
+  - 78
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Þýðing sönnunargagna í sakamálum sem aflað hefur verið með ólögmætum hætti: Dómaframkvæmd Mannréttindadómstóls Evrópu'
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 301
+  page_end: 323
+  issue: null
+  pdf_pages:
+  - 79
+  - 101
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Endurskoðun ákvarðana um fjárhagsaðstoð samkvæmt lögum nr. 40/1991, um félagsþjónustu sveitarfélaga
+  authors:
+  - Margrét Vala Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 325
+  page_end: 346
+  issue: null
+  pdf_pages:
+  - 102
+  - 123
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sameiginleg yfirráð á grundvelli sameiginlegra hagsmuna; hvar liggur línan?
+  authors:
+  - Halldór Karl Halldórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 349
+  page_end: 373
+  issue: null
+  pdf_pages:
+  - 125
+  - 149
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

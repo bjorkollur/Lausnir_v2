@@ -5,12 +5,309 @@ issue: null
 label: Lögfræðingur, 3. árg. (2009)
 file: Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 3 arg 2009.pdf
 sha256: 871a7258abdc61c13d722a97f2eb9c8cc37d8745b09a2ceaf7965c0ef274cc65
-pages: null
+pages: 89
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.876
+  runner_up_share: 0.013
+  pages: 89
+  segments:
+  - - 2
+    - 87
+    - 0
+  contested: []
+  bin_ratio: 0.957
+  non_article:
+  - 7
+  - 37
+  - 55
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögfræðingur UNAK/Lögfræðingur 3 arg 2009.pdf
-articles: []
+articles:
+- title: Frá ritstjóra
+  authors:
+  - Friðný Ósk Hermundardóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 5
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 5
+- title: Ávarp formanns Þemis
+  authors:
+  - Jóna Benný Kristjánsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 6
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkrar athugasemdir um bætur vegna ólögmætra uppsagna á almennum vinnumarkaði
+  authors:
+  - Ástráður Haraldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 8
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 8
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 8
+- title: Hvaða tilgangi þjónar 2. mgr. 65. gr. stjórnarskrárinnar?
+  authors:
+  - Bjarni Már Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 22
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 22
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Refsimat dómstóla í kynferðisbrotamálum
+  authors:
+  - Ingibjörg Björnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 36
+  issue: null
+  pdf_pages:
+  - 25
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lax a Feminist Íssue
+  authors:
+  - Rachael Lorna Johnstone
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 38
+  page_end: 54
+  issue: null
+  pdf_pages:
+  - 38
+  - 54
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 38
+- title: Ombudsman for the Children's Rights
+  authors:
+  - Stanislaw Sagan
+  - Viktoriya Serzhanova
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 56
+  page_end: 64
+  issue: null
+  pdf_pages:
+  - 56
+  - 64
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um vændi — mismunandi leiðir til löggjafar
+  authors:
+  - Þórunn Hyrna Víkingsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 79
+  issue: null
+  pdf_pages:
+  - 65
+  - 79
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Polar Law Program
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 80
+  page_end: 80
+  issue: null
+  pdf_pages:
+  - 80
+  - 80
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 80
+  - 'FRÁVIK: á eftir greininni hefst „Lögfræðingatal“ á bls. 81 sem skráin nefnir ekki; greinin er talin enda þar'

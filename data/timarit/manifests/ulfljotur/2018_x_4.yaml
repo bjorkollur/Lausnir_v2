@@ -1,16 +1,142 @@
 source: ulfljotur
 year: 2018
-volume: null
+volume: 71
 issue: '4'
-label: Úlfljótur, 4. tbl. (2018)
+label: Úlfljótur, 71. árg. 4. tbl. (2018)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_4_tbl.pdf
 sha256: 33b028498497c30b36d5d32ebef1022180d62e3d438483976e4f868332dfc5e6
-pages: null
+pages: 177
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 464
+  quality: 0.955
+  runner_up_share: 0.006
+  pages: 177
+  segments:
+  - - 1
+    - 174
+    - 464
+  contested: []
+  bin_ratio: 0.927
+  non_article:
+  - 68
+  - 122
+  - 128
+  - 129
+  - 130
+  - 132
+  - 134
+  - 140
+  - 142
+  - 146
+  - 148
+  - 150
+  - 152
+  - 154
+  - 160
+  - 162
+  - 164
+  - 170
+  - 171
+  - 172
+  - 173
+  - 174
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_4_tbl.pdf
-articles: []
+articles:
+- title: Geti stofnast á grundvelli hefðar
+  authors:
+  - Karl Axelsson
+  - Hulda Árnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 469
+  page_end: 531
+  issue: null
+  pdf_pages:
+  - 5
+  - 67
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 91
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Verndar Mannréttindasáttmáli Evrópu gegn erlendum Stóra bróður?
+  authors:
+  - Hildur Hjörvar
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 533
+  page_end: 562
+  issue: null
+  pdf_pages:
+  - 69
+  - 98
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 92
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Brottrekstur úr starfi á almennum vinnumarkaði: verulegar vanefndir starfsmanns og tilkynningarskylda atvinnurekanda'
+  authors:
+  - Halldór Kr. Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 563
+  page_end: 585
+  issue: null
+  pdf_pages:
+  - 99
+  - 121
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 93
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Fyrsta starfsár eftir endurstofnun ELSA Iceland“ á bls. 587 sem skráin nefnir ekki;
+    greinin er talin enda þar'

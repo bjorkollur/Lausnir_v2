@@ -5,12 +5,147 @@ issue: ritstyrt
 label: Rannsóknir í félagsvísindum, 11. árg. (2010)
 file: Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2010 - XI - Ritstyrt.pdf
 sha256: 4629d29ff9bd44cd3209cd73e41e0283df26e2d7f2e6f764a8451350dab45e06
-pages: null
+pages: 66
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -8
+  quality: 0.864
+  runner_up_share: 0.0
+  pages: 66
+  segments:
+  - - 9
+    - 65
+    - -8
+  contested: []
+  bin_ratio: 0.977
+  non_article: []
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2010 - XI - Ritstyrt.pdf
-articles: []
+articles:
+- title: Bankaleynd
+  authors:
+  - Dóra Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 9
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frjáls stofnsetningarréttur fjármálastofnana samkvæmt EES-samningnum
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 17
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 25
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um stjórn veiða á kolmunna og makríl – Hver er réttarstaða Íslands í makríldeilunni?
+  authors:
+  - Helgi Áss Grétarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 43
+  issue: null
+  pdf_pages:
+  - 36
+  - 51
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Reglan um aukinn aðgang að gögnum
+  authors:
+  - Trausti Fannar Valsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 44
+  page_end: 57
+  issue: null
+  pdf_pages:
+  - 52
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

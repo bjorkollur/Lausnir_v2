@@ -1,16 +1,219 @@
 source: ulfljotur
 year: 2010
-volume: null
+volume: 63
 issue: '2'
-label: Úlfljótur, 2. tbl. (2010)
+label: Úlfljótur, 63. árg. 2. tbl. (2010)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2010_2_tbl.pdf
 sha256: c9a171bdab1d0cc1263625fccacbfaa49900947e9da3247a99330daabe32887a
-pages: null
+pages: 118
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 95
+  quality: 0.864
+  runner_up_share: 0.01
+  pages: 118
+  segments:
+  - - 4
+    - 111
+    - 95
+  contested: []
+  bin_ratio: 0.944
+  non_article:
+  - 35
+  - 71
+  - 91
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2010_2_tbl.pdf
-articles: []
+articles:
+- title: Eignarréttur og stjórn fiskveiða
+  authors:
+  - Davíð Þorláksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 101
+  page_end: 108
+  issue: null
+  pdf_pages:
+  - 6
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 197
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málskot í þinglýsingamálum
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 109
+  page_end: 129
+  issue: null
+  pdf_pages:
+  - 14
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 198
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Falla bókhaldsgögn utan upplýsingalaga?
+  authors:
+  - Kjartan Bjarni Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 131
+  page_end: 165
+  issue: null
+  pdf_pages:
+  - 36
+  - 70
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 199
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um réttarheimildir þjóðaréttarins
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 167
+  page_end: 184
+  issue: null
+  pdf_pages:
+  - 72
+  - 89
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 200
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Er hægt að takmarka aðgang almennings að dómstólum?“ á bls. 185 sem skráin nefnir ekki;
+    greinin er talin enda þar'
+- title: Réttur manna til að vera viðstaddur þinghöld er ekki afdráttarlaus
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 187
+  page_end: 188
+  issue: null
+  pdf_pages:
+  - 92
+  - 93
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 201
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dómþing í heyranda hljóði. Um mál mótmælenda og vændiskaupenda
+  authors:
+  - Ragnar Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 189
+  page_end: 200
+  issue: null
+  pdf_pages:
+  - 94
+  - 105
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 202
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Norræna málflutningskeppnin“ á bls. 201 sem skráin nefnir ekki; greinin er talin enda
+    þar'

@@ -1,16 +1,124 @@
 source: ulfljotur
 year: 2010
-volume: null
+volume: 63
 issue: '4'
-label: Úlfljótur, 4. tbl. (2010)
+label: Úlfljótur, 63. árg. 4. tbl. (2010)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2010_4_tbl.pdf
 sha256: 70a6c1c902010879318a4c23063cddadca0823e6119bd79cf00c3c172368e858
-pages: null
+pages: 169
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 388
+  quality: 0.935
+  runner_up_share: 0.006
+  pages: 169
+  segments:
+  - - 3
+    - 164
+    - 388
+  contested: []
+  bin_ratio: 0.968
+  non_article:
+  - 32
+  - 164
+  - 165
+  - 166
+  - 167
+  - 168
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2010_4_tbl.pdf
-articles: []
+articles:
+- title: Formkröfur upplýsingalaga
+  authors:
+  - Kjartan Bjarni Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 393
+  page_end: 419
+  issue: null
+  pdf_pages:
+  - 5
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 206
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samstilltar aðgerðir í samkeppnisrétti
+  authors:
+  - Vilhjálmur Þ. Á. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 421
+  page_end: 478
+  issue: null
+  pdf_pages:
+  - 33
+  - 90
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 207
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Inntak og skilyrði kæruréttar til Mannréttindadómstóls Evrópu
+  authors:
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 479
+  page_end: 536
+  issue: null
+  pdf_pages:
+  - 91
+  - 148
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 208
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Lögfræðingatal“ á bls. 537 sem skráin nefnir ekki; greinin er talin enda þar'

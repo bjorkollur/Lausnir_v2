@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.745
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/109.pdf
@@ -25,4 +26,409 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/498.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/5.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/53.pdf
-articles: []
+articles:
+- title: Refsivörzlu ríkisins
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 297
+  page_end: 315
+  issue: null
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/498.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.48)
+- title: Umræður um fóstureyðingar
+  authors:
+  - Ritstjórn
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 41
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 889
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/5.pdf
+  note: ''
+  analysis_notes: []
+- title: Stutt yfirlit yfir deildaskiptingu og störf lögreglunnar í Reykjavík
+  authors:
+  - Sigurjón Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 42
+  page_end: 52
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 890
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/42.pdf
+  note: ''
+  analysis_notes: []
+- title: Geislunartjón frá kjarnorkuknúnum skipum
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 62
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 891
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/53.pdf
+  note: ''
+  analysis_notes: []
+- title: Auðlindalögsaga strandríkis og þriðja hafréttarráðstefna Sameinuðu þjóðanna
+  authors:
+  - Gunnar G. Schram
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 109
+  page_end: 124
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 894
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/109.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 124, prentað bls. 109'
+- title: Nokkur orð um lagaskilasjónarmið sem einkum varða sjóréttarlega bótaábyrgð utan samninga og skyld efni
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 125
+  page_end: 159
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 895
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/125.pdf
+  note: ''
+  analysis_notes: []
+- title: Afskipti dómstóla við veitingu dómaraembætta
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 160
+  page_end: 165
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 896
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/160.pdf
+  note: ''
+  analysis_notes: []
+- title: Rabb um Lillehammerseminaret
+  authors:
+  - Skúli Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 176
+  page_end: 179
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 898
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/176.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 179, prentað bls. 176'
+- title: Oversigt over islandske forsikringer der dækker arbejdsulykker pa sömænd
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 209
+  page_end: 221
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 900
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/209.pdf
+  note: ''
+  analysis_notes: []
+- title: Nogle historiske betragtninger om Island og folkeretten
+  authors:
+  - Gunnar Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 222
+  page_end: 225
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 901
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/222.pdf
+  note: ''
+  analysis_notes: []
+- title: The development of the law of the sea with special reference to the exclusive economic zone
+  authors:
+  - Geoffrey Marston
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 297
+  page_end: 307
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 10
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 909
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/297.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 307, prentað bls. 297'
+- title: Um stofnun skaðabótaábyrgðar seljanda vegna galla í kaupum um ákveðna eign, lausafé og fasteign. 1. Lausafjárkaup
+  authors:
+  - Sigurður Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 361
+  page_end: 406
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 45
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 913
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/361.pdf
+  note: ''
+  analysis_notes: []
+- title: Bætur fyrir lífs- og líkamstjón
+  authors:
+  - Eiríkur Tómasson
+  - Þórir Bergsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 407
+  page_end: 416
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 914
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/407.pdf
+  note: ''
+  analysis_notes: []

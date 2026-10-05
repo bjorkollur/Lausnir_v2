@@ -1,16 +1,487 @@
 source: logmannabladid
 year: 2004
-volume: null
+volume: 10
 issue: '3'
-label: Lögmannablaðið, 3. tbl. (2004)
+label: Lögmannablaðið, 10. árg. 3. tbl. (2004)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2004 03.pdf
 sha256: 6765c961bda73d2b0619fab8667adcc7cea005a9b1c0760d5e2afb71e2e884e6
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.583
+  runner_up_share: 0.0
+  pages: 36
+  segments:
+  - - 2
+    - 34
+    - 1
+  contested: []
+  bin_ratio: 0.942
+  non_article:
+  - 4
+  - 8
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2004 03.pdf
-articles: []
+articles:
+- title: Frá ritstjórn
+  authors:
+  - Guðrún Björg Birgisdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Forsætisfundur norrænu lögmannafélaganna: Hagsmunaárekstrar, stjórnun og afnám einkaréttar lögmanna'
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 6
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 5
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: „Leitum meira til samstarfsaðila erlendis en þeir hingað.“ Viðtal við Gunnar Sturluson
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 10
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 9
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hverfandi landamæri „Leitum meira til lögmennskunnar samstarfsaðila“) er annar titill
+    en skrárinnar („„Leitum meira til samstarfsaðila erlendis en þeir hingað.“ Viðtal við Gunnar Sturluson“); titli skrárinnar
+    haldið'
+- title: „Mikilvægt að hleypa heimdraganum“. Viðtal við Baldvin Björn Haraldsson
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 12
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 11
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Reynsla af lögmannsréttindum í NY
+  authors:
+  - Ásgeir Á. Ragnarsson
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 13
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Alþjóðlegi sakamáladómstólinn frá sjónarhorni verjenda
+  authors:
+  - Karl Georg Sigurbjörnsson
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Golfmót Golfmót sumarsins sumarsins
+  authors:
+  - Hörður Orri Grettisson
+  author_titles: []
+  article_type: Frétt
+  page_start: 18
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 17
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    pages: llm
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: “Different but equal – when will we get there?” Af morgunverðarfundi með Elisabet Fura-Sandström
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 21
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Pistill formanns
+  authors:
+  - Gunnar Jónsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 24
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 23
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ritað í tilefni af pistli formanns LMFÍ í Lögmannablaðinu, júníhefti 2004
+  authors:
+  - Bogi Nilsson
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 27
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Bogi Nilsson) stangast á við síðuna (Hans Gammeltoft-Hansen, Strafferetspleje I); skránni
+    haldið'
+- title: Fréttir frá félagsdeild
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 30
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 29
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málþing Lögmannafélags Íslands og Dómarafélags Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 31
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 30
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Íslenskur sigur í Norrænu málflutningskeppninni
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 32
+  page_end: 32
+  issue: null
+  pdf_pages:
+  - 31
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bótaábyrgð starfsmanns gagnvart vinnuveitanda sínum
+  authors:
+  - Guðmundur Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 33
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 32
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

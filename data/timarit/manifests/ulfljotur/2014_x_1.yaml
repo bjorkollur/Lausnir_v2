@@ -1,16 +1,124 @@
 source: ulfljotur
 year: 2014
-volume: null
+volume: 67
 issue: '1'
-label: Úlfljótur, 1. tbl. (2014)
+label: Úlfljótur, 67. árg. 1. tbl. (2014)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2014_1_tbl.pdf
 sha256: 66a57fc4fb3cecf023178bf3d96407f7df209aac4ac5f592cd968ad460ed8ddf
-pages: null
+pages: 149
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.966
+  runner_up_share: 0.007
+  pages: 149
+  segments:
+  - - 3
+    - 147
+    - 0
+  contested: []
+  bin_ratio: 0.817
+  non_article:
+  - 46
+  - 88
+  - 144
+  - 145
+  - 146
+  - 147
+status: approved
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2014_1_tbl.pdf
-articles: []
+articles:
+- title: Exceptio veritatis og fjölmiðlar
+  authors:
+  - Skúli Á. Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 45
+  issue: null
+  pdf_pages:
+  - 5
+  - 45
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 141
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ólöglegir fangaflutningar og þjóðréttarábyrgð Evrópuríkja
+  authors:
+  - Valgerður Guðmundsdóttir
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 47
+  page_end: 87
+  issue: null
+  pdf_pages:
+  - 47
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 142
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Endurupptaka og afturköllun stjórnvaldsákvörðunar
+  authors:
+  - Þorvaldur Heiðar Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 89
+  page_end: 143
+  issue: null
+  pdf_pages:
+  - 89
+  - 143
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 143
+  source_file: null
+  note: ''
+  analysis_notes: []

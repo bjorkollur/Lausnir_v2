@@ -1,16 +1,308 @@
 source: logmannabladid
 year: 2024
-volume: null
+volume: 30
 issue: '4'
-label: Lögmannablaðið, 4. tbl. (2024)
+label: Lögmannablaðið, 30. árg. 4. tbl. (2024)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2024 04.pdf
 sha256: f43214bc374b3707405a2042d737d03506b08baa7f34b349d85d05c40ab383d2
-pages: null
+pages: 28
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.857
+  runner_up_share: 0.0
+  pages: 28
+  segments:
+  - - 1
+    - 26
+    - 1
+  contested: []
+  bin_ratio: 0.949
+  non_article:
+  - 4
+  - 8
+  - 12
+  - 26
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2024 04.pdf
-articles: []
+articles:
+- title: Lögmennskan og Gervigreind
+  authors:
+  - Stefán A. Svensson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá ritstjórn
+  authors:
+  - Ari Karlsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Á trúnó í síðasta sinn“) er annar titill en skrárinnar („Frá ritstjórn“); titli skrárinnar
+    haldið'
+- title: 'FRÆÐSLUFUNDUR MEÐ JÓLAÍVAFI: Nauðsyn upplýsingatæknikunnáttu fyrir lögfræðinga'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 7
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 6
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ KRISTÍNU BENEDIKTSDÓTTUR „Umboðsmaður Alþingis er orðin hún“
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 10
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 9
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: INNLEIÐING S-MÁLA Réttarvörslugátt á góðri leið
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 13
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er kominn tími á stjórnsýsludómstól?
+  authors:
+  - Jóhann Óli Eiðsson
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 15
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Afhending mannréttindaverðlauna CCBE“ á bls. 19 sem skráin nefnir ekki; greinin er talin
+    enda þar'
+- title: Dómsalur í sýndarveruleika
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: '20 ára afmælishátíð Félags kvenna í lögmennsku: Störf og reynsla kvenna í lögmannastétt'
+  authors:
+  - Kristrún Elsa Harðardóttir
+  - Þorbjörg Inga Jónsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 21
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ EYRÚNU INGADÓTTUR Miðaldra nýliði gefur út ljóðabók um golf
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 24
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 23
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Námskeið ársins“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda þar'

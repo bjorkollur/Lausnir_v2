@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.87
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/142.pdf
@@ -34,4 +35,695 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/641.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/678.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/89.pdf
-articles: []
+articles:
+- title: Eðli máls
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 18
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 652
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/678.pdf
+  note: ''
+  analysis_notes: []
+- title: Um kynferðisbrot
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 42
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 653
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/516.pdf
+  note: ''
+  analysis_notes: []
+- title: Úr skýrslu nauðgunarmálanefndar
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 55
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 654
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/581.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Stéttarfélög í skilningi laga nr. 80/1938 og aðild að þeim og stéttarfélagasamböndum
+  authors:
+  - Gunnar Sæmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 70
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 655
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/328.pdf
+  note: ''
+  analysis_notes: []
+- title: Skammstafanir tilvísana og efnisröðun í lögfræðiritum
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 79
+  page_end: 83
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 656
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/2238.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 83, prentað bls. 79'
+- title: Um prófverkefni og gagnrýna hugsun
+  authors:
+  - Páll Skúlason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 85
+  page_end: 86
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 657
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/2240.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 86, prentað bls. 85'
+- title: Lögfræði og landslýður
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 149
+  page_end: 154
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 661
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/89.pdf
+  note: ''
+  analysis_notes: []
+- title: Aðskilnaður dómsvalds og umboðsvalds í héraði
+  authors:
+  - Björn Friðfinnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 163
+  page_end: 174
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 662
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/582.pdf
+  note: ''
+  analysis_notes: []
+- title: Ógilding skilnaðarsamninga
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 177
+  page_end: 189
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 663
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/165.pdf
+  note: ''
+  analysis_notes: []
+- title: Reglur dönsku skaðabótalaganna um bætur fyrir slys á mönnum
+  authors:
+  - Guðný Björnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 191
+  page_end: 202
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 664
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/252.pdf
+  note: ''
+  analysis_notes: []
+- title: Ákvæði laga nr. 65 frá 1985 um jafna stöðu og jafnan rétt kvenna og karla
+  authors:
+  - Elsa Þorkelsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 205
+  page_end: 209
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 665
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/640.pdf
+  note: ''
+  analysis_notes: []
+- title: Lagamál. Um hugtakið mynstur
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 211
+  page_end: 220
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 666
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/274.pdf
+  note: ''
+  analysis_notes: []
+- title: Nauðasamningar
+  authors:
+  - Elíln S. Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 277
+  page_end: 319
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 42
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 671
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/583.pdf
+  note: ''
+  analysis_notes: []
+- title: Lagamál. Slagorð
+  authors:
+  - Sigurgeir Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 321
+  page_end: 324
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 672
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/275.pdf
+  note: ''
+  analysis_notes: []
+- title: Starfsvitjun. Um skipulag og starfsemi barnaverndarráðs
+  authors:
+  - Sigríður Ingvarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 325
+  page_end: 330
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 673
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/641.pdf
+  note: ''
+  analysis_notes: []
+- title: Danir fögnuðu sigri
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 331
+  page_end: 337
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 674
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/2270.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 337, prentað bls. 331'
+- title: Námsdvöl hjá Sameinuðu þjóðunum sumarið 1989
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  - Helga Tatjana Zharov
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 345
+  page_end: 348
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 675
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/2273.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 348, prentað bls. 345'
+- title: Um ráðningarsamninga
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 367
+  page_end: 395
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 676
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/330.pdf
+  note: ''
+  analysis_notes: []
+- title: Réttindi og skyldur launafólks - Orlof og atvinnuleysisbætur
+  authors:
+  - Lára V. Júlíusdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 397
+  page_end: 404
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 677
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/329.pdf
+  note: ''
+  analysis_notes: []
+- title: Laganám við Háskólann í Kiel
+  authors:
+  - Áslaug Björgvinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 405
+  page_end: 416
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 678
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/142.pdf
+  note: ''
+  analysis_notes: []
+- title: Lagamál. Frægðarréttur (Publicity law)
+  authors:
+  - Þórunn J. Hafstein
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 417
+  page_end: 422
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 679
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/276.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Starfsemi Elsa, samtaka evrópskra laganema“ á bls. 423 sem skráin nefnir ekki; greinin
+    er talin enda þar'
+- title: Haustráðstefna ELSA International í London
+  authors:
+  - Áslaug Magnúsdóttir
+  - Ingibjörg Ingvadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 427
+  page_end: 434
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 680
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/2283.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 434, prentað bls. 427'

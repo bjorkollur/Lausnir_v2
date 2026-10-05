@@ -1,16 +1,385 @@
 source: timarit_logfraedinga
 year: 1954
-volume: null
+volume: 4
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1954)
+label: Tímarit lögfræðinga, 4. árg. 2. hefti (1954)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1954_02.pdf
 sha256: df65cc1b580cee67b3ca87bac82b4db605f524a389c33a4f51e30100cdc97aad
-pages: null
+pages: 84
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 63
+  quality: 0.69
+  runner_up_share: 0.0
+  pages: 84
+  segments:
+  - - 2
+    - 64
+    - 63
+  contested: []
+  bin_ratio: 0.899
+  non_article:
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 81
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1954_02.pdf
-articles: []
+articles:
+- title: Henry Ussing
+  authors:
+  - Ólafur Lárusson
+  author_titles: []
+  article_type: Annað
+  page_start: 65
+  page_end: 68
+  issue: null
+  pdf_pages:
+  - 2
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lárus Fjeldsted hæstaréttarlögmaður 75 ára
+  authors:
+  - Lárus Jóhannesson
+  author_titles: []
+  article_type: Annað
+  page_start: 69
+  page_end: 70
+  issue: null
+  pdf_pages:
+  - 6
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Févíti samkvæmt yfirvalds ákvörðun
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 90
+  issue: null
+  pdf_pages:
+  - 8
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um „efni og ástæður“ í merkingu útsvarslaganna
+  authors:
+  - Einar Ásmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 91
+  page_end: 102
+  issue: null
+  pdf_pages:
+  - 28
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Athugasemd
+  authors:
+  - Árni Tryggvason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 103
+  page_end: 103
+  issue: null
+  pdf_pages:
+  - 40
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Þing norrænna lagamanna
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 104
+  page_end: 108
+  issue: null
+  pdf_pages:
+  - 41
+  - 45
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Ólafur Jóhannesson: Skiptaréttur'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 109
+  page_end: 110
+  issue: null
+  pdf_pages:
+  - 46
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bæjarþing og sjó- og verzlunardómur Reykjavíkur. Nokkrir dómar frá árunum 1951 og 1952
+  authors:
+  - Benedikt Sigurjónsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 111
+  page_end: 122
+  issue: null
+  pdf_pages:
+  - 48
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 123
+  page_end: 126
+  issue: null
+  pdf_pages:
+  - 60
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kandidatar í lögfræði brautskráðir frá Háskólanum á árinu 1954
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 127
+  page_end: 127
+  issue: null
+  pdf_pages:
+  - 64
+  - 64
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Axel Kristjánsson I., Björn Þorláksson I); skránni
+    haldið'
+- title: Erlendar bækur
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 128
+  page_end: 128
+  issue: null
+  pdf_pages:
+  - 65
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Brunabötafélag Íslands“ á bls. 134 sem skráin nefnir ekki; greinin er talin enda þar'

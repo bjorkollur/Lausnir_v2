@@ -1,16 +1,160 @@
 source: ulfljotur
 year: 2021
-volume: null
+volume: 74
 issue: '1'
-label: Úlfljótur, 1. tbl. (2021)
+label: Úlfljótur, 74. árg. 1. tbl. (2021)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2021-1tbl.pdf
 sha256: 8770528cbfcecc971ea300c17e092b0dac5260c8febfe4f835ea0db32a5379ad
-pages: null
+pages: 176
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.943
+  runner_up_share: 0.006
+  pages: 176
+  segments:
+  - - 2
+    - 174
+    - -1
+  contested: []
+  bin_ratio: 0.828
+  non_article:
+  - 47
+  - 73
+  - 113
+  - 169
+  - 170
+  - 171
+  - 172
+  - 173
+  - 174
+  - 175
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2021-1tbl.pdf
-articles: []
+articles:
+- title: Læknamistök í dómaframkvæmd Mannréttindadómstóls Evrópu ? fyrri hluti
+  authors:
+  - Ivana Anna Nikolic
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 45
+  issue: null
+  pdf_pages:
+  - 10
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 24
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Takmörkun á upply?singarétti almennings varðandi starfssamband opinberra aðila við starfsfólk sitt ?að öðru leyti?
+    skv. 1. mgr. 7. gr. upply?singalaga
+  authors:
+  - Oddur Þorri Viðarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 47
+  page_end: 71
+  issue: null
+  pdf_pages:
+  - 48
+  - 72
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 25
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nafnleynd með hliðsjón af persónuvernd
+  authors:
+  - Valborg Steingrímsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 111
+  issue: null
+  pdf_pages:
+  - 74
+  - 112
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 26
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tímabundið brottfall efndaskyldu vegna hindrana er leiða af COVID-19 sjúkdómnum
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 113
+  page_end: 167
+  issue: null
+  pdf_pages:
+  - 114
+  - 168
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 27
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: greinin er undirrituð (María Rún Bjarnadóttir) en höfundar skrárinnar eru aðrir (Viðar Már Matthíasson); skránni
+    haldið'

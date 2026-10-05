@@ -1,16 +1,154 @@
 source: ulfljotur
 year: 2024
-volume: null
+volume: 77
 issue: '1'
-label: Úlfljótur, 1. tbl. (2024)
+label: Úlfljótur, 77. árg. 1. tbl. (2024)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2024-1tbl.pdf
 sha256: a247af4f15494a7d7f928a47480ed016a19eaae5aaf2fbddaad5fcb949256a5f
-pages: null
+pages: 108
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.917
+  runner_up_share: 0.01
+  pages: 108
+  segments:
+  - - 2
+    - 105
+    - -1
+  contested: []
+  bin_ratio: 0.893
+  non_article:
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2024-1tbl.pdf
-articles: []
+articles:
+- title: Samspil 72. gr. stjórnarskrárinnar og 1. gr. 1. viðauka við mannréttindasáttmála Evrópu – Er breytinga þörf?
+  authors:
+  - Guðrún Sólveig Sigríðardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 46
+  issue: null
+  pdf_pages:
+  - 8
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skilyrði höfundarverndar – með áherslu á verk á sviði byggingar- og nytjalistar
+  authors:
+  - Kristrún Ragnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 47
+  page_end: 86
+  issue: null
+  pdf_pages:
+  - 48
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fimmtíu ára afmæli Lagastofnunar Háskóla Íslands
+  authors:
+  - Friðrik Árni Friðriksson Hirst
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 92
+  issue: null
+  pdf_pages:
+  - 88
+  - 93
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Viðtal við Ragnheiði Bragadóttur, prófessor
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 93
+  page_end: 101
+  issue: null
+  pdf_pages:
+  - 94
+  - 102
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

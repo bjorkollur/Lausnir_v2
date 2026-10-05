@@ -1,16 +1,129 @@
 source: ulfljotur
 year: 2011
-volume: null
+volume: 64
 issue: '1'
-label: Úlfljótur, 1. tbl. (2011)
+label: Úlfljótur, 64. árg. 1. tbl. (2011)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2011_1_tbl.pdf
 sha256: cbca8dc0164a14f6c728a18624438b4b1f6c545f79fac06ce1e5ee22bdea9918
-pages: null
+pages: 130
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.831
+  runner_up_share: 0.009
+  pages: 130
+  segments:
+  - - 4
+    - 119
+    - -1
+  contested: []
+  bin_ratio: 0.97
+  non_article:
+  - 101
+  - 111
+  - 121
+  - 122
+  - 123
+  - 124
+  - 125
+  - 126
+  - 127
+  - 128
+  - 129
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2011_1_tbl.pdf
-articles: []
+articles:
+- title: Er kæra til lögreglu stjórnvaldsákvörðun?
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 15
+  page_end: 46
+  issue: null
+  pdf_pages:
+  - 16
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 182
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Et symbolsk slag i lufta
+  authors:
+  - Peter Ørebech
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 47
+  page_end: 72
+  issue: null
+  pdf_pages:
+  - 48
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 183
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Barnasáttmálinn - að mörgu að hyggja
+  authors:
+  - Þórhildur Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 99
+  issue: null
+  pdf_pages:
+  - 74
+  - 100
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 184
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ragna Árnadóttir“ á bls. 101 sem skráin nefnir ekki; greinin er talin enda þar'

@@ -1,16 +1,404 @@
 source: logmannabladid
 year: 2021
-volume: null
+volume: 27
 issue: '4'
-label: Lögmannablaðið, 4. tbl. (2021)
+label: Lögmannablaðið, 27. árg. 4. tbl. (2021)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2021 04 .pdf
 sha256: 1dfb1c819034c04bb73987f897bb970bf5b657f2ccfeb585caf7b6022628a7f5
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.778
+  runner_up_share: 0.0
+  pages: 36
+  segments:
+  - - 1
+    - 34
+    - 1
+  contested: []
+  bin_ratio: 0.957
+  non_article:
+  - 4
+  - 18
+  - 22
+  - 26
+  - 34
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2021 04 .pdf
-articles: []
+articles:
+- title: Lögmannafélagið 110 ára
+  authors:
+  - Sigurður Örn Hilmarsson
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá ritstjórn
+  authors:
+  - Ari Karlsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („UMBJ. minn“) er annar titill en skrárinnar („Frá ritstjórn“); titli skrárinnar haldið'
+- title: 'Þóknun til verjenda og réttargæslumanna: Vísitala málsvarnarlauna'
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 7
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 6
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Jólahugvekja
+  authors:
+  - Fanney Hrund Hilmarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Í tilefni“ á bls. 10 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Í tilefni afmælis
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 12
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ HELGU KRISTÍNU AUÐUNSDÓTTUR Staðbundnar venjur og samþjöppun eignarhalds ræður hegðun fjárfesta í mun
+    ríkari mæli en regluverkið
+  authors:
+  - Helga Kristín Auðunsdóttir
+  - New York
+  author_titles: []
+  article_type: Viðtal
+  page_start: 16
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 15
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ MARÍU RÚN BJARNADÓTTUR Þurfum vakandi lögfræðinga til að stafræn þróun verði í þágu réttarríkisins
+  authors:
+  - María Rún Bjarnadóttir
+  author_titles: []
+  article_type: Viðtal
+  page_start: 20
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 19
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fordæmisgildi úrlausna Mannréttindadómstóls Evrópu að innlendum rétti
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Annað
+  page_start: 24
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 23
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af vettvangi félagsins
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 27
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Í upphafi skyldi endinn skoða
+  authors:
+  - Oddur Ástráðsson
+  author_titles: []
+  article_type: Annað
+  page_start: 29
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 28
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIÐTAL VIÐ JÓNAS AÐALSTEINSSON Hef alltaf notið þess að starfa við lögmennsku
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 30
+  page_end: 33
+  issue: null
+  pdf_pages:
+  - 29
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Styrkur til fræðiskrifa
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 34
+  page_end: 34
+  issue: null
+  pdf_pages:
+  - 33
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

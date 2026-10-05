@@ -1,16 +1,159 @@
 source: ulfljotur
 year: 2015
-volume: null
+volume: 68
 issue: '4'
-label: Úlfljótur, 4. tbl. (2015)
+label: Úlfljótur, 68. árg. 4. tbl. (2015)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2015_4_tbl.pdf
 sha256: 3da36ca291e9f4fcadc9dea875517b65c7c5ada9ddacf782406913a79fff90fd
-pages: null
+pages: 273
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 486
+  quality: 0.967
+  runner_up_share: 0.004
+  pages: 273
+  segments:
+  - - 3
+    - 269
+    - 486
+  contested: []
+  bin_ratio: 0.859
+  non_article:
+  - 144
+  - 227
+  - 262
+  - 263
+  - 264
+  - 265
+  - 266
+  - 267
+  - 268
+  - 269
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2015_4_tbl.pdf
-articles: []
+articles:
+- title: Hvað er svona sérstakt við banka? - Reglur og eftirlit með fjármálastarfsemi - með áherslu á viðskiptabanka
+  authors:
+  - Arnaldur Hjartarson
+  - Stefán Björn Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 491
+  page_end: 516
+  issue: null
+  pdf_pages:
+  - 5
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 137
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um nauðsyn lögvarinna hagsmuna af úrlausn sakarefnis
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 517
+  page_end: 629
+  issue: null
+  pdf_pages:
+  - 31
+  - 143
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 138
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Flýtimeðferð einkamála
+  authors:
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 631
+  page_end: 650
+  issue: null
+  pdf_pages:
+  - 145
+  - 164
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 139
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Björgunarreglur siglingalaga
+  authors:
+  - Guðmundur Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 651
+  page_end: 712
+  issue: null
+  pdf_pages:
+  - 165
+  - 226
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 140
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 714 sem skráin nefnir ekki; greinin er talin enda þar'

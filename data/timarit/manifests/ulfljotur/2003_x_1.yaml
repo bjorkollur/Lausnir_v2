@@ -1,15 +1,16 @@
 source: ulfljotur
 year: 2003
-volume: null
+volume: 56
 issue: '1'
-label: Úlfljótur, 1. tbl. (2003)
+label: Úlfljótur, 56. árg. 1. tbl. (2003)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.95
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/101.pdf
@@ -17,4 +18,160 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/3147.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/613.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/703.pdf
-articles: []
+articles:
+- title: Upplýsingaskylda um mikilvæg atvik og ákvarðanir
+  authors:
+  - Jóhannes Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 326
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/703.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+- title: Skattlagning samvinnufélaga
+  authors:
+  - Ásmundur G. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 31
+  page_end: 58
+  issue: null
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 327
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/3144.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+- title: Þróunardrættir í samninga- og kröfurétti, einkum frá fjölþjóðlegu sjónarhorni
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 59
+  page_end: 72
+  issue: null
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 328
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/101.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+- title: Um aðgang almennings að gögnum dómsmála
+  authors:
+  - Ásgerður Ragnarsdóttir
+  - Stefán A. Svensson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 94
+  issue: null
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 329
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/613.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+- title: Markmið refsinga
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 100
+  issue: null
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 330
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/3147.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'

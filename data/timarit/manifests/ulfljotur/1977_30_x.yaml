@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.947
+status: review
+confidence: 0.55
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/160.pdf
@@ -25,4 +26,415 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/504.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/505.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/671.pdf
-articles: []
+articles:
+- title: Óvígð sambúð
+  authors:
+  - Guðrún Erlendsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 16
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 839
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/160.pdf
+  note: ''
+  analysis_notes: []
+- title: Úlfljótur 30 ára
+  authors:
+  - Þorvaldur Garðar Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 17
+  page_end: 18
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 840
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/1816.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 18, prentað bls. 17'
+- title: Eru lög nauðsynleg?
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 19
+  page_end: 29
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 841
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/671.pdf
+  note: ''
+  analysis_notes: []
+- title: Um störf Orators 1975-1976
+  authors:
+  - Valgeir Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 38
+  page_end: 39
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 842
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/1819.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 39, prentað bls. 38'
+- title: Um málfrelsi alþingismanna
+  authors:
+  - Gunnar G. Schram
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 55
+  page_end: 67
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 843
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/358.pdf
+  note: ''
+  analysis_notes: []
+- title: Um ábyrgð á tjóni af völdum dýra
+  authors:
+  - Arngrímur Ísberg
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 68
+  page_end: 102
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 844
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/246.pdf
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um kennsluaðferðir og kennslutækni í lagadeild
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 103
+  page_end: 116
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 845
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/1828.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 116, prentað bls. 103'
+- title: Ölfusborgarseminarið 1977
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 120
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 846
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/1829.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 120, prentað bls. 117'
+- title: Um skjalafals
+  authors:
+  - Gunnar Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 145
+  page_end: 174
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 847
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/504.pdf
+  note: ''
+  analysis_notes: []
+- title: Þróun utanríkisþjónustunnar
+  authors:
+  - Agnar Kl. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 175
+  page_end: 184
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 848
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/1839.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 184, prentað bls. 175'
+- title: Menningar- |K- - málastofnun Sameinuðu þjóðanna - UNESCO ^KM
+  authors:
+  - Jón Ögmundur Þormóðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 185
+  page_end: 249
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 64
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 849
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/1840.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 249, prentað bls. 185'
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 248–249 sem er hvorki framhald hennar né upphaf annars
+    efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Um innheimtu tekju- og eignarskatts O.FL.1
+  authors:
+  - Guðmundur Vignir Jósefsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 256
+  page_end: 266
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 850
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/455.pdf
+  note: ''
+  analysis_notes: []
+- title: Samanburður á afbrotahneigð karla og kvenna
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 267
+  page_end: 282
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 851
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1977 30 arg/505.pdf
+  note: ''
+  analysis_notes: []

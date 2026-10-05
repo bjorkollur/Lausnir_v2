@@ -1,16 +1,221 @@
 source: ulfljotur
 year: 2007
-volume: null
+volume: 60
 issue: '2'
-label: Úlfljótur, 2. tbl. (2007)
+label: Úlfljótur, 60. árg. 2. tbl. (2007)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2007_2_tbl.pdf
 sha256: 13347f0885ef42549da9a60203eef06f4a4fb2138894726b4336c182966cc5c8
-pages: null
+pages: 148
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 199
+  quality: 0.986
+  runner_up_share: 0.0
+  pages: 148
+  segments:
+  - - 2
+    - 147
+    - 199
+  contested: []
+  bin_ratio: 0.972
+  non_article:
+  - 55
+  - 83
+  - 115
+  - 119
+  - 133
+  - 144
+  - 145
+  - 146
+  - 147
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2007_2_tbl.pdf
-articles: []
+articles:
+- title: Upplýsingaréttur aðila stjórnsýslumáls
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 205
+  page_end: 253
+  issue: null
+  pdf_pages:
+  - 6
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 246
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um veiðifélög
+  authors:
+  - Karl Axelsson
+  - Arnar Þór Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 255
+  page_end: 281
+  issue: null
+  pdf_pages:
+  - 56
+  - 82
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 247
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hópuppsagnir
+  authors:
+  - Ingvar Sverrisson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 283
+  page_end: 312
+  issue: null
+  pdf_pages:
+  - 84
+  - 113
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 248
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „,,Fjórða valdið�“ og refsiákvarðanir dómstóla“ á bls. 313 sem skráin nefnir ekki; greinin
+    er talin enda þar'
+- title: Þingmaður á fimmtugsaldri
+  authors:
+  - Jón Kaldal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 315
+  page_end: 317
+  issue: null
+  pdf_pages:
+  - 116
+  - 118
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 249
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðgát skal höfð í nærveru sálar
+  authors:
+  - Jóhannes Rúnar Jóhannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 319
+  page_end: 322
+  issue: null
+  pdf_pages:
+  - 120
+  - 123
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 250
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um fjölmiðla og refsiákvarðanir
+  authors:
+  - Jón Þór Ólason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 323
+  page_end: 331
+  issue: null
+  pdf_pages:
+  - 124
+  - 132
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 251
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „„��������������������������������� Ágætt fyrir stúlkur að taka eitt ár í lögfræði��““
+    á bls. 333 sem skráin nefnir ekki; greinin er talin enda þar'

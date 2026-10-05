@@ -1,16 +1,160 @@
 source: timarit_logfraedinga
 year: 2023
-volume: null
+volume: 73
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2023)
+label: Tímarit lögfræðinga, 73. árg. 3. hefti (2023)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2023_03.pdf
 sha256: 8716e6cc2c37c237cd0e102aa2a0f6fcb4af6dd59304b5fc372760bf7e6be788
-pages: null
+pages: 216
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 453
+  quality: 0.977
+  runner_up_share: 0.0
+  pages: 216
+  segments:
+  - - 2
+    - 213
+    - 453
+  contested: []
+  bin_ratio: 0.922
+  non_article:
+  - 13
+  - 133
+  - 209
+  - 210
+  - 211
+  - 212
+  - 214
+  - 215
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2023_03.pdf
-articles: []
+articles:
+- title: Ólíku farið um fjárhæðir stjórnvaldssekta
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 455
+  page_end: 465
+  issue: null
+  pdf_pages:
+  - 2
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Verkfallsskylda ófélagsbundinna launþega
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 467
+  page_end: 512
+  issue: null
+  pdf_pages:
+  - 14
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Afturköllun og breyting á stjórnvaldsákvörðun
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 513
+  page_end: 585
+  issue: null
+  pdf_pages:
+  - 60
+  - 132
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 586, prentuð lokasíða er bls. 585
+- title: Um stjórnsýslu Alþingis
+  authors:
+  - Þórhallur Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 587
+  page_end: 661
+  issue: null
+  pdf_pages:
+  - 134
+  - 208
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

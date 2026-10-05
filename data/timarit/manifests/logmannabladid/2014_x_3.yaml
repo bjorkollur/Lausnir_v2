@@ -1,16 +1,431 @@
 source: logmannabladid
 year: 2014
-volume: null
+volume: 20
 issue: '3'
-label: Lögmannablaðið, 3. tbl. (2014)
+label: Lögmannablaðið, 20. árg. 3. tbl. (2014)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2014 03 .pdf
 sha256: 3746418ee457e5f4faee5890494d444b1caf264159bf3dc4bf304224c8b6a02f
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.781
+  runner_up_share: 0.04
+  pages: 32
+  segments:
+  - - 1
+    - 30
+    - 1
+  contested: []
+  bin_ratio: 0.963
+  non_article:
+  - 4
+  - 16
+  - 20
+  - 26
+  - 30
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2014 03 .pdf
-articles: []
+articles:
+- title: Traust verður að ríkja
+  authors:
+  - Árni Helgason
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gjafsókn – réttlæti fyrir alla?
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 6
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 5
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórn LMFÍ 2014-2015
+  authors:
+  - Eyrún Ingadóttir Heimildir
+  author_titles: []
+  article_type: Frétt
+  page_start: 9
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 8
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: greinin er undirrituð (Jónas Þór Guðmundsson, Karl Axelsson) en höfundar skrárinnar eru aðrir (Eyrún Ingadóttir
+    Heimildir); skránni haldið'
+- title: Reglur um gjafsókn á Norðurlöndunum
+  authors:
+  - Þyrí Steingrímsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 10
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 9
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýjar reglur um málsgögn í einkamálum og sakamálum
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Farsælt golfsumar hjá lögmönnum
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 14
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 13
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Niðurfelling þóknanareglugerðar og fleiri mál
+  authors:
+  - Jónas Þór Guðmundsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 16
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 15
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vor- og sumarstarf FKL með góðu móti
+  authors:
+  - Marta Margrét Ö. Rúnarsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 18
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 17
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 19
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stefnumarkandi dómar Hæstaréttar í gengislánamálum
+  authors:
+  - Anna Lilja Hallgrímsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 22
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 21
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norræn ráðstefna á sviði hugverkaréttar
+  authors:
+  - Ásdís Magnúsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 24
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 23
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Erlendar réttarreglur og sönnun á þeim
+  authors:
+  - Stefán A. Svensson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 27
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Magn og gæði
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 30
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 29
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

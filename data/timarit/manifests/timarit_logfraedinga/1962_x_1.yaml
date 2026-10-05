@@ -1,16 +1,268 @@
 source: timarit_logfraedinga
 year: 1962
-volume: null
+volume: 12
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1962)
+label: Tímarit lögfræðinga, 12. árg. 1. hefti (1962)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1962_01.pdf
 sha256: 9dbcefb56319db325ca9d34c9a5ddd1ec2d85bc5c658fe3f6d6f576d7281c3b4
-pages: null
+pages: 84
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.667
+  runner_up_share: 0.018
+  pages: 84
+  segments:
+  - - 3
+    - 62
+    - -1
+  contested: []
+  bin_ratio: 0.931
+  non_article:
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 76
+  - 77
+  - 78
+  - 79
+  - 81
+  - 82
+  - 83
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1962_01.pdf
-articles: []
+articles:
+- title: Stjórnarskráin og þátttaka Íslands í alþjóðastofnunum
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 2
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sáttmálinn 1262 og einveldisbyltingin 1662
+  authors:
+  - Bjarni Benediktsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 52
+  issue: null
+  pdf_pages:
+  - 29
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Janúar:'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 53
+  page_end: 55
+  issue: null
+  pdf_pages:
+  - 54
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Kristinn Sigurjónsson, Sigurður Sigurðsson); skránni
+    haldið'
+- title: 'Johs. Andenæs: Straffeprosessen i første instans'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 56
+  page_end: 56
+  issue: null
+  pdf_pages:
+  - 57
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Stig Jørgensen: Svie og smerte'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 56
+  page_end: 57
+  issue: null
+  pdf_pages:
+  - 57
+  - 58
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Bækur“) er annar titill en skrárinnar („Stig Jørgensen: Svie og smerte“); titli skrárinnar
+    haldið'
+- title: 'Fr. Vinding Kruse: En Nordisk Lovbog. Udkast til en fælles borgerlig lovbog for Danmark, Finland, Island, Norge
+    og Sverige med motiver'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 58
+  page_end: 59
+  issue: null
+  pdf_pages:
+  - 59
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýmæli í lögum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 60
+  page_end: 61
+  issue: null
+  pdf_pages:
+  - 61
+  - 62
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

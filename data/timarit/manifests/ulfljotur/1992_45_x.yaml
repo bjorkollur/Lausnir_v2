@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.893
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/200.pdf
@@ -23,4 +24,348 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/589.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/646.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/680.pdf
-articles: []
+articles:
+- title: Staða fullvirðisréttar og greiðslumarks við veðsetningu bújarða
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 37
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 600
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/200.pdf
+  note: ''
+  analysis_notes: []
+- title: Framsetning kröfugerða í riftunarmálum
+  authors:
+  - Gunnar Ármannsson
+  - Bjarki Diego
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 49
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 601
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/588.pdf
+  note: ''
+  analysis_notes: []
+- title: Hugleiðing um nafnalög
+  authors:
+  - Hermann Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: 58
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 602
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/646.pdf
+  note: ''
+  analysis_notes: []
+- title: Hvað eru ólög?
+  authors:
+  - Hannes Hólmsteinn Gissurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 141
+  page_end: 153
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 605
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/680.pdf
+  note: ''
+  analysis_notes: []
+- title: Hugtakið eign við fjárnám
+  authors:
+  - Aðalsteinn Egill Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 200
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 606
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/589.pdf
+  note: ''
+  analysis_notes: []
+- title: Um neikvætt félagafrelsi og álit sérfræðinganefndar evrópuráðsins
+  authors:
+  - Elín Blöndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 246
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 608
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/364.pdf
+  note: ''
+  analysis_notes: []
+- title: EES - samningurinn og stjórnarskráin
+  authors:
+  - Sigurjón Ingvason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 247
+  page_end: 262
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 609
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/366.pdf
+  note: ''
+  analysis_notes: []
+- title: Mannúðarlög
+  authors:
+  - International Humanitarian Law
+  - Hjörtur Bragi Sverrisson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 263
+  page_end: 273
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 610
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/365.pdf
+  note: ''
+  analysis_notes: []
+- title: Skattframkvæmd með tilliti til réttaröryggis skattaðila
+  authors:
+  - Skúli Eggert Þórðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 297
+  page_end: 314
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 612
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/465.pdf
+  note: ''
+  analysis_notes: []
+- title: Flóttamenn og réttarstaða þeirra á Íslandi
+  authors:
+  - Ragnheiður Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 315
+  page_end: 337
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 613
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/2425.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 337, prentað bls. 315'
+- title: Sprangkrafa
+  authors:
+  - Ólafur Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 339
+  page_end: 355
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 614
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1992 45 arg/227.pdf
+  note: ''
+  analysis_notes: []

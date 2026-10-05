@@ -1,16 +1,464 @@
 source: logmannabladid
 year: 2015
-volume: null
+volume: 21
 issue: '1'
-label: Lögmannablaðið, 1. tbl. (2015)
+label: Lögmannablaðið, 21. árg. 1. tbl. (2015)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2015 01.pdf
 sha256: 07ff7caddb4bcf5649993992f2ef4d1f20dfa6d987fc1a02ef2b321c1779cd49
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.722
+  runner_up_share: 0.0
+  pages: 36
+  segments:
+  - - 0
+    - 33
+    - 1
+  contested: []
+  bin_ratio: 0.941
+  non_article:
+  - 6
+  - 20
+  - 22
+  - 24
+  - 26
+  - 33
+  - 34
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2015 01.pdf
-articles: []
+articles:
+- title: Að fara út fyrir hlutverk sitt og umboð
+  authors:
+  - Þyrí Steingrímsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 3
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 5 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Tölfræði um félagsmenn LMFÍ
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Aldursdreifing“ á bls. 8 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Nýr ritstjóri og ritnefnd
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 10
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 9
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Trúnaðarskylda lögmanna
+  authors:
+  - Anna Lilja Hallgrímsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 11
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 10
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Sagan af Jóni og Gunnu: Heiður lögmannastéttar og hæfilegt endurgjald'
+  authors:
+  - Eva Halldórsdóttir
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 12
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 11
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Heimsókn í Hæstarétt
+  authors:
+  - Ingvi Snær Einarsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 14
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 13
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Hádegisfundur LMFÍ og DÍ um frumvarpsdrög réttarfarsnefndar: Einfaldari reglur og hraðari málsmeðferð'
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 18
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 17
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkur mikilvæg réttarfarsmál
+  authors:
+  - Jónas Þór Guðmundsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Prúðmannlegt jólasnapsmót í anda séra Friðriks
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 24
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 23
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Athugasemdir vegna ályktana Hæstaréttar um samskipti verjenda við vitni
+  authors:
+  - Hörður Felix Harðarson
+  - Þórólfur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 27
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ákæruvaldið og „lekamál“
+  authors:
+  - Bogi Nilsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 30
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 29
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Lögbann á lén: Að hengja bakara fyrir smið'
+  authors:
+  - Jens Pétur Jensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 32
+  page_end: 32
+  issue: null
+  pdf_pages:
+  - 31
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Leiðrétting
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 33
+  page_end: 33
+  issue: null
+  pdf_pages:
+  - 32
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

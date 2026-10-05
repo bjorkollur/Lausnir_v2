@@ -1,16 +1,162 @@
 source: ulfljotur
 year: 2019
-volume: null
+volume: 72
 issue: '3'
-label: Úlfljótur, 3. tbl. (2019)
+label: Úlfljótur, 72. árg. 3. tbl. (2019)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2019_3_tbl.pdf
 sha256: f3d2d06fa6347ad5d7edec19e7158d33021c7202f11b8102a7432954e100e39c
-pages: null
+pages: 137
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 362
+  quality: 0.949
+  runner_up_share: 0.008
+  pages: 137
+  segments:
+  - - 1
+    - 133
+    - 362
+  contested: []
+  bin_ratio: 0.701
+  non_article:
+  - 56
+  - 72
+  - 100
+  - 116
+  - 122
+  - 124
+  - 128
+  - 130
+  - 131
+  - 132
+  - 133
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2019_3_tbl.pdf
-articles: []
+articles:
+- title: Óbein eignarréttindi
+  authors:
+  - Þorgeir Örlygsson
+  - Karl Axelsson
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 367
+  page_end: 417
+  issue: null
+  pdf_pages:
+  - 5
+  - 55
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 71
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vefkökur og persónuvernd
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 419
+  page_end: 433
+  issue: null
+  pdf_pages:
+  - 57
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 72
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Beiting 53. og 54. gr. EES-samningsins á Íslandi og túlkun samkeppnislaga í ljósi EES-réttar
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 435
+  page_end: 461
+  issue: null
+  pdf_pages:
+  - 73
+  - 99
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 73
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvernig hefur lögfræði á háskólastigi verið kennd á Íslandi?
+  authors:
+  - Helgi Áss Grétarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 463
+  page_end: 477
+  issue: null
+  pdf_pages:
+  - 101
+  - 115
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    article_type: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 74
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „í landinu.“ á bls. 479 sem skráin nefnir ekki; greinin er talin enda þar'

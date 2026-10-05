@@ -1,15 +1,16 @@
 source: ulfljotur
-year: 1956
+year: 1957
 volume: 10
 issue: null
-label: Úlfljótur, 10. árg. (1956)
+label: Úlfljótur, 10. árg. (1957)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.931
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/1019.pdf
@@ -22,4 +23,327 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/543.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/6.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/618.pdf
-articles: []
+articles:
+- title: Véfang
+  authors:
+  - Ólafur Lárusson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 7
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1166
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/52.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Ólafur Lárusson) stangast á við síðuna (Hinrik Ibsen); skránni haldið'
+  - möppuár 1956 ≠ prentað ár 1957
+- title: Nokkrir höfuðdrættir í íslenzkri erfðalöggjöf.1)
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 22
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1167
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/179.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1956 ≠ prentað ár 1957
+- title: Rit Friðjóns Skarphéðinssonar um íslenzkar lagabókmenntir
+  authors:
+  - Pétur Gautur Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 34
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1168
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/6.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1956 ≠ prentað ár 1957
+- title: Sannleiksmælirinn
+  authors:
+  - Magnús E. Guðjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 35
+  page_end: 38
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1169
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/543.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1956 ≠ prentað ár 1957
+- title: Frá Þjóðréttarháskólanum í Haag
+  authors:
+  - Gunnar G. Schram
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 46
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1170
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/1019.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 46, prentað bls. 41'
+  - möppuár 1956 ≠ prentað ár 1957
+- title: Réttindi og skyldur alþingismanna
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 14
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1171
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/340.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1956 ≠ prentað ár 1957
+- title: Samsköttun hjóna er andstæð stjórnarskrá V-Þýzkalands
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 15
+  page_end: 22
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1172
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/107.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1956 ≠ prentað ár 1957
+- title: Félagsmálaráðuneytið
+  authors:
+  - Hjálmar Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 15
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1173
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/618.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1956 ≠ prentað ár 1957
+- title: Aðalfundur Orators
+  authors:
+  - Ólafur St. Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 16
+  page_end: 16
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1174
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/1032.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1956 ≠ prentað ár 1957
+- title: Til laganema
+  authors:
+  - Magnús Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 26
+  page_end: 26
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1175
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/1036.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „REKABÁLKUR“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda þar'
+  - möppuár 1956 ≠ prentað ár 1957

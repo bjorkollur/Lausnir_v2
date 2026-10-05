@@ -1,16 +1,225 @@
 source: timarit_logfraedinga
 year: 2016
-volume: null
+volume: 66
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2016)
+label: Tímarit lögfræðinga, 66. árg. 3. hefti (2016)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2016_03.pdf
 sha256: de90ea22e8801ca475e0650e48f7472dbe55b29efdf275799728b4857dc44513
-pages: null
+pages: 176
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 327
+  quality: 0.977
+  runner_up_share: 0.0
+  pages: 176
+  segments:
+  - - 2
+    - 173
+    - 327
+  contested: []
+  bin_ratio: 0.944
+  non_article:
+  - 165
+  - 166
+  - 167
+  - 168
+  - 169
+  - 170
+  - 171
+  - 172
+  - 173
+  - 174
+  - 175
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2016_03.pdf
-articles: []
+articles:
+- title: Dómur Mannréttindadómstóls Evrópu í máli Magyar Helsinki Bizottság gegn Ungverjalandi
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 329
+  page_end: 330
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kröfur til viðskiptaboða í fjölmiðlum
+  authors:
+  - Eiríkur Jónsson
+  - Halldóra Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 331
+  page_end: 400
+  issue: null
+  pdf_pages:
+  - 4
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um stöðu þjóðréttarsamninga og annarra réttar heimilda af meiði þjóðaréttar í evrópurétti
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 401
+  page_end: 430
+  issue: null
+  pdf_pages:
+  - 74
+  - 103
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sætisvikning og endurskoðun hennar
+  authors:
+  - Jón Gunnar Ásbjörnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 431
+  page_end: 456
+  issue: null
+  pdf_pages:
+  - 104
+  - 129
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttur úrskurðarnefndar um upplýsingamál til aðgangs að gögnum sem kæra lýtur að • 1
+  authors:
+  - Oddur Þorri Viðarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 457
+  page_end: 484
+  issue: null
+  pdf_pages:
+  - 130
+  - 157
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Munnlegur málflutningur
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 485
+  page_end: 491
+  issue: null
+  pdf_pages:
+  - 158
+  - 164
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

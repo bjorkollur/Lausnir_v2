@@ -1,16 +1,575 @@
 source: logmannabladid
 year: 2009
-volume: null
+volume: 15
 issue: '4'
-label: Lögmannablaðið, 4. tbl. (2009)
+label: Lögmannablaðið, 15. árg. 4. tbl. (2009)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2009 04.pdf
 sha256: ba40a0b9e2c71ed551c697dfadf0d39fda64c8020655e454ab6f344f7168a066
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.781
+  runner_up_share: 0.0
+  pages: 32
+  segments:
+  - - 1
+    - 29
+    - 1
+  contested: []
+  bin_ratio: 0.948
+  non_article:
+  - 4
+  - 9
+  - 27
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2009 04.pdf
-articles: []
+articles:
+- title: Ár spurninga
+  authors:
+  - Borgar Þór Einarsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Friðarjólin 1945
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 5
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Jóla hvað? Jólahádegisverður LMFÍ, LÍ og DÍ
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 9
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 8
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðgengi að dómstólum
+  authors:
+  - Lárentsínus Kristjánsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 11
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 10
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Laganám í kastljósinu
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 12
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 11
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Framhaldsnám skilar sér í betri stöðum
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 15
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Öflun hdl.-réttinda
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 17
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 16
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skiptar skoðanir um skylduendurmenntun
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lítið atvinnuleysi meðal lögfræðinga
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 61% lögmanna hefur sótt námskeið sl. tvö ár
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Skiptar skoðanir um skylduendurmenntun“) er annar titill en skrárinnar („61% lögmanna
+    hefur sótt námskeið sl. tvö ár“); titli skrárinnar haldið'
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 19
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 18
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvað bar hæst í íslenskum rétti árið 2009?
+  authors:
+  - Katrín Theodórsdóttir
+  - Þorbjörg Inga Jónsdóttir
+  - Hrafnhildur Stefánsdóttir
+  - Helgi Jóhannesson
+  - Ragnar Halldór Hall
+  - Þórður Bogason
+  - Garðar Garðarsson
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Þorbjörg Inga'
+- title: Enn höggvið að rótum réttarríkisins
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 21
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagasetning í kjölfar hrunsins
+  authors:
+  - Ingvi Snær Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 24
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 23
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Almenn greiðslujöfnun o.fl.“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda
+    þar'
+- title: Öflugt félagsstarf
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Úr myndasafni: 90 ára afmæli LMFÍ'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 29
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 28
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: „Case Open“. Meistaramótsgleði LMFÍ í skák 2009
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 30
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 29
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Súkkulaði í allri sinni dýrð
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 30
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 29
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

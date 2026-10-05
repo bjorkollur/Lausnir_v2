@@ -1,16 +1,314 @@
 source: logmannabladid
 year: 2017
-volume: null
+volume: 23
 issue: '3'
-label: Lögmannablaðið, 3. tbl. (2017)
+label: Lögmannablaðið, 23. árg. 3. tbl. (2017)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2017 03 .pdf
 sha256: 788819c5dd90b0f945097d4dd2481016fbe17d0abe8bdabbc902018a1c9025a3
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.781
+  runner_up_share: 0.0
+  pages: 32
+  segments:
+  - - 1
+    - 30
+    - 1
+  contested: []
+  bin_ratio: 0.957
+  non_article:
+  - 10
+  - 11
+  - 16
+  - 20
+  - 24
+  - 30
+  - 31
+status: review
+confidence: 0.35
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2017 03 .pdf
-articles: []
+articles:
+- title: Húsleit hjá lögmönnum
+  authors:
+  - Eva Halldórsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 5
+  issue: null
+  pdf_pages:
+  - 3
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Brottfall réttindasviptingar lögmanna
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eyða, geyma eða gleyma? Varðveisla skjalasafna lögmanna
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Besti meistari í HEIMI
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 9
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: efnisyfirlitið segir bls. 11, prentað bls. 10'
+- title: Vettvangsferð á slóðir síðustu aftökunnar og ný réttarhöld í máli Agnesar, Friðriks og Sigríðar
+  authors:
+  - Katrín Smári Ólafsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 12
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Aðild Lögmannafélags Íslands að kærumálum fyrir úrskurðarnefnd lögmanna“ á bls. 15 sem
+    skráin nefnir ekki; greinin er talin enda þar'
+- title: Norræna lögfræðingamótið í Finnlandi
+  authors:
+  - Þyrí Steingrímsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 17
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vegið að réttinum til að velja sér verjanda
+  authors:
+  - Arnar Þór Stefánsson
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 19
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ályktun andstæð lögum
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 21
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hæfi dómara
+  authors:
+  - Óttar Pálsson
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 25
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

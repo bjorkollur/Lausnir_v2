@@ -1,16 +1,244 @@
 source: timarit_logfraedinga
 year: 2010
-volume: null
+volume: 60
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2010)
+label: Tímarit lögfræðinga, 60. árg. 4. hefti (2010)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2010_04.pdf
 sha256: d2956158df86ec5ff9bbcca094b862657395c4b3f5d1dfc2fb317d6bb7680699
-pages: null
+pages: 112
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 319
+  quality: 0.955
+  runner_up_share: 0.0
+  pages: 112
+  segments:
+  - - 2
+    - 108
+    - 319
+  contested: []
+  bin_ratio: 0.932
+  non_article:
+  - 5
+  - 12
+  - 14
+  - 16
+  - 18
+  - 30
+  - 31
+  - 59
+  - 62
+  - 67
+  - 68
+  - 70
+  - 79
+  - 81
+  - 85
+  - 86
+  - 87
+  - 90
+  - 93
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2010_04.pdf
-articles: []
+articles:
+- title: Skýrsla rannsóknarnefndar Alþingis og stjórnsýslan
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 321
+  page_end: 323
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttur samningsaðila til að halda eigin greiðslu vegna vanefndar gagnaðila
+  authors:
+  - Benedikt Bogason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 325
+  page_end: 330
+  issue: null
+  pdf_pages:
+  - 6
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 349, prentuð lokasíða er bls. 330
+  - 'FRÁVIK: á eftir greininni hefst „2.3 Umfang úrræðisins“ á bls. 332 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Dyﬂinnarsamstarﬁð um ákvörðun ábyrgðar á umsókn um hæli og beiting 2. mgr. 3. gr. Dyﬂinnarreglugerðarinnar
+  authors:
+  - Erna Kristín Blöndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 351
+  page_end: 377
+  issue: null
+  pdf_pages:
+  - 32
+  - 58
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „������������������������������máli K.R.S. gegn Bretlandi og “ á bls. 379 sem skráin
+    nefnir ekki; greinin er talin enda þar'
+- title: Ákvörðun árslauna við óvenjulegar aðstæður samkvæmt 2. mgr. 7. gr. skaðabótalaga
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 399
+  page_end: 399
+  issue: null
+  pdf_pages:
+  - 80
+  - 80
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 412, prentuð lokasíða er bls. 399
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 401 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Vaxtadómur Hæstaréttar
+  authors:
+  - Magnús Ingi Erlingsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 413
+  page_end: 418
+  issue: null
+  pdf_pages:
+  - 94
+  - 99
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Starfsemi Lögfræðingafélags Íslands 2009-2010
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 419
+  page_end: 420
+  issue: null
+  pdf_pages:
+  - 100
+  - 101
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

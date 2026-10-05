@@ -1,16 +1,154 @@
 source: ulfljotur
 year: 2016
-volume: null
+volume: 69
 issue: '2'
-label: Úlfljótur, 2. tbl. (2016)
+label: Úlfljótur, 69. árg. 2. tbl. (2016)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2016_2_tbl.pdf
 sha256: 19238e4cfb0431a47b333f9c6400da96dd3a650755288d3690051689a2d4667f
-pages: null
+pages: 121
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 100
+  quality: 0.95
+  runner_up_share: 0.0
+  pages: 121
+  segments:
+  - - 3
+    - 119
+    - 100
+  contested: []
+  bin_ratio: 0.892
+  non_article:
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2016_2_tbl.pdf
-articles: []
+articles:
+- title: Um hugtakið nákomnir í gjaldþrotaskiptarétti
+  authors:
+  - Benedikt Bogason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 105
+  page_end: 122
+  issue: null
+  pdf_pages:
+  - 5
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 114
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Umhverfismat skipulags- og framkvæmdaáætlana
+  authors:
+  - Ottó Björgvin Óskarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 123
+  page_end: 168
+  issue: null
+  pdf_pages:
+  - 23
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 115
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Markaðseftirlit á sviði neytendaréttar
+  authors:
+  - Daði Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 169
+  page_end: 210
+  issue: null
+  pdf_pages:
+  - 69
+  - 110
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 116
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: greinin er undirrituð (Stefán Kristinsson, Aron Freyr Jóhannsson) en höfundar skrárinnar eru aðrir (Daði Ólafsson);
+    skránni haldið'
+- title: Geta fréttamenn sér að refsilausu birt upplýsingar sem bankaleynd nær yfir?
+  authors:
+  - Andrés Þorleifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 211
+  page_end: 214
+  issue: null
+  pdf_pages:
+  - 111
+  - 114
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 117
+  source_file: null
+  note: ''
+  analysis_notes: []

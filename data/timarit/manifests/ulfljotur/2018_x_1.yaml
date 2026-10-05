@@ -1,16 +1,213 @@
 source: ulfljotur
 year: 2018
-volume: null
+volume: 71
 issue: '1'
-label: Úlfljótur, 1. tbl. (2018)
+label: Úlfljótur, 71. árg. 1. tbl. (2018)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_1_tbl.pdf
 sha256: 38715910023aad0c480569c8f4287043a648a6733262fbe78b6107a106144211
-pages: null
+pages: 177
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.949
+  runner_up_share: 0.006
+  pages: 177
+  segments:
+  - - 1
+    - 170
+    - 0
+  contested: []
+  bin_ratio: 0.865
+  non_article:
+  - 38
+  - 82
+  - 167
+  - 168
+  - 169
+  - 170
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_1_tbl.pdf
-articles: []
+articles:
+- title: Gagnvart skipan eignarréttar
+  authors:
+  - Kristín Haraldsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 37
+  issue: null
+  pdf_pages:
+  - 5
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 78
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Viðurkenningarkröfur um �������������������
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 81
+  issue: null
+  pdf_pages:
+  - 39
+  - 81
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 79
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mann réttindasáttmála Evrópu og réttindi í velferðarkerfum
+  authors:
+  - Helgi Áss Grétarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 122
+  issue: null
+  pdf_pages:
+  - 83
+  - 122
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 80
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Einkamálum og sakamálum
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 123
+  page_end: 152
+  issue: null
+  pdf_pages:
+  - 123
+  - 152
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 81
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ráðherra við skipun dómara
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: 162
+  issue: null
+  pdf_pages:
+  - 153
+  - 162
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 82
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ekkert við tréð að óttast
+  authors:
+  - Erla Ylfa Óskarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 163
+  page_end: 166
+  issue: null
+  pdf_pages:
+  - 163
+  - 166
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 83
+  source_file: null
+  note: ''
+  analysis_notes: []

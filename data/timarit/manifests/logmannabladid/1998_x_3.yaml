@@ -1,16 +1,336 @@
 source: logmannabladid
 year: 1998
-volume: null
+volume: 4
 issue: '3'
-label: Lögmannablaðið, 3. tbl. (1998)
+label: Lögmannablaðið, 4. árg. 3. tbl. (1998)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1998 03.pdf
 sha256: 43660baa394548e41cbd83a35249537d2cc6875163ea1292db0526c1691b6676
-pages: null
+pages: 24
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.417
+  runner_up_share: 0.0
+  pages: 24
+  segments:
+  - - 1
+    - 22
+    - 1
+  contested: []
+  bin_ratio: 0.951
+  non_article:
+  - 4
+  - 20
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1998 03.pdf
-articles: []
+articles:
+- title: Peningaþvætti, þagnarskylda lögmanna og samstarf við aðrar stéttir
+  authors:
+  - Jakob R. Möller
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 3
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýjar samþykktir LMFÍ
+  authors:
+  - Sigurmar K. Albertsson
+  author_titles: []
+  article_type: Annað
+  page_start: 7
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 6
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Sigurmar K'
+- title: Fræðslumál í nýjan farveg
+  authors:
+  - Sigurbjörn Magnússon
+  author_titles: []
+  article_type: Frétt
+  page_start: 10
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 9
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ávarp formanns L.M.F.Í. á aðalfundi Dómarafélags Íslands
+  authors:
+  - Jakob R. Möller
+  author_titles: []
+  article_type: Annað
+  page_start: 11
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 10
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Jakob R. Möller) stangast á við síðuna (Davíð Þór Björgvinsson); skránni haldið'
+- title: Um skuldajafnaðarheimild ríkissjóðs gagnvart þrotabúi á grundvelli 3. mgr. 25. gr. laga nr. 50/1988 um virðisaukaskatt
+  authors:
+  - Karl Axelsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 13
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 12
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um Hæstarétt Íslands
+  authors:
+  - Guðni Á. Haraldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 15
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 14
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „EFTA surveillance authority“ á bls. 17 sem skráin nefnir ekki; greinin er talin enda
+    þar'
+  - 'á síðunni stendur: Guðni Á'
+- title: 'Lögmannalög: Skipun í nefndir'
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 20
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 19
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá laganefnd LMFÍ
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lítillega um árgjöld
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 23
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 22
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -1,15 +1,16 @@
 source: ulfljotur
-year: 1953
+year: 1954
 volume: 7
 issue: null
-label: Úlfljótur, 7. árg. (1953)
+label: Úlfljótur, 7. árg. (1954)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.721
+status: review
+confidence: 0.55
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/105.pdf
@@ -25,4 +26,425 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/917.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/930.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/932.pdf
-articles: []
+articles:
+- title: Um fjárlög
+  authors:
+  - Ásgeir Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 10
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1195
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/337.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Fangahjálpin
+  authors:
+  - Oscar Clausen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 12
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1196
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/481.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Old Bailey
+  authors:
+  - Halldór Jónatansson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 13
+  page_end: 16
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1197
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/105.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Tanker om erstatning og forsikring
+  authors:
+  - Henry Ussing
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 4
+  page_end: 17
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1198
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/298.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Det norske sivillovbok-arbeidet
+  authors:
+  - Knut Robberstad
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 18
+  page_end: 26
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1199
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/106.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Straffelagsreformen i Sverige
+  authors:
+  - Nils Beckman
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 27
+  page_end: 33
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1200
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/916.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 33, prentað bls. 27'
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Den islandske fiskerigrænse fra folkeretslig synspunkt
+  authors:
+  - Hans G. Andersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 34
+  page_end: 43
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1201
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/917.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 43, prentað bls. 34'
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Löggjöfin um réttindi og skyldur starfsmanna ríkisins. Yfirlit um aðdraganda, undirbúning og efni þeirrar löggjafar
+  authors:
+  - Gunnar Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 12
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1202
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/617.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Mál Gríms Bergssonar
+  authors:
+  - Ólafur Lárusson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 13
+  page_end: 17
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1203
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/48.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Fangelsismál landsins 1927
+  authors:
+  - Björn Þórðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 7
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1204
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/482.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Um lagaskólann
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 8
+  page_end: 20
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1205
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/49.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Yfirlit yfir störf Orators 1953-1954
+  authors:
+  - Þorvaldur Ari Arason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 24
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 1206
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/930.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 24, prentað bls. 21'
+  - möppuár 1953 ≠ prentað ár 1954
+- title: Til laganema
+  authors:
+  - Örn Þór
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 26
+  page_end: 26
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1207
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/932.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 27, prentað bls. 26'
+  - 'FRÁVIK: greinin er undirrituð (Bragi Hannesson) en höfundar skrárinnar eru aðrir (Örn Þór); skránni haldið'
+  - möppuár 1953 ≠ prentað ár 1954

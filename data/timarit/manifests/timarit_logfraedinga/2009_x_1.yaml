@@ -1,16 +1,192 @@
 source: timarit_logfraedinga
 year: 2009
-volume: null
+volume: 59
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2009)
+label: Tímarit lögfræðinga, 59. árg. 1. hefti (2009)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2009_01.pdf
 sha256: 8603117755829dbd63be447d2742461d90fe6202bfa4d9e33de65b0ed522aa54
-pages: null
+pages: 120
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.983
+  runner_up_share: 0.0
+  pages: 120
+  segments:
+  - - 2
+    - 119
+    - -1
+  contested: []
+  bin_ratio: 0.959
+  non_article:
+  - 5
+  - 51
+  - 85
+  - 95
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2009_01.pdf
-articles: []
+articles:
+- title: Ráðherra sem málsvari laga og réttar
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 1
+  page_end: 3
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: leitir+toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvað er markaðsmisnotkun?
+  authors:
+  - Aðalsteinn E. Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 49
+  issue: null
+  pdf_pages:
+  - 6
+  - 50
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Vernd gegn mismunun í íslenskum rétti: Breytinga er þörf'
+  authors:
+  - Oddný Mjöll Arnardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: 83
+  issue: null
+  pdf_pages:
+  - 52
+  - 84
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Athugasemdir varðandi dóm Mannréttindadómstóls Evrópu í máli nr. 42628/04, SRW gegn Íslandi
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 85
+  page_end: 93
+  issue: null
+  pdf_pages:
+  - 86
+  - 94
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Með og á móti: Hver á að ákvarða nálgunarbann? Benedikt Bogason'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 95
+  page_end: 110
+  issue: null
+  pdf_pages:
+  - 96
+  - 111
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

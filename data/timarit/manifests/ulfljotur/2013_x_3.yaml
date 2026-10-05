@@ -1,16 +1,124 @@
 source: ulfljotur
 year: 2013
-volume: null
+volume: 66
 issue: '3'
-label: Úlfljótur, 3. tbl. (2013)
+label: Úlfljótur, 66. árg. 3. tbl. (2013)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2013_3_tbl.pdf
 sha256: 83ef9e32ca26171b6cebc08f4323d9895b6679b96a76e86649bdeee765625287
-pages: null
+pages: 162
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 237
+  quality: 0.951
+  runner_up_share: 0.006
+  pages: 162
+  segments:
+  - - 4
+    - 158
+    - 237
+  contested: []
+  bin_ratio: 0.895
+  non_article:
+  - 155
+  - 156
+  - 157
+  - 158
+  - 159
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2013_3_tbl.pdf
-articles: []
+articles:
+- title: Dul og rangvirðing?
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 243
+  page_end: 270
+  issue: null
+  pdf_pages:
+  - 6
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 163
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Völd og ábyrgð ráðherra í stjórnsýslunni
+  authors:
+  - Sigurður Kári Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 271
+  page_end: 334
+  issue: null
+  pdf_pages:
+  - 34
+  - 97
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 164
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Slit fyrningar kröfuréttinda og réttaráhrif þess að fyrningu er slitið
+  authors:
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 335
+  page_end: 384
+  issue: null
+  pdf_pages:
+  - 98
+  - 147
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 165
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Viðtal við Dr. Pál Sigurðsson prófessor“ á bls. 385 sem skráin nefnir ekki; greinin
+    er talin enda þar'

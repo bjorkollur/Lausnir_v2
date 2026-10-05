@@ -1,16 +1,194 @@
 source: timarit_logfraedinga
 year: 2022
-volume: null
+volume: 72
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2022)
+label: Tímarit lögfræðinga, 72. árg. 1. hefti (2022)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2022_01.pdf
 sha256: 066e9dc1d23405de55272f7ab925217f4ede84ffa8279ccb7e0cda59da585964
-pages: null
+pages: 164
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.97
+  runner_up_share: 0.0
+  pages: 164
+  segments:
+  - - 2
+    - 161
+    - -1
+  contested: []
+  bin_ratio: 0.966
+  non_article:
+  - 17
+  - 93
+  - 157
+  - 158
+  - 159
+  - 160
+  - 161
+  - 162
+  - 163
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2022_01.pdf
-articles: []
+articles:
+- title: Málskotsheimild í einkamálum rýmkuð fyrir nýja Hæstarétt
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 1
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 2
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samræmd túlkun Evrópuréttar — birtingarmynd í landsrétti
+  authors:
+  - Gunnar Þór Pétursson
+  - Ómar Berg Rúnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 17
+  page_end: 54
+  issue: null
+  pdf_pages:
+  - 18
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Að móta og breyta stjórnarskrá: Kristrúnu Heimisdóttur svarað'
+  authors:
+  - Vilhjálmur Þorsteinsson
+  - Katrín Oddsdóttir
+  - Viktor Orri Valgarðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 55
+  page_end: 91
+  issue: null
+  pdf_pages:
+  - 56
+  - 92
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 92, prentuð lokasíða er bls. 91
+- title: Skilyrði veitingar lögmannsréttinda
+  authors:
+  - Reimar Snæfells Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 93
+  page_end: 140
+  issue: null
+  pdf_pages:
+  - 94
+  - 141
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Reimar Pétursson'
+- title: 'Málþing um hlutverk og framtíðarskipan ákæruvaldsins 12. maí 2022: Ræður framsögumanna'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 141
+  page_end: 155
+  issue: null
+  pdf_pages:
+  - 142
+  - 156
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

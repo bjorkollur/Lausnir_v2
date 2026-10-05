@@ -1,15 +1,16 @@
 source: ulfljotur
-year: 1952
+year: 1953
 volume: 6
 issue: null
-label: Úlfljótur, 6. árg. (1952)
+label: Úlfljótur, 6. árg. (1953)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.807
+status: review
+confidence: 0.55
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/155.pdf
@@ -22,4 +23,330 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/891.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/899.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/901.pdf
-articles: []
+articles:
+- title: Nokkur orð um skilorðsbundna refsidóma samkvæmt íslenzkum lögum og framkvæmd þeirra
+  authors:
+  - Sveinbjörn Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 15
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1208
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/480.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1952 ≠ prentað ár 1953
+- title: Húsvitjun Úlfljóts V. Stutt lýsing á stjórnarráði Íslands
+  authors:
+  - Einar Bjarnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 16
+  page_end: 20
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 1209
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/335.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1952 ≠ prentað ár 1953
+- title: Við lögfræðistörf hjá Sameinuðu þjóðunum
+  authors:
+  - Sveinn Haukur Valdimarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 24
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1210
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/878.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 24, prentað bls. 21'
+  - möppuár 1952 ≠ prentað ár 1953
+- title: Nogle ord om den stilling, islandsk ret tager til spörgsmalet om gyldighed af forfatningsstridige love
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 16
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1211
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/336.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1952 ≠ prentað ár 1953
+- title: Um ákvörðun örorkubóta
+  authors:
+  - Benedikt Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 11
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1212
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/233.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1952 ≠ prentað ár 1953
+- title: Ávarp við setningu IX. móts norrænna laganema og ungra lögfræðinga
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 12
+  page_end: 15
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1213
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/890.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 15, prentað bls. 12'
+  - möppuár 1952 ≠ prentað ár 1953
+- title: Trausti bundust synir samþjóða
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 16
+  page_end: 26
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1214
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/891.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 27, prentað bls. 16'
+  - möppuár 1952 ≠ prentað ár 1953
+- title: Nokkur orð um endurskoðun lagaákvæða um hjónavígslu og hjónavígslutálma
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 22
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1215
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/155.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1952 ≠ prentað ár 1953
+- title: Stjórn Orators 1952-1953.
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 26
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1216
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/899.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 26, prentað bls. 23'
+  - möppuár 1952 ≠ prentað ár 1953
+- title: Næstu verkefni Orators.
+  authors:
+  - Þorvaldur Ari Arason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: 30
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 1217
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/901.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 30, prentað bls. 29'
+  - 'FRÁVIK: á eftir greininni hefst „•K9“ á bls. 30 sem skráin nefnir ekki; greinin er talin enda þar'
+  - möppuár 1952 ≠ prentað ár 1953

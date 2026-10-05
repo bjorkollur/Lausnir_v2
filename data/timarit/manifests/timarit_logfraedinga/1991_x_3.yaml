@@ -1,16 +1,162 @@
 source: timarit_logfraedinga
 year: 1991
-volume: null
+volume: 41
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (1991)
+label: Tímarit lögfræðinga, 41. árg. 3. hefti (1991)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1991_03.pdf
 sha256: 268fe82292637c6ad7485d636d3658b2f5bb6bc9dab50c341d02a067ddd7f311
-pages: null
+pages: 68
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 159
+  quality: 0.897
+  runner_up_share: 0.016
+  pages: 68
+  segments:
+  - - 2
+    - 65
+    - 159
+  contested: []
+  bin_ratio: 0.989
+  non_article:
+  - 23
+  - 44
+  - 47
+  - 48
+  - 50
+  - 51
+  - 52
+  - 66
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1991_03.pdf
-articles: []
+articles:
+- title: Saga Dómarafélags íslands
+  authors:
+  - Davíö Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 163
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögfræðinga“) er annar titill en skrárinnar („Saga Dómarafélags íslands“); titli
+    skrárinnar haldið'
+  - 'FRÁVIK: greinin er undirrituð (Valtýr Sigurðsson) en höfundar skrárinnar eru aðrir (Davíö Þór Björgvinsson); skránni
+    haldið'
+- title: Á víð og dreif Doktorsvarnir
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 164
+  page_end: 180
+  issue: null
+  pdf_pages:
+  - 5
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „?)fi(tíít«rín“ á bls. 181 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Saga dómarafélags Íslands“) er annar titill en skrárinnar („Á víð og dreif Doktorsvarnir“);
+    titli skrárinnar haldið'
+- title: Fimmta norræna námstefnan um réttarfar
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 212
+  page_end: 213
+  issue: null
+  pdf_pages:
+  - 53
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla um Lagastofnun Háskóla fslands 1990-1991 215
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 214
+  page_end: 224
+  issue: null
+  pdf_pages:
+  - 55
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

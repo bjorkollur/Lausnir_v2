@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2015
 volume: 11
 issue: null
-label: Stjórnmál og stjórnsýsla, 11. árg.
+label: Stjórnmál og stjórnsýsla, 11. árg. (2015)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.424
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/1-18_Political_control_and_perceptions_of_cor.pdf
@@ -31,4 +32,632 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/55-70_Self_Censorship_among_Icelandic_Journali.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/71-86_The_Law_as_the_Bond_of_Society.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/87-114_Role_of_insurance_companies_in_dealing_w.pdf
-articles: []
+articles:
+- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 ( 1-18 ) © 2015 Contacts: Gunnar Helgi Kristinsson,
+    ghk@hi.is Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration
+    and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 18
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/1-18_Political_control_and_perceptions_of_cor.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Political control and perceptions of corruption in Icelandic local government“) er
+    annar titill en skrárinnar („Icelandic Review of Politics and Administration Vol 11, Issue 1 ( 1-18 ) © 2015 Contacts:
+    Gunnar Helgi Kristinsson, ghk@hi.is Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute
+    of Public Administration and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland“); titli skrárinnar haldið'
+- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 (19-32) © 2015 Contacts: Svala Guðmundsdóttir, svala@hi.is,
+    Þórhallur Guðlaugsson, th@hi.is, Gylfi Dalmann Aðalsteinsson, gylfidal@hi.is Article first published online June 23rd
+    2015 on http://www.irpa.is Publisher: Institute of Public Administration and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík,
+    Iceland'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 19
+  page_end: 32
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 13
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/19-32_Icelandic_National_Culture_compared_to_N.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Icelandic national culture compared to national cultures of 25 OECD member states
+    using VSM“) er annar titill en skrárinnar („Icelandic Review of Politics and Administration Vol 11, Issue 1 (19-32) ©
+    2015 Contacts: Svala Guðmundsdóttir, svala@hi.is, Þórhallur Guðlaugsson, th@hi.is, Gylfi Dalmann Aðalsteinsson, gylfidal@hi.is
+    Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and
+    Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland“); titli skrárinnar haldið'
+- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 ( 33-54 ) © 2015 Contacts: Eiríkur Bergmann, eirikur@bifrost.is
+    Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and
+    Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 33
+  page_end: 54
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/33-54_Populism_in_Iceland.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Populism in Iceland: Has the Progressive Party turned populist?“) er annar titill
+    en skrárinnar („Icelandic Review of Politics and Administration Vol 11, Issue 1 ( 33-54 ) © 2015 Contacts: Eiríkur Bergmann,
+    eirikur@bifrost.is Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public
+    Administration and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland“); titli skrárinnar haldið'
+- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 (55–70 ) © 2015 Contacts: Birgir Guðmundsson, birgirg@unak.is
+    Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and
+    Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 55
+  page_end: 70
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/55-70_Self_Censorship_among_Icelandic_Journali.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Sjálfsritskoðun íslenskra blaðamanna“) er annar titill en skrárinnar („Icelandic
+    Review of Politics and Administration Vol 11, Issue 1 (55–70 ) © 2015 Contacts: Birgir Guðmundsson, birgirg@unak.is Article
+    first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and Politics,
+    Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland“); titli skrárinnar haldið'
+- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 (71–86 ) © 2015 Contacts: Arnar Þór Jónsson, arnarthor@ru.is
+    Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and
+    Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 86
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/71-86_The_Law_as_the_Bond_of_Society.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögin sem einingarband samfélagsins – Íhuganir um samhengi laga og samfélags“) er
+    annar titill en skrárinnar („Icelandic Review of Politics and Administration Vol 11, Issue 1 (71–86 ) © 2015 Contacts:
+    Arnar Þór Jónsson, arnarthor@ru.is Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute
+    of Public Administration and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland“); titli skrárinnar haldið'
+- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 (87–114 ) © 2015 Contacts: Lára Jóhannsdóttir, laraj@hi.is,
+    Snjólfur Ólafsson, snjolfur@hi.is, Brynhildur Davíðsdóttir, bdavids@hi.is Article first published online June 23rd 2015
+    on http://www.irpa.is Publisher: Institute of Public Administration and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík,
+    Iceland'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 114
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/87-114_Role_of_insurance_companies_in_dealing_w.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hlutverk vátryggingafélaga við úrlausn umhverfislegra vandamála“) er annar titill
+    en skrárinnar („Icelandic Review of Politics and Administration Vol 11, Issue 1 (87–114 ) © 2015 Contacts: Lára Jóhannsdóttir,
+    laraj@hi.is, Snjólfur Ólafsson, snjolfur@hi.is, Brynhildur Davíðsdóttir, bdavids@hi.is Article first published online
+    June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and Politics, Gimli, Sæmundargötu 1,
+    101 Reykjavík, Iceland“); titli skrárinnar haldið'
+- title: Need for security and system fairness on the political extremes
+  authors:
+  - Hulda Þórisdóttir
+  - Eva H. Önnudóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 115
+  page_end: 138
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/115-138_Need_for_security_and_system_fairness_on.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Gæslumaður Alþingis: Breytt valdastaða forseta Íslands'
+  authors:
+  - Björg Thorarensen
+  - Stefanía Óskarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 139
+  page_end: 160
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/139-160_Althingi´s_Keeper.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Of seint, óljóst og veikt: Hvernig og hvers vegna hugmyndin um fyrsta viðkomustaðinn í heilbrigðiskerfinu hefur
+    misst marks'
+  authors:
+  - Sigurbjörg Sigurgeirsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 186
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/161-186_Too_late,_too_vague,_too_soft.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Iceland’s external affairs from the Napoleonic era to the occupation of Denmark: Danish and British shelter'
+  authors:
+  - Baldur Thorhallsson
+  - Tómas Joensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 187
+  page_end: 206
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/187-206_Iceland’s_External_Affairs_from_the_Napo.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Gender bias in the media: the case of Iceland'
+  authors:
+  - Valgerður Jóhannsdóttir
+  - Þorgerður Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 207
+  page_end: 230
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/207-230_Gender_Bias_in_the_Media.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Áhættusækni í útrásargleði: Karlar og konur í bönkum og fjármálafyrirtækjum'
+  authors:
+  - Kristín Loftsdóttir
+  - Helga Björnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 231
+  page_end: 246
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/231-246_Risk_taking_business_Vikings.pdf
+  note: ''
+  analysis_notes: []
+- title: Verkföll opinberra starfsmanna á Íslandi
+  authors:
+  - Gylfi Dalmann Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 247
+  page_end: 268
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/247-268_Public_sector_strikes_in_Iceland.pdf
+  note: ''
+  analysis_notes: []
+- title: '‘We are like the Poles’: on the ambiguous labour market position of young Icelanders'
+  authors:
+  - Margrét Einarsdóttir
+  - Jónína Einarsdóttir
+  - Guðbjörg Linda Rafnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 269
+  page_end: 288
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/269-288__We_are_like_the_Poles.pdf
+  note: ''
+  analysis_notes: []
+- title: Upplýsingaréttur og þagnarskylda
+  authors:
+  - Trausti Fannar Valsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 289
+  page_end: 312
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/289-312_Access_to_Public_Administration_Files_an.pdf
+  note: ''
+  analysis_notes: []
+- title: Skipan talsmanns fyrir börn – grundvöllur ákvörðunar og framkvæmd
+  authors:
+  - Hrefna Friðriksdóttir
+  - Hafdís Gísladóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 313
+  page_end: 332
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/313-332_The_Appointment_of_Spokespersons_for_Chi.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Promoting bank stability through compensation reform: lessons from Iceland'
+  authors:
+  - Jay Cullen
+  - Guðrún Johnsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 333
+  page_end: 354
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/333-354_Promoting_Bank_Stability_through_Compens.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Individualistic vikings: culture, economics and Iceland'
+  authors:
+  - Már Wolfgang Mixa
+  - Vlad Vaiman
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 355
+  page_end: 374
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/355-374_Individualistic_Vikings.pdf
+  note: ''
+  analysis_notes: []
+- title: Productivity and institutions
+  authors:
+  - Gylfi Zoega
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 375
+  page_end: 402
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/375-402_Productivity_and_Institutions.pdf
+  note: ''
+  analysis_notes: []

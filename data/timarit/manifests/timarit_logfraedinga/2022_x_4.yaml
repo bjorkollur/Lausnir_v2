@@ -1,16 +1,132 @@
 source: timarit_logfraedinga
 year: 2022
-volume: null
+volume: 72
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2022)
+label: Tímarit lögfræðinga, 72. árg. 4. hefti (2022)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2022_04.pdf
 sha256: 5fdb808d857380f3a6c5cccbb25681cb1fac10c37c1ecaebcf9f00ad36809627
-pages: null
+pages: 142
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 503
+  quality: 0.958
+  runner_up_share: 0.0
+  pages: 142
+  segments:
+  - - 2
+    - 138
+    - 503
+  contested: []
+  bin_ratio: 0.961
+  non_article:
+  - 65
+  - 134
+  - 135
+  - 136
+  - 137
+  - 138
+  - 139
+  - 140
+  - 141
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2022_04.pdf
-articles: []
+articles:
+- title: Stjórnsýsluréttar og sala sveitarfélaga á byggingarlóðum sínum
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 505
+  page_end: 508
+  issue: null
+  pdf_pages:
+  - 2
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Almenn skilyrði fyrir endurupptöku dóma og endurupptaka einkamála
+  authors:
+  - Sindri M. Stephensen
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 509
+  page_end: 567
+  issue: null
+  pdf_pages:
+  - 6
+  - 64
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 568, prentuð lokasíða er bls. 567
+- title: Skilyrði fyrir endurupptöku dóma í sakamálum og valdmörk Endurupptökudóms
+  authors:
+  - Sindri M. Stephensen
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 569
+  page_end: 636
+  issue: null
+  pdf_pages:
+  - 66
+  - 133
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

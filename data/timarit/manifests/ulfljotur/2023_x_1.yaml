@@ -1,16 +1,127 @@
 source: ulfljotur
 year: 2023
-volume: null
+volume: 76
 issue: '1'
-label: Úlfljótur, 1. tbl. (2023)
+label: Úlfljótur, 76. árg. 1. tbl. (2023)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2023-1tbl.pdf
 sha256: 417a3efd68e5f3c3d8aec001276e07f1b16676415615cd8d3ac6b01ea0de48d7
-pages: null
+pages: 116
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.922
+  runner_up_share: 0.009
+  pages: 116
+  segments:
+  - - 2
+    - 112
+    - -1
+  contested: []
+  bin_ratio: 0.846
+  non_article:
+  - 71
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2023-1tbl.pdf
-articles: []
+articles:
+- title: Gerir grein fyrir almennum og sérstökum skilyrðum miskabótaréttar. Þá teiknar
+  authors:
+  - Guðmundur Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 40
+  issue: null
+  pdf_pages:
+  - 4
+  - 41
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 2
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Innihalda verðtryggð lán afleiðu?
+  authors:
+  - Jónas Már Torfason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 69
+  issue: null
+  pdf_pages:
+  - 42
+  - 70
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 3
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um endurupptöku einkamála
+  authors:
+  - Teitur Gissurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 94
+  issue: null
+  pdf_pages:
+  - 72
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 4
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Um frelsi fjölmiðla til fréttaflutnings við meðferð sakamála“ á bls. 95 sem skráin nefnir
+    ekki; greinin er talin enda þar'

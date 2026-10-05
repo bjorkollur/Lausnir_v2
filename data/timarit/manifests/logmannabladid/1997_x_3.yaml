@@ -5,12 +5,19 @@ issue: '3'
 label: Lögmannablaðið, 3. tbl. (1997)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1997 03.pdf
 sha256: ccb95385d34b9960c5473c4d9538500b6b7f313ee5df3ad7d3e4a5b46d221bfb
-pages: null
+pages: 15
 year_end: null
-page_map: {}
-status: pending
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 15
+  segments: []
+  contested: []
+  bin_ratio: 0.0
+status: review
 confidence: 0.0
-error: null
+error: ekkert textalag — þarf OCR
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1997 03.pdf
 articles: []

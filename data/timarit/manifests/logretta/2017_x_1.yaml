@@ -1,16 +1,113 @@
 source: logretta
 year: 2017
-volume: null
+volume: 13
 issue: '1'
-label: Lögrétta, 1. tbl. (2017)
+label: Lögrétta, 13. árg. 1. tbl. (2017)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2017 1.tbl.pdf
 sha256: 89f49a029b0bfb21ea26c4b8e3cd6d5772751a1466eb5d0f4780f2d510a4c17b
-pages: null
+pages: 324
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.901
+  runner_up_share: 0.0
+  pages: 324
+  segments:
+  - - 3
+    - 321
+    - -1
+  contested: []
+  bin_ratio: 0.985
+  non_article:
+  - 32
+  - 34
+  - 46
+  - 50
+  - 52
+  - 106
+  - 122
+  - 216
+  - 218
+  - 235
+  - 266
+  - 268
+  - 300
+  - 310
+  - 312
+  - 314
+  - 316
+  - 318
+  - 320
+  - 321
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2017 1.tbl.pdf
-articles: []
+articles:
+- title: List í dómsal II Kristín Haraldsdóttir
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 24
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Dómskerfið hefur verið þjakað af álagi“ á bls. 25 sem skráin nefnir ekki; greinin er
+    talin enda þar'
+- title: 50 » Sigurður Tómas Magnússon Nýtt millidómstig 104 » Dr. Davíð Þór Björgvinsson Dómstólaskipan á Íslandi 120 » Arnar
+    Þór Jónsson, Dr. Renata Martins Lýðskrum og réttarríki 150 » Kári Hólmar Ragnarsson Allt kann sá er hófið kann. Um inntak
+    stjórnskipulegrar meðalhófsreglu 216 » Dr. Bjarni Már Magnússon, Arnar Þór Jónsson Gildissviðsgatasigti 264 » Stefán A.
+    Svensson, Diljá Helgadóttir Gildi ábyrgða og annmarkar á greiðslumati 298 » Dr. Davíð Þór Björgvinsson Fúkyrði eða fullyrðing
+    304 » Svala Ísfeld Ólafsdóttir Gróska í bókaútgáfu. Fjögur ný fræðirit Sigurður Tómas Magnússon Kári Hólmar Ragnarsson
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 150
+  page_end: 214
+  issue: null
+  pdf_pages:
+  - 151
+  - 215
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Gildissviðsgatasigti » Dr. Bjarni Már Magnússon dósent við lagadeild HR“ á bls. 216
+    sem skráin nefnir ekki; greinin er talin enda þar'

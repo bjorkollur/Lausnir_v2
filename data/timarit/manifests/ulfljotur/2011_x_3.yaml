@@ -1,16 +1,128 @@
 source: ulfljotur
 year: 2011
-volume: null
+volume: 64
 issue: '3'
-label: Úlfljótur, 3. tbl. (2011)
+label: Úlfljótur, 64. árg. 3. tbl. (2011)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2011_3_tbl.pdf
 sha256: 49bf813368b4b9ed4222c197967d12f542fab596b9255529bc2d904f88064a0f
-pages: null
+pages: 213
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 298
+  quality: 0.939
+  runner_up_share: 0.005
+  pages: 213
+  segments:
+  - - 3
+    - 207
+    - 298
+  contested: []
+  bin_ratio: 0.871
+  non_article:
+  - 190
+  - 202
+  - 205
+  - 206
+  - 207
+  - 208
+  - 209
+  - 210
+  - 211
+status: review
+confidence: 0.85
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2011_3_tbl.pdf
-articles: []
+articles:
+- title: Hlutverk slitastjórnar við slitameðferð fjármálafyrirtækis
+  authors:
+  - Hildur Þórarinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 305
+  page_end: 350
+  issue: null
+  pdf_pages:
+  - 7
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 188
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: “Ekki tvisvar fyrir það sama” Athugasemdir við dóm Hæstaréttar 22. september 2010 í máli nr. 371/2010
+  authors:
+  - Róbert Ragnar Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 351
+  page_end: 392
+  issue: null
+  pdf_pages:
+  - 53
+  - 94
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 189
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Róbert Ragnar Spanó) stangast á við síðuna (Róbert R. Spanó); skránni haldið'
+- title: Efndabætur
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 393
+  page_end: 487
+  issue: null
+  pdf_pages:
+  - 95
+  - 189
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 190
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Gestur Jónsson“ á bls. 489 sem skráin nefnir ekki; greinin er talin enda þar'

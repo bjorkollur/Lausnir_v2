@@ -1,15 +1,16 @@
 source: ulfljotur
-year: 1954
+year: 1955
 volume: 8
 issue: null
-label: Úlfljótur, 8. árg. (1954)
+label: Úlfljótur, 8. árg. (1955)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.942
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/483.pdf
@@ -20,4 +21,258 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/938.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/964.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/966.pdf
-articles: []
+articles:
+- title: null
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/5.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.52)
+  - möppuár 1954 ≠ prentað ár 1955
+- title: Prófessor Ólafur Lárusson og Háskóli Íslands
+  authors:
+  - Þorkell Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 4
+  page_end: 4
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 1187
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/938.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 5, prentað bls. 4'
+  - möppuár 1954 ≠ prentað ár 1955
+- title: Auðgunarbrot
+  authors:
+  - Gizur Bergsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 16
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1188
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/483.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1954 ≠ prentað ár 1955
+- title: Tólftaflnalögin
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 18
+  page_end: 29
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1189
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/50.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1954 ≠ prentað ár 1955
+- title: Um ákæruvaldið
+  authors:
+  - Bjarni Benediktsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 12
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1190
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/542.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1954 ≠ prentað ár 1955
+- title: Þróun íslenzks réttar eftir 1262. M
+  authors:
+  - Ólafur Lárusson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 17
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1191
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/51.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1954 ≠ prentað ár 1955
+- title: Fréttir frá aðalfundi
+  authors:
+  - Jón Sigurðsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 19
+  page_end: 19
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1192
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/964.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1954 ≠ prentað ár 1955
+- title: Til laganema
+  authors:
+  - Matthías Á. Mathiesen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 24
+  page_end: 24
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1193
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/966.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1954 ≠ prentað ár 1955

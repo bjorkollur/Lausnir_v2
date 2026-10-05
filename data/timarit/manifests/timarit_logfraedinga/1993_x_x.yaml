@@ -1,16 +1,282 @@
 source: timarit_logfraedinga
 year: 1993
-volume: null
+volume: 43
 issue: null
-label: Tímarit lögfræðinga (1993)
+label: Tímarit lögfræðinga, 43. árg. (1993)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1993.pdf
 sha256: 8231510d7e9673dc4a4ed7cdb0cd7cb6cf0ebe79ade692060bd45ab644a5c8b7
-pages: null
+pages: 296
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 1.257
+  pages: 296
+  segments: []
+  contested: []
+  bin_ratio: 0.966
+  non_article:
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 138
+  - 139
+  - 140
+  - 141
+  - 142
+  - 143
+  - 144
+  - 145
+  - 146
+  - 147
+  - 170
+  - 197
+  - 198
+  - 199
+  - 200
+  - 201
+  - 202
+  - 203
+  - 204
+  - 205
+  - 245
+  - 246
+  - 283
+  - 287
+  - 288
+  - 289
+  - 290
+  - 291
+  - 292
+  - 293
+  - 294
+  - 295
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1993.pdf
-articles: []
+articles:
+- title: Justicemustn’tonlybedone
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: null
+  issue: '1'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Dómaskipan Danmerkur, Svíþjóðar og Noregs
+  authors:
+  - Hrafn Bragason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 21
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 5 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Hvaða tilgangi þjóna lögregluskýrslur í dómsmáli?
+  authors:
+  - Ingibjörg Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 22
+  page_end: 32
+  issue: '1'
+  pdf_pages:
+  - 23
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 22 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Samræmdtúlkun Luganosamningsins
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 33
+  page_end: 54
+  issue: '1'
+  pdf_pages:
+  - 34
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 33 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Skýrsla stjórnar Dómarafélags íslands á aöalfundi 1992
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 55
+  page_end: 65
+  issue: '1'
+  pdf_pages:
+  - 56
+  - 66
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: page
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 43 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: efnisyfirlitið segir bls. 43; greinin fannst eftir titli sínum á bls. 55'
+- title: Aðalfundur Dómarafélags (slands 1992
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 60
+  page_end: null
+  issue: '1'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 60 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Dómsmálaþing 1992
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 62
+  page_end: null
+  issue: '1'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 62 fannst ekki: blaðsíðutal skjalsins óljóst'

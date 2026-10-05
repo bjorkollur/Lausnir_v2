@@ -1,19 +1,145 @@
 source: ulfljotur
 year: 2003
-volume: null
+volume: 56
 issue: '2'
-label: Úlfljótur, 2. tbl. (2003)
+label: Úlfljótur, 56. árg. 2. tbl. (2003)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.966
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_2_tbl/3162.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_2_tbl/476.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_2_tbl/477.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_2_tbl/704.pdf
-articles: []
+articles:
+- title: Brot gegn lögum nr. 64/1994 um vernd, friðun og veiðar á villtum
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 145
+  page_end: 201
+  issue: null
+  pdf_pages:
+  - 0
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 331
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_2_tbl/476.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+- title: Samrýmast íslensk lög 6.gr. Árósasamningsins?
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 203
+  page_end: 227
+  issue: null
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 332
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_2_tbl/477.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+- title: Skaðabótaábyrgð fjármálafyrirtækja á ráðgjöf - Lágmarkskröfur til fjármálaráðgjafar
+  authors:
+  - Eva Dís Pálmadóttir
+  - Tómas Eiríksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 269
+  issue: null
+  pdf_pages:
+  - 0
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 333
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_2_tbl/704.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+- title: Dómur um ábyrgð löggilts fasteignasala á göllum á seldri fasteign
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 271
+  page_end: 284
+  issue: null
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 334
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_2_tbl/3162.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'

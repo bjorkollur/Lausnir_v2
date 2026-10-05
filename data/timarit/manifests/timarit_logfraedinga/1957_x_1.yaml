@@ -1,16 +1,202 @@
 source: timarit_logfraedinga
 year: 1957
-volume: null
+volume: 7
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1957)
+label: Tímarit lögfræðinga, 7. árg. 1. hefti (1957)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1957_01.pdf
 sha256: 120891294474404ee65bc3b87b9f84346dfe6e46af089d5366b41df303bbb031
-pages: null
+pages: 72
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -5
+  quality: 0.639
+  runner_up_share: 0.0
+  pages: 72
+  segments:
+  - - 6
+    - 52
+    - -5
+  contested: []
+  bin_ratio: 0.902
+  non_article:
+  - 53
+  - 54
+  - 55
+  - 56
+  - 58
+  - 59
+  - 60
+  - 61
+  - 64
+  - 65
+  - 66
+  - 68
+  - 69
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1957_01.pdf
-articles: []
+articles:
+- title: '195'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: 'Norræna embættismannasambandið Ág. Fjeldsted: Frá Lögmannafélagi íslands Th. B. Líndal: Bókarfregn ^ami: Á við og
+    dreif 195'
+  authors:
+  - Einar Bjarnason
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 8
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 13
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 17
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 22
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 30
+  page_end: 44
+  issue: null
+  pdf_pages:
+  - 35
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Úr frumvarpi til umferðarlaga sem lagt var fyrir Alþingi 1956“) er annar titill en
+    skrárinnar („—“); titli skrárinnar haldið'
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 47
+  issue: null
+  pdf_pages:
+  - 50
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 47 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'

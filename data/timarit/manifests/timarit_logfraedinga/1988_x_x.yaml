@@ -1,16 +1,909 @@
 source: timarit_logfraedinga
 year: 1988
-volume: null
+volume: 38
 issue: null
-label: Tímarit lögfræðinga (1988)
+label: Tímarit lögfræðinga, 38. árg. (1988)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1988.pdf
 sha256: f6714c8a5c284616c11b6630371fd32e2c4186b6b873d2960e1dccd7840c15f2
-pages: null
+pages: 300
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -17
+  quality: 0.823
+  runner_up_share: 0.0
+  pages: 300
+  segments:
+  - - 6
+    - 63
+    - -5
+  - - 74
+    - 136
+    - -9
+  - - 146
+    - 206
+    - -13
+  - - 219
+    - 288
+    - -17
+  contested: []
+  bin_ratio: 0.968
+  non_article:
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 137
+  - 138
+  - 139
+  - 140
+  - 141
+  - 142
+  - 145
+  - 207
+  - 208
+  - 209
+  - 210
+  - 211
+  - 212
+  - 214
+  - 217
+  - 289
+  - 290
+  - 291
+  - 292
+  - 293
+  - 294
+  - 295
+  - 296
+  - 297
+  - 298
+  - 299
+status: review
+confidence: 0.45
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1988.pdf
-articles: []
+articles:
+- title: Hæstiréttur íslands
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 4
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: — Siguröur Ellert Ólason
+  authors:
+  - Björn Sveinbjörnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 8
+  issue: '1'
+  pdf_pages:
+  - 10
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Björn Sveinbjörnsson“) er annar titill en skrárinnar („— Siguröur Ellert Ólason“);
+    titli skrárinnar haldið'
+  - 'FRÁVIK: greinin er undirrituð (Þorvaldur Lúðvíksson) en höfundar skrárinnar eru aðrir (Björn Sveinbjörnsson); skránni
+    haldið'
+- title: Um alþjóðlegan einkamálarétt og viðfangsefni hans
+  authors:
+  - Eggert Óskarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 20
+  issue: '1'
+  pdf_pages:
+  - 14
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um viðurkenningu erlendra dóma á íslandi
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 47
+  issue: '1'
+  pdf_pages:
+  - 26
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um kæruheimild í f-lið 1. tl. 1. mgr. 21. gr. laga nr. 75/1973 um Hæstarétt íslands
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 48
+  page_end: 56
+  issue: '1'
+  pdf_pages:
+  - 53
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 58
+  issue: '1'
+  pdf_pages:
+  - 62
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 266–269
+- title: Ftéttarsiðfræði
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 66
+  issue: '2'
+  pdf_pages:
+  - 74
+  - 75
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Mmm- _“) er annar titill en skrárinnar („Ftéttarsiðfræði“); titli skrárinnar haldið'
+- title: Nýju siglingalögin VI — Sjóveð
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 67
+  page_end: 88
+  issue: '2'
+  pdf_pages:
+  - 76
+  - 97
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Riftunarreglur gjaldþrotalaga
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 89
+  page_end: 120
+  issue: '2'
+  pdf_pages:
+  - 98
+  - 129
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ákvörðun bóta fyrir litla örorku
+  authors:
+  - Guðný Björnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 121
+  page_end: 125
+  issue: '2'
+  pdf_pages:
+  - 130
+  - 134
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norrænt lögfræðingaþing á Íslandi árið 1990
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 126
+  page_end: 127
+  issue: '2'
+  pdf_pages:
+  - 135
+  - 136
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 266–269
+- title: Hagsmunaárekstur
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 134
+  issue: '3'
+  pdf_pages:
+  - 146
+  - 147
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Guðjón Steingrímsson
+  authors:
+  - Valgarður Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 136
+  issue: '3'
+  pdf_pages:
+  - 148
+  - 149
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um viðhorf við skýringar á mannréttindaákvæðum stjórnarskrár
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 137
+  page_end: 147
+  issue: '3'
+  pdf_pages:
+  - 150
+  - 160
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skandinavíska raunhyggjan í Svíþjóð
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 148
+  page_end: 171
+  issue: '3'
+  pdf_pages:
+  - 161
+  - 184
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hæstaréttardómur 1987, 587
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 172
+  page_end: 179
+  issue: '3'
+  pdf_pages:
+  - 185
+  - 192
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Dómarafélagi íslands
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 180
+  page_end: 185
+  issue: '3'
+  pdf_pages:
+  - 193
+  - 198
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögmannafélagi íslands
+  authors:
+  - Hafþór Ingi Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 186
+  page_end: 191
+  issue: '3'
+  pdf_pages:
+  - 199
+  - 204
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dómaraþing
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 192
+  page_end: 193
+  issue: '3'
+  pdf_pages:
+  - 205
+  - 206
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 266–269
+- title: Luganosamningurinn um dómsvald og um fullnustu dóma í einkamálum
+  authors:
+  - Ólafur W. Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 201
+  page_end: 203
+  issue: '4'
+  pdf_pages:
+  - 218
+  - 220
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - upphafsbls. 201 er á engri síðu skjalsins (eyða í blaðsíðutali)
+- title: Hafsteinn Baldvinsson
+  authors:
+  - Baldvin Tryggvason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 204
+  page_end: 206
+  issue: '4'
+  pdf_pages:
+  - 221
+  - 223
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Refsiábyrgð á efnahagsbrotum í atvinnustarfsemi lögaðila
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 207
+  page_end: 233
+  issue: '4'
+  pdf_pages:
+  - 224
+  - 250
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Inngangur að flutningarétti
+  authors:
+  - Magnús Kjartan Hannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 234
+  page_end: 246
+  issue: '4'
+  pdf_pages:
+  - 251
+  - 263
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Munnleg arfleiðsla
+  authors:
+  - Markús Sigurbjörnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 247
+  page_end: 259
+  issue: '4'
+  pdf_pages:
+  - 264
+  - 276
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Markús Sigurbjörnsson) stangast á við síðuna (Dómur Hæstaréttar); skránni haldið'
+- title: Frá Lögfræðingafélagi íslands
+  authors:
+  - Guðrún Björnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 260
+  page_end: 261
+  issue: '4'
+  pdf_pages:
+  - 277
+  - 278
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „SKÝRSLA STJÓRNAR LÖGFRÆÐINGAFÉLAGS“ á bls. 261 sem skráin nefnir ekki; greinin er talin
+    enda þar'
+- title: Í bokahillunni Skírnir 1988 ÞAÐ Á EKKI AÐ SEMJA DÓMA „FYRIR“ EINHVERN
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 266
+  page_end: 269
+  issue: '4'
+  pdf_pages:
+  - 283
+  - 286
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „FRÁ ORATOR“ á bls. 269 sem skráin nefnir ekki; greinin er talin enda þar'

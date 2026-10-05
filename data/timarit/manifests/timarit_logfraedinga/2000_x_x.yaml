@@ -1,16 +1,655 @@
 source: timarit_logfraedinga
 year: 2000
-volume: null
+volume: 50
 issue: null
-label: Tímarit lögfræðinga (2000)
+label: Tímarit lögfræðinga, 50. árg. (2000)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2000.pdf
 sha256: 91d7dc212ac5acd796551a6c2ad5759631a0944544bacb159342a5756ad4f930
-pages: null
+pages: 430
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -25
+  quality: 0.898
+  runner_up_share: 0.043
+  pages: 430
+  segments:
+  - - 6
+    - 75
+    - -5
+  - - 81
+    - 177
+    - -10
+  - - 184
+    - 273
+    - -15
+  - - 284
+    - 425
+    - -25
+  contested:
+  - 258
+  - 259
+  - 260
+  - 261
+  - 262
+  - 263
+  - 264
+  bin_ratio: 0.962
+  non_article:
+  - 9
+  - 57
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 84
+  - 152
+  - 174
+  - 175
+  - 176
+  - 177
+  - 178
+  - 179
+  - 182
+  - 183
+  - 187
+  - 274
+  - 275
+  - 276
+  - 277
+  - 278
+  - 279
+  - 283
+  - 309
+  - 418
+  - 419
+  - 420
+  - 421
+  - 422
+  - 423
+  - 424
+  - 425
+  - 426
+  - 427
+status: review
+confidence: 0.2
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2000.pdf
-articles: []
+articles:
+- title: Hverjir verða dómarar framtíðarinnar?
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 3
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skuldbinding ábyrgðarmanns samkvæmt kröfuábyrgð
+  authors:
+  - Benedikt Bogason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 44
+  issue: '1'
+  pdf_pages:
+  - 10
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um reynslulausn
+  authors:
+  - Sigrún Ágústsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 51
+  issue: '1'
+  pdf_pages:
+  - 50
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Reynslan af samfélagsþjónustu
+  authors:
+  - Sigríður J. Hjaltested
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 62
+  issue: '1'
+  pdf_pages:
+  - 58
+  - 67
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögmannafélagi Islands
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 63
+  page_end: 65
+  issue: '1'
+  pdf_pages:
+  - 68
+  - 70
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skip og fiskur
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 73
+  issue: '2'
+  pdf_pages:
+  - 81
+  - 83
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Milliverðlagning (Transfer pricing)
+  authors:
+  - Garðar Valdimarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 75
+  page_end: 124
+  issue: '2'
+  pdf_pages:
+  - 85
+  - 134
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er þörf á endurskoðun vaxtalaga?
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 125
+  page_end: 141
+  issue: '2'
+  pdf_pages:
+  - 135
+  - 151
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lausung í lagaframkvæmd
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 143
+  page_end: 152
+  issue: '2'
+  pdf_pages:
+  - 153
+  - 162
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla um Lagastofnun Háskóla Islands 27. febrúar 1998 - 28. febrúar 1999
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: 163
+  issue: '2'
+  pdf_pages:
+  - 163
+  - 173
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rannsókn á ítrekun afbrota
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 169
+  page_end: 171
+  issue: '3'
+  pdf_pages:
+  - 184
+  - 186
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rökstuðningur dómsúrlausna
+  authors:
+  - Sigríður Ingvarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 224
+  issue: '3'
+  pdf_pages:
+  - 188
+  - 239
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mengun sjávar frá landi
+  authors:
+  - Ellý Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 225
+  page_end: 248
+  issue: '3'
+  pdf_pages:
+  - 240
+  - 263
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá lagadeild Háskóla íslands Deildarfréttir
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 249
+  page_end: 258
+  issue: '3'
+  pdf_pages:
+  - 264
+  - 273
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á 50 ára afmæli Tímarits lögfræðinga
+  authors:
+  - Ragnhildur Arnljótsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 259
+  page_end: null
+  issue: '4'
+  pdf_pages:
+  - 282
+  - 282
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 259 fannst ekki: blaðsíðutalið óljóst (talan stendur á fleiri en einni síðu)'
+  - 'FRÁVIK: efnisyfirlitið segir bls. 259; greinin fannst eftir titli sínum á pdf-síðu 283'
+- title: Tímarit lögfræðinga 50 ára
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 261
+  page_end: null
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.2
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 261 fannst ekki: blaðsíðutalið óljóst (talan stendur á fleiri en einni síðu)'
+- title: Efndir in natura
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 285
+  page_end: 366
+  issue: '4'
+  pdf_pages:
+  - 310
+  - 391
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fullnusta á dómum mannréttindadómstólsins
+  authors:
+  - Páll Ásgeir Davíðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 367
+  page_end: 392
+  issue: '4'
+  pdf_pages:
+  - 392
+  - 417
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

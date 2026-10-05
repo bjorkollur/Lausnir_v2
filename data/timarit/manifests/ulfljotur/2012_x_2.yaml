@@ -1,16 +1,127 @@
 source: ulfljotur
 year: 2012
-volume: null
+volume: 65
 issue: '2'
-label: Úlfljótur, 2. tbl. (2012)
+label: Úlfljótur, 65. árg. 2. tbl. (2012)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2012_2_tbl.pdf
 sha256: 4fb0a97cb8fd859a8850213f5a20c22a111841ef9f3f0954a695838a9675c7b0
-pages: null
+pages: 138
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 144
+  quality: 0.971
+  runner_up_share: 0.007
+  pages: 138
+  segments:
+  - - 3
+    - 136
+    - 144
+  contested: []
+  bin_ratio: 0.859
+  non_article:
+  - 46
+  - 66
+  - 120
+  - 132
+  - 133
+  - 134
+  - 135
+  - 136
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2012_2_tbl.pdf
-articles: []
+articles:
+- title: Munur á hjúskap og óvígðri sambúð
+  authors:
+  - Hrefna Friðriksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 149
+  page_end: 189
+  issue: null
+  pdf_pages:
+  - 5
+  - 45
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 173
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Klassískur vildarréttur - valdboðskenningin um lögin
+  authors:
+  - Skúli Magnússon
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 191
+  page_end: 209
+  issue: null
+  pdf_pages:
+  - 47
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 174
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bætur vegna brota á höfundarétti
+  authors:
+  - Jón Gunnar Ásbjörnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 211
+  page_end: 263
+  issue: null
+  pdf_pages:
+  - 67
+  - 119
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 175
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ólafur Þór Hauksson,“ á bls. 265 sem skráin nefnir ekki; greinin er talin enda þar'

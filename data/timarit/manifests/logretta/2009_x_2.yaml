@@ -1,16 +1,160 @@
 source: logretta
 year: 2009
-volume: null
+volume: 6
 issue: '2'
-label: Lögrétta, 2. tbl. (2009)
+label: Lögrétta, 6. árg. 2. tbl. (2009)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2009 2.tbl.pdf
 sha256: c777c5acada84ef4fe00776136616516be1daf8996f14c49635abc475dc13dbc
-pages: null
+pages: 131
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 109
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 131
+  segments:
+  - - 0
+    - 44
+    - 105
+  - - 45
+    - 52
+    - 106
+  - - 53
+    - 73
+    - 108
+  - - 74
+    - 130
+    - 109
+  contested: []
+  bin_ratio: 0.935
+  non_article: []
+status: review
+confidence: 0.45
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2009 2.tbl.pdf
-articles: []
+articles:
+- title: 'Yfirtaka: Fyrri hluti'
+  authors:
+  - Aðalsteinn E. Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 105
+  page_end: 149
+  issue: null
+  pdf_pages:
+  - 0
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lausn úr „öryggisgæslu“
+  authors:
+  - Ólafur Börkur Þorvaldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 151
+  page_end: 158
+  issue: null
+  pdf_pages:
+  - 45
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er þörf á millidómstigi í einkamálum?
+  authors:
+  - Halldór Brynjar Halldórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 181
+  issue: null
+  pdf_pages:
+  - 53
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipting á skattlagningarréttinum milli heimilisfestarlands og keldulands
+  authors:
+  - Ásmundur G. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 183
+  page_end: 239
+  issue: null
+  pdf_pages:
+  - 74
+  - 130
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

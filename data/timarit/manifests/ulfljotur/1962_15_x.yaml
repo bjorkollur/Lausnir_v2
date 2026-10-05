@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.944
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/112.pdf
@@ -24,4 +25,375 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/61.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/620.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/666.pdf
-articles: []
+articles:
+- title: null
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 128
+  page_end: 128
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/666.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.47)
+- title: Um ákæruvaldið
+  authors:
+  - Valdimar Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 12
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1095
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/548.pdf
+  note: ''
+  analysis_notes: []
+- title: Um kviðdóma
+  authors:
+  - Þórður Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 13
+  page_end: 19
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1096
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/112.pdf
+  note: ''
+  analysis_notes: []
+- title: Magnús dómstjóri Stephensen
+  authors:
+  - Már Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 33
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1098
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/60.pdf
+  note: ''
+  analysis_notes: []
+- title: Lögvernd iðnréttinda
+  authors:
+  - Páll S. Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 47
+  page_end: 57
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1099
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/320.pdf
+  note: ''
+  analysis_notes: []
+- title: Þingræði
+  authors:
+  - Steingrímur Gautur Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 58
+  page_end: 65
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1100
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/343.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Steingrímur Gautur Kristjánsson) stangast á við síðuna (Krist Jansson); skránni haldið'
+- title: Fáein orð um búfjármörk
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 93
+  page_end: 100
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1102
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/189.pdf
+  note: ''
+  analysis_notes: []
+- title: Úrskurðarvald um stjórnskipulegt gildi laga eða íslenzkur reynsluréttur
+  authors:
+  - Jón E. Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 101
+  page_end: 115
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1103
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/344.pdf
+  note: ''
+  analysis_notes: []
+- title: Tíu nætur og tíu dagar í norrænu andrúmslofti
+  authors:
+  - Hörður Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 116
+  page_end: 121
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1104
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/1205.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 121, prentað bls. 116'
+- title: Hlutur lagamanna í íslenskri stjórnmálasögu
+  authors:
+  - Ellert B. Schram
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 122
+  page_end: 126
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1105
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/61.pdf
+  note: ''
+  analysis_notes: []
+- title: Varsjársáttmálinn frá 1929
+  authors:
+  - Gizur Bergsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 145
+  page_end: 158
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1107
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/281.pdf
+  note: ''
+  analysis_notes: []
+- title: Verður fébótaábyrgð hins opinbera skipað með samræmdri löggjöf á Norðurlöndum?
+  authors:
+  - Jón P. Emils
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 159
+  page_end: 182
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1108
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/620.pdf
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,228 @@
 source: timarit_logfraedinga
 year: 1955
-volume: null
+volume: 5
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1955)
+label: Tímarit lögfræðinga, 5. árg. 2. hefti (1955)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1955_02.pdf
 sha256: 4f209f3b65cb53091889b271557d716e0f7c8b44d09d0041d96b775d572972a6
-pages: null
+pages: 80
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 63
+  quality: 0.738
+  runner_up_share: 0.0
+  pages: 80
+  segments:
+  - - 2
+    - 61
+    - 63
+  contested: []
+  bin_ratio: 0.939
+  non_article:
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 68
+  - 69
+  - 70
+  - 72
+  - 74
+  - 75
+  - 76
+  - 77
+status: review
+confidence: 0.45
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1955_02.pdf
-articles: []
+articles:
+- title: Þróun íslenzkra réttarreglna um hjónavígslutálma frá siðskiptum til vorra daga
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 86
+  issue: null
+  pdf_pages:
+  - 2
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Helztu drættir í danskri löggjöf um vörumerki
+  authors:
+  - Rørdam, Kjeld
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 103
+  issue: null
+  pdf_pages:
+  - 24
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Rørdam, Kjeld) stangast á við síðuna (Kjeld Rördam); skránni haldið'
+- title: „Hin hvíta bók“ um aðgerðirnar frá 19. marz 1952
+  authors:
+  - Gunnlaugur Þórðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 104
+  page_end: 109
+  issue: null
+  pdf_pages:
+  - 41
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Frá bæjarþingi og sjó- og verzlunardómi Reykjavíkur: Nokkrir dómar frá árinu 1954'
+  authors:
+  - Benedikt Sigurjónsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 110
+  page_end: 116
+  issue: null
+  pdf_pages:
+  - 47
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lífskjör og menntun
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 121
+  issue: null
+  pdf_pages:
+  - 54
+  - 58
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 122
+  page_end: 124
+  issue: null
+  pdf_pages:
+  - 59
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Ólafur Lárusson); skránni haldið'

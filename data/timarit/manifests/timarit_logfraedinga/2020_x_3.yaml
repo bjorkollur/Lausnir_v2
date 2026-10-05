@@ -1,16 +1,160 @@
 source: timarit_logfraedinga
 year: 2020
-volume: null
+volume: 70
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2020)
+label: Tímarit lögfræðinga, 70. árg. 3. hefti (2020)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2020_03.pdf
 sha256: 599a3b4c74b9706aa61a2ca5a4b7a7832528a3783d8595c1e057f816af5e614a
-pages: null
+pages: 128
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 329
+  quality: 0.961
+  runner_up_share: 0.0
+  pages: 128
+  segments:
+  - - 2
+    - 125
+    - 329
+  contested: []
+  bin_ratio: 0.761
+  non_article:
+  - 119
+  - 120
+  - 121
+  - 122
+  - 123
+  - 124
+  - 125
+  - 126
+  - 127
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2020_03.pdf
-articles: []
+articles:
+- title: Verkfæri lögfræðinnar og annarra greina
+  authors:
+  - Ragnhildur Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 331
+  page_end: 332
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Réttarríkið sem leiðarstjarna mannréttinda sáttmála Evrópu: Mannréttindadómstóll Evrópu og sjálfstæði dómstóla'
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 333
+  page_end: 368
+  issue: null
+  pdf_pages:
+  - 4
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Landfesti lýðræðis: Þýðing breytingarreglu stjórnarskrárinnar'
+  authors:
+  - Kristrún Heimisdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 369
+  page_end: 408
+  issue: null
+  pdf_pages:
+  - 40
+  - 79
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Líkamstjón - varanleg fjárhagsleg örorka metin 15% eða minni
+  authors:
+  - Guðmundur Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 409
+  page_end: 446
+  issue: null
+  pdf_pages:
+  - 80
+  - 117
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

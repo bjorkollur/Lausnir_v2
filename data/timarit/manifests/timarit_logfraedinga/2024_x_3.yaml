@@ -1,16 +1,159 @@
 source: timarit_logfraedinga
 year: 2024
-volume: null
+volume: 74
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2024)
+label: Tímarit lögfræðinga, 74. árg. 3. hefti (2024)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2024_03.pdf
 sha256: 9e15cc412b33ea7a30787a56506b7809eeec2f1c81badd9fa609488eae07af7b
-pages: null
+pages: 130
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 299
+  quality: 0.954
+  runner_up_share: 0.0
+  pages: 130
+  segments:
+  - - 2
+    - 126
+    - 299
+  contested: []
+  bin_ratio: 0.953
+  non_article:
+  - 122
+  - 123
+  - 124
+  - 125
+  - 126
+  - 127
+  - 128
+  - 129
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2024_03.pdf
-articles: []
+articles:
+- title: Forkröfur til laganáms
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 301
+  page_end: 302
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Takmarkanir 44. gr. stjórnarskrárinnar á breytingartillögu við lagafrumvarp
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 303
+  page_end: 342
+  issue: null
+  pdf_pages:
+  - 4
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um ráðstöfun á sakarefni skv. 45. gr. laga nr. 91/1991
+  authors:
+  - Gunnar Atli Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 343
+  page_end: 380
+  issue: null
+  pdf_pages:
+  - 44
+  - 81
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Staða einstaklinga sem flýja skaðleg áhrif loftslagsbreytinga: gluggað í íslenskan, alþjóðlegan og evrópskan flóttamannarétt'
+  authors:
+  - Ómar Berg Rúnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 381
+  page_end: 420
+  issue: null
+  pdf_pages:
+  - 82
+  - 121
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

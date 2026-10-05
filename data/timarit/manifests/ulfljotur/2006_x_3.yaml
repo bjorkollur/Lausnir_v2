@@ -1,16 +1,128 @@
 source: ulfljotur
 year: 2006
-volume: null
+volume: 59
 issue: '3'
-label: Úlfljótur, 3. tbl. (2006)
+label: Úlfljótur, 59. árg. 3. tbl. (2006)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2006_3_tbl.pdf
 sha256: bcbd97249d53b6b7f1dfc64ff77f41f9770841619bd548e53bacd56dcc7dd287
-pages: null
+pages: 122
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 419
+  quality: 0.984
+  runner_up_share: 0.0
+  pages: 122
+  segments:
+  - - 2
+    - 121
+    - 419
+  contested: []
+  bin_ratio: 0.968
+  non_article:
+  - 29
+  - 101
+  - 117
+  - 118
+  - 119
+  - 120
+  - 121
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2006_3_tbl.pdf
-articles: []
+articles:
+- title: Málshraðaregla stjórnsýslulaga
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 425
+  page_end: 447
+  issue: null
+  pdf_pages:
+  - 6
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 277
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Er stefna Íslands í málefnum hafsins reist á hafréttarsamningi Sameinu›u fljó›anna?“
+    á bls. 449 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Er stefna Íslands í málefnum hafsins reist á hafréttarsamningi Sameinuðu þjóðanna?
+  authors:
+  - Bjarni Már Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 459
+  page_end: 518
+  issue: null
+  pdf_pages:
+  - 40
+  - 99
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 278
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Að framfylgja siðferði“) er annar titill en skrárinnar („Er stefna Íslands í málefnum
+    hafsins reist á hafréttarsamningi Sameinuðu þjóðanna?“); titli skrárinnar haldið'
+- title: Að framfylgja siðferði
+  authors:
+  - Tómas Hrafn Sveinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 519
+  page_end: 519
+  issue: null
+  pdf_pages:
+  - 100
+  - 100
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 279
+  source_file: null
+  note: ''
+  analysis_notes: []

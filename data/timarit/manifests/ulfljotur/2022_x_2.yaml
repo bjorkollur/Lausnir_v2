@@ -1,16 +1,129 @@
 source: ulfljotur
 year: 2022
-volume: null
+volume: 75
 issue: '2'
-label: Úlfljótur, 2. tbl. (2022)
+label: Úlfljótur, 75. árg. 2. tbl. (2022)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2022-2tbl.pdf
 sha256: c6a82efe97c728d99a242e8e0b37b90ddd623dd4462a6f6b9160c928785939ae
-pages: null
+pages: 114
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 141
+  quality: 0.939
+  runner_up_share: 0.009
+  pages: 114
+  segments:
+  - - 2
+    - 112
+    - 141
+  contested: []
+  bin_ratio: 0.854
+  non_article:
+  - 69
+  - 107
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2022-2tbl.pdf
-articles: []
+articles:
+- title: 'Leitað í vasa nakins manns: Skaðabótaábyrgð vegna samkeppnisbrota þegar nýtt fyrirtæki hefur tekið við rekstri hins
+    brotlega fyrirtækis'
+  authors:
+  - Geir Gestsson
+  - Peter Dalmay
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 149
+  page_end: 172
+  issue: null
+  pdf_pages:
+  - 8
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 13
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sérstök viðkvæmni tjónþola og áhrif hennar á bótaábyrgð vegna líkamstjóns með áherslu á bætur vegna varanlegrar örorku
+  authors:
+  - Kristín Anna Arnalds
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 209
+  issue: null
+  pdf_pages:
+  - 32
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 14
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skilaréttur, inneignarnótur og gjafabréf
+  authors:
+  - Samúel Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 211
+  page_end: 242
+  issue: null
+  pdf_pages:
+  - 70
+  - 101
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 15
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Viðtal við Garðar Gíslason, fyrrverandi hæstaréttardómara“ á bls. 243 sem skráin nefnir
+    ekki; greinin er talin enda þar'

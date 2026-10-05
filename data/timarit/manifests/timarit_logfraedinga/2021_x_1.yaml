@@ -1,16 +1,192 @@
 source: timarit_logfraedinga
 year: 2021
-volume: null
+volume: 71
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2021)
+label: Tímarit lögfræðinga, 71. árg. 1. hefti (2021)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2021_01.pdf
 sha256: 159dcd5678aeacadcad7a8d4c5ea10d53ecae720044d7973e20744748d35c52c
-pages: null
+pages: 176
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.972
+  runner_up_share: 0.0
+  pages: 176
+  segments:
+  - - 2
+    - 173
+    - -1
+  contested: []
+  bin_ratio: 0.957
+  non_article:
+  - 47
+  - 168
+  - 169
+  - 170
+  - 171
+  - 172
+  - 173
+  - 174
+  - 175
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2021_01.pdf
-articles: []
+articles:
+- title: Ráðgefandi álit Mannréttindadómstóls Evrópu
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 2
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Náttúruhamfaratrygging
+  authors:
+  - Eiríkur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 45
+  issue: null
+  pdf_pages:
+  - 6
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 46, prentuð lokasíða er bls. 45
+- title: 'Hlutfallsreglan: Reglur skaðabótaréttar og vátryggingaréttar um mat á varanlegum miska og varanlegri læknisfræðilegri
+    örorku'
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 47
+  page_end: 102
+  issue: null
+  pdf_pages:
+  - 48
+  - 103
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bólusetningarskylda og mannréttindasáttmáli Evrópu – Dómur yfirdeildar Mannréttindadómstóls Evrópu frá 8. apríl 2021
+    og skilyrði aðgerða í tilefni af COVID-19
+  authors:
+  - Halldóra Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 103
+  page_end: 134
+  issue: null
+  pdf_pages:
+  - 104
+  - 135
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málsmeðferð í þjóðlendumálum
+  authors:
+  - Þorsteinn Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 166
+  issue: null
+  pdf_pages:
+  - 136
+  - 167
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

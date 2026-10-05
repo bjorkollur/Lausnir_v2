@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.875
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/120.pdf
@@ -26,4 +27,440 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/624.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/625.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/75.pdf
-articles: []
+articles:
+- title: Sögustefnan og Konrad Maurer
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 42
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 923
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/75.pdf
+  note: ''
+  analysis_notes: []
+- title: Sjódómur og siglingadómur
+  authors:
+  - Hrafn Bragason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 43
+  page_end: 55
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 924
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/559.pdf
+  note: ''
+  analysis_notes: []
+- title: Umræður um málflytjendafrumvarpið
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 56
+  page_end: 68
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 925
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/560.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Um framkvæmd eignarnáms
+  authors:
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 123
+  page_end: 153
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 928
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/194.pdf
+  note: ''
+  analysis_notes: []
+- title: Um munnlegan málflutning fyrir dómi
+  authors:
+  - Sigurgeir Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 154
+  page_end: 163
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 929
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/561.pdf
+  note: ''
+  analysis_notes: []
+- title: Bandaríkjaför
+  authors:
+  - Guðmundur S. Alfreðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 164
+  page_end: 171
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 930
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/1642.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 171, prentað bls. 164'
+- title: Nokkur orð um kosningafyrirkomulag í Vestur-Þýzkalandi
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 184
+  page_end: 186
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 931
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/120.pdf
+  note: ''
+  analysis_notes: []
+- title: Um áfrýjunarleyfi
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 211
+  page_end: 247
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 932
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/562.pdf
+  note: ''
+  analysis_notes: []
+- title: Um tjón vegna olíubrákar frá skipum
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 248
+  page_end: 267
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 933
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/467.pdf
+  note: ''
+  analysis_notes: []
+- title: Report on law student xchange program between Ohio Northern and the University of Iceland
+  authors:
+  - Joseph Banks
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 296
+  page_end: 298
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 934
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/1656.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 298, prentað bls. 296'
+- title: Réttindi og skyldur sveitarstjórnar-manna
+  authors:
+  - Steingrímur Gautur Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 326
+  page_end: 358
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 935
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/624.pdf
+  note: ''
+  analysis_notes: []
+- title: Samband embættismanna og stjórnmálamanna í litlu þjóðfélagi
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 359
+  page_end: 368
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 936
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/625.pdf
+  note: ''
+  analysis_notes: []
+- title: Fébótaábyrgð fasteignareiganda á búnaði hennar
+  authors:
+  - Hörður Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 369
+  page_end: 375
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 937
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/242.pdf
+  note: ''
+  analysis_notes: []
+- title: Mútur
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 376
+  page_end: 384
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 938
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1973 26 arg/493.pdf
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,160 @@
 source: logretta
 year: 2007
-volume: null
+volume: 4
 issue: '1'
-label: Lögrétta, 1. tbl. (2007)
+label: Lögrétta, 4. árg. 1. tbl. (2007)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2007 1.tbl.pdf
 sha256: 6ccf0f432c1db2b3039a7806a7152396403daeb7c90fe1692cb36d891c62524d
-pages: null
+pages: 80
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 13
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 80
+  segments:
+  - - 0
+    - 27
+    - 9
+  - - 28
+    - 40
+    - 11
+  - - 41
+    - 49
+    - 12
+  - - 50
+    - 79
+    - 13
+  contested: []
+  bin_ratio: 0.955
+  non_article: []
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2007 1.tbl.pdf
-articles: []
+articles:
+- title: Gengisskattlagning (valutabeskatning)
+  authors:
+  - Ásmundur G. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 36
+  issue: null
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Breytt íslensk lögfræði
+  authors:
+  - Kristrún Heimisdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 51
+  issue: null
+  pdf_pages:
+  - 28
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: The Evolving European Trade Environment
+  authors:
+  - Pétur G. Thorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 61
+  issue: null
+  pdf_pages:
+  - 41
+  - 49
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Norrænt lagasamstarf: Þátttaka Íslands frá upphafi'
+  authors:
+  - Berglind Ýr Karlsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 63
+  page_end: 92
+  issue: null
+  pdf_pages:
+  - 50
+  - 79
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

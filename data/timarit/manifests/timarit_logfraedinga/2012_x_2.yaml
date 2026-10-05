@@ -1,16 +1,164 @@
 source: timarit_logfraedinga
 year: 2012
-volume: null
+volume: 62
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2012)
+label: Tímarit lögfræðinga, 62. árg. 2. hefti (2012)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2012_02.pdf
 sha256: 2cf20d20ea7cff3b74bcadc083efb6afd5b0452a86844c021d73228ff5042872
-pages: null
+pages: 114
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 127
+  quality: 0.947
+  runner_up_share: 0.0
+  pages: 114
+  segments:
+  - - 2
+    - 110
+    - 127
+  contested: []
+  bin_ratio: 0.96
+  non_article:
+  - 7
+  - 65
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2012_02.pdf
-articles: []
+articles:
+- title: Héraðsdómstólarnir 20 ára – Stefnumótun til framtíðar
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 129
+  page_end: 133
+  issue: null
+  pdf_pages:
+  - 2
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ráðgefandi álit EFTA-dómstólsins – Raunveruleg áhrif í íslenskum rétti
+  authors:
+  - Margrét Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 156
+  issue: null
+  pdf_pages:
+  - 8
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Lögfræðin eftir hrun: Hinn júridíski þankagangur og lagahyggjan í kennilegu ljósi'
+  authors:
+  - Oddný Mjöll Arnardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 157
+  page_end: 191
+  issue: null
+  pdf_pages:
+  - 30
+  - 64
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málskostnaðartrygging samkvæmt 133. gr. laga nr. 91/1991 um meðferð einkamála
+  authors:
+  - Þorgeir Ingi Njálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 193
+  page_end: 228
+  issue: null
+  pdf_pages:
+  - 66
+  - 101
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

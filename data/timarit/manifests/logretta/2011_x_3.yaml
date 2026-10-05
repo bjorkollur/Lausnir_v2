@@ -1,16 +1,215 @@
 source: logretta
 year: 2011
-volume: null
+volume: 8
 issue: '3'
-label: Lögrétta, 3. tbl. (2011)
+label: Lögrétta, 8. árg. 3. tbl. (2011)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2011 3.tbl.pdf
 sha256: 22c1e42fe88aa8923b54da2352faccb3ba77f3c54e69e4c2d316b7023f55eba0
-pages: null
+pages: 102
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 9
+  quality: 0.382
+  runner_up_share: 0.0
+  pages: 102
+  segments:
+  - - 0
+    - 34
+    - 9
+  - - 98
+    - 101
+    - 12
+  contested: []
+  bin_ratio: 0.782
+  non_article:
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+  - 92
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2011 3.tbl.pdf
-articles: []
+articles:
+- title: 'Alþjóðlegur gerðardómsréttur: Um framkvæmd fullnustu erlendra gerðardómsúrlausna á Íslandi og möguleika dómþola
+    til þess að taka til varna samkvæmt 5. gr. New York sáttmálans'
+  authors:
+  - Garðar Víðir Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 43
+  issue: null
+  pdf_pages:
+  - 0
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Skaðabótamál vegna vinnuslysa: Um sönnun, hlutverk Vinnueftirlits ríkisins o.fl.'
+  authors:
+  - Tinna Björk Gunnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - upphafsbls. 45 er á engri síðu skjalsins (eyða í blaðsíðutali)
+- title: 'Tálbeitur: Greiningaraðferð við mat á lögmæti'
+  authors:
+  - Karólína Finnbjörnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - upphafsbls. 73 er á engri síðu skjalsins (eyða í blaðsíðutali)
+- title: 'Málflutningskeppnin Willem C. Vis International Commercial Arbitration Moot: Ferðasaga þátttakenda í liði Háskólans
+    í Reykjavík 2011-2012'
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 110
+  page_end: 113
+  issue: null
+  pdf_pages:
+  - 98
+  - 101
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.874
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/10.pdf
@@ -28,4 +29,499 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/58.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/59.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/9.pdf
-articles: []
+articles:
+- title: Ur ritgjörð utn meðferð sakamála og um kviðdóm
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 40
+  page_end: 41
+  issue: null
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/56.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.62)
+- title: null
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 86
+  issue: null
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/57.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.55)
+- title: Framburður vitna
+  authors:
+  - Símon Jóh. Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 19
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1110
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/547.pdf
+  note: ''
+  analysis_notes: []
+- title: Skrifstofa Alþingis
+  authors:
+  - Friðjón Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 20
+  page_end: 24
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1111
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/341.pdf
+  note: ''
+  analysis_notes: []
+- title: Réttarfar í landhelgismálum
+  authors:
+  - Gísli Ísleifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 32
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1112
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/546.pdf
+  note: ''
+  analysis_notes: []
+- title: Bækur og fræðimenn
+  authors:
+  - Jón E. Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 39
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1113
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/9.pdf
+  note: ''
+  analysis_notes: []
+- title: Athugasemd
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 42
+  page_end: 42
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1115
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/1149.pdf
+  note: ''
+  analysis_notes: []
+- title: Lögfræðingar á Alþingi
+  authors:
+  - Jóhann Hafstein
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 59
+  page_end: 68
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1116
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/342.pdf
+  note: ''
+  analysis_notes: []
+- title: Vernd á persónulegum hagsmunum, sem tengdir eru látnum manni
+  authors:
+  - Þórður Eyjólfsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 69
+  page_end: 76
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1117
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/145.pdf
+  note: ''
+  analysis_notes: []
+- title: Gömul umferðalög
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 87
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1120
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/58.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Erstatning ved ekspropriation
+  authors:
+  - W.E. von Eyben
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 103
+  page_end: 122
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1121
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/188.pdf
+  note: ''
+  analysis_notes: []
+- title: Um fjármál hjóna
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 123
+  page_end: 137
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1122
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/157.pdf
+  note: ''
+  analysis_notes: []
+- title: Sögulegir atburðir úr bernsku Orators
+  authors:
+  - Jón E. Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 138
+  page_end: 143
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1123
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/1163.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 143, prentað bls. 138'
+- title: Starfsemi utanríkisráðuneytisins
+  authors:
+  - Agnar Kl. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 181
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1125
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/1174.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 181, prentað bls. 171'
+- title: Af vettvangi dómsmálanna
+  authors:
+  - Hákon Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 193
+  page_end: 196
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 1127
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/59.pdf
+  note: ''
+  analysis_notes: []
+- title: Blindur er bóklaus maður
+  authors:
+  - Logi Guðbrandsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 197
+  page_end: 198
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1128
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/10.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Tillaga send deildarforseta“ á bls. 199 sem skráin nefnir ekki; greinin er talin enda
+    þar'

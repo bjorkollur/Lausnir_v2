@@ -1,16 +1,159 @@
 source: ulfljotur
 year: 2008
-volume: null
+volume: 61
 issue: '4'
-label: Úlfljótur, 4. tbl. (2008)
+label: Úlfljótur, 61. árg. 4. tbl. (2008)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2008_4_tbl.pdf
 sha256: e37682eefca0bb1990b0d080d30e221a4349ba3fe6e92f19743f7a3e2a3f0a51
-pages: null
+pages: 265
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 518
+  quality: 0.977
+  runner_up_share: 0.004
+  pages: 265
+  segments:
+  - - 3
+    - 262
+    - 518
+  contested: []
+  bin_ratio: 0.92
+  non_article:
+  - 252
+  - 253
+  - 258
+  - 259
+  - 260
+  - 261
+  - 262
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2008_4_tbl.pdf
-articles: []
+articles:
+- title: Beinir skattar - barátta um völd - Áhrif Evrópuréttar á reglur aðildarríkja Evrópubandalagsins á sviði beinna skatta
+    -
+  authors:
+  - Arnaldur Hjartarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 523
+  page_end: 592
+  issue: null
+  pdf_pages:
+  - 5
+  - 74
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 236
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnarskrárákvæði um framsal ríkisvalds
+  authors:
+  - Íris Lind Sæmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 593
+  page_end: 656
+  issue: null
+  pdf_pages:
+  - 75
+  - 138
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 237
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Sambandsborgararéttur: Réttur borgara til frjálsrar farar og búsetu innan Evrópubandalagsins og EES'
+  authors:
+  - Ólafur Ísberg Hannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 657
+  page_end: 724
+  issue: null
+  pdf_pages:
+  - 139
+  - 206
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 238
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „100 ára afmæli lagadeildar“ á bls. 725 sem skráin nefnir ekki; greinin er talin enda
+    þar'
+- title: Recent challenges and developments at International Court of Justice
+  authors:
+  - Rosalyn Higgins
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 735
+  page_end: 748
+  issue: null
+  pdf_pages:
+  - 217
+  - 230
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 239
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Skýrsla Stjórnar Orators starfsárið 2007–2008“ á bls. 749 sem skráin nefnir ekki; greinin
+    er talin enda þar'

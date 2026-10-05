@@ -1,16 +1,343 @@
 source: ulfljotur
 year: 2005
-volume: null
+volume: 58
 issue: '3'
-label: Úlfljótur, 3. tbl. (2005)
+label: Úlfljótur, 58. árg. 3. tbl. (2005)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_3_tbl.pdf
 sha256: 002b7d7fe1c461cc5db76708f6b48e6f63a352b5ae9ff8e53f9c94dd28cb9510
-pages: null
+pages: 178
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 443
+  quality: 0.989
+  runner_up_share: 0.0
+  pages: 178
+  segments:
+  - - 2
+    - 177
+    - 443
+  contested: []
+  bin_ratio: 0.899
+  non_article:
+  - 51
+  - 83
+  - 159
+  - 166
+  - 167
+  - 168
+  - 169
+  - 170
+  - 171
+  - 172
+  - 173
+  - 174
+  - 175
+  - 176
+  - 177
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_3_tbl.pdf
-articles: []
+articles:
+- title: Hlutverk landgrunnsnefndar Sameinuðu þjóðanna
+  authors:
+  - Bjarni Már Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 449
+  page_end: 493
+  issue: null
+  pdf_pages:
+  - 6
+  - 50
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 291
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvernig er þetta með ríkið?
+  authors:
+  - Einar Karl Hallvarðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 495
+  page_end: 525
+  issue: null
+  pdf_pages:
+  - 52
+  - 82
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 292
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er þörf á lagasetningu um aðild hins opinbera að dómsmálum?
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 527
+  page_end: 538
+  issue: null
+  pdf_pages:
+  - 84
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 293
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vistarbönd?
+  authors:
+  - Lára V. Júlíusdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 539
+  page_end: 552
+  issue: null
+  pdf_pages:
+  - 96
+  - 109
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 294
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Umhverfisréttur og stjórnarskráin
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 553
+  page_end: 558
+  issue: null
+  pdf_pages:
+  - 110
+  - 115
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 295
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnarskrá er ekki jeppi
+  authors:
+  - Gunnar Karlsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 559
+  page_end: 566
+  issue: null
+  pdf_pages:
+  - 116
+  - 123
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 296
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá lútherskri kirkjuskipan til almenns trúmálaákvæðis
+  authors:
+  - Hjalti Hugason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 567
+  page_end: 576
+  issue: null
+  pdf_pages:
+  - 124
+  - 133
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 297
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnarskráin og fólkið
+  authors:
+  - Ragnar Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 577
+  page_end: 585
+  issue: null
+  pdf_pages:
+  - 134
+  - 142
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 298
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er þörf á stjórnarskrárbreytingu eða er hún orðin of tíð?
+  authors:
+  - Ragnhildur Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 586
+  page_end: 591
+  issue: null
+  pdf_pages:
+  - 143
+  - 148
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 299
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Endurskoðun stjórnarskrárinnar
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 592
+  page_end: 601
+  issue: null
+  pdf_pages:
+  - 149
+  - 158
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 300
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Lögfræðingatal“ á bls. 603 sem skráin nefnir ekki; greinin er talin enda þar'

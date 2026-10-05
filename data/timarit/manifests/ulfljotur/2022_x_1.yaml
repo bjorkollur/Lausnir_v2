@@ -1,16 +1,189 @@
 source: ulfljotur
 year: 2022
-volume: null
+volume: 75
 issue: '1'
-label: Úlfljótur, 1. tbl. (2022)
+label: Úlfljótur, 75. árg. 1. tbl. (2022)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2022-1tbl.pdf
 sha256: c3bbff4ee6fd2fa49e768245889230e7cdf11ad21141662ff802a731e0096012
-pages: null
+pages: 142
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.88
+  runner_up_share: 0.016
+  pages: 142
+  segments:
+  - - 8
+    - 140
+    - 1
+  contested: []
+  bin_ratio: 0.792
+  non_article:
+  - 115
+  - 125
+  - 127
+  - 133
+  - 136
+  - 137
+  - 138
+  - 139
+  - 140
+  - 141
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2022-1tbl.pdf
-articles: []
+articles:
+- title: Réttarstaða starfsmanna starfsmannaleigu
+  authors:
+  - Erna Á. Mathiesen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 40
+  issue: null
+  pdf_pages:
+  - 8
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 8
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Læknamistök í dómaframkvæmd Mannréttindadómstóls Evrópu ? seinni hluti
+  authors:
+  - Ivana Anna Nikolic
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 78
+  issue: null
+  pdf_pages:
+  - 40
+  - 77
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 9
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kerfisáhætta á fjármálamörkuðum
+  authors:
+  - Thelma Christel Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 79
+  page_end: 115
+  issue: null
+  pdf_pages:
+  - 78
+  - 114
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 10
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Frumkvöðullinn og félagsmálakonan Rannveig Þorsteinsdóttir“ á bls. 117 sem skráin nefnir
+    ekki; greinin er talin enda þar'
+- title: Samrýmist lögfesting bólusetningarskyldu gegn Covid-19 ákvæðum Mannréttindasáttmála Evrópu og íslensku stjórnarskránni?
+  authors:
+  - Margrét Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 129
+  page_end: 133
+  issue: null
+  pdf_pages:
+  - 128
+  - 132
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 11
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um bólusetningarskyldu
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 136
+  issue: null
+  pdf_pages:
+  - 134
+  - 135
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 12
+  source_file: null
+  note: ''
+  analysis_notes: []

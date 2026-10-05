@@ -1,16 +1,164 @@
 source: timarit_logfraedinga
 year: 2017
-volume: null
+volume: 67
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2017)
+label: Tímarit lögfræðinga, 67. árg. 2. hefti (2017)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2017_02.pdf
 sha256: 4f27c778a900fd44837122700ab52c897ec74db2797a620a695120d70822aa8f
-pages: null
+pages: 104
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 121
+  quality: 0.962
+  runner_up_share: 0.0
+  pages: 104
+  segments:
+  - - 2
+    - 101
+    - 121
+  contested: []
+  bin_ratio: 0.918
+  non_article:
+  - 93
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2017_02.pdf
-articles: []
+articles:
+- title: Breytingarákvæði stjórnarskrárinnar
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 123
+  page_end: 124
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bindandi áhrif dóma í einkamálum (Res Judicata)
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 125
+  page_end: 168
+  issue: null
+  pdf_pages:
+  - 4
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á rökum reistur – dómur EFTA-dómstólsins í máli nr. E-17/15 (Ferskar kjötvörur gegn íslenska ríkinu)
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 169
+  page_end: 213
+  issue: null
+  pdf_pages:
+  - 48
+  - 92
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 169–196
+  - 'FRÁVIK: efnisyfirlitið segir bls. 171, prentað bls. 169'
+- title: Refsiþarfir samfélagsins og lagaleg jafnvægislist
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 215
+  page_end: 215
+  issue: null
+  pdf_pages:
+  - 94
+  - 94
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 197–213
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögmenn“) er annar titill en skrárinnar („Refsiþarfir samfélagsins og lagaleg jafnvægislist“);
+    titli skrárinnar haldið'

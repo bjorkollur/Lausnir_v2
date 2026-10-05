@@ -1,16 +1,354 @@
 source: logmannabladid
 year: 2019
-volume: null
+volume: 25
 issue: '4'
-label: Lögmannablaðið, 4. tbl. (2019)
+label: Lögmannablaðið, 25. árg. 4. tbl. (2019)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2019 04 .pdf
 sha256: 14831b529552d1352b96781b4b4fc7e4b2001caa2a46bf264e544c78785a1fd8
-pages: null
+pages: 40
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.8
+  runner_up_share: 0.0
+  pages: 40
+  segments:
+  - - 1
+    - 38
+    - 1
+  contested: []
+  bin_ratio: 0.95
+  non_article:
+  - 4
+  - 6
+  - 14
+  - 26
+  - 27
+  - 28
+  - 38
+  - 39
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2019 04 .pdf
-articles: []
+articles:
+- title: Siðareglur lögmanna
+  authors:
+  - Berglind Svavarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Siðareglur lögmanna“ á bls. 6 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Breytingar framundan“) er annar titill en skrárinnar („Siðareglur lögmanna“); titli
+    skrárinnar haldið'
+- title: Jólahugvekja Bergur ebbi
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Af vettvangi úrskurðarnefndar lögmanna
+  authors:
+  - Ágúst Karl Karlsson
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 9
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samskipti dómara og lögmanna
+  authors:
+  - Daníel Isebarn
+  author_titles: []
+  article_type: Annað
+  page_start: 12
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 11
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Daníel Isebarn Ágústsson'
+- title: 'Lögmenn og #Metoo'
+  authors:
+  - Þyrí Steingrímsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 15
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fyrstu íslensku málflytjendurnir hjá Grand Chamber – Fanney Rós Þorsteinsdóttir
+  authors:
+  - Daníel Isebarn Ágústsson
+  - Ágúst Karl Karlsson
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 19
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 22 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Fyrstu íslensku málflytjendurnir hjá Grand Chamber – Geir Gestsson
+  authors:
+  - Arna Pálsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 23
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 22
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Verið velkomin“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: greinin er undirrituð (Lúðvík Emil Kaaber) en höfundar skrárinnar eru aðrir (Arna Pálsdóttir); skránni haldið'
+- title: Óvenju fámenn útskrift
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 30
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 29
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hákon Árnason, minningarorð
+  authors:
+  - Árni Vilhjálmsson
+  author_titles: []
+  article_type: Annað
+  page_start: 32
+  page_end: 33
+  issue: null
+  pdf_pages:
+  - 31
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er fjöldi dóma MDE í málum gegn Íslandi áhyggjuefni?
+  authors:
+  - Anna Lilja Hallgrímsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 34
+  page_end: 36
+  issue: null
+  pdf_pages:
+  - 33
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Farið fram á niðurfellingu málflutningsréttinda níu lögmanna“ á bls. 37 sem skráin nefnir
+    ekki; greinin er talin enda þar'

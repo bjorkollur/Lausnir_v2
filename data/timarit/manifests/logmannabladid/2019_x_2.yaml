@@ -1,16 +1,374 @@
 source: logmannabladid
 year: 2019
-volume: null
+volume: 25
 issue: '2'
-label: Lögmannablaðið, 2. tbl. (2019)
+label: Lögmannablaðið, 25. árg. 2. tbl. (2019)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2019 02 .pdf
 sha256: 4e11a6a0c6c97357ecd318fcfcdd620783302b205c046900c2d7b4a53035536d
-pages: null
+pages: 40
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.875
+  runner_up_share: 0.0
+  pages: 40
+  segments:
+  - - 1
+    - 37
+    - 1
+  contested: []
+  bin_ratio: 0.951
+  non_article:
+  - 4
+  - 23
+  - 38
+  - 39
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2019 02 .pdf
-articles: []
+articles:
+- title: „Landsréttarmálið”
+  authors:
+  - Berglind Svavarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur Lögmannafélags Íslands
+  authors:
+  - Eleonora Bergþórsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvenær ber stjórn ábyrgð?
+  authors:
+  - Guðrún Ólöf Olsen
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 7
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttaróvissuferð í Landsrétt
+  authors:
+  - Gunnar Ingi Jóhannsson
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 13
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: LMFÍ sem aðili máls
+  authors:
+  - Eiríkur Elís Þorláksson
+  author_titles: []
+  article_type: Annað
+  page_start: 17
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 16
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eftirlitsheimildir lögmannafélaga
+  authors:
+  - Berglind Svavarsdóttir
+  - Stefán A. Svensson
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjárvörslureikningar lögmanna – miklar afleiðingar af brotum
+  authors:
+  - Ágúst Karl Karlsson
+  - Daníel Isebarn Ágústsson
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 21
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sáttamiðlun, raunhæfur valkostur við lausn ágreinings? Viðtal við Lilju Bjarnadóttur
+  authors:
+  - Arna Pálsdóttir
+  author_titles: []
+  article_type: Viðtal
+  page_start: 25
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 24
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Enn fækkar félagsmönnum í Lögmannafélaginu
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 29
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 28
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Órökstuddar málskostnaðarákvarðanir
+  authors:
+  - Skúli Sveinsson
+  author_titles: []
+  article_type: Annað
+  page_start: 32
+  page_end: 33
+  issue: null
+  pdf_pages:
+  - 31
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagadagurinn 2019 Marín Guðrún Hrafnsdóttir
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 34
+  page_end: 38
+  issue: null
+  pdf_pages:
+  - 33
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Laga“) er annar titill en skrárinnar („Lagadagurinn 2019 Marín Guðrún Hrafnsdóttir“);
+    titli skrárinnar haldið'

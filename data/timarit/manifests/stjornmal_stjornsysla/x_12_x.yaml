@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2016
 volume: 12
 issue: null
-label: Stjórnmál og stjórnsýsla, 12. árg.
+label: Stjórnmál og stjórnsýsla, 12. árg. (2016)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.531
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/1-22_Professionalism_among_Icelandic_Mayors.pdf
@@ -38,4 +39,887 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/541-562_Energy_policy_–_the_expansion_of_the.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/67-80_Iceland’s_Alleged_Reservation_to_Article.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/81-100_Iceland’s_Involvement_in_the_Anti-Aparth.pdf
-articles: []
+articles:
+- title: 'Professionalism among Icelandic mayors: Job postings, experience and education as determinants of professionalism
+    at the Icelandic local level'
+  authors:
+  - Eva Marín Hlynsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 22
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/1-22_Professionalism_among_Icelandic_Mayors.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: 'Dómstólaeftirlit með Alþingi: Breytt valdahlutföll í stjórnskipuninni'
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 46
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/23-46_Judicial_Control_over_Althingi.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: New media – opportunity for new and small parties? Political communication before the parliamentary elections in
+    Iceland in 2013
+  authors:
+  - Birgir Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 47
+  page_end: 66
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/47-66_New_Media_-_Opportunity_for_New_and.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Meintur fyrirvari Íslands við 5. gr. Norður-Atlantshafssamningsins
+  authors:
+  - Sigurjón Njarðarson
+  - Bjarni Már Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 67
+  page_end: 80
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/67-80_Iceland’s_Alleged_Reservation_to_Article.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Iceland’s involvement in the anti-apartheid struggle
+  authors:
+  - Jónína Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 81
+  page_end: 100
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/81-100_Iceland’s_Involvement_in_the_Anti-Aparth.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: 'Hrunið skýrt: Sjónarhorn klassískra kenninga um fjármálakreppur'
+  authors:
+  - Stefán Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 101
+  page_end: 126
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/101-126_Explaining_Iceland’s_Excessive_Boom_and.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Public opinion polls and experts in election news
+  authors:
+  - Guðbjörg Hildur Kolbeins
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 127
+  page_end: 150
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/127-150_Public_Opinion_Polls_and_Experts_in_Elec.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: 'Jón Gnarr: Grínarinn sem varð leiðtogi'
+  authors:
+  - Árelía Eydís Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 151
+  page_end: 170
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/151-170_Jón_Gnarr.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: 'Money talks: Gender budgeting in the University of Iceland'
+  authors:
+  - Finnborg S. Steinþórsdóttir
+  - Þorgerður Einarsdóttir
+  - Thamar M. Heijstra
+  - Gyða Margrét Pétursdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 194
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/171-194_Money_Talks.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: The ‘Pots and Pans’ protests and requirements for responsiveness of the authorities
+  authors:
+  - Eva H. Önnudóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 195
+  page_end: 214
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/195-214_The__Pots_and_Pans__protests_and_require.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: 'Measuring corruption: whose perceptions should we rely on? Evidence from Iceland'
+  authors:
+  - Gissur Ólafur Erlingsson
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 215
+  page_end: 236
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/215-236_Measuring_corruption.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Administrative capacity and long-term policy making at the Icelandic local level
+  authors:
+  - Eva Marín Hlynsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 237
+  page_end: 258
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/237-258_Administrative_capacity_and_long-term_po.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Men and the Suffrage
+  authors:
+  - Sigríður Dúna Kristmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 259
+  page_end: 276
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/259-276_Men_and_the_Suffrage.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: 'Athafnafólk í opinberri stefnumótun á óvissutímum: Hvernig hugmyndin um notendastýrða persónulega aðstoð varð að
+    veruleika á Íslandi'
+  authors:
+  - Sigurbjörg Sigurgeirsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 277
+  page_end: 302
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/277-302_Policy_entrepreneurs_in_times_of_uncerta.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: 'Markaðsvæðing frétta: Greining á innihaldi frétta í tveimur dagblöðum og tveimur vefmiðlum fyrir og eftir hrun'
+  authors:
+  - Valgerður Jóhannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 303
+  page_end: 320
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/303-320_Commercialisation_of_the_news.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Varðveisla gagna í stjórnsýslunni
+  authors:
+  - Kristín Benediktsdóttir
+  - Trausti Fannar Valsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 321
+  page_end: 342
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/321-342_Preservation_of_Administrative_Records.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Hagnýting persónuupplýsinga á Facebook hjá eftirlitsstofnunum
+  authors:
+  - Sigurður G. Hafstað
+  - Jóhanna Gunnlaugsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 343
+  page_end: 368
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/343-368_The_Utilization_of_Personal_Data_on_Face.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: 'Mannréttindastefna Reykjavíkurborgar: Áskoranir, togstreita og tækifæri'
+  authors:
+  - Þorgerður H. Þorvaldsdóttir
+  - Guðbjörg Lilja Hjartardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 369
+  page_end: 392
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/369-392_The_City_of_Reykjavík’s_Human_Rights_Pol.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: '„Hún gæti alveg verið múslimi og allt það“: Ráðning fólks af erlendum uppruna til íslenskra fyrirtækja'
+  authors:
+  - Kristín Loftsdóttir
+  - Margrét Sigrún Sigurðardóttir
+  - Kári Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 393
+  page_end: 416
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/393-416__She_could_possibly_be_a_Muslim.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: „Vinnugleðin hefur tapast, nú er bara álag og erfitt og lítil gleði“ – starfsumhverfi opinberra starfsmanna á tímum
+    efnahagsþrenginga
+  authors:
+  - Hjördís Sigursteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 417
+  page_end: 442
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/417-442__The_joy_of_work_is_gone,_just.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: 'Yfirfærsla á málaflokki fatlaðs fólks frá ríki til sveitarfélaga: Með sérstakri áherslu á stærsta sveitarfélagið,
+    Reykjavík'
+  authors:
+  - Freydís Jóna Freysteinsdóttir
+  - Gylfi Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 443
+  page_end: 466
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/443-466_The_transfer_of_disability_affairs_from.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Tengsl streituvaldandi þátta í starfsumhverfi, svefns og stoðkerfisverkja hjá millistjórnendum í opinberri þjónustu
+  authors:
+  - Sigríður Halldórsdóttir
+  - Hafdís Skúladóttir
+  - Hjördís Sigursteinsdóttir
+  - Þórey Agnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 467
+  page_end: 486
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/467-486_Correlation_between_stressful_factors_in.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Stjórnun og fagleg forysta í grunnskólum
+  authors:
+  - Trausti Þorsteinsson
+  - Amalía Björnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 487
+  page_end: 510
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/487-490_Management_and_professional_leadership_o.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: skráarnafn segir bls. 487–490, PDF-skjalið bls. 487–510'
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Þekkingarmiðað lýðræði – þegar þekking lýðsins ræður
+  authors:
+  - Jón Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 511
+  page_end: 536
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/491-516_Epistemic_Democracy_–_following_the_crow.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 491–516, PDF-skjalið bls. 511–536
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Þingstörf á Alþingi 1991-2015. Kyrrstaða í breyttu umhverfi
+  authors:
+  - Haukur Arnþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 537
+  page_end: 560
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/517-540_Parliamentary_work_in_Althingi_1991-2015.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 517–540, PDF-skjalið bls. 537–560
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'
+- title: Þarfir netsins
+  authors:
+  - Örn Daníel Jónsson
+  - Bjarni Frímann Karlsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 561
+  page_end: 582
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol12/541-562_Energy_policy_–_the_expansion_of_the.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 541–562, PDF-skjalið bls. 561–582
+  - 'FRÁVIK: blaðsíðutal skráarnafnanna er 20 síðum lægra en prentað blaðsíðutal í 3 skrám af 26 (t.d. skráarnafn segir bls.
+    491–516, PDF-skjalið bls. 511–536)'

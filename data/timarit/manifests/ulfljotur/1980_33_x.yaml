@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.917
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/161.pdf
@@ -20,4 +21,255 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/573.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/627.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/628.pdf
-articles: []
+articles:
+- title: Um afbrotið nauðgun
+  authors:
+  - Ásdís J. Rafnar
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 45
+  issue: 1-2
+  pdf_pages:
+  - 0
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 799
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/509.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Nauðgun: Frelsun eða kúgun?'
+  authors:
+  - Hildigunnur Ólafsdóttir
+  - Þorgerður Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 46
+  page_end: 52
+  issue: 1-2
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 800
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/510.pdf
+  note: ''
+  analysis_notes: []
+- title: Rannsóknarlögregla ríkisins og störf að nauðgunarmálum
+  authors:
+  - Arnþrúður Karlsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 55
+  issue: 1-2
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 801
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/573.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Skýrsla Stjórnar Orators starfsárið 1978-79“ á bls. 56 sem skráin nefnir ekki; greinin
+    er talin enda þar'
+- title: Um refsiábyrgð lækna
+  authors:
+  - Valgeir Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 132
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 803
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/511.pdf
+  note: ''
+  analysis_notes: []
+- title: Ábyrgð lækna
+  authors:
+  - Örn Smári Arnaldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 137
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 804
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/627.pdf
+  note: ''
+  analysis_notes: []
+- title: Réttarstaða barna að íslenzkum lögum
+  authors:
+  - Drífa Pálsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 164
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 805
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/161.pdf
+  note: ''
+  analysis_notes: []
+- title: Um frumvarp til barnalaga
+  authors:
+  - Guðrún Erlendsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 165
+  page_end: 168
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 806
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/162.pdf
+  note: ''
+  analysis_notes: []
+- title: Störf barnaverndarnefnda
+  authors:
+  - Dögg Pálsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 169
+  page_end: 194
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 807
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/628.pdf
+  note: ''
+  analysis_notes: []

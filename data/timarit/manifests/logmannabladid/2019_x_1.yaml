@@ -1,16 +1,371 @@
 source: logmannabladid
 year: 2019
-volume: null
+volume: 25
 issue: '1'
-label: Lögmannablaðið, 1. tbl. (2019)
+label: Lögmannablaðið, 25. árg. 1. tbl. (2019)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2019 01 .pdf
 sha256: b335745c39686ff680320ba6c2ceb73ea5f649219f9a8d142e97d8c422c8ff08
-pages: null
+pages: 44
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.818
+  runner_up_share: 0.0
+  pages: 44
+  segments:
+  - - 1
+    - 41
+    - 1
+  contested: []
+  bin_ratio: 0.955
+  non_article:
+  - 4
+  - 6
+  - 20
+  - 41
+  - 42
+  - 43
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2019 01 .pdf
-articles: []
+articles:
+- title: Í takt við tímann
+  authors:
+  - Daníel Isebarn Ágústsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mikilvægi sjálfstæðis lögmannastéttarinnar
+  authors:
+  - Berglind Svavarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Undirbúningsþinghöld Í Landsrétti
+  authors:
+  - Daníel Isebarn Ágústsson
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ný dómstólaskipan Í framkvæmd
+  authors:
+  - Eleonora Bergþórsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 9
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Finnst gaman að gefa lífinu á kjaftinn öðru hvoru. Viðtal við Bergþóru Ingólfsdóttur
+  authors:
+  - Marín Guðrún Hrafnsdóttir
+  author_titles: []
+  article_type: Viðtal
+  page_start: 16
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 15
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagadagur Málstofur
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 21
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjárhagsleg örorka
+  authors:
+  - Arna Pálsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 24
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 23
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Starfsumhverfi lögmanna í Danmörku
+  authors:
+  - Guðrún Ólöf Olsen
+  - Þorbjörg Ásta Leifsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 27
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á slóðum þýðverskra nýlenduherra í Afríku
+  authors:
+  - Valgeir Pálsson
+  author_titles: []
+  article_type: Annað
+  page_start: 32
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 31
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Jólasnafsmótið
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 36
+  page_end: 36
+  issue: null
+  pdf_pages:
+  - 35
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fara íslenskir dómstólar eftir dómum Mannréttindadómstóls Evrópu?
+  authors:
+  - Daníel Isebarn Ágústsson
+  author_titles: []
+  article_type: Annað
+  page_start: 37
+  page_end: 41
+  issue: null
+  pdf_pages:
+  - 36
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

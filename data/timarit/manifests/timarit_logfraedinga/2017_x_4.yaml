@@ -1,16 +1,196 @@
 source: timarit_logfraedinga
 year: 2017
-volume: null
+volume: 67
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2017)
+label: Tímarit lögfræðinga, 67. árg. 4. hefti (2017)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2017_04.pdf
 sha256: 7be415eaa3b8dadb77cd5887565e927f45275424665e52fb02790241ad647f4b
-pages: null
+pages: 120
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 351
+  quality: 0.958
+  runner_up_share: 0.0
+  pages: 120
+  segments:
+  - - 2
+    - 117
+    - 351
+  contested: []
+  bin_ratio: 0.88
+  non_article:
+  - 95
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2017_04.pdf
-articles: []
+articles:
+- title: Frumkvæðisbirting upplýsinga úr málaskrám stjórnvalda
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 353
+  page_end: 354
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkur álitaefni um íslenskar grunnlínur
+  authors:
+  - Svava Pétursdóttir
+  - Bjarni Már Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 355
+  page_end: 386
+  issue: null
+  pdf_pages:
+  - 4
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málsmeðferð úrskurðarnefndar um upplýsingamál
+  authors:
+  - Oddur Þorri Viðarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 387
+  page_end: 424
+  issue: null
+  pdf_pages:
+  - 36
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 367–424
+- title: Eru 37. til 41. gr., og 89. og 90. gr. laga nr. 15/2016 um fullnustu refsingar brot gegn 2. og 60. gr. stjórnar skrár
+    lýðveldisins Íslands og 6. gr. mannréttinda sáttmála Evrópu?
+  authors:
+  - Ástríður Grímsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 425
+  page_end: 445
+  issue: null
+  pdf_pages:
+  - 74
+  - 94
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Siðareglur dómara og hinn mannlegi þáttur við úrlausn dómsmála
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 447
+  page_end: 460
+  issue: null
+  pdf_pages:
+  - 96
+  - 109
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

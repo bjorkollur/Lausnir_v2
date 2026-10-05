@@ -1,15 +1,16 @@
 source: ulfljotur
 year: 2005
-volume: null
+volume: 58
 issue: '4'
-label: Úlfljótur, 4. tbl. (2005)
+label: Úlfljótur, 58. árg. 4. tbl. (2005)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.87
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3338.pdf
@@ -21,4 +22,285 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3346.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3347.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3348.pdf
-articles: []
+articles:
+- title: Frá ritstjóra
+  authors:
+  - Hrannar Már Hafberg
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 623
+  page_end: 625
+  issue: null
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+    article_type: page
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3338.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.41)
+  - 'árgangur reiknaður út frá ári: 58. árg. (2005); ekkert prentað árgangsnúmer fannst'
+- title: Réttarríki - skilyrði og efnislegt inntak
+  authors:
+  - Haraldur Steinþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 627
+  page_end: 654
+  issue: null
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 301
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3340.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 58. árg. (2005); ekkert prentað árgangsnúmer fannst'
+- title: Lagareglur um frádrátt á móti ökutækjastyrkjum
+  authors:
+  - Hólmgeir Elías Flosason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 655
+  page_end: 679
+  issue: null
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 302
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3341.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 58. árg. (2005); ekkert prentað árgangsnúmer fannst'
+- title: Hugtakið “eign” samkvæmt 1. gr. samningsviðauka nr. 1 við Mannréttindasáttmála Evrópu
+  authors:
+  - Torfi Ragnar Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 681
+  page_end: 724
+  issue: null
+  pdf_pages:
+  - 0
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 303
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3343.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 58. árg. (2005); ekkert prentað árgangsnúmer fannst'
+- title: Dealing with supporters’ violence
+  authors:
+  - Stefán Karl Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 725
+  page_end: 738
+  issue: null
+  pdf_pages:
+  - 0
+  - 13
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 304
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3344.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 58. árg. (2005); ekkert prentað árgangsnúmer fannst'
+- title: Viðtal við dr. juris Jens Evald, lagaprófessor við Arósarháskóla
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 739
+  page_end: 742
+  issue: null
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+    article_type: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3345.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.50)
+  - 'árgangur reiknaður út frá ári: 58. árg. (2005); ekkert prentað árgangsnúmer fannst'
+- title: Fréttir úr lagadeild Starfmannamál
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 743
+  page_end: 748
+  issue: null
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+    article_type: page
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3346.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.44)
+  - 'árgangur reiknaður út frá ári: 58. árg. (2005); ekkert prentað árgangsnúmer fannst'
+- title: Lagabalkur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 749
+  page_end: 754
+  issue: null
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3347.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.45)
+  - 'árgangur reiknaður út frá ári: 58. árg. (2005); ekkert prentað árgangsnúmer fannst'
+- title: Skýrsla stjórnar Orators fyrir starfsárið 2004-2005
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 755
+  page_end: 772
+  issue: null
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3348.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.41)
+  - 'árgangur reiknaður út frá ári: 58. árg. (2005); ekkert prentað árgangsnúmer fannst'

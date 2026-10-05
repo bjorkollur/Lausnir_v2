@@ -1,16 +1,288 @@
 source: timarit_logfraedinga
 year: 2006
-volume: null
+volume: 56
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2006)
+label: Tímarit lögfræðinga, 56. árg. 3. hefti (2006)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2006_03.pdf
 sha256: 5ec6d86d22db550f22400392942cf455e95e8f0bb50731eacd649b1c356c6500
-pages: null
+pages: 133
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 212
+  quality: 0.992
+  runner_up_share: 0.008
+  pages: 133
+  segments:
+  - - 1
+    - 132
+    - 212
+  contested: []
+  bin_ratio: 0.949
+  non_article:
+  - 4
+  - 50
+  - 82
+  - 111
+  - 112
+  - 125
+  - 126
+  - 127
+  - 128
+  - 129
+  - 130
+  - 131
+  - 132
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2006_03.pdf
-articles: []
+articles:
+- title: Um starfsaðstæður Alþingis og sjálfstæði þess
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 213
+  page_end: 215
+  issue: null
+  pdf_pages:
+  - 1
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lok kröfuábyrgðar
+  authors:
+  - Benedikt Bogason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 217
+  page_end: 261
+  issue: null
+  pdf_pages:
+  - 5
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skyldubundið mat stjórnvalda
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 263
+  page_end: 293
+  issue: null
+  pdf_pages:
+  - 51
+  - 81
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Geta starfsmenn fyrirtækja borið refsiábyrgð á grundvelli 10. eða 11. gr. samkeppnislaga nr. 44/2005?
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 295
+  page_end: 322
+  issue: null
+  pdf_pages:
+  - 83
+  - 110
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 322 sem er hvorki framhald hennar né upphaf annars
+    efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Hugleiðingar um spurningar dómenda við munnlegan málflutning
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 325
+  page_end: 325
+  issue: null
+  pdf_pages:
+  - 113
+  - 113
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttaröryggi og munnlegur málflutningur
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 325
+  page_end: 328
+  issue: null
+  pdf_pages:
+  - 113
+  - 116
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Munnlegur málflutningur fyrir dómi og spurningar frá dómendum
+  authors:
+  - Hákon Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 329
+  page_end: 332
+  issue: null
+  pdf_pages:
+  - 117
+  - 120
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um spurningar dómenda við munnlega málsmeðferð fyrir dómi
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 333
+  page_end: 336
+  issue: null
+  pdf_pages:
+  - 121
+  - 124
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

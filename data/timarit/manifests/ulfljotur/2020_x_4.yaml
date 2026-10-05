@@ -1,16 +1,159 @@
 source: ulfljotur
 year: 2020
-volume: null
+volume: 73
 issue: '4'
-label: Úlfljótur, 4. tbl. (2020)
+label: Úlfljótur, 73. árg. 4. tbl. (2020)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2020_4_tbl.pdf
 sha256: b6335257e329fb0d5f566aa2e4556ed9655a17661f772e4cb482e81db3198c6f
-pages: null
+pages: 196
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 415
+  quality: 0.944
+  runner_up_share: 0.005
+  pages: 196
+  segments:
+  - - 2
+    - 193
+    - 415
+  contested: []
+  bin_ratio: 0.891
+  non_article:
+  - 103
+  - 162
+  - 192
+  - 193
+  - 194
+  - 195
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2020_4_tbl.pdf
-articles: []
+articles:
+- title: Rannsóknarreglan, foreldrahlutverkið og fatlað fólk
+  authors:
+  - Auður Tinna Aðalbjarnardóttir
+  - Sigrún Ingibjörg Gísladóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 425
+  page_end: 452
+  issue: null
+  pdf_pages:
+  - 10
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 56
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipan dómara og skilyrðið um stofnun dómstóls með lögum
+  authors:
+  - Halldóra Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 453
+  page_end: 494
+  issue: null
+  pdf_pages:
+  - 38
+  - 79
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 57
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Hugtakið landareign í vatnalögum nr. 15/1923 og þýðing þess fyrir takmarkanir á aðskilnaði
+    veiðiréttinda frá landareign“ á bls. 495 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Hluthafasamkomulög
+  authors:
+  - Sigurður Örn Hilmarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 519
+  page_end: 558
+  issue: null
+  pdf_pages:
+  - 104
+  - 143
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 58
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málsmeðferð fyrir yfirdeild Mannréttindadómstóls Evrópu skv. 43. gr. Mannréttindasáttmála Evrópu
+  authors:
+  - Geir Gestsson
+  - Védís Eva Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 559
+  page_end: 576
+  issue: null
+  pdf_pages:
+  - 144
+  - 161
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    article_type: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 59
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 578 sem skráin nefnir ekki; greinin er talin enda þar'

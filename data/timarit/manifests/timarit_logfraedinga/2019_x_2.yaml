@@ -1,16 +1,129 @@
 source: timarit_logfraedinga
 year: 2019
-volume: null
+volume: 69
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2019)
+label: Tímarit lögfræðinga, 69. árg. 2. hefti (2019)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2019_02.pdf
 sha256: 52d4d555f4a153bc367e2f369a75dd0eedced7463f415efc3bd6a4d405afae54
-pages: null
+pages: 156
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 153
+  quality: 0.962
+  runner_up_share: 0.0
+  pages: 156
+  segments:
+  - - 2
+    - 153
+    - 153
+  contested: []
+  bin_ratio: 0.882
+  non_article:
+  - 149
+  - 150
+  - 151
+  - 152
+  - 153
+  - 154
+  - 155
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2019_02.pdf
-articles: []
+articles:
+- title: Aldarafmæli Hæstaréttar
+  authors:
+  - Ragnhildur Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 156
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gervigreind og höfundaréttur
+  authors:
+  - Lára Herborg Ólafsdóttir
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 157
+  page_end: 181
+  issue: null
+  pdf_pages:
+  - 4
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjárhæð eignarnámsbóta
+  authors:
+  - Ásgerður Ragnarsdóttir
+  - Karl Axelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 183
+  page_end: 301
+  issue: null
+  pdf_pages:
+  - 30
+  - 148
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

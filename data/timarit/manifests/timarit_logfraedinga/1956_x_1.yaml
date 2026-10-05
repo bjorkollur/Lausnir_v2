@@ -1,16 +1,79 @@
 source: timarit_logfraedinga
 year: 1956
-volume: null
+volume: 6
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1956)
+label: Tímarit lögfræðinga, 6. árg. 1. hefti (1956)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1956_01.pdf
 sha256: 9a276b45a4384fc944f287728e42d9ee06b603a3a6be15e97f649b9ca3eb650a
-pages: null
+pages: 84
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -5
+  quality: 0.655
+  runner_up_share: 0.018
+  pages: 84
+  segments:
+  - - 7
+    - 66
+    - -5
+  contested: []
+  bin_ratio: 0.947
+  non_article:
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 78
+  - 80
+  - 81
+  - 82
+  - 83
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1956_01.pdf
-articles: []
+articles:
+- title: 'Brezkir dómar Sami: Á víð og dreif'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 6
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Hvað sagði Danmörk Sþ. urn réttarstöðu Grænlancls?“ á bls. 29 sem skráin nefnir ekki;
+    greinin er talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Þingræði á Islandi“) er annar titill en skrárinnar („Brezkir dómar Sami: Á víð og
+    dreif“); titli skrárinnar haldið'
+  - 'greinar fundust ekki í skjalinu: 1 (bls. 127; síðasta lesna blaðsíðutal 61) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'

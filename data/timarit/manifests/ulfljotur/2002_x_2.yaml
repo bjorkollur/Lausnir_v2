@@ -1,15 +1,16 @@
 source: ulfljotur
 year: 2002
-volume: null
+volume: 55
 issue: '2'
-label: Úlfljótur, 2. tbl. (2002)
+label: Úlfljótur, 55. árg. 2. tbl. (2002)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.918
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/100.pdf
@@ -22,4 +23,319 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/400.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/658.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/701.pdf
-articles: []
+articles:
+- title: Manndráp af ásetningi - dómar Hæstaréttar 1900-2000
+  authors:
+  - Árnína Steinunn Karlsdóttir
+  - Sigríður Hrefna Hrafnkelsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 163
+  page_end: 190
+  issue: null
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 356
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/100.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Fordæmi Hæstaréttar og EFTA-dómstólsins. Nokkur orð um dóm Hæstaréttar 25. október 2001
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 191
+  page_end: 215
+  issue: null
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 357
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/658.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Um valdmörk dómstóla
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 217
+  page_end: 225
+  issue: null
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 358
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/400.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Hugtakið innherji
+  authors:
+  - Aðalsteinn E. Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 227
+  page_end: 252
+  issue: null
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 359
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/701.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Í 53. árgangi Úlfljóts birtist í fyrsta sinn annáll Mannréttindadómstóls Evrópu
+  authors:
+  - Páll Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 262
+  page_end: 262
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 361
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3092.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 301, prentað bls. 262'
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Yfirlit yfir helstu dóma Evrópudómstólanna og EFTA-dómstólsins á árinu 2001
+  authors:
+  - Dóra Sif Tynes
+  - Gunnar Þór Pétursson
+  - Martin Eyjólfsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 263
+  page_end: 299
+  issue: null
+  pdf_pages:
+  - 0
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 360
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3093.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Dóra Sif Tynes, Gunnar Þór Pétursson, Martin Eyjólfsson) stangast á við síðuna (Dóra Sifog
+    Gunnar Þór); skránni haldið'
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Annáll Mannréttindadómstóls Evrópu
+  authors:
+  - Páll Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 301
+  page_end: 309
+  issue: null
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 361
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3095.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Innherjadómurinn
+  authors:
+  - Ragnar Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 311
+  page_end: 318
+  issue: null
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 362
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3097.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Stjornsyslubalkur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 320
+  page_end: 320
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3099.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.50)
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+- title: Dómur Hæstaréttar frá 14. mars 2002
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 321
+  page_end: 331
+  issue: null
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 363
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3100.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'

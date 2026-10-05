@@ -1,16 +1,127 @@
 source: logretta
 year: 2009
-volume: null
+volume: 6
 issue: '1'
-label: Lögrétta, 1. tbl. (2009)
+label: Lögrétta, 6. árg. 1. tbl. (2009)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2009 1.tbl.pdf
 sha256: f084005f0be43ac3c46215bc2b8910063d501bd5a28d686e01cdec8c10fcbaee
-pages: null
+pages: 80
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 12
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 80
+  segments:
+  - - 0
+    - 15
+    - 9
+  - - 16
+    - 38
+    - 11
+  - - 39
+    - 79
+    - 12
+  contested: []
+  bin_ratio: 0.947
+  non_article: []
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2009 1.tbl.pdf
-articles: []
+articles:
+- title: Inntak og beiting 15. gr. stjórnarskrárinnar
+  authors:
+  - Ragnhildur Helgadóttir
+  - Margrét Vala Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Áhrif breytinga á reglunni um efnislegt mat á samruna í evrópskum og íslenskum samkeppnisrétti
+  authors:
+  - Jón Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 27
+  page_end: 49
+  issue: null
+  pdf_pages:
+  - 16
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipting á skattlagningarréttinum milli heimilisfestarríkis og keldulands
+  authors:
+  - Ásmundur G. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: 91
+  issue: null
+  pdf_pages:
+  - 39
+  - 79
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

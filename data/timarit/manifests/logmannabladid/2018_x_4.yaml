@@ -1,16 +1,381 @@
 source: logmannabladid
 year: 2018
-volume: null
+volume: 24
 issue: '4'
-label: Lögmannablaðið, 4. tbl. (2018)
+label: Lögmannablaðið, 24. árg. 4. tbl. (2018)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2018 04.pdf
 sha256: 192ac8d73e241c40c1581cf4e2acee157b2db5600ebdfd16304d3d58ad23eb7c
-pages: null
+pages: 40
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.875
+  runner_up_share: 0.0
+  pages: 40
+  segments:
+  - - 1
+    - 38
+    - 1
+  contested: []
+  bin_ratio: 0.95
+  non_article:
+  - 4
+  - 6
+  - 26
+  - 32
+  - 37
+  - 38
+  - 39
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2018 04.pdf
-articles: []
+articles:
+- title: Orðræðan um fullveldið
+  authors:
+  - Eva Halldórsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mörg mál hjá Mannréttindadómstól Evrópu
+  authors:
+  - Berglind Svavarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Alls konar jól
+  authors:
+  - Jólahugvekja Svanhildur Hólm Valsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fullveldi og þjóðréttarsamstarf
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 9
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Hver er tilgangur“ á bls. 15 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Mikilvægast að vera heiðarleg. Viðtal við Þórunni Guðmundsdóttur
+  authors:
+  - Eva Halldórsdóttir
+  - Marín Guðrún Hrafnsdóttir
+  author_titles: []
+  article_type: Viðtal
+  page_start: 16
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 15
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttarfarssektir verjenda
+  authors:
+  - Daníel Isebarn Ágústsson
+  author_titles: []
+  article_type: Annað
+  page_start: 21
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 20
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Peningaþvætti kemur lögmönnum við
+  authors:
+  - Aldís Bjarnadóttir
+  - Anna Ragnhildur Halldórsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 24
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 23
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Færri öðlast málflutningsréttindi
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 27
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Frá útskrift haustannar nemenda“ á bls. 29 sem skráin nefnir ekki; greinin er talin
+    enda þar'
+- title: Aðgengi að lögmönnum í heimabyggð mikilvægt
+  authors:
+  - Katrín Smári Ólafsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 30
+  page_end: 32
+  issue: null
+  pdf_pages:
+  - 29
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sögugangan Lögfræðin í bænum
+  authors:
+  - Guðjón Friðriksson
+  author_titles: []
+  article_type: Annað
+  page_start: 34
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 33
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Systrafélag kvenna í lögmennsku sótt heim
+  authors:
+  - Kolbrún Garðarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 36
+  page_end: 37
+  issue: null
+  pdf_pages:
+  - 35
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Kolbrún Garðarsdóttir) stangast á við síðuna (Í Bronx); skránni haldið'

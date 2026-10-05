@@ -5,12 +5,343 @@ issue: null
 label: Rannsóknir í félagsvísindum, 7. árg. (2006)
 file: Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2006 - VII.pdf
 sha256: 78478bdecedd56e9823c383bb15a6b5278b5cb7a7fc22be67217d85a215dcd83
-pages: null
+pages: 281
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.911
+  runner_up_share: 0.0
+  pages: 281
+  segments:
+  - - 11
+    - 280
+    - 1
+  contested: []
+  bin_ratio: 0.964
+  non_article:
+  - 9
+  - 59
+  - 83
+  - 117
+  - 195
+  - 207
+  - 219
+status: review
+confidence: 0.45
 error: null
 files:
 - Tímarit og fræðigreinar/Rannsóknir í félagsvísingum Lagadeild/Rannsóknir í félagsvísingum Lagadeild 2006 - VII.pdf
-articles: []
+articles:
+- title: Formáli
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 9
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 8
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kynferðisbrot og ákvörðun miskabóta
+  authors:
+  - Ása Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 59
+  issue: null
+  pdf_pages:
+  - 10
+  - 58
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um mörk endurskoðunarvalds Mannréttindadómstóls Evrópu í ljósi ,,fjórða stigs reglunnar“
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 83
+  issue: null
+  pdf_pages:
+  - 60
+  - 82
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stefnumótun og færar leiðir við útfærslu flutningsreglna
+  authors:
+  - Elfa Ýr Gylfadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 85
+  page_end: 117
+  issue: null
+  pdf_pages:
+  - 84
+  - 116
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Elfa Ýr Gylfadóttir“) er annar titill en skrárinnar („Stefnumótun og færar leiðir
+    við útfærslu flutningsreglna“); titli skrárinnar haldið'
+- title: Pólitísk og lagaleg stefnumótun um íslenska fjölmiðla
+  authors:
+  - Elfa Ýr Gylfadóttir
+  - Karl Axelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 119
+  page_end: 156
+  issue: null
+  pdf_pages:
+  - 118
+  - 155
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Veitingastaðir sem vettvangur ofbeldis
+  authors:
+  - Hildigunnur Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 157
+  page_end: 195
+  issue: null
+  pdf_pages:
+  - 156
+  - 194
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Flutningsreglur í frumvarpi til útvarpslaga
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 197
+  page_end: 207
+  issue: null
+  pdf_pages:
+  - 196
+  - 206
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjölbreytni í fjölmiðlum
+  authors:
+  - Páll Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 209
+  page_end: 219
+  issue: null
+  pdf_pages:
+  - 208
+  - 218
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er þörf á sérákvæði um aðra ólögmæta kynferðisnauðung?
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 221
+  page_end: 236
+  issue: null
+  pdf_pages:
+  - 220
+  - 235
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um lögskýringargögn og hugleiðingar um notkun þeirra í fyrri öryrkjadómi Hæstaréttar
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 237
+  page_end: 281
+  issue: null
+  pdf_pages:
+  - 236
+  - 280
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

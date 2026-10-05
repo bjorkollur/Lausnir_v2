@@ -1,16 +1,163 @@
 source: timarit_logfraedinga
 year: 2025
-volume: null
+volume: 75
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2025)
+label: Tímarit lögfræðinga, 75. árg. 3. hefti (2025)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2025_03.pdf
 sha256: 00d3e065d7e5d12c799059e89bac54272653a0fd5a38d263debf53d06c4eb5d7
-pages: null
+pages: 168
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 445
+  quality: 0.958
+  runner_up_share: 0.0
+  pages: 168
+  segments:
+  - - 2
+    - 164
+    - 445
+  contested: []
+  bin_ratio: 0.951
+  non_article:
+  - 5
+  - 160
+  - 161
+  - 162
+  - 163
+  - 164
+  - 165
+  - 166
+  - 167
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2025_03.pdf
-articles: []
+articles:
+- title: Lengd stefna og greinargerða í einkamálum
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 447
+  page_end: 449
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Miskabætur vegna ofbeldis í íslenskri réttarframkvæmd og nýting hagfræðilegra aðferða við mat á fjárhæðum þeirra
+  authors:
+  - Eiríkur Jónsson
+  - Tinna Laufey Ásgeirsdóttir
+  - Flóki Fjalar Fjölnisson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 451
+  page_end: 488
+  issue: null
+  pdf_pages:
+  - 6
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvaða sjónarmið ber stjórn að leggja til grundvallar ákvörðunum sínum samkvæmt íslenskum hlutafélagarétti? Um fjárhagslegan
+    ávinning og ótilhlýðilega hagsmuni í skilningi hlutafélagaréttar og samspil sjónarmiða
+  authors:
+  - Arnljótur Ástvaldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 489
+  page_end: 576
+  issue: null
+  pdf_pages:
+  - 44
+  - 131
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Fyrirframgreiddur arfur: 32. gr. erfðalaga'
+  authors:
+  - Sveinbjörn Claessen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 577
+  page_end: 604
+  issue: null
+  pdf_pages:
+  - 132
+  - 159
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

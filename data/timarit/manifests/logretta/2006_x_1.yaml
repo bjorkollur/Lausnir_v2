@@ -1,16 +1,148 @@
 source: logretta
 year: 2006
-volume: null
+volume: 3
 issue: '1'
-label: Lögrétta, 1. tbl. (2006)
+label: Lögrétta, 3. árg. 1. tbl. (2006)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2006 1.tbl.pdf
 sha256: aa10d4181a911751cd21aabe931b185e0705834d72f2842e129f52dc56030bd3
-pages: null
+pages: 73
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 73
+  segments: []
+  contested: []
+  bin_ratio: 0.68
+  non_article: []
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2006 1.tbl.pdf
-articles: []
+articles:
+- title: Lög um varnir gegn mengun hafs og stranda í ljósi greiðslureglu
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 9 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: 'Áhrif nýrrar tækni á höfundarétt: Fyrirhuguð innleiðing tilskipunar nr. 2001/29/EB frá 22. maí 2001 um samræmingu
+    tiltekinna þátta höfundaréttar og skyldra réttinda í upplýsingasamfélaginu í íslensk höfundalög'
+  authors:
+  - Rán Tryggvadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 19
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 29 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - Claude segir bls. 29; greinin fannst eftir titli sínum á pdf-síðu 20
+- title: Flutningur fyrirtækja þvert á landamæri í Evrópubandalaginu
+  authors:
+  - Benedikt Egill Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 51 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Um biðlaun
+  authors:
+  - Guðni Á. Haraldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 73 fannst ekki: blaðsíðutal skjalsins óljóst'

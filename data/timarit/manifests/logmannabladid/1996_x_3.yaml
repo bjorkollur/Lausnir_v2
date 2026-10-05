@@ -5,12 +5,19 @@ issue: '3'
 label: Lögmannablaðið, 3. tbl. (1996)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1996 03.pdf
 sha256: c171505b7cfe1b27222b5693ea53792bd653a2478f1a8adce62c285da8aabf1a
-pages: null
+pages: 11
 year_end: null
-page_map: {}
-status: pending
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 11
+  segments: []
+  contested: []
+  bin_ratio: 0.0
+status: review
 confidence: 0.0
-error: null
+error: ekkert textalag — þarf OCR
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1996 03.pdf
 articles: []

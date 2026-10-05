@@ -1,16 +1,156 @@
 source: ulfljotur
 year: 2006
-volume: null
+volume: 59
 issue: '1'
-label: Úlfljótur, 1. tbl. (2006)
+label: Úlfljótur, 59. árg. 1. tbl. (2006)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2006_1_tbl.pdf
 sha256: 5b4f227a29278b30ad0b93d47529da8e21f69e413aec2f43083c5372fb808188
-pages: null
+pages: 186
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.941
+  runner_up_share: 0.0
+  pages: 186
+  segments:
+  - - 11
+    - 185
+    - -1
+  contested: []
+  bin_ratio: 0.948
+  non_article:
+  - 159
+  - 181
+  - 182
+  - 183
+  - 184
+  - 185
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2006_1_tbl.pdf
-articles: []
+articles:
+- title: Um lagaskil og afturvirkni laga
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 80
+  issue: null
+  pdf_pages:
+  - 6
+  - 81
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 267
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjárhæð eignarnámsbóta
+  authors:
+  - Guðjón Ármannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 81
+  page_end: 124
+  issue: null
+  pdf_pages:
+  - 82
+  - 125
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 268
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Hæstaréttardómari“ á bls. 125 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Breytingar á skipan ákæruvalds
+  authors:
+  - Björn Bjarnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 160
+  page_end: 161
+  issue: null
+  pdf_pages:
+  - 161
+  - 162
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 269
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er rétt að rannsókn og saksókn efnahags- og skattabrota sé á sömu hendi?
+  authors:
+  - Sigríður Rut Júlíusdóttir
+  - Ragnar Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 162
+  page_end: 166
+  issue: null
+  pdf_pages:
+  - 163
+  - 167
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 270
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Skaðabótaréttur“ á bls. 167 sem skráin nefnir ekki; greinin er talin enda þar'

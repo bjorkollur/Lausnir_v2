@@ -1,16 +1,160 @@
 source: timarit_logfraedinga
 year: 2010
-volume: null
+volume: 60
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2010)
+label: Tímarit lögfræðinga, 60. árg. 3. hefti (2010)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2010_03.pdf
 sha256: 0fe71e66951b8ff7a5a260b07c1ef5c91dee8dc32f1d6bfa40eb787c8a61a0e1
-pages: null
+pages: 109
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 213
+  quality: 0.972
+  runner_up_share: 0.0
+  pages: 109
+  segments:
+  - - 2
+    - 107
+    - 213
+  contested: []
+  bin_ratio: 0.909
+  non_article:
+  - 63
+  - 100
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2010_03.pdf
-articles: []
+articles:
+- title: Þarf að kynna dómskerfið fyrir almenningi?
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 215
+  page_end: 216
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Trúnaðarskylda og tilkynningarskylda fagstétta
+  authors:
+  - Hrefna Friðriksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 217
+  page_end: 266
+  issue: null
+  pdf_pages:
+  - 4
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eru dómstólar mildari en almenningur?
+  authors:
+  - Helgi Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 267
+  page_end: 275
+  issue: null
+  pdf_pages:
+  - 54
+  - 62
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Úthlutun byggðakvóta með hliðsjón af álitum umboðsmanns Alþingis
+  authors:
+  - Ottó Björgvin Óskarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 277
+  page_end: 312
+  issue: null
+  pdf_pages:
+  - 64
+  - 99
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,740 @@
 source: timarit_logfraedinga
 year: 1981
-volume: null
+volume: 31
 issue: null
-label: Tímarit lögfræðinga (1981)
+label: Tímarit lögfræðinga, 31. árg. (1981)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1981.pdf
 sha256: 160c24a179244de3c63fb21632b0d7cfa7a37cec06d7c3db661508ef74fd3688
-pages: null
+pages: 240
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -9
+  quality: 0.812
+  runner_up_share: 0.018
+  pages: 240
+  segments:
+  - - 6
+    - 52
+    - -5
+  - - 62
+    - 120
+    - -9
+  - - 130
+    - 181
+    - -13
+  - - 190
+    - 231
+    - -17
+  contested: []
+  bin_ratio: 0.944
+  non_article:
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 61
+  - 121
+  - 122
+  - 123
+  - 124
+  - 125
+  - 126
+  - 127
+  - 129
+  - 182
+  - 183
+  - 184
+  - 185
+  - 186
+  - 187
+  - 189
+  - 232
+  - 233
+  - 234
+  - 235
+  - 236
+  - 237
+  - 238
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1981.pdf
-articles: []
+articles:
+- title: Eignarnám og stjórnarskrá
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 1
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Valtýr Guðmundsson
+  authors:
+  - Guðmundur Vignir Jósefsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 2
+  page_end: 2
+  issue: '1'
+  pdf_pages:
+  - 7
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: De lege ferenda sjónarmið um eignarnám
+  authors:
+  - Jón G. Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 15
+  issue: '1'
+  pdf_pages:
+  - 8
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ákvörðun um eignarnám
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 16
+  page_end: 27
+  issue: '1'
+  pdf_pages:
+  - 21
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögfræðingafélagi íslands
+  authors:
+  - Gunnar G. Schram
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 29
+  issue: '1'
+  pdf_pages:
+  - 33
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norrænt lögfræðingaþing
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 30
+  page_end: 35
+  issue: '1'
+  pdf_pages:
+  - 35
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „NÁMSSTEFNA UM RÉTTARFAR“ á bls. 35 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Á Löggjöf og tillögur um afnám skaðabótaréttar eftir Arnljót Björnsson víð og dreif Nokkur orð um drög að frumvarpi
+    til laga um lögfræðiaðstoð hérlendis — Forsetafundur — Réttarfarsnefnd — Frá Alþingi — Námsstefna um réttarfar — 22. norræna
+    laganemamótjð
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 103
+  issue: '2'
+  pdf_pages:
+  - 62
+  - 112
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Tiharitwí“) er annar titill en skrárinnar („Á Löggjöf og tillögur um afnám skaðabótaréttar
+    eftir Arnljót Björnsson víð og dreif Nokkur orð um drög að frumvarpi til laga um lögfræðiaðstoð hérlendis — Forsetafundur
+    — Réttarfarsnefnd — Frá Alþingi — Námsstefna um réttarfar — 22. norræna laganemamótjð“); titli skrárinnar haldið'
+- title: Myndsegulböndin
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 117
+  issue: '3'
+  pdf_pages:
+  - 130
+  - 130
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjármál hjóna og sambúðarfólks
+  authors:
+  - Guðrún Erlendsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 118
+  page_end: 143
+  issue: '3'
+  pdf_pages:
+  - 131
+  - 156
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fundarmenn á aðalfundi Dómarafélags íslands 1980
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 144
+  page_end: 149
+  issue: '3'
+  pdf_pages:
+  - 157
+  - 162
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lækkun skaðabóta, þegar launþegi veldur tjóni í starfi
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 150
+  page_end: 157
+  issue: '3'
+  pdf_pages:
+  - 163
+  - 170
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögmannafélagi Islands
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 158
+  page_end: 159
+  issue: '3'
+  pdf_pages:
+  - 171
+  - 172
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Leiðrétting
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 160
+  page_end: 160
+  issue: '3'
+  pdf_pages:
+  - 173
+  - 173
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Á ví<>“ á bls. 161 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Lögmannafélagið
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 173
+  issue: '4'
+  pdf_pages:
+  - 190
+  - 190
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Þórólfur Ólafsson — Þorsteinn Sveinsson
+  authors:
+  - Sigurður Óiason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 174
+  page_end: 177
+  issue: '4'
+  pdf_pages:
+  - 191
+  - 194
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmannafélag íslands 70 ára
+  authors:
+  - Sigurður Nordal
+  - Páll S. Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 178
+  page_end: 183
+  issue: '4'
+  pdf_pages:
+  - 195
+  - 200
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðstoðarmaður ráðherra
+  authors:
+  - Hjálmar Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 184
+  page_end: 192
+  issue: '4'
+  pdf_pages:
+  - 201
+  - 209
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Haag reglurnar, Haag-Visby reglurnar og Hamborgarreglurnar
+  authors:
+  - Valgarð Briem
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 193
+  page_end: 202
+  issue: '4'
+  pdf_pages:
+  - 210
+  - 219
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kröfulýsingar og meðferð krafna í þrotabúum
+  authors:
+  - Ragnar Halldór Hall
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 203
+  page_end: 207
+  issue: '4'
+  pdf_pages:
+  - 220
+  - 224
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lagadeild Háskólans
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 208
+  page_end: 210
+  issue: '4'
+  pdf_pages:
+  - 225
+  - 227
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „DEILDARFRÉTTIR“ á bls. 210 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Skýrsla um Lagastofnun Fláskóla íslands 29. febr. 1980 - 27. febr. 1981 — Deildarfréttir Á víð og dreif
+  authors:
+  - Þorsteinn A. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 213
+  page_end: 214
+  issue: '4'
+  pdf_pages:
+  - 230
+  - 231
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Fangelsismal“) er annar titill en skrárinnar („Skýrsla um Lagastofnun Fláskóla íslands
+    29. febr. 1980 - 27. febr. 1981 — Deildarfréttir Á víð og dreif“); titli skrárinnar haldið'

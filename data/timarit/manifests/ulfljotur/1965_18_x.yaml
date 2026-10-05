@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.917
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/1294.pdf
@@ -21,4 +22,285 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/346.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/488.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/63.pdf
-articles: []
+articles:
+- title: Ráðherrar og ráðherraskipti 1904 - 1917
+  authors:
+  - Agnar Kl. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 20
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1054
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/63.pdf
+  note: ''
+  analysis_notes: []
+- title: Höfundaréttur í myndlist
+  authors:
+  - Sigurður Reynir Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 29
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1055
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/266.pdf
+  note: ''
+  analysis_notes: []
+- title: Þingnefndir
+  authors:
+  - Steingrímur Gautur Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 30
+  page_end: 37
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1056
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/346.pdf
+  note: ''
+  analysis_notes: []
+- title: Viðvíkjandi lagadeild
+  authors:
+  - Björn Friðfinnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 38
+  page_end: 42
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1057
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/1294.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 42, prentað bls. 38'
+- title: Íslenskur umferðarrefsiréttur
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 69
+  page_end: 86
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1058
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/488.pdf
+  note: ''
+  analysis_notes: []
+- title: Lögteikn og lögtrúnaður
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 114
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1059
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/213.pdf
+  note: ''
+  analysis_notes: []
+- title: Studia juris
+  authors:
+  - Gunnar Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 115
+  page_end: 117
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1060
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/1303.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 117, prentað bls. 115'
+- title: Obligations of passengers under contracts of international carriage by air
+  authors:
+  - Grétar Br. Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 170
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 37
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1061
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/282.pdf
+  note: ''
+  analysis_notes: []
+- title: Um forsendur og öflun íslenzks ríkisfangs
+  authors:
+  - Jón E. Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 184
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1062
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1965 18 arg/345.pdf
+  note: ''
+  analysis_notes: []

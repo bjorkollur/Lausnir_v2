@@ -1,19 +1,129 @@
 source: ulfljotur
 year: 2009
-volume: null
+volume: 62
 issue: '2'
-label: Úlfljótur, 2. tbl. (2009)
+label: Úlfljótur, 62. árg. 2. tbl. (2009)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_2_tbl.pdf
 sha256: 41821425f12281a79f7b744adf6503b56a3ef12a544c33de2ac0a7c7d3b2fad5
-pages: null
+pages: 160
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 93
+  quality: 0.912
+  runner_up_share: 0.0
+  pages: 160
+  segments:
+  - - 1
+    - 153
+    - 93
+  contested: []
+  bin_ratio: 0.95
+  non_article:
+  - 71
+  - 85
+  - 150
+  - 151
+  - 152
+  - 153
+  - 154
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_2_tbl.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_2_tbl/716.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_2_tbl/717.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_2_tbl/718.pdf
-articles: []
+articles:
+- title: Möguleikar á skaðabótum vegna brota á 10. gr. samkeppnislaga nr. 44/2005
+  authors:
+  - Grétar Dór Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 163
+  issue: null
+  pdf_pages:
+  - 4
+  - 70
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 214
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Valdgreining, skilvirkni og frelsi
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 165
+  page_end: 177
+  issue: null
+  pdf_pages:
+  - 72
+  - 84
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 215
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvernig urðu aflaheimildir í botnfiski til? Enn af staðalímynd íslenska fiskveiðistjórnkerfisins
+  authors:
+  - Helgi Áss Grétarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 179
+  page_end: 236
+  issue: null
+  pdf_pages:
+  - 86
+  - 143
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 216
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Fréttir frá Lagadeild Háskóla Islands“ á bls. 237 sem skráin nefnir ekki; greinin er
+    talin enda þar'

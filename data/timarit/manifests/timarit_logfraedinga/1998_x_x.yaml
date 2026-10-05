@@ -1,16 +1,752 @@
 source: timarit_logfraedinga
 year: 1998
-volume: null
+volume: 48
 issue: null
-label: Tímarit lögfræðinga (1998)
+label: Tímarit lögfræðinga, 48. árg. (1998)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1998.pdf
 sha256: b97af3391d22a5b687eed13d014af8e637892e004b4fcfc0462b5512ed9468a8
-pages: null
+pages: 396
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -19
+  quality: 0.934
+  runner_up_share: 0.0
+  pages: 396
+  segments:
+  - - 6
+    - 90
+    - -5
+  - - 98
+    - 180
+    - -11
+  - - 186
+    - 269
+    - -15
+  - - 274
+    - 393
+    - -19
+  contested: []
+  bin_ratio: 0.965
+  non_article:
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+  - 92
+  - 93
+  - 94
+  - 96
+  - 97
+  - 174
+  - 175
+  - 176
+  - 177
+  - 178
+  - 179
+  - 180
+  - 181
+  - 182
+  - 184
+  - 185
+  - 263
+  - 264
+  - 265
+  - 266
+  - 267
+  - 268
+  - 269
+  - 270
+  - 272
+  - 273
+  - 387
+  - 388
+  - 389
+  - 390
+  - 391
+  - 392
+  - 393
+  - 394
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1998.pdf
-articles: []
+articles:
+- title: Forræðishyggja og sjálfstæði
+  authors:
+  - Sigurmar K. Albertsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 3
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Minning. Gunnar M. Guðmundsson fv. hæstaréttardómari
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 5
+  issue: '1'
+  pdf_pages:
+  - 9
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samningur Sameinuðu þjóðanna um afnám allrar mismununar gagnvart konum
+  authors:
+  - Brynhildur Flóvenz
+  - Elsa S. Þorkelsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 6
+  page_end: 27
+  issue: '1'
+  pdf_pages:
+  - 11
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hver á kvótann?
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 59
+  issue: '1'
+  pdf_pages:
+  - 33
+  - 64
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvaða þýðingu hafa DNA-rannsóknir fyrir rekstur og úrlausnir dómsmála
+  authors:
+  - Sigríður Ingvarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 60
+  page_end: 71
+  issue: '1'
+  pdf_pages:
+  - 65
+  - 76
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fáein orð um sænska dómstóla
+  authors:
+  - Ingveldur Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 72
+  page_end: 78
+  issue: '1'
+  pdf_pages:
+  - 77
+  - 83
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dómstólalög
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 89
+  issue: '2'
+  pdf_pages:
+  - 98
+  - 100
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Afbrot, refsingar og afstaða Islendinga
+  authors:
+  - Helgi Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 90
+  page_end: 99
+  issue: '2'
+  pdf_pages:
+  - 101
+  - 110
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkur lögfræðileg álitaefni við gildistöku evrósins
+  authors:
+  - Christiansen, Per
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 100
+  page_end: 123
+  issue: '2'
+  pdf_pages:
+  - 111
+  - 134
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Per Christiansen'
+- title: Skaðabótaábyrgð aðildarríkja EES-samningsins gagnvart einstaklingum og lögaðilum
+  authors:
+  - Óttar Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 124
+  page_end: 151
+  issue: '2'
+  pdf_pages:
+  - 135
+  - 162
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Deildarfréttir
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 152
+  page_end: 162
+  issue: '2'
+  pdf_pages:
+  - 163
+  - 173
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagasetning
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 173
+  issue: '3'
+  pdf_pages:
+  - 186
+  - 188
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skaðabótalög
+  authors:
+  - Vilhjálmur H. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 174
+  page_end: 206
+  issue: '3'
+  pdf_pages:
+  - 189
+  - 221
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samfélagsþjónusta - Viðurlög eða fullnustuúrræði
+  authors:
+  - Helgi I. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 207
+  page_end: 214
+  issue: '3'
+  pdf_pages:
+  - 222
+  - 229
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hafa umgengnissamningar staðfestir af sýslumanni sömu réttaráhrif og úrskurðir?
+  authors:
+  - Ástríður Grímsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 215
+  page_end: 221
+  issue: '3'
+  pdf_pages:
+  - 230
+  - 236
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Neikvætt félagafrelsi og staða Lögmannafélags Islands
+  authors:
+  - Áslaug Björgvinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 222
+  page_end: 247
+  issue: '3'
+  pdf_pages:
+  - 237
+  - 262
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sameinum kraftana
+  authors:
+  - Helgi Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 255
+  page_end: 257
+  issue: '4'
+  pdf_pages:
+  - 274
+  - 276
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ágrip af sögu Lögfræðingafélags Islands
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 258
+  page_end: 278
+  issue: '4'
+  pdf_pages:
+  - 277
+  - 297
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvers vegna var Staðarhólsbók Grágásar skrifuð?
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 279
+  page_end: 302
+  issue: '4'
+  pdf_pages:
+  - 298
+  - 321
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Greiðslutími og greiðslustaður
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 303
+  page_end: 350
+  issue: '4'
+  pdf_pages:
+  - 322
+  - 369
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttlæting refsinga
+  authors:
+  - Kristrún Kristinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 351
+  page_end: 367
+  issue: '4'
+  pdf_pages:
+  - 370
+  - 386
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

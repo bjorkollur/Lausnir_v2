@@ -1,16 +1,602 @@
 source: timarit_logfraedinga
 year: 1973
-volume: null
+volume: 23
 issue: null
-label: Tímarit lögfræðinga (1973)
+label: Tímarit lögfræðinga, 23. árg. (1973)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1973.pdf
 sha256: 9715cb801f5caf09cbf01471c69ca1bca076b1e991556c94b8853a1590b948ca
-pages: null
+pages: 272
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.915
+  pages: 272
+  segments: []
+  contested: []
+  bin_ratio: 0.93
+  non_article:
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 135
+  - 136
+  - 137
+  - 138
+  - 139
+  - 140
+  - 141
+  - 142
+  - 143
+  - 144
+  - 145
+  - 146
+  - 147
+  - 148
+  - 149
+  - 179
+  - 189
+  - 190
+  - 191
+  - 192
+  - 193
+  - 194
+  - 195
+  - 199
+  - 200
+  - 257
+  - 258
+  - 259
+  - 260
+  - 261
+  - 262
+  - 263
+  - 264
+  - 265
+  - 266
+  - 267
+  - 270
+  - 271
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1973.pdf
-articles: []
+articles:
+- title: Tímaritið — félagið............................. 2
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 2
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: page
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 2 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: leitir.is segir bls. 2, prentað bls. 1'
+- title: Ákvæði laga um skattframtöl
+  authors:
+  - Skúli Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 10
+  issue: '1'
+  pdf_pages:
+  - 8
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 3 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Gildistaka skattalagabreytinga
+  authors:
+  - Guðmundur Vignir Jósefsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 25
+  issue: '1'
+  pdf_pages:
+  - 16
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 11 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Frá Lögfræðingafélagi Islands
+  authors:
+  - Stefán M. Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 26
+  page_end: 29
+  issue: '1'
+  pdf_pages:
+  - 31
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 26 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: á eftir greininni hefst „SKATTARÉTTARNÁMSKEIÐ“ á bls. 29 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Skýrsla um störf Lögfræðingafélagsins 1971—1972 — Aðalfundur — Ráðstefna um mannréttindi — Skattaréttarnámskeið —
+    Þrlr félagsfundir Frá Lögmannafélagi Islands
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 32
+  page_end: null
+  issue: '1'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 32 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Frá Bandalagi háskólamanna
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 34
+  page_end: 36
+  issue: '1'
+  pdf_pages:
+  - 39
+  - 41
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 63–66
+  - 'upphafsbls. 34 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: á eftir greininni hefst „Ávíð oú dreif“ á bls. 37 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Á víð og dreif
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 37
+  page_end: null
+  issue: '1'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 37 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Hafréttarráðstefna Sameinuðu þjóðanna — Norræna embættismannamótið — Kosning í mannréttindadómstólinn
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '2'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Umbætur í réttarfari
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 2
+  page_end: 2
+  issue: '4'
+  pdf_pages:
+  - 203
+  - 210
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+    authors: leitir
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 2 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: greinin er undirrituð (Hákon Guðmundsson) en höfundar skrárinnar eru aðrir (Þór Vilhjálmsson); skránni haldið'
+- title: Gunnar Jónsson — Jóhann J. Ragnarsson — Ólafur H. Jónsson — Sigurður Sigurðsson — Ulf Jónsson
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögfræðiaðstoð án endurgjalds
+  authors:
+  - Gunnur Eydal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 10
+  page_end: 21
+  issue: '4'
+  pdf_pages:
+  - 211
+  - 222
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 10'
+- title: Frá Lögmannafélagi íslands
+  authors:
+  - Benedikt Blöndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 32
+  page_end: 33
+  issue: '4'
+  pdf_pages:
+  - 37
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+    pages: page
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 32'
+- title: Frá Lögfræðingafélagi islands
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 26
+  issue: '4'
+  pdf_pages:
+  - 224
+  - 227
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+    pages: page
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 23
+  - 'FRÁVIK: á eftir greininni hefst „STJÓRNUNARNÁMSKEIÐ“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Skýrsla um störf Lögfræðingafélagsins 1972—1973 — Norrænir fundir — Stjórnunarnámskeið — Fræðafundur — Aðalfundur
+    Frá Bandalagi háskólamanna
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Siðasta starfsár — Kjaramál rikisstarfsmanna Frá lagadeild Háskólans
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Deildarfréttir — Orator — Náms- og rannsóknastyrkir ^rá dómstólunum
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 38
+  page_end: null
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 38 fannst ekki: blaðsíðutal skjalsins óljóst'

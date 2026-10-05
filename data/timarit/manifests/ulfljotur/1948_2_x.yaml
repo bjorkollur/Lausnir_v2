@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.944
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/1.pdf
@@ -22,4 +23,314 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/797.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/798.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/821.pdf
-articles: []
+articles:
+- title: Skipaður prófessor fyrir 30 árum
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/665.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.52)
+- title: Meðal norskra stúdenta 17. maí.
+  authors:
+  - Guðmundur Benediktsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/821.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.53)
+  - 'FRÁVIK: blaðsíðutal greinarinnar fannst hvorki á síðunni né í skránni'
+- title: Lítið spjall um erfðaréttindi
+  authors:
+  - Björn Þórðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 8
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1239
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/174.pdf
+  note: ''
+  analysis_notes: []
+- title: Öskuhreinsunarleiðangur
+  authors:
+  - Barði Friðriksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 11
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1240
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/782.pdf
+  note: ''
+  analysis_notes: []
+- title: Rekalög Jónsbókar
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 10
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1241
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/185.pdf
+  note: ''
+  analysis_notes: []
+- title: Lög og lagasöfn
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 12
+  page_end: 24
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1242
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/1.pdf
+  note: ''
+  analysis_notes: []
+- title: Afnám skattfrelsis
+  authors:
+  - Ólafur Lárusson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 11
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1246
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/460.pdf
+  note: ''
+  analysis_notes: []
+- title: Um laganám í Danmörku
+  authors:
+  - Gísli Sveinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 6
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1243
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/796.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 6, prentað bls. 3'
+- title: Vísindaleiðangur 1948
+  authors:
+  - Barði Friðriksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 8
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1244
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/797.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 8, prentað bls. 7'
+- title: 40 ára afmæli Juristforeningen
+  authors:
+  - Valgarð Briem
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 11
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1245
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1948 02 arg/798.pdf
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,192 @@
 source: timarit_logfraedinga
 year: 2025
-volume: null
+volume: 75
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2025)
+label: Tímarit lögfræðinga, 75. árg. 1. hefti (2025)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2025_01.pdf
 sha256: 503b375a90da13aa8430d2845308aa81b6db295d6ca68197ebdfa05b22652217
-pages: null
+pages: 226
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.965
+  runner_up_share: 0.0
+  pages: 226
+  segments:
+  - - 2
+    - 222
+    - -1
+  contested: []
+  bin_ratio: 0.961
+  non_article:
+  - 5
+  - 218
+  - 219
+  - 220
+  - 221
+  - 222
+  - 223
+  - 224
+  - 225
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2025_01.pdf
-articles: []
+articles:
+- title: Persónuvernd og mállíkön
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 1
+  page_end: 3
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samskiptareglur á opinberum vinnumarkaði
+  authors:
+  - Þórhallur Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 94
+  issue: null
+  pdf_pages:
+  - 6
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fæðingarorlofsmálið og forgangsreglur
+  authors:
+  - Arnljótur Ástvaldsson
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 95
+  page_end: 150
+  issue: null
+  pdf_pages:
+  - 96
+  - 151
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um læknisvottorð til atvinnurekenda
+  authors:
+  - Gunnar Ármannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 151
+  page_end: 201
+  issue: null
+  pdf_pages:
+  - 152
+  - 203
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Þróun íslensku stjórnarskrárinnar í alþjóðlegu samhengi
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 203
+  page_end: 216
+  issue: null
+  pdf_pages:
+  - 204
+  - 217
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

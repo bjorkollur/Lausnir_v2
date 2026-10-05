@@ -1,16 +1,198 @@
 source: timarit_logfraedinga
 year: 2013
-volume: null
+volume: 63
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2013)
+label: Tímarit lögfræðinga, 63. árg. 2. hefti (2013)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2013_02.pdf
 sha256: c65d53ead4a44fd50bb4d94553676c257e21fa58944480e1125b0dbc8138b3fe
-pages: null
+pages: 96
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 111
+  quality: 0.948
+  runner_up_share: 0.0
+  pages: 96
+  segments:
+  - - 2
+    - 92
+    - 111
+  contested: []
+  bin_ratio: 0.958
+  non_article:
+  - 5
+  - 33
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+  - 92
+  - 93
+  - 94
+  - 95
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2013_02.pdf
-articles: []
+articles:
+- title: Um flokkapólitík og faglega stjórnsýslu
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 113
+  page_end: 115
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttur kröfuhafa til viðbótargreiðslu og fullnaðarkvittun
+  authors:
+  - Benedikt Bogason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 143
+  issue: null
+  pdf_pages:
+  - 6
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Íslenskur heilbrigðisréttur II – Þróun, meginreglur og grundvallarkenningar
+  authors:
+  - Oddný Mjöll Arnardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 145
+  page_end: 184
+  issue: null
+  pdf_pages:
+  - 34
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um dóm dómstóls EFTA í máli nr. E-16/11, Eftirlitsstofnun EFTA gegn Íslandi, frá 28. janúar 2013
+  authors:
+  - Fuchs, Tobias
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 185
+  page_end: 192
+  issue: null
+  pdf_pages:
+  - 74
+  - 81
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Tobias Fuchs'
+- title: Kveðja frá ritstjóra
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 193
+  page_end: 193
+  issue: null
+  pdf_pages:
+  - 82
+  - 82
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

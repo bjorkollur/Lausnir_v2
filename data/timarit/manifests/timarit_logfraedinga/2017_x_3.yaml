@@ -1,16 +1,160 @@
 source: timarit_logfraedinga
 year: 2017
-volume: null
+volume: 67
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2017)
+label: Tímarit lögfræðinga, 67. árg. 3. hefti (2017)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2017_03.pdf
 sha256: 6bcef3b3e0770e1421d38ad4f0dcae78d6c13baf83a320814a1cc89d5ee6741a
-pages: null
+pages: 134
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 221
+  quality: 0.963
+  runner_up_share: 0.0
+  pages: 134
+  segments:
+  - - 2
+    - 131
+    - 221
+  contested: []
+  bin_ratio: 0.927
+  non_article:
+  - 124
+  - 125
+  - 126
+  - 127
+  - 128
+  - 129
+  - 130
+  - 131
+  - 132
+  - 133
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2017_03.pdf
-articles: []
+articles:
+- title: Landsréttur tekur til starfa
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 223
+  page_end: 224
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fyrning kröfuréttinda – fyrri hluti
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 225
+  page_end: 290
+  issue: null
+  pdf_pages:
+  - 4
+  - 69
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttmætar væntingar í stjórnsýslurétti
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 291
+  page_end: 323
+  issue: null
+  pdf_pages:
+  - 70
+  - 103
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Áherslubreytingar Hæstaréttar í sakamálum er varða skil á virðisaukaskatti og staðgreiðslu opinberra gjalda og skýrslum
+    þessu tengdu
+  authors:
+  - Einar Hugi Bjarnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 325
+  page_end: 344
+  issue: null
+  pdf_pages:
+  - 104
+  - 123
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,159 @@
 source: timarit_logfraedinga
 year: 2024
-volume: null
+volume: 74
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2024)
+label: Tímarit lögfræðinga, 74. árg. 4. hefti (2024)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2024_04.pdf
 sha256: 67d0c96901011216e86b3e8b0ad91f4993a3e67c7bdbc02dc1c9cb46ef949d2b
-pages: null
+pages: 166
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 425
+  quality: 0.958
+  runner_up_share: 0.0
+  pages: 166
+  segments:
+  - - 2
+    - 163
+    - 425
+  contested: []
+  bin_ratio: 0.96
+  non_article:
+  - 159
+  - 160
+  - 161
+  - 162
+  - 163
+  - 164
+  - 165
+status: review
+confidence: 0.45
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2024_04.pdf
-articles: []
+articles:
+- title: Rannsóknir og námsmat á gervigreindaröld
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 427
+  page_end: 428
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hæfisreglan í sveitarstjórnarlögunum
+  authors:
+  - Trausti Fannar Valsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 429
+  page_end: 484
+  issue: null
+  pdf_pages:
+  - 4
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málsforræði og kærunefnd útboðsmála
+  authors:
+  - Reimar Snæfells Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 485
+  page_end: 525
+  issue: null
+  pdf_pages:
+  - 60
+  - 101
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Reimar Pétursson'
+- title: Beiting konungsvalds á tíma ríkisstjóra 1941-1944
+  authors:
+  - Björn Jón Bragason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 527
+  page_end: 583
+  issue: null
+  pdf_pages:
+  - 102
+  - 158
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

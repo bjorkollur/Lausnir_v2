@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.917
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/175.pdf
@@ -24,4 +25,375 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/506.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/508.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/569.pdf
-articles: []
+articles:
+- title: Embættispróf 1978
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 328
+  page_end: 329
+  issue: null
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/28.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.53)
+- title: Lögjöfnun sem refsiheimild
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 19
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 818
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/506.pdf
+  note: ''
+  analysis_notes: []
+- title: Bætur fyrir lífs-og líkamstjón. 3. Grein. Ákvörðun vinnutekjutaps. Örorkumöt
+  authors:
+  - Þórir Bergsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 20
+  page_end: 35
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 819
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/247.pdf
+  note: ''
+  analysis_notes: []
+- title: Útilífsréttur
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 36
+  page_end: 48
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 820
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/195.pdf
+  note: ''
+  analysis_notes: []
+- title: Almannaréttur og landnýting
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 56
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 821
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/196.pdf
+  note: ''
+  analysis_notes: []
+- title: Rangur framburður fyrir rétti
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 85
+  page_end: 103
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 825
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/508.pdf
+  note: ''
+  analysis_notes: []
+- title: Réttarstaða sökunauts og réttindi og skyldur verjenda
+  authors:
+  - Ragnar Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 104
+  page_end: 114
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 826
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/569.pdf
+  note: ''
+  analysis_notes: []
+- title: Sendiherrar með búsetu í heimalandi
+  authors:
+  - Pétur Thorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 115
+  page_end: 121
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 827
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/1864.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 121, prentað bls. 115'
+- title: Friðhelgi einkalífs
+  authors:
+  - Kjartan Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 240
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 69
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 834
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/359.pdf
+  note: ''
+  analysis_notes: []
+- title: Erfðaréttur maka og óskipt bú
+  authors:
+  - Guðrún Erlendsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 253
+  page_end: 275
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 835
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/175.pdf
+  note: ''
+  analysis_notes: []
+- title: Verkfallsheimildir og réttur til að halda uppi verkfallsvörslu með tilliti til 18. gr. laga nr. 80/1938
+  authors:
+  - Gunnar Sæmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 277
+  page_end: 290
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 836
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/324.pdf
+  note: ''
+  analysis_notes: []
+- title: Vinna og verkföll Hverjir mega vinna og hverjir ekki í löglega boðuðum verkföllum, sbr, 18. gr. 1. nr. 80/1938?
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 291
+  page_end: 327
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 837
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/325.pdf
+  note: ''
+  analysis_notes: []

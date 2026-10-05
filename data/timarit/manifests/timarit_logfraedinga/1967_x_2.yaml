@@ -1,16 +1,327 @@
 source: timarit_logfraedinga
 year: 1967
-volume: null
+volume: 17
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1967)
+label: Tímarit lögfræðinga, 17. árg. 2. hefti (1967)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1967_02.pdf
 sha256: efb4f059b1a7cf446a06d7813cdd342575a7e724d99ab62ab926dea37d15153b
-pages: null
+pages: 80
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 79
+  quality: 0.475
+  runner_up_share: 0.026
+  pages: 80
+  segments:
+  - - 3
+    - 57
+    - 79
+  contested: []
+  bin_ratio: 0.859
+  non_article:
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 69
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1967_02.pdf
-articles: []
+articles:
+- title: Um úthlutun uppboðsandvirðis lausafjár
+  authors:
+  - Steingrímur Gautur Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 81
+  page_end: 98
+  issue: null
+  pdf_pages:
+  - 2
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttarfarsnefnd
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 99
+  page_end: 99
+  issue: null
+  pdf_pages:
+  - 20
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla dómsmálaráðherra um athugun á meðferð dómsmála og dómaskipun. II. Töflur I–VII
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 100
+  page_end: 116
+  issue: null
+  pdf_pages:
+  - 21
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Bæjarþingi Reykjavíkur. Nokkrir dómar frá árunum 1964–1965
+  authors:
+  - Björn Þ. Guðmundsson
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 117
+  page_end: 133
+  issue: null
+  pdf_pages:
+  - 38
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Háskólanum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 133
+  page_end: 133
+  issue: null
+  pdf_pages:
+  - 54
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Gaukur Jörundsson, Jónatan Þórmundsson); skránni
+    haldið'
+- title: Frá ritstjóranum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 133
+  page_end: 133
+  issue: null
+  pdf_pages:
+  - 54
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'A. Vinding Kruse: Erstatningsretten I. Del. Ansvarsgrundlaget, og Erstatningsretten II. Fællesregler og Erstatningsansvar'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 134
+  page_end: 134
+  issue: null
+  pdf_pages:
+  - 55
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 2) Den Dömmenda makt. Domstolene og rettsutviklingen 1814—1864. Universitets forlaget, Oslo 1967.
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 135
+  page_end: 135
+  issue: null
+  pdf_pages:
+  - 56
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 3 til Nordisk Domssamling for 1958–1964
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 136
+  page_end: 136
+  issue: null
+  pdf_pages:
+  - 57
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Frá Útvegsbanka Íslands“ á bls. 147 sem skráin nefnir ekki; greinin er talin enda þar'

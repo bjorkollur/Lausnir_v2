@@ -1,16 +1,187 @@
 source: logretta
 year: 2004
-volume: null
+volume: 1
 issue: '1'
-label: Lögrétta, 1. tbl. (2004)
+label: Lögrétta, 1. árg. 1. tbl. (2004)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2004 1.tbl.pdf
 sha256: d029fb04018678fe8157e1e94222dab1d9b6ca88786b0b5f2000810c9d6d8850
-pages: null
+pages: 81
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 81
+  segments: []
+  contested: []
+  bin_ratio: 0.0
+  non_article:
+  - 64
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2004 1.tbl.pdf
-articles: []
+articles:
+- title: 'Vinnuslys, slysatrygging sjómanna: Er um bótaskylt slys að ræða? Fyrri hluti'
+  authors:
+  - Guðmundur Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 11 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Nýmæli í barnalöggjöf
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 25
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 37 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - Claude segir bls. 37; greinin fannst eftir titli sínum á bls. 49
+- title: 5*2. Bráðabirgðalögsem réttarheimild íljósi
+  authors:
+  - Ólafur E. Friðriksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 57
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 51 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - Claude segir bls. 51; greinin fannst eftir titli sínum á pdf-síðu 58
+- title: Rannsóknarréttarfar í einkamálum? Um málsmeðferð í hæstaréttarmáli nr. 344/2002
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 79
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 65
+  - 70
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 79 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - Claude segir bls. 79; greinin fannst eftir titli sínum á pdf-síðu 66
+- title: Stjórnhættir fyrirtækja og fyrstu viðmiðin á Íslandi
+  authors:
+  - Áslaug Björgvinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 71
+  - 80
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 87 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - Claude segir bls. 87; greinin fannst eftir titli sínum á pdf-síðu 72

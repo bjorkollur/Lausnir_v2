@@ -1,16 +1,207 @@
 source: timarit_logfraedinga
 year: 1953
-volume: null
+volume: 3
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1953)
+label: Tímarit lögfræðinga, 3. árg. 1. hefti (1953)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1953_01.pdf
 sha256: d6e729319ac1d9a45aa9b84833a43ba17ddd380799fb87689ef5869e3ab31399
-pages: null
+pages: 88
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -5
+  quality: 0.716
+  runner_up_share: 0.0
+  pages: 88
+  segments:
+  - - 7
+    - 69
+    - -5
+  contested: []
+  bin_ratio: 0.953
+  non_article:
+  - 70
+  - 72
+  - 73
+  - 74
+  - 75
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1953_01.pdf
-articles: []
+articles:
+- title: Gagnrýni dómsúrlausna
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 6
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 13 (bls. 65–254; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Hver átti refsfeldinn?
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 10
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 13 (bls. 65–254; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Stjórnarskráin og Hrafnkötlumálið
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 14
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 19
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 13 (bls. 65–254; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Frá hæstarétti jan.—okt. 1952
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 27
+  page_end: 60
+  issue: null
+  pdf_pages:
+  - 32
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 13 (bls. 65–254; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Ritfregn
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 61
+  page_end: 64
+  issue: null
+  pdf_pages:
+  - 66
+  - 69
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Brunabótafélag islands“ á bls. 66 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'greinar fundust ekki í skjalinu: 13 (bls. 65–254; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'

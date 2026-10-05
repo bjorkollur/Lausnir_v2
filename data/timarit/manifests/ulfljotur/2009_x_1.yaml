@@ -1,16 +1,192 @@
 source: ulfljotur
 year: 2009
-volume: null
+volume: 62
 issue: '1'
-label: Úlfljótur, 1. tbl. (2009)
+label: Úlfljótur, 62. árg. 1. tbl. (2009)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_1_tbl.pdf
 sha256: d59473d9aec6a2cdcc5fe12725debaf2a87ef82a68168a50caf569919877f073
-pages: null
+pages: 97
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.845
+  runner_up_share: 0.012
+  pages: 97
+  segments:
+  - - 10
+    - 91
+    - 0
+  contested: []
+  bin_ratio: 0.79
+  non_article:
+  - 20
+  - 44
+  - 58
+  - 60
+  - 72
+  - 74
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_1_tbl.pdf
-articles: []
+articles:
+- title: Málskot ákvarðana um að leita ráðgefandi álits EFTA-dómstólsins frá sjónarhóli EES-réttar
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 5
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 209
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um þingræðisregluna og þrígreiningu ríkisvaldsins
+  authors:
+  - Eiríkur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 43
+  issue: null
+  pdf_pages:
+  - 21
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 210
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Of the Force of Law
+  authors:
+  - Garrett Barden
+  - Tim Murphy
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 57
+  issue: null
+  pdf_pages:
+  - 45
+  - 57
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 211
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Eiga bætur vegna brota á samkeppnislögum að vera hærri en mat á tjóni?“ á bls. 59 sem
+    skráin nefnir ekki; greinin er talin enda þar'
+- title: Eiga bætur vegna brota á samkeppnislögum að vera hærri en mat á tjóni?
+  authors:
+  - Jóna Björk Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 66
+  issue: null
+  pdf_pages:
+  - 61
+  - 66
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 212
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eiga bætur vegna brota á samkeppnislögum að vera hærri en mat á skaða?
+  authors:
+  - Friðrik Már Baldursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 67
+  page_end: 71
+  issue: null
+  pdf_pages:
+  - 67
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 213
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „GESTABÁLKUR“ á bls. 73 sem skráin nefnir ekki; greinin er talin enda þar'

@@ -1,16 +1,124 @@
 source: logretta
 year: 2018
-volume: null
+volume: 14
 issue: '1'
-label: Lögrétta, 1. tbl. (2018)
+label: Lögrétta, 14. árg. 1. tbl. (2018)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2018 1.tbl.pdf
 sha256: 85269158d10fdcaa1c51ae9877860705eb4d7ddc0af7d7d2e127cab0b1b6abb1
-pages: null
+pages: 364
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.945
+  runner_up_share: 0.0
+  pages: 364
+  segments:
+  - - 3
+    - 358
+    - -1
+  contested: []
+  bin_ratio: 0.955
+  non_article:
+  - 115
+  - 144
+  - 158
+  - 210
+  - 244
+  - 245
+  - 266
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2018 1.tbl.pdf
-articles: []
+articles:
+- title: Konur innan réttarvörslukerfisins rjúfa þögnina Íslenskur bótaréttur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 18
+  page_end: 69
+  issue: null
+  pdf_pages:
+  - 19
+  - 70
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Tímabundið og varanlegt fjártjón heimavinnandi einstaklinga“ á bls. 70 sem skráin nefnir
+    ekki; greinin er talin enda þar'
+- title: 266 » Nýtt fræðirit á sviði fjölmiðlaréttar eftir Halldóru Þorsteinsdóttur og dr. Eirík Jónsson 270 » Sindri M. Stephensen
+    Réttaraðstoðarvátryggingar 324 » Pétur Hrafn Hafstein Sáttamiðlun í sakamálum Nýtt rit um fjölmiðlarétt
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 266
+  page_end: 323
+  issue: null
+  pdf_pages:
+  - 267
+  - 324
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sáttamiðlun í sakamálum
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 324
+  page_end: 357
+  issue: null
+  pdf_pages:
+  - 325
+  - 358
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.83
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/2501.pdf
@@ -28,4 +29,509 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/593.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/649.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/681.pdf
-articles: []
+articles:
+- title: Sönnun í kynferðismálum
+  authors:
+  - Margrét Steinarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 4
+  page_end: 38
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 557
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/522.pdf
+  note: ''
+  analysis_notes: []
+- title: Meðferð í stað fangavistar
+  authors:
+  - Ólafur Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 43
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 558
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/523.pdf
+  note: ''
+  analysis_notes: []
+- title: Lögfræðiaðstoð Orators
+  authors:
+  - Gunnar Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 50
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 559
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/2501.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 50, prentað bls. 45'
+- title: Átak íslandsdeildar ELSA
+  authors:
+  - Ragnar Tómas Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 72
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 562
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/2505.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 72, prentað bls. 71'
+- title: Internationalisering af straffeområdet
+  authors:
+  - Vagn Greve
+  - William Rentzmann
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 85
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 563
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/2509.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 85, prentað bls. 83'
+- title: Lögfesting Mannréttindasáttmála Evrópu
+  authors:
+  - Páll Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 157
+  page_end: 169
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 564
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/369.pdf
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um réttarstöðu ráðherra
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 177
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 565
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/367.pdf
+  note: ''
+  analysis_notes: []
+- title: Det nordiske lovsamarbejde og fe fællenordiske love som faktorer i nordisk integration og identitet
+  authors:
+  - Indledning. Oplæg
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 179
+  page_end: 193
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 566
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/2526.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 193, prentað bls. 179'
+- title: Félagafrelsi og skylduaðild að lífeyrissjóðum
+  authors:
+  - Jónas Fr. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 195
+  page_end: 213
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 567
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/368.pdf
+  note: ''
+  analysis_notes: []
+- title: Skaðabótaábyrgð stjórnenda hlutafélaga
+  authors:
+  - Árni Harðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 273
+  page_end: 321
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 48
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 569
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/314.pdf
+  note: ''
+  analysis_notes: []
+- title: Um samningssamband lögmanns og viðskiptavinar hans
+  authors:
+  - Oddný M. Arnardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 323
+  page_end: 342
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 570
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/591.pdf
+  note: ''
+  analysis_notes: []
+- title: Gjafsókn
+  authors:
+  - Atli Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 429
+  page_end: 446
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 572
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/592.pdf
+  note: ''
+  analysis_notes: []
+- title: Yfirlit yfir afgreidd mál hjá gjafsóknarnefnd frá 1. Júlí 1992 til 31. Desember 1994
+  authors:
+  - Þorleifur Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 447
+  page_end: 450
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 573
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/593.pdf
+  note: ''
+  analysis_notes: []
+- title: Með lögum skal land byggja
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 451
+  page_end: 460
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 574
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/681.pdf
+  note: ''
+  analysis_notes: []
+- title: Stjórnsýsluleg staða lánasjóðs íslenskra námsmanna og réttarstaða lánþega
+  authors:
+  - Vilhjálmur H. Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 461
+  page_end: 468
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 575
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/649.pdf
+  note: ''
+  analysis_notes: []
+- title: Og þá var kátt í höllinni
+  authors:
+  - Dóra Sif Tynes
+  - Edda Andrésdóttir
+  - Jónína S. Lárusdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 475
+  page_end: 476
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 576
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/2555.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 476, prentað bls. 475'

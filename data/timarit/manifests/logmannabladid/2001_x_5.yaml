@@ -1,16 +1,105 @@
 source: logmannabladid
 year: 2001
-volume: null
+volume: 7
 issue: '5'
-label: Lögmannablaðið, 5. tbl. (2001)
+label: Lögmannablaðið, 7. árg. 5. tbl. (2001)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2001 05.pdf
 sha256: 39d9f3913a21777926cb81728d99381346277b141c05597087b65adb7bef48ea
-pages: null
+pages: 44
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.432
+  runner_up_share: 0.053
+  pages: 44
+  segments:
+  - - 1
+    - 42
+    - 1
+  contested: []
+  bin_ratio: 0.946
+  non_article:
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 37
+  - 38
+  - 42
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2001 05.pdf
-articles: []
+articles:
+- title: Lögmannafélag Íslands 90 ára Bls.
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 15
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Morgunverðarfundur LMFÍ um aukna samkeppni í lagakennslu – áherslur og áhrif“) er
+    annar titill en skrárinnar („Lögmannafélag Íslands 90 ára Bls.“); titli skrárinnar haldið'
+- title: 90 ára 1911 -2001 Jakob R. Möller hrl. Framkvæmd nýrra lögmannalaga Bls. 9
+  authors:
+  - Lögmannafélag Íslands
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 19
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.15
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 26 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'

@@ -1,16 +1,298 @@
 source: timarit_logfraedinga
 year: 2011
-volume: null
+volume: 61
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2011)
+label: Tímarit lögfræðinga, 61. árg. 2. hefti (2011)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2011_02.pdf
 sha256: 86c37c1d792ef8f2d9cfe7b917a6b86567b18f857f46339c09233b0a80ce7a1a
-pages: null
+pages: 103
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 127
+  quality: 0.961
+  runner_up_share: 0.0
+  pages: 103
+  segments:
+  - - 2
+    - 100
+    - 127
+  contested: []
+  bin_ratio: 0.937
+  non_article:
+  - 8
+  - 9
+  - 10
+  - 15
+  - 19
+  - 21
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 31
+  - 37
+  - 40
+  - 41
+  - 42
+  - 49
+  - 51
+  - 53
+  - 54
+  - 55
+  - 59
+  - 61
+  - 63
+  - 69
+  - 71
+  - 76
+  - 77
+  - 78
+  - 79
+  - 81
+  - 86
+  - 87
+  - 90
+  - 92
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2011_02.pdf
-articles: []
+articles:
+- title: Ríkissaksóknari og réttarríkið
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 129
+  page_end: 132
+  issue: null
+  pdf_pages:
+  - 2
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ákæruvald á krossgötum
+  authors:
+  - Sigríður J. Friðjónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 134
+  issue: null
+  pdf_pages:
+  - 6
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „astliðinn eru málin orðin 351. Um er að ræða mál sem annaðhv“ á bls. 138 sem skráin
+    nefnir ekki; greinin er talin enda þar'
+- title: Brot úr sögu ákæruvaldsins á Íslandi
+  authors:
+  - Bogi Nilsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 147
+  page_end: 147
+  issue: null
+  pdf_pages:
+  - 20
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 157, prentuð lokasíða er bls. 147
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 149 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Rannsóknir sakamála og heimildir lögreglu
+  authors:
+  - Stefán Eiríksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 159
+  page_end: 163
+  issue: null
+  pdf_pages:
+  - 32
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 172, prentuð lokasíða er bls. 163
+  - 'FRÁVIK: á eftir greininni hefst „landi.“ á bls. 165 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Símahlustun - Kröfur til slíkra aðgerða og eftirlit með þeim
+  authors:
+  - Valtýr Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 175
+  issue: null
+  pdf_pages:
+  - 46
+  - 48
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 177, prentuð lokasíða er bls. 175
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 177 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Nýskipan ákæruvalds
+  authors:
+  - Símon Sigvaldason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 179
+  page_end: 179
+  issue: null
+  pdf_pages:
+  - 52
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 189, prentuð lokasíða er bls. 179
+  - 'FRÁVIK: á eftir greininni hefst „brota.“ á bls. 183 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: 'Um ákæruvaldið á Norðurlöndum: Jørgen Steen-Sørensen, ríkissaksóknari Danmerkur Tor-Aksel Busch, ríkissaksóknari
+    Noregs Anders Perklev, ríkissaksóknari Svíþjóðar Matti Nissinen, ríkissaksóknari Finnlands'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 191
+  page_end: 195
+  issue: null
+  pdf_pages:
+  - 64
+  - 68
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 197 sem skráin nefnir ekki; greinin er talin enda þar'

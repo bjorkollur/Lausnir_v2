@@ -1,16 +1,742 @@
 source: timarit_logfraedinga
 year: 1997
-volume: null
+volume: 47
 issue: null
-label: Tímarit lögfræðinga (1997)
+label: Tímarit lögfræðinga, 47. árg. (1997)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1997.pdf
 sha256: 56ca65dbfcad33c8076fb675ddeccb77f0aca012000b09823a3e3f5f969c161e
-pages: null
+pages: 364
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -23
+  quality: 0.904
+  runner_up_share: 0.019
+  pages: 364
+  segments:
+  - - 6
+    - 62
+    - -5
+  - - 70
+    - 153
+    - -11
+  - - 158
+    - 241
+    - -15
+  - - 250
+    - 355
+    - -23
+  contested:
+  - 226
+  - 227
+  - 228
+  bin_ratio: 0.968
+  non_article:
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 68
+  - 69
+  - 147
+  - 148
+  - 149
+  - 150
+  - 151
+  - 152
+  - 153
+  - 154
+  - 156
+  - 157
+  - 348
+  - 349
+  - 350
+  - 351
+  - 352
+  - 353
+  - 354
+  - 355
+  - 356
+  - 357
+  - 358
+  - 359
+  - 360
+  - 361
+  - 362
+status: review
+confidence: 0.2
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1997.pdf
-articles: []
+articles:
+- title: Hollvinir lagadeildar Háskóla Islands
+  authors:
+  - Dögg Pálsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 3
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um samskipti löggjafarvalds og framkvæmdarvalds
+  authors:
+  - Ólafur G. Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 4
+  page_end: 10
+  issue: '1'
+  pdf_pages:
+  - 9
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um kröfuábyrgð, stofnun og ógildi
+  authors:
+  - Benedikt Bogason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 28
+  issue: '1'
+  pdf_pages:
+  - 16
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Riftunarregla 1. mgr. 134. gr. gjaldþrotalaga
+  authors:
+  - Ása Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: 48
+  issue: '1'
+  pdf_pages:
+  - 34
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur Lögmannafélags íslands 1996
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 50
+  issue: '1'
+  pdf_pages:
+  - 54
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frumvarp til lögræðislaga
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 59
+  page_end: 61
+  issue: '2'
+  pdf_pages:
+  - 70
+  - 72
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samkeppni og misnotkun á ráðandi stöðu
+  authors:
+  - Ágúst Sindri Karlsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 62
+  page_end: 93
+  issue: '2'
+  pdf_pages:
+  - 73
+  - 104
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um gildissvið og eðli hinnar almennu jafnræðisreglu stjórnarskrárinnar
+  authors:
+  - Oddný Mjöll Arnardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 94
+  page_end: 119
+  issue: '2'
+  pdf_pages:
+  - 105
+  - 130
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá lagadeild Háskóla Islands Deildarfréttir 1996
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 120
+  page_end: 124
+  issue: '2'
+  pdf_pages:
+  - 131
+  - 135
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla um Lagastofnun Háskóla íslands 27. febrúar 1996 - 28. febrúar 1997
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 125
+  page_end: 135
+  issue: '2'
+  pdf_pages:
+  - 136
+  - 146
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Utgáfa lögfræðirita
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 143
+  page_end: 145
+  issue: '3'
+  pdf_pages:
+  - 158
+  - 160
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Endurskoðun skaðabótalaga
+  authors:
+  - Gestur Jónsson
+  - Gunnlaugur Claessen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 146
+  page_end: 160
+  issue: '3'
+  pdf_pages:
+  - 161
+  - 175
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um forsjá barna til bráðabirgða
+  authors:
+  - Sigríður Ingvarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 183
+  issue: '3'
+  pdf_pages:
+  - 176
+  - 198
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagabókmenntir 1990-1996
+  authors:
+  - Stefán Eiríksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 184
+  page_end: 217
+  issue: '3'
+  pdf_pages:
+  - 199
+  - 232
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bandaríkjaferð Lögfræðingafélags íslands
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 218
+  page_end: 225
+  issue: '3'
+  pdf_pages:
+  - 233
+  - 251
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Almenningur vill
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 227
+  page_end: 228
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.2
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 227 fannst ekki: blaðsíðutalið óljóst (talan stendur á fleiri en einni síðu)'
+- title: Gizur Bergsteinsson. Minning
+  authors:
+  - Harald Henrysson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 230
+  issue: '4'
+  pdf_pages:
+  - 252
+  - 253
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Endurskoðun skaðabótalaga
+  authors:
+  - Gestur Jónsson
+  - Gunnlaugur Claessen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 231
+  page_end: 258
+  issue: '4'
+  pdf_pages:
+  - 254
+  - 281
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugtakið „stöðugleikatímapunktur“ og tímabundnar bætur í skaðabótarétti
+  authors:
+  - Atli Þór Ólason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 259
+  page_end: 285
+  issue: '4'
+  pdf_pages:
+  - 282
+  - 308
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýr norðurlandasamningur um tvísköttun
+  authors:
+  - Garðar Valdimarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 286
+  page_end: 317
+  issue: '4'
+  pdf_pages:
+  - 309
+  - 340
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: A víð og dreif Skýrsla Stjórnar Lögfræðingafélags íslands 1997
+  authors:
+  - Dögg Pálsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 318
+  page_end: 324
+  issue: '4'
+  pdf_pages:
+  - 341
+  - 347
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

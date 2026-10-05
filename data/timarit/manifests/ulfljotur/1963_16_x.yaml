@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.789
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/11.pdf
@@ -24,4 +25,378 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/321.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/549.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/621.pdf
-articles: []
+articles:
+- title: Rómarsáttmálinn frá 1961 um vernd listflytjenda, hljóðritaframleiðenda og útvarpsstofnana
+  authors:
+  - Þórður Eyjólfsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 20
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1080
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/265.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkrar hugleiðingar um gerðardóma
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 26
+  page_end: 38
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1081
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/549.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur sjónarmið í skaðabóta-réttii)
+  authors:
+  - Gizur Bergsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 108
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1082
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/236.pdf
+  note: ''
+  analysis_notes: []
+- title: Löggjöfin um kjarasamninga opinberra starfsmanna
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 109
+  page_end: 119
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1083
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/321.pdf
+  note: ''
+  analysis_notes: []
+- title: Något om de juridiska studierna i Finland
+  authors:
+  - Christer Kuhlefelt
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 131
+  page_end: 132
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1085
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/113.pdf
+  note: ''
+  analysis_notes: []
+- title: Minnen och intryck från Island
+  authors:
+  - Lauri J. Nordberg
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 134
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1086
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/1231.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 134, prentað bls. 133'
+- title: Lög um lánamál iðnaðarins
+  authors:
+  - Bragi Hannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 164
+  page_end: 171
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1088
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/621.pdf
+  note: ''
+  analysis_notes: []
+- title: Bótaábyrgð z á skaðaverkum barna
+  authors:
+  - Steingrímur Gautur Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 172
+  page_end: 184
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1089
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/237.pdf
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um eignarrétt að vatnsbotni hérlendis
+  authors:
+  - Björn Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 185
+  page_end: 195
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1090
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/190.pdf
+  note: ''
+  analysis_notes: []
+- title: Mannréttindasáttmáli Evrópu og stofnanir samkv. honum
+  authors:
+  - Sigurjón Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 222
+  page_end: 236
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1091
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/1250.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 236, prentað bls. 222'
+- title: Tvö hundruð og áttatíu ára stríð Alþingisbókaútgáfunnar
+  authors:
+  - Þórður Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 237
+  page_end: 243
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1092
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/12.pdf
+  note: ''
+  analysis_notes: []
+- title: Lögfræðingar og bókmenntir
+  authors:
+  - Steingrímur J. Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 244
+  page_end: 254
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1093
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/11.pdf
+  note: ''
+  analysis_notes: []

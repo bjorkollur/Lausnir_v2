@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.734
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/135.pdf
@@ -22,4 +23,316 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/515.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/576.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/636.pdf
-articles: []
+articles:
+- title: Ítök og ítaksréttur. Nokkrir megindrættir ítaksréttinda
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 46
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 697
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/197.pdf
+  note: ''
+  analysis_notes: []
+- title: Um ábyrgðarskírteini, ábyrgðartíma og úrræði vegna galla á seldu lausafé
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 117
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 703
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/221.pdf
+  note: ''
+  analysis_notes: []
+- title: Umboðsmaður Alþingis
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 119
+  page_end: 134
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 704
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/636.pdf
+  note: ''
+  analysis_notes: []
+- title: Starf lögmanns
+  authors:
+  - Othar Örn Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 177
+  page_end: 179
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 708
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/2129.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 179, prentað bls. 177'
+- title: Umsögn um dóma Hæstaréttar í málaferlum Jóhanns Þóris Jónssonar ritstjóra Tímaritsins Skák og Jóhönnu Heiðdal stórkaupmanns
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 239
+  page_end: 243
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 712
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/515.pdf
+  note: ''
+  analysis_notes: []
+- title: Sönnun og sönnunarbyrði. Fyrri hluti
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 246
+  page_end: 252
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 713
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/576.pdf
+  note: ''
+  analysis_notes: []
+- title: Lögfræðinga-stéttin í Englandi „Barristers og solicitors“
+  authors:
+  - Ingólfur Hjartarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 256
+  page_end: 272
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 714
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/135.pdf
+  note: ''
+  analysis_notes: []
+- title: Sjóréttur
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 325
+  page_end: 342
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 718
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/295.pdf
+  note: ''
+  analysis_notes: []
+- title: Aðgreiningarhæfi vörumerkja skv. vörumerkja-
+  authors:
+  - Jón L. Arnalds
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 345
+  page_end: 365
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 719
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/272.pdf
+  note: ''
+  analysis_notes: []
+- title: Fjárfestingarfélag Íslands hf.
+  authors:
+  - Gunnar Óskarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 379
+  page_end: 384
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 721
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/2153.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 384, prentað bls. 379'

@@ -1,16 +1,120 @@
 source: timarit_logfraedinga
 year: 1960
-volume: null
+volume: 10
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1960)
+label: Tímarit lögfræðinga, 10. árg. 2. hefti (1960)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1960_02.pdf
 sha256: 888fe947a721cfaffc3b2e08a7b51d0214dfacf3a0fb97c97f128aa60a451f60
-pages: null
+pages: 64
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 79
+  quality: 0.797
+  runner_up_share: 0.02
+  pages: 64
+  segments:
+  - - 2
+    - 60
+    - 79
+  contested: []
+  bin_ratio: 0.963
+  non_article: []
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1960_02.pdf
-articles: []
+articles:
+- title: Skýrsla um fangelsamál
+  authors:
+  - Valdimar Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 81
+  page_end: 131
+  issue: null
+  pdf_pages:
+  - 2
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: XXII. þing norrænna lögfræðinga. Reykjavík 1960
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 132
+  page_end: 138
+  issue: null
+  pdf_pages:
+  - 53
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif. Ritstjóraspjall
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 139
+  page_end: 139
+  issue: null
+  pdf_pages:
+  - 60
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

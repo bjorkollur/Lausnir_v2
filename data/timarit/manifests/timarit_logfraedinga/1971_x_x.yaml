@@ -1,16 +1,394 @@
 source: timarit_logfraedinga
 year: 1971
-volume: null
+volume: 22
 issue: null
-label: Tímarit lögfræðinga (1971)
+label: Tímarit lögfræðinga, 22. árg. (1971)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1971_1972.pdf
 sha256: 10d89ac2fab956edfbb7668ef66948ad63b80b9de3182a9208ceeb905a532949
-pages: null
+pages: 376
 year_end: 1972
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.905
+  pages: 376
+  segments: []
+  contested: []
+  bin_ratio: 0.908
+  non_article:
+  - 244
+  - 245
+  - 246
+  - 247
+  - 248
+  - 249
+  - 250
+  - 251
+  - 252
+  - 253
+  - 254
+  - 255
+  - 256
+  - 257
+  - 258
+  - 259
+  - 260
+  - 261
+  - 262
+  - 263
+  - 264
+  - 265
+  - 267
+  - 268
+  - 269
+  - 353
+  - 354
+  - 355
+  - 356
+  - 357
+  - 358
+  - 359
+  - 360
+  - 361
+  - 362
+  - 363
+  - 364
+  - 365
+  - 366
+  - 367
+  - 368
+  - 369
+  - 371
+  - 372
+  - 373
+  - 374
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1971_1972.pdf
-articles: []
+articles:
+- title: Frá Lögfræðingafélagi Islands
+  authors:
+  - Hrafn Bragason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 27
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 232
+  - 239
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: efnisyfirlitið segir bls. 1; greinin fannst eftir titli sínum á bls. 27'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 15
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 15 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 70
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 70 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 84
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 84 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 89
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 89 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 118
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 118 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 131
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 131 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 140
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 140 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif 35
+  authors:
+  - Gaukur Jörundsson
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 35
+  page_end: 36
+  issue: null
+  pdf_pages:
+  - 240
+  - 241
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 35
+  - 'FRÁVIK: höfundar skrárinnar (Gaukur Jörundsson, Theodór B. Líndal) stangast á við síðuna (Ármann Snævarr); skránni haldið'
+- title: Um örorkumöt
+  authors:
+  - Gunnar M. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 37
+  page_end: 119
+  issue: '2'
+  pdf_pages:
+  - 270
+  - 352
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: page
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 51 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: leitir.is segir bls. 51; greinin fannst eftir titli sínum á bls. 37'
+  - skráin segir að greinin endi á bls. 75, prentuð lokasíða er bls. 119

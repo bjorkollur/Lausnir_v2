@@ -1,16 +1,157 @@
 source: ulfljotur
 year: 2021
-volume: null
+volume: 74
 issue: '3'
-label: Úlfljótur, 3. tbl. (2021)
+label: Úlfljótur, 74. árg. 3. tbl. (2021)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2021-3tbl.pdf
 sha256: 71aef5f4d60735a6cf5a89e21b51d1ebc97ed55ee5bb52937a683bdc2173713d
-pages: null
+pages: 152
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 317
+  quality: 0.941
+  runner_up_share: 0.007
+  pages: 152
+  segments:
+  - - 2
+    - 148
+    - 317
+  contested: []
+  bin_ratio: 0.825
+  non_article:
+  - 144
+  - 145
+  - 146
+  - 147
+  - 148
+  - 149
+  - 150
+  - 151
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2021-3tbl.pdf
-articles: []
+articles:
+- title: Ákæruvaldið, hlutverk, skipulag, sjálfstæði og óhæði
+  authors:
+  - Jón H. B. Snorrason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 325
+  page_end: 350
+  issue: null
+  pdf_pages:
+  - 8
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 32
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Meiri háttar brot gegn umhverfinu samkvæmt 179. gr. hgl., með samanburði við danskan og norskan rétt
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 351
+  page_end: 392
+  issue: null
+  pdf_pages:
+  - 34
+  - 75
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 33
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Breytingar á hafréttarsamningi Sameinuðu þjóðanna
+  authors:
+  - Snjólaug Árnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 393
+  page_end: 418
+  issue: null
+  pdf_pages:
+  - 76
+  - 101
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 34
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Viðskiptahlutdeild: Ábyrgð fyrirtækja á mannréttindabrotum viðsemjenda í alþjóðaviðskiptum'
+  authors:
+  - Þorvarður Arnar Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 419
+  page_end: 450
+  issue: null
+  pdf_pages:
+  - 102
+  - 133
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 35
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Viðtal við Jamil N. Jaffer, prófessor, stofnanda og framkvæmdastjóra Þjóðaröryggisstofnunar
+    George Mason University''s Antonin Scalia Law School“ á bls. 451 sem skráin nefnir ekki; greinin er talin enda þar'

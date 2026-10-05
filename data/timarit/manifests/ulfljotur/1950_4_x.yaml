@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.908
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/102.pdf
@@ -25,4 +26,416 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/834.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/835.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/836.pdf
-articles: []
+articles:
+- title: Blóðrannsóknir í barnsfaðernismálum
+  authors:
+  - Níels Dungal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 10
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1218
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/154.pdf
+  note: ''
+  analysis_notes: []
+- title: Nýir hættir um kennslu og próf í lagadeild
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 20
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1219
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/826.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 20, prentað bls. 11'
+- title: Húsvitjun Úlfljóts III. Borgardómaraembættið í Reykjavík
+  authors:
+  - Einar Arnalds
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 23
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 1220
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/539.pdf
+  note: ''
+  analysis_notes: []
+- title: Um hjálp vísinda við rannsókn afbrota
+  authors:
+  - Þórður Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 27
+  page_end: 34
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1221
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/540.pdf
+  note: ''
+  analysis_notes: []
+- title: Húsvitjun Úlfljóts IV. Sýslumannsembættið í Barðastrandarsýslu
+  authors:
+  - Jóhann Skaptason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 35
+  page_end: 40
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 1222
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/615.pdf
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Jóhann Skaptason Sýslumaður'
+- title: Sakfræðingafélag Íslands
+  authors:
+  - Þórður Eyjólfsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 6
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1223
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/831.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 6, prentað bls. 3'
+- title: Nokkur orð um ríkislögregluna í Connecticut
+  authors:
+  - Friðjón Þórðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 11
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1224
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/102.pdf
+  note: ''
+  analysis_notes: []
+- title: Skyndiferð til Finnlands á mót norrænna laganema
+  authors:
+  - Árni Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 12
+  page_end: 19
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1225
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/832.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 19, prentað bls. 12'
+- title: Kennsla í þjóðarétti og alþjóðlegum einkamálarétti
+  authors:
+  - Hans G. Andersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 20
+  page_end: 22
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1226
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/833.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 22, prentað bls. 20'
+  - 'FRÁVIK: á eftir greininni hefst „Ný fobmálabók“ á bls. 22 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Kennslubækur og handbækur í lagadeild
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 23
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1227
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/3.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Búnaðarbanki Íslands“ á bls. 24 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Úlfljótur og laganemar
+  authors:
+  - Þorvaldur Garðar Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 26
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1228
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/834.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 28, prentað bls. 25'
+- title: Yfirlit yfir störf Orators 1949-1950
+  authors:
+  - Ásgeir Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: 31
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1229
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/835.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 31, prentað bls. 29'
+- title: Aðalfundur Orators
+  authors:
+  - Emil Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 32
+  page_end: 32
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1230
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1950 04 arg/836.pdf
+  note: ''
+  analysis_notes: []

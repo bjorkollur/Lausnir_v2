@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.89
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/151.pdf
@@ -26,4 +27,440 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/557.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/558.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/74.pdf
-articles: []
+articles:
+- title: Breytingar á skipun rannsóknarvalds
+  authors:
+  - Halldór Þorbjörnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 12
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 941
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/557.pdf
+  note: ''
+  analysis_notes: []
+- title: Rannsóknadeild ríkisskattstjóra, skattaeftirlit
+  authors:
+  - Ólafur Nilsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 13
+  page_end: 22
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 942
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/459.pdf
+  note: ''
+  analysis_notes: []
+- title: Náðanir og fangelsismál
+  authors:
+  - Hildigunnur Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 35
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 943
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/491.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um Jón sýslumann Espólín, rit hans og embættisstörf
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 36
+  page_end: 60
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 944
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/74.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: greinin er undirrituð (Eirikur Tómasson) en höfundar skrárinnar eru aðrir (Páll Sigurðsson); skránni haldið'
+- title: Hjúskaparlöggjöf á hvörfum
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 111
+  page_end: 144
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 947
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/159.pdf
+  note: ''
+  analysis_notes: []
+- title: Meðákvörðunarréttur starfsfólks - Atvinnulýðræði
+  authors:
+  - Ingólfur Hjartarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 145
+  page_end: 155
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 948
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/322.pdf
+  note: ''
+  analysis_notes: []
+- title: Alexander von Humboldt stofnunin í V.-Þýzkalandi og rannsóknarstyrkir sem hún veitir
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 156
+  page_end: 161
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 949
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/1596.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 161, prentað bls. 156'
+- title: Dagur á Aragötu 9
+  authors:
+  - Birgir Guðjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 179
+  page_end: 179
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 951
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/1601.pdf
+  note: ''
+  analysis_notes: []
+- title: Eiturlyf og afbrot
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 207
+  page_end: 241
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 952
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/492.pdf
+  note: ''
+  analysis_notes: []
+- title: Bylting í bótarétti
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 242
+  page_end: 253
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 953
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/287.pdf
+  note: ''
+  analysis_notes: []
+- title: Beskyttelse af personer som ikke har direkte ökonomisk fordel af sin stilling
+  authors:
+  - Magnús Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 254
+  page_end: 269
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 954
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/356.pdf
+  note: ''
+  analysis_notes: []
+- title: Vinnufriður og vinnulöggjöf
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 319
+  page_end: 341
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 957
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/323.pdf
+  note: ''
+  analysis_notes: []
+- title: Res judicata eður útkljáð mál
+  authors:
+  - Magnús Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 342
+  page_end: 357
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 958
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/558.pdf
+  note: ''
+  analysis_notes: []
+- title: Athugasemdir um dánarhugtakið og skyld efni
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 358
+  page_end: 373
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 959
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/151.pdf
+  note: ''
+  analysis_notes: []

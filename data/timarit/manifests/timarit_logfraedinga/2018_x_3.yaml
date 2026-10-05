@@ -1,16 +1,193 @@
 source: timarit_logfraedinga
 year: 2018
-volume: null
+volume: 68
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2018)
+label: Tímarit lögfræðinga, 68. árg. 3. hefti (2018)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2018_03.pdf
 sha256: c77608cec7fbfae2014aeb6099e4e5d1e7915685f5da4a46a377f641fe9bf48a
-pages: null
+pages: 194
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 287
+  quality: 0.969
+  runner_up_share: 0.0
+  pages: 194
+  segments:
+  - - 2
+    - 191
+    - 287
+  contested: []
+  bin_ratio: 0.944
+  non_article:
+  - 185
+  - 186
+  - 187
+  - 188
+  - 189
+  - 190
+  - 191
+  - 192
+  - 193
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2018_03.pdf
-articles: []
+articles:
+- title: Ritstjóraskipti
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 289
+  page_end: 290
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fyrning kröfuréttinda – síðari hluti
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 291
+  page_end: 341
+  issue: null
+  pdf_pages:
+  - 4
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um valdmörk og valdheimildir stofnana Evrópusambandsins og Evrópska efnahagssvæðisins
+  authors:
+  - Margrét Einarsdóttir
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 343
+  page_end: 389
+  issue: null
+  pdf_pages:
+  - 56
+  - 103
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Heimild dómara til að fresta einkamáli af sjálfsdáðum
+  authors:
+  - Tómas Hrafn Sveinsson
+  - Þorvaldur Heiðar Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 391
+  page_end: 436
+  issue: null
+  pdf_pages:
+  - 104
+  - 149
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttur farþega sem ferðast með loftförum, skipum og hópbifreiðum og hlutverk Samgöngustofu í því tilliti
+  authors:
+  - Eva Sigrún Óskarsdóttir
+  - Magnús Dige Baldursson
+  - Sigrún Henríetta Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 437
+  page_end: 471
+  issue: null
+  pdf_pages:
+  - 150
+  - 184
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

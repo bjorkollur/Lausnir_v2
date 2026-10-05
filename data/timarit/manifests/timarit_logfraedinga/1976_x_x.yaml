@@ -1,16 +1,824 @@
 source: timarit_logfraedinga
 year: 1976
-volume: null
+volume: 26
 issue: null
-label: Tímarit lögfræðinga (1976)
+label: Tímarit lögfræðinga, 26. árg. (1976)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1976.pdf
 sha256: 82aba6b94e96cfa7c94ac6706a23df34f202544b15717d14609b3cd922eb3e82
-pages: null
+pages: 214
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -15
+  quality: 0.794
+  runner_up_share: 0.019
+  pages: 214
+  segments:
+  - - 6
+    - 42
+    - -5
+  - - 54
+    - 66
+    - -9
+  - - 67
+    - 98
+    - -8
+  - - 109
+    - 144
+    - -12
+  - - 156
+    - 208
+    - -15
+  contested: []
+  bin_ratio: 0.939
+  non_article:
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 53
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 108
+  - 145
+  - 146
+  - 147
+  - 148
+  - 149
+  - 150
+  - 151
+  - 152
+  - 154
+  - 212
+  - 213
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1976.pdf
-articles: []
+articles:
+- title: Ábyrgðarsjóður lögmanna
+  authors:
+  - Guðjón Steingrímsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 2
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hörður Þórðarson — Vagn E. Jónsson — René Cassin
+  authors:
+  - Sigurgeir Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 7
+  issue: '1'
+  pdf_pages:
+  - 8
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Barnaréttindi
+  authors:
+  - Guðrún Erlendsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 8
+  page_end: 24
+  issue: '1'
+  pdf_pages:
+  - 13
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögmannafélagi íslands
+  authors:
+  - Brynjólfur Kjartansson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 25
+  page_end: 25
+  issue: '1'
+  pdf_pages:
+  - 30
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „AÐALFUNDUR 1976“ á bls. 25 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Frá Lögfræðingafélagi Islands
+  authors:
+  - Már Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 29
+  issue: '1'
+  pdf_pages:
+  - 33
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „SKAÐABÓTARÉTTUR Á UNDANHALDI“ á bls. 29 sem skráin nefnir ekki; greinin er talin enda
+    þar'
+- title: Frá ríkisstarfsmannadeild Lögfræðingafélags íslands — Skaðabótaréttur á undanhaldi — Fundur um réttarfarsbreytingar
+    Á vi'ð og dreif
+  authors:
+  - Jón Mýrdai
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 32
+  page_end: 34
+  issue: '1'
+  pdf_pages:
+  - 37
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „NÝIR DÓMARAR í HAAG“ á bls. 34 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Fangavarðafélag Íslands“) er annar titill en skrárinnar („Frá ríkisstarfsmannadeild
+    Lögfræðingafélags íslands — Skaðabótaréttur á undanhaldi — Fundur um réttarfarsbreytingar Á vi''ð og dreif“); titli skrárinnar
+    haldið'
+- title: Stétt í prófi
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 45
+  issue: '2'
+  pdf_pages:
+  - 54
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sveinn Ingvarsson
+  authors:
+  - Einar Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 46
+  page_end: 50
+  issue: '2'
+  pdf_pages:
+  - 55
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 53–54
+  - 'FRÁVIK: á eftir greininni hefst „HERMANNJÓNASSON“ á bls. 50 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Alfreð gíslason“) er annar titill en skrárinnar („Sveinn Ingvarsson“); titli skrárinnar
+    haldið'
+  - 'FRÁVIK: greinin er undirrituð (Matthías Á. Mathiesen, Halldór Kr. Júlíusson, Ragnar Jónsson) en höfundar skrárinnar eru
+    aðrir (Einar Ágústsson); skránni haldið'
+- title: Könnun á gjaldþrotaúrskurðum 1960—1974
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 55
+  page_end: 71
+  issue: '2'
+  pdf_pages:
+  - 64
+  - 79
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 50 ára afmæli embættis sáttasemjara ríkisins
+  authors:
+  - Barði Friðriksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 72
+  page_end: 77
+  issue: '2'
+  pdf_pages:
+  - 80
+  - 85
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kritisk juss — Athugasemd frá Steingrími Gaut Kristjánssyni — Námskeið um verslunarrétt
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 78
+  page_end: 79
+  issue: '2'
+  pdf_pages:
+  - 86
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögfræðingafélagi íslands
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 80
+  page_end: 85
+  issue: '2'
+  pdf_pages:
+  - 88
+  - 93
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Fra La aileild“ á bls. 86 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Lagasmtð Félagsdómur eftir Hákon Guðmundsson Ný lög um fjölbýlishús eftir Hrafn Bragason Frá Lögfræðingafélagi íslands
+    Löggjöf um fjölbýlishús — Málþing um sjórétt — Störf sýslumanna og breytt umdæmaskipan Frá Bandalagi háskólamanna Launamál
+    háskólamenntaðra rfkisstarfsmanna — Starfsemi sjálfstætt starfandi háskólamanna í víð og dreif Dómaraþing — Frá BSRB —
+    Norræna emþættismannasambandið
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 99
+  issue: '3'
+  pdf_pages:
+  - 109
+  - 111
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Fyrrverandi forseti Félagsdóms: FÉLAGSDÓMUR“ á bls. 100 sem skráin nefnir ekki; greinin
+    er talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („MiAIÍIT-« L(íi.iim:i)I\(.a“) er annar titill en skrárinnar („Lagasmtð Félagsdómur
+    eftir Hákon Guðmundsson Ný lög um fjölbýlishús eftir Hrafn Bragason Frá Lögfræðingafélagi íslands Löggjöf um fjölbýlishús
+    — Málþing um sjórétt — Störf sýslumanna og breytt umdæmaskipan Frá Bandalagi háskólamanna Launamál háskólamenntaðra rfkisstarfsmanna
+    — Starfsemi sjálfstætt starfandi háskólamanna í víð og dreif Dómaraþing — Frá BSRB — Norræna emþættismannasambandið“);
+    titli skrárinnar haldið'
+- title: Nokkur atriði um lögfræðingastéttina
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 141
+  page_end: 142
+  issue: '4'
+  pdf_pages:
+  - 156
+  - 157
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ásgeir Magnússon — Björn Halldórsson
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 143
+  page_end: 145
+  issue: '4'
+  pdf_pages:
+  - 158
+  - 160
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Námsferð til Noregs — Þjóðréttarnámskeið
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 146
+  page_end: 146
+  issue: '4'
+  pdf_pages:
+  - 161
+  - 161
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Brot gegn friðhelgi einkalífs
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 147
+  page_end: 166
+  issue: '4'
+  pdf_pages:
+  - 162
+  - 181
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norðurlandafréttir
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 167
+  page_end: 167
+  issue: '4'
+  pdf_pages:
+  - 182
+  - 182
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frumvörp um réttarfarsbreytingar
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 168
+  page_end: 181
+  issue: '4'
+  pdf_pages:
+  - 183
+  - 196
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Erindi Þórs Vilhjálmssonar og Stefáns Más Stefánssonar á aSalfundi Dómarafélags islands Frá Lögfræðingafélagi íslands
+  authors:
+  - Jóhannes L. L. Helgason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 182
+  page_end: 183
+  issue: '4'
+  pdf_pages:
+  - 197
+  - 198
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „AÐALFUNDUR 1976“ á bls. 183 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Frá Lögfræöingafélagi íslands“) er annar titill en skrárinnar („Erindi Þórs Vilhjálmssonar
+    og Stefáns Más Stefánssonar á aSalfundi Dómarafélags islands Frá Lögfræðingafélagi íslands“); titli skrárinnar haldið'
+- title: Frá Lagadeild Háskólans
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 184
+  page_end: 188
+  issue: '4'
+  pdf_pages:
+  - 199
+  - 203
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Bandalagi háskólamanna
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 189
+  page_end: 190
+  issue: '4'
+  pdf_pages:
+  - 204
+  - 205
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: . Þing samtaka norrænna háskólamanna — 2. þing Bandalags háskólamanna Á víð og dreif
+  authors:
+  - Ragnhildur Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 191
+  page_end: 193
+  issue: '4'
+  pdf_pages:
+  - 206
+  - 208
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „FRÁ ALÞINGI“ á bls. 193 sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Norrænar stofnanir“) er annar titill en skrárinnar („. Þing samtaka norrænna háskólamanna
+    — 2. þing Bandalags háskólamanna Á víð og dreif“); titli skrárinnar haldið'

@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2012
 volume: 8
 issue: null
-label: Stjórnmál og stjórnsýsla, 8. árg.
+label: Stjórnmál og stjórnsýsla, 8. árg. (2012)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.569
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/109-132_Iceland_and_the_EU’s_Common_Security_and.pdf
@@ -40,4 +41,850 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/543-564_Vulnerability_of_pension_fund_balances.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/73-92_Seasonal_rural_residence_of_Icelandic_ch.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/93-108_A_Review_of_the_Current_Situation_of.pdf
-articles: []
+articles:
+- title: 'Iceland’s external affairs in the Middle Ages: The shelter of Norwegian sea power'
+  authors:
+  - Baldur Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 38
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 33
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/5-38_Iceland’s_external_affairs_in_the_Middle.pdf
+  note: ''
+  analysis_notes: []
+- title: Development of Income Distribution in Ic
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 72
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/39-72_Development_of_Income_Distribution_in_Ic.pdf
+  note: ''
+  analysis_notes: []
+- title: Sendur í sveit
+  authors:
+  - Jónína Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 92
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/73-92_Seasonal_rural_residence_of_Icelandic_ch.pdf
+  note: ''
+  analysis_notes: []
+- title: A Review of the Current Situation of
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 93
+  page_end: 108
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/93-108_A_Review_of_the_Current_Situation_of.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Iceland and the EU’s Common Security and Defence Policy: Challenge or Opportunity? Alyson JK Bailes, Adjunct Professor
+    UI and Örvar Þ. Rafnsson, Graduate in Political Science UI'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 109
+  page_end: 132
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/109-132_Iceland_and_the_EU’s_Common_Security_and.pdf
+  note: ''
+  analysis_notes: []
+- title: New Public Management
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 152
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/133-152_New_Public_Management.pdf
+  note: ''
+  analysis_notes: []
+- title: Policy Making and Planning within Minist
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: 172
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/153-172_Policy_Making_and_Planning_within_Minist.pdf
+  note: ''
+  analysis_notes: []
+- title: A Time to Connect  On Tourism Policy
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 194
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/173-194_A_Time_to_Connect__On_Tourism_Policy.pdf
+  note: ''
+  analysis_notes: []
+- title: The New Feminist Movement in the Nordic
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 195
+  page_end: 218
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/195-218_The_New_Feminist_Movement_in_the_Nordic.pdf
+  note: ''
+  analysis_notes: []
+- title: Welfare and Justice Abstract
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 219
+  page_end: 230
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/219-230_Welfare_and_Justice.pdf
+  note: ''
+  analysis_notes: []
+- title: Limitation on the ownership of foreign parties of real estate
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 231
+  page_end: 252
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/231-252_Limitation_on_the_ownership_of_foreign_p.pdf
+  note: ''
+  analysis_notes: []
+- title: The left-right dimension in the minds of Icelandic voters 1987-2009
+  authors:
+  - Hulda Þórisdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 199
+  page_end: 220
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/199-220_The_left-right_dimension_in_the_minds_of.pdf
+  note: ''
+  analysis_notes: []
+- title: Hvað voru kjósendur að hugsa? Forsetakosningar á Íslandi 2012
+  authors:
+  - Gunnar Helgi Kristinsson
+  - Indriði H. Indriðason
+  - Viktor Orri Valgarðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 221
+  page_end: 244
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/221-244_What_were_the_voters_thinking__The_presi.pdf
+  note: ''
+  analysis_notes: []
+- title: F-Word or Blueprint for Institutional Reform? European Integration and the Reform? European Integration and the Continued
+    Relevance of Federalism
+  authors:
+  - Maximilian Conrad
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 245
+  page_end: 264
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/245-264_F-Word_or_Blueprint_for_Institutional_Re.pdf
+  note: ''
+  analysis_notes: []
+- title: Akademískt frelsi1 Akademískt frelsi1 Akademískt frelsi
+  authors:
+  - Guðmundur Heiðar Frímannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 265
+  page_end: 280
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/265-280_Academic_freedom.pdf
+  note: ''
+  analysis_notes: []
+- title: The Public Role of Universities
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 281
+  page_end: 302
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/281-302_The_Public_Role_of_Universities.pdf
+  note: ''
+  analysis_notes: []
+- title: Current status and trajectories of e-government in Iceland
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 303
+  page_end: 321
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/303-322_Current_status_and_trajectories_of_e-gov.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 303–322, PDF-skjalið bls. 303–321
+- title: Umræðuvettvangur íslenskra dagblaða með hliðsjón af greiningarramma Colin Sparks
+  authors:
+  - Birgir Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 323
+  page_end: 342
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/323-342_Icelandic_newspapers_in_light_of_Sparks’.pdf
+  note: ''
+  analysis_notes: []
+- title: Knowledge management in administratitve
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 343
+  page_end: 366
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/343-366_Knowledge_management_in_administratitve.pdf
+  note: ''
+  analysis_notes: []
+- title: The Icelandic media coverage of the
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 367
+  page_end: 388
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/367-388_The_Icelandic_media_coverage_of_the_cons.pdf
+  note: ''
+  analysis_notes: []
+- title: The effects of cutbacks on motivation an
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 389
+  page_end: 412
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/389-412_The_effects_of_cutbacks_on_motivation_an.pdf
+  note: ''
+  analysis_notes: []
+- title: The Faroe Islands’ Security Policy in a The Faroe Islands’ Security Policy in a The Faroe Islands’ Security Policy
+    in a Process of Devolution Process of Devolution Process of Devolution.1
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 413
+  page_end: 430
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/413-430_The_Faroe_Islands’_Security_Policy_in_a.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Efling íslenska sveitarstjórnarstigsins: Áherslur, hugmyndir og aðgerðir'
+  authors:
+  - Grétar Þór Eyþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 431
+  page_end: 450
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/431-450_Reinforcing_the_municipal_level_in_Icela.pdf
+  note: ''
+  analysis_notes: []
+- title: Er álið málið? Samfélagsbreytingar og atvinnumöguleikar kvenna á Austurlandi atvinnumöguleikar kvenna á Austurlandi
+  authors:
+  - Tinna Kristbjörg Halldórsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 451
+  page_end: 468
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/451-468_Smelter_Jobs__Societal_changes_and_emplo.pdf
+  note: ''
+  analysis_notes: []
+- title: Will you still need me, will you still feed me? Old-age pensions in Iceland from a gender perspective
+  authors:
+  - Steinunn Rögnvaldsdóttir
+  - Gyða Margrét
+  - Gyða Margrét Pétursdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 469
+  page_end: 490
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/469-490_Will_you_still_need_me,_will_you.pdf
+  note: ''
+  analysis_notes: []
+- title: Towards a Better Understanding of Climate
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 491
+  page_end: 514
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/491-514_Towards_a_Better_Understanding_of_Climat.pdf
+  note: ''
+  analysis_notes: []
+- title: Skipulag íslenskra fyrirtækja 2004-2007
+  authors:
+  - Einar Svansson
+  - Runólfur Smári
+  - Runólfur Smári Steinþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 515
+  page_end: 542
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/515-542_Organizational_structure_in_Icelandic_co.pdf
+  note: ''
+  analysis_notes: []
+- title: Vulnerability of pension fund balances1 Vulnerability of pension fund balances
+  authors:
+  - Ólafur Ísleifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 543
+  page_end: 564
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/543-564_Vulnerability_of_pension_fund_balances.pdf
+  note: ''
+  analysis_notes: []

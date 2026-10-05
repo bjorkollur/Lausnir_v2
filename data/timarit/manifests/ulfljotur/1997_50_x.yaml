@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.943
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/171.pdf
@@ -48,4 +49,1134 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/654.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/662.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/90.pdf
-articles: []
+articles:
+- title: Jafnrétti við kosningar til þjóðþinga og héraðsstjóma í Ijósi Mannréttindasáttmála Evrópu
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 775
+  page_end: 778
+  issue: null
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    pages: page
+    title: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/2724.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.55)
+- title: EES-samningurinn og Mannréttindasáttmáli Evrópu sem réttarheimildir í íslenskum landsrétti
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 99
+  page_end: 138
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 461
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/2682.pdf
+  note: ''
+  analysis_notes: []
+- title: Yfirlit yfir þvingunarráðstafanir í þágu meðferðar opinberra mála
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 105
+  page_end: 123
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 462
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/602.pdf
+  note: ''
+  analysis_notes: []
+- title: Hvarf miðlínunnar úr rétti hafsins
+  authors:
+  - Gunnar G. Schram
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 150
+  page_end: 174
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 463
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/2683.pdf
+  note: ''
+  analysis_notes: []
+- title: Grundvallaratriði alþjóðlegs refsiréttar
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 151
+  page_end: 180
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 464
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/528.pdf
+  note: ''
+  analysis_notes: []
+- title: Ábyrgð á birtu prentefni að íslenskum lögum
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 183
+  page_end: 215
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 465
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/662.pdf
+  note: ''
+  analysis_notes: []
+- title: Hugtakið umhverfisbrot og ákvæði almennra hegningarlaga er lýsa slíkum brotum
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 217
+  page_end: 217
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 466
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/529.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Efnisyfirlit“ á bls. 219 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Um þekkingu Íslendinga á rómverskum og kanónískum rétti frá 12. Öld til miðrar 16. Aldar
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 241
+  page_end: 273
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 467
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/90.pdf
+  note: ''
+  analysis_notes: []
+- title: EES-samningurinn og sjávarafurðir
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 310
+  page_end: 344
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 468
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/2684.pdf
+  note: ''
+  analysis_notes: []
+- title: Helztu starfsskyldur fasteignasala og skaðabótaábyrgð þeirra
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 311
+  page_end: 345
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 469
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/229.pdf
+  note: ''
+  analysis_notes: []
+- title: Skuldajöfnuður
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 347
+  page_end: 393
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 470
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/230.pdf
+  note: ''
+  analysis_notes: []
+- title: Í tilefni nýrra laga um lögregluna
+  authors:
+  - Bogi Nilsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 427
+  page_end: 431
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 471
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/603.pdf
+  note: ''
+  analysis_notes: []
+- title: Nýskipan ákæruvalds
+  authors:
+  - Svala Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 433
+  page_end: 448
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 472
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/605.pdf
+  note: ''
+  analysis_notes: []
+- title: Hugtakið opinber starfsmaður í almennum hegningarlögum
+  authors:
+  - Hallgrímur Ásgeirsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 449
+  page_end: 482
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 473
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/652.pdf
+  note: ''
+  analysis_notes: []
+- title: Um meðferð persónuupplýsinga
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 483
+  page_end: 490
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 474
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/395.pdf
+  note: ''
+  analysis_notes: []
+- title: Vernd persónuupplýsinga í heilsufarsgögnum
+  authors:
+  - Haraldur Briem
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 491
+  page_end: 498
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 475
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/390.pdf
+  note: ''
+  analysis_notes: []
+- title: Um meðferð persónuupplýsinga
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 499
+  page_end: 507
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 474
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/393.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 483, prentað bls. 499'
+- title: Meðferð upplýsinga um fjárhagsmálefni
+  authors:
+  - Jón G. Briem
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 508
+  page_end: 510
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 477
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/391.pdf
+  note: ''
+  analysis_notes: []
+- title: Um meðferð persónuupplýsinga
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 511
+  page_end: 515
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 474
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/394.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 483, prentað bls. 511'
+- title: Meðferð upplýsinga í fjölmiðlum
+  authors:
+  - Jónas Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 516
+  page_end: 517
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 479
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/392.pdf
+  note: ''
+  analysis_notes: []
+- title: Skiptar skoðanir um nýtt lögmannafrumvarp
+  authors:
+  - Fræðafundur Orators
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 537
+  page_end: 538
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 480
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/604.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Félagasamtök á sviði mannréttinda vinna mikið starf“ á bls. 539 sem skráin nefnir ekki;
+    greinin er talin enda þar'
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Ágrip um lagaleg atriði í notkun Internetsins
+  authors:
+  - Mads Bryde Andersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 571
+  page_end: 575
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 481
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/279.pdf
+  note: ''
+  analysis_notes: []
+- title: Matsnefnd eignarnámsbóta
+  authors:
+  - Helgi Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 577
+  page_end: 585
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 482
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/207.pdf
+  note: ''
+  analysis_notes: []
+- title: Um stjórnskipulega eignaréttarvernd aflaheimilda
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 587
+  page_end: 618
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 483
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/208.pdf
+  note: ''
+  analysis_notes: []
+- title: Kvennaréttur - hvað er það?
+  authors:
+  - Brynhildur G. Flóvenz
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 619
+  page_end: 630
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 484
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/171.pdf
+  note: ''
+  analysis_notes: []
+- title: Mannréttindadómstóll á tímamótum
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 631
+  page_end: 635
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 485
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/653.pdf
+  note: ''
+  analysis_notes: []
+- title: Færri andvökunætur - dómasafn Hæstaréttar á tölvutæku formi
+  authors:
+  - Jónína S. Lárusdóttir
+  - Páll Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 637
+  page_end: 640
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 486
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/606.pdf
+  note: ''
+  analysis_notes: []
+- title: Mannréttindadómstóll á tímamótum
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 772
+  page_end: 774
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.2
+  leitir_record_id: null
+  xlsx_row: 485
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/2723.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 631, prentað bls. 772'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Jafnrétti við starfsráðningar“) er annar titill en skrárinnar („Mannréttindadómstóll
+    á tímamótum“); titli skrárinnar haldið'
+- title: Notkunarhugtak umferðarlaga - í ljósi nýgenginna hæstaréttardóma
+  authors:
+  - Helgi Birgisson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 703
+  page_end: 714
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 487
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/311.pdf
+  note: ''
+  analysis_notes: []
+- title: Sjávarútvegsstefna EB og “kvóta hopp”
+  authors:
+  - Ellý Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 715
+  page_end: 729
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 488
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/654.pdf
+  note: ''
+  analysis_notes: []
+- title: Sjálfstæði og réttindi barna
+  authors:
+  - Hrefna Friðriksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 731
+  page_end: 750
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 489
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/172.pdf
+  note: ''
+  analysis_notes: []
+- title: Afbrotaþróun í
+  authors:
+  - Karl Steinar Valsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 751
+  page_end: 759
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 490
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/531.pdf
+  note: ''
+  analysis_notes: []
+- title: Jafnræðisregla og frjáls för launþega innan Evrópska efnahagssvæðisins (EES)
+  authors:
+  - Dóra Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 762
+  page_end: 765
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 491
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/2720.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 765, prentað bls. 762'
+- title: Minnihlutahópar og jafnræðisreglan
+  authors:
+  - Elín Blöndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 766
+  page_end: 769
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 492
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/2721.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 769, prentað bls. 766'
+- title: Minnihlutahópar og jafnræðisreglan
+  authors:
+  - Elín Blöndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 770
+  page_end: 771
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.2
+  leitir_record_id: null
+  xlsx_row: 492
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/2722.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 769, prentað bls. 770'
+- title: Ætlaði að verða tónlistarkennari
+  authors:
+  - Ragnar Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 791
+  page_end: 794
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 496
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1997 50 arg/2728.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 802, prentað bls. 791'
+  - 'FRÁVIK: á eftir greininni hefst „Flökkueðlið segir til sín“ á bls. 795 sem skráin nefnir ekki; greinin er talin enda
+    þar'

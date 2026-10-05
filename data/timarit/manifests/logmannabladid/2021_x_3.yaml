@@ -1,16 +1,439 @@
 source: logmannabladid
 year: 2021
-volume: null
+volume: 27
 issue: '3'
-label: Lögmannablaðið, 3. tbl. (2021)
+label: Lögmannablaðið, 27. árg. 3. tbl. (2021)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2021 03.pdf
 sha256: d66e4f00dd191b2fd12dbdf7051c7b70d667f2326a57013f5e9504fdf135bba1
-pages: null
+pages: 36
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.889
+  runner_up_share: 0.0
+  pages: 36
+  segments:
+  - - 1
+    - 34
+    - 1
+  contested: []
+  bin_ratio: 0.843
+  non_article:
+  - 4
+  - 6
+  - 16
+  - 21
+  - 26
+  - 34
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2021 03.pdf
-articles: []
+articles:
+- title: Lögmenn sem þátttakendur í opinberri umræðu
+  authors:
+  - Sigurður Örn Hilmarsson
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá ritstjórn
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Saga og samtíð“) er annar titill en skrárinnar („Frá ritstjórn“); titli skrárinnar
+    haldið'
+- title: I. Réttarfar – aðild umhverfissamtaka að dómsmálum og endurupptaka dæmdra mála
+  authors:
+  - Ingi B. Poulsen
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 7
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: II. Peningaþvætti og alþjóðleg regluvarsla
+  authors:
+  - Hrafnhildur Sæberg Þorsteinsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 11
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 10
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: III. Örmálstofur
+  authors:
+  - Hildur Þórarinsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 12
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: „Street-food“ stemning á Lagadegi
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 15
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: IV. Flutningur mála fyrir dómi
+  authors:
+  - Þyrí Steingrímsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 17
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: V. Félagaréttur og verðbréfamarkaðsréttur
+  authors:
+  - Selma Hafliðadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 19
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VI. Stjórnsýsluréttur
+  authors:
+  - Ari Karlsson
+  author_titles: []
+  article_type: Annað
+  page_start: 23
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 22
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Réttur hið opinbera sem aðili að dómsmáli“) er annar titill en skrárinnar („VI. Stjórnsýsluréttur“);
+    titli skrárinnar haldið'
+- title: Meistaramót LMFÍ í golfi 2021
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Áminning vegna umfjöllunar um viðkvæmar persónuupplýsingar á opinberum vettvangi
+  authors:
+  - Anna Lilja Hallgrímsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 27
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: greinin er undirrituð (Lúðvík Emil Kaaber) en höfundar skrárinnar eru aðrir (Anna Lilja Hallgrímsdóttir); skránni
+    haldið'
+- title: VIÐTAL VIÐ HRAFNHILDI STEFÁNSDÓTTUR Mikil tarnavinna að vera í kjaraviðræðum
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 30
+  page_end: 32
+  issue: null
+  pdf_pages:
+  - 29
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gersemarnar Grænihryggur
+  authors:
+  - Margrét Gunnlaugsdóttir
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 33
+  page_end: 34
+  issue: null
+  pdf_pages:
+  - 32
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -5,12 +5,19 @@ issue: '4'
 label: Lögmannablaðið, 4. tbl. (1996)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1996 04.pdf
 sha256: 3684941e068f4c4d68c3a7ed5b2767fabb6fdc39ef61411977e1a5efba418cdb
-pages: null
+pages: 13
 year_end: null
-page_map: {}
-status: pending
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 13
+  segments: []
+  contested: []
+  bin_ratio: 0.0
+status: review
 confidence: 0.0
-error: null
+error: ekkert textalag — þarf OCR
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1996 04.pdf
 articles: []

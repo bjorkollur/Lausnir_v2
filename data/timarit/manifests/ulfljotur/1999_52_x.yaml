@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.911
+status: approved
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/259.pdf
@@ -25,4 +26,408 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/655.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/664.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/685.pdf
-articles: []
+articles:
+- title: Um ólögmælt verkefni sveitarfélaga.1
+  authors:
+  - Birgir Tjörvi Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 65
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 434
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/442.pdf
+  note: ''
+  analysis_notes: []
+- title: Ákvörðun refsingar í nauðgunarmálum
+  authors:
+  - Ragnheiður Bragadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 67
+  page_end: 84
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 435
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/533.pdf
+  note: ''
+  analysis_notes: []
+- title: Um hina einu lögfræðilega réttu niðurstöðu
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 108
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 436
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/685.pdf
+  note: ''
+  analysis_notes: []
+- title: Hvert fara landamæraverðirnir
+  authors:
+  - Högni Snjólfur Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 177
+  page_end: 213
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 438
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/655.pdf
+  note: ''
+  analysis_notes: []
+- title: Bótaábyrgð vegna mengunartjóns
+  authors:
+  - Guðný Björnsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 215
+  page_end: 232
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 439
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/259.pdf
+  note: ''
+  analysis_notes: []
+- title: Birting og gildistaka laga
+  authors:
+  - Gunnar Jakobsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 235
+  page_end: 257
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 440
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/45.pdf
+  note: ''
+  analysis_notes: []
+- title: Nýjar áherslur og ný tækifæri í lagadeild
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 347
+  page_end: 355
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 441
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/664.pdf
+  note: ''
+  analysis_notes: []
+- title: Réttur sakaðs manns til þess að leiða vitni og spyrja þau
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 357
+  page_end: 392
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 442
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/609.pdf
+  note: ''
+  analysis_notes: []
+- title: Meðferð samkeppnismála
+  authors:
+  - Jóna Björk Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 395
+  page_end: 414
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 443
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/443.pdf
+  note: ''
+  analysis_notes: []
+- title: Er sannleikurinn alltaf sagna bestur ? Um þagnarrétt á stjórnsýslustigi
+  authors:
+  - Heimir Örn Herbertsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 417
+  page_end: 449
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 444
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/444.pdf
+  note: ''
+  analysis_notes: []
+- title: Lagareglur um refsiábyrgð opinberra starfsmanna
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 511
+  page_end: 529
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 445
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/445.pdf
+  note: ''
+  analysis_notes: []
+- title: Andmælaregla stjórnsýslulaga og skattalaga í ljósi dóms í málinu Íslenska ríkið gegn Myllunni brauði hf
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 531
+  page_end: 543
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 446
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/446.pdf
+  note: ''
+  analysis_notes: []
+- title: Kröfur EES-samningsins til rökstuðnings stjórnvaldsákvarðana
+  authors:
+  - Bjarni Ólafsson
+  - Margrét Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 545
+  page_end: 558
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 447
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1999 52 arg/447.pdf
+  note: ''
+  analysis_notes: []

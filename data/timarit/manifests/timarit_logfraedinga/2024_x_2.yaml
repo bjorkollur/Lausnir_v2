@@ -1,16 +1,160 @@
 source: timarit_logfraedinga
 year: 2024
-volume: null
+volume: 74
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2024)
+label: Tímarit lögfræðinga, 74. árg. 2. hefti (2024)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2024_02.pdf
 sha256: 8a0a39e49c9dc2307763e644df111648e4fa4c0c1ea8028b3aa7c124915a5dce
-pages: null
+pages: 156
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 147
+  quality: 0.955
+  runner_up_share: 0.0
+  pages: 156
+  segments:
+  - - 2
+    - 152
+    - 147
+  contested: []
+  bin_ratio: 0.918
+  non_article:
+  - 5
+  - 147
+  - 148
+  - 149
+  - 150
+  - 151
+  - 153
+  - 154
+  - 155
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2024_02.pdf
-articles: []
+articles:
+- title: Gervigreindarreglugerð Evrópusambandsins
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 149
+  page_end: 151
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Innherjasvik og opinber birting innherjaupplýsinga
+  authors:
+  - Andri Fannar Bergþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: 186
+  issue: null
+  pdf_pages:
+  - 6
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðildarhæfi deilda eða eininga innan félaga Um dómaframkvæmd Hæstaréttar frá sjónarhorni félagaréttar
+  authors:
+  - Arnljótur Ástvaldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 187
+  page_end: 250
+  issue: null
+  pdf_pages:
+  - 40
+  - 103
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frávik og skýringar á tilboðum
+  authors:
+  - Magnús Ingvar Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 251
+  page_end: 293
+  issue: null
+  pdf_pages:
+  - 104
+  - 146
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

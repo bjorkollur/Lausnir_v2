@@ -1,16 +1,198 @@
 source: ulfljotur
 year: 2022
-volume: null
+volume: 75
 issue: '4'
-label: Úlfljótur, 4. tbl. (2022)
+label: Úlfljótur, 75. árg. 4. tbl. (2022)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2022-4tbl.pdf
 sha256: 8810c0544e06f7ecc98e0d2747404e07967cbe90f0e282a5a05b415ca1820b0a
-pages: null
+pages: 164
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 387
+  quality: 0.945
+  runner_up_share: 0.006
+  pages: 164
+  segments:
+  - - 2
+    - 161
+    - 387
+  contested: []
+  bin_ratio: 0.872
+  non_article:
+  - 49
+  - 83
+  - 117
+  - 131
+  - 132
+  - 133
+  - 139
+  - 149
+  - 154
+  - 155
+  - 156
+  - 157
+  - 158
+  - 159
+  - 160
+  - 161
+  - 162
+  - 163
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2022-4tbl.pdf
-articles: []
+articles:
+- title: Skattalegar afleiðingar við skiptingu félaga
+  authors:
+  - Gerður Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 395
+  page_end: 435
+  issue: null
+  pdf_pages:
+  - 8
+  - 48
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 19
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Endurskoðun stjórnvaldsákvarðana og stjórnsýsludómstólar
+  authors:
+  - Kristín Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 437
+  page_end: 469
+  issue: null
+  pdf_pages:
+  - 50
+  - 82
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 20
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um endurupptöku sakamála
+  authors:
+  - Teitur Gissurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 471
+  page_end: 502
+  issue: null
+  pdf_pages:
+  - 84
+  - 115
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 21
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Lagaleg álitaefni um sjálfbærni og stjórnarhætti í hlutafélögum“ á bls. 503 sem skráin
+    nefnir ekki; greinin er talin enda þar'
+- title: Mega eða eiga stjórnendur að horfa til sjálfbærni við ákvarðanatöku?
+  authors:
+  - Hildur Sveinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 505
+  page_end: 510
+  issue: null
+  pdf_pages:
+  - 118
+  - 123
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 22
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um almenna sjálfbærniskyldu á stjórnendur
+  authors:
+  - Kristinn Már Reynisson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 511
+  page_end: 517
+  issue: null
+  pdf_pages:
+  - 124
+  - 130
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 23
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 521 sem skráin nefnir ekki; greinin er talin enda þar'

@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.947
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1982 35 arg/164.pdf
@@ -18,4 +19,192 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1982 35 arg/470.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1982 35 arg/81.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1982 35 arg/82.pdf
-articles: []
+articles:
+- title: Um Jónsbók - sjö alda afmælisminning -
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 16
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 780
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1982 35 arg/82.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „''°,n*m m"J’‘ «>**« s F ÍM >*,“ á bls. 17 sem skráin nefnir ekki; greinin er talin enda
+    þar'
+- title: Skaðabótaábyrgð útgerðarmanns utan samninga Stutt yfirlit'
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 59
+  page_end: 71
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 783
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1982 35 arg/293.pdf
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um endurskoðun siglingalaga
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 72
+  page_end: 85
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 784
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1982 35 arg/294.pdf
+  note: ''
+  analysis_notes: []
+- title: Dómar og aldafar
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 121
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 786
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1982 35 arg/81.pdf
+  note: ''
+  analysis_notes: []
+- title: Sameiginleg forsjá og önnur nýmæli í barnarétti
+  authors:
+  - Guðrún Erlendsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 122
+  page_end: 145
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 787
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1982 35 arg/164.pdf
+  note: ''
+  analysis_notes: []
+- title: Um nokkur atriði íslenskrar mengunarlöggjafar og skyld efni
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 147
+  page_end: 185
+  issue: 3-4
+  pdf_pages:
+  - 0
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 788
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1982 35 arg/470.pdf
+  note: ''
+  analysis_notes: []

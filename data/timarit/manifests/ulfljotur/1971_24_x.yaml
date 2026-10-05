@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.806
+status: review
+confidence: 0.55
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/1536.pdf
@@ -29,4 +30,537 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/556.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/670.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/73.pdf
-articles: []
+articles:
+- title: „ferð“ í merkingu X. kafla siglingalag-
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 16
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 961
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/284.pdf
+  note: ''
+  analysis_notes: []
+- title: Efnahagsbandalag Evrópu og norrænn stjórnskipunarréttur
+  authors:
+  - Baldur Guðlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 17
+  page_end: 38
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 962
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/1536.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 38, prentað bls. 17'
+- title: Aller Domar skulu vera með endelegum eða útþryckelegum Orðum. NL 1 B 5. Cap 12 Art. En ecke efasömum og tvíræðum;
+    so þar verðe ei settar Fijingur uti
+  authors:
+  - Sigurgeir Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 46
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 963
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/268.pdf
+  note: ''
+  analysis_notes: []
+- title: Rembihnútur
+  authors:
+  - Hjalti Zóphaníasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 47
+  page_end: 52
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 964
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/21.pdf
+  note: ''
+  analysis_notes: []
+- title: Tvísköttunarsamningar
+  authors:
+  - Benedikt Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 95
+  page_end: 115
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 967
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/458.pdf
+  note: ''
+  analysis_notes: []
+- title: Framlagning dómsskjala
+  authors:
+  - Magnús Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 116
+  page_end: 126
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 968
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/555.pdf
+  note: ''
+  analysis_notes: []
+- title: Um rekstrarábyrgð útgerðarmanns
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 127
+  page_end: 145
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 969
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/285.pdf
+  note: ''
+  analysis_notes: []
+- title: Um vátryggingar
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 191
+  page_end: 206
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 970
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/302.pdf
+  note: ''
+  analysis_notes: []
+- title: Verðaukaskattur
+  authors:
+  - Ásgeir Pétur Ásgeirsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 207
+  page_end: 216
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 971
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/463.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um efnahagsbandalag Evrópu
+  authors:
+  - Páll Skúlason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 224
+  page_end: 226
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 972
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/1561.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 226, prentað bls. 224'
+- title: I vesterveg til Orator
+  authors:
+  - Roald Engeness
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 236
+  page_end: 239
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 975
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/1563.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 239, prentað bls. 236'
+- title: Réttarfarsathafnir
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 271
+  page_end: 285
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 976
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/556.pdf
+  note: ''
+  analysis_notes: []
+- title: Erfðamál frá 15. öld
+  authors:
+  - Einar Bjarnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 286
+  page_end: 292
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 977
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/73.pdf
+  note: ''
+  analysis_notes: []
+- title: Nánar um hugtakið “ferð” í X. kafla siglingalaganna
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 293
+  page_end: 298
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 978
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/286.pdf
+  note: ''
+  analysis_notes: []
+- title: Um réttarreglur og siðferðisreglur
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 299
+  page_end: 304
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 979
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/670.pdf
+  note: ''
+  analysis_notes: []
+- title: Juristens rolle i samfunnet för, nå og i fremtiden
+  authors:
+  - Torstein Eckhoff
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 305
+  page_end: 312
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 980
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/1574.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 312, prentað bls. 305'
+- title: Juristens rolle i samfundet
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 313
+  page_end: 322
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 981
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/1575.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 322, prentað bls. 313'

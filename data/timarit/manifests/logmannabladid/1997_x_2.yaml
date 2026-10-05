@@ -5,12 +5,19 @@ issue: '2'
 label: Lögmannablaðið, 2. tbl. (1997)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1997 02.pdf
 sha256: eca2edf5521e80730903a843c86bb9be20640c5acf6c5b5413be83e595249e47
-pages: null
+pages: 11
 year_end: null
-page_map: {}
-status: pending
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 11
+  segments: []
+  contested: []
+  bin_ratio: 0.0
+status: review
 confidence: 0.0
-error: null
+error: ekkert textalag — þarf OCR
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1997 02.pdf
 articles: []

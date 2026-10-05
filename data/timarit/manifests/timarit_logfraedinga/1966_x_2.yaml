@@ -1,16 +1,294 @@
 source: timarit_logfraedinga
 year: 1966
-volume: null
+volume: 16
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1966)
+label: Tímarit lögfræðinga, 16. árg. 2. hefti (1966)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1966_02.pdf
 sha256: f83e056c4e23217d2a2a38130f6b628762bcd3e07028d254bc65a8536531efc8
-pages: null
+pages: 88
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 63
+  quality: 0.625
+  runner_up_share: 0.018
+  pages: 88
+  segments:
+  - - 3
+    - 65
+    - 63
+  contested: []
+  bin_ratio: 0.841
+  non_article:
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1966_02.pdf
-articles: []
+articles:
+- title: Ræða Gizurar Bergsteinssonar, forseta Hæstaréttar, í 25 ára afmælishófi Dómarafélags Íslands
+  authors:
+  - Gizur Bergsteinsson
+  author_titles: []
+  article_type: Annað
+  page_start: 65
+  page_end: 68
+  issue: null
+  pdf_pages:
+  - 2
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkrir drættir úr ensku réttarfari
+  authors:
+  - Thornely, J. W. A.
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 69
+  page_end: 106
+  issue: null
+  pdf_pages:
+  - 6
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Dómarafélagi Íslands
+  authors:
+  - Hákon Guðmundsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 107
+  page_end: 113
+  issue: null
+  pdf_pages:
+  - 44
+  - 50
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögfræðingafélagi Íslands
+  authors:
+  - Árni Gunnlaugsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 114
+  page_end: 119
+  issue: null
+  pdf_pages:
+  - 51
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Embætti
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 120
+  page_end: 120
+  issue: null
+  pdf_pages:
+  - 57
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Hafsteinn Hafsteinsson); skránni haldið'
+- title: Nýir hæstaréttarlögmenn
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 120
+  page_end: 120
+  issue: null
+  pdf_pages:
+  - 57
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mót norrænna laganema og ungra lögfræðinga
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 121
+  page_end: 121
+  issue: null
+  pdf_pages:
+  - 58
+  - 58
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skrá um lög 1966
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 122
+  page_end: 128
+  issue: null
+  pdf_pages:
+  - 59
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

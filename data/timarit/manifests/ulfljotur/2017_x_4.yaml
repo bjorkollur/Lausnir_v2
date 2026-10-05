@@ -1,16 +1,137 @@
 source: ulfljotur
 year: 2017
-volume: null
+volume: 70
 issue: '4'
-label: Úlfljótur, 4. tbl. (2017)
+label: Úlfljótur, 70. árg. 4. tbl. (2017)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2017_4_tbl.pdf
 sha256: 11de7864135747fb07e6f0a2f6ebf5e73c60f2ac8f74002cfce8f8d9597cb1ab
-pages: null
+pages: 155
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 484
+  quality: 0.968
+  runner_up_share: 0.007
+  pages: 155
+  segments:
+  - - 1
+    - 154
+    - 484
+  contested: []
+  bin_ratio: 0.878
+  non_article:
+  - 82
+  - 111
+  - 114
+  - 118
+  - 120
+  - 128
+  - 130
+  - 134
+  - 136
+  - 142
+  - 146
+  - 148
+  - 150
+  - 151
+  - 152
+  - 153
+  - 154
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2017_4_tbl.pdf
-articles: []
+articles:
+- title: 'Evrópusambandið og EES: sveigjanlegur samruni, aukin samvinna eða samvinna utan stofnsáttmálanna?'
+  authors:
+  - Dóra Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 489
+  page_end: 508
+  issue: null
+  pdf_pages:
+  - 5
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 108
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðferðir rökfræðinnar við greiningu dóma
+  authors:
+  - Oddur Þorri Viðarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 509
+  page_end: 565
+  issue: null
+  pdf_pages:
+  - 25
+  - 81
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 109
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Meginreglan um gagnkvæma viðurkenningu í tengslum við frjálsa vöruflutninga á innri markaðnum
+  authors:
+  - Peter Dalmay
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 567
+  page_end: 594
+  issue: null
+  pdf_pages:
+  - 83
+  - 110
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 110
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Sigríður Erla Sturludóttir“ á bls. 596 sem skráin nefnir ekki; greinin er talin enda
+    þar'
+  - 'FRÁVIK: greinin er undirrituð (Kolfinna Tómasdóttir) en höfundar skrárinnar eru aðrir (Peter Dalmay); skránni haldið'

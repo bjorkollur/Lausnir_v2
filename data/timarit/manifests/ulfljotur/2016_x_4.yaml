@@ -1,16 +1,101 @@
 source: ulfljotur
 year: 2016
-volume: null
+volume: 69
 issue: '4'
-label: Úlfljótur, 4. tbl. (2016)
+label: Úlfljótur, 69. árg. 4. tbl. (2016)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2016_4_tbl.pdf
 sha256: 128fd9c8a1ad49c227d6334d88668a8fdc76659a90d73bc1a32f6f20ccfecd54
-pages: null
+pages: 113
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 392
+  quality: 0.947
+  runner_up_share: 0.009
+  pages: 113
+  segments:
+  - - 3
+    - 111
+    - 392
+  contested: []
+  bin_ratio: 0.91
+  non_article:
+  - 38
+  - 70
+  - 71
+  - 76
+  - 82
+  - 94
+  - 107
+  - 108
+  - 109
+  - 110
+  - 111
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2016_4_tbl.pdf
-articles: []
+articles:
+- title: Hæfi löggerningsgjafa og skortur á löggerningsvilja
+  authors:
+  - Ása Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 397
+  page_end: 429
+  issue: null
+  pdf_pages:
+  - 5
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 121
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vernd upplýsingaréttar samkvæmt 10. gr. Mannréttindasáttmála Evrópu í ljósi nýlegs dóms Mannréttindadómstóls Evrópu
+    í máli Magyar Helsinki Bizottság gegn Ungverjalandi
+  authors:
+  - Oddur Þorri Viðarsson
+  - Ásthildur Valtýsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 431
+  page_end: 461
+  issue: null
+  pdf_pages:
+  - 39
+  - 69
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 122
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Rekabálkur“ á bls. 465 sem skráin nefnir ekki; greinin er talin enda þar'

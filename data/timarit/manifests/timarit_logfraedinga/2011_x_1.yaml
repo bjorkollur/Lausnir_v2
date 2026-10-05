@@ -1,16 +1,283 @@
 source: timarit_logfraedinga
 year: 2011
-volume: null
+volume: 61
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2011)
+label: Tímarit lögfræðinga, 61. árg. 1. hefti (2011)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2011_01.pdf
 sha256: a42b7b8316e2394cd92b720eacc51671fd3232a2a42f64d9b0130e2a4ea32d7c
-pages: null
+pages: 133
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.97
+  runner_up_share: 0.0
+  pages: 133
+  segments:
+  - - 2
+    - 130
+    - -1
+  contested: []
+  bin_ratio: 0.899
+  non_article:
+  - 5
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 27
+  - 28
+  - 30
+  - 32
+  - 33
+  - 35
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 70
+  - 71
+  - 72
+  - 73
+  - 75
+  - 78
+  - 79
+  - 80
+  - 82
+  - 83
+  - 85
+  - 86
+  - 87
+  - 88
+  - 92
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109
+  - 110
+  - 111
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+  - 123
+  - 124
+  - 125
+  - 126
+  - 127
+  - 128
+  - 129
+  - 130
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2011_01.pdf
-articles: []
+articles:
+- title: Ákvörðun Hæstaréttar um ógildingu kosninga til stjórnlagaþings
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 3
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    authors: leitir
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 4, prentuð lokasíða er bls. 3
+- title: Bótaábyrgð vegna brota á EES-rétti sem rekja má til æðstu dómstóla
+  authors:
+  - Margrét Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 6
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 33, prentuð lokasíða er bls. 15
+  - 'FRÁVIK: á eftir greininni hefst „������������������������������������������������������������“ á bls. 25 sem skráin nefnir
+    ekki; greinin er talin enda þar'
+- title: Grunneðli aﬂeiðna sem áhættugerninga - í ljósi dóms Hæstaréttar í máli nr. 561/2010
+  authors:
+  - Aðalsteinn E. Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 35
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 36
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 43 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Samningar um vanefndaaﬂeiðingar
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 59
+  page_end: 59
+  issue: null
+  pdf_pages:
+  - 60
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 68 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Viðbrögð Evrópusambandsins við fjármálakreppunni
+  authors:
+  - Ragnheiður Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 89
+  page_end: 90
+  issue: null
+  pdf_pages:
+  - 90
+  - 91
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 119, prentuð lokasíða er bls. 90
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 111 sem skráin nefnir ekki; greinin er talin enda þar'

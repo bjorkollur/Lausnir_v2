@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2019
 volume: 15
 issue: null
-label: Stjórnmál og stjórnsýsla, 15. árg.
+label: Stjórnmál og stjórnsýsla, 15. árg. (2019)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.643
+status: review
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/1-20_Local_administrative_capacity_based_on_t.pdf
@@ -24,4 +25,390 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/39-66_Do_municipal_amalgamations_affect_interr.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/67-90_Trade_union_density_in_Iceland.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/91-112_Workplace_sexual_harassment.pdf
-articles: []
+articles:
+- title: Local administrative capacity based on the presence of expert staff in municipal city halls and inter-municipal cooperation
+    entities
+  authors:
+  - Eva Marín Hlynsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 20
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/1-20_Local_administrative_capacity_based_on_t.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Decision-making efficiency, accountability and democracy in inter-municipal cooperation arrangements: The case of
+    Iceland'
+  authors:
+  - Grétar Þór Eyþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 38
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/21-38_Decision-making_efficiency,_accountabili.pdf
+  note: ''
+  analysis_notes: []
+- title: Do municipal amalgamations affect interregional migration?
+  authors:
+  - Vífill Karlsson
+  - Grétar Thór Eythórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 66
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 27
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/39-66_Do_municipal_amalgamations_affect_interr.pdf
+  note: ''
+  analysis_notes: []
+- title: Stéttarfélagsaðild á Íslandi
+  authors:
+  - Gylfi Dalmann Aðalsteinsson
+  - Þórhallur Örn Guðlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 67
+  page_end: 90
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/67-90_Trade_union_density_in_Iceland.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Kynferðisleg áreitni á vinnustað: Aðgerðir, aðgerðaleysi og leiðin fram á við'
+  authors:
+  - Gyða Margrét Pétursdóttir
+  - Kristín Anna Hjálmarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 91
+  page_end: 112
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/91-112_Workplace_sexual_harassment.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Opinber stefna, skólakerfið og hlutverk kennara: Viðbragðsbúnaður skólans'
+  authors:
+  - Sigrún Harðardóttir
+  - Sigrún Júlíusdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 113
+  page_end: 134
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/113-134_Public_policy,_the_schoolsystem_and_teac.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Stjórnkerfismiðjur: Samhent stjórnsýsla í framkvæmd á Íslandi'
+  authors:
+  - Pétur Berg Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 160
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/135-160_Centre_of_Government.pdf
+  note: ''
+  analysis_notes: []
+- title: Politics, marketing and social media in the 2018 local elections in Iceland
+  authors:
+  - Birgir Guðmundsson
+  - Hafdís Björg Hjálmarsdóttir
+  - Vera Kristín Vestmann Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 182
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/161-182_Politics,_marketing_and_social_media_in.pdf
+  note: ''
+  analysis_notes: []
+- title: Þrástef, þagnir og mótsagnir um lýðræðislegt hlutverk íslenskra háskóla
+  authors:
+  - Valgerður S. Bjarnadóttir
+  - Anna Ólafsdóttir
+  - Guðrún Geirsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 183
+  page_end: 204
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/183-204_Discursive_themes,_silences,_and_contrad.pdf
+  note: ''
+  analysis_notes: []
+- title: Er skortur á framboði eða er engin eftirspurn eftir konum í æðstu stjórnunarstöður?
+  authors:
+  - Ásta Dís Óladóttir
+  - Gylfi Dalmann Aðalsteinsson
+  - Þóra H. Christiansen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 205
+  page_end: 228
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/205-228_Is_the_supply_limited_or_is_there.pdf
+  note: ''
+  analysis_notes: []
+- title: Kosningaþátttaka ungs fólks á Íslandi, kynslóðabil, áhugi á stjórnmálum og flokkshollusta
+  authors:
+  - Eiríkur Búi Halldórsson
+  - Eva H. Önnudóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 254
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/229-254_Electoral_participation_in_Iceland_of_th.pdf
+  note: ''
+  analysis_notes: []
+- title: '„Grýta þetta pakk“: Haturstjáning í íslensku samhengi'
+  authors:
+  - Eyrún Eyþórsdóttir
+  - Kristín Loftsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 255
+  page_end: 276
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol15/255-276_Let’s_stone_this_trash.pdf
+  note: ''
+  analysis_notes: []

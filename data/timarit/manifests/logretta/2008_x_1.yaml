@@ -1,16 +1,161 @@
 source: logretta
 year: 2008
-volume: null
+volume: 5
 issue: '1'
-label: Lögrétta, 1. tbl. (2008)
+label: Lögrétta, 5. árg. 1. tbl. (2008)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2008 1.tbl.pdf
 sha256: 81c2e3f473f3c1c7534d9d6f3fae87ef56a0d305d8cb084a627df5321a857898
-pages: null
+pages: 69
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 9
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 69
+  segments:
+  - - 0
+    - 22
+    - 9
+  - - 23
+    - 41
+    - 10
+  - - 42
+    - 46
+    - 11
+  - - 47
+    - 68
+    - 12
+  contested: []
+  bin_ratio: 0.95
+  non_article: []
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2008 1.tbl.pdf
-articles: []
+articles:
+- title: Höfðaborgarsamningurinn um alþjóðleg réttindi í hreyfanlegum tækjum og bókun er varðar loftför og búnað í loftförum
+  authors:
+  - Erlendur Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skattaleg heimilisfesti einstaklinga - á Íslandi
+  authors:
+  - Jón Elvar Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 33
+  page_end: 51
+  issue: null
+  pdf_pages:
+  - 23
+  - 41
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Skattareglur og EES-samningurinn: Dómur Héraðsdóms Reykjavíkur frá 5. janúar 2007 í málinu nr. E-3650/2006: Hrafnhildur
+    Njálsdóttir gegn íslenska ríkinu'
+  authors:
+  - Anna Linda Bjarnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 57
+  issue: null
+  pdf_pages:
+  - 42
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Viðurlög við samkeppnisbrotum
+  authors:
+  - Ragna Björk Ragnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 59
+  page_end: 80
+  issue: null
+  pdf_pages:
+  - 47
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

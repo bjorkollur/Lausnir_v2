@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.83
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/1893.pdf
@@ -21,4 +22,286 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/672.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/78.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/79.pdf
-articles: []
+articles:
+- title: Um ógildi og niðurfellingu milliríkjasamninga
+  authors:
+  - Pétur Kr. Hafstein
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 38
+  issue: 1-2
+  pdf_pages:
+  - 0
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 808
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/1893.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 9, prentað bls. 3'
+- title: Nýskipan rannsóknarlögreglu á Íslandi
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 48
+  issue: 1-2
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 809
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/570.pdf
+  note: ''
+  analysis_notes: []
+- title: Fyrirlestur um lögfræðiaðstoð fyrir almenning haldinn 27/3 1979 í Lögbergi
+  authors:
+  - Ebbe Nilsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 53
+  issue: 1-2
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 810
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/571.pdf
+  note: ''
+  analysis_notes: []
+- title: Söguleg þróun viðurlaga við meinsærum
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 90
+  page_end: 104
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 811
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/78.pdf
+  note: ''
+  analysis_notes: []
+- title: Endurgjaldslaus lögfræðiráðgjöf
+  authors:
+  - Gunnar Eydal
+  - Ragnar Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 105
+  page_end: 118
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 812
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/572.pdf
+  note: ''
+  analysis_notes: []
+- title: Höfundarréttur arkitekta
+  authors:
+  - Páll S. Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 143
+  page_end: 148
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 814
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/269.pdf
+  note: ''
+  analysis_notes: []
+- title: Við upptök fræðsluskyldu
+  authors:
+  - Bjarni Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 149
+  page_end: 152
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 815
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/79.pdf
+  note: ''
+  analysis_notes: []
+- title: Vinnulöggjöf og sáttastörf
+  authors:
+  - Torfi Hjartarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: 161
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 816
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/326.pdf
+  note: ''
+  analysis_notes: []
+- title: Lög og skylda I
+  authors:
+  - Mike Marlies (Mikael Karlsson)
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 162
+  page_end: 170
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 817
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1979 32 arg/672.pdf
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Mike Marlies'

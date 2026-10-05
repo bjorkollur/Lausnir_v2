@@ -1,16 +1,425 @@
 source: timarit_logfraedinga
 year: 1955
-volume: null
+volume: 5
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (1955)
+label: Tímarit lögfræðinga, 5. árg. 4. hefti (1955)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1955_04.pdf
 sha256: 896b37a12305db9770a590b9b0b54d09ac3f84b2f7130c9a1634780e04cd1513
-pages: null
+pages: 116
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 171
+  quality: 0.491
+  runner_up_share: 0.018
+  pages: 116
+  segments:
+  - - 2
+    - 92
+    - 171
+  contested: []
+  bin_ratio: 0.666
+  non_article:
+  - 61
+  - 94
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 104
+  - 106
+  - 107
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 114
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1955_04.pdf
-articles: []
+articles:
+- title: B. Efnisskrá
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 177
+  page_end: 231
+  issue: null
+  pdf_pages:
+  - 6
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: I. Almenn lögfræði, yfirlitsrit um lög og lögfræðinga, um lagakennslu o. fl
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 233
+  page_end: 234
+  issue: null
+  pdf_pages:
+  - 62
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: II. Persónuréttur og sifjaréttur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 235
+  page_end: 236
+  issue: null
+  pdf_pages:
+  - 64
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: III. Erfðaréttur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 237
+  page_end: 237
+  issue: null
+  pdf_pages:
+  - 66
+  - 66
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: IV. Fjármunaréttur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 238
+  page_end: 241
+  issue: null
+  pdf_pages:
+  - 67
+  - 70
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: V. Refsiréttur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 242
+  page_end: 243
+  issue: null
+  pdf_pages:
+  - 71
+  - 72
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VII. Stjórnskipunarréttur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 244
+  page_end: 246
+  issue: null
+  pdf_pages:
+  - 73
+  - 75
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: VIII. Stjórnarfarsréttur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 247
+  page_end: 249
+  issue: null
+  pdf_pages:
+  - 76
+  - 78
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: IX. Réttarsaga og heimiklarrit um réttarsögu
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 250
+  page_end: 252
+  issue: null
+  pdf_pages:
+  - 79
+  - 81
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: X. Þjóðaréttur
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 253
+  page_end: 256
+  issue: null
+  pdf_pages:
+  - 82
+  - 85
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: XI. Lagasöfn, lagasetning
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 257
+  page_end: 258
+  issue: null
+  pdf_pages:
+  - 86
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: XII. Dómasöfn, dómsúrlausnir
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 259
+  page_end: 261
+  issue: null
+  pdf_pages:
+  - 88
+  - 90
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: XIII. Tímarit og afmælisrit
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 262
+  page_end: 264
+  issue: null
+  pdf_pages:
+  - 91
+  - 93
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Iðnaðarbanki Islands h.f.“ á bls. 274 sem skráin nefnir ekki; greinin er talin enda
+    þar'

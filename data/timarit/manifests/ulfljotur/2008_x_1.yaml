@@ -1,16 +1,153 @@
 source: ulfljotur
 year: 2008
-volume: null
+volume: 61
 issue: '1'
-label: Úlfljótur, 1. tbl. (2008)
+label: Úlfljótur, 61. árg. 1. tbl. (2008)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2008_1_tbl.pdf
 sha256: 0d8374250f69e3698a303beab35886e6bb3ab3508c2805fd9cc57152901b764e
-pages: null
+pages: 192
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.974
+  runner_up_share: 0.005
+  pages: 192
+  segments:
+  - - 2
+    - 190
+    - -1
+  contested: []
+  bin_ratio: 0.974
+  non_article:
+  - 186
+  - 187
+  - 188
+  - 189
+  - 190
+status: approved
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2008_1_tbl.pdf
-articles: []
+articles:
+- title: Skaðabótaábyrgð lækna og sjúkrastofnana
+  authors:
+  - Guðjón St. Marteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 86
+  issue: null
+  pdf_pages:
+  - 6
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 223
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hver á vatnið?
+  authors:
+  - Aagot Vigdís Óskarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 87
+  page_end: 114
+  issue: null
+  pdf_pages:
+  - 88
+  - 115
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 224
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um eignarhald á vatni í íslenskum vatnalögum
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 115
+  page_end: 138
+  issue: null
+  pdf_pages:
+  - 116
+  - 139
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 225
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dómabálkur - Dómar EFTA dómstólsins 2006-2007 og framkvæmd EES samningsins hjá íslenskum dómstólum
+  authors:
+  - Bjarnveig Eiríksdóttir
+  - Dóra Sif Tynes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 139
+  page_end: 184
+  issue: null
+  pdf_pages:
+  - 140
+  - 185
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 226
+  source_file: null
+  note: ''
+  analysis_notes: []

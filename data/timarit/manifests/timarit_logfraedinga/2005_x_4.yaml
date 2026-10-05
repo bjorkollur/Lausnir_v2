@@ -1,16 +1,284 @@
 source: timarit_logfraedinga
 year: 2005
-volume: null
+volume: 55
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2005)
+label: Tímarit lögfræðinga, 55. árg. 4. hefti (2005)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2005_04.pdf
 sha256: 2e3318890a7875bf263edc539022f31a0f8790fad6cc1c5b2fe1236d544351d3
-pages: null
+pages: 153
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 441
+  quality: 0.915
+  runner_up_share: 0.007
+  pages: 153
+  segments:
+  - - 2
+    - 149
+    - 441
+  contested: []
+  bin_ratio: 0.972
+  non_article:
+  - 93
+  - 133
+  - 143
+  - 144
+  - 145
+  - 146
+  - 147
+  - 148
+  - 149
+  - 150
+  - 151
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2005_04.pdf
-articles: []
+articles:
+- title: 'Dómur Hæstaréttar í máli fyrrverandi jafnréttisstýru: Fyrirsjáanleg niðurstaða eða nýlunda í stjórnsýslurétti?'
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 443
+  page_end: 446
+  issue: null
+  pdf_pages:
+  - 2
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Valdmörk stjórnvalda
+  authors:
+  - Sigurður Líndal
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 447
+  page_end: 494
+  issue: null
+  pdf_pages:
+  - 6
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: page
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Megindrættir í þjóðlendumálum 1998–2005
+  authors:
+  - Sif Guðjónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 495
+  page_end: 533
+  issue: null
+  pdf_pages:
+  - 54
+  - 92
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 534, prentuð lokasíða er bls. 533
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 532–533 sem er hvorki framhald hennar né upphaf annars
+    efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Efnisskilyrði meginreglunnar um ne bis in idem samkvæmt 1. mgr. 4. gr. 7. viðauka við mannréttindasáttmála Evrópu
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 535
+  page_end: 573
+  issue: null
+  pdf_pages:
+  - 94
+  - 132
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skaðabótaréttur eftir Viðar Má Matthíasson
+  authors:
+  - Vilhjálmur H. Vilhjálmsson
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 575
+  page_end: 578
+  issue: null
+  pdf_pages:
+  - 134
+  - 137
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Námsferð Lögfræðingafélags Íslands til Suður-Afríku
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 579
+  page_end: 580
+  issue: null
+  pdf_pages:
+  - 138
+  - 139
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stofnfundur Skattaréttarfélags Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 581
+  page_end: 582
+  issue: null
+  pdf_pages:
+  - 140
+  - 141
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá ritstjóra
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 583
+  page_end: 583
+  issue: null
+  pdf_pages:
+  - 142
+  - 142
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

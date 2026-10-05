@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.929
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/1259.pdf
@@ -22,4 +23,317 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/301.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/62.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/622.pdf
-articles: []
+articles:
+- title: Utanríkisstefna Íslendinga á 13. öld og aðdragandi sáttmálans 1262-64
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 36
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1065
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/62.pdf
+  note: ''
+  analysis_notes: []
+- title: Stutt yfirlit um sögu, löggjöf og starfsemi Seðlabankans
+  authors:
+  - Björn Tryggvason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 37
+  page_end: 44
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1066
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/1259.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 44, prentað bls. 37'
+- title: Fébótaábyrgðarreglur umferðarlaga nr. 26/1958
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 85
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1067
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/238.pdf
+  note: ''
+  analysis_notes: []
+- title: Mortensfest
+  authors:
+  - Þorfinnur Egilsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 99
+  page_end: 99
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1069
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/1268.pdf
+  note: ''
+  analysis_notes: []
+- title: Örfá orð um orðabók
+  authors:
+  - Björn Friðfinnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 100
+  page_end: 100
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1070
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/13.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um fundarsköp
+  authors:
+  - Jón E. Ragnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 125
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1071
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/1275.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 125, prentað bls. 117'
+- title: Bætur almannatrygginga
+  authors:
+  - Kjartan Guðnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 131
+  page_end: 134
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1072
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/301.pdf
+  note: ''
+  analysis_notes: []
+- title: Eign og eignarnám
+  authors:
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 165
+  page_end: 191
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1073
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/191.pdf
+  note: ''
+  analysis_notes: []
+- title: Lögreglustjóraembættið á Keflavíkurflugvelli og samskipti þess við varnarliðið
+  authors:
+  - Björn Ingvarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 192
+  page_end: 200
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1074
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/622.pdf
+  note: ''
+  analysis_notes: []
+- title: Um starfsemi Lagadeildar
+  authors:
+  - Steingrímur Gautur Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 201
+  page_end: 206
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1075
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1964 17 arg/1284.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 206, prentað bls. 201'

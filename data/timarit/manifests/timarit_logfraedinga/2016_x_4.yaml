@@ -1,16 +1,194 @@
 source: timarit_logfraedinga
 year: 2016
-volume: null
+volume: 66
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2016)
+label: Tímarit lögfræðinga, 66. árg. 4. hefti (2016)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2016_04.pdf
 sha256: 45e13e2050f02c858bd73c46cb9036e82654baa83f2e163286249dfc7692d4ff
-pages: null
+pages: 202
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 499
+  quality: 0.98
+  runner_up_share: 0.0
+  pages: 202
+  segments:
+  - - 2
+    - 199
+    - 499
+  contested: []
+  bin_ratio: 0.857
+  non_article:
+  - 191
+  - 192
+  - 193
+  - 194
+  - 195
+  - 196
+  - 197
+  - 198
+  - 199
+  - 200
+  - 201
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2016_04.pdf
-articles: []
+articles:
+- title: Nýjar leiðbeiningar OECD um opinber heilindi
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 501
+  page_end: 502
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vaxandi vandkvæði við framkvæmd EES-samningsins - upptaka afleiddrar löggjafar
+  authors:
+  - Margrét Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 503
+  page_end: 546
+  issue: null
+  pdf_pages:
+  - 4
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Ráðgefandi álit: Úttekt á framkvæmd Hæstaréttar'
+  authors:
+  - Ólafur Ísberg Hannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 547
+  page_end: 604
+  issue: null
+  pdf_pages:
+  - 48
+  - 105
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Takmarkanir á upplýsingarétti almennings vegna almannahagsmuna
+  authors:
+  - Gunnar Páll Baldvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 605
+  page_end: 661
+  issue: null
+  pdf_pages:
+  - 106
+  - 163
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sjóðir hlutafélaga, færsla þeirra og upplausn
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 663
+  page_end: 689
+  issue: null
+  pdf_pages:
+  - 164
+  - 190
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 688, prentuð lokasíða er bls. 689

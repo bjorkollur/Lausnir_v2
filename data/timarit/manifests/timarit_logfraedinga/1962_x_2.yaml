@@ -1,16 +1,105 @@
 source: timarit_logfraedinga
 year: 1962
-volume: null
+volume: 12
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1962)
+label: Tímarit lögfræðinga, 12. árg. 2. hefti (1962)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1962_02.pdf
 sha256: 522453d99943b00ed1826210f489c4aae03e396202b99e4c3f1176d3305bd60d
-pages: null
+pages: 84
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 63
+  quality: 0.738
+  runner_up_share: 0.016
+  pages: 84
+  segments:
+  - - 3
+    - 65
+    - 63
+  contested: []
+  bin_ratio: 0.899
+  non_article:
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 79
+  - 80
+  - 81
+  - 83
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1962_02.pdf
-articles: []
+articles:
+- title: Um uppboð
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 126
+  issue: null
+  pdf_pages:
+  - 2
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 127
+  page_end: 128
+  issue: null
+  pdf_pages:
+  - 64
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

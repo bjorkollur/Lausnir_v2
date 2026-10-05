@@ -1,16 +1,483 @@
 source: timarit_logfraedinga
 year: 1964
-volume: null
+volume: 14
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1964)
+label: Tímarit lögfræðinga, 14. árg. 2. hefti (1964)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1964_02.pdf
 sha256: ad9be320b4532cf40dd3b6bc87476fa4bd6a39e5f97a90358d0164e1c1f0bf84
-pages: null
+pages: 92
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 57
+  quality: 0.696
+  runner_up_share: 0.016
+  pages: 92
+  segments:
+  - - 3
+    - 68
+    - 57
+  contested: []
+  bin_ratio: 0.939
+  non_article:
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1964_02.pdf
-articles: []
+articles:
+- title: Lárus Fjeldsted hæstaréttarlögmaður
+  authors:
+  - Einar B. Guðmundsson
+  author_titles: []
+  article_type: Annað
+  page_start: 59
+  page_end: 61
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eignarnám og takmarkanir á eignarréttindum
+  authors:
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 62
+  page_end: 95
+  issue: null
+  pdf_pages:
+  - 5
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Staðfesting vitnisburðar
+  authors:
+  - Þórður Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 96
+  page_end: 101
+  issue: null
+  pdf_pages:
+  - 39
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Staðfesting vitnisburðar
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 102
+  page_end: 105
+  issue: null
+  pdf_pages:
+  - 45
+  - 48
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Bæjarþingi Reykjavíkur. Nokkrir dómar frá árunum 1957–1963
+  authors:
+  - Björn Friðfinnsson
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 106
+  page_end: 112
+  issue: null
+  pdf_pages:
+  - 49
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögfræðingafélagi Íslands 1964
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 113
+  page_end: 115
+  issue: null
+  pdf_pages:
+  - 56
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Athugasemd
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Annað
+  page_start: 115
+  page_end: 115
+  issue: null
+  pdf_pages:
+  - 58
+  - 58
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: XIV. þing norrænna laganema og ungra lögfræðinga 1964
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 116
+  page_end: 116
+  issue: null
+  pdf_pages:
+  - 59
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'A. Vinding Kruse: Misligholdelse af ejendomskøb'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 117
+  page_end: 117
+  issue: null
+  pdf_pages:
+  - 60
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skrá um nokkur rit, er Evrópuráðið hefur gefið út á sviði refsiréttar, refsingafræði og afbrotafræði
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Annað
+  page_start: 117
+  page_end: 118
+  issue: null
+  pdf_pages:
+  - 60
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Háskólanum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 119
+  page_end: 119
+  issue: null
+  pdf_pages:
+  - 62
+  - 62
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Embætti 1964
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 120
+  page_end: 120
+  issue: null
+  pdf_pages:
+  - 63
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýr hæstaréttarlögmaður
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 120
+  page_end: 120
+  issue: null
+  pdf_pages:
+  - 63
+  - 63
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skrá um lög árið 1964
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 121
+  page_end: 125
+  issue: null
+  pdf_pages:
+  - 64
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

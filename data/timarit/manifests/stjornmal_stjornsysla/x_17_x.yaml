@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2021
 volume: 17
 issue: null
-label: Stjórnmál og stjórnsýsla, 17. árg.
+label: Stjórnmál og stjórnsýsla, 17. árg. (2021)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.639
+status: review
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/1-22_Terror_threats_and_civil_liberties.pdf
@@ -23,4 +24,365 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/235-260_Maternity,_paternity,_and_parental_leave.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/49-78_Has_environmental_awareness_increased__A.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/79-106_New_skillsets_for_public_leaders.pdf
-articles: []
+articles:
+- title: 'Terror threats and civil liberties: when do citizens accept infringements of civil liberties? Walter L. Brent van
+    der Hell, Research assistant, Faculty of Political Science, University of Iceland'
+  authors:
+  - Hjalti Björn Hrafnkelsson
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 22
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/1-22_Terror_threats_and_civil_liberties.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Stefnuyfirfærsla: Áhrif Efnahags- og framfarastofnunarinnar (OECD) á stefnumótun á Íslandi'
+  authors:
+  - Pétur Berg Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 48
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/23-48_Policy_transfer.pdf
+  note: ''
+  analysis_notes: []
+- title: Hefur umhverfisvitund aukist? Viðhorf Íslendinga til umhverfismála og stóriðju 1987-2017
+  authors:
+  - Sóllilja Bjarnadóttir
+  - Inga Rún Sæmundsdóttir
+  - Sigrún Ólafsdóttir
+  - Þorvarður Árnason
+  - Guðbjörg Andrea Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 78
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/49-78_Has_environmental_awareness_increased__A.pdf
+  note: ''
+  analysis_notes: []
+- title: Nýjar hæfniskröfur til stjórnenda ríkisstofnana
+  authors:
+  - Árelía Eydís Guðmundsdóttir
+  - Sólmundur Már Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 79
+  page_end: 106
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/79-106_New_skillsets_for_public_leaders.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Forstjóraráðningar í þjóðhagslega mikilvægum fyrirtækjum: Kynjahalli, útilokun og ófagleg ráðningarferli?'
+  authors:
+  - Þóra H. Christiansen
+  - Ásta Dís Óladóttir
+  - Erla S. Kristjánsdóttir
+  - Sigrún Gunnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 130
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/107-130_CEO_hiring_in_public_interest_entities.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Framing the onset of the COVID-19 pandemic in the Icelandic media: What were the key concerns and who could raise
+    them?'
+  authors:
+  - Adda Guðrún Gylfadóttir
+  - Jón Gunnar Ólafsson
+  - Sigrún Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 131
+  page_end: 152
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/131-152_Framing_the_onset_of_the_COVID-19_pandem.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Einstaklingsfrelsi og þjóðmenning: Um mannanöfn og íslenska þjóðernishyggju'
+  authors:
+  - Birgir Hermannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: 174
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/153-174_Individual_Freedom_and_National_Culture.pdf
+  note: ''
+  analysis_notes: []
+- title: Defining “Publicness” in Service Contracts – Adding Colour to the Grey
+  authors:
+  - Margrét Vala Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 175
+  page_end: 194
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/175-194_Defining_Publicness_in_Service_Contracts.pdf
+  note: ''
+  analysis_notes: []
+- title: Reglur um viðbrögð og úrræði vegna óæskilegrar hegðunar alþingismanna á vettvangi starfsins
+  authors:
+  - Friðrik Árni Friðriksson Hirst
+  - Kristín Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 195
+  page_end: 214
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/195-214_Rules_on_responses_and_remedies_for_unde.pdf
+  note: ''
+  analysis_notes: []
+- title: Samanburður á störfum og starfsánægju sérfræðinga í einkafyrirtækjum og hjá hinu opinbera
+  authors:
+  - Ingi Rúnar Eðvarðsson
+  - Arney Einarsdóttir
+  - Ásta Dís Óladóttir
+  - Sigrún Gunnarsdóttir
+  - Svala Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 215
+  page_end: 234
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/215-234_A_comparison_on_job_design_and_job.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Fæðingar- og foreldraorlof: Aðdragandi, breytingar og árangur laga sem er ætlað að stuðla að orlofstöku beggja foreldra'
+  authors:
+  - Ásdís A. Arnalds
+  - Guðný Björk Eydal
+  - Ingólfur V. Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 235
+  page_end: 260
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/235-260_Maternity,_paternity,_and_parental_leave.pdf
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,322 @@
 source: timarit_logfraedinga
 year: 1958
-volume: null
+volume: 8
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1958)
+label: Tímarit lögfræðinga, 8. árg. 1. hefti (1958)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1958_01.pdf
 sha256: 611ec4e6428c6b8242b651528914587af51a470a87a955b500cfecd6cd0b67e3
-pages: null
+pages: 68
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.676
+  runner_up_share: 0.0
+  pages: 68
+  segments:
+  - - 2
+    - 48
+    - -1
+  contested: []
+  bin_ratio: 0.201
+  non_article:
+  - 50
+  - 51
+  - 52
+  - 53
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 61
+  - 62
+  - 64
+  - 65
+  - 66
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1958_01.pdf
-articles: []
+articles:
+- title: Punkter vedrørende minoritetsbeskyttelsen i aktieselskaber
+  authors:
+  - O. A. Borum
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 2
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Almennt lögfræðingafélag
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 23
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 24
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lög Lögfræðingafélags Íslands
+  authors:
+  - Lögfræðingafélag Íslands
+  author_titles: []
+  article_type: Annað
+  page_start: 25
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 26
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: leitir+llm
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Við stofnun Lögfræðingafélags Íslands hinn 1. apríl 1958
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 30
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 35 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: 'Nils Herlitz: Nordisk offentlig rätt I og II'
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 36
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 37
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Nils Regner: Svensk juridisk litteratur 1865—1956'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 40
+  page_end: 41
+  issue: null
+  pdf_pages:
+  - 41
+  - 42
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Félagsdómi
+  authors:
+  - Hákon Guðmundsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 42
+  page_end: 43
+  issue: null
+  pdf_pages:
+  - 43
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norðurlandafréttir
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 44
+  page_end: 46
+  issue: null
+  pdf_pages:
+  - 45
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 47
+  page_end: 48
+  issue: null
+  pdf_pages:
+  - 48
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

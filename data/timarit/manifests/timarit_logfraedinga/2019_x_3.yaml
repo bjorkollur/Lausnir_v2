@@ -1,16 +1,166 @@
 source: timarit_logfraedinga
 year: 2019
-volume: null
+volume: 69
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2019)
+label: Tímarit lögfræðinga, 69. árg. 3. hefti (2019)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2019_03.pdf
 sha256: 20ce236740cc3271f135a8afbc5a0427759d1336652864ab2b2ae648069627e7
-pages: null
+pages: 94
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 305
+  quality: 0.936
+  runner_up_share: 0.0
+  pages: 94
+  segments:
+  - - 2
+    - 90
+    - 305
+  contested: []
+  bin_ratio: 0.955
+  non_article:
+  - 14
+  - 35
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+  - 92
+  - 93
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2019_03.pdf
-articles: []
+articles:
+- title: Lögfræðingar og opinber umræða
+  authors:
+  - Ragnhildur Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 307
+  page_end: 308
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Endurskoðun dómstóla á stjórnvalds ákvörðunum ríkissaksóknara
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 309
+  page_end: 318
+  issue: null
+  pdf_pages:
+  - 4
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kynjajafnrétti í íþróttum – staða sveitarfélaga að lögum
+  authors:
+  - María Rún Bjarnadóttir
+  - Bjarni Már Magnússon
+  - Hafrún Kristjánsdóttir
+  - Margrét Lilja Guðmundsdóttir
+  - Birgitta Saga Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 341
+  page_end: 364
+  issue: null
+  pdf_pages:
+  - 36
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Saga Jónsdóttir'
+- title: Frá Strassborg er þetta helst
+  authors:
+  - Hildur Hjörvar
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 365
+  page_end: 390
+  issue: null
+  pdf_pages:
+  - 60
+  - 85
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

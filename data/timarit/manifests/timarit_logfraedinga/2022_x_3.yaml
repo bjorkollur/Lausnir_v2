@@ -1,16 +1,196 @@
 source: timarit_logfraedinga
 year: 2022
-volume: null
+volume: 72
 issue: '3'
-label: Tímarit lögfræðinga, 3. hefti (2022)
+label: Tímarit lögfræðinga, 72. árg. 3. hefti (2022)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2022_03.pdf
 sha256: 3f517a40830c924f3553e603b9a30c1d6ecb4511ef9950a89b6bd605a5b3b3a7
-pages: null
+pages: 176
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 331
+  quality: 0.966
+  runner_up_share: 0.0
+  pages: 176
+  segments:
+  - - 2
+    - 172
+    - 331
+  contested: []
+  bin_ratio: 0.975
+  non_article:
+  - 15
+  - 51
+  - 99
+  - 145
+  - 168
+  - 169
+  - 170
+  - 171
+  - 172
+  - 173
+  - 174
+  - 175
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2022_03.pdf
-articles: []
+articles:
+- title: Rannsóknarskylda dómara samkvæmt lögræðislögum nr. 71/1997
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 333
+  page_end: 345
+  issue: null
+  pdf_pages:
+  - 2
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Útivistardómar samkvæmt 161. gr. laga nr. 88/2008 um meðferð sakamála í ljósi réttinda sakaðra manna
+  authors:
+  - Margrét Helga Kr. Stefánsdóttir
+  - Oddný Mjöll Arnardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 347
+  page_end: 381
+  issue: null
+  pdf_pages:
+  - 16
+  - 50
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eignarréttur að auðlindum í jörðu — ný álitaefni og áskoranir
+  authors:
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 383
+  page_end: 429
+  issue: null
+  pdf_pages:
+  - 52
+  - 98
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 430, prentuð lokasíða er bls. 429
+- title: Um mörk stórfelldrar líkamsárásar og tilraunar til manndráps
+  authors:
+  - Gunnar Atli Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 431
+  page_end: 475
+  issue: null
+  pdf_pages:
+  - 100
+  - 144
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Málþing um kauprétti og kaupauka starfsmanna fjármálafyrirtækja á Lagadegi 23. september 2022: Ræður framsögumanna'
+  authors:
+  - Jóhannes Karl Sveinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 477
+  page_end: 498
+  issue: null
+  pdf_pages:
+  - 146
+  - 167
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

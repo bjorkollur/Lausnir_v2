@@ -1,16 +1,130 @@
 source: ulfljotur
 year: 2006
-volume: null
+volume: 59
 issue: '4'
-label: Úlfljótur, 4. tbl. (2006)
+label: Úlfljótur, 59. árg. 4. tbl. (2006)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2006_4_tbl.pdf
 sha256: 5fc058b4414ddf4d6d319a1d59ed562c7de83ddea9e789c5d8055a5b6dfd4389
-pages: null
+pages: 209
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 540
+  quality: 0.962
+  runner_up_share: 0.0
+  pages: 209
+  segments:
+  - - 1
+    - 204
+    - 540
+  contested: []
+  bin_ratio: 0.954
+  non_article:
+  - 66
+  - 158
+  - 165
+  - 166
+  - 172
+  - 173
+  - 195
+  - 196
+  - 202
+  - 203
+  - 204
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2006_4_tbl.pdf
-articles: []
+articles:
+- title: Verkskipulagsvald og valdframsal í sveitarstjórnarrétti
+  authors:
+  - Berglind Bára Sigurjónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 545
+  page_end: 605
+  issue: null
+  pdf_pages:
+  - 5
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 280
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skilyrðið um sambærilega skattlagningu á hagnað erlends félags
+  authors:
+  - Birna Hlín Káradóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 607
+  page_end: 654
+  issue: null
+  pdf_pages:
+  - 67
+  - 114
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 281
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðgreining milli beins og óbeins tjóns innan samninga
+  authors:
+  - Sigrún Helga Jóhannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 655
+  page_end: 697
+  issue: null
+  pdf_pages:
+  - 115
+  - 157
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 282
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Norræna málflutningskeppnin í Helsinki 2006“ á bls. 699 sem skráin nefnir ekki; greinin
+    er talin enda þar'

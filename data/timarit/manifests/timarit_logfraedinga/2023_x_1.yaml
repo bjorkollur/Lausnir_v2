@@ -1,16 +1,195 @@
 source: timarit_logfraedinga
 year: 2023
-volume: null
+volume: 73
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2023)
+label: Tímarit lögfræðinga, 73. árg. 1. hefti (2023)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2023_01.pdf
 sha256: 1c90717f40086623993de21fd91a2ece82c0d5434b0ebae683075691515d5f92
-pages: null
+pages: 248
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.976
+  runner_up_share: 0.0
+  pages: 248
+  segments:
+  - - 2
+    - 244
+    - -1
+  contested: []
+  bin_ratio: 0.95
+  non_article:
+  - 13
+  - 167
+  - 240
+  - 241
+  - 242
+  - 243
+  - 244
+  - 245
+  - 246
+  - 247
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2023_01.pdf
-articles: []
+articles:
+- title: Fréttir af Landsrétti og nýja Hæstarétti
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 1
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 2
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: page
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Inngangur að vinnuverndarrétti
+  authors:
+  - Björn Þór Rögnvaldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 13
+  page_end: 110
+  issue: null
+  pdf_pages:
+  - 14
+  - 111
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hlutverk Alþingis í réttarfari ráðherraábyrgðarmála
+  authors:
+  - Haukur Logi Karlsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 111
+  page_end: 165
+  issue: null
+  pdf_pages:
+  - 112
+  - 166
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 166, prentuð lokasíða er bls. 165
+- title: Áhrif EES-réttar á réttarfar
+  authors:
+  - Ólafur Jóhannes Einarsson
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 167
+  page_end: 212
+  issue: null
+  pdf_pages:
+  - 168
+  - 213
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Uppgjör brunabóta: Nýlegir dómar Landsréttar og Hæstaréttar'
+  authors:
+  - Styrmir Gunnarsson
+  - Sveinbjörn Claessen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 213
+  page_end: 238
+  issue: null
+  pdf_pages:
+  - 214
+  - 239
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

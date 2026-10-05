@@ -1,16 +1,956 @@
 source: timarit_logfraedinga
 year: 1996
-volume: null
+volume: 46
 issue: null
-label: Tímarit lögfræðinga (1996)
+label: Tímarit lögfræðinga, 46. árg. (1996)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1996.pdf
 sha256: 30dda8442a00a0b473614e1fcd131ef367610f458252c6a4dc3eb5b2ae613500
-pages: null
+pages: 352
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.851
+  pages: 352
+  segments: []
+  contested: []
+  bin_ratio: 0.925
+  non_article:
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 89
+  - 157
+  - 158
+  - 159
+  - 160
+  - 161
+  - 162
+  - 163
+  - 164
+  - 165
+  - 166
+  - 169
+  - 257
+  - 258
+  - 259
+  - 260
+  - 261
+  - 262
+  - 263
+  - 264
+  - 265
+  - 266
+  - 269
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1996.pdf
-articles: []
+articles:
+- title: Aukastörf dómara
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 4
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Refsingar. Úrræði þess ráðþrota
+  authors:
+  - Jörundur Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 12
+  issue: '1'
+  pdf_pages:
+  - 10
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 5 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Hugleiðingar um ákvörðun refsingar
+  authors:
+  - Þorgeir Ingi Njálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 13
+  page_end: 22
+  issue: '1'
+  pdf_pages:
+  - 18
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 13 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Nokkrar hugleiðingar um þyngd refsinga og afstæði tímans
+  authors:
+  - Erlendur S. Baldursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 30
+  issue: '1'
+  pdf_pages:
+  - 28
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 23 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Fangelsisrefsingar í alþjóðlegu samhengi
+  authors:
+  - Helgi I. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 31
+  page_end: 38
+  issue: '1'
+  pdf_pages:
+  - 36
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 31 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Stjórn þinghalds, sókn og vörn í opinberum málum
+  authors:
+  - Ingibjörg Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 45
+  issue: '1'
+  pdf_pages:
+  - 44
+  - 50
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 39 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Saksókn og vörn í opinberum málum
+  authors:
+  - Jóhannes Rúnar Jóhannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 46
+  page_end: 71
+  issue: '1'
+  pdf_pages:
+  - 51
+  - 76
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 46 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - skráin segir að greinin endi á bls. 59, prentuð lokasíða er bls. 71
+  - 'FRÁVIK: greinin er undirrituð (Ingveldur Einarsdóttir) en höfundar skrárinnar eru aðrir (Jóhannes Rúnar Jóhannsson);
+    skránni haldið'
+- title: Frá Dómarafélagi íslands. Úr skýrslu Dómarafélags Islands starfsárið 1994-1995
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 60
+  page_end: null
+  issue: '1'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 60 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Dómaraþing 1995
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 63
+  page_end: null
+  issue: '1'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 63 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Dómsmálaþing 1995
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 64
+  page_end: null
+  issue: '1'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 64 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Sjálfstæð og óháð lögmannastétt
+  authors:
+  - Þórunn Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 79
+  page_end: null
+  issue: '2'
+  pdf_pages:
+  - 88
+  - 88
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 79 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: leitir.is segir bls. 79; greinin fannst eftir titli sínum á pdf-síðu 89'
+  - 'FRÁVIK: höfundar skrárinnar (Þórunn Guðmundsdóttir) stangast á við síðuna (Karl Axelsson, Logfræðinga Efni); skránni
+    haldið'
+- title: Um skorður umhverfisréttar við nýtingu lands og náttúruauðlinda
+  authors:
+  - Karl Axelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 81
+  page_end: 106
+  issue: '2'
+  pdf_pages:
+  - 92
+  - 117
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 81 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Samfélagsþjónusta á íslandi
+  authors:
+  - Guðmundur Þór Guðmundsson
+  - Sigríður J. Hjaitested
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 125
+  issue: '2'
+  pdf_pages:
+  - 118
+  - 136
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 107 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Málskostnaðarákvörðun dómara
+  authors:
+  - Valtýr Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 126
+  page_end: 145
+  issue: '2'
+  pdf_pages:
+  - 137
+  - 156
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 126 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - skráin segir að greinin endi á bls. 131, prentuð lokasíða er bls. 145
+  - 'FRÁVIK: greinin er undirrituð (Friðgeir Björnsson) en höfundar skrárinnar eru aðrir (Valtýr Sigurðsson); skránni haldið'
+- title: Deildarfréttir 1995
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 132
+  page_end: null
+  issue: '2'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 132 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Skýrsla um Lagastofnun Háskóla íslands 28.2.1995-29.2.1996
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 137
+  page_end: null
+  issue: '2'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 137 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Heimsókn dómara til London 1995
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 143
+  page_end: null
+  issue: '2'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 143 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Nýtt dómhús Hæstaréttar íslands
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: null
+  issue: '3'
+  pdf_pages:
+  - 168
+  - 168
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 153 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: leitir.is segir bls. 153; greinin fannst eftir titli sínum á pdf-síðu 169'
+  - 'FRÁVIK: höfundar skrárinnar (Friðgeir Björnsson) stangast á við síðuna (Þorgeir Örlygsson, Logfræðinga Efni); skránni
+    haldið'
+- title: Afsláttur
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 189
+  issue: '3'
+  pdf_pages:
+  - 172
+  - 206
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 155 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Málflutningsumboð
+  authors:
+  - Gunnar Thoroddsen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 190
+  page_end: 239
+  issue: '3'
+  pdf_pages:
+  - 207
+  - 256
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 190 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - skráin segir að greinin endi á bls. 232, prentuð lokasíða er bls. 239
+  - 'FRÁVIK: á eftir greininni hefst „Góður mælikvarði á þjónustu „Sparisjóður Reykjavíkur og nágrennis skaraði löluvert fram
+    úr viðskiptabönkunum og öðrum stærri sparisjóðum hvað innlánsþróun snertir á síðastliðnu ári.““ á pdf-síðu 268 sem skráin
+    nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: greinin er undirrituð (Dögg Pálsdóttir) en höfundar skrárinnar eru aðrir (Gunnar Thoroddsen); skránni haldið'
+- title: Skýrsla stjómar Lögfræðingafélags íslands 1994-1995
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 233
+  page_end: null
+  issue: '3'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 233 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Lítið eitt um refsingar
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 139
+  page_end: 141
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+    authors: leitir
+    pages: leitir
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.2
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 139 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Starfsemi EFTA-dómstólsins
+  authors:
+  - Davíð Þór Björgvinsson
+  - Dóra Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 142
+  page_end: 184
+  issue: '4'
+  pdf_pages:
+  - 273
+  - 315
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    issue: toc
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 142 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Misbeiting valds við val á leiðum til úrlausnar máls
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 185
+  page_end: 198
+  issue: '4'
+  pdf_pages:
+  - 316
+  - 329
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    issue: toc
+    pages: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 185 fannst ekki: blaðsíðutal skjalsins óljóst'
+- title: Hugleiðing um réttarsáttir
+  authors:
+  - Jón L. Arnalds
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 199
+  page_end: 217
+  issue: '4'
+  pdf_pages:
+  - 330
+  - 348
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 199
+  - 'FRÁVIK: greinin er undirrituð (Allan V. Magnússon) en höfundar skrárinnar eru aðrir (Jón L. Arnalds); skránni haldið'
+- title: Skýrsla stjómar Lögfræðingafélags íslands 1995-1996
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjómar Dómarafélags íslands 1995-1996
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: '4'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Leiðrétting
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 218
+  page_end: 218
+  issue: '4'
+  pdf_pages:
+  - 349
+  - 349
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    issue: toc
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 218

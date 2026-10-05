@@ -1,15 +1,16 @@
 source: ulfljotur
 year: 2004
-volume: null
+volume: 57
 issue: '3'
-label: Úlfljótur, 3. tbl. (2004)
+label: Úlfljótur, 57. árg. 3. tbl. (2004)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.945
+status: review
+confidence: 0.2
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3252.pdf
@@ -19,4 +20,223 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3258.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3259.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3260.pdf
-articles: []
+articles:
+- title: Hvernig á að skýra fyrirmæli 2. gr. stjórnarskrárinnar um að Alþingi og forseti Íslands fari saman með löggjafarvaldið?
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 333
+  page_end: 342
+  issue: null
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 313
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3252.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+- title: Dómstóll götunnar - Gapastokkur nútímans
+  authors:
+  - Jón Þór Ólason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 343
+  page_end: 403
+  issue: null
+  pdf_pages:
+  - 0
+  - 60
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 314
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3253.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+- title: Mótun Hæstaréttar Islands á gildissviði 36. gr. samningalaganna
+  authors:
+  - Matthías G. Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 405
+  page_end: 444
+  issue: null
+  pdf_pages:
+  - 0
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 315
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3255.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+- title: Yfirlit yfir helstu dóma Evrópudómstólanna og EFTA-dómstólsins á árinu 2003
+  authors:
+  - Dóra Sif Tynes
+  - Gunnar Þór Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 445
+  page_end: 471
+  issue: null
+  pdf_pages:
+  - 0
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 316
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3256.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+- title: Aðferðir við skipun hæstaréttardómara
+  authors:
+  - Ragnar Halldór Hall
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 473
+  page_end: 473
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.2
+  leitir_record_id: null
+  xlsx_row: 317
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3258.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 474, prentað bls. 473'
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+- title: Skipan hæstaréttardómara - Stjórnvaldsákvörðun
+  authors:
+  - Ragnar Halldór Hall
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 474
+  page_end: 477
+  issue: null
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 317
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3259.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+- title: Skipan hæstaréttardómara - Pólitísk ákvörðun
+  authors:
+  - Sveinn Andri Sveinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 478
+  page_end: 481
+  issue: null
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 318
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3260.pdf
+  note: ''
+  analysis_notes:
+  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'

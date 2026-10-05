@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.929
+status: approved
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1959 12 arg/156.pdf
@@ -18,4 +19,190 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1959 12 arg/319.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1959 12 arg/544.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1959 12 arg/545.pdf
-articles: []
+articles:
+- title: Hugleiðingar um 25. gr. laga nr. 20, 1954
+  authors:
+  - Vilhjálmur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 9
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1142
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1959 12 arg/299.pdf
+  note: ''
+  analysis_notes: []
+- title: Um opinberan ákæranda
+  authors:
+  - Þórður Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 14
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1143
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1959 12 arg/544.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um alþjóðaflugrétt og geimrétt
+  authors:
+  - Gísli G. Ísleifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 15
+  page_end: 20
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1144
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1959 12 arg/280.pdf
+  note: ''
+  analysis_notes: []
+- title: Um sifjar og sifjarétt
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 20
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1145
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1959 12 arg/156.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um vinnulöggjöf
+  authors:
+  - Björgvin Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 25
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1146
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1959 12 arg/319.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur orð um gjafsókn og ókeypis lögfræðiaðstoð við almenning
+  authors:
+  - Hákon Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 13
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1148
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1959 12 arg/545.pdf
+  note: ''
+  analysis_notes: []

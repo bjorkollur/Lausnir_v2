@@ -1,16 +1,157 @@
 source: ulfljotur
 year: 2015
-volume: null
+volume: 68
 issue: '2'
-label: Úlfljótur, 2. tbl. (2015)
+label: Úlfljótur, 68. árg. 2. tbl. (2015)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2015_2_tbl.pdf
 sha256: a295c1078a91d130542b91d6a675f41fbc9a541b8569d589866c8695417560b4
-pages: null
+pages: 193
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 126
+  quality: 0.943
+  runner_up_share: 0.005
+  pages: 193
+  segments:
+  - - 3
+    - 188
+    - 126
+  contested: []
+  bin_ratio: 0.922
+  non_article:
+  - 14
+  - 168
+  - 172
+  - 185
+  - 186
+  - 187
+  - 188
+  - 189
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2015_2_tbl.pdf
-articles: []
+articles:
+- title: Um heimildir endurupptökunefndar í ljósi stjórnarskrárákvæða um dómsvald
+  authors:
+  - Kristín Benediktsdóttir
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 131
+  page_end: 139
+  issue: null
+  pdf_pages:
+  - 5
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 126
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnsýslukæra
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 141
+  page_end: 178
+  issue: null
+  pdf_pages:
+  - 15
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 127
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Umboðsreglur hlutafélagaréttar
+  authors:
+  - Halldóra Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 179
+  page_end: 214
+  issue: null
+  pdf_pages:
+  - 53
+  - 88
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 128
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skilyrði reglunnar um brostnar forsendur í samningarétti
+  authors:
+  - Anna Katrín Sigfúsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 215
+  page_end: 293
+  issue: null
+  pdf_pages:
+  - 89
+  - 167
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 129
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Starfsnám laganema“ á bls. 295 sem skráin nefnir ekki; greinin er talin enda þar'

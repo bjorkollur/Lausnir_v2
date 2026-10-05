@@ -1,16 +1,422 @@
 source: logmannabladid
 year: 2016
-volume: null
+volume: 22
 issue: '2'
-label: Lögmannablaðið, 2. tbl. (2016)
+label: Lögmannablaðið, 22. árg. 2. tbl. (2016)
 file: Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2016 02 .pdf
 sha256: f9593f153c2c551d05f4618b38ddb8fe51afdec1f840c30ee3bf82dbee9fbb59
-pages: null
+pages: 32
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 1
+  quality: 0.719
+  runner_up_share: 0.043
+  pages: 32
+  segments:
+  - - 1
+    - 30
+    - 1
+  contested: []
+  bin_ratio: 0.947
+  non_article:
+  - 4
+  - 10
+  - 12
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2016 02 .pdf
-articles: []
+articles:
+- title: Aðalfundur Lögmannafélags Íslands
+  authors:
+  - Anna Lilja Hallgrímsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hinn nýi Landsréttur“) er annar titill en skrárinnar („Aðalfundur Lögmannafélags
+    Íslands“); titli skrárinnar haldið'
+  - 'FRÁVIK: greinin er undirrituð (Þyrí Steingrímsdóttir) en höfundar skrárinnar eru aðrir (Anna Lilja Hallgrímsdóttir);
+    skránni haldið'
+- title: Málþing um skyldur lögmanna gagnvart samfélaginu
+  authors:
+  - Anna Lilja Hallgrímsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 5
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: greinin er undirrituð (Sigurbjörn Magnússon) en höfundar skrárinnar eru aðrir (Anna Lilja Hallgrímsdóttir); skránni
+    haldið'
+- title: Málþing um skyldur lögmanna gagnvart samfélaginu
+  authors:
+  - Reimar Pétursson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 8
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 7
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: page
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Lagadagurinn 2016 Haukur Örn Birgisson: Eitthvað fyrir'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 9
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lög um stofnun millidómstigs samþykkt“) er annar titill en skrárinnar („Lagadagurinn
+    2016 Haukur Örn Birgisson: Eitthvað fyrir“); titli skrárinnar haldið'
+- title: 'Aðalmálstofa Lagadagsins 2016: Hver á síðasta orðið?'
+  authors:
+  - Guðríður Lára Þrastardóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 13
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Eitthvað fyrir alla“) er annar titill en skrárinnar („Aðalmálstofa Lagadagsins 2016:
+    Hver á síðasta orðið?“); titli skrárinnar haldið'
+  - 'FRÁVIK: greinin er undirrituð (Fannar Guðjónsson) en höfundar skrárinnar eru aðrir (Guðríður Lára Þrastardóttir); skránni
+    haldið'
+- title: 'Málstofa: Persónuvernd á tímum tæknibyltingar'
+  authors:
+  - Eva Halldórsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 16
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hver á síðasta orðið?“) er annar titill en skrárinnar („Málstofa: Persónuvernd á
+    tímum tæknibyltingar“); titli skrárinnar haldið'
+- title: 'Málstofa: Eftirlitshlutverk stjórnvalda'
+  authors:
+  - Þórhildur Líndal
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 17
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er breytinga þörf á skaðabótalögum?
+  authors:
+  - Ingvi Snær Einarsson
+  author_titles: []
+  article_type: Annað
+  page_start: 20
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 19
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Málstofa: Eftirlitshlutverk stjórnvalda“) er annar titill en skrárinnar („Rökstólar:
+    Er breytinga þörf á skaðabótalögum?“); titli skrárinnar haldið'
+- title: 'Málstofa: EES-samningurinn - Hreyfiafl breytinga?'
+  authors:
+  - Jóhanna Bryndís Bjarnadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 24
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 23
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Er breytinga þörf á skaðabótalögum?“) er annar titill en skrárinnar („Málstofa: EES-samningurinn
+    - Hreyfiafl breytinga?“); titli skrárinnar haldið'
+- title: Örmálstofur
+  authors:
+  - Þyrí Steingrímsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 25
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Málstofa: EES-samningurinn – Hreyfiafl breytinga?“) er annar titill en skrárinnar
+    („Örmálstofur“); titli skrárinnar haldið'
+- title: 'Málstofa: Bankahrunsdómarnir'
+  authors:
+  - Þyrí Steingrímsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 28
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 27
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Örmálstofur“) er annar titill en skrárinnar („Málstofa: Bankahrunsdómarnir“); titli
+    skrárinnar haldið'
+- title: Á léttum nótum Af Merði lögmanni 12 2 LÖGMANNABLAÐIÐ TBL 02/16
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 30
+  page_end: 31
+  issue: null
+  pdf_pages:
+  - 29
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Bankahrunsmálstofa“) er annar titill en skrárinnar („Á léttum nótum Af Merði lögmanni
+    12 2 LÖGMANNABLAÐIÐ TBL 02/16“); titli skrárinnar haldið'

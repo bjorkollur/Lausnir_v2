@@ -1,16 +1,136 @@
 source: ulfljotur
 year: 2012
-volume: null
+volume: 65
 issue: '3'
-label: Úlfljótur, 3. tbl. (2012)
+label: Úlfljótur, 65. árg. 3. tbl. (2012)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2012_3_tbl.pdf
 sha256: 2f9212af649971a9ab518da1abed7031754df29117364eb56b2bfe4c8b276768
-pages: null
+pages: 146
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 266
+  quality: 0.829
+  runner_up_share: 0.008
+  pages: 146
+  segments:
+  - - 3
+    - 143
+    - 266
+  contested: []
+  bin_ratio: 0.876
+  non_article:
+  - 38
+  - 72
+  - 96
+  - 102
+  - 131
+  - 132
+  - 133
+  - 134
+  - 138
+  - 139
+  - 140
+  - 141
+  - 142
+  - 143
+  - 144
+  - 145
+status: review
+confidence: 0.85
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2012_3_tbl.pdf
-articles: []
+articles:
+- title: Tengsl þjóðaréttar við íslenska stjórnskipun og áhrif alþjóðasamninga á íslenskan rétt
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 271
+  page_end: 303
+  issue: null
+  pdf_pages:
+  - 5
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 176
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugtakið innstæða í íslenskum rétti
+  authors:
+  - Eiríkur Elís Þorláksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 305
+  page_end: 337
+  issue: null
+  pdf_pages:
+  - 39
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 177
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Misbeita dómstólar heimild til gæsluvarðhalds á grundvelli almannahagsmuna?
+  authors:
+  - Ragnar Aðalsteinsson
+  - Fanney Hrund Hilmarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 339
+  page_end: 361
+  issue: null
+  pdf_pages:
+  - 73
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 178
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Þórhildur Líndal forstöðumaður Rannsóknastofnunar Ármanns Snævarr um fjölskyldumálefni“
+    á bls. 363 sem skráin nefnir ekki; greinin er talin enda þar'

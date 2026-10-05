@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.923
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/1515.pdf
@@ -21,4 +22,284 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/669.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/71.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/72.pdf
-articles: []
+articles:
+- title: Saga stjórnskipulegrar eignaverndar
+  authors:
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 77
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 72
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 982
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/71.pdf
+  note: ''
+  analysis_notes: []
+- title: Um galla í fasteignakaupum
+  authors:
+  - Ragnar Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 93
+  page_end: 112
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 984
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/214.pdf
+  note: ''
+  analysis_notes: []
+- title: Í leit að eðli réttarins
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 113
+  page_end: 122
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 985
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/669.pdf
+  note: ''
+  analysis_notes: []
+- title: Gildir þingunarreglan að íslenskum lögum?
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 123
+  page_end: 175
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 52
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 986
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/554.pdf
+  note: ''
+  analysis_notes: []
+- title: Lagasjónarmið varðandi hópgöngur og útifundi
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 207
+  page_end: 250
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 43
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 987
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/355.pdf
+  note: ''
+  analysis_notes: []
+- title: Breytingar á laganámi
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 251
+  page_end: 262
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 988
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/1515.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 262, prentað bls. 251'
+- title: Réttarstaða karls og konu, er búa saman í óvígðri sambúð
+  authors:
+  - Hörður Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 295
+  page_end: 313
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 989
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/158.pdf
+  note: ''
+  analysis_notes: []
+- title: Stutt yfirlit um vitni í tíð Grágásar, Járnsíðu og Jónsbókar
+  authors:
+  - Hjalti Zóphóníasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 314
+  page_end: 327
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: page
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 990
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/72.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkrar hugleið-ingar um notkun banka á víxlum við veitingu lána 1.0
+  authors:
+  - Hrafn Bragason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 328
+  page_end: 342
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 991
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/215.pdf
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,128 @@
 source: logretta
 year: 2007
-volume: null
+volume: 4
 issue: '2'
-label: Lögrétta, 2. tbl. (2007)
+label: Lögrétta, 4. árg. 2. tbl. (2007)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2007 2.tbl.pdf
 sha256: 9981d1a02a5a740387baf4d618181421d0ee1b52347d814ee4445a933d973072
-pages: null
+pages: 73
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 113
+  quality: 1.0
+  runner_up_share: 0.0
+  pages: 73
+  segments:
+  - - 0
+    - 37
+    - 113
+  - - 38
+    - 54
+    - 115
+  - - 55
+    - 72
+    - 116
+  contested: []
+  bin_ratio: 0.977
+  non_article: []
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2007 2.tbl.pdf
-articles: []
+articles:
+- title: Um jarðrænar auðlindir og framtíðarnýtingu þeirra
+  authors:
+  - Karl Axelsson
+  - Hreinn Hrafnkelsson
+  - Dýrleif Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 113
+  page_end: 150
+  issue: null
+  pdf_pages:
+  - 0
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fremst(ur) meðal jafningja
+  authors:
+  - Margrét Vala Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 153
+  page_end: 168
+  issue: null
+  pdf_pages:
+  - 38
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Umboðssvik
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 188
+  issue: null
+  pdf_pages:
+  - 55
+  - 72
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

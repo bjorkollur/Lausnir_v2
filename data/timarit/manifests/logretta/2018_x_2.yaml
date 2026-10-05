@@ -1,16 +1,97 @@
 source: logretta
 year: 2018
-volume: null
+volume: 14
 issue: '2'
-label: Lögrétta, 2. tbl. (2018)
+label: Lögrétta, 14. árg. 2. tbl. (2018)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2018 2.tbl.pdf
 sha256: c6fd484c28d77ab604429212974e90c1b6fe06da58574c623917ecf852fb061d
-pages: null
+pages: 340
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.932
+  runner_up_share: 0.0
+  pages: 340
+  segments:
+  - - 3
+    - 337
+    - -1
+  contested: []
+  bin_ratio: 0.986
+  non_article:
+  - 130
+  - 134
+  - 142
+  - 143
+  - 178
+  - 292
+  - 298
+  - 299
+  - 336
+  - 337
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2018 2.tbl.pdf
-articles: []
+articles:
+- title: Kynferðisbrot í brennidepli
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 128
+  page_end: 128
+  issue: null
+  pdf_pages:
+  - 129
+  - 129
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Veðsetning hugverkaréttinda
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 238
+  page_end: 290
+  issue: null
+  pdf_pages:
+  - 239
+  - 291
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hver er kjarni markaðsmisnotkunar?“) er annar titill en skrárinnar („Veðsetning hugverkaréttinda“);
+    titli skrárinnar haldið'

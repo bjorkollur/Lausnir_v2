@@ -1,16 +1,198 @@
 source: timarit_logfraedinga
 year: 1953
-volume: null
+volume: 3
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1953)
+label: Tímarit lögfræðinga, 3. árg. 2. hefti (1953)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1953_02.pdf
 sha256: 90591c42b284ec5427ca01a12af820407231f536ff022c01f2a35b22fe27300c
-pages: null
+pages: 84
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 63
+  quality: 0.702
+  runner_up_share: 0.017
+  pages: 84
+  segments:
+  - - 3
+    - 65
+    - 63
+  contested: []
+  bin_ratio: 0.938
+  non_article:
+  - 66
+  - 68
+  - 69
+  - 70
+  - 71
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1953_02.pdf
-articles: []
+articles:
+- title: Okur og skyld brot
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 113
+  issue: null
+  pdf_pages:
+  - 2
+  - 50
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Framkvæmd laga nr. 85/1936 um meðferð einkamála í héraði
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 114
+  page_end: 116
+  issue: null
+  pdf_pages:
+  - 51
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 175–178
+- title: Álit nefndar, er skipuð var til rannsóknar á því, hvort Ísland muni eiga rétt til Grænlands
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 117
+  page_end: 121
+  issue: null
+  pdf_pages:
+  - 54
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gertæki
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 121
+  page_end: 123
+  issue: null
+  pdf_pages:
+  - 58
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Hæstarétti nóv.—des. 1952
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 123
+  page_end: 128
+  issue: null
+  pdf_pages:
+  - 60
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Brunabotafélag islands“ á bls. 130 sem skráin nefnir ekki; greinin er talin enda þar'

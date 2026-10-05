@@ -1,16 +1,236 @@
 source: timarit_logfraedinga
 year: 1965
-volume: null
+volume: 15
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1965)
+label: Tímarit lögfræðinga, 15. árg. 1. hefti (1965)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1965_01.pdf
 sha256: e69c6de39bb89e8fa8e6afc2516ad747655e83f30ad012686209c5bb38c5f42d
-pages: null
+pages: 96
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -5
+  quality: 0.562
+  runner_up_share: 0.0
+  pages: 96
+  segments:
+  - - 7
+    - 69
+    - -5
+  contested: []
+  bin_ratio: 0.903
+  non_article:
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+  - 92
+  - 93
+  - 94
+  - 95
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1965_01.pdf
-articles: []
+articles:
+- title: 19 6
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 43
+  issue: null
+  pdf_pages:
+  - 10
+  - 48
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: _
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 44
+  page_end: 56
+  issue: null
+  pdf_pages:
+  - 49
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 61
+  issue: null
+  pdf_pages:
+  - 62
+  - 66
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Nokkrir dómar frá árunum 1957—1963“) er annar titill en skrárinnar („—“); titli skrárinnar
+    haldið'
+  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 62
+  page_end: 64
+  issue: null
+  pdf_pages:
+  - 67
+  - 69
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: —
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Nokkrir drættir úr ensku réttarfari
+  authors:
+  - J. W. A. Thornely
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'

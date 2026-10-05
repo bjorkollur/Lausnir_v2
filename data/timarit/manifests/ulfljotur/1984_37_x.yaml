@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.845
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/131.pdf
@@ -25,4 +26,412 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/575.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/629.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/87.pdf
-articles: []
+articles:
+- title: null
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance: {}
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/153-3976-2.pdf
+  note: ''
+  analysis_notes:
+  - engin röð í töflu passaði (best 0.59)
+  - 'FRÁVIK: blaðsíðutal greinarinnar fannst hvorki á síðunni né í skránni'
+- title: Lögbók og lagahreinsun
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 12
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 755
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/38.pdf
+  note: ''
+  analysis_notes: []
+- title: Umráðasvipting fjárnumins lausafjár
+  authors:
+  - Þorsteinn Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 13
+  page_end: 18
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 756
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/575.pdf
+  note: ''
+  analysis_notes: []
+- title: Why Ohio?
+  authors:
+  - Gunnar Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 37
+  page_end: 39
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 757
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/2025.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 39, prentað bls. 37'
+- title: Nýjungar í norrænum samningarétti
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 53
+  page_end: 70
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 759
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/131.pdf
+  note: ''
+  analysis_notes: []
+- title: Lögfræðingarnir og þjóðfélagið
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 77
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 760
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/2034.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 77, prentað bls. 71'
+- title: Lögfræðingakönnun
+  authors:
+  - Jóhan Albertsson
+  - Gísli Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 78
+  page_end: 81
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 761
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/2035.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 81, prentað bls. 78'
+- title: Húseigandaábyrgð og vátryggingar tengdar henni
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 101
+  page_end: 126
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 762
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/307.pdf
+  note: ''
+  analysis_notes: []
+- title: Eigin sök tjónþola
+  authors:
+  - Indriði Þorkelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 127
+  page_end: 172
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 45
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 763
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/250.pdf
+  note: ''
+  analysis_notes: []
+- title: Lagadeild 75 ára
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 175
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 764
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/2043.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 175, prentað bls. 173'
+- title: Takmarkanir á úrskurðarvaldi dómenda skv. 60. Gr. Stjórnarskrárinnar
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 183
+  page_end: 217
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 765
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/629.pdf
+  note: ''
+  analysis_notes: []
+- title: Stjórnarlög og stjórnskipun Nýja-Íslands, nýlendu íslenskra landnema í Kanada
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 219
+  page_end: 258
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 766
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/87.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 258 sem er hvorki framhald hennar né upphaf annars
+    efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: Um þróunaráætlun H.Í. og lagadeild
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 259
+  page_end: 262
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 767
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/2051.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 262, prentað bls. 259'

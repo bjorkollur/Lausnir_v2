@@ -1,16 +1,818 @@
 source: timarit_logfraedinga
 year: 1990
-volume: null
+volume: 40
 issue: null
-label: Tímarit lögfræðinga (1990)
+label: Tímarit lögfræðinga, 40. árg. (1990)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1990.pdf
 sha256: 61deaf28168a6804ed7e2a55700a8e23a52d037ed59e01f88713d2c0c78bfdc1
-pages: null
+pages: 300
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -17
+  quality: 0.91
+  runner_up_share: 0.013
+  pages: 300
+  segments:
+  - - 6
+    - 84
+    - -5
+  - - 90
+    - 137
+    - -9
+  - - 142
+    - 212
+    - -13
+  - - 218
+    - 297
+    - -17
+  contested: []
+  bin_ratio: 0.959
+  non_article:
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 130
+  - 131
+  - 132
+  - 133
+  - 134
+  - 135
+  - 136
+  - 137
+  - 210
+  - 211
+  - 212
+  - 213
+  - 214
+  - 217
+  - 290
+  - 291
+  - 292
+  - 293
+  - 294
+  - 295
+  - 296
+  - 298
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1990.pdf
-articles: []
+articles:
+- title: Dómhús
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 2
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Alþjóðlegir mannréttindasáttmálar og íslenskur landsréttur
+  authors:
+  - Ragnar Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 27
+  issue: '1'
+  pdf_pages:
+  - 8
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um samningsbundna gerðardóma
+  authors:
+  - Valtýr Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 37
+  issue: '1'
+  pdf_pages:
+  - 33
+  - 42
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um samningsbundna gerðardóma
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 38
+  page_end: 50
+  issue: '1'
+  pdf_pages:
+  - 43
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagabókmenntir Evrópubandalagið eftir dr. Gunnar G. Schram eftirGylfa Knudsen
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: 54
+  issue: '1'
+  pdf_pages:
+  - 56
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: FrálagadeildHáskólaíslands
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 55
+  page_end: 68
+  issue: '1'
+  pdf_pages:
+  - 60
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 69
+  page_end: 72
+  issue: '1'
+  pdf_pages:
+  - 74
+  - 77
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Íslenskirlögfræðingarogumheimurinn
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 81
+  page_end: 82
+  issue: '2'
+  pdf_pages:
+  - 90
+  - 91
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ábyrgð flytjanda farms á sjó, í lofti og á landi
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 96
+  issue: '2'
+  pdf_pages:
+  - 92
+  - 105
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Getur greiðslubanki verið tékkahafi?
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 108
+  issue: '2'
+  pdf_pages:
+  - 106
+  - 117
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Innlausnarréttur eigenda hlutdeildarskírteina
+  authors:
+  - Friðrik Jóhannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 109
+  page_end: 117
+  issue: '2'
+  pdf_pages:
+  - 118
+  - 126
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ávíðogdreif
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 118
+  page_end: 120
+  issue: '2'
+  pdf_pages:
+  - 127
+  - 129
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttarheimildiroglagatúlkun
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 129
+  page_end: 132
+  issue: '3'
+  pdf_pages:
+  - 142
+  - 145
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögfræðinga“) er annar titill en skrárinnar („Réttarheimildiroglagatúlkun“); titli
+    skrárinnar haldið'
+- title: Jóhannes L.L. Helgason. In memoriam
+  authors:
+  - Guðmundur Ingvi Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 134
+  issue: '3'
+  pdf_pages:
+  - 146
+  - 147
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Nýmæli í lögum um almannatryggingar: Sjúklingatrygging'
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 135
+  page_end: 147
+  issue: '3'
+  pdf_pages:
+  - 148
+  - 160
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugbúnaður - Skilyrði og umfang höfundaréttarverndar
+  authors:
+  - Erla S. Árnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 148
+  page_end: 174
+  issue: '3'
+  pdf_pages:
+  - 161
+  - 187
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Innlausnarréttur eigenda hlutdeildarskírteina
+  authors:
+  - Þórður S. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 175
+  page_end: 180
+  issue: '3'
+  pdf_pages:
+  - 188
+  - 193
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ávíðogdreif
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 181
+  page_end: 196
+  issue: '3'
+  pdf_pages:
+  - 194
+  - 209
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félagsmál dómara
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 201
+  page_end: 202
+  issue: '4'
+  pdf_pages:
+  - 218
+  - 219
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samanburðarlögfræði
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 203
+  page_end: 218
+  issue: '4'
+  pdf_pages:
+  - 220
+  - 235
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sérstakt hæfi dómara
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 219
+  page_end: 242
+  issue: '4'
+  pdf_pages:
+  - 236
+  - 259
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um handhafa forsetavalds
+  authors:
+  - Pétur Kr. Hafstein
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 243
+  page_end: 255
+  issue: '4'
+  pdf_pages:
+  - 260
+  - 272
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögleg undirskrift og staðfesting lög-gernings - eru tímamót framundan?
+  authors:
+  - Tryggvi Axelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 256
+  page_end: 259
+  issue: '4'
+  pdf_pages:
+  - 273
+  - 276
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á víð og dreif
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 260
+  page_end: 272
+  issue: '4'
+  pdf_pages:
+  - 277
+  - 289
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

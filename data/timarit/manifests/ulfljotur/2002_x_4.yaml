@@ -1,16 +1,326 @@
 source: ulfljotur
 year: 2002
-volume: null
+volume: 55
 issue: '4'
-label: Úlfljótur, 4. tbl. (2002)
+label: Úlfljótur, 55. árg. 4. tbl. (2002)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_4_tbl.pdf
 sha256: 4ec8cf49437d23939826f3fee0763c1d4b037d2c4a39cd9a7f0e278711547b76
-pages: null
+pages: 192
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 555
+  quality: 0.969
+  runner_up_share: 0.005
+  pages: 192
+  segments:
+  - - 2
+    - 190
+    - 555
+  contested: []
+  bin_ratio: 0.899
+  non_article:
+  - 17
+  - 40
+  - 62
+  - 123
+  - 142
+  - 175
+  - 176
+  - 177
+  - 178
+  - 179
+  - 180
+  - 181
+  - 182
+  - 183
+  - 184
+  - 185
+  - 186
+  - 187
+  - 188
+  - 189
+  - 190
+  - 191
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_4_tbl.pdf
-articles: []
+articles:
+- title: Hlutverk frjálsra félagasamtaka í alþjóðlegri samvinnu um mannréttindavernd
+  authors:
+  - Arnar Þór Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 561
+  page_end: 571
+  issue: null
+  pdf_pages:
+  - 6
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 368
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Samningur Sameinuðu þjóðanna um bann við pyndingum og störf nefndarinnar gegn pyndingum
+  authors:
+  - Ásgerður Ragnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 573
+  page_end: 584
+  issue: null
+  pdf_pages:
+  - 18
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 369
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eru mannréttindi óháð gildismati ólíkra menningarheima?
+  authors:
+  - Bergþóra Ingólfsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 585
+  page_end: 594
+  issue: null
+  pdf_pages:
+  - 30
+  - 39
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 370
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Réttarheimspeki“ á bls. 596 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Ber okkur siðferðileg skylda til að fara að lögum
+  authors:
+  - Eiríkur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 597
+  page_end: 606
+  issue: null
+  pdf_pages:
+  - 42
+  - 51
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 371
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kenning Róberts Nozicks um réttlætingu og upphaf ríkisvalds
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 607
+  page_end: 616
+  issue: null
+  pdf_pages:
+  - 52
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 372
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Umhverfisréttur“ á bls. 618 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Reglur um erfðabreyttar lífverur
+  authors:
+  - Björk Viðarsdóttir
+  - Særún María Gunnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 619
+  page_end: 644
+  issue: null
+  pdf_pages:
+  - 64
+  - 89
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 373
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vernd, friðun og veiðar á villtum fuglum og villtum spendýrum á Íslandi
+  authors:
+  - Gunnar Örn Jónsson
+  - Ólafur Hallgrímsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 645
+  page_end: 667
+  issue: null
+  pdf_pages:
+  - 90
+  - 112
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 374
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Stjórnsýslubálkur“ á bls. 668 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Rafræn stjórnsýsla
+  authors:
+  - Gunnar Þór Þórarinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 679
+  page_end: 686
+  issue: null
+  pdf_pages:
+  - 124
+  - 131
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 375
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rafrænar undirskriftir
+  authors:
+  - Andri Óttarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 687
+  page_end: 696
+  issue: null
+  pdf_pages:
+  - 132
+  - 141
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 376
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Um tengsl lögfræði og hagfræði“ á bls. 698 sem skráin nefnir ekki; greinin er talin
+    enda þar'

@@ -1,16 +1,131 @@
 source: ulfljotur
 year: 2011
-volume: null
+volume: 64
 issue: '4'
-label: Úlfljótur, 4. tbl. (2011)
+label: Úlfljótur, 64. árg. 4. tbl. (2011)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2011_4_tbl.pdf
 sha256: e52871953163902cd18194e7ca1b270b9b493ca6da8c1d3694d69d929ac7f50d
-pages: null
+pages: 199
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 510
+  quality: 0.945
+  runner_up_share: 0.005
+  pages: 199
+  segments:
+  - - 3
+    - 193
+    - 510
+  contested: []
+  bin_ratio: 0.807
+  non_article:
+  - 188
+  - 189
+  - 190
+  - 191
+  - 192
+  - 193
+  - 194
+  - 195
+  - 196
+  - 197
+  - 198
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2011_4_tbl.pdf
-articles: []
+articles:
+- title: Takmörkun á rétti almennings til aðgangs að bréfaskiptum stjórnvalda við sérfróða menn til afnota í dómsmáli eða
+    við athugun á því hvort slíkt mál skuli höfðað
+  authors:
+  - Arnaldur Hjartarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 515
+  page_end: 554
+  issue: null
+  pdf_pages:
+  - 5
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 191
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hlutlæg og huglæg skilyrði 1. tölul. 1. mgr. 227. gr. a. hgl. um mansal
+  authors:
+  - Flosi H. Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 555
+  page_end: 634
+  issue: null
+  pdf_pages:
+  - 45
+  - 124
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 192
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hæstiréttur og EES-samningurinn - Samningsbrotamál og skaðabótaábyrgð
+  authors:
+  - Ólafur Jóhannes Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 635
+  page_end: 660
+  issue: null
+  pdf_pages:
+  - 125
+  - 150
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 193
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Ádrepur af félagslífi laganema“ á bls. 661 sem skráin nefnir ekki; greinin er talin
+    enda þar'

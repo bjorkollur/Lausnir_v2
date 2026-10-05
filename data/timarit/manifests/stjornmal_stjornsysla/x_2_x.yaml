@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2006
 volume: 2
 issue: null
-label: Stjórnmál og stjórnsýsla, 2. árg.
+label: Stjórnmál og stjórnsýsla, 2. árg. (2006)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.813
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/129-156_Increasing_Inequality_in_Iceland.pdf
@@ -21,4 +22,283 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/57-72_Pre-history_of_the_presidency.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/73-94_The_role_of_the_President_of_Iceland.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/95-128_Seafare_or_Sovereignty__Explaining_Icela.pdf
-articles: []
+articles:
+- title: Pólitískar stöðuveitingar á Íslandi
+  authors:
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 30
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/5-30_Political_appointments_in_Iceland.pdf
+  note: ''
+  analysis_notes: []
+- title: Fylgisbreytingar í aðdraganda borgarstjórnarkosninga vorið 2002
+  authors:
+  - Guðmundur B. Arnkelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 31
+  page_end: 56
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/31-56_Trends_in_party_support_preceding_the_mu.pdf
+  note: ''
+  analysis_notes: []
+- title: Forveri forseta Konungur Íslands 1904–1944
+  authors:
+  - Helgi Skúli Kjartansson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 72
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/57-72_Pre-history_of_the_presidency.pdf
+  note: ''
+  analysis_notes: []
+- title: Leikstjóri, leikari eða áhorfandi? Forsetinn og stjórnarmyndanir
+  authors:
+  - Guðni Th. Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 94
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/73-94_The_role_of_the_President_of_Iceland.pdf
+  note: ''
+  analysis_notes: []
+- title: Fiskurinn eða fullveldið? Hvað skýrir ólík tengsl Íslands og hinna Norðurlandanna við Evrópusamrunann?
+  authors:
+  - Eiríkur Bergmann Einarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 95
+  page_end: 128
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/95-128_Seafare_or_Sovereignty__Explaining_Icela.pdf
+  note: ''
+  analysis_notes: []
+- title: Aukinn ójöfnuður á Íslandi Áhrif stjórnmála og markaðar í fjölþjóðlegum samanburði
+  authors:
+  - Stefán Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 129
+  page_end: 156
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/129-156_Increasing_Inequality_in_Iceland.pdf
+  note: ''
+  analysis_notes: []
+- title: Sjálfstæði ráðherra og þingræðisreglan
+  authors:
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 157
+  page_end: 174
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename+page
+    issue: page
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/157-174_Ministerial_autonomy_and_parliamentary_g.pdf
+  note: ''
+  analysis_notes: []
+- title: Verkföll og verkfallstíðni á íslenskum vinnumarkaði 1976-2004
+  authors:
+  - Gylfi Dalmann Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 175
+  page_end: 196
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/175-196_Strikes_and_strike_activity_on_the_Icela.pdf
+  note: ''
+  analysis_notes: []
+- title: Iceland’s involvement in global affairs since the mid-1990s What features determine the size of a state
+  authors:
+  - Baldur Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 197
+  page_end: 223
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 26
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/197-223_Iceland’s_involvement_in_global_affairs.pdf
+  note: ''
+  analysis_notes: []

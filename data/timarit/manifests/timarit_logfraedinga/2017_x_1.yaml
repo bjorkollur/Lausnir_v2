@@ -1,16 +1,132 @@
 source: timarit_logfraedinga
 year: 2017
-volume: null
+volume: 67
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (2017)
+label: Tímarit lögfræðinga, 67. árg. 1. hefti (2017)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2017_01.pdf
 sha256: 8c5694037c80409c86be205716f9436690e2e714cf6685e207dd8b3fc4d1cb0d
-pages: null
+pages: 126
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.968
+  runner_up_share: 0.0
+  pages: 126
+  segments:
+  - - 2
+    - 123
+    - -1
+  contested: []
+  bin_ratio: 0.962
+  non_article:
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+  - 120
+  - 121
+  - 122
+  - 123
+  - 124
+  - 125
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2017_01.pdf
-articles: []
+articles:
+- title: Aðild Íslands að Open Government Partnership
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 2
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ákvörðun um eignarnám
+  authors:
+  - Ásgerður Ragnarsdóttir
+  - Karl Axelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 69
+  issue: null
+  pdf_pages:
+  - 4
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ákvæði hegningarlaga um ofbeldi í nánum samböndum
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 113
+  issue: null
+  pdf_pages:
+  - 72
+  - 114
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

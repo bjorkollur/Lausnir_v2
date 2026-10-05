@@ -1,16 +1,306 @@
 source: timarit_logfraedinga
 year: 1967
-volume: null
+volume: 17
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1967)
+label: Tímarit lögfræðinga, 17. árg. 1. hefti (1967)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1967_01.pdf
 sha256: 213194441d8ea7561ebf7a4d92f9da87257a481c5da896995dddbe92e75e91e4
-pages: null
+pages: 108
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -5
+  quality: 0.62
+  runner_up_share: 0.0
+  pages: 108
+  segments:
+  - - 7
+    - 85
+    - -5
+  contested: []
+  bin_ratio: 0.929
+  non_article:
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+  - 92
+  - 93
+  - 94
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 102
+  - 103
+  - 104
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1967_01.pdf
-articles: []
+articles:
+- title: Mat á geðrænu sakhæfi . —
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 20
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 25
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Um Lögfræðingafélag Noregs o. fl
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 40
+  page_end: 44
+  issue: null
+  pdf_pages:
+  - 45
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Frá Lögfræðingafélagi íslands
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 48
+  issue: null
+  pdf_pages:
+  - 50
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Frá Bæjarþingi Reykjavíkur. Nokkrir dómar frá 1965
+  authors:
+  - Björn Þ. Guðmundsson
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 49
+  page_end: 65
+  issue: null
+  pdf_pages:
+  - 54
+  - 70
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 117–133
+  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Á víð og dreif
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 66
+  page_end: 67
+  issue: null
+  pdf_pages:
+  - 71
+  - 72
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Lög árið 1967
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 68
+  page_end: 73
+  issue: null
+  pdf_pages:
+  - 73
+  - 78
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Ár mannréttinda 1968
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 74
+  page_end: 77
+  issue: null
+  pdf_pages:
+  - 79
+  - 82
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'
+- title: Alþjóðasamstarf á sviði mannréttinda og árangur þess
+  authors:
+  - Sigurgeir Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 78
+  page_end: 80
+  issue: null
+  pdf_pages:
+  - 83
+  - 85
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
+    þær vanti í skjalið eða hafi ekki fundist'

@@ -1,16 +1,197 @@
 source: timarit_logfraedinga
 year: 1954
-volume: null
+volume: 4
 issue: '1'
-label: Tímarit lögfræðinga, 1. hefti (1954)
+label: Tímarit lögfræðinga, 4. árg. 1. hefti (1954)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1954_01.pdf
 sha256: 753821d282aa1d19284d9d9c2686e51e7ec49e9a70b459ccb3f7d5306576a3c7
-pages: null
+pages: 88
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -5
+  quality: 0.545
+  runner_up_share: 0.0
+  pages: 88
+  segments:
+  - - 6
+    - 68
+    - -5
+  contested: []
+  bin_ratio: 0.934
+  non_article:
+  - 8
+  - 70
+  - 71
+  - 72
+  - 73
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1954_01.pdf
-articles: []
+articles:
+- title: Ávarp
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 1
+  page_end: 2
+  issue: null
+  pdf_pages:
+  - 6
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Alþingi og framkvæmdarvaldið
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 4
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 9
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Geðheilbrigðirannsóknir
+  authors:
+  - Helgi Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 28
+  page_end: 49
+  issue: null
+  pdf_pages:
+  - 33
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkrar athugasemdir við grein Árna Tryggvasonar
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 50
+  page_end: 56
+  issue: null
+  pdf_pages:
+  - 55
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Kjörskrár og kjörskrármál
+  authors:
+  - Friðjón Skarphéðinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 57
+  page_end: 64
+  issue: null
+  pdf_pages:
+  - 62
+  - 69
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Búnaðarbanki Islands“ á bls. 69 sem skráin nefnir ekki; greinin er talin enda þar'

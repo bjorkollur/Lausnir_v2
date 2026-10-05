@@ -1,16 +1,795 @@
 source: timarit_logfraedinga
 year: 2003
-volume: null
+volume: 53
 issue: null
-label: Tímarit lögfræðinga (2003)
+label: Tímarit lögfræðinga, 53. árg. (2003)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2003.pdf
 sha256: d86a66357f976db91876783fd6aeb366205cee067813dc2ef55e2961c5108cac
-pages: null
+pages: 464
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -17
+  quality: 0.92
+  runner_up_share: 0.008
+  pages: 464
+  segments:
+  - - 6
+    - 114
+    - -5
+  - - 122
+    - 223
+    - -11
+  - - 230
+    - 352
+    - -17
+  - - 362
+    - 459
+    - -25
+  contested: []
+  bin_ratio: 0.918
+  non_article:
+  - 9
+  - 87
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+  - 120
+  - 121
+  - 125
+  - 217
+  - 218
+  - 219
+  - 220
+  - 221
+  - 222
+  - 223
+  - 224
+  - 225
+  - 226
+  - 227
+  - 228
+  - 229
+  - 341
+  - 346
+  - 347
+  - 348
+  - 349
+  - 350
+  - 351
+  - 352
+  - 353
+  - 354
+  - 355
+  - 356
+  - 357
+  - 358
+  - 359
+  - 360
+  - 361
+  - 365
+  - 397
+  - 454
+  - 455
+  - 456
+  - 457
+  - 458
+  - 459
+  - 460
+  - 461
+  - 462
+  - 463
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2003.pdf
-articles: []
+articles:
+- title: Yfirþjóðlegt vald
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 3
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Upplýsingaskylda ábyrgðaraðila gagnvart hinum skráða við söfnun persónuupplýsinga
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 18
+  issue: '1'
+  pdf_pages:
+  - 10
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stjórnarskrárbundið fullveldi Islands
+  authors:
+  - Kristrún Heimisdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 19
+  page_end: 60
+  issue: '1'
+  pdf_pages:
+  - 24
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lög og lögvísi í Suður Ameríku
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 81
+  issue: '1'
+  pdf_pages:
+  - 66
+  - 86
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Miðborgin, öryggiskennd og umfjöllun fjölmiðla
+  authors:
+  - Helgi Gunnlaugsson
+  - Rannveig Þórisdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 90
+  issue: '1'
+  pdf_pages:
+  - 88
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla Stjórnar Lögfræðingafélags íslands 2001-2002
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 91
+  page_end: 95
+  issue: '1'
+  pdf_pages:
+  - 96
+  - 100
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur Lögmannafélags Islands 2002
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 96
+  page_end: 102
+  issue: '1'
+  pdf_pages:
+  - 101
+  - 107
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipun dómara
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 111
+  page_end: 113
+  issue: '2'
+  pdf_pages:
+  - 122
+  - 124
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Riftun og framkvæmd hennar samkvæmt lögum um fasteignakaup nr. 40/2002
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 115
+  page_end: 136
+  issue: '2'
+  pdf_pages:
+  - 126
+  - 147
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagaskil á sviði samningaréttar
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 137
+  page_end: 198
+  issue: '2'
+  pdf_pages:
+  - 148
+  - 209
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eignarréttarleg vernd veiðiheimilda
+  authors:
+  - Ágúst Geir Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 199
+  page_end: 205
+  issue: '2'
+  pdf_pages:
+  - 210
+  - 216
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Öryrkjadómarnir
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 213
+  page_end: 216
+  issue: '3'
+  pdf_pages:
+  - 230
+  - 233
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Riftunarreglur kaupalaga
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 217
+  page_end: 272
+  issue: '3'
+  pdf_pages:
+  - 234
+  - 289
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Vernd verkfallsréttar samkvæmt 74. gr. stjórnarskrárinnar
+  authors:
+  - Elín Blöndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 273
+  page_end: 306
+  issue: '3'
+  pdf_pages:
+  - 290
+  - 323
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Verndar stjórnarskráin verkfallsréttinn?
+  authors:
+  - Ástráður Haraldsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 307
+  page_end: 323
+  issue: '3'
+  pdf_pages:
+  - 324
+  - 340
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur Lögmannafélags íslands 2003
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 325
+  page_end: 327
+  issue: '3'
+  pdf_pages:
+  - 342
+  - 344
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ritrýni
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 328
+  page_end: 328
+  issue: '3'
+  pdf_pages:
+  - 345
+  - 345
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mannréttindasáttmáli Evrópu
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 337
+  page_end: 339
+  issue: '4'
+  pdf_pages:
+  - 362
+  - 364
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mannréttindasáttmáli Evrópu 50 ára
+  authors:
+  - Bjöm Bjamason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 341
+  page_end: 344
+  issue: '4'
+  pdf_pages:
+  - 366
+  - 369
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Beiting Hæstaréttar Íslands á lögunum um Mannréttindasáttmála Evrópu
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 345
+  page_end: 371
+  issue: '4'
+  pdf_pages:
+  - 370
+  - 396
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ahrif Mannréttindasáttmála Evrópu á vernd tjáningarfrelsis að íslenskum rétti
+  authors:
+  - Björg Thorarensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 373
+  page_end: 420
+  issue: '4'
+  pdf_pages:
+  - 398
+  - 445
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Screening af danske regeringsforslags overensstemmelse med Den Europæiske Menneskerettighedskonvention og andre intemationale
+    konventioner om menneskerettigheder
+  authors:
+  - Nina Holst-Christensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 421
+  page_end: 428
+  issue: '4'
+  pdf_pages:
+  - 446
+  - 453
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

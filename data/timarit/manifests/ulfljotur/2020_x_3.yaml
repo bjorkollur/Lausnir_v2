@@ -1,16 +1,223 @@
 source: ulfljotur
 year: 2020
-volume: null
+volume: 73
 issue: '3'
-label: Úlfljótur, 3. tbl. (2020)
+label: Úlfljótur, 73. árg. 3. tbl. (2020)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2020_3_tbl.pdf
 sha256: 39a8240d825ee889de61237bbfa66d38c68830e1400774f4ff67a7626a99bfff
-pages: null
+pages: 140
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 279
+  quality: 0.886
+  runner_up_share: 0.008
+  pages: 140
+  segments:
+  - - 2
+    - 137
+    - 279
+  contested: []
+  bin_ratio: 0.776
+  non_article:
+  - 51
+  - 109
+  - 111
+  - 117
+  - 129
+  - 135
+  - 136
+  - 137
+  - 138
+  - 139
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2020_3_tbl.pdf
-articles: []
+articles:
+- title: Skaðabótaábyrgð hins opinbera vegna brota gegn EES-rétti
+  authors:
+  - Eiríkur Jónsson
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 289
+  page_end: 329
+  issue: null
+  pdf_pages:
+  - 10
+  - 50
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 50
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Miðlæg úrskurðarnefnd í upplýsingarétti Rök og reynsla
+  authors:
+  - Hafsteinn Þór Hauksson
+  - Oddur Þorri Viðarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 331
+  page_end: 350
+  issue: null
+  pdf_pages:
+  - 52
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 51
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Innleiðing CISG í íslenskan rétt: Er breytinga þörf?'
+  authors:
+  - Marta Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 351
+  page_end: 387
+  issue: null
+  pdf_pages:
+  - 72
+  - 108
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 52
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Persónuverndarréttarleg álitaefni í tengslum við notkun kortaupplýsinga í sóttvarnaskyni“
+    á bls. 389 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Heimildir sóttvarnalæknis við gagnaöflun og vinnslu persónuupplýsinga í tengslum við sóttvarnaráðstafanir vegna Covid-19-veirunnar
+  authors:
+  - Helga Þórisdóttir
+  - Vigdís Eva Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 391
+  page_end: 395
+  issue: null
+  pdf_pages:
+  - 112
+  - 116
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 53
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkur persónuverndarréttarleg álitamál í tengslum við nýlegar smitrakningaraðferðir sóttvarnalæknis
+  authors:
+  - Hörður Helgi Helgason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 397
+  page_end: 402
+  issue: null
+  pdf_pages:
+  - 118
+  - 123
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 54
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Notkun kreditkortaupplýsinga í sóttvarnaskyni
+  authors:
+  - Sigríður Ásthildur Andersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 403
+  page_end: 407
+  issue: null
+  pdf_pages:
+  - 124
+  - 128
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 55
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Borg humlanna“ á bls. 409 sem skráin nefnir ekki; greinin er talin enda þar'

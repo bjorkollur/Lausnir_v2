@@ -1,16 +1,157 @@
 source: ulfljotur
 year: 2020
-volume: null
+volume: 73
 issue: '1'
-label: Úlfljótur, 1. tbl. (2020)
+label: Úlfljótur, 73. árg. 1. tbl. (2020)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2020_1_tbl.pdf
 sha256: bff4269bbc57f15a28e16347eeeba534a0f7605a97d074b9caeeb106f02426cc
-pages: null
+pages: 110
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -1
+  quality: 0.882
+  runner_up_share: 0.01
+  pages: 110
+  segments:
+  - - 2
+    - 107
+    - -1
+  contested: []
+  bin_ratio: 0.889
+  non_article:
+  - 35
+  - 99
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2020_1_tbl.pdf
-articles: []
+articles:
+- title: Tímamark upplýsingaskyldu þegar innherjaupplýsingar myndast í uppgjörsvinnu
+  authors:
+  - Andri Fannar Bergþórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 33
+  issue: null
+  pdf_pages:
+  - 10
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 39
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er íslensk refsilöggjöf fullnægjandi þegar kemur að tölvubrotum?
+  authors:
+  - Kristján Ágúst Flygenring Pétursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 35
+  page_end: 60
+  issue: null
+  pdf_pages:
+  - 36
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 40
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um samningsfrelsið og skyldu til samningsgerðar með hliðsjón af mannréttindum
+  authors:
+  - Þuríður Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 92
+  issue: null
+  pdf_pages:
+  - 62
+  - 93
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 41
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Viðtal við Gretu Baldursdóttur hæstaréttardómara“ á bls. 93 sem skráin nefnir ekki;
+    greinin er talin enda þar'
+- title: Sjálfstæði lögmanna,- skiptir það máli?
+  authors:
+  - Berglind Svavarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 99
+  page_end: 103
+  issue: null
+  pdf_pages:
+  - 100
+  - 104
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    article_type: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 42
+  source_file: null
+  note: ''
+  analysis_notes: []

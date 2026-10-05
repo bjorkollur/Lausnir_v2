@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.965
+status: approved
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/184.pdf
@@ -35,4 +36,717 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/92.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/93.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/94.pdf
-articles: []
+articles:
+- title: Sifjaréttur tuttugustu aldar
+  authors:
+  - Guðrún Erlendsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 15
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 409
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/91.pdf
+  note: ''
+  analysis_notes: []
+- title: Að selja þekkingu
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 17
+  page_end: 26
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 410
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/92.pdf
+  note: ''
+  analysis_notes: []
+- title: Straumhvörf í kirkjurétti
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: 40
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 411
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/93.pdf
+  note: ''
+  analysis_notes: []
+- title: Upphaf laga vorra
+  authors:
+  - Einar Sigurbjörnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 43
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 412
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/94.pdf
+  note: ''
+  analysis_notes: []
+- title: Sjálfstjórn sveitarfélaga
+  authors:
+  - Jóhann Tómas Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 143
+  page_end: 189
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 413
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/448.pdf
+  note: ''
+  analysis_notes: []
+- title: Trúnaðarskyldan við gerð, framkvæmd og slit samninga
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 190
+  page_end: 215
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 414
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/184.pdf
+  note: ''
+  analysis_notes: []
+- title: Þróun refsiréttar í ljósi mannréttinda
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 217
+  page_end: 251
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 34
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 415
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/534.pdf
+  note: ''
+  analysis_notes: []
+- title: Vatneyrardómurinn í ljósi tilgátu um samspil jafnræðisreglunnar og endurskoðunarvalds dómstóla
+  authors:
+  - Oddný Mjöll Arnardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 276
+  page_end: 281
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 417
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/2964.pdf
+  note: ''
+  analysis_notes: []
+- title: Hæstiréttur og stjórn fiskveiða
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 283
+  page_end: 300
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 418
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/2966.pdf
+  note: ''
+  analysis_notes: []
+- title: Fyrsta starfsár endurnýjaðs Mannréttindadómstóls Evrópu
+  authors:
+  - Páll Þórhallsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 301
+  page_end: 321
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 419
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/2967.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkur undirstöðuatriði fjármagnsmarkaðarins
+  authors:
+  - Axel Hall
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 389
+  page_end: 397
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 420
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/690.pdf
+  note: ''
+  analysis_notes: []
+- title: Um réttaráhrif eignarskráningar rafbréfa
+  authors:
+  - Tryggvi Axelsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 400
+  page_end: 414
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 421
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/691.pdf
+  note: ''
+  analysis_notes: []
+- title: Fjármálaeftirlitið
+  authors:
+  - Páll Gunnar Pálsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 415
+  page_end: 428
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 422
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/692.pdf
+  note: ''
+  analysis_notes: []
+- title: Innherjaviðskipti
+  authors:
+  - Þórólfur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 430
+  page_end: 459
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 423
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/693.pdf
+  note: ''
+  analysis_notes: []
+- title: Flöggun
+  authors:
+  - Þórir Skarphéðinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 460
+  page_end: 480
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 20
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 424
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/694.pdf
+  note: ''
+  analysis_notes: []
+- title: Verðbréfaviðskipti í gegnum Netið
+  authors:
+  - Jón Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 481
+  page_end: 514
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 425
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/695.pdf
+  note: ''
+  analysis_notes: []
+- title: Samtakamáttur velunnara eflir lagadeild
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 516
+  page_end: 518
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 426
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/2984.pdf
+  note: ''
+  analysis_notes: []
+- title: Hollvinafélag lagadeildar
+  authors:
+  - Halldór Jónatansson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 519
+  page_end: 521
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 427
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/2985.pdf
+  note: ''
+  analysis_notes: []
+- title: Nýta þarf möguleika til samstarfs
+  authors:
+  - Ari Edwald
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 523
+  page_end: 526
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 428
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/2987.pdf
+  note: ''
+  analysis_notes: []
+- title: Einungis eftir lögunum
+  authors:
+  - Ragnar Aðalsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 569
+  page_end: 599
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 430
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/686.pdf
+  note: ''
+  analysis_notes: []
+- title: Allt orkar tvímælis, þá er gjört er
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 602
+  page_end: 623
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 431
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/610.pdf
+  note: ''
+  analysis_notes: []
+- title: Þróun EES á breyttum tímum. Þróun Evrópusamrunans 1992-2000
+  authors:
+  - Björn Friðfinnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 625
+  page_end: 641
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 432
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/656.pdf
+  note: ''
+  analysis_notes: []
+- title: Óleyst álitaefni og fræðileg vonbrigði
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 643
+  page_end: 650
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 433
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2000 53 arg/3003.pdf
+  note: ''
+  analysis_notes: []

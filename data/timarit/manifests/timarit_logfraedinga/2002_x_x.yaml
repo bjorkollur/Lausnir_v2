@@ -1,16 +1,785 @@
 source: timarit_logfraedinga
 year: 2002
-volume: null
+volume: 52
 issue: null
-label: Tímarit lögfræðinga (2002)
+label: Tímarit lögfræðinga, 52. árg. (2002)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2002.pdf
 sha256: 266db8342bd7d807d6a9458d7e0c6bab0badf6ffe7195b08f7fc7c1deb82a549
-pages: null
+pages: 436
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: -13
+  quality: 0.908
+  runner_up_share: 0.0
+  pages: 436
+  segments:
+  - - 6
+    - 101
+    - -5
+  - - 106
+    - 205
+    - -9
+  - - 210
+    - 319
+    - -13
+  - - 326
+    - 430
+    - -19
+  contested: []
+  bin_ratio: 0.951
+  non_article:
+  - 11
+  - 43
+  - 85
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+  - 104
+  - 200
+  - 201
+  - 202
+  - 203
+  - 204
+  - 205
+  - 206
+  - 207
+  - 208
+  - 209
+  - 213
+  - 235
+  - 311
+  - 314
+  - 315
+  - 316
+  - 317
+  - 318
+  - 319
+  - 320
+  - 321
+  - 322
+  - 323
+  - 324
+  - 325
+  - 419
+  - 425
+  - 426
+  - 427
+  - 428
+  - 429
+  - 430
+  - 431
+  - 432
+  - 433
+  - 434
+  - 435
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2002.pdf
-articles: []
+articles:
+- title: Áhrif að utan
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 5
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Valdheimildir löggjafans og úrskurðarvald dómstóla
+  authors:
+  - Davíð Oddsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 14
+  issue: '1'
+  pdf_pages:
+  - 12
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gildissvið kaupalaga nr. 50/2000
+  authors:
+  - Þorgeir Örlygsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 15
+  page_end: 37
+  issue: '1'
+  pdf_pages:
+  - 20
+  - 42
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hugleiðingar um íhlutunarrétt dómstóla og samkeppnisyfirvalda í málefni verkalýðsfélaga
+  authors:
+  - Magnús M. Norðdahl
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 39
+  page_end: 54
+  issue: '1'
+  pdf_pages:
+  - 44
+  - 59
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: „Börnin heim“ - Afhending barna á grundvelli Haag-samningsins og viðurkenning og fullnusta á grundvelli Evrópusamningsins
+    með' hliðsjón af íslenskri réttarframkvæmd
+  authors:
+  - Jónas Jóhannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 55
+  page_end: 79
+  issue: '1'
+  pdf_pages:
+  - 60
+  - 84
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Dómarafélagi íslands
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 81
+  page_end: 90
+  issue: '1'
+  pdf_pages:
+  - 86
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um lagakennslu
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 100
+  issue: '2'
+  pdf_pages:
+  - 106
+  - 109
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um lagasetningavald dómstóla
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 101
+  page_end: 128
+  issue: '2'
+  pdf_pages:
+  - 110
+  - 133
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipting fyrirtækja með opinberu valdboði
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 125
+  page_end: 148
+  issue: '2'
+  pdf_pages:
+  - 134
+  - 157
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 129–152
+- title: Gatnagerðargjöld
+  authors:
+  - Páll Hreinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 149
+  page_end: 170
+  issue: '2'
+  pdf_pages:
+  - 158
+  - 179
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 153–173
+- title: Rafræn viðskipti á innri markaði Evrópusambandsins
+  authors:
+  - Unnur Gunnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 171
+  page_end: 180
+  issue: '2'
+  pdf_pages:
+  - 180
+  - 189
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 175–184
+- title: Frá lagadeild Háskóla Islands Deildarfréttir haustið 2000 og árið 2001
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 181
+  page_end: 190
+  issue: '2'
+  pdf_pages:
+  - 190
+  - 199
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Úrskurðarvald í stjómsýslunni
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 197
+  page_end: 199
+  issue: '3'
+  pdf_pages:
+  - 210
+  - 212
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Þátttaka lögmanna í opinberum deilum um dómsmál
+  authors:
+  - Jakob R. Möller
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 201
+  page_end: 221
+  issue: '3'
+  pdf_pages:
+  - 214
+  - 234
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skráning verðbréfa í kauphöll
+  authors:
+  - Jóhannes Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 223
+  page_end: 280
+  issue: '3'
+  pdf_pages:
+  - 236
+  - 293
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Borgaralögbókin nýja í Rússlandi - bakgrunnur og efnissvið
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 281
+  page_end: 297
+  issue: '3'
+  pdf_pages:
+  - 294
+  - 310
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Stofnað félag um vátryggingarétt
+  authors:
+  - Erla S. Árnadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 299
+  page_end: 300
+  issue: '3'
+  pdf_pages:
+  - 312
+  - 313
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um húsleit
+  authors:
+  - Friðgeir Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 307
+  page_end: 310
+  issue: '4'
+  pdf_pages:
+  - 326
+  - 329
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um orsakatengsl og reglur um takmörkun á umfangi skaðabótaábyrgðar
+  authors:
+  - Viðar Már Matthíasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 311
+  page_end: 356
+  issue: '4'
+  pdf_pages:
+  - 330
+  - 375
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: page
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Verknaðarlýsingar XIV. kafla almennra hegningarlaga um brot í opinberu starfi
+  authors:
+  - Róbert Spanó
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 357
+  page_end: 384
+  issue: '4'
+  pdf_pages:
+  - 376
+  - 403
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ráðningar í störf hjá hinu opinbera
+  authors:
+  - Gunnar Ármannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 385
+  page_end: 399
+  issue: '4'
+  pdf_pages:
+  - 404
+  - 418
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Dómarafélagi íslands Um aðalfund 2002 og starfsárið 2001-2002
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 401
+  page_end: 405
+  issue: '4'
+  pdf_pages:
+  - 420
+  - 424
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: toc
+    pages: toc
+    issue: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

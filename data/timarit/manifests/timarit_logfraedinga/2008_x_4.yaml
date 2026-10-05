@@ -1,16 +1,164 @@
 source: timarit_logfraedinga
 year: 2008
-volume: null
+volume: 58
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2008)
+label: Tímarit lögfræðinga, 58. árg. 4. hefti (2008)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2008_04.pdf
 sha256: 3519e874ea98d2bf37ec4f674d008c172abe388d155dacd8e9ef671cad8a5b44
-pages: null
+pages: 118
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 399
+  quality: 0.983
+  runner_up_share: 0.0
+  pages: 118
+  segments:
+  - - 0
+    - 115
+    - 399
+  contested: []
+  bin_ratio: 0.96
+  non_article:
+  - 3
+  - 65
+  - 97
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2008_04.pdf
-articles: []
+articles:
+- title: Hvað er lögfræðingur?
+  authors:
+  - Róbert R. Spanó
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 399
+  page_end: 401
+  issue: null
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Einkenni auðgunarbrota. Tengsl þeirra innbyrðis og við önnur brot
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 403
+  page_end: 463
+  issue: null
+  pdf_pages:
+  - 4
+  - 64
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Sameiginleg forsjá sem meginregla og íhlutun stjórnvalda – rannsókn um sjónarhorn foreldra
+  authors:
+  - Sigrún Júlíusdóttir
+  - Jóhanna Rósa Arnardóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 465
+  page_end: 495
+  issue: null
+  pdf_pages:
+  - 66
+  - 96
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um upphaf ársfrests samkvæmt 1. mgr. 124. gr. laga um vátryggingarsamninga nr. 30/2004
+  authors:
+  - Hildur Ýr Viðarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 497
+  page_end: 506
+  issue: null
+  pdf_pages:
+  - 98
+  - 107
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

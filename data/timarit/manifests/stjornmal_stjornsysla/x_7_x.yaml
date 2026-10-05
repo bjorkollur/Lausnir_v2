@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2011
 volume: 7
 issue: null
-label: Stjórnmál og stjórnsýsla, 7. árg.
+label: Stjórnmál og stjórnsýsla, 7. árg. (2011)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.456
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/117-136_Keen_are_the_eyes_of_the_visitors,.pdf
@@ -38,4 +39,801 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/61-72_The_origins_and_provisional_nature_of_Ic.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/73-96_Strategy_in_Icelandic_organizations.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/97-116_A_Global_Civilian_Power__The_Future_Role.pdf
-articles: []
+articles:
+- title: The European Citizens’ Initiative. Transnational Democracy in the EU at last?
+  authors:
+  - Maximilian Conrad
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 22
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/5-22_The_European_Citizens’_Initiative.pdf
+  note: ''
+  analysis_notes: []
+- title: 'The USA’s (Non-) Basing Strategy in the 2000s: A reappraisal Alyson JK Bailes, Adjunct Professor, University of
+    Iceland'
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 40
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/23-40_The_USA’s_(Non-)_Basing_Strategy_in_the.pdf
+  note: ''
+  analysis_notes: []
+- title: STJÓRNVALD Í MÓTUN. Drög að forsögu Seðlabankans
+  authors:
+  - Helgi Skúli Kjartansson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 60
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/41-60_An_incipient_public_authority.pdf
+  note: ''
+  analysis_notes: []
+- title: Tjaldað til einnar nætur. Uppruni bráðabirgðastjórnarskrárinnar
+  authors:
+  - Guðni Th. Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 61
+  page_end: 72
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/61-72_The_origins_and_provisional_nature_of_Ic.pdf
+  note: ''
+  analysis_notes: []
+- title: Stefnumótun í íslenskum skipulagsheildum
+  authors:
+  - Ingi Rúnar Eðvarðsson
+  - Runólfur Smári Steinþórsson
+  - Helgi Gestsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 95
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/73-96_Strategy_in_Icelandic_organizations.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 73–96, PDF-skjalið bls. 73–95
+- title: A Global Civilian Power? The Future Role of the European Union in International Politics
+  authors:
+  - Bedrudin Brljavac
+  - Maximilian Conrad
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 116
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/97-116_A_Global_Civilian_Power__The_Future_Role.pdf
+  note: ''
+  analysis_notes: []
+- title: Glöggt er gests augað, eða hvað?
+  authors:
+  - Þórhallur Guðlaugsson
+  - Elísabet Eydís Leósdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 136
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/117-136_Keen_are_the_eyes_of_the_visitors,.pdf
+  note: ''
+  analysis_notes: []
+- title: Samkeppnishæfni íslenska kvikmyndaiðnaðarins
+  authors:
+  - Konráð Pálmason
+  - Friðrik Eysteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 137
+  page_end: 162
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/137-162_The_competitiveness_of_the_Icelandic_fil.pdf
+  note: ''
+  analysis_notes: []
+- title: Viðbrögð tengslanets við gagnrýni á fjármálastöðugleika Íslands
+  authors:
+  - Þröstur Olaf Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 184
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/161-184_The_structure_of_community_networks_defe.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Iceland and Cyber-threats: Is it more than fear of fear?'
+  authors:
+  - Jón Kristinn Ragnarsson
+  - Alyson Bailes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 185
+  page_end: 202
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/185-202_Iceland_and_Cyber-threats.pdf
+  note: ''
+  analysis_notes: []
+- title: 'The Nordic States and Agenda-Setting in the European Union: How Do Small States Score?'
+  authors:
+  - Gunnhildur Lily Magnúsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 203
+  page_end: 224
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/203-224_The_Nordic_States_and_Agenda-Setting_in.pdf
+  note: ''
+  analysis_notes: []
+- title: Party cohesion in the Icelandic Althingi
+  authors:
+  - Gunnar Helgi Kristinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 250
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/229-252_Party_cohesion_in_the_Icelandic_Althingi.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 229–252, PDF-skjalið bls. 229–250
+- title: Option. Some characteristics of price indexed contracts are reported. A brief
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 253
+  page_end: 266
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/253-266_Price_indexed_contracts.pdf
+  note: ''
+  analysis_notes: []
+- title: Allocation of Fishing Harvest Rights in Iceland and Norway – the Development since 1990
+  authors:
+  - Helgi Gretarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 267
+  page_end: 286
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/267-288_Allocation_of_Fishing_Harvest_Rights_in.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 267–288, PDF-skjalið bls. 267–286
+- title: The Government's Power to Correct Manife
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 289
+  page_end: 312
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/289-312_The_Government's_Power_to_Correct_Manife.pdf
+  note: ''
+  analysis_notes: []
+- title: Ambitious Icelanders
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 313
+  page_end: 331
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/313-332_Ambitious_Icelanders.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 313–332, PDF-skjalið bls. 313–331
+- title: From soft to hard downsizing methods
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 333
+  page_end: 352
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/333-352_From_soft_to_hard_downsizing_methods.pdf
+  note: ''
+  analysis_notes: []
+- title: Icelandic National Culture in Relation t
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 353
+  page_end: 368
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/353-368_Icelandic_National_Culture_in_Relation_t.pdf
+  note: ''
+  analysis_notes: []
+- title: Childbirth and foreign women in Iceland
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 369
+  page_end: 386
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/369-386_Childbirth_and_foreign_women_in_Iceland.pdf
+  note: ''
+  analysis_notes: []
+- title: Poverty, disability and welfare
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 387
+  page_end: 404
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/387-404_Poverty,_disability_and_welfare.pdf
+  note: ''
+  analysis_notes: []
+- title: Performance management by co-operating a
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 405
+  page_end: 416
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/405-416_Performance_management_by_co-operating_a.pdf
+  note: ''
+  analysis_notes: []
+- title: Policy performance and satisfaction with democracy
+  authors:
+  - Eva Heiða Önnudóttir
+  - Ólafur Þ. Harðarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 417
+  page_end: 436
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/417-436_Policy_Performance_and_Satisfaction_with.pdf
+  note: ''
+  analysis_notes: []
+- title: Legal environment of non-profit organiza
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 437
+  page_end: 449
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/437-450_Legal_environment_of_non-profit_organiza.pdf
+  note: ''
+  analysis_notes:
+  - skráarnafn segir bls. 437–450, PDF-skjalið bls. 437–449
+- title: Welfare non-profit organizations and fou
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 451
+  page_end: 470
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: filename
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/451-470_Welfare_non-profit_organizations_and_fou.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Icelandic public pensions: Why time is running out'
+  authors:
+  - Ólafur Ísleifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 471
+  page_end: 496
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    pages: filename
+    issue: page
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/471-496_Icelandic_Public_Pensions.pdf
+  note: ''
+  analysis_notes: []
+- title: Sameiginlegt mat á umhverfisáhrifum
+  authors:
+  - Margrét Vala Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 497
+  page_end: 522
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol07/497-522_Procedure_and_assessment_of_cumulative_e.pdf
+  note: ''
+  analysis_notes: []

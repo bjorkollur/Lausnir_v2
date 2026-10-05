@@ -1,16 +1,127 @@
 source: ulfljotur
 year: 2016
-volume: null
+volume: 69
 issue: '1'
-label: Úlfljótur, 1. tbl. (2016)
+label: Úlfljótur, 69. árg. 1. tbl. (2016)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2016_1_tbl.pdf
 sha256: 0ffe2e36ca4fb23e066adae78e40c68e369f5be160ce9418e38e7a42851361f4
-pages: null
+pages: 105
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 0
+  quality: 0.886
+  runner_up_share: 0.011
+  pages: 105
+  segments:
+  - - 3
+    - 99
+    - 0
+  contested: []
+  bin_ratio: 0.891
+  non_article:
+  - 36
+  - 88
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2016_1_tbl.pdf
-articles: []
+articles:
+- title: Þjóðhagsleg hagkvæmni og eftirhyggjuskekkja í skaðabótarétti - Samanburður hlutlægrar ábyrgðar og sakarábyrgðar í
+    ljósi kenninga hagfræði og sálfræði
+  authors:
+  - Víðir Smári Petersen
+  - Friðrik Árni Friðriksson Hirst
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 5
+  - 35
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 111
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: The reform of the EEA rules on public procurement
+  authors:
+  - Werner Miguel Kühn
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 37
+  page_end: 64
+  issue: null
+  pdf_pages:
+  - 37
+  - 64
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 112
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um meginefni mannúðarréttar í vopnuðum átökum
+  authors:
+  - Pétur Dam Leifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 87
+  issue: null
+  pdf_pages:
+  - 65
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 113
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „FRÆÐABÁLKUR“ á bls. 89 sem skráin nefnir ekki; greinin er talin enda þar'

@@ -1,16 +1,191 @@
 source: timarit_logfraedinga
 year: 2021
-volume: null
+volume: 71
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2021)
+label: Tímarit lögfræðinga, 71. árg. 2. hefti (2021)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2021_02.pdf
 sha256: 4d5dd17c7bc00c142451c0f3a537e325c5966b0f4d9e374eedbbeb590aff49e2
-pages: null
+pages: 154
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 171
+  quality: 0.968
+  runner_up_share: 0.0
+  pages: 154
+  segments:
+  - - 2
+    - 151
+    - 171
+  contested: []
+  bin_ratio: 0.976
+  non_article:
+  - 67
+  - 95
+  - 146
+  - 147
+  - 148
+  - 149
+  - 150
+  - 151
+  - 152
+  - 153
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2021_02.pdf
-articles: []
+articles:
+- title: Fræðiskrif á íslensku og háskólarnir
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 173
+  page_end: 174
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvaða breytinga er þörf á skaðabótalögum?
+  authors:
+  - Eiríkur Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 175
+  page_end: 200
+  issue: null
+  pdf_pages:
+  - 4
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvaða áhrif hefði lögfesting reglu um skilyrði 15% varanlegrar örorku fyrir bótum?
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 201
+  page_end: 237
+  issue: null
+  pdf_pages:
+  - 30
+  - 66
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðskilnaðarbann lax- og silungsveiðilaga - lagaþróun og réttarframkvæmd
+  authors:
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 239
+  page_end: 265
+  issue: null
+  pdf_pages:
+  - 68
+  - 94
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 266, prentuð lokasíða er bls. 265
+- title: Aðild, kröfugerð og málsforræði í þjóðlendumálum
+  authors:
+  - Þorsteinn Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 267
+  page_end: 316
+  issue: null
+  pdf_pages:
+  - 96
+  - 145
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

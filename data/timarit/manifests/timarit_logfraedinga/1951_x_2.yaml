@@ -1,16 +1,71 @@
 source: timarit_logfraedinga
 year: 1951
-volume: null
+volume: 1
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (1951)
+label: Tímarit lögfræðinga, 1. árg. 2. hefti (1951)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1951_02.pdf
 sha256: d2d562115eec93db8387e3d7422a90c06457348aaa70377b9b9bc1ec63f7c993
-pages: null
+pages: 116
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 75
+  quality: 0.784
+  runner_up_share: 0.033
+  pages: 116
+  segments:
+  - - 3
+    - 97
+    - 75
+  contested: []
+  bin_ratio: 0.959
+  non_article:
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 105
+  - 106
+  - 107
+  - 108
+  - 110
+  - 111
+  - 112
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1951_02.pdf
-articles: []
+articles:
+- title: Meðferð opinberra mála
+  authors:
+  - Einar Arnórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 77
+  page_end: 172
+  issue: null
+  pdf_pages:
+  - 2
+  - 97
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Búnaðarbanki Islands“ á bls. 178 sem skráin nefnir ekki; greinin er talin enda þar'

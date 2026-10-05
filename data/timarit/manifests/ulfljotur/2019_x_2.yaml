@@ -1,16 +1,285 @@
 source: ulfljotur
 year: 2019
-volume: null
+volume: 72
 issue: '2'
-label: Úlfljótur, 2. tbl. (2019)
+label: Úlfljótur, 72. árg. 2. tbl. (2019)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2019_2_tbl.pdf
 sha256: 0ffd1cf9fa5f26d02eb50a2c72141385849f4779a4a17d7b6a18dec61ad6f7ee
-pages: null
+pages: 113
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 150
+  quality: 0.947
+  runner_up_share: 0.009
+  pages: 113
+  segments:
+  - - 1
+    - 112
+    - 150
+  contested: []
+  bin_ratio: 0.867
+  non_article:
+  - 26
+  - 56
+  - 72
+  - 74
+  - 78
+  - 79
+  - 92
+  - 94
+  - 98
+  - 108
+  - 110
+  - 111
+  - 112
+status: review
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2019_2_tbl.pdf
-articles: []
+articles:
+- title: Áhrifavaldar og duldar auglýsingar
+  authors:
+  - Halldóra Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 155
+  page_end: 175
+  issue: null
+  pdf_pages:
+  - 5
+  - 25
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 63
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögfylgjur markmiðsyfirlýsinga
+  authors:
+  - Ingvar Ásmundsson
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 177
+  page_end: 205
+  issue: null
+  pdf_pages:
+  - 27
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 64
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Misræmi í dómum og löggjöf
+  authors:
+  - Gunnar Páll Baldvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 207
+  page_end: 221
+  issue: null
+  pdf_pages:
+  - 57
+  - 71
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 65
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 223 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Hvalveiðar Íslendinga í atvinnuskyni eru löglegar
+  authors:
+  - Helgi Áss Grétarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 230
+  page_end: 237
+  issue: null
+  pdf_pages:
+  - 80
+  - 87
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 66
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er nauðsynlegt að skjóta þá?
+  authors:
+  - Sigurður Örn Hilmarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 238
+  page_end: 241
+  issue: null
+  pdf_pages:
+  - 88
+  - 91
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: 67
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Rökstólar“ á bls. 243 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Hagkvæmar hvalveiðar
+  authors:
+  - Daði Már Kristófersson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 245
+  page_end: 247
+  issue: null
+  pdf_pages:
+  - 95
+  - 97
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 68
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Rökstólar“ á bls. 249 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Á að banna hvalveiðar?
+  authors:
+  - Ragnar Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 250
+  page_end: 255
+  issue: null
+  pdf_pages:
+  - 100
+  - 105
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 69
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um hvalveiðar
+  authors:
+  - Þorvaldur Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 256
+  page_end: 257
+  issue: null
+  pdf_pages:
+  - 106
+  - 107
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: 70
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Rökstólar“ á bls. 259 sem skráin nefnir ekki; greinin er talin enda þar'

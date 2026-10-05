@@ -1,16 +1,172 @@
 source: timarit_logfraedinga
 year: 2010
-volume: null
+volume: 60
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2010)
+label: Tímarit lögfræðinga, 60. árg. 2. hefti (2010)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2010_02.pdf
 sha256: 3bbbbd3215ab6f7b64e8eef935267b7f2679a61514f0ce309b09abb2f9c2a7ea
-pages: null
+pages: 110
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 105
+  quality: 0.973
+  runner_up_share: 0.0
+  pages: 110
+  segments:
+  - - 2
+    - 108
+    - 105
+  contested: []
+  bin_ratio: 0.966
+  non_article:
+  - 5
+  - 7
+  - 13
+  - 14
+  - 18
+  - 20
+  - 22
+  - 29
+  - 31
+  - 33
+  - 72
+  - 73
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+status: review
+confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2010_02.pdf
-articles: []
+articles:
+- title: Stjórnskipulegur neyðarréttur?
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 109
+  issue: null
+  pdf_pages:
+  - 2
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hæﬁlögreglustjóra til að rannsaka sakamál, einkum brot gegn valdstjórninni, sem beinst hafa gegn undirmönnum hans
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 113
+  page_end: 117
+  issue: null
+  pdf_pages:
+  - 8
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst efni á bls. 120 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Á Icesave-deilan erindi í alþjóðlegan gerðardóm?
+  authors:
+  - Valgerður Sólnes
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 179
+  page_end: 200
+  issue: null
+  pdf_pages:
+  - 74
+  - 95
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Guðlegt vald?
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 201
+  page_end: 203
+  issue: null
+  pdf_pages:
+  - 96
+  - 98
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

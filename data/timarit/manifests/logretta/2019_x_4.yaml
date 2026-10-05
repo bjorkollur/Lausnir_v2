@@ -1,16 +1,53 @@
 source: logretta
 year: 2019
-volume: null
+volume: 16
 issue: '4'
-label: Lögrétta, 4. tbl. (2019)
+label: Lögrétta, 16. árg. 4. tbl. (2019)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2019 4.tbl.pdf
 sha256: 3f561ae59fe3073dafbf824b41ad64cdc8cb5d79d4050c76473f2952dc685e2e
-pages: null
+pages: 24
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: null
+  quality: 0.0
+  runner_up_share: 0.0
+  pages: 24
+  segments: []
+  contested: []
+  bin_ratio: 0.959
+  non_article: []
+status: review
+confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2019 4.tbl.pdf
-articles: []
+articles:
+- title: Reynsla af ráðgefandi hæfnisnefndum
+  authors:
+  - Hafsteinn Þór Hauksson
+  - Ómar H. Kristmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: null
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

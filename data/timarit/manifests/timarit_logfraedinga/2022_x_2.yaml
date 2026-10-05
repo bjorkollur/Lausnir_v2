@@ -1,16 +1,193 @@
 source: timarit_logfraedinga
 year: 2022
-volume: null
+volume: 72
 issue: '2'
-label: Tímarit lögfræðinga, 2. hefti (2022)
+label: Tímarit lögfræðinga, 72. árg. 2. hefti (2022)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2022_02.pdf
 sha256: 7c270de5c440a2f70016ab64fbaffea9a449b32b6653e2cd22d90fb0f880394d
-pages: null
+pages: 176
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 159
+  quality: 0.972
+  runner_up_share: 0.0
+  pages: 176
+  segments:
+  - - 2
+    - 173
+    - 159
+  contested: []
+  bin_ratio: 0.968
+  non_article:
+  - 69
+  - 169
+  - 170
+  - 171
+  - 172
+  - 173
+  - 174
+  - 175
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2022_02.pdf
-articles: []
+articles:
+- title: Lagamál og skilgreiningarvandræði
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 166
+  issue: null
+  pdf_pages:
+  - 2
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: greinin er undirrituð (Valgerður Sólnes) en höfundar skrárinnar eru aðrir (Garðar Gíslason); skránni haldið'
+- title: Eineðli lands- og þjóðaréttar í dómum Hæstaréttar til 1975
+  authors:
+  - Bryndís Torfadóttir
+  - Bjarni Már Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 167
+  page_end: 227
+  issue: null
+  pdf_pages:
+  - 8
+  - 68
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Áhrif útilokunarreglunnar á málsástæður og mótmæli við meðferð einkamála
+  authors:
+  - Gunnar Atli Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 229
+  page_end: 276
+  issue: null
+  pdf_pages:
+  - 70
+  - 117
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Takmarkanir íslenskra laga á frjálsri för verðandi foreldra á EES–svæðinu með tilliti til útreiknings fæðingarorlofsgreiðslna
+  authors:
+  - Védís Eva Guðmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 277
+  page_end: 314
+  issue: null
+  pdf_pages:
+  - 118
+  - 155
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 227–314
+- title: Fræðileg umfjöllun um eigin úrlausnir
+  authors:
+  - Oddur Þorri Viðarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 315
+  page_end: 327
+  issue: null
+  pdf_pages:
+  - 156
+  - 168
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: leitir
+    pages: leitir+toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

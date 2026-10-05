@@ -1,16 +1,227 @@
 source: timarit_logfraedinga
 year: 2015
-volume: null
+volume: 65
 issue: '4'
-label: Tímarit lögfræðinga, 4. hefti (2015)
+label: Tímarit lögfræðinga, 65. árg. 4. hefti (2015)
 file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2015_04.pdf
 sha256: 95223d09d17b3b8cd1af6109a626f4b59e4ae2dcbda6fc9a2ac2a4869ab73825
-pages: null
+pages: 170
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 541
+  quality: 0.971
+  runner_up_share: 0.0
+  pages: 170
+  segments:
+  - - 2
+    - 166
+    - 541
+  contested: []
+  bin_ratio: 0.874
+  non_article:
+  - 158
+  - 159
+  - 160
+  - 161
+  - 162
+  - 163
+  - 164
+  - 165
+  - 166
+  - 167
+  - 168
+  - 169
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2015_04.pdf
-articles: []
+articles:
+- title: Ættu ráðherrar að segja af sér þingmennsku?
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 543
+  page_end: 544
+  issue: null
+  pdf_pages:
+  - 2
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: toc
+    authors: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Upptaka afleiddrar löggjafar í EES-samninginn og innleiðing í íslenskan rétt
+  authors:
+  - Margrét Einarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 545
+  page_end: 588
+  issue: null
+  pdf_pages:
+  - 4
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Veruleg fjártjónshætta við lánveitingar
+  authors:
+  - Andrés Þorleifsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 589
+  page_end: 610
+  issue: null
+  pdf_pages:
+  - 48
+  - 69
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Beiting ógildingarreglu 36. gr. samningalaga: Hugleiðingar í tilefni af dómi Hæstaréttar 19. nóvember 2015 í máli
+    nr. 100/2015'
+  authors:
+  - Valgerður Sólnes
+  - Víðir Smári Petersen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 611
+  page_end: 634
+  issue: null
+  pdf_pages:
+  - 70
+  - 93
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögmæti hlerana við rannsókn hrunmála
+  authors:
+  - Þorbjörn Björnsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 635
+  page_end: 692
+  issue: null
+  pdf_pages:
+  - 94
+  - 151
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dómur Mannréttindadómstóls Evrópu í máli Erlu Hlynsdóttur gegn Íslandi (nr. 3) frá 2. júní 2015
+  authors:
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 693
+  page_end: 698
+  issue: null
+  pdf_pages:
+  - 152
+  - 157
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    authors: toc
+    pages: toc
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

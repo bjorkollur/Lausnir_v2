@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.807
+status: review
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/108.pdf
@@ -19,4 +20,224 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/487.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/619.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/7.pdf
-articles: []
+articles:
+- title: Legal education in the United States
+  authors:
+  - Eugene N. Hanson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 6
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 3
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1130
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/109.pdf
+  note: ''
+  analysis_notes: []
+- title: Um brezka málflytjendur og störf þeirra
+  authors:
+  - Bárður Jakobsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 7
+  page_end: 13
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1131
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/108.pdf
+  note: ''
+  analysis_notes: []
+- title: Drög að greinargerð um Bæjarstjórn Reykjavíkur
+  authors:
+  - Páll Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 31
+  page_end: 53
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1132
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/619.pdf
+  note: ''
+  analysis_notes: []
+- title: Umferðarlög og umferðarlagabrot. (Tvö seminar-erindi)
+  authors:
+  - Birgir Ísleifur Gunnarsson
+  - Jón L. Arnalds
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 71
+  page_end: 95
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1134
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/487.pdf
+  note: ''
+  analysis_notes: []
+- title: Um starfsréttindi lögfræðinga
+  authors:
+  - Benedikt Sigurjónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 126
+  page_end: 129
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1137
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/1134.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 129, prentað bls. 126'
+- title: Forvitnilegt erlent skaðabótamál og hámark dánarbóta
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 149
+  page_end: 149
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1140
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/111.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Bækur og fræðimenn
+  authors:
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 150
+  page_end: 153
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: null
+  xlsx_row: 1141
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/7.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Gaukur Jörundsson) stangast á við síðuna (Ólafur Jóhannesson); skránni haldið'

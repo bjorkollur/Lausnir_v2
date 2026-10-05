@@ -1,16 +1,159 @@
 source: ulfljotur
 year: 2007
-volume: null
+volume: 60
 issue: '4'
-label: Úlfljótur, 4. tbl. (2007)
+label: Úlfljótur, 60. árg. 4. tbl. (2007)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2007_4_tbl.pdf
 sha256: da64a69142ee29e0af453b92f05bf687161f81b0151e6d1338ff2a13881aa016
-pages: null
+pages: 297
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 774
+  quality: 0.973
+  runner_up_share: 0.0
+  pages: 297
+  segments:
+  - - 1
+    - 289
+    - 774
+  contested: []
+  bin_ratio: 0.954
+  non_article:
+  - 190
+  - 198
+  - 267
+  - 268
+  - 284
+  - 285
+  - 286
+  - 287
+  - 288
+  - 289
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2007_4_tbl.pdf
-articles: []
+articles:
+- title: Þjóðréttarskyldur ríkja á sviði alþjóðlegs refsiréttar
+  authors:
+  - Þórhallur Bergmann
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 779
+  page_end: 822
+  issue: null
+  pdf_pages:
+  - 5
+  - 48
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 263
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Líkamsárásir samkvæmt 2. mgr. 218. gr. almennra hegningarlaga, þegar sá sem sætir líkamsárás hlýtur bana af atlögu
+  authors:
+  - Ragnheiður Bogadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 823
+  page_end: 884
+  issue: null
+  pdf_pages:
+  - 49
+  - 110
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 264
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Deiliskipulag samkvæmt skipulags- og byggingarlögum nr. 73/1997
+  authors:
+  - Ágúst Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 885
+  page_end: 934
+  issue: null
+  pdf_pages:
+  - 111
+  - 160
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 265
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Endurupptaka stjórnvaldsákvörðunar skv. 24. gr. stjórnsýslulaga nr. 37/1993
+  authors:
+  - Ólafur Páll Vignisson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 935
+  page_end: 963
+  issue: null
+  pdf_pages:
+  - 161
+  - 189
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 266
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Norræna málflutningskeppnin“ á bls. 965 sem skráin nefnir ekki; greinin er talin enda
+    þar'

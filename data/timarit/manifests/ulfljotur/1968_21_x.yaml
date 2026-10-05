@@ -7,9 +7,10 @@ file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.877
+status: review
+confidence: 0.55
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/116.pdf
@@ -24,4 +25,384 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/552.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/67.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/68.pdf
-articles: []
+articles:
+- title: Í sjónhendingu
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 335
+  page_end: 352
+  issue: null
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/1436.pdf
+  note: ''
+  analysis_notes:
+  - sami titill í fleiri röðum töflunnar (2. tbl., 4. tbl.); tölublað óvíst
+- title: Norðurlandaráð
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 5
+  page_end: 20
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1015
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/1397.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 9, prentað bls. 5'
+- title: Gerðardómssamningarnir 1930
+  authors:
+  - Agnar Kl. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 32
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 1016
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/1398.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 32, prentað bls. 21'
+- title: Litt om nordiska studentjuristrådet og dets virksomhet
+  authors:
+  - Peter Gram
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 45
+  page_end: 47
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1017
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/1403.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 47, prentað bls. 45'
+- title: Um ákæruskjöl í opinberum málum
+  authors:
+  - Hallvarður Einvarðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 73
+  page_end: 96
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1019
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/552.pdf
+  note: ''
+  analysis_notes: []
+- title: Störf sendiherra fyrr og nú
+  authors:
+  - Pétur Thorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 97
+  page_end: 106
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1020
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/1412.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 99, prentað bls. 97'
+- title: Í sjónhendingu
+  authors:
+  - Sigurður Gizurarson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 107
+  page_end: 115
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 8
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1021
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/116.pdf
+  note: ''
+  analysis_notes: []
+- title: Kennslumálin í lagadeild
+  authors:
+  - Ásgeir Pétur Ásgeirsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 117
+  page_end: 120
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1022
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/1414.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 120, prentað bls. 117'
+- title: Stjórnskipuleg vernd aflahæfis, atvinnuréttinda og atvinnufrelsis
+  authors:
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 161
+  page_end: 189
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 28
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1025
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/348.pdf
+  note: ''
+  analysis_notes: []
+- title: Líkamlegar hegningar á Alþingi
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 190
+  page_end: 251
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 61
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1026
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/67.pdf
+  note: ''
+  analysis_notes: []
+- title: Geimréttur
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 280
+  page_end: 316
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 36
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 1027
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/1435.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 316, prentað bls. 280'
+  - 'FRÁVIK: greinin er undirrituð (Doktorsritgerð Gunnars Thoroddsen) en höfundar skrárinnar eru aðrir (Björn Þ. Guðmundsson);
+    skránni haldið'
+- title: Laganám í Bologna á miðöldum
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 317
+  page_end: 334
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1028
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1968 21 arg/68.pdf
+  note: ''
+  analysis_notes: []

@@ -1,16 +1,219 @@
 source: ulfljotur
 year: 2008
-volume: null
+volume: 61
 issue: '2'
-label: Úlfljótur, 2. tbl. (2008)
+label: Úlfljótur, 61. árg. 2. tbl. (2008)
 file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2008_2_tbl.pdf
 sha256: 53fefb627d8ccba2ae70375a23cfcea8ba703566a3ad5702cdf3068843ead041
-pages: null
+pages: 189
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 190
+  quality: 0.968
+  runner_up_share: 0.005
+  pages: 189
+  segments:
+  - - 1
+    - 185
+    - 190
+  contested: []
+  bin_ratio: 0.928
+  non_article:
+  - 66
+  - 136
+  - 158
+  - 172
+  - 181
+  - 182
+  - 183
+  - 184
+  - 185
+status: review
+confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2008_2_tbl.pdf
-articles: []
+articles:
+- title: Verðbréfaviðskipti - Gildissvið laga nr. 108/2007
+  authors:
+  - Aðalsteinn E. Jónasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 195
+  page_end: 220
+  issue: null
+  pdf_pages:
+  - 5
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 227
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Áhættuskiptareglur kröfuréttar
+  authors:
+  - Eyvindur G. Gunnarsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 221
+  page_end: 255
+  issue: null
+  pdf_pages:
+  - 31
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 228
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um nafnleynd og vernd heimildarmanna fjölmiðla
+  authors:
+  - Þorvaldur Heiðar Þorsteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 257
+  page_end: 325
+  issue: null
+  pdf_pages:
+  - 67
+  - 135
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 229
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Þátttaka dómara í almennum umræðum um viðfangsefni dómstóla“ á bls. 327 sem skráin nefnir
+    ekki; greinin er talin enda þar'
+- title: Stjórnarskráin setur skoðana- og tjáningarfrelsi dómara skorður
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 328
+  page_end: 329
+  issue: null
+  pdf_pages:
+  - 138
+  - 139
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 230
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Æskilegt að dómarar taki þátt í almennum umræðum um verkefni dómstóla
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 330
+  page_end: 331
+  issue: null
+  pdf_pages:
+  - 140
+  - 141
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 231
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Upplýst umræða forsenda réttarríkis
+  authors:
+  - Katrín Jakobsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 332
+  page_end: 334
+  issue: null
+  pdf_pages:
+  - 142
+  - 144
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 232
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Lögfræðiaðstoð Orators“ á bls. 335 sem skráin nefnir ekki; greinin er talin enda þar'

@@ -1,15 +1,16 @@
 source: ulfljotur
-year: 1955
+year: 1956
 volume: 9
 issue: null
-label: Úlfljótur, 9. árg. (1955)
+label: Úlfljótur, 9. árg. (1956)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.939
+status: review
+confidence: 0.55
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/1001.pdf
@@ -23,4 +24,363 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/989.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/990.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/999.pdf
-articles: []
+articles:
+- title: Um skilorðsbundna frestun saksóknar og um skilorðsdóma
+  authors:
+  - Ármann Snævarr
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 26
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1176
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/484.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1955 ≠ prentað ár 1956
+- title: Um fjármál hjóna
+  authors:
+  - Rannveig Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 9
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1177
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/978.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 9, prentað bls. 3'
+  - möppuár 1955 ≠ prentað ár 1956
+- title: Prentfrelsi
+  authors:
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 10
+  page_end: 14
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1178
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/338.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1955 ≠ prentað ár 1956
+- title: Þegn Grágásar á þingi Gullblakkar
+  authors:
+  - Eyjólfur K. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 24
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1179
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/983.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 24, prentað bls. 23'
+  - möppuár 1955 ≠ prentað ár 1956
+- title: Nokkrar almennar athugasemdir um ráðherra og réttarstöðu þeirra
+  authors:
+  - Ólafur Jóhannesson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 17
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 1.0
+  leitir_record_id: null
+  xlsx_row: 1180
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/339.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1955 ≠ prentað ár 1956
+- title: Hvaða gagn hef ég haft af lögfræðináminu?
+  authors:
+  - Bjarni Benediktsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 18
+  page_end: 20
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1181
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/989.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 20, prentað bls. 18'
+  - möppuár 1955 ≠ prentað ár 1956
+- title: Dvöl við bandarískan lagaskóla
+  authors:
+  - Matthías Á. Mathiesen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 21
+  page_end: 25
+  issue: '3'
+  pdf_pages:
+  - 0
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1182
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/990.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 25, prentað bls. 21'
+  - möppuár 1955 ≠ prentað ár 1956
+- title: Afnám löndunarbannsins í Bretlandi
+  authors:
+  - Pétur Benediktsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 5
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1183
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/999.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 5, prentað bls. 3'
+  - möppuár 1955 ≠ prentað ár 1956
+- title: Yfirlit yfir störf Orators 1955-1956
+  authors:
+  - Matthías Á. Mathiesen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 8
+  page_end: 10
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: 1184
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/1001.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 9, prentað bls. 8'
+  - möppuár 1955 ≠ prentað ár 1956
+- title: Aðalfundur Orators 1956
+  authors:
+  - Bjarni Beinteinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 11
+  page_end: 11
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 0
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: xlsx
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 1185
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/1002.pdf
+  note: ''
+  analysis_notes:
+  - möppuár 1955 ≠ prentað ár 1956
+- title: Til laganema
+  authors:
+  - Jón A. Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 12
+  page_end: 14
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: xlsx
+    authors: xlsx
+    pages: page
+    issue: xlsx
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: null
+  xlsx_row: 1186
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/1003.pdf
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: taflan segir bls. 14, prentað bls. 12'
+  - möppuár 1955 ≠ prentað ár 1956

@@ -1,15 +1,16 @@
 source: stjornmal_stjornsysla
-year: null
+year: 2020
 volume: 16
 issue: null
-label: Stjórnmál og stjórnsýsla, 16. árg.
+label: Stjórnmál og stjórnsýsla, 16. árg. (2020)
 file: null
 sha256: null
 pages: null
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  bin_ratio: 0.468
+status: review
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/1-22_Deliberation,_participation_and_knowledg.pdf
@@ -26,4 +27,457 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/43-64_Evidence-based_publications_on_upper_sec.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/65-82_Gender_Equality_as_a_Brand_in_Icelands.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/83-104_Criminalisation_of_human_error_in_health.pdf
-articles: []
+articles:
+- title: Rökræða, þátttaka og þekking
+  authors:
+  - Birgir Hermannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 22
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/1-22_Deliberation,_participation_and_knowledg.pdf
+  note: ''
+  analysis_notes: []
+- title: '‘The Word I Hate’: Racism, Refugees and Asylum Seekers in Iceland'
+  authors:
+  - Helga Katrín Tryggvadóttir
+  - Kristín Loftsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 42
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/23-42_The_Word_I_Hate.pdf
+  note: ''
+  analysis_notes: []
+- title: Evidence-based publications on upper secondary education in Iceland, 2003–2012
+  authors:
+  - Guðrún Ragnarsdóttir
+  - Ingólfur Ásgeir Jóhannesson
+  - Jón Torfi Jónasson
+  - Brynja E. Halldórsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 43
+  page_end: 64
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/43-64_Evidence-based_publications_on_upper_sec.pdf
+  note: ''
+  analysis_notes: []
+- title: Vörumerkið jafnrétti í utanríkisstefnu Íslands
+  authors:
+  - Kristín Sandra Karlsdóttir
+  - Silja Bára Ómarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 65
+  page_end: 82
+  issue: '1'
+  pdf_pages:
+  - 0
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/65-82_Gender_Equality_as_a_Brand_in_Icelands.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Criminalisation of human error in health care: How and why legal accountability can crowd out professional accountability
+    and undermine patient safety'
+  authors:
+  - Sigurbjörg Sigurgeirsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 83
+  page_end: 104
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/83-104_Criminalisation_of_human_error_in_health.pdf
+  note: ''
+  analysis_notes: []
+- title: Áhrif mismunandi hugtakanotkunar á viðhorf almennings
+  authors:
+  - Viðar Halldórsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 105
+  page_end: 124
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/105-124_The_effects_of_neutral_versus_value-lade.pdf
+  note: ''
+  analysis_notes: []
+- title: 'The novice MP: The experience of the newly elected in Iceland'
+  authors:
+  - Stefanía Óskarsdóttir
+  - Ómar H. Kristmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 125
+  page_end: 146
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 21
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/125-146_The_novice_MP.pdf
+  note: ''
+  analysis_notes: []
+- title: Icelandic newsrooms in a pandemic mode
+  authors:
+  - Birgir Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 147
+  page_end: 166
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 19
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/147-166_Icelandic_newsrooms_in_a_pandemic_mode.pdf
+  note: ''
+  analysis_notes: []
+- title: Rökræða, stofnanir, þátttaka. Ágreiningsefni um lýðræði
+  authors:
+  - Vilhjálmur Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 167
+  page_end: 190
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/167-190_Deliberation,_institutions,_participatio.pdf
+  note: ''
+  analysis_notes: []
+- title: Áhrif orðalags á svör við spurningum Stjórnlagaráðs
+  authors:
+  - Vaka Vésteinsdóttir
+  - Ragnhildur Lilja Ásgeirsdóttir
+  - Vera Óðinsdóttir
+  - Snæfríður Birta Björgvinsdóttir
+  - Helena Ólafsdóttir
+  - Einey Ösp Gunnarsdóttir
+  - Fanney Þórsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 191
+  page_end: 216
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/191-216_The_effect_of_question_wording_on_respon.pdf
+  note: ''
+  analysis_notes: []
+- title: 'Attitudes towards refugees and Muslim immigrants in Iceland: The perceived link to terrorism'
+  authors:
+  - Margrét Valdimarsdóttir
+  - Guðbjörg Andrea Jónsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 217
+  page_end: 242
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 25
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/217-242_Attitudes_towards_refugees_and_Muslim_im.pdf
+  note: ''
+  analysis_notes: []
+- title: 'The Intergenerational Transmission of Education: A Case Study from Iceland'
+  authors:
+  - Emil Dagsson
+  - Þorlákur Karlsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 243
+  page_end: 260
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 17
+  lang: en
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/243-260_The_Intergenerational_Transmission_of_Ed.pdf
+  note: ''
+  analysis_notes: []
+- title: '„Þetta er allt mannanna verk“: Upplifun stjórnenda á áhrifum jafnlaunavottunar á kjaraumhverfi'
+  authors:
+  - Gerða Björg Hafsteinsdóttir
+  - Erla Sólveig Kristjánsdóttir
+  - Þóra H. Christiansen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 261
+  page_end: 284
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/261-284_Behind_every_system_are_people.pdf
+  note: ''
+  analysis_notes: []
+- title: Dreifing efnahags- og menntunarauðs meðal foreldra í skólahverfum höfuðborgarsvæðisins 1997–2016
+  authors:
+  - Berglind Rós Magnúsdóttir
+  - Auður Magndís Auðardóttir
+  - Kolbeinn Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 285
+  page_end: 308
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    authors: page
+    pages: filename+page
+    issue: page
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol16/285-308_The_Distribution_of_Economic_and_Educati.pdf
+  note: ''
+  analysis_notes: []

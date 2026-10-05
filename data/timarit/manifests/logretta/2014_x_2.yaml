@@ -1,16 +1,667 @@
 source: logretta
 year: 2014
-volume: null
+volume: 11
 issue: '2'
-label: Lögrétta, 2. tbl. (2014)
+label: Lögrétta, 11. árg. 2. tbl. (2014)
 file: Tímarit og fræðigreinar/Lögrétta/Lögrétta 2014 2.tbl.pdf
 sha256: e86accb8f665816e4429113b4cc4c00d5398d0f4f5d048e18bd4eb02b6742aaa
-pages: null
+pages: 359
 year_end: null
-page_map: {}
-status: pending
-confidence: 0.0
+page_map:
+  offset: 23
+  quality: 0.997
+  runner_up_share: 0.0
+  pages: 359
+  segments:
+  - - 0
+    - 32
+    - 14
+  - - 33
+    - 56
+    - 15
+  - - 57
+    - 211
+    - 23
+  - - 212
+    - 260
+    - 24
+  - - 261
+    - 358
+    - 25
+  contested: []
+  bin_ratio: 0.968
+  non_article: []
+status: review
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2014 2.tbl.pdf
-articles: []
+articles:
+- title: 'Tímarit Lögréttu 10 ára: Kveðja frá Lagadeild HR'
+  authors:
+  - Ragnhildur Helgadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 0
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Íslenskir dómarar við alþjóðlega dómstóla
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 18
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 4
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Íslenskir dómarar við alþjóðlega dómstóla
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 12
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Mannréttindadómstóll Evrópu
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 30
+  page_end: 46
+  issue: null
+  pdf_pages:
+  - 16
+  - 32
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Verk dómenda standist dóm reynslunnar, þjóðarinnar og sögunnar: Einar Arnalds, dómari við Mannréttindadómstól Evrópu
+    frá stofnun 1959 til 1961 og þá endurkjörinn til 9 ára, en fékk lausn 1967'
+  authors:
+  - Kristín Arnalds
+  - Matthildur Arnalds
+  author_titles: []
+  article_type: Annað
+  page_start: 48
+  page_end: 55
+  issue: null
+  pdf_pages:
+  - 33
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 55 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+- title: 'Draumurinn um réttarríkið: Sigurgeir Sigurjónsson, dómari við Mannréttindadómstól Evrópu 1967-1971'
+  authors:
+  - Regína Jensdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 56
+  page_end: 63
+  issue: null
+  pdf_pages:
+  - 41
+  - 48
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: '„Gæzlumenn eigin frelsis“: Um Þór Vilhjálmsson, dómara við Mannréttindadómstól Evrópu og EFTA-dómstólinn'
+  authors:
+  - Davíð Þór Björgvinsson
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 64
+  page_end: 71
+  issue: null
+  pdf_pages:
+  - 49
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Siðferði með lögfræði: Viðtal við Davíð Þór Björgvinsson, fv. dómara við Mannréttindadómstól Evrópu'
+  authors:
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 80
+  page_end: 101
+  issue: null
+  pdf_pages:
+  - 57
+  - 78
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Mannréttindadómstóllinn mikilvægur öryggisventill: Viðtal við Róbert R. Spanó, dómara við Mannréttindadómstól Evrópu'
+  authors:
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 102
+  page_end: 117
+  issue: null
+  pdf_pages:
+  - 79
+  - 94
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: EFTA dómstóllinn
+  authors:
+  - Skúli Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 118
+  page_end: 131
+  issue: null
+  pdf_pages:
+  - 95
+  - 108
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Dómstörf heilluðu mest: Viðtal við Þorgeir Örlygsson, fv. dómara við EFTA-dómstólinn'
+  authors:
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 132
+  page_end: 153
+  issue: null
+  pdf_pages:
+  - 109
+  - 130
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'EFTA-dómstóllinn gerir sig gildandi: Viðtal við Pál Hreinsson, dómara við EFTA-dómstólinn'
+  authors:
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 154
+  page_end: 169
+  issue: null
+  pdf_pages:
+  - 131
+  - 146
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 169 sem er hvorki framhald hennar né upphaf annars
+    efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  - 'FRÁVIK: höfundar skrárinnar (Þór Jónsson) stangast á við síðuna (Páll Hreinsson); skránni haldið'
+- title: Alþjóðlegi hafréttardómurinn
+  authors:
+  - Bjarni Már Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 170
+  page_end: 175
+  issue: null
+  pdf_pages:
+  - 147
+  - 152
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Aðalvopn þjóðaréttar er samstaða: Viðtal við Guðmund Eiríksson, fv. dómara við Alþjóðlega hafréttardóminn'
+  authors:
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 176
+  page_end: 187
+  issue: null
+  pdf_pages:
+  - 153
+  - 164
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Þór Jónsson) stangast á við síðuna (Guðmundur Eiríksson); skránni haldið'
+- title: 'Ísland stórveldi á sviði hafréttar: Viðtal við Tómas H. Heiðar, dómara við Alþjóðlega hafréttardóminn'
+  authors:
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 188
+  page_end: 207
+  issue: null
+  pdf_pages:
+  - 165
+  - 184
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Alþjóðlegur mannréttindadómstóll fyrir Bosníu og Hersegóvínu
+  authors:
+  - Jakob Þ. Möller
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 208
+  page_end: 217
+  issue: null
+  pdf_pages:
+  - 185
+  - 194
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Réttarríki reist úr rústum: Viðtal við Jakob Þ. Möller, fv. dómara við alþjóðlega Mannréttindadómstólinn fyrir Bosníu
+    og Hersegóvínu'
+  authors:
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 218
+  page_end: 234
+  issue: null
+  pdf_pages:
+  - 195
+  - 211
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Yfirvald eða sammæli? Lögin sem afsprengi tveggja aflvaka
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 236
+  page_end: 284
+  issue: null
+  pdf_pages:
+  - 212
+  - 260
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bútasaumur
+  authors:
+  - Hafsteinn Þór Hauksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 286
+  page_end: 327
+  issue: null
+  pdf_pages:
+  - 261
+  - 302
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Takmarkanir á heimildum fjármálafyrirtækja til að eiga hluti í fyrirtækjum í óskyldum rekstri
+  authors:
+  - Hallgrímur Ásgeirsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 328
+  page_end: 383
+  issue: null
+  pdf_pages:
+  - 303
+  - 358
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
