@@ -206,11 +206,11 @@ articles:
   - Garðar Gíslason
   author_titles: []
   article_type: Fræðigrein
-  page_start: 111
+  page_start: 112
   page_end: 123
   issue: null
   pdf_pages:
-  - 108
+  - 109
   - 120
   lang: is
   date: null
@@ -219,20 +219,19 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: page
+    pages: xlsx
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: true
-  confidence: 0.7
+  confidence: 1.0
   leitir_record_id: null
   xlsx_row: 354
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 112 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: taflan segir bls. 112, prentað bls. 111'
 - title: Allt eftir bókinni! Umfjöllun um dóm Hæstaréttar 25. október 2001 í máli Alþýðusambands Íslands gegn íslenska ríkinu
   authors:
   - Eiríkur Tómasson

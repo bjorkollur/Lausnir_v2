@@ -30,6 +30,15 @@ page_map:
   - 175
   - 176
   - 177
+  toc_check:
+    entries: 6
+    found: 3
+    share: 0.5
+    shifted: 0
+    on_filler: 0
+    unclaimed: 9
+    pages: 177
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -64,7 +73,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: 'Málþing um réttarríki, lýðræði og mannréttinda sátt mála Evrópu 24. september 2021: Ræður forseta Mannréttindadómstóls
     Evrópu og forsætisráðherra'
   authors: []
@@ -94,7 +105,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Ívilnanir í sköttum
   authors:
   - Sindri M. Stephensen
@@ -128,6 +141,8 @@ articles:
   analysis_notes:
   - leitir.is segir bls. 481–532
   - 'FRÁVIK: efnisyfirlitið segir bls. 483, prentað bls. 481'
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: 'Auknar kröfur til fjárfestaverndar með tilkomu MiFID II: Mat á hæfi og tilhlýðileika'
   authors:
   - Aðalsteinn E. Jónasson
@@ -162,6 +177,8 @@ articles:
   analysis_notes:
   - leitir.is segir bls. 533–570
   - 'FRÁVIK: efnisyfirlitið segir bls. 535, prentað bls. 533'
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Handhafar atkvæðisréttar í veiðifélögum
   authors:
   - Jörundur Gauksson
@@ -194,6 +211,8 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 571–602
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Frá Strassborg er þetta helst
   authors:
   - Hildur Hjörvar
@@ -224,4 +243,6 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan

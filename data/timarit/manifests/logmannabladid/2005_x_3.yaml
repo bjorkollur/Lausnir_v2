@@ -19,6 +19,8 @@ page_map:
   contested: []
   bin_ratio: 0.943
   non_article:
+  - 4
+  - 6
   - 11
   - 32
   - 38
@@ -35,11 +37,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 4
-  page_end: 5
+  page_end: 4
   issue: null
   pdf_pages:
   - 3
-  - 4
+  - 3
   lang: is
   date: null
   summary: null
@@ -59,19 +61,17 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 5 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  analysis_notes: []
 - title: Vorþing
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 6
-  page_end: 7
+  page_end: 6
   issue: null
   pdf_pages:
   - 5
-  - 6
+  - 5
   lang: is
   date: null
   summary: null
@@ -90,9 +90,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 7 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  analysis_notes: []
 - title: Málskostnaðarákvarðanir dómstóla
   authors: []
   author_titles: []

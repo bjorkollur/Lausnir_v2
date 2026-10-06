@@ -51,13 +51,21 @@ page_map:
   - 189
   - 190
   - 191
-  - 192
   - 193
   - 247
   - 248
   - 249
   - 250
   - 251
+  toc_check:
+    entries: 24
+    found: 20
+    share: 0.833
+    shifted: 1
+    on_filler: 0
+    unclaimed: 3
+    pages: 249
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -418,7 +426,7 @@ articles:
   analysis_notes: []
 - title: Áhrif verðbólgu á einkaréttarskyldur í ísrael
   authors:
-  - Yoran, Aaron
+  - Aaron Yoran
   author_titles: []
   article_type: Fræðigrein
   page_start: 96
@@ -447,8 +455,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Yoran, Aaron) stangast á við síðuna (Aharon Yoran); skránni haldið'
+  analysis_notes: []
 - title: Nokkrar hugleiðingar um Hrd. 1981:128
   authors:
   - Guðrún Erlendsdóttir

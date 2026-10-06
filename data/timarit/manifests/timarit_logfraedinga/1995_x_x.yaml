@@ -50,7 +50,6 @@ page_map:
   - 201
   - 202
   - 203
-  - 205
   - 255
   - 256
   - 257
@@ -59,7 +58,6 @@ page_map:
   - 260
   - 261
   - 263
-  - 265
   - 330
   - 331
   - 332
@@ -70,6 +68,15 @@ page_map:
   - 337
   - 338
   - 339
+  toc_check:
+    entries: 36
+    found: 35
+    share: 0.972
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 336
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null

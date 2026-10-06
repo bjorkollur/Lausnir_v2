@@ -76,48 +76,56 @@ page_map:
   - 296
   - 297
   - 298
+  toc_check:
+    entries: 17
+    found: 12
+    share: 0.706
+    shifted: 0
+    on_filler: 0
+    unclaimed: 33
+    pages: 296
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1974.pdf
 articles:
-- title: Framhaldsmenntun lögfræðinga......................... 2 Sérstaða auðgunarbrota meðal annarra fjármunabrota eftir
-    Jónatan Þórmundsson. Útfærsla fiskveiðilögsögunnar og hagsmunir strandríkja eftir dr. Gunnar G. Schram Frá Lögmannafélagi
-    íslands
+- title: Framhaldsmenntun lögfræðinga
   authors:
   - Þór Vilhjálmsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 1
+  page_start: 2
   page_end: 2
   issue: '1'
   pdf_pages:
-  - 6
+  - 7
   - 7
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: toc
     article_type: toc
-    pages: page
+    pages: leitir+toc
     issue: toc
     authors: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: true
+    printed_page_match: true
+    author_on_page: false
     external_record: true
-  confidence: 0.7
+  confidence: 0.85
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 2 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: leitir.is segir bls. 2, prentað bls. 1'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Sérstaða auðgunarbrota meðal annarra fjármunabrota
   authors:
   - Jónatan Þórmundsson
@@ -151,35 +159,44 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 3 fannst ekki: blaðsíðutal skjalsins óljóst'
-- title: Útfærsla fiskveiðilögsögunnar og hagsmunir strandríkja eftir dr. Gunnar G. Schram
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
+- title: Framhaldsmenntun lögfræðinga......................... 2 Sérstaða auðgunarbrota meðal annarra fjármunabrota eftir
+    Jónatan Þórmundsson. Útfærsla fiskveiðilögsögunnar og hagsmunir strandríkja eftir dr. Gunnar G. Schram Frá Lögmannafélagi
+    íslands
   authors: []
   author_titles: []
   article_type: Fræðigrein
-  page_start: 29
+  page_start: 1
   page_end: null
   issue: '1'
-  pdf_pages: null
+  pdf_pages:
+  - 6
+  - 6
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
-    pages: toc
+    pages: page
     issue: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.35
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 29 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: efnisyfirlitið segir bls. 29; greinin fannst eftir titli sínum á bls. 1'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögmannafélagi islands Aðalfundur 1974 — Námskeið um verksamninga Frá Lögfræðingafélagi islands
   authors: []
   author_titles: []
@@ -209,6 +226,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 44 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Um sérkjarasamninginn — Stofnun rikisstarfsmannadeildar — Þrír fræðafundir — Námskeið í vinnurétti — Lög Lögfræðingafélags
     íslands Frá Bandalagi háskólamanna
   authors: []
@@ -239,6 +258,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 53 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Kjaramál ríkisstarfsmanna Á víð og dreif
   authors: []
   author_titles: []
@@ -268,17 +289,53 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 55 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Lögmenn — starfsmörk og þjónusta
   authors:
   - Páll Sigþór Pálsson
   author_titles: []
   article_type: Fræðigrein
+  page_start: 66
+  page_end: 67
+  issue: '2'
+  pdf_pages:
+  - 75
+  - 80
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: toc
+    article_type: toc
+    pages: leitir+toc
+    issue: toc
+    authors: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.85
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 66 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
+- title: Einar Baldvin Guðmundsson — Sigfús M. Johnsen — Þórir Kjartansson Bengt Lassen
+  authors: []
+  author_titles: []
+  article_type: Fræðigrein
   page_start: 65
-  page_end: 71
+  page_end: null
   issue: '2'
   pdf_pages:
   - 74
-  - 80
+  - 74
   lang: is
   date: null
   summary: null
@@ -288,50 +345,21 @@ articles:
     article_type: toc
     pages: page
     issue: toc
-    authors: leitir
   checks:
     title_on_page: true
     printed_page_match: false
     author_on_page: false
-    external_record: true
-  confidence: 0.55
-  leitir_record_id: '991001868109706886'
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'upphafsbls. 66 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: leitir.is segir bls. 66, prentað bls. 65'
-  - 'FRÁVIK: höfundar skrárinnar (Páll Sigþór Pálsson) stangast á við síðuna (Einar Baldvin Guðmundsson); skránni haldið'
-- title: Einar Baldvin Guðmundsson — Sigfús M. Johnsen — Þórir Kjartansson Bengt Lassen
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 68
-  page_end: null
-  issue: '2'
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-    issue: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.35
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 68 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: efnisyfirlitið segir bls. 68; greinin fannst eftir titli sínum á bls. 65'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Kjarasamningar
   authors:
   - Hákon Guðmundsson
@@ -365,6 +393,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 72 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Vinnusamningar
   authors:
   - Gunnar Sæmundsson
@@ -398,6 +428,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 91 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Á víð og dreif
   authors: []
   author_titles: []
@@ -428,40 +460,43 @@ articles:
   analysis_notes:
   - leitir.is segir bls. 200–222
   - 'upphafsbls. 110 fannst ekki: blaðsíðutal skjalsins óljóst'
-- title: Skatta- og vinnuréttur........................................130
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
+- title: Skatta- og vinnuréttur
   authors:
   - Þór Vilhjálmsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 129
+  page_start: 130
   page_end: 130
   issue: '3'
   pdf_pages:
-  - 142
+  - 143
   - 143
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: toc
     article_type: toc
-    pages: page
+    pages: leitir+toc
     issue: toc
     authors: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: true
+    printed_page_match: true
+    author_on_page: false
     external_record: true
-  confidence: 0.7
+  confidence: 0.85
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 130 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: leitir.is segir bls. 130, prentað bls. 129'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skyldur vinnuveitanda og starfsmanns
   authors:
   - Gunnar Eydal
@@ -495,6 +530,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 131 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skipulag og tilgangur Vinnuveitendasambands íslands
   authors:
   - Barði Friðriksson
@@ -528,6 +565,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 142 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Aðgerða er þörf eftir Tómas Gunnarsson hdl. Frá Lögfræðingafélagi íslands
   authors: []
   author_titles: []
@@ -560,6 +599,8 @@ articles:
   analysis_notes:
   - 'upphafsbls. 148 fannst ekki: blaðsíðutal skjalsins óljóst'
   - 'FRÁVIK: efnisyfirlitið segir bls. 148; greinin fannst eftir titli sínum á bls. 177'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögfræðingafélagi islands
   authors:
   - Ragnar Aðalsteinsson
@@ -595,6 +636,8 @@ articles:
   - 'upphafsbls. 156 fannst ekki: blaðsíðutal skjalsins óljóst'
   - 'FRÁVIK: efnisyfirlitið segir bls. 156; greinin fannst eftir titli sínum á bls. 194'
   - 'FRÁVIK: á eftir greininni hefst „Ávíð «íi dreif“ á bls. 200 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Norrænir fundir — Hádegisfundur — Fræðafundur Frá lagadeild Háskólans
   authors: []
   author_titles: []
@@ -624,6 +667,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 159 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Á víð og dreif
   authors:
   - Frá Orator
@@ -655,6 +700,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 161 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Brá Bandalagi háskólamanna . Siðasta starfsár Á víð og dreif Norrænt lögfræðingaþing 1975 — Um fangelsismál — Starfsemi
     Sambands íslenskra sveitarfélaga 1974 — Félag Sameinuðu þjóðanna á íslandi — Samband lögfræðinga og hagfræðinga í Danmörku
     — Lögfræðingasamband Finnlands — Hið sænska samband lögfræðinga og þjóðfélagsfræðinga _■— Lögfræðingasamband Noregs —
@@ -687,3 +734,5 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 178 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan

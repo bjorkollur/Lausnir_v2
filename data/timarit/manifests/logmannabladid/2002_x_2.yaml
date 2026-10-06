@@ -449,8 +449,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Jóna K. Kristinsdóttir) stangast á við síðuna (New York); skránni haldið'
+  analysis_notes: []
 - title: Kvöldfundur Lögmannafélags Íslands um opinbera umfjöllun um dómsmál, meðal annars í ljósi dóms Hæstaréttar Íslands
     í máli nr. 306/2001
   authors:

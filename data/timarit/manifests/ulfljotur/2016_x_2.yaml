@@ -96,11 +96,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 169
-  page_end: 210
+  page_end: 206
   issue: null
   pdf_pages:
   - 69
-  - 110
+  - 106
   lang: is
   date: null
   summary: null
@@ -120,8 +120,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Stefán Kristinsson, Aron Freyr Jóhannsson) en höfundar skrárinnar eru aðrir (Daði Ólafsson);
-    skránni haldið'
+  - 'FRÁVIK: undirritunin (Stefán Kristinsson, Aron Freyr Jóhannsson) stendur á eftir fyrirsögninni „REKABÁLKUR“ á bls. 207;
+    greinin er talin enda á undan henni'
 - title: Geta fréttamenn sér að refsilausu birt upplýsingar sem bankaleynd nær yfir?
   authors:
   - Andrés Þorleifsson

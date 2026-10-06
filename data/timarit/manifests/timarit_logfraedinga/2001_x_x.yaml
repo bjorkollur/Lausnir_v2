@@ -79,6 +79,15 @@ page_map:
   - 424
   - 425
   - 426
+  toc_check:
+    entries: 22
+    found: 20
+    share: 0.909
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 425
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null

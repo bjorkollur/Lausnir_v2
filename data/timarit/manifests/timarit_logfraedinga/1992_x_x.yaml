@@ -64,6 +64,15 @@ page_map:
   - 304
   - 305
   - 306
+  toc_check:
+    entries: 29
+    found: 27
+    share: 0.931
+    shifted: 0
+    on_filler: 0
+    unclaimed: 1
+    pages: 305
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -690,7 +699,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Hannes Hólmsteinn Gissurarson) stangast á við síðuna (Hannes H. Gissurarson); skránni haldið'
+  - 'á síðunni stendur: Hannes H. Gissurarson'
 - title: A víð og dreif Aðalfundur Lögmannafélags Islands 1992
   authors:
   - Marteinn Másson

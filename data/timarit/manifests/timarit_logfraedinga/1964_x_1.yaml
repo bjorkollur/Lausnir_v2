@@ -79,7 +79,7 @@ articles:
   analysis_notes: []
 - title: Um sögulegar undirstöður laganna
   authors:
-  - Ebel, Wilhelm
+  - Wilhelm Ebel
   author_titles: []
   article_type: Fræðigrein
   page_start: 11
@@ -108,7 +108,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Ebel, Wilhelm) stangast á við síðuna (Sigurður Gizurarson); skránni haldið'
+  - 'FRÁVIK: höfundar skrárinnar (Wilhelm Ebel) stangast á við síðuna (Sigurður Gizurarson); skránni haldið'
 - title: Stutt spjall um þinglýsingalöggjöfina
   authors:
   - Theodór B. Líndal
@@ -205,7 +205,7 @@ articles:
   analysis_notes: []
 - title: Bandalag háskólamanna. Frá heimsókn B. Östergrens framkvstj. SACO
   authors:
-  - Östergren, Bertil
+  - Bertil Östergren
   author_titles: []
   article_type: Annað
   page_start: 45
@@ -326,5 +326,4 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Jónatan Þórmundsson); skránni haldið'
+  analysis_notes: []

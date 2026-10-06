@@ -28,6 +28,15 @@ page_map:
   - 93
   - 94
   - 95
+  toc_check:
+    entries: 3
+    found: 1
+    share: 0.333
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 95
+    by_proxy: 0
 status: review
 confidence: 0.5
 error: null
@@ -62,7 +71,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Undanþágur frá bannákvæðum 10. og 12. gr. samkeppnislaga
   authors:
   - Peter Dalmay
@@ -95,6 +106,8 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 5–48
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Valdbeiting og lögsaga um borð í Polar Nanoq
   authors:
   - Bjarni Már Magnússon
@@ -128,3 +141,5 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 49–84
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan

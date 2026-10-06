@@ -22,13 +22,6 @@ page_map:
   - 47
   - 73
   - 113
-  - 169
-  - 170
-  - 171
-  - 172
-  - 173
-  - 174
-  - 175
 status: review
 confidence: 1.0
 error: null
@@ -132,11 +125,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 113
-  page_end: 167
+  page_end: 160
   issue: null
   pdf_pages:
   - 114
-  - 168
+  - 161
   lang: is
   date: null
   summary: null
@@ -156,5 +149,5 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (María Rún Bjarnadóttir) en höfundar skrárinnar eru aðrir (Viðar Már Matthíasson); skránni
-    haldið'
+  - 'FRÁVIK: undirritunin (María Rún Bjarnadóttir) stendur á eftir fyrirsögninni „MINNINGARBÁLKUR“ á bls. 161; greinin er
+    talin enda á undan henni'

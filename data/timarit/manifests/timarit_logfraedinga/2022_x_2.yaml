@@ -27,6 +27,15 @@ page_map:
   - 173
   - 174
   - 175
+  toc_check:
+    entries: 5
+    found: 5
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 175
+    by_proxy: 0
 status: review
 confidence: 0.65
 error: null
@@ -35,7 +44,7 @@ files:
 articles:
 - title: Lagamál og skilgreiningarvandræði
   authors:
-  - Garðar Gíslason
+  - Valgerður Sólnes
   author_titles: []
   article_type: Fræðigrein
   page_start: 161
@@ -63,8 +72,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Valgerður Sólnes) en höfundar skrárinnar eru aðrir (Garðar Gíslason); skránni haldið'
+  analysis_notes: []
 - title: Eineðli lands- og þjóðaréttar í dómum Hæstaréttar til 1975
   authors:
   - Bryndís Torfadóttir

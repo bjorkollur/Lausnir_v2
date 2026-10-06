@@ -484,8 +484,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Guðrún Helga) en höfundar skrárinnar eru aðrir (Hróbjartur Jónatansson); skránni haldið'
+  analysis_notes: []
 - title: Rannsóknarnefnd, landsdómur og sannleikurinn
   authors:
   - Jakob Möller
@@ -516,8 +515,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Guðrún Helga) en höfundar skrárinnar eru aðrir (Jakob Möller); skránni haldið'
+  analysis_notes: []
 - title: Dapurlegur þáttur í sögu Alþingis
   authors:
   - Guðrún Helga Brynleifsdóttir

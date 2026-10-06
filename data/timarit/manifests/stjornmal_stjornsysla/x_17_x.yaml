@@ -25,9 +25,9 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/49-78_Has_environmental_awareness_increased__A.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol17/79-106_New_skillsets_for_public_leaders.pdf
 articles:
-- title: 'Terror threats and civil liberties: when do citizens accept infringements of civil liberties? Walter L. Brent van
-    der Hell, Research assistant, Faculty of Political Science, University of Iceland'
+- title: 'Terror threats and civil liberties: when do citizens accept infringements of civil liberties?'
   authors:
+  - Walter L. Brent van der Hell
   - Hjalti Björn Hrafnkelsson
   - Gunnar Helgi Kristinsson
   author_titles: []
@@ -323,6 +323,7 @@ articles:
   - Ingi Rúnar Eðvarðsson
   - Arney Einarsdóttir
   - Ásta Dís Óladóttir
+  - Inga Minelgaite
   - Sigrún Gunnarsdóttir
   - Svala Guðmundsdóttir
   author_titles: []

@@ -20,6 +20,7 @@ page_map:
   bin_ratio: 0.925
   non_article:
   - 4
+  - 8
   - 17
 status: review
 confidence: 0
@@ -64,11 +65,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 6
-  page_end: 9
+  page_end: 8
   issue: null
   pdf_pages:
   - 5
-  - 8
+  - 7
   lang: is
   date: null
   summary: null
@@ -88,9 +89,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 9 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  analysis_notes: []
 - title: Lögmenn á slóðum Einars Benediktssonar skálds
   authors:
   - Lúðvík E. Kaaber

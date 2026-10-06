@@ -27,6 +27,15 @@ page_map:
   - 28
   - 38
   - 39
+  toc_check:
+    entries: 10
+    found: 8
+    share: 0.8
+    shifted: 0
+    on_filler: 0
+    unclaimed: 4
+    pages: 38
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -256,7 +265,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Verið velkomin“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda þar'
-  - 'FRÁVIK: greinin er undirrituð (Lúðvík Emil Kaaber) en höfundar skrárinnar eru aðrir (Arna Pálsdóttir); skránni haldið'
 - title: Óvenju fámenn útskrift
   authors:
   - Ingimar Ingason

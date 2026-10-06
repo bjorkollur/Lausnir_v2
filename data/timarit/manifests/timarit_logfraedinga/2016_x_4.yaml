@@ -30,6 +30,15 @@ page_map:
   - 199
   - 200
   - 201
+  toc_check:
+    entries: 5
+    found: 5
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 201
+    by_proxy: 0
 status: review
 confidence: 0.65
 error: null

@@ -39,25 +39,7 @@ page_map:
   - 76
   - 77
   - 103
-  - 158
-  - 159
-  - 160
-  - 161
-  - 162
-  - 163
-  - 165
-  - 166
-  - 167
   - 171
-  - 290
-  - 291
-  - 292
-  - 293
-  - 294
-  - 295
-  - 297
-  - 298
-  - 299
   - 333
   - 393
   - 399
@@ -69,6 +51,15 @@ page_map:
   - 405
   - 406
   - 407
+  toc_check:
+    entries: 26
+    found: 20
+    share: 0.769
+    shifted: 0
+    on_filler: 0
+    unclaimed: 33
+    pages: 403
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
@@ -108,6 +99,8 @@ articles:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 1
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Dómstólar setja ekki lög
   authors:
   - Jón Steinar Gunnlaugsson
@@ -142,6 +135,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Um vansvefta skipstjóra og afladrjúga stýrimenn
   authors:
   - Róbert Spanó
@@ -176,6 +171,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Fiskur, eignir og réttlæti
   authors:
   - Hannes Hólmsteinn Gissurarson
@@ -186,7 +183,7 @@ articles:
   issue: '1'
   pdf_pages:
   - 36
-  - 65
+  - 60
   lang: is
   date: null
   summary: null
@@ -208,10 +205,12 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Helgi Jóhannesson) en höfundar skrárinnar eru aðrir (Hannes Hólmsteinn Gissurarson); skránni
-    haldið'
+  - 'FRÁVIK: undirritunin (Helgi Jóhannesson) stendur á eftir fyrirsögninni „Á VÍÐ OG DREIF — AÐALFUNDUR LÖGFRÆÐINGAFÉLGS
+    ÍSLANDS 1998“ á bls. 56; greinin er talin enda á undan henni'
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögfræðingafélagi íslands Aðalfundur 1998
   authors: []
   author_titles: []
@@ -241,6 +240,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skýrsla stjómar
   authors: []
   author_titles: []
@@ -270,6 +271,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Leiðrétting
   authors: []
   author_titles: []
@@ -304,6 +307,8 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur Íslands“ á pdf-síðu 75 sem skráin nefnir ekki; greinin er talin enda þar'
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Fangelsismál
   authors:
   - Friðgeir Björnsson
@@ -339,6 +344,8 @@ articles:
   - upphafsbls. 69 er á engri síðu skjalsins (eyða í blaðsíðutali)
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Hvað er ranglátt við kvótann?
   authors:
   - Vilhjálmur Árnason
@@ -374,6 +381,8 @@ articles:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 73
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Hámark á skaðabætur - Fullar bætur
   authors:
   - Hörður Einarsson
@@ -408,6 +417,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Forsjársvipting samkvæmt 25. gr. barnaverndarlaga nr. 58/1992
   authors:
   - Ingveldur Einarsdóttir
@@ -443,17 +454,19 @@ articles:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 95
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Ráðgefandi álit EFTA-dómstólsins í máli Erlu Maríu Sveinbjörnsdóttur gegn íslenska ríkinu - Meginregla um skaðabótaábyrgð
   authors:
   - Óttar Pálsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 111
-  page_end: 148
+  page_end: 140
   issue: '2'
   pdf_pages:
   - 120
-  - 157
+  - 149
   lang: is
   date: null
   summary: null
@@ -476,11 +489,12 @@ articles:
   note: ''
   analysis_notes:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 111
-  - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur íslands.**. t o <5 ó> Q ce S A'' lEl“ á pdf-síðu 165 sem skráin nefnir ekki;
-    greinin er talin enda þar'
-  - 'FRÁVIK: greinin er undirrituð (Lára V. Júlíusdóttir) en höfundar skrárinnar eru aðrir (Óttar Pálsson); skránni haldið'
+  - 'FRÁVIK: undirritunin (Lára V. Júlíusdóttir) stendur á eftir fyrirsögninni „Á VÍÐ OG DREIF — KÍNAFÖR LÖGFRÆÐINGAFÉLAGSINS
+    í APRÍL 1999“ á bls. 141; greinin er talin enda á undan henni'
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Kínaför lögfræðingafélagsins í apríl 1998
   authors:
   - Lára V. Júlíusdóttir
@@ -512,6 +526,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Þakkir og árnaðaróskir
   authors:
   - Þorsteinn Pálsson
@@ -547,6 +563,8 @@ articles:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 155
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Um bótaábyrgð ríkisins samkvæmt 49. gr. þinglýsingalaga nr. 39/1978
   authors:
   - Viðar Már Matthíasson
@@ -582,6 +600,8 @@ articles:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 159
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: íslensku skaðabótalögin. Misheppnuð lagasmíð
   authors:
   - Jón Erlingur Þorláksson
@@ -617,6 +637,8 @@ articles:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 187
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Ráðgefandi álit EFTA-dómstólsins í máli Erlu Maríu Sveinbjörnsdóttur og takmarkanir á framsali löggjafarvalds til
     stofnana EES
   authors:
@@ -653,17 +675,19 @@ articles:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 197
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skattasniðganga
   authors:
   - Kristján Gunnar Valdimarsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 219
-  page_end: 276
+  page_end: 262
   issue: '3'
   pdf_pages:
   - 232
-  - 289
+  - 275
   lang: is
   date: null
   summary: null
@@ -685,12 +709,12 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - skráin segir að greinin endi á bls. 262, prentuð lokasíða er bls. 276
-  - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur Íslands“ á pdf-síðu 297 sem skráin nefnir ekki; greinin er talin enda þar'
-  - 'FRÁVIK: greinin er undirrituð (Kolbrún Linda Isleifsdóttir) en höfundar skrárinnar eru aðrir (Kristján Gunnar Valdimarsson);
-    skránni haldið'
+  - 'FRÁVIK: undirritunin (Kolbrún Linda Isleifsdóttir) stendur á eftir fyrirsögninni „A VIÐ OG DREIF — FRÁ LAGADEILD HÁSKÓLA
+    ÍSLANDS“ á bls. 263; greinin er talin enda á undan henni'
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá lagadeild Háskóla íslands Deildarfréttir 1998
   authors: []
   author_titles: []
@@ -720,6 +744,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Breytingar á lögum um meðferð opinberra mála
   authors:
   - Friðgeir Björnsson
@@ -754,6 +780,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Dómstólar og fjölmiðlar
   authors:
   - Hrafn Bragason
@@ -788,6 +816,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Um lagalega ábyrgð aðila sem standa fyrir félags- og tómstundastarfi fyrir börn og unglinga
   authors:
   - Jón Steinar Gunnlaugsson
@@ -823,6 +853,8 @@ articles:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 299
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Varnarþingsreglur Lúganósamningsins
   authors:
   - Eyvindur G. Gunnarsson
@@ -858,6 +890,8 @@ articles:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 317
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Enn af skrímslinu
   authors:
   - Lúðvík Emil Kaaber
@@ -893,6 +927,8 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „A VIÐ OG DREIF“ á bls. 377 sem skráin nefnir ekki; greinin er talin enda þar'
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögfræðingafélagi íslands Aðalfundur 1999
   authors: []
   author_titles: []
@@ -922,6 +958,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skýrsla stjómar 1999
   authors: []
   author_titles: []
@@ -951,3 +989,5 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan

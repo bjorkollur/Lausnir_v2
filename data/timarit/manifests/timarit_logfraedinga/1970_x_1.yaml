@@ -354,9 +354,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 39 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  analysis_notes: []
 - title: Hæstaréttardómarar 1920 – 16. febrúar – 1970
   authors: []
   author_titles: []

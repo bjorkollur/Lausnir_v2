@@ -39,6 +39,15 @@ page_map:
   - 318
   - 320
   - 321
+  toc_check:
+    entries: 2
+    found: 0
+    share: 0.0
+    shifted: 0
+    on_filler: 1
+    unclaimed: 204
+    pages: 319
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -76,6 +85,9 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Dómskerfið hefur verið þjakað af álagi“ á bls. 25 sem skráin nefnir ekki; greinin er
     talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið
+    á meðan
 - title: 50 » Sigurður Tómas Magnússon Nýtt millidómstig 104 » Dr. Davíð Þór Björgvinsson Dómstólaskipan á Íslandi 120 » Arnar
     Þór Jónsson, Dr. Renata Martins Lýðskrum og réttarríki 150 » Kári Hólmar Ragnarsson Allt kann sá er hófið kann. Um inntak
     stjórnskipulegrar meðalhófsreglu 216 » Dr. Bjarni Már Magnússon, Arnar Þór Jónsson Gildissviðsgatasigti 264 » Stefán A.
@@ -111,3 +123,6 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Gildissviðsgatasigti » Dr. Bjarni Már Magnússon dósent við lagadeild HR“ á bls. 216
     sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið
+    á meðan

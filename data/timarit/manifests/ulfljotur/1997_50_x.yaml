@@ -959,7 +959,7 @@ articles:
   analysis_notes: []
 - title: Sjávarútvegsstefna EB og “kvóta hopp”
   authors:
-  - Ellý Guðmundsdóttir
+  - Ellý K. J. Guðmundsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 715
@@ -974,7 +974,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: page
+    authors: xlsx
     pages: xlsx
     issue: xlsx
   checks:

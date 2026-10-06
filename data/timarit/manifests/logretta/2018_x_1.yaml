@@ -26,6 +26,15 @@ page_map:
   - 244
   - 245
   - 266
+  toc_check:
+    entries: 3
+    found: 1
+    share: 0.333
+    shifted: 0
+    on_filler: 0
+    unclaimed: 178
+    pages: 359
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -63,6 +72,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Tímabundið og varanlegt fjártjón heimavinnandi einstaklinga“ á bls. 70 sem skráin nefnir
     ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: 266 » Nýtt fræðirit á sviði fjölmiðlaréttar eftir Halldóru Þorsteinsdóttur og dr. Eirík Jónsson 270 » Sindri M. Stephensen
     Réttaraðstoðarvátryggingar 324 » Pétur Hrafn Hafstein Sáttamiðlun í sakamálum Nýtt rit um fjölmiðlarétt
   authors: []
@@ -92,7 +103,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Sáttamiðlun í sakamálum
   authors: []
   author_titles: []
@@ -121,4 +134,6 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

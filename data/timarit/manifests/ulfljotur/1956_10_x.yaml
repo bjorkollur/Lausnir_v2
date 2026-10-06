@@ -54,9 +54,7 @@ articles:
   xlsx_row: 1166
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/52.pdf
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Ólafur Lárusson) stangast á við síðuna (Hinrik Ibsen); skránni haldið'
-  - möppuár 1956 ≠ prentað ár 1957
+  analysis_notes: []
 - title: Nokkrir höfuðdrættir í íslenzkri erfðalöggjöf.1)
   authors:
   - Ármann Snævarr
@@ -87,8 +85,7 @@ articles:
   xlsx_row: 1167
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/179.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1956 ≠ prentað ár 1957
+  analysis_notes: []
 - title: Rit Friðjóns Skarphéðinssonar um íslenzkar lagabókmenntir
   authors:
   - Pétur Gautur Kristjánsson
@@ -119,8 +116,7 @@ articles:
   xlsx_row: 1168
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/6.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1956 ≠ prentað ár 1957
+  analysis_notes: []
 - title: Sannleiksmælirinn
   authors:
   - Magnús E. Guðjónsson
@@ -151,8 +147,7 @@ articles:
   xlsx_row: 1169
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/543.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1956 ≠ prentað ár 1957
+  analysis_notes: []
 - title: Frá Þjóðréttarháskólanum í Haag
   authors:
   - Gunnar G. Schram
@@ -185,7 +180,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 46, prentað bls. 41'
-  - möppuár 1956 ≠ prentað ár 1957
 - title: Réttindi og skyldur alþingismanna
   authors:
   - Ólafur Jóhannesson
@@ -216,8 +210,7 @@ articles:
   xlsx_row: 1171
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/340.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1956 ≠ prentað ár 1957
+  analysis_notes: []
 - title: Samsköttun hjóna er andstæð stjórnarskrá V-Þýzkalands
   authors:
   - Ármann Snævarr
@@ -248,8 +241,7 @@ articles:
   xlsx_row: 1172
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/107.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1956 ≠ prentað ár 1957
+  analysis_notes: []
 - title: Félagsmálaráðuneytið
   authors:
   - Hjálmar Vilhjálmsson
@@ -280,8 +272,7 @@ articles:
   xlsx_row: 1173
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/618.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1956 ≠ prentað ár 1957
+  analysis_notes: []
 - title: Aðalfundur Orators
   authors:
   - Ólafur St. Sigurðsson
@@ -312,8 +303,7 @@ articles:
   xlsx_row: 1174
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/1032.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1956 ≠ prentað ár 1957
+  analysis_notes: []
 - title: Til laganema
   authors:
   - Magnús Thoroddsen
@@ -346,4 +336,3 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „REKABÁLKUR“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda þar'
-  - möppuár 1956 ≠ prentað ár 1957

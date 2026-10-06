@@ -22,6 +22,15 @@ page_map:
   - 4
   - 30
   - 31
+  toc_check:
+    entries: 8
+    found: 7
+    share: 0.875
+    shifted: 0
+    on_filler: 0
+    unclaimed: 2
+    pages: 30
+    by_proxy: 1
 status: review
 confidence: 0.3
 error: null
@@ -335,4 +344,5 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir viðmælanda

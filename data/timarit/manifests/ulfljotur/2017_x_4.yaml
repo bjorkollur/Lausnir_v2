@@ -20,22 +20,6 @@ page_map:
   bin_ratio: 0.878
   non_article:
   - 82
-  - 111
-  - 114
-  - 118
-  - 120
-  - 128
-  - 130
-  - 134
-  - 136
-  - 142
-  - 146
-  - 148
-  - 150
-  - 151
-  - 152
-  - 153
-  - 154
 status: review
 confidence: 0.5
 error: null
@@ -108,11 +92,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 567
-  page_end: 594
+  page_end: 592
   issue: null
   pdf_pages:
   - 83
-  - 110
+  - 108
   lang: en
   date: null
   summary: null
@@ -132,6 +116,5 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: á eftir greininni hefst „Sigríður Erla Sturludóttir“ á bls. 596 sem skráin nefnir ekki; greinin er talin enda
-    þar'
-  - 'FRÁVIK: greinin er undirrituð (Kolfinna Tómasdóttir) en höfundar skrárinnar eru aðrir (Peter Dalmay); skránni haldið'
+  - 'FRÁVIK: undirritunin (Kolfinna Tómasdóttir) stendur á eftir fyrirsögninni „Fræðabálkur“ á bls. 593; greinin er talin
+    enda á undan henni'

@@ -112,6 +112,15 @@ page_map:
   - 128
   - 129
   - 130
+  toc_check:
+    entries: 5
+    found: 5
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 1
+    pages: 132
+    by_proxy: 1
 status: review
 confidence: 0.5
 error: null
@@ -150,6 +159,7 @@ articles:
   note: ''
   analysis_notes:
   - skráin segir að greinin endi á bls. 4, prentuð lokasíða er bls. 3
+  - titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir merki
 - title: Bótaábyrgð vegna brota á EES-rétti sem rekja má til æðstu dómstóla
   authors:
   - Margrét Einarsdóttir

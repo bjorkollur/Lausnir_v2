@@ -25,6 +25,15 @@ page_map:
   - 21
   - 26
   - 34
+  toc_check:
+    entries: 12
+    found: 12
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 34
+    by_proxy: 1
 status: review
 confidence: 0.3
 error: null
@@ -373,9 +382,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Lúðvík Emil Kaaber) en höfundar skrárinnar eru aðrir (Anna Lilja Hallgrímsdóttir); skránni
-    haldið'
+  analysis_notes: []
 - title: VIÐTAL VIÐ HRAFNHILDI STEFÁNSDÓTTUR Mikil tarnavinna að vera í kjaraviðræðum
   authors: []
   author_titles: []
@@ -404,7 +411,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir viðmælanda
 - title: Gersemarnar Grænihryggur
   authors:
   - Margrét Gunnlaugsdóttir

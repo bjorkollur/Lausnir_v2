@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.675
 status: review
-confidence: 0.35
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/123-158_Turbulent_Finances_of_Labour_Market_Pens.pdf
@@ -30,8 +30,7 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/69-92_The_impact_of_EU_membership_on_Iceland's.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/93-122_The_Top_Income_Groups.pdf
 articles:
-- title: Stofnun stjórnsýslufræða og stjórnmála, Odda v/Sturlugötu 101 R. Sími 525-4928 http://www.stjornsyslustofnun.hi.is
-    5 Kynjaskekkja í stjórnmálum Breytingar og áhrifaþættir
+- title: Kynjaskekkja í stjórnmálum Breytingar og áhrifaþættir
   authors:
   - Þorgerður Einarsdóttir
   - Guðbjörg Lilja Hjartardóttir
@@ -282,8 +281,10 @@ articles:
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/181-202_Public_Impact.pdf
   note: ''
   analysis_notes: []
-- title: 'Iceland’s Neighbours in the EU Entry Queue:'
-  authors: []
+- title: 'Iceland’s Neighbours in the EU Entry Queue: Contrasts or Parallels in EU Enlargement to the North and the South-East'
+  authors:
+  - Alyson J. K. Bailes
+  - Jóhanna María Þórdísardóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 225
@@ -298,20 +299,21 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/225-248_Iceland’s_Neighbours_in_the_EU_Entry_Que.pdf
   note: ''
   analysis_notes: []
-- title: Sense of Sovereignty
+- title: Sense of Sovereignty How national sentiments have influenced Iceland‘s European policy
   authors:
   - Eiríkur Bergmann
   author_titles: []
@@ -327,16 +329,16 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
+    title: page
+    authors: page
     pages: filename
     issue: page
-    authors: page
   checks:
     title_on_page: true
     printed_page_match: false
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.5
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/203-224_Sense_of_Sovereignty.pdf
@@ -502,6 +504,7 @@ articles:
 - title: Mannréttindi, fötlun og fjölskyldulíf Í tilefni yfirfærslu málefna fatlaðs fólks til sveitarfélaga
   authors:
   - Hanna Björg Sigurjónsdóttir
+  - Helga Baldvins- og Bjargardóttir
   - Rannveig Traustadóttir
   author_titles: []
   article_type: Fræðigrein
@@ -531,5 +534,4 @@ articles:
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol05/363-382_Human_right,_disability_and_family_life.pdf
   note: ''
   analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Hanna Björg Sigurjónsdóttir, Rannveig Traustadóttir) stangast á við síðuna (Hanna Björg
-    Sigurjónsdóttir, Helga Baldvins); skránni haldið'
+  - 'á síðunni stendur: Hanna Björg Sigurjónsdóttir, Helga Baldvins'

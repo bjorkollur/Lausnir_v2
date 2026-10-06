@@ -69,46 +69,56 @@ page_map:
   - 267
   - 270
   - 271
+  toc_check:
+    entries: 15
+    found: 10
+    share: 0.667
+    shifted: 0
+    on_filler: 0
+    unclaimed: 75
+    pages: 268
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1973.pdf
 articles:
-- title: Tímaritið — félagið............................. 2
+- title: Tímaritið — félagið
   authors:
   - Þór Vilhjálmsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 1
+  page_start: 2
   page_end: 2
   issue: '1'
   pdf_pages:
-  - 6
+  - 7
   - 7
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: toc
     article_type: toc
-    pages: page
+    pages: leitir+toc
     issue: toc
     authors: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: true
+    printed_page_match: true
+    author_on_page: false
     external_record: true
-  confidence: 0.7
+  confidence: 0.85
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 2 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: leitir.is segir bls. 2, prentað bls. 1'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Ákvæði laga um skattframtöl
   authors:
   - Skúli Pálsson
@@ -142,6 +152,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 3 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Gildistaka skattalagabreytinga
   authors:
   - Guðmundur Vignir Jósefsson
@@ -175,6 +187,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 11 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Frá Lögfræðingafélagi Islands
   authors:
   - Stefán M. Stefánsson
@@ -209,36 +223,43 @@ articles:
   analysis_notes:
   - 'upphafsbls. 26 fannst ekki: blaðsíðutal skjalsins óljóst'
   - 'FRÁVIK: á eftir greininni hefst „SKATTARÉTTARNÁMSKEIÐ“ á bls. 29 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Skýrsla um störf Lögfræðingafélagsins 1971—1972 — Aðalfundur — Ráðstefna um mannréttindi — Skattaréttarnámskeið —
-    Þrlr félagsfundir Frá Lögmannafélagi Islands
+    Þrír félagsfundir Frá Lögmannafélagi íslands.. 32
   authors: []
   author_titles: []
   article_type: Fræðigrein
-  page_start: 32
+  page_start: 1
   page_end: null
   issue: '1'
-  pdf_pages: null
+  pdf_pages:
+  - 6
+  - 6
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
-    pages: toc
+    pages: page
     issue: toc
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.35
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 32 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: efnisyfirlitið segir bls. 32; greinin fannst eftir titli sínum á bls. 1'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Frá Bandalagi háskólamanna
   authors: []
   author_titles: []
@@ -272,6 +293,8 @@ articles:
   - leitir.is segir bls. 63–66
   - 'upphafsbls. 34 fannst ekki: blaðsíðutal skjalsins óljóst'
   - 'FRÁVIK: á eftir greininni hefst „Ávíð oú dreif“ á bls. 37 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Á víð og dreif
   authors: []
   author_titles: []
@@ -301,6 +324,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 37 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Hafréttarráðstefna Sameinuðu þjóðanna — Norræna embættismannamótið — Kosning í mannréttindadómstólinn
   authors: []
   author_titles: []
@@ -327,7 +352,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Umbætur í réttarfari
   authors:
   - Þór Vilhjálmsson
@@ -362,6 +389,8 @@ articles:
   analysis_notes:
   - 'upphafsbls. 2 fannst ekki: blaðsíðutal skjalsins óljóst'
   - 'FRÁVIK: greinin er undirrituð (Hákon Guðmundsson) en höfundar skrárinnar eru aðrir (Þór Vilhjálmsson); skránni haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Gunnar Jónsson — Jóhann J. Ragnarsson — Ólafur H. Jónsson — Sigurður Sigurðsson — Ulf Jónsson
   authors: []
   author_titles: []
@@ -388,7 +417,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Lögfræðiaðstoð án endurgjalds
   authors:
   - Gunnur Eydal
@@ -422,6 +453,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 10'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Frá Lögmannafélagi íslands
   authors:
   - Benedikt Blöndal
@@ -455,6 +488,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 32'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Frá Lögfræðingafélagi islands
   authors:
   - Þór Vilhjálmsson
@@ -489,6 +524,8 @@ articles:
   analysis_notes:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 23
   - 'FRÁVIK: á eftir greininni hefst „STJÓRNUNARNÁMSKEIÐ“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Skýrsla um störf Lögfræðingafélagsins 1972—1973 — Norrænir fundir — Stjórnunarnámskeið — Fræðafundur — Aðalfundur
     Frá Bandalagi háskólamanna
   authors: []
@@ -516,7 +553,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Siðasta starfsár — Kjaramál rikisstarfsmanna Frá lagadeild Háskólans
   authors: []
   author_titles: []
@@ -543,7 +582,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Deildarfréttir — Orator — Náms- og rannsóknastyrkir ^rá dómstólunum
   authors: []
   author_titles: []
@@ -570,7 +611,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Á víð og dreif
   authors: []
   author_titles: []
@@ -600,3 +643,5 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 38 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (10 af 15 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 75 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

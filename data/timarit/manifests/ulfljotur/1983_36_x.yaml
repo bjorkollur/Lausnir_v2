@@ -59,11 +59,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 19
-  page_end: 27
+  page_end: 26
   issue: '1'
   pdf_pages:
   - 0
-  - 8
+  - 7
   lang: is
   date: null
   summary: null
@@ -83,9 +83,7 @@ articles:
   xlsx_row: 769
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1983 36 arg/86.pdf
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 27 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  analysis_notes: []
 - title: Samruni löggjafar- og framkvæmdarvalds
   authors: []
   author_titles: []

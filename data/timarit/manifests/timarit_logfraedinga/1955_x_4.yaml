@@ -38,6 +38,15 @@ page_map:
   - 111
   - 112
   - 114
+  toc_check:
+    entries: 13
+    found: 1
+    share: 0.077
+    shifted: 10
+    on_filler: 1
+    unclaimed: 0
+    pages: 111
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
@@ -72,7 +81,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: I. Almenn lögfræði, yfirlitsrit um lög og lögfræðinga, um lagakennslu o. fl
   authors: []
   author_titles: []
@@ -101,7 +113,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: II. Persónuréttur og sifjaréttur
   authors: []
   author_titles: []
@@ -130,7 +145,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: III. Erfðaréttur
   authors: []
   author_titles: []
@@ -159,7 +177,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: IV. Fjármunaréttur
   authors: []
   author_titles: []
@@ -188,7 +209,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: V. Refsiréttur
   authors: []
   author_titles: []
@@ -217,7 +241,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: VII. Stjórnskipunarréttur
   authors: []
   author_titles: []
@@ -246,7 +273,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: VIII. Stjórnarfarsréttur
   authors: []
   author_titles: []
@@ -275,7 +305,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: IX. Réttarsaga og heimiklarrit um réttarsögu
   authors: []
   author_titles: []
@@ -304,7 +337,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: X. Þjóðaréttur
   authors: []
   author_titles: []
@@ -333,7 +369,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: XI. Lagasöfn, lagasetning
   authors: []
   author_titles: []
@@ -362,7 +401,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: XII. Dómasöfn, dómsúrlausnir
   authors: []
   author_titles: []
@@ -391,7 +433,10 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: XIII. Tímarit og afmælisrit
   authors: []
   author_titles: []
@@ -423,3 +468,6 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Iðnaðarbanki Islands h.f.“ á bls. 274 sem skráin nefnir ekki; greinin er talin enda
     þar'
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 13 titlum fundust á upphafssíðum sínum; 10 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan

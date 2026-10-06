@@ -104,7 +104,7 @@ articles:
   analysis_notes: []
 - title: Um prófraun hæstaréttarlögmanna
   authors:
-  - Illum, Knud
+  - Knud Illum
   author_titles: []
   article_type: Fræðigrein
   page_start: 152
@@ -125,7 +125,7 @@ articles:
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: true
   confidence: 0.7
   leitir_record_id: '991001868109706886'
@@ -133,7 +133,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Illum, Knud) stangast á við síðuna (Knucl Illuirt); skránni haldið'
+  - 'FRÁVIK: höfundar skrárinnar (Knud Illum) stangast á við síðuna (Knucl Illuirt); skránni haldið'
 - title: 'Kjeld Rördam: Afhandlinger vedrörende Baltcon-Certepartiet, G. E. C. Gad, Köbenhavn, 1958. Sami: Treatises on The
     Baltcon-Charterparty, G. E. C. Gacl og Gcorge Allen & Unwin'
   authors:

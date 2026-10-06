@@ -32,6 +32,15 @@ page_map:
   - 91
   - 92
   - 93
+  toc_check:
+    entries: 4
+    found: 4
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 93
+    by_proxy: 0
 status: review
 confidence: 0.65
 error: null
@@ -99,9 +108,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 307 sem er hvorki framhald hennar né upphaf annars
-    efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  analysis_notes: []
 - title: Aðgangur málsaðila að gögnum samkeppnismáls
   authors:
   - Kristín Benediktsdóttir

@@ -26,6 +26,15 @@ page_map:
   - 37
   - 38
   - 39
+  toc_check:
+    entries: 10
+    found: 10
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 1
+    pages: 38
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -96,7 +105,7 @@ articles:
   analysis_notes: []
 - title: Alls konar jól
   authors:
-  - Jólahugvekja Svanhildur Hólm Valsdóttir
+  - Svanhildur Hólm Valsdóttir
   author_titles: []
   article_type: Annað
   page_start: 8
@@ -112,7 +121,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: page
     pages: toc
   checks:
     title_on_page: true

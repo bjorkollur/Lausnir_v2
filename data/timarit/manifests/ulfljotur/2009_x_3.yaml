@@ -20,12 +20,6 @@ page_map:
   bin_ratio: 0.964
   non_article:
   - 49
-  - 108
-  - 109
-  - 110
-  - 111
-  - 112
-  - 113
 status: review
 confidence: 1.0
 error: null
@@ -98,11 +92,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 315
-  page_end: 354
+  page_end: 349
   issue: null
   pdf_pages:
   - 68
-  - 107
+  - 102
   lang: is
   date: null
   summary: null
@@ -122,5 +116,5 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Salvör Þórisdóttir) en höfundar skrárinnar eru aðrir (Eyvindur G. Gunnarsson); skránni
-    haldið'
+  - 'FRÁVIK: undirritunin (Salvör Þórisdóttir) stendur á eftir fyrirsögninni „REKABÁLKUR“ á bls. 350; greinin er talin enda
+    á undan henni'

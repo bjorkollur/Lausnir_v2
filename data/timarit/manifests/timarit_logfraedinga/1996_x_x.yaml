@@ -16,39 +16,16 @@ page_map:
   contested: []
   bin_ratio: 0.925
   non_article:
-  - 77
-  - 78
-  - 79
-  - 80
-  - 81
-  - 82
-  - 83
-  - 84
-  - 85
-  - 86
-  - 89
-  - 157
-  - 158
-  - 159
-  - 160
-  - 161
-  - 162
-  - 163
-  - 164
-  - 165
-  - 166
   - 169
-  - 257
-  - 258
-  - 259
-  - 260
-  - 261
-  - 262
-  - 263
-  - 264
-  - 265
-  - 266
-  - 269
+  toc_check:
+    entries: 28
+    found: 19
+    share: 0.679
+    shifted: 0
+    on_filler: 0
+    unclaimed: 49
+    pages: 347
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
@@ -88,6 +65,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Refsingar. Úrræði þess ráðþrota
   authors:
   - Jörundur Guðmundsson
@@ -121,6 +100,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 5 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Hugleiðingar um ákvörðun refsingar
   authors:
   - Þorgeir Ingi Njálsson
@@ -154,6 +135,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 13 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Nokkrar hugleiðingar um þyngd refsinga og afstæði tímans
   authors:
   - Erlendur S. Baldursson
@@ -187,6 +170,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 23 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Fangelsisrefsingar í alþjóðlegu samhengi
   authors:
   - Helgi I. Jónsson
@@ -220,6 +205,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 31 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Stjórn þinghalds, sókn og vörn í opinberum málum
   authors:
   - Ingibjörg Benediktsdóttir
@@ -253,17 +240,19 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 39 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Saksókn og vörn í opinberum málum
   authors:
   - Jóhannes Rúnar Jóhannsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 46
-  page_end: 71
+  page_end: 59
   issue: '1'
   pdf_pages:
   - 51
-  - 76
+  - 64
   lang: is
   date: null
   summary: null
@@ -286,9 +275,10 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 46 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - skráin segir að greinin endi á bls. 59, prentuð lokasíða er bls. 71
-  - 'FRÁVIK: greinin er undirrituð (Ingveldur Einarsdóttir) en höfundar skrárinnar eru aðrir (Jóhannes Rúnar Jóhannsson);
-    skránni haldið'
+  - 'FRÁVIK: undirritunin (Ingveldur Einarsdóttir) stendur á eftir fyrirsögninni „Á VÍÐ OG DREIF — FRÁ DÓMARAFÉLAGI ÍSLANDS“
+    á bls. 60; greinin er talin enda á undan henni'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Dómarafélagi íslands. Úr skýrslu Dómarafélags Islands starfsárið 1994-1995
   authors: []
   author_titles: []
@@ -318,6 +308,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 60 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Dómaraþing 1995
   authors: []
   author_titles: []
@@ -347,6 +339,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 63 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Dómsmálaþing 1995
   authors: []
   author_titles: []
@@ -376,17 +370,19 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 64 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Sjálfstæð og óháð lögmannastétt
   authors:
   - Þórunn Guðmundsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 79
-  page_end: null
+  page_end: 80
   issue: '2'
   pdf_pages:
-  - 88
-  - 88
+  - 90
+  - 91
   lang: is
   date: null
   summary: null
@@ -399,19 +395,18 @@ articles:
     authors: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.55
+  confidence: 0.85
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 79 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: leitir.is segir bls. 79; greinin fannst eftir titli sínum á pdf-síðu 89'
-  - 'FRÁVIK: höfundar skrárinnar (Þórunn Guðmundsdóttir) stangast á við síðuna (Karl Axelsson, Logfræðinga Efni); skránni
-    haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Um skorður umhverfisréttar við nýtingu lands og náttúruauðlinda
   authors:
   - Karl Axelsson
@@ -445,6 +440,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 81 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Samfélagsþjónusta á íslandi
   authors:
   - Guðmundur Þór Guðmundsson
@@ -479,17 +476,19 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 107 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Málskostnaðarákvörðun dómara
   authors:
   - Valtýr Sigurðsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 126
-  page_end: 145
+  page_end: 131
   issue: '2'
   pdf_pages:
   - 137
-  - 156
+  - 142
   lang: is
   date: null
   summary: null
@@ -512,8 +511,10 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 126 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - skráin segir að greinin endi á bls. 131, prentuð lokasíða er bls. 145
-  - 'FRÁVIK: greinin er undirrituð (Friðgeir Björnsson) en höfundar skrárinnar eru aðrir (Valtýr Sigurðsson); skránni haldið'
+  - 'FRÁVIK: undirritunin (Friðgeir Björnsson) stendur á eftir fyrirsögninni „A VIÐ OG DREIF — FRÁ LAGADEILD HÁSKÓLA ÍSLANDS“
+    á bls. 132; greinin er talin enda á undan henni'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Deildarfréttir 1995
   authors: []
   author_titles: []
@@ -543,6 +544,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 132 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skýrsla um Lagastofnun Háskóla íslands 28.2.1995-29.2.1996
   authors: []
   author_titles: []
@@ -572,6 +575,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 137 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Heimsókn dómara til London 1995
   authors: []
   author_titles: []
@@ -601,17 +606,19 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 143 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Nýtt dómhús Hæstaréttar íslands
   authors:
   - Friðgeir Björnsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 153
-  page_end: null
+  page_end: 154
   issue: '3'
   pdf_pages:
-  - 168
-  - 168
+  - 170
+  - 171
   lang: is
   date: null
   summary: null
@@ -624,19 +631,18 @@ articles:
     authors: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: true
+    printed_page_match: true
+    author_on_page: false
     external_record: true
-  confidence: 0.7
+  confidence: 0.85
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 153 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: leitir.is segir bls. 153; greinin fannst eftir titli sínum á pdf-síðu 169'
-  - 'FRÁVIK: höfundar skrárinnar (Friðgeir Björnsson) stangast á við síðuna (Þorgeir Örlygsson, Logfræðinga Efni); skránni
-    haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Afsláttur
   authors:
   - Þorgeir Örlygsson
@@ -670,17 +676,19 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 155 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Málflutningsumboð
   authors:
   - Gunnar Thoroddsen
   author_titles: []
   article_type: Fræðigrein
   page_start: 190
-  page_end: 239
+  page_end: 232
   issue: '3'
   pdf_pages:
   - 207
-  - 256
+  - 249
   lang: is
   date: null
   summary: null
@@ -703,40 +711,46 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 190 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - skráin segir að greinin endi á bls. 232, prentuð lokasíða er bls. 239
-  - 'FRÁVIK: á eftir greininni hefst „Góður mælikvarði á þjónustu „Sparisjóður Reykjavíkur og nágrennis skaraði löluvert fram
-    úr viðskiptabönkunum og öðrum stærri sparisjóðum hvað innlánsþróun snertir á síðastliðnu ári.““ á pdf-síðu 268 sem skráin
-    nefnir ekki; greinin er talin enda þar'
-  - 'FRÁVIK: greinin er undirrituð (Dögg Pálsdóttir) en höfundar skrárinnar eru aðrir (Gunnar Thoroddsen); skránni haldið'
-- title: Skýrsla stjómar Lögfræðingafélags íslands 1994-1995
-  authors: []
+  - 'FRÁVIK: undirritunin (Dögg Pálsdóttir) stendur á eftir fyrirsögninni „A VIÐ OG DREIF — SKÝRSLA STJÓRNAR LÖGFRÆÐINGAFÉLAGS
+    ÍSLANDS Á AÐAL-“ á bls. 233; greinin er talin enda á undan henni'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
+- title: Skýrsla stjórnar Lögfræðingafélags íslands 1994-1995
+  authors:
+  - Gunnar Thoroddsen
   author_titles: []
   article_type: Fræðigrein
   page_start: 233
   page_end: null
   issue: '3'
-  pdf_pages: null
+  pdf_pages:
+  - 168
+  - 168
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: page
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.35
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 233 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: efnisyfirlitið segir bls. 233; greinin fannst eftir titli sínum á pdf-síðu 169'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Lítið eitt um refsingar
   authors:
   - Friðgeir Björnsson
@@ -768,6 +782,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 139 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Starfsemi EFTA-dómstólsins
   authors:
   - Davíð Þór Björgvinsson
@@ -802,6 +818,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 142 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Misbeiting valds við val á leiðum til úrlausnar máls
   authors:
   - Páll Hreinsson
@@ -835,17 +853,19 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 185 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Hugleiðing um réttarsáttir
   authors:
   - Jón L. Arnalds
   author_titles: []
   article_type: Fræðigrein
   page_start: 199
-  page_end: 217
+  page_end: 204
   issue: '4'
   pdf_pages:
   - 330
-  - 348
+  - 335
   lang: is
   date: null
   summary: null
@@ -868,7 +888,10 @@ articles:
   note: ''
   analysis_notes:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 199
-  - 'FRÁVIK: greinin er undirrituð (Allan V. Magnússon) en höfundar skrárinnar eru aðrir (Jón L. Arnalds); skránni haldið'
+  - 'FRÁVIK: undirritunin (Allan V. Magnússon) stendur á eftir fyrirsögninni „Á VÍÐ OG DREIF — SKÝRSLA STJÓRNAR LÖGFRÆÐINGAFÉLAGS
+    ÍSLANDS Á“ á bls. 205; greinin er talin enda á undan henni'
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skýrsla stjómar Lögfræðingafélags íslands 1995-1996
   authors: []
   author_titles: []
@@ -895,7 +918,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skýrsla stjómar Dómarafélags íslands 1995-1996
   authors: []
   author_titles: []
@@ -922,7 +947,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Leiðrétting
   authors: []
   author_titles: []
@@ -954,3 +981,5 @@ articles:
   note: ''
   analysis_notes:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 218
+  - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan

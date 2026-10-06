@@ -220,9 +220,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Lúðvík Emil Kaaber) en höfundar skrárinnar eru aðrir (Ingibjörg Þorsteinsdóttir); skránni
-    haldið'
+  analysis_notes: []
 - title: Hvað ættu lögmenn að hafa í huga við málflutning?
   authors:
   - Ritstjórn LMFÍ

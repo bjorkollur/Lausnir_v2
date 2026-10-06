@@ -19,7 +19,17 @@ page_map:
   contested: []
   bin_ratio: 0.96
   non_article:
+  - 6
   - 30
+  toc_check:
+    entries: 9
+    found: 8
+    share: 0.889
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 30
+    by_proxy: 1
 status: review
 confidence: 0.3
 error: null
@@ -63,11 +73,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 6
-  page_end: 7
+  page_end: 6
   issue: null
   pdf_pages:
   - 5
-  - 6
+  - 5
   lang: is
   date: null
   summary: null
@@ -88,8 +98,6 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 7 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („WARUM es einfach machen…“) er annar titill en skrárinnar („Frá ritstjórn“); titli
     skrárinnar haldið'
 - title: 'Könnun meðal lögmanna: Laun, launamunur, vinnutími og ábyrgð'
@@ -362,4 +370,5 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir viðmælanda

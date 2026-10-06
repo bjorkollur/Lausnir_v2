@@ -54,8 +54,7 @@ articles:
   xlsx_row: 1208
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/480.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1952 ≠ prentað ár 1953
+  analysis_notes: []
 - title: Húsvitjun Úlfljóts V. Stutt lýsing á stjórnarráði Íslands
   authors:
   - Einar Bjarnason
@@ -86,8 +85,7 @@ articles:
   xlsx_row: 1209
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/335.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1952 ≠ prentað ár 1953
+  analysis_notes: []
 - title: Við lögfræðistörf hjá Sameinuðu þjóðunum
   authors:
   - Sveinn Haukur Valdimarsson
@@ -120,7 +118,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 24, prentað bls. 21'
-  - möppuár 1952 ≠ prentað ár 1953
 - title: Nogle ord om den stilling, islandsk ret tager til spörgsmalet om gyldighed af forfatningsstridige love
   authors:
   - Ólafur Jóhannesson
@@ -151,8 +148,7 @@ articles:
   xlsx_row: 1211
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/336.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1952 ≠ prentað ár 1953
+  analysis_notes: []
 - title: Um ákvörðun örorkubóta
   authors:
   - Benedikt Sigurjónsson
@@ -183,8 +179,7 @@ articles:
   xlsx_row: 1212
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/233.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1952 ≠ prentað ár 1953
+  analysis_notes: []
 - title: Ávarp við setningu IX. móts norrænna laganema og ungra lögfræðinga
   authors:
   - Ármann Snævarr
@@ -217,7 +212,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 15, prentað bls. 12'
-  - möppuár 1952 ≠ prentað ár 1953
 - title: Trausti bundust synir samþjóða
   authors:
   - Sigurður Líndal
@@ -250,7 +244,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 27, prentað bls. 16'
-  - möppuár 1952 ≠ prentað ár 1953
 - title: Nokkur orð um endurskoðun lagaákvæða um hjónavígslu og hjónavígslutálma
   authors:
   - Ármann Snævarr
@@ -281,8 +274,7 @@ articles:
   xlsx_row: 1215
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/155.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1952 ≠ prentað ár 1953
+  analysis_notes: []
 - title: Stjórn Orators 1952-1953.
   authors:
   - Þór Vilhjálmsson
@@ -315,7 +307,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 26, prentað bls. 23'
-  - möppuár 1952 ≠ prentað ár 1953
 - title: Næstu verkefni Orators.
   authors:
   - Þorvaldur Ari Arason
@@ -349,4 +340,3 @@ articles:
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 30, prentað bls. 29'
   - 'FRÁVIK: á eftir greininni hefst „•K9“ á bls. 30 sem skráin nefnir ekki; greinin er talin enda þar'
-  - möppuár 1952 ≠ prentað ár 1953

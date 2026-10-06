@@ -257,7 +257,7 @@ articles:
 - title: 'The opening of Costco in Iceland: Unexpected meanings of globalized phenomenon'
   authors:
   - Kristín Loftsdóttir
-  - Már Wolfgang Mixa Assistant
+  - Már Wolfgang Mixa
   author_titles: []
   article_type: Fræðigrein
   page_start: 189
@@ -287,6 +287,7 @@ articles:
   note: ''
   analysis_notes:
   - skráarnafn segir bls. 189–2010, PDF-skjalið bls. 189–210
+  - 'á síðunni stendur: Kristín Loftsdóttir, Már Wolfgang Mixa Assistant'
 - title: Fjöldi ferðamanna og tekjur og kostnaður íslenskra sveitarfélaga
   authors:
   - Vífill Karlsson
@@ -356,6 +357,7 @@ articles:
 - title: 'Stjórnun sérfræðinga: Fremstir meðal jafninga'
   authors:
   - Árelía Eydís Guðmundsdóttir
+  - Elín Blöndal
   author_titles: []
   article_type: Fræðigrein
   page_start: 265

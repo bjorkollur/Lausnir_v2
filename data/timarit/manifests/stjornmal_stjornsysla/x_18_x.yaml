@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.611
 status: review
-confidence: 0.3
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol18/1-26_Electoral_politics_after_the_crisis.pdf
@@ -125,10 +125,10 @@ articles:
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol18/53-68_Analyzing_the_Public_Private_Sector_Wage.pdf
   note: ''
   analysis_notes: []
-- title: 'Icelandic Review of Politics and Administration Vol. 18, Issue 1 (69-94) © 2022 Contact: Valgerður Jóhannsdóttir,
-    vaj@hi.is Article first published online June 23rd 2022 on http://www.stjornmalogstjornsysla.is Publisher: Institute of
-    Public Administration and Politics, Gimli, Sæmundargötu 10, 102 Reykjavík, Iceland'
-  authors: []
+- title: 'Kynjaslagsíða í fréttum: Um fjölbreytni og lýðræðishlutverk fjölmiðla'
+  authors:
+  - Valgerður Jóhannsdóttir
+  - Finnborg Salome Steinþórsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 69
@@ -143,23 +143,20 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol18/69-94_Gender_bias_in_the_news.pdf
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Kynjaslagsíða í fréttum: Um fjölbreytni og lýðræðishlutverk fjölmiðla“) er annar
-    titill en skrárinnar („Icelandic Review of Politics and Administration Vol. 18, Issue 1 (69-94) © 2022 Contact: Valgerður
-    Jóhannsdóttir, vaj@hi.is Article first published online June 23rd 2022 on http://www.stjornmalogstjornsysla.is Publisher:
-    Institute of Public Administration and Politics, Gimli, Sæmundargötu 10, 102 Reykjavík, Iceland“); titli skrárinnar haldið'
+  analysis_notes: []
 - title: Rannsókn á tengslum kynferðis og aldurs dómara og lögmanna við úrslit dómsmála í héraði
   authors:
   - Valgerður Sólnes

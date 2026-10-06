@@ -18,7 +18,9 @@ page_map:
     - 1
   contested: []
   bin_ratio: 0.932
-  non_article: []
+  non_article:
+  - 7
+  - 20
 status: review
 confidence: 0
 error: null
@@ -121,11 +123,11 @@ articles:
   author_titles: []
   article_type: Viðtal
   page_start: 7
-  page_end: 8
+  page_end: 7
   issue: null
   pdf_pages:
   - 6
-  - 7
+  - 6
   lang: is
   date: null
   summary: null
@@ -144,9 +146,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 8 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  analysis_notes: []
 - title: Nýtt félag lögfræðinga
   authors: []
   author_titles: []
@@ -424,11 +424,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 20
-  page_end: 21
+  page_end: 20
   issue: null
   pdf_pages:
   - 19
-  - 20
+  - 19
   lang: is
   date: null
   summary: null
@@ -448,9 +448,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 21 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  analysis_notes: []
 - title: Staðfesturéttartilskipun ESB. Um rétt EES-lögmanna til að reka lögmannsstofu í öðru EES-ríki
   authors:
   - Sif Konráðsdóttir

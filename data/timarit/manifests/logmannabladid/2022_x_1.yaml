@@ -23,6 +23,15 @@ page_map:
   - 6
   - 32
   - 39
+  toc_check:
+    entries: 11
+    found: 11
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 38
+    by_proxy: 1
 status: review
 confidence: 0.3
 error: null
@@ -366,7 +375,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir viðmælanda
 - title: Nokkur orð um slit sérstakrar sameignar með nauðungarsölu
   authors:
   - Unnur Lilja Hermannsdóttir

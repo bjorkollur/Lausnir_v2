@@ -63,6 +63,15 @@ page_map:
   - 236
   - 237
   - 238
+  toc_check:
+    entries: 17
+    found: 13
+    share: 0.765
+    shifted: 0
+    on_filler: 0
+    unclaimed: 2
+    pages: 236
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -100,7 +109,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skattskylda einstaklinga
   authors:
   - Jónatan Þórmundsson
@@ -132,7 +143,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Samskipti lögmanna og rannsóknarlögreglu — skipun réttargæzlumanna og verjenda — samskipti dómara við sækjanda og
     verjanda
   authors:
@@ -165,7 +178,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Ávíð oíí dreií AÐALFUNDUR DÓMARAFÉLAGS ÍSLANDS 1981
   authors:
   - Ólafur St. Sigurðsson
@@ -200,6 +215,8 @@ articles:
   analysis_notes:
   - leitir.is segir bls. 92–101
   - 'FRÁVIK: á eftir greininni hefst „NÁMSSTEFNA UM BREYTINGAR“ á bls. 38 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Hæstaréttarlögin og lögréttufrumvarpið
   authors:
   - Þór Vilhjálmsson
@@ -231,7 +248,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Helgi Helgason — Jón Grétar Sigurðsson — Ólafur Jónsson — Ragnar Ólafsson
   authors:
   - Hjálmar Vilhjálmsson
@@ -266,7 +285,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Sjóréttur
   authors:
   - Arnljótur Björnsson
@@ -298,7 +319,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Alþjóðafriðarhreyfing lögfræðinga og heimsmót I Sao Paulo 1981
   authors:
   - Gunnlaugur Þórðarson
@@ -330,7 +353,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Um ákvörðun málskostnaðar, málsvarnar- og réttargæslulauna
   authors:
   - Jón E. Ragnarsson
@@ -362,7 +387,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögmannafélagi íslands
   authors: []
   author_titles: []
@@ -392,7 +419,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Kaupmannahafnarferð lögmanna Frá Lögfræðingafélagi íslands
   authors:
   - Gunnar G. Schram
@@ -424,7 +453,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Ferð domara til Danmerkur og suður- Svíþjóðar 1981
   authors:
   - Ólafur St. Sigurðsson
@@ -459,6 +490,8 @@ articles:
   analysis_notes:
   - skráin segir að greinin endi á bls. 101, prentuð lokasíða er bls. 95
   - 'FRÁVIK: á eftir greininni hefst „FRÉTTATILKYNNING“ á bls. 95 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Miskabætur fyrir líkamstjón
   authors:
   - Guðný Björnsdóttir
@@ -490,7 +523,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá lögmönnum
   authors:
   - Jóhann H. Níelsson
@@ -522,7 +557,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Ármann Jónsson — Ingólfur Jónsson — Jakob V. Hafstein — Kristján Guðlaugsson
   authors:
   - Guðmundur Skaftason
@@ -557,7 +594,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Lögfesting Jónsbókar 1281
   authors:
   - Sigurður Líndal
@@ -589,7 +628,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: öryggisgæzla og önnur úrræði skv. 62. gr., sbr. 63. gr. hgl
   authors:
   - Jónatan Þórmundsson
@@ -621,7 +662,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögmannafélagi íslands
   authors:
   - Valgeir Pálsson
@@ -653,7 +696,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frétt frá „hinu íslenska sjóréttarfélagi“
   authors:
   - Páll Sigurðsson
@@ -689,6 +734,8 @@ articles:
   - leitir.is segir bls. 92–101
   - 'FRÁVIK: á eftir greininni hefst „FÉLAG ÁHUGAMANNA UM RÉTTARSÖGU“ á bls. 207 sem skráin nefnir ekki; greinin er talin
     enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Alþingi 1981-1982 — Nýtt lögfræðitlmarit — Ráðstefna í Helsinki — Breytingar á stjórnskipun Kanada Frá Lagadeild
     Háskólans
   authors: []
@@ -719,4 +766,6 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan

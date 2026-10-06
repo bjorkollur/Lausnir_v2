@@ -57,6 +57,15 @@ page_map:
   - 236
   - 237
   - 238
+  toc_check:
+    entries: 19
+    found: 15
+    share: 0.789
+    shifted: 1
+    on_filler: 0
+    unclaimed: 3
+    pages: 236
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -94,7 +103,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Valtýr Guðmundsson
   authors:
   - Guðmundur Vignir Jósefsson
@@ -126,7 +137,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: De lege ferenda sjónarmið um eignarnám
   authors:
   - Jón G. Tómasson
@@ -158,7 +171,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Ákvörðun um eignarnám
   authors:
   - Jón Steinar Gunnlaugsson
@@ -190,7 +205,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögfræðingafélagi íslands
   authors:
   - Gunnar G. Schram
@@ -222,7 +239,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Norrænt lögfræðingaþing
   authors:
   - Arnljótur Björnsson
@@ -256,6 +275,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „NÁMSSTEFNA UM RÉTTARFAR“ á bls. 35 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Á Löggjöf og tillögur um afnám skaðabótaréttar eftir Arnljót Björnsson víð og dreif Nokkur orð um drög að frumvarpi
     til laga um lögfræðiaðstoð hérlendis — Forsetafundur — Réttarfarsnefnd — Frá Alþingi — Námsstefna um réttarfar — 22. norræna
     laganemamótjð
@@ -291,6 +312,8 @@ articles:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Tiharitwí“) er annar titill en skrárinnar („Á Löggjöf og tillögur um afnám skaðabótaréttar
     eftir Arnljót Björnsson víð og dreif Nokkur orð um drög að frumvarpi til laga um lögfræðiaðstoð hérlendis — Forsetafundur
     — Réttarfarsnefnd — Frá Alþingi — Námsstefna um réttarfar — 22. norræna laganemamótjð“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Myndsegulböndin
   authors:
   - Þór Vilhjálmsson
@@ -322,7 +345,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Fjármál hjóna og sambúðarfólks
   authors:
   - Guðrún Erlendsdóttir
@@ -354,7 +379,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Fundarmenn á aðalfundi Dómarafélags íslands 1980
   authors: []
   author_titles: []
@@ -384,7 +411,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Lækkun skaðabóta, þegar launþegi veldur tjóni í starfi
   authors:
   - Arnljótur Björnsson
@@ -416,7 +445,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögmannafélagi Islands
   authors: []
   author_titles: []
@@ -446,7 +477,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Leiðrétting
   authors: []
   author_titles: []
@@ -478,6 +511,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Á ví<>“ á bls. 161 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Lögmannafélagið
   authors:
   - Þór Vilhjálmsson
@@ -509,7 +544,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Þórólfur Ólafsson — Þorsteinn Sveinsson
   authors:
   - Sigurður Óiason
@@ -541,10 +578,11 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Lögmannafélag íslands 70 ára
   authors:
-  - Sigurður Nordal
   - Páll S. Pálsson
   author_titles: []
   article_type: Fræðigrein
@@ -561,7 +599,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: page
+    authors: toc
     pages: toc
     issue: toc
   checks:
@@ -574,7 +612,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Aðstoðarmaður ráðherra
   authors:
   - Hjálmar Vilhjálmsson
@@ -606,7 +646,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Haag reglurnar, Haag-Visby reglurnar og Hamborgarreglurnar
   authors:
   - Valgarð Briem
@@ -638,7 +680,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Kröfulýsingar og meðferð krafna í þrotabúum
   authors:
   - Ragnar Halldór Hall
@@ -670,7 +714,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lagadeild Háskólans
   authors:
   - Sigurður Líndal
@@ -704,6 +750,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „DEILDARFRÉTTIR“ á bls. 210 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skýrsla um Lagastofnun Fláskóla íslands 29. febr. 1980 - 27. febr. 1981 — Deildarfréttir Á víð og dreif
   authors:
   - Þorsteinn A. Jónsson
@@ -738,3 +786,5 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Fangelsismal“) er annar titill en skrárinnar („Skýrsla um Lagastofnun Fláskóla íslands
     29. febr. 1980 - 27. febr. 1981 — Deildarfréttir Á víð og dreif“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan

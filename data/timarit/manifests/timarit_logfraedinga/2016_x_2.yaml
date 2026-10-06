@@ -38,6 +38,15 @@ page_map:
   - 203
   - 204
   - 205
+  toc_check:
+    entries: 5
+    found: 3
+    share: 0.6
+    shifted: 1
+    on_filler: 0
+    unclaimed: 20
+    pages: 205
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -72,7 +81,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Réttmætisregla stjórnsýsluréttar og samspil hennar við jafnræðisreglu - Í tengslum við mats-kenndar stjórnvaldsákvarðanir•1
   authors:
   - Elín Ósk Helgadóttir
@@ -106,6 +117,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 187 sem er hvorki framhald hennar né upphaf annars
     efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Hvenær eiga aðilar að ná sáttum? réttarhag-fræðilegar kenningar um sáttir með hliðsjón af rannsókn á 386 einkamálum
     fyrir hæsta-rétti Íslands•1
   authors:
@@ -137,7 +150,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Lögréttur og lagaráð - Nýjungar í endurskoðun á því hvort lög og lagafrumvörp samrýmast stjórnarskrá samkvæmt tillögum
     Stjórnlagaráðs
   authors:
@@ -169,7 +184,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Skattlagning gjafa
   authors:
   - Sindri M. Stephensen
@@ -202,3 +219,5 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 273–316
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan

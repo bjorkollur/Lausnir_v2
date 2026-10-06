@@ -50,6 +50,15 @@ page_map:
   - 281
   - 282
   - 283
+  toc_check:
+    entries: 19
+    found: 13
+    share: 0.684
+    shifted: 1
+    on_filler: 0
+    unclaimed: 89
+    pages: 280
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -87,7 +96,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Ófeigur Eiríksson — Sveinbjörn Jónsson
   authors:
   - Freyr Ófeigsson
@@ -120,7 +131,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Dönsku heimastjórnarlögin fyrir Grænland
   authors:
   - Guðmundur S. Alfreðsson
@@ -152,7 +165,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Nokkrar hugleiðingar í tilefni gildistöku nýrra hlutafélagalaga
   authors:
   - Sigmar Ármannsson
@@ -184,7 +199,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Frá Lögmannafélagi íslands
   authors: []
   author_titles: []
@@ -214,7 +231,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Bandaríkjaferð dómara 1979
   authors:
   - Hrafn Bragason
@@ -249,6 +268,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „MÁLÞING DÓMARAFÉLAGS ÍSLANDS“ á bls. 111 sem skráin nefnir ekki; greinin er talin enda
     þar'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Réttarbætur í stjórnsýslunni
   authors:
   - Þór Vilhjálmsson
@@ -280,7 +301,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Hákon Guðmundsson — Haukur Jónsson
   authors:
   - Stefán Már Stefánsson
@@ -313,7 +336,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Er þörf fyrir almenn stjórnsýslulög hér á landi?
   authors:
   - Eiríkur Tómasson
@@ -345,7 +370,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Aðgangur málsaðila að gögnum málsins
   authors:
   - Hjalti Zóphóníasson
@@ -377,7 +404,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Andmælareglan og stjórnsýslan
   authors:
   - Ingibjörg Þórunn Rafnar
@@ -411,6 +440,8 @@ articles:
   note: ''
   analysis_notes:
   - 'á síðunni stendur: Ingibjörg Rafnar'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Umboðsmaður — starfssvið og starfshættir
   authors:
   - Leó E. Löve
@@ -442,7 +473,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Endurskoðun reglna um svebtarstjórnarmál
   authors:
   - Hallgrímur Dalberg
@@ -476,6 +509,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „VÍSINDASTYRKIR“ á bls. 176 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Frá Lögfræðingafélagi íslands
   authors: []
   author_titles: []
@@ -507,6 +542,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst efni á pdf-síðu 212 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Frá ríkisstarfsmannadeild — Sérkjarasamningur Lögfræðingafélags Islands og fjármálaráðherra f.h. ríkissjóðs 1. mars
     1980 til 28. febrúar 1982 — Samþykktir fyrir Stéttarfélag lögfræðinga í ríkisþjónustu
   authors:
@@ -543,6 +580,8 @@ articles:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lagastörf og fjölmiðlar“) er annar titill en skrárinnar („Frá ríkisstarfsmannadeild
     — Sérkjarasamningur Lögfræðingafélags Islands og fjármálaráðherra f.h. ríkissjóðs 1. mars 1980 til 28. febrúar 1982 —
     Samþykktir fyrir Stéttarfélag lögfræðinga í ríkisþjónustu“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Stefán Jóhann Stefánsson
   authors:
   - Baldvin Jónsson
@@ -578,6 +617,8 @@ articles:
   - leitir.is segir bls. 203–204
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Axel ó. ólafsson“) er annar titill en skrárinnar („Stefán Jóhann Stefánsson“); titli
     skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Almenn skaðabótalög á Norðurlöndum II. Bætur vegna líkamstjóns
   authors:
   - Arnljótur Björnsson
@@ -609,7 +650,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Dómstólar og fjölmiðlar
   authors:
   - Hrafn Bragason
@@ -641,7 +684,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Siðareglur blaðamanna
   authors: []
   author_titles: []
@@ -671,7 +716,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Frá Lagadeild Háskólans
   authors:
   - Sigurður Líndal
@@ -705,6 +752,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „DEILDARFRÉTTIR“ á bls. 242 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Deildarfréttir Frá Lögfræðingafélagi íslands
   authors:
   - Pétur Kr. Hafstein
@@ -736,7 +785,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Fundur norrænu lögfræðingasamtakanna í Reykjavík Á víð og dreif
   authors:
   - Ármann Snævarr
@@ -773,3 +824,5 @@ articles:
     talin enda þar'
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Skýrsla um starfsemi dómarafélags Íslands 1979-1980“) er annar titill en skrárinnar
     („Fundur norrænu lögfræðingasamtakanna í Reykjavík Á víð og dreif“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

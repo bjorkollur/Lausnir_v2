@@ -38,6 +38,15 @@ page_map:
   - 109
   - 110
   - 111
+  toc_check:
+    entries: 19
+    found: 5
+    share: 0.263
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 106
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
@@ -75,6 +84,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Þrír dómar um húftryggingu bifreiða
   authors:
   - Arnljótur Björnsson
@@ -109,6 +120,8 @@ articles:
   - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 1'
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Ný dómstólaskipun fyrir ísland —
   authors:
   - Hrafn Bragason
@@ -142,6 +155,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Um „Fjölmæli", doktorsritgerð Gunnars Thoroddsen sendiherra
   authors:
   - Þórður Eyjólfsson
@@ -175,6 +190,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Frá Lögfræðingafélagi Islands
   authors:
   - Guðmundur Jónsson
@@ -208,6 +225,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: 79—-
   authors:
   - Hallvarður Einvarðsson
@@ -241,6 +260,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Det 25. Nordiske Juristmöte Oslo 1969 —
   authors:
   - Theodór B. Líndal
@@ -274,6 +295,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: 4 dreitf
   authors:
   - Theodór B. Líndal
@@ -305,9 +328,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Guðmundur Karl Jónsson); skránni haldið'
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Ávarp
   authors:
   - Þorvaldur Garðar Kristjánsson
@@ -338,6 +362,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Hæstiréttur íslands 50 ára
   authors: []
   author_titles: []
@@ -366,6 +392,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Ræða flutt 16/2 1970
   authors:
   - Einar Arnalds
@@ -396,6 +424,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Ávarp
   authors:
   - Jóhann Hafstein
@@ -426,6 +456,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Hæstiréttur 25 ára
   authors: []
   author_titles: []
@@ -454,6 +486,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Ræða flutt 16/2 1945
   authors:
   - Þórður Eyjólfsson
@@ -484,6 +518,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Ávarp
   authors:
   - Finnur Jónsson
@@ -514,6 +550,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Hæstiréttur íslands settur 16/2 1920
   authors: []
   author_titles: []
@@ -542,6 +580,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Ræða flutt 16/2 1920
   authors:
   - Kristján Jónsson
@@ -572,6 +612,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Húsnæði Hæstaréttar 1920—1970
   authors: []
   author_titles: []
@@ -600,6 +642,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Hæstaréttardómarar 1920—1970
   authors: []
   author_titles: []
@@ -628,6 +672,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -656,6 +702,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Hæstaréttarlögmenn 16/2 1920—16/2 1970
   authors: []
   author_titles: []
@@ -684,6 +732,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Málaskrá 1920—1970
   authors: []
   author_titles: []
@@ -712,6 +762,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Æðsta dómsvald á íslandi —
   authors:
   - Theodór B. Líndal
@@ -742,6 +794,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Minning
   authors: []
   author_titles: []
@@ -770,6 +824,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Minning
   authors: []
   author_titles: []
@@ -798,3 +854,5 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan

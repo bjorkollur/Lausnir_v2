@@ -323,8 +323,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Jóhann Hafstein); skránni haldið'
+  analysis_notes: []
 - title: Frá Háskólanum
   authors:
   - Theodór B. Líndal

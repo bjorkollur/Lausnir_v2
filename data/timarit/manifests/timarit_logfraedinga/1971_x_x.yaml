@@ -62,6 +62,15 @@ page_map:
   - 372
   - 373
   - 374
+  toc_check:
+    entries: 10
+    found: 2
+    share: 0.2
+    shifted: 0
+    on_filler: 0
+    unclaimed: 199
+    pages: 372
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
@@ -101,6 +110,8 @@ articles:
   analysis_notes:
   - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
   - 'FRÁVIK: efnisyfirlitið segir bls. 1; greinin fannst eftir titli sínum á bls. 27'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -129,6 +140,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 15 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -157,6 +170,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 70 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -185,6 +200,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 84 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -213,6 +230,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 89 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -241,6 +260,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 118 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -269,6 +290,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 131 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -297,6 +320,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 140 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -322,7 +347,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Á víð og dreif 35
   authors:
   - Gaukur Jörundsson
@@ -357,16 +384,18 @@ articles:
   analysis_notes:
   - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 35
   - 'FRÁVIK: höfundar skrárinnar (Gaukur Jörundsson, Theodór B. Líndal) stangast á við síðuna (Ármann Snævarr); skránni haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Um örorkumöt
   authors:
   - Gunnar M. Guðmundsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 37
+  page_start: 51
   page_end: 119
   issue: '2'
   pdf_pages:
-  - 270
+  - 284
   - 352
   lang: is
   date: null
@@ -376,19 +405,20 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: page
+    pages: leitir
     issue: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.55
+  confidence: 0.85
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 51 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: leitir.is segir bls. 51; greinin fannst eftir titli sínum á bls. 37'
   - skráin segir að greinin endi á bls. 75, prentuð lokasíða er bls. 119
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

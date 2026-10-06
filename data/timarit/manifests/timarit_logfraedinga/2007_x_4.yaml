@@ -251,8 +251,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Benedikt Bogason) stangast á við síðuna (Kristín Edwald); skránni haldið'
+  analysis_notes: []
 - title: Frá Lögmannafélagi Íslands 2007
   authors:
   - Ingimar Ingason

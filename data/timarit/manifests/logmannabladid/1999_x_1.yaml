@@ -18,7 +18,8 @@ page_map:
     - 1
   contested: []
   bin_ratio: 0.957
-  non_article: []
+  non_article:
+  - 12
 status: review
 confidence: 0
 error: null
@@ -413,11 +414,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 12
-  page_end: 13
+  page_end: 12
   issue: null
   pdf_pages:
   - 11
-  - 12
+  - 11
   lang: is
   date: null
   summary: null
@@ -438,8 +439,6 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 13 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
   - 'greinar fundust ekki í skjalinu: 1 (bls. 15; síðasta lesna blaðsíðutal 14) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Ákvörðun samkeppnisráðs

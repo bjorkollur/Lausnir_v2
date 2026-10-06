@@ -29,6 +29,15 @@ page_map:
   - 101
   - 102
   - 103
+  toc_check:
+    entries: 4
+    found: 3
+    share: 0.75
+    shifted: 0
+    on_filler: 1
+    unclaimed: 0
+    pages: 103
+    by_proxy: 0
 status: review
 confidence: 0.5
 error: null
@@ -63,7 +72,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum; 1 grein hefst á síðu sem virðist auglýsing
+    eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Bindandi áhrif dóma í einkamálum (Res Judicata)
   authors:
   - Arnar Þór Jónsson
@@ -94,7 +105,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum; 1 grein hefst á síðu sem virðist auglýsing
+    eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Á rökum reistur – dómur EFTA-dómstólsins í máli nr. E-17/15 (Ferskar kjötvörur gegn íslenska ríkinu)
   authors:
   - Ólafur Jóhannes Einarsson
@@ -128,6 +141,8 @@ articles:
   analysis_notes:
   - leitir.is segir bls. 169–196
   - 'FRÁVIK: efnisyfirlitið segir bls. 171, prentað bls. 169'
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum; 1 grein hefst á síðu sem virðist auglýsing
+    eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Refsiþarfir samfélagsins og lagaleg jafnvægislist
   authors:
   - Jónatan Þórmundsson
@@ -162,3 +177,5 @@ articles:
   - leitir.is segir bls. 197–213
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögmenn“) er annar titill en skrárinnar („Refsiþarfir samfélagsins og lagaleg jafnvægislist“);
     titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum; 1 grein hefst á síðu sem virðist auglýsing
+    eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

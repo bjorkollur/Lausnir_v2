@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.95
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -48,8 +48,7 @@ articles:
   xlsx_row: 326
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/703.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Skattlagning samvinnufélaga
   authors:
   - Ásmundur G. Vilhjálmsson
@@ -79,8 +78,7 @@ articles:
   xlsx_row: 327
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/3144.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Þróunardrættir í samninga- og kröfurétti, einkum frá fjölþjóðlegu sjónarhorni
   authors:
   - Páll Sigurðsson
@@ -110,8 +108,7 @@ articles:
   xlsx_row: 328
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/101.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Um aðgang almennings að gögnum dómsmála
   authors:
   - Ásgerður Ragnarsdóttir
@@ -142,8 +139,7 @@ articles:
   xlsx_row: 329
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/613.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Markmið refsinga
   authors:
   - Ragnheiður Bragadóttir
@@ -173,5 +169,4 @@ articles:
   xlsx_row: 330
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2003_1_tbl/3147.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 56. árg. (2003); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []

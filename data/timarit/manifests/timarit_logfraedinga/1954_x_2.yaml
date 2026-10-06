@@ -348,9 +348,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Axel Kristjánsson I., Björn Þorláksson I); skránni
-    haldið'
+  analysis_notes: []
 - title: Erlendar bækur
   authors:
   - Theodór B. Líndal

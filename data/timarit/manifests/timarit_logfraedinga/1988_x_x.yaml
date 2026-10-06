@@ -62,6 +62,15 @@ page_map:
   - 297
   - 298
   - 299
+  toc_check:
+    entries: 22
+    found: 22
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 297
+    by_proxy: 1
 status: review
 confidence: 0.45
 error: null
@@ -136,6 +145,7 @@ articles:
     titli skrárinnar haldið'
   - 'FRÁVIK: greinin er undirrituð (Þorvaldur Lúðvíksson) en höfundar skrárinnar eru aðrir (Björn Sveinbjörnsson); skránni
     haldið'
+  - titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir höfundi
 - title: Um alþjóðlegan einkamálarétt og viðfangsefni hans
   authors:
   - Eggert Óskarsson

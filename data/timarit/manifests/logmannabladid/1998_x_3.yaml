@@ -180,8 +180,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Jakob R. Möller) stangast á við síðuna (Davíð Þór Björgvinsson); skránni haldið'
+  analysis_notes: []
 - title: Um skuldajafnaðarheimild ríkissjóðs gagnvart þrotabúi á grundvelli 3. mgr. 25. gr. laga nr. 50/1988 um virðisaukaskatt
   authors:
   - Karl Axelsson

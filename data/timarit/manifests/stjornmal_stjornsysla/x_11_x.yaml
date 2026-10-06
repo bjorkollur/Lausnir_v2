@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.424
 status: review
-confidence: 0.3
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/1-18_Political_control_and_perceptions_of_cor.pdf
@@ -33,10 +33,9 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/71-86_The_Law_as_the_Bond_of_Society.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/87-114_Role_of_insurance_companies_in_dealing_w.pdf
 articles:
-- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 ( 1-18 ) © 2015 Contacts: Gunnar Helgi Kristinsson,
-    ghk@hi.is Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration
-    and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland'
-  authors: []
+- title: Political control and perceptions of corruption in Icelandic local government
+  authors:
+  - Gunnar Helgi Kristinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 1
@@ -51,28 +50,25 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/1-18_Political_control_and_perceptions_of_cor.pdf
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Political control and perceptions of corruption in Icelandic local government“) er
-    annar titill en skrárinnar („Icelandic Review of Politics and Administration Vol 11, Issue 1 ( 1-18 ) © 2015 Contacts:
-    Gunnar Helgi Kristinsson, ghk@hi.is Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute
-    of Public Administration and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland“); titli skrárinnar haldið'
-- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 (19-32) © 2015 Contacts: Svala Guðmundsdóttir, svala@hi.is,
-    Þórhallur Guðlaugsson, th@hi.is, Gylfi Dalmann Aðalsteinsson, gylfidal@hi.is Article first published online June 23rd
-    2015 on http://www.irpa.is Publisher: Institute of Public Administration and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík,
-    Iceland'
-  authors: []
+  analysis_notes: []
+- title: Icelandic national culture compared to national cultures of 25 OECD member states using VSM94
+  authors:
+  - Svala Guðmundsdóttir
+  - Þórhallur Guðlaugsson
+  - Gylfi Dalmann Aðalsteinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 19
@@ -87,28 +83,23 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/19-32_Icelandic_National_Culture_compared_to_N.pdf
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Icelandic national culture compared to national cultures of 25 OECD member states
-    using VSM“) er annar titill en skrárinnar („Icelandic Review of Politics and Administration Vol 11, Issue 1 (19-32) ©
-    2015 Contacts: Svala Guðmundsdóttir, svala@hi.is, Þórhallur Guðlaugsson, th@hi.is, Gylfi Dalmann Aðalsteinsson, gylfidal@hi.is
-    Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and
-    Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland“); titli skrárinnar haldið'
-- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 ( 33-54 ) © 2015 Contacts: Eiríkur Bergmann, eirikur@bifrost.is
-    Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and
-    Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland'
-  authors: []
+  analysis_notes: []
+- title: 'Populism in Iceland: Has the Progressive Party turned populist?'
+  authors:
+  - Eiríkur Bergmann
   author_titles: []
   article_type: Fræðigrein
   page_start: 33
@@ -123,27 +114,23 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/33-54_Populism_in_Iceland.pdf
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Populism in Iceland: Has the Progressive Party turned populist?“) er annar titill
-    en skrárinnar („Icelandic Review of Politics and Administration Vol 11, Issue 1 ( 33-54 ) © 2015 Contacts: Eiríkur Bergmann,
-    eirikur@bifrost.is Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public
-    Administration and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland“); titli skrárinnar haldið'
-- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 (55–70 ) © 2015 Contacts: Birgir Guðmundsson, birgirg@unak.is
-    Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and
-    Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland'
-  authors: []
+  analysis_notes: []
+- title: Sjálfsritskoðun íslenskra blaðamanna
+  authors:
+  - Birgir Guðmundsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 55
@@ -158,27 +145,23 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/55-70_Self_Censorship_among_Icelandic_Journali.pdf
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Sjálfsritskoðun íslenskra blaðamanna“) er annar titill en skrárinnar („Icelandic
-    Review of Politics and Administration Vol 11, Issue 1 (55–70 ) © 2015 Contacts: Birgir Guðmundsson, birgirg@unak.is Article
-    first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and Politics,
-    Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland“); titli skrárinnar haldið'
-- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 (71–86 ) © 2015 Contacts: Arnar Þór Jónsson, arnarthor@ru.is
-    Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and
-    Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland'
-  authors: []
+  analysis_notes: []
+- title: Lögin sem einingarband samfélagsins – Íhuganir um samhengi laga og samfélags
+  authors:
+  - Arnar Þór Jónsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 71
@@ -193,28 +176,25 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/71-86_The_Law_as_the_Bond_of_Society.pdf
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögin sem einingarband samfélagsins – Íhuganir um samhengi laga og samfélags“) er
-    annar titill en skrárinnar („Icelandic Review of Politics and Administration Vol 11, Issue 1 (71–86 ) © 2015 Contacts:
-    Arnar Þór Jónsson, arnarthor@ru.is Article first published online June 23rd 2015 on http://www.irpa.is Publisher: Institute
-    of Public Administration and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík, Iceland“); titli skrárinnar haldið'
-- title: 'Icelandic Review of Politics and Administration Vol 11, Issue 1 (87–114 ) © 2015 Contacts: Lára Jóhannsdóttir, laraj@hi.is,
-    Snjólfur Ólafsson, snjolfur@hi.is, Brynhildur Davíðsdóttir, bdavids@hi.is Article first published online June 23rd 2015
-    on http://www.irpa.is Publisher: Institute of Public Administration and Politics, Gimli, Sæmundargötu 1, 101 Reykjavík,
-    Iceland'
-  authors: []
+  analysis_notes: []
+- title: Hlutverk vátryggingafélaga við úrlausn umhverfislegra vandamála
+  authors:
+  - Lára Jóhannsdóttir
+  - Snjólfur Ólafsson
+  - Brynhildur Davíðsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 87
@@ -229,24 +209,20 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol11/87-114_Role_of_insurance_companies_in_dealing_w.pdf
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hlutverk vátryggingafélaga við úrlausn umhverfislegra vandamála“) er annar titill
-    en skrárinnar („Icelandic Review of Politics and Administration Vol 11, Issue 1 (87–114 ) © 2015 Contacts: Lára Jóhannsdóttir,
-    laraj@hi.is, Snjólfur Ólafsson, snjolfur@hi.is, Brynhildur Davíðsdóttir, bdavids@hi.is Article first published online
-    June 23rd 2015 on http://www.irpa.is Publisher: Institute of Public Administration and Politics, Gimli, Sæmundargötu 1,
-    101 Reykjavík, Iceland“); titli skrárinnar haldið'
+  analysis_notes: []
 - title: Need for security and system fairness on the political extremes
   authors:
   - Hulda Þórisdóttir

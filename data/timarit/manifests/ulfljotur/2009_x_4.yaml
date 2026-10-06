@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.95
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -46,8 +46,7 @@ articles:
   xlsx_row: 220
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_4_tbl/712.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 62. árg. (2009); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Stjórnskipuleg lögmætisregla
   authors:
   - Hafsteinn Dan Kristjánsson
@@ -77,8 +76,7 @@ articles:
   xlsx_row: 221
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_4_tbl/2758.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 62. árg. (2009); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Dómstólar geta ekki vikið sér undan því að taka afstöðu - Um vernd efnahagslegra, félagslegra og menningarlegra réttinda
     fyrir dómstólum
   authors:
@@ -109,5 +107,4 @@ articles:
   xlsx_row: 222
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2009_4_tbl/711.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 62. árg. (2009); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []

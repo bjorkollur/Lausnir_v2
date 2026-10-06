@@ -32,6 +32,15 @@ page_map:
   - 66
   - 68
   - 69
+  toc_check:
+    entries: 5
+    found: 0
+    share: 0.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 3
+    pages: 66
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -69,6 +78,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: 'Norræna embættismannasambandið Ág. Fjeldsted: Frá Lögmannafélagi íslands Th. B. Líndal: Bókarfregn ^ami: Á við og
     dreif 195'
   authors:
@@ -103,6 +114,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -134,6 +147,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -167,6 +182,8 @@ articles:
     skrárinnar („—“); titli skrárinnar haldið'
   - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -196,7 +213,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 47 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
   - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan

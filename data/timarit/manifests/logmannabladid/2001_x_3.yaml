@@ -23,6 +23,15 @@ page_map:
   - 19
   - 20
   - 22
+  toc_check:
+    entries: 2
+    found: 0
+    share: 0.0
+    shifted: 1
+    on_filler: 0
+    unclaimed: 12
+    pages: 27
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
@@ -64,6 +73,8 @@ articles:
     talin enda þar'
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Bann við áfengisauglýsingum“) er annar titill en skrárinnar („Samningsbundið uppgjör
     afleiðusamninga Bls.“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: 90 ára 1911 - 2001
   authors:
   - Lögmannafélag Íslands
@@ -99,3 +110,5 @@ articles:
     ekki; greinin er talin enda þar'
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Um samningsbundið uppgjör afleiðusamninga“) er annar titill en skrárinnar („90 ára
     1911 - 2001“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan

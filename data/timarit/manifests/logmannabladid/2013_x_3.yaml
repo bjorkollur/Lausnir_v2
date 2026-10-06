@@ -181,8 +181,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Eyrún Ingadóttir) stangast á við síðuna (Róbert R. Spanó); skránni haldið'
+  analysis_notes: []
 - title: Þóknun fyrir störf verjenda og réttargæslumanna
   authors:
   - Jónas Þór Guðmundsson

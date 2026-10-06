@@ -27,6 +27,15 @@ page_map:
   - 51
   - 52
   - 66
+  toc_check:
+    entries: 4
+    found: 1
+    share: 0.25
+    shifted: 1
+    on_filler: 0
+    unclaimed: 20
+    pages: 66
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -68,6 +77,8 @@ articles:
     skrárinnar haldið'
   - 'FRÁVIK: greinin er undirrituð (Valtýr Sigurðsson) en höfundar skrárinnar eru aðrir (Davíö Þór Björgvinsson); skránni
     haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Á víð og dreif Doktorsvarnir
   authors: []
   author_titles: []
@@ -100,6 +111,8 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „?)fi(tíít«rín“ á bls. 181 sem skráin nefnir ekki; greinin er talin enda þar'
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Saga dómarafélags Íslands“) er annar titill en skrárinnar („Á víð og dreif Doktorsvarnir“);
     titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Fimmta norræna námstefnan um réttarfar
   authors: []
   author_titles: []
@@ -128,7 +141,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Skýrsla um Lagastofnun Háskóla fslands 1990-1991 215
   authors:
   - Sigurður Líndal
@@ -159,4 +174,6 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan

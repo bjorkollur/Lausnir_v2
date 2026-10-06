@@ -44,6 +44,15 @@ page_map:
   - 93
   - 94
   - 95
+  toc_check:
+    entries: 6
+    found: 0
+    share: 0.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 90
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
@@ -81,6 +90,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: _
   authors: []
   author_titles: []
@@ -112,6 +123,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -145,6 +158,8 @@ articles:
     haldið'
   - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -176,6 +191,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: —
   authors: []
   author_titles: []
@@ -204,6 +221,8 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: Nokkrir drættir úr ensku réttarfari
   authors:
   - J. W. A. Thornely
@@ -234,3 +253,5 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan

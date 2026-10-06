@@ -207,9 +207,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Nýr starfsmaður félagsdeildar Lögmannafélagsins
-  authors:
-  - Gísla Baldur
-  - Jóna Kristjana
+  authors: []
   author_titles: []
   article_type: Viðtal
   page_start: 12
@@ -226,7 +224,6 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
   checks:
     title_on_page: true
     printed_page_match: false

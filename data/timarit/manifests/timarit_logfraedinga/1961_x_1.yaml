@@ -66,7 +66,7 @@ articles:
   analysis_notes: []
 - title: Bandarísk lög um ölvun við akstur
   authors:
-  - Hanson, Eugene N.
+  - Eugene N. Hanson
   author_titles: []
   article_type: Fræðigrein
   page_start: 37
@@ -87,7 +87,7 @@ articles:
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: true
   confidence: 0.7
   leitir_record_id: '991001868109706886'

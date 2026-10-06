@@ -52,7 +52,6 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.43)
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
 - title: Dyflinnarreglugerðin og framkvæmd íslenskra stjórnvalda
   authors:
   - Arndís Anna Kristínardóttir Gunnarsdóttir
@@ -82,8 +81,7 @@ articles:
   xlsx_row: 84
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201821.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Stjórnarskrár eftir stríðsátök
   authors:
   - Auður Tinna Aðalbjarnardóttir
@@ -113,8 +111,7 @@ articles:
   xlsx_row: 85
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201822.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Nýtt aðlægt belti við landhelgi Íslands
   authors:
   - Pétur Dam Leifsson
@@ -144,8 +141,7 @@ articles:
   xlsx_row: 86
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201823.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: 'Málþing Orators í samstarfi við ELSA: Ný persónuverndarlöggjöf'
   authors: []
   author_titles: []
@@ -175,7 +171,6 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.48)
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
 - title: 'Ár í Japan: Öðruvísi skiptinámsreynsla'
   authors:
   - Marta Jónsdóttir
@@ -207,4 +202,3 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.50)
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'

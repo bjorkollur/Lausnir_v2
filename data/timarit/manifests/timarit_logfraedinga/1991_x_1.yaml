@@ -28,6 +28,16 @@ page_map:
   - 80
   - 81
   - 82
+  - 83
+  toc_check:
+    entries: 5
+    found: 0
+    share: 0.0
+    shifted: 4
+    on_filler: 0
+    unclaimed: 0
+    pages: 83
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -69,9 +79,11 @@ articles:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögfræðinga“) er annar titill en skrárinnar („Sönnun í skaðabótamálum“); titli skrárinnar
     haldið'
   - 'FRÁVIK: greinin er undirrituð (Gestur Jónsson) en höfundar skrárinnar eru aðrir (Arnljótur Björnsson); skránni haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Ábyrgð dómara og innri markaður Evrópubandalagsins
   authors:
-  - Voss, Rainer
+  - Rainer Voss
   author_titles: []
   article_type: Fræðigrein
   page_start: 3
@@ -103,6 +115,8 @@ articles:
   - leitir.is segir bls. 23–32
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Sönnuní skaðabótamálum“) er annar titill en skrárinnar („Ábyrgð dómara og innri markaður
     Evrópubandalagsins“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Ábyrgð dómara og innri markaður Evrópubandalagsins
   authors:
   - Stefán Geir Þórisson
@@ -136,6 +150,8 @@ articles:
   analysis_notes:
   - leitir.is segir bls. 33–43
   - 'FRÁVIK: höfundar skrárinnar (Stefán Geir Þórisson) stangast á við síðuna (Rainer Voss); skránni haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Á víð og dreif Frá lagadeild háskólans
   authors: []
   author_titles: []
@@ -167,6 +183,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Dómstóll Evrópubandalagsins“) er annar titill en skrárinnar („Á víð og dreif Frá
     lagadeild háskólans“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Aðalfundur Lögmannafélags íslands 1990 íslensk ritaskrá um Evrópubandalagið og Fríverslunarbandalagið Samtök evrópskra
     laganema
   authors:
@@ -198,4 +216,6 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

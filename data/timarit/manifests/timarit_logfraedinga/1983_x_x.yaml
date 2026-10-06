@@ -56,6 +56,15 @@ page_map:
   - 221
   - 306
   - 307
+  toc_check:
+    entries: 23
+    found: 18
+    share: 0.783
+    shifted: 0
+    on_filler: 0
+    unclaimed: 1
+    pages: 304
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -93,7 +102,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Guðmundur Benediktsson — Einar Bjarnason
   authors:
   - Gunnlaugur Pétursson
@@ -126,7 +137,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Ný lög um samninga um vöruflutninga á landi
   authors:
   - Arnljótur Björnsson
@@ -158,7 +171,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Laga-Úlfljótur
   authors:
   - Hjálmar Vilhjálmsson
@@ -190,7 +205,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Málþing dómarafélags Íslands
   authors:
   - Ólafur St. Sigurðsson
@@ -225,6 +242,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „AÐALFUNDUR DÓMARAFÉLAGS ÍSLANDS 1982“ á bls. 46 sem skráin nefnir ekki; greinin er talin
     enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Mál er að linni
   authors:
   - Björn Þ. Guðmundsson
@@ -256,7 +275,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Guðmundur Ólafs — Jón Edwald Ragnarsson — Pétur Axel Jónsson
   authors:
   - Þormóður Ögmundsson
@@ -290,7 +311,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Hvað er réttarríki og hverjir eru kostir þess?
   authors:
   - Garðar Gíslason
@@ -322,7 +345,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: í hópi lögfræðinga
   authors: []
   author_titles: []
@@ -352,7 +377,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Sögulegur bakgrunnur íslenzku stjórnarskrárinnar
   authors:
   - Arnór Hannibalsson
@@ -384,7 +411,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Um málskostnað í einkamálum — einkum með hliðsjón af verðbólgu
   authors:
   - Jón Steinar Gunnlaugsson
@@ -416,7 +445,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögmannafélagi íslands
   authors:
   - Hafþór Ingi Jónsson
@@ -448,7 +479,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Aðalfundur 1982 — Bandaríkjaferð lögmanna — Málþing Lögmannafélags íslands og Dómarafélags íslands Frá Lagadeild
     Háskólans
   authors: []
@@ -479,7 +512,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Deildarfréttir Frá Lögfræðingafélagi islands
   authors:
   - Guðmundur Vignir Jósefsson
@@ -511,7 +546,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Sýslumannafélag Íslands
   authors:
   - Friðjón Guðröðarson
@@ -545,6 +582,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „DÓMARAFÉLAG REYKJAVÍKUR“ á bls. 113 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Meðdómsmenn
   authors:
   - Stefán Már Stefánsson
@@ -578,6 +617,8 @@ articles:
   note: ''
   analysis_notes:
   - upphafsbls. 121 er á engri síðu skjalsins (eyða í blaðsíðutali)
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Emil Ágústsson — Gunnar Thoroddsen — Jón Ólafsson — Páll Sigþór Pálsson — Ragnar Jónsson — Þorvaldur K. Þorsteinsson
   authors:
   - Bjarni Kristinn Bjarnason
@@ -614,7 +655,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Breytingar á almennum hegningarlögum í ljósi breyttra viðhorfa í refsirétti
   authors:
   - Ármann Snævarr
@@ -646,7 +689,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Hugað að hafsbotninum
   authors:
   - Benedikt Sigurjónsson
@@ -678,7 +723,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Hugleiðingar í tilefni hæstaréttardóms
   authors:
   - Jón Steinar Gunnlaugsson
@@ -710,7 +757,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Aðalfundur Lögfræðingafélagsins 1982
   authors:
   - Þorgeir Örlygsson
@@ -745,6 +794,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „NORRÆNT LÖGFRÆÐINGAÞING 15.—17.“ á bls. 198 sem skráin nefnir ekki; greinin er talin
     enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Undirskriftir gegn mannréttindum
   authors: []
   author_titles: []
@@ -774,7 +825,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Jónas Thoroddsen — Tómas Guðmundsson
   authors:
   - Unnsteinn Beck
@@ -807,7 +860,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Vernd eignarréttar samkvæmt Mannréttindasáttmála Evrópu
   authors:
   - Gaukur Jörundsson
@@ -839,7 +894,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Úrskurðir Mannréttindanefndar Evrópu í kærumálum gegn íslandi
   authors:
   - Magnús Thoroddsen
@@ -871,7 +928,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Dómar Mannréttindadómstóls Evrópu 1982 og 1983
   authors:
   - Mannréttindadómstóll Evrópu
@@ -903,7 +962,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Ávíð 02 dreií DÓMARAFÉLAG REYKJAVÍKUR
   authors:
   - Steingrímur Gautur Kristjánsson
@@ -937,3 +998,5 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „SKÝRSLA UM MANNRÉTTÍNDI“ á bls. 287 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan

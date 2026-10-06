@@ -18,11 +18,7 @@ page_map:
     - 318
   contested: []
   bin_ratio: 0.871
-  non_article:
-  - 163
-  - 164
-  - 165
-  - 166
+  non_article: []
 status: review
 confidence: 1.0
 error: null
@@ -216,11 +212,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 452
-  page_end: 480
+  page_end: 466
   issue: null
   pdf_pages:
   - 134
-  - 162
+  - 148
   lang: is
   date: null
   summary: null
@@ -240,5 +236,5 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Ragnheiður Kristín Finnbogadóttir) en höfundar skrárinnar eru aðrir (Lára V. Júlíusdóttir);
-    skránni haldið'
+  - 'FRÁVIK: undirritunin (Ragnheiður Kristín Finnbogadóttir) stendur á eftir fyrirsögninni „Gestabálkur“ á bls. 467; greinin
+    er talin enda á undan henni'

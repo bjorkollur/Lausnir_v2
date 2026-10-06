@@ -55,8 +55,7 @@ articles:
   xlsx_row: 1176
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/484.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1955 ≠ prentað ár 1956
+  analysis_notes: []
 - title: Um fjármál hjóna
   authors:
   - Rannveig Þorsteinsdóttir
@@ -89,7 +88,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 9, prentað bls. 3'
-  - möppuár 1955 ≠ prentað ár 1956
 - title: Prentfrelsi
   authors:
   - Gaukur Jörundsson
@@ -120,8 +118,7 @@ articles:
   xlsx_row: 1178
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/338.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1955 ≠ prentað ár 1956
+  analysis_notes: []
 - title: Þegn Grágásar á þingi Gullblakkar
   authors:
   - Eyjólfur K. Jónsson
@@ -154,7 +151,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 24, prentað bls. 23'
-  - möppuár 1955 ≠ prentað ár 1956
 - title: Nokkrar almennar athugasemdir um ráðherra og réttarstöðu þeirra
   authors:
   - Ólafur Jóhannesson
@@ -185,8 +181,7 @@ articles:
   xlsx_row: 1180
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/339.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1955 ≠ prentað ár 1956
+  analysis_notes: []
 - title: Hvaða gagn hef ég haft af lögfræðináminu?
   authors:
   - Bjarni Benediktsson
@@ -219,7 +214,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 20, prentað bls. 18'
-  - möppuár 1955 ≠ prentað ár 1956
 - title: Dvöl við bandarískan lagaskóla
   authors:
   - Matthías Á. Mathiesen
@@ -252,7 +246,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 25, prentað bls. 21'
-  - möppuár 1955 ≠ prentað ár 1956
 - title: Afnám löndunarbannsins í Bretlandi
   authors:
   - Pétur Benediktsson
@@ -285,7 +278,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 5, prentað bls. 3'
-  - möppuár 1955 ≠ prentað ár 1956
 - title: Yfirlit yfir störf Orators 1955-1956
   authors:
   - Matthías Á. Mathiesen
@@ -318,7 +310,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 9, prentað bls. 8'
-  - möppuár 1955 ≠ prentað ár 1956
 - title: Aðalfundur Orators 1956
   authors:
   - Bjarni Beinteinsson
@@ -349,8 +340,7 @@ articles:
   xlsx_row: 1185
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/1002.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1955 ≠ prentað ár 1956
+  analysis_notes: []
 - title: Til laganema
   authors:
   - Jón A. Ólafsson
@@ -383,4 +373,3 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 14, prentað bls. 12'
-  - möppuár 1955 ≠ prentað ár 1956

@@ -71,7 +71,7 @@ articles:
   analysis_notes: []
 - title: Helztu drættir í danskri löggjöf um vörumerki
   authors:
-  - Rørdam, Kjeld
+  - Kjeld Rördam
   author_titles: []
   article_type: Fræðigrein
   page_start: 87
@@ -87,7 +87,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: page
     pages: leitir+llm
   checks:
     title_on_page: true
@@ -99,8 +99,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Rørdam, Kjeld) stangast á við síðuna (Kjeld Rördam); skránni haldið'
+  analysis_notes: []
 - title: „Hin hvíta bók“ um aðgerðirnar frá 19. marz 1952
   authors:
   - Gunnlaugur Þórðarson
@@ -224,5 +223,4 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Ólafur Lárusson); skránni haldið'
+  analysis_notes: []

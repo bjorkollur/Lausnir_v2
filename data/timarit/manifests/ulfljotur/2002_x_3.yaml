@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.938
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -47,8 +47,7 @@ articles:
   xlsx_row: 364
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/454.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Tjáningarfrelsið og bann við útbreiðslu kynþáttafordóma
   authors:
   - Björg Thorarensen
@@ -78,8 +77,7 @@ articles:
   xlsx_row: 365
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/401.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Samlagshlutafélög
   authors:
   - Grímur Sigurðsson
@@ -109,8 +107,7 @@ articles:
   xlsx_row: 366
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/702.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Ys og þys út af engu? - Hugleiðingar um bókun 35 við samninginn um Evrópska efnahagssvæðið
   authors:
   - Dóra Sif Tynes
@@ -140,5 +137,4 @@ articles:
   xlsx_row: 367
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_3_tbl/659.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []

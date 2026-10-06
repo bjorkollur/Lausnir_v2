@@ -70,6 +70,15 @@ page_map:
   - 392
   - 393
   - 394
+  toc_check:
+    entries: 21
+    found: 21
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 393
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -335,7 +344,7 @@ articles:
   analysis_notes: []
 - title: Nokkur lögfræðileg álitaefni við gildistöku evrósins
   authors:
-  - Christiansen, Per
+  - Per Christiansen
   author_titles: []
   article_type: Fræðigrein
   page_start: 100
@@ -364,8 +373,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'á síðunni stendur: Per Christiansen'
+  analysis_notes: []
 - title: Skaðabótaábyrgð aðildarríkja EES-samningsins gagnvart einstaklingum og lögaðilum
   authors:
   - Óttar Pálsson

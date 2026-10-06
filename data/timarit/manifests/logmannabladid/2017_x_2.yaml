@@ -22,6 +22,15 @@ page_map:
   - 4
   - 33
   - 35
+  toc_check:
+    entries: 13
+    found: 11
+    share: 0.846
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 34
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -244,8 +253,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Víðir Smári Petersen) stangast á við síðuna (Þórunn Guðmundsdóttir); skránni haldið'
+  analysis_notes: []
 - title: Ábyrgð stjórnarmanna og starfsmanna fyrirtækja
   authors:
   - Guðríður Svana Bjarnadóttir

@@ -362,9 +362,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Bogi Nilsson) stangast á við síðuna (Hans Gammeltoft-Hansen, Strafferetspleje I); skránni
-    haldið'
+  analysis_notes: []
 - title: Fréttir frá félagsdeild
   authors:
   - Eyrún Ingadóttir

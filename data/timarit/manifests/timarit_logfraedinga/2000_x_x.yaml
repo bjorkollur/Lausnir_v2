@@ -64,6 +64,7 @@ page_map:
   - 277
   - 278
   - 279
+  - 282
   - 283
   - 309
   - 418
@@ -76,8 +77,17 @@ page_map:
   - 425
   - 426
   - 427
+  toc_check:
+    entries: 18
+    found: 18
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 427
+    by_proxy: 0
 status: review
-confidence: 0.2
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2000.pdf
@@ -530,11 +540,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 259
-  page_end: null
+  page_end: 260
   issue: '4'
   pdf_pages:
-  - 282
-  - 282
+  - 284
+  - 285
   lang: is
   date: null
   summary: null
@@ -547,26 +557,27 @@ articles:
     issue: toc
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: true
+    printed_page_match: true
+    author_on_page: false
     external_record: true
-  confidence: 0.7
+  confidence: 0.85
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 259 fannst ekki: blaðsíðutalið óljóst (talan stendur á fleiri en einni síðu)'
-  - 'FRÁVIK: efnisyfirlitið segir bls. 259; greinin fannst eftir titli sínum á pdf-síðu 283'
 - title: Tímarit lögfræðinga 50 ára
   authors:
   - Davíð Þór Björgvinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 261
-  page_end: null
+  page_end: 283
   issue: '4'
-  pdf_pages: null
+  pdf_pages:
+  - 286
+  - 308
   lang: is
   date: null
   summary: null
@@ -578,11 +589,11 @@ articles:
     pages: toc
     issue: toc
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: true
-  confidence: 0.2
+  confidence: 1.0
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null

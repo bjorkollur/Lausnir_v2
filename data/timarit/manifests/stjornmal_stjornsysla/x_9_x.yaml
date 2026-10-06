@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.523
 status: review
-confidence: 0.65
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/1-20_Scotland_as_an_Independent_Small_State.pdf
@@ -42,10 +42,11 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/567-584_What_is_the_value_of_volunteers_for.pdf
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/79-99_Excellence,_Innovation_and_Academic_Free.pdf
 articles:
-- title: 'Scotland as an Independent Small State: Where would it seek shelter? Alyson JK Bailes, Adjunct Professor of Political
-    Science, University of Iceland, Baldur Thorhallsson, Professor of Political Science, University of Iceland and Rachael
-    Lorna Johnstone, Senior Lecturer in Law, University of Akureyri'
-  authors: []
+- title: 'Scotland as an Independent Small State: Where would it seek shelter?'
+  authors:
+  - Alyson JK Bailes
+  - Baldur Thorhallsson
+  - Rachael Lorna Johnstone
   author_titles: []
   article_type: Fræðigrein
   page_start: 1
@@ -60,14 +61,15 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/1-20_Scotland_as_an_Independent_Small_State.pdf
@@ -107,6 +109,7 @@ articles:
 - title: 'Hvernig opinber stefna gerist: Stefnurek í málefnum lesblindra á Íslandi 1990-2007'
   authors:
   - Nanna Björk Bjarnadóttir
+  - Sigurbjörg Sigurgeirsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 53
@@ -169,6 +172,7 @@ articles:
 - title: Áhrif hvata á störf lækna
   authors:
   - Una Jónsdóttir
+  - Tinna Laufey Ásgeirsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 101
@@ -201,6 +205,7 @@ articles:
     Political Vacuum'
   authors:
   - Baldur Þórhallsson
+  - Þorsteinn Kristinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 113
@@ -232,6 +237,7 @@ articles:
 - title: Vestnorden. A functional region?
   authors:
   - Grétar Thór Eythórsson
+  - Gestur Hovgaard
   author_titles: []
   article_type: Fræðigrein
   page_start: 139
@@ -359,6 +365,7 @@ articles:
 - title: 'Gefa viðbrögð við eldgosi innsýn í krísustjórnun: Dæmi frá Icelandair'
   authors:
   - Regína Ásdísardóttir
+  - Runólfur Smári Steinþórsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 211
@@ -452,6 +459,7 @@ articles:
 - title: 'Staðgöngumæður: Frjálsar og fórnfúsar konur'
   authors:
   - Jónína Einarsdóttir
+  - Helga Finnsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 279
@@ -514,6 +522,7 @@ articles:
 - title: Equal rights to paid parental leave and caring fathers- the case of Iceland
   authors:
   - Ásdís A. Arnalds
+  - Guðný Björk Eydal
   - Ingólfur V. Gíslason
   author_titles: []
   article_type: Fræðigrein
@@ -543,9 +552,8 @@ articles:
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/323-344_Equal_rights_to_paid_parental_leave_and.pdf
   note: ''
   analysis_notes: []
-- title: 'Well-Being in the Nordic Countries:'
+- title: 'Well-Being in the Nordic Countries: An International Comparison'
   authors:
-  - An International Comparison
   - Stefán Ólafsson
   author_titles: []
   article_type: Fræðigrein
@@ -578,6 +586,7 @@ articles:
 - title: Er heilsa metin með hlutfallslegum eða algildum hætti?
   authors:
   - Agnar Hafliði Andrésson
+  - Tinna Laufey Ásgeirsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 373
@@ -824,9 +833,10 @@ articles:
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/509-530_A_Politically_Commercial_Media_System.pdf
   note: ''
   analysis_notes: []
-- title: 'The Faroe Islands and the Arctic: Genesis of a Strategy Alyson J.K. Bailes, Adjunct Professor, University of Iceland
-    and Beinta í Jákupsstovu, Associate Professor in Political Science at Molde University College, Norway'
-  authors: []
+- title: 'The Faroe Islands and the Arctic: Genesis of a Strategy'
+  authors:
+  - Alyson J.K. Bailes
+  - Beinta í Jákupsstovu
   author_titles: []
   article_type: Fræðigrein
   page_start: 531
@@ -841,14 +851,15 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol09/531-548_The_Faroe_Islands_and_the_Arctic.pdf
@@ -858,6 +869,7 @@ articles:
   authors:
   - Friðrik Eysteinsson
   - Dagbjört Ágústa H. Diego
+  - Kári Kristinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 549
@@ -889,6 +901,7 @@ articles:
 - title: Hverju skipta sjálfboðaliðar fyrir íslensk félagasamtök?
   authors:
   - Ómar H. Kristmundsson
+  - Steinunn Hrafnsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 567

@@ -68,6 +68,15 @@ page_map:
   - 305
   - 306
   - 307
+  toc_check:
+    entries: 30
+    found: 27
+    share: 0.9
+    shifted: 0
+    on_filler: 0
+    unclaimed: 9
+    pages: 303
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -948,7 +957,7 @@ articles:
   issue: '4'
   pdf_pages:
   - 279
-  - 290
+  - 283
   lang: is
   date: null
   summary: null
@@ -970,8 +979,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Sigurður Tómas Magnússon) en höfundar skrárinnar eru aðrir (Þórunn Guðmundsdóttir); skránni
-    haldið'
+  - 'FRÁVIK: undirritunin (Sigurður Tómas Magnússon) stendur á eftir fyrirsögninni „Á VÍÐ OG DREIF — DÓMARAÞING 1994“ á bls.
+    265; greinin er talin enda á undan henni'
 - title: Úr skýrslu Stjórnar Dómarafélags Islands starfsárið 1993-1994
   authors: []
   author_titles: []

@@ -36,6 +36,7 @@ page_map:
   - 83
   - 84
   - 85
+  - 87
   - 130
   - 131
   - 132
@@ -44,6 +45,7 @@ page_map:
   - 135
   - 136
   - 137
+  - 139
   - 210
   - 211
   - 212
@@ -58,6 +60,16 @@ page_map:
   - 295
   - 296
   - 298
+  - 299
+  toc_check:
+    entries: 20
+    found: 16
+    share: 0.8
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 295
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null

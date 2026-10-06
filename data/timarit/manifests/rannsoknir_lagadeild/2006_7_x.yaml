@@ -26,6 +26,15 @@ page_map:
   - 195
   - 207
   - 219
+  toc_check:
+    entries: 9
+    found: 9
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 276
+    by_proxy: 1
 status: review
 confidence: 0.45
 error: null
@@ -158,6 +167,7 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Elfa Ýr Gylfadóttir“) er annar titill en skrárinnar („Stefnumótun og færar leiðir
     við útfærslu flutningsreglna“); titli skrárinnar haldið'
+  - titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir höfundi
 - title: Pólitísk og lagaleg stefnumótun um íslenska fjölmiðla
   authors:
   - Elfa Ýr Gylfadóttir

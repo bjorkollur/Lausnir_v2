@@ -31,6 +31,15 @@ page_map:
   - 37
   - 38
   - 42
+  toc_check:
+    entries: 2
+    found: 0
+    share: 0.0
+    shifted: 1
+    on_filler: 0
+    unclaimed: 13
+    pages: 43
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
@@ -70,6 +79,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Morgunverðarfundur LMFÍ um aukna samkeppni í lagakennslu – áherslur og áhrif“) er
     annar titill en skrárinnar („Lögmannafélag Íslands 90 ára Bls.“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan
 - title: 90 ára 1911 -2001 Jakob R. Möller hrl. Framkvæmd nýrra lögmannalaga Bls. 9
   authors:
   - Lögmannafélag Íslands
@@ -103,3 +114,5 @@ articles:
   analysis_notes:
   - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 26 sem er hvorki framhald hennar né upphaf annars efnis
     (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
+    haldið á meðan

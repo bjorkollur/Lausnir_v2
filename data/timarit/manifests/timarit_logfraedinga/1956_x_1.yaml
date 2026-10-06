@@ -34,6 +34,15 @@ page_map:
   - 81
   - 82
   - 83
+  toc_check:
+    entries: 1
+    found: 0
+    share: 0.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 35
+    pages: 79
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -77,3 +86,5 @@ articles:
     dreif“); titli skrárinnar haldið'
   - 'greinar fundust ekki í skjalinu: 1 (bls. 127; síðasta lesna blaðsíðutal 61) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 1 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 35 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

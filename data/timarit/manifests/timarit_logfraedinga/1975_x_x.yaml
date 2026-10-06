@@ -31,6 +31,15 @@ page_map:
   - 173
   - 174
   - 175
+  toc_check:
+    entries: 7
+    found: 3
+    share: 0.429
+    shifted: 0
+    on_filler: 0
+    unclaimed: 87
+    pages: 172
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -67,7 +76,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Slysatrygging samkvæmt lögum um almannatryggingar
   authors:
   - Arnljótur Björnsson
@@ -98,7 +109,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Sænsku stjórnsýslulögin frá 1971
   authors:
   - Eiríkur Tómasson
@@ -129,7 +142,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Frá Lögfræðingafélagi íslands
   authors:
   - Jónatan Þórmundsson
@@ -160,7 +175,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Aðalfundur 1975 með fræðilegum þætti — Skýrsla um félagsstörfin 1974—1975 ra Bandalagi háskólamanna
   authors:
   - Magnús Thoroddsen
@@ -191,7 +208,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Ráðstefna um atvinnumál háskólamanna — Nýr aðalkjarasamningur ra Lagadeild Háskólans
   authors:
   - Kjartan Gunnarsson
@@ -222,7 +241,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: ®i°f til lagadeildar — Orator A v'ð og dreif
   authors: []
   author_titles: []
@@ -254,3 +275,5 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Félagið íslensk réttarvernd“) er annar titill en skrárinnar („®i°f til lagadeildar
     — Orator A v''ð og dreif“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

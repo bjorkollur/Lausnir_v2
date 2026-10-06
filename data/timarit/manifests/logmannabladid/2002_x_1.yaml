@@ -22,6 +22,15 @@ page_map:
   - 12
   - 17
   - 20
+  toc_check:
+    entries: 4
+    found: 0
+    share: 0.0
+    shifted: 3
+    on_filler: 0
+    unclaimed: 9
+    pages: 27
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
@@ -61,6 +70,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Fjöldi og samsetning félagsmanna í Lögmannafélagi Íslands í lok starfsársins 2001-2002“)
     er annar titill en skrárinnar („Ónákvæmni í dómsorði Bls.“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Mismunandi forræði á beiðni um dómkvatt mat Bls.
   authors:
   - Björn L. Bergsson
@@ -94,6 +105,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Ónákvæmni í dómsorði“) er annar titill en skrárinnar („Mismunandi forræði á beiðni
     um dómkvatt mat Bls.“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: „Handbókarlögfræði“ Bls.
   authors:
   - Þórður Bogason
@@ -129,6 +142,8 @@ articles:
     enda þar'
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Mismunandi forræði á beiðni um dómkvatt mat“) er annar titill en skrárinnar („„Handbókarlögfræði“
     Bls.“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Hópurinn sem sæmdur var gullmerki LMFÍ á 90 ára afmæli félagsins.
   authors: []
   author_titles: []
@@ -162,3 +177,5 @@ articles:
     ekki; greinin er talin enda þar'
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („„Handbókarlögfræði“ Um lagasnið og tilvísanir til lagagreina“) er annar titill en
     skrárinnar („Hópurinn sem sæmdur var gullmerki LMFÍ á 90 ára afmæli félagsins.“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

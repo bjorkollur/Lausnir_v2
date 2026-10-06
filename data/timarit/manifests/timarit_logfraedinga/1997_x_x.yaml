@@ -69,6 +69,16 @@ page_map:
   - 360
   - 361
   - 362
+  - 363
+  toc_check:
+    entries: 21
+    found: 20
+    share: 0.952
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 361
+    by_proxy: 0
 status: review
 confidence: 0.2
 error: null

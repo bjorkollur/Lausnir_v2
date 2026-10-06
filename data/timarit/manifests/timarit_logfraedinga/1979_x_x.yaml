@@ -48,6 +48,15 @@ page_map:
   - 247
   - 248
   - 249
+  toc_check:
+    entries: 23
+    found: 18
+    share: 0.783
+    shifted: 0
+    on_filler: 0
+    unclaimed: 4
+    pages: 248
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -83,7 +92,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Um starfsstjórnir
   authors:
   - Björn Bjarnason
@@ -115,7 +126,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögfræðingafélagi íslands
   authors:
   - Jón Steinar Gunnlaugsson
@@ -147,7 +160,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Aðalfundur Lögfræðingafélags íslands Frá Bandalagi háskólamanna
   authors: []
   author_titles: []
@@ -177,7 +192,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: 3. þing BHM — Ráðstefna um llfskjör á íslandi — Orlofshús BHM — Endurskoðun aðalkjarasamnings Á víð og dreif
   authors:
   - Ólafur St. Sigurðsson
@@ -213,6 +230,8 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „KJÖRIÐ í HAAG-DÓMSTÓLINN“ á bls. 42 sem skráin nefnir ekki; greinin er talin enda þar'
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Aðalfundur dómarafélags Íslands 1978“) er annar titill en skrárinnar („3. þing BHM
     — Ráðstefna um llfskjör á íslandi — Orlofshús BHM — Endurskoðun aðalkjarasamnings Á víð og dreif“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Dauflegt á þingi
   authors:
   - Þór Vilhjálmsson
@@ -244,7 +263,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Tengsl vinnuveitanda og starfsmanns sem skilyrði vinnuveitandaábyrgðar
   authors:
   - Arnljótur Björnsson
@@ -276,7 +297,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Réttarstaða sakaðra manna
   authors:
   - Jón Abraham Ólafsson
@@ -309,7 +332,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: höfundar skrárinnar (Jón Abraham Ólafsson) stangast á við síðuna (Jón A. Ólafsson); skránni haldið'
+  - 'á síðunni stendur: Jón A. Ólafsson'
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Geymsluþol blóðsýna, sem tekin eru til ákvörðunar á alkóhóli
   authors:
   - Jóhannes Skaftason
@@ -342,7 +367,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögmannafélagi íslands
   authors: []
   author_titles: []
@@ -372,7 +399,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Dómsmálaskýrslur
   authors:
   - Þór Vilhjálmsson
@@ -404,7 +433,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Kjartan Þórðarson
   authors:
   - Högni Jónsson
@@ -438,6 +469,8 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 103–104
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Umhverfisréttur á Norðurlöndum
   authors:
   - Gunnar G. Schram
@@ -469,7 +502,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Ábyrgð vegna sjálfstæðra verktaka í bandarískum bótarétti
   authors:
   - Arnljótur Björnsson
@@ -501,7 +536,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Norræna embættismannasambandið
   authors:
   - Hjalti Zóphóníasson
@@ -533,7 +570,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Norræna embættismannasambandið Frá Lagadeild Háskólans
   authors:
   - Gunnar G. Schram
@@ -567,6 +606,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Sefur þú á peningum?“ á pdf-síðu 175 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Bagaleg óvissa
   authors:
   - Þór Vilhjálmsson
@@ -598,7 +639,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Um hvað á að fjalla í stjórnarskránni?
   authors:
   - Þór Vilhjálmsson
@@ -630,7 +673,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Mannréttindahátíð í Strasbourg
   authors: []
   author_titles: []
@@ -660,7 +705,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Bótaábyrgð vegna vinnuslysa, sem hljótast af athöfnum sjálfstæðra framkvæmdaaðila eða af bilun eða galla í tæki
   authors:
   - Arnljótur Björnsson
@@ -692,7 +739,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Alkóhól (etanól) í blóði eftir drykkju áfengis fastandi og að lokinni máltíð
   authors:
   - Jóhannes Skaftason
@@ -725,7 +774,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Deilan um Jan Mayen, kröfur Norðmanna og réttur íslendinga
   authors:
   - Gunnar G. Schram
@@ -757,7 +808,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Málþing dómarafélags Íslands 1979
   authors:
   - Ólafur St. Sigurðsson
@@ -792,6 +845,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „AÐALFUNDUR DÓMARAFÉLAGS ÍSLANDS 1979“ á bls. 217 sem skráin nefnir ekki; greinin er
     talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Störf fullnustumatsnefndar Frá Lagadeild Háskólans
   authors:
   - Sigurður Líndal
@@ -826,6 +881,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Frá Lagadelld lláskólaiis SKÝRSLA UM LAGASTOFNUN HÁSKÓLA ÍSLANDS“) er annar titill
     en skrárinnar („Störf fullnustumatsnefndar Frá Lagadeild Háskólans“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Frá Lögfræðingafélagi íslands
   authors: []
   author_titles: []
@@ -855,4 +912,6 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan

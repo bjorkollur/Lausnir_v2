@@ -21,6 +21,7 @@ page_map:
   non_article:
   - 10
   - 11
+  - 18
   - 23
   - 29
   - 30
@@ -375,11 +376,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 18
-  page_end: 19
+  page_end: 18
   issue: null
   pdf_pages:
   - 17
-  - 18
+  - 17
   lang: is
   date: null
   summary: null
@@ -398,9 +399,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 19 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  analysis_notes: []
 - title: Kostir þess að vera í Stéttarfélagi lögfræðinga
   authors:
   - Alda Hrönn Jóhannsdóttir

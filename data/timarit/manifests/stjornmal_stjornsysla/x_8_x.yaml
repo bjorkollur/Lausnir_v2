@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.569
 status: review
-confidence: 0
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/109-132_Iceland_and_the_EU’s_Common_Security_and.pdf
@@ -59,22 +59,24 @@ articles:
   keywords: []
   provenance:
     title: page
-    pages: filename
-    issue: page
     authors: page
+    pages: filename+page
+    issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/5-38_Iceland’s_external_affairs_in_the_Middle.pdf
   note: ''
   analysis_notes: []
-- title: Development of Income Distribution in Ic
-  authors: []
+- title: Þróun tekjuskiptingarinnar á Íslandi 1992–2010
+  authors:
+  - Stefán Ólafsson
+  - Arnaldur Sölvi Kristjánsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 39
@@ -88,15 +90,16 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
-    pages: filename
+    title: page
+    authors: page
+    pages: filename+page
     issue: page
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/39-72_Development_of_Income_Distribution_in_Ic.pdf
@@ -120,21 +123,22 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/73-92_Seasonal_rural_residence_of_Icelandic_ch.pdf
   note: ''
   analysis_notes: []
-- title: A Review of the Current Situation of
-  authors: []
+- title: Yfirlit um stöðu og áhrif jafnari kynjahlutfalla við stjórnun og í stjórnum fyrirtækja
+  authors:
+  - Jón Snorri Snorrason
   author_titles: []
   article_type: Fræðigrein
   page_start: 93
@@ -148,23 +152,25 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
-    pages: filename
+    title: page
+    authors: page
+    pages: filename+page
     issue: page
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/93-108_A_Review_of_the_Current_Situation_of.pdf
   note: ''
   analysis_notes: []
-- title: 'Iceland and the EU’s Common Security and Defence Policy: Challenge or Opportunity? Alyson JK Bailes, Adjunct Professor
-    UI and Örvar Þ. Rafnsson, Graduate in Political Science UI'
-  authors: []
+- title: 'Iceland and the EU’s Common Security and Defence Policy: Challenge or Opportunity?'
+  authors:
+  - Alyson JK Bailes
+  - Örvar Þ. Rafnsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 109
@@ -179,21 +185,23 @@ articles:
   keywords: []
   provenance:
     title: page
-    pages: filename
+    authors: page
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/109-132_Iceland_and_the_EU’s_Common_Security_and.pdf
   note: ''
   analysis_notes: []
-- title: New Public Management
-  authors: []
+- title: 'Nýskipan í ríkisrekstri: Þjónustusamningar hins opinbera og réttarstaða notenda þjónustu'
+  authors:
+  - Eva Marín Hlynsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 133
@@ -207,22 +215,25 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
-    pages: filename
+    title: page
+    authors: page
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/133-152_New_Public_Management.pdf
   note: ''
   analysis_notes: []
-- title: Policy Making and Planning within Minist
-  authors: []
+- title: Stefnumótun og áætlanagerð ráðuneyta Leiðir að einföldun og samhæfingu
+  authors:
+  - Héðinn Unnsteinsson
+  - Pétur Berg Matthíasson
   author_titles: []
   article_type: Fræðigrein
   page_start: 153
@@ -236,22 +247,24 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
-    pages: filename
+    title: page
+    authors: page
+    pages: filename+page
     issue: page
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/153-172_Policy_Making_and_Planning_within_Minist.pdf
   note: ''
   analysis_notes: []
-- title: A Time to Connect  On Tourism Policy
-  authors: []
+- title: Tími til að tengja? Af stefnumótun í ferðaþjónustu á Íslandi
+  authors:
+  - Gunnar Þór Jóhannesson
   author_titles: []
   article_type: Fræðigrein
   page_start: 173
@@ -265,22 +278,24 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
-    pages: filename
+    title: page
+    authors: page
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/173-194_A_Time_to_Connect__On_Tourism_Policy.pdf
   note: ''
   analysis_notes: []
-- title: The New Feminist Movement in the Nordic
-  authors: []
+- title: Nýja kvennahreyfingin á Norðurlöndum á áttunda áratug 20. aldar
+  authors:
+  - Sigríður Matthíasdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 195
@@ -294,22 +309,24 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
-    pages: filename
+    title: page
+    authors: page
+    pages: filename+page
     issue: page
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/195-218_The_New_Feminist_Movement_in_the_Nordic.pdf
   note: ''
   analysis_notes: []
-- title: Welfare and Justice Abstract
-  authors: []
+- title: Lífskjör og réttlæti
+  authors:
+  - Ólafur Páll Jónsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 219
@@ -324,21 +341,23 @@ articles:
   keywords: []
   provenance:
     title: page
-    pages: filename
+    authors: page
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/219-230_Welfare_and_Justice.pdf
   note: ''
   analysis_notes: []
-- title: Limitation on the ownership of foreign parties of real estate
-  authors: []
+- title: Takmarkanir á eignarráðum erlendra aðila yfir fasteignum á Íslandi
+  authors:
+  - Eyvindur G. Gunnarsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 231
@@ -353,14 +372,15 @@ articles:
   keywords: []
   provenance:
     title: page
-    pages: filename
+    authors: page
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/231-252_Limitation_on_the_ownership_of_foreign_p.pdf
@@ -384,14 +404,14 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/199-220_The_left-right_dimension_in_the_minds_of.pdf
@@ -417,23 +437,23 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/221-244_What_were_the_voters_thinking__The_presi.pdf
   note: ''
   analysis_notes: []
-- title: F-Word or Blueprint for Institutional Reform? European Integration and the Reform? European Integration and the Continued
-    Relevance of Federalism
+- title: F-Word or Blueprint for Institutional Reform? European Integration and the Continued Relevance of Federalism
   authors:
   - Maximilian Conrad
+  - Freyja Steingrímsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 245
@@ -449,20 +469,20 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/245-264_F-Word_or_Blueprint_for_Institutional_Re.pdf
   note: ''
   analysis_notes: []
-- title: Akademískt frelsi1 Akademískt frelsi1 Akademískt frelsi
+- title: Akademískt frelsi
   authors:
   - Guðmundur Heiðar Frímannsson
   author_titles: []
@@ -480,21 +500,24 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/265-280_Academic_freedom.pdf
   note: ''
   analysis_notes: []
-- title: The Public Role of Universities
-  authors: []
+- title: Samfélagslegt hlutverk háskóla
+  authors:
+  - Trausti Þorsteinsson
+  - Sigurður Kristinsson
+  - Hjördís Sigursteinsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 281
@@ -508,22 +531,25 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
-    pages: filename
+    title: page
+    authors: page
+    pages: filename+page
     issue: page
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/281-302_The_Public_Role_of_Universities.pdf
   note: ''
   analysis_notes: []
-- title: Current status and trajectories of e-government in Iceland
-  authors: []
+- title: Staða og þróun rafrænnar stjórnsýslu á Íslandi skv. alþjóðlegum mælingum
+  authors:
+  - Haukur Arnþórsson
+  - Ómar H. Kristmundsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 303
@@ -538,14 +564,15 @@ articles:
   keywords: []
   provenance:
     title: page
-    pages: filename
+    authors: page
+    pages: page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/303-322_Current_status_and_trajectories_of_e-gov.pdf
@@ -570,21 +597,22 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/323-342_Icelandic_newspapers_in_light_of_Sparks’.pdf
   note: ''
   analysis_notes: []
-- title: Knowledge management in administratitve
-  authors: []
+- title: Þekkingarmiðlun í stjórnsýslu sveitarfélaga
+  authors:
+  - Hildur Ösp Gylfadóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 343
@@ -598,22 +626,24 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
-    pages: filename
+    title: page
+    authors: page
+    pages: filename+page
     issue: page
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/343-366_Knowledge_management_in_administratitve.pdf
   note: ''
   analysis_notes: []
-- title: The Icelandic media coverage of the
-  authors: []
+- title: The Icelandic media coverage of the constitutional assembly election
+  authors:
+  - Guðbjörg Hildur Kolbeins
   author_titles: []
   article_type: Fræðigrein
   page_start: 367
@@ -628,21 +658,25 @@ articles:
   keywords: []
   provenance:
     title: page
-    pages: filename
+    authors: page
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/367-388_The_Icelandic_media_coverage_of_the_cons.pdf
   note: ''
   analysis_notes: []
-- title: The effects of cutbacks on motivation an
-  authors: []
+- title: Áhrif niðurskurðar á starfshvata og innbyrðis þekkingarmiðlun heilsugæsluhjúkrunarfræðinga
+  authors:
+  - Emilía Jarþrúður Einarsdóttir
+  - Ingi Rúnar Eðvarðsson
+  - Sigríður Halldórsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 389
@@ -656,23 +690,25 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: filename
-    pages: filename
+    title: page
+    authors: page
+    pages: filename+page
     issue: page
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/389-412_The_effects_of_cutbacks_on_motivation_an.pdf
   note: ''
   analysis_notes: []
-- title: The Faroe Islands’ Security Policy in a The Faroe Islands’ Security Policy in a The Faroe Islands’ Security Policy
-    in a Process of Devolution Process of Devolution Process of Devolution.1
-  authors: []
+- title: The Faroe Islands’ Security Policy in a Process of Devolution
+  authors:
+  - Beinta í Jákupsstovu
+  - Regin Berg
   author_titles: []
   article_type: Fræðigrein
   page_start: 413
@@ -687,14 +723,15 @@ articles:
   keywords: []
   provenance:
     title: page
-    pages: filename
+    authors: page
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/413-430_The_Faroe_Islands’_Security_Policy_in_a.pdf
@@ -718,22 +755,23 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/431-450_Reinforcing_the_municipal_level_in_Icela.pdf
   note: ''
   analysis_notes: []
-- title: Er álið málið? Samfélagsbreytingar og atvinnumöguleikar kvenna á Austurlandi atvinnumöguleikar kvenna á Austurlandi
+- title: Er álið málið? Samfélagsbreytingar og atvinnumöguleikar kvenna á Austurlandi
   authors:
   - Tinna Kristbjörg Halldórsdóttir
+  - Guðbjörg Linda Rafnsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 451
@@ -749,14 +787,14 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/451-468_Smelter_Jobs__Societal_changes_and_emplo.pdf
@@ -782,21 +820,22 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/469-490_Will_you_still_need_me,_will_you.pdf
   note: ''
   analysis_notes: []
-- title: Towards a Better Understanding of Climate
-  authors: []
+- title: Towards a Better Understanding of Climate Change Negotiations
+  authors:
+  - Daði Már Kristófersson
   author_titles: []
   article_type: Fræðigrein
   page_start: 491
@@ -811,19 +850,21 @@ articles:
   keywords: []
   provenance:
     title: page
-    pages: filename
+    authors: page
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.35
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/491-514_Towards_a_Better_Understanding_of_Climat.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Daði Már Kristófersson) stangast á við síðuna (Bryndís Arndal Woods); skránni haldið'
 - title: Skipulag íslenskra fyrirtækja 2004-2007
   authors:
   - Einar Svansson
@@ -844,20 +885,20 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/515-542_Organizational_structure_in_Icelandic_co.pdf
   note: ''
   analysis_notes: []
-- title: Vulnerability of pension fund balances1 Vulnerability of pension fund balances
+- title: Vulnerability of pension fund balances
   authors:
   - Ólafur Ísleifsson
   author_titles: []
@@ -875,14 +916,14 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: filename+page
     issue: page
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/543-564_Vulnerability_of_pension_fund_balances.pdf

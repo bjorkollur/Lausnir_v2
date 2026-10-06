@@ -44,8 +44,6 @@ page_map:
   - 203
   - 204
   - 205
-  - 245
-  - 246
   - 283
   - 287
   - 288
@@ -56,6 +54,15 @@ page_map:
   - 293
   - 294
   - 295
+  toc_check:
+    entries: 7
+    found: 4
+    share: 0.571
+    shifted: 0
+    on_filler: 0
+    unclaimed: 185
+    pages: 295
+    by_proxy: 0
 status: review
 confidence: 0
 error: null
@@ -91,6 +98,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Dómaskipan Danmerkur, Svíþjóðar og Noregs
   authors:
   - Hrafn Bragason
@@ -124,6 +133,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 5 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Hvaða tilgangi þjóna lögregluskýrslur í dómsmáli?
   authors:
   - Ingibjörg Benediktsdóttir
@@ -157,6 +168,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 22 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Samræmdtúlkun Luganosamningsins
   authors:
   - Stefán Már Stefánsson
@@ -190,6 +203,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 33 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Skýrsla stjórnar Dómarafélags íslands á aöalfundi 1992
   authors: []
   author_titles: []
@@ -222,6 +237,8 @@ articles:
   analysis_notes:
   - 'upphafsbls. 43 fannst ekki: blaðsíðutal skjalsins óljóst'
   - 'FRÁVIK: efnisyfirlitið segir bls. 43; greinin fannst eftir titli sínum á bls. 55'
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Aðalfundur Dómarafélags (slands 1992
   authors: []
   author_titles: []
@@ -251,6 +268,8 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 60 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Dómsmálaþing 1992
   authors: []
   author_titles: []
@@ -280,3 +299,5 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 62 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

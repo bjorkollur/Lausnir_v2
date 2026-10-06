@@ -31,6 +31,15 @@ page_map:
   - 177
   - 178
   - 179
+  toc_check:
+    entries: 5
+    found: 5
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 43
+    pages: 179
+    by_proxy: 0
 status: review
 confidence: 0.65
 error: null
@@ -67,7 +76,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Almenna bannreglan um fjárhagslega aðstoð hlutafélaga til tengdra aðila
   authors:
   - Jónas Ástþór Hafsteinsson
@@ -98,7 +109,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: 'Beðið eftir mannréttindum: Vistun fatlaðs fólks á spítala vegna skorts á viðeigandi búsetuúrræðum'
   authors:
   - Kári Hólmar Ragnarsson
@@ -129,7 +142,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Um tillögur að breytingum á mannréttindakafla stjórnarskrárinnar
   authors: []
   author_titles: []
@@ -161,6 +176,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Vandræðagangur í Paradís: Af umhverfisákvæði fyrir stjórnarskrá“ á bls. 517 sem skráin
     nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan
 - title: Skýrsla stjórnar Orators skólaárið 2022–2023
   authors: []
   author_titles: []
@@ -191,3 +208,5 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 538 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude ekki kominn;
+    efnisyfirlitinu haldið á meðan

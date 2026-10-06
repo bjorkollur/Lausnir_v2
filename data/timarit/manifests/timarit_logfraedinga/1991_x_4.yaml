@@ -30,6 +30,15 @@ page_map:
   - 65
   - 66
   - 67
+  toc_check:
+    entries: 5
+    found: 0
+    share: 0.0
+    shifted: 4
+    on_filler: 0
+    unclaimed: 5
+    pages: 67
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -69,6 +78,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögfræðinga“) er annar titill en skrárinnar („Skaösemisábyrgö“); titli skrárinnar
     haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Kenningarograunveruleiki
   authors:
   - Jón Steinar Gunnlaugsson
@@ -102,6 +113,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Skaðsemisábyrgð“) er annar titill en skrárinnar („Kenningarograunveruleiki“); titli
     skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Tilkynningaskylda víxilhafa viö greiðslufall víxils
   authors:
   - Páll Hreinsson
@@ -135,6 +148,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Kenningar og raunveruleiki“) er annar titill en skrárinnar („Tilkynningaskylda víxilhafa
     viö greiðslufall víxils“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Á víð og dreif Frá Dómarafélagi íslands
   authors: []
   author_titles: []
@@ -166,6 +181,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Tilkynningaskylda víxilhafa við greiðslu-fall víxils“) er annar titill en skrárinnar
     („Á víð og dreif Frá Dómarafélagi íslands“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Leiörétting
   authors: []
   author_titles: []
@@ -197,3 +214,5 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Gizurarson bœjarfógeti Akranesi. 21 Már Pétursson bœjarfóget“ á bls. 275 sem skráin
     nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan

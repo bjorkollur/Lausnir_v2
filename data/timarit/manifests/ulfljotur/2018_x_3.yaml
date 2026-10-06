@@ -51,7 +51,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 331, prentað bls. 329'
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
 - title: 'Samningar sem hafa að markmiði að raska samkeppni: Dómur EFTA-dómstólsins í máli E-3/16'
   authors:
   - Peter Dalmay
@@ -81,8 +80,7 @@ articles:
   xlsx_row: 87
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201831.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: null
   authors: []
   author_titles: []
@@ -111,7 +109,6 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.50)
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
 - title: Áhrif(aleysi) ólögfestra mann-
   authors: []
   author_titles: []
@@ -141,7 +138,6 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.37)
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
 - title: Lagasnið lagafrumvarpa
   authors: []
   author_titles: []
@@ -171,7 +167,6 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.57)
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'
 - title: null
   authors: []
   author_titles: []
@@ -200,4 +195,3 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.36)
-  - 'árgangur reiknaður út frá ári: 71. árg. (2018); ekkert prentað árgangsnúmer fannst'

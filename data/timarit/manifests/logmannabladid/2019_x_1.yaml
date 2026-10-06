@@ -25,6 +25,15 @@ page_map:
   - 41
   - 42
   - 43
+  toc_check:
+    entries: 10
+    found: 9
+    share: 0.9
+    shifted: 0
+    on_filler: 1
+    unclaimed: 0
+    pages: 42
+    by_proxy: 2
 status: review
 confidence: 0.3
 error: null
@@ -185,7 +194,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir viðmælanda
 - title: Lagadagur Málstofur
   authors: []
   author_titles: []

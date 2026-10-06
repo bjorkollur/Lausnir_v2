@@ -50,8 +50,7 @@ articles:
   xlsx_row: 313
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3252.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Dómstóll götunnar - Gapastokkur nútímans
   authors:
   - Jón Þór Ólason
@@ -81,8 +80,7 @@ articles:
   xlsx_row: 314
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3253.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Mótun Hæstaréttar Islands á gildissviði 36. gr. samningalaganna
   authors:
   - Matthías G. Pálsson
@@ -112,8 +110,7 @@ articles:
   xlsx_row: 315
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3255.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Yfirlit yfir helstu dóma Evrópudómstólanna og EFTA-dómstólsins á árinu 2003
   authors:
   - Dóra Sif Tynes
@@ -144,8 +141,7 @@ articles:
   xlsx_row: 316
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3256.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Aðferðir við skipun hæstaréttardómara
   authors:
   - Ragnar Halldór Hall
@@ -177,7 +173,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 474, prentað bls. 473'
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
 - title: Skipan hæstaréttardómara - Stjórnvaldsákvörðun
   authors:
   - Ragnar Halldór Hall
@@ -207,8 +202,7 @@ articles:
   xlsx_row: 317
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3259.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Skipan hæstaréttardómara - Pólitísk ákvörðun
   authors:
   - Sveinn Andri Sveinsson
@@ -238,5 +232,4 @@ articles:
   xlsx_row: 318
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2004_3_tbl/3260.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 57. árg. (2004); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []

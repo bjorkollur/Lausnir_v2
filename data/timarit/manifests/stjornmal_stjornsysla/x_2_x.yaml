@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.813
 status: review
-confidence: 0.65
+confidence: 0.8
 error: null
 files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/129-156_Increasing_Inequality_in_Iceland.pdf
@@ -226,15 +226,15 @@ articles:
   keywords: []
   provenance:
     title: page
+    authors: page
     pages: filename+page
     issue: page
-    authors: page
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.8
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol02/157-174_Ministerial_autonomy_and_parliamentary_g.pdf

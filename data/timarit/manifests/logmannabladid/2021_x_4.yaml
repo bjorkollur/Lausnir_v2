@@ -24,6 +24,15 @@ page_map:
   - 22
   - 26
   - 34
+  toc_check:
+    entries: 11
+    found: 9
+    share: 0.818
+    shifted: 0
+    on_filler: 0
+    unclaimed: 3
+    pages: 34
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -189,9 +198,7 @@ articles:
   analysis_notes: []
 - title: VIÐTAL VIÐ HELGU KRISTÍNU AUÐUNSDÓTTUR Staðbundnar venjur og samþjöppun eignarhalds ræður hegðun fjárfesta í mun
     ríkari mæli en regluverkið
-  authors:
-  - Helga Kristín Auðunsdóttir
-  - New York
+  authors: []
   author_titles: []
   article_type: Viðtal
   page_start: 16
@@ -208,7 +215,6 @@ articles:
     title: toc
     article_type: toc
     pages: toc
-    authors: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -221,8 +227,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: VIÐTAL VIÐ MARÍU RÚN BJARNADÓTTUR Þurfum vakandi lögfræðinga til að stafræn þróun verði í þágu réttarríkisins
-  authors:
-  - María Rún Bjarnadóttir
+  authors: []
   author_titles: []
   article_type: Viðtal
   page_start: 20
@@ -239,7 +244,6 @@ articles:
     title: toc
     article_type: toc
     pages: toc
-    authors: page
   checks:
     title_on_page: true
     printed_page_match: true

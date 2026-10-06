@@ -54,8 +54,7 @@ articles:
   xlsx_row: 356
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/100.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Fordæmi Hæstaréttar og EFTA-dómstólsins. Nokkur orð um dóm Hæstaréttar 25. október 2001
   authors:
   - Skúli Magnússon
@@ -85,8 +84,7 @@ articles:
   xlsx_row: 357
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/658.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Um valdmörk dómstóla
   authors:
   - Jón Steinar Gunnlaugsson
@@ -116,8 +114,7 @@ articles:
   xlsx_row: 358
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/400.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Hugtakið innherji
   authors:
   - Aðalsteinn E. Jónasson
@@ -147,8 +144,7 @@ articles:
   xlsx_row: 359
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/701.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Í 53. árgangi Úlfljóts birtist í fyrsta sinn annáll Mannréttindadómstóls Evrópu
   authors:
   - Páll Þórhallsson
@@ -180,7 +176,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 301, prentað bls. 262'
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
 - title: Yfirlit yfir helstu dóma Evrópudómstólanna og EFTA-dómstólsins á árinu 2001
   authors:
   - Dóra Sif Tynes
@@ -215,7 +210,6 @@ articles:
   analysis_notes:
   - 'FRÁVIK: höfundar skrárinnar (Dóra Sif Tynes, Gunnar Þór Pétursson, Martin Eyjólfsson) stangast á við síðuna (Dóra Sifog
     Gunnar Þór); skránni haldið'
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
 - title: Annáll Mannréttindadómstóls Evrópu
   authors:
   - Páll Þórhallsson
@@ -245,8 +239,7 @@ articles:
   xlsx_row: 361
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3095.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Innherjadómurinn
   authors:
   - Ragnar Jónasson
@@ -276,8 +269,7 @@ articles:
   xlsx_row: 362
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3097.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []
 - title: Stjornsyslubalkur
   authors: []
   author_titles: []
@@ -307,7 +299,6 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.50)
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
 - title: Dómur Hæstaréttar frá 14. mars 2002
   authors:
   - Páll Hreinsson
@@ -337,5 +328,4 @@ articles:
   xlsx_row: 363
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3100.pdf
   note: ''
-  analysis_notes:
-  - 'árgangur reiknaður út frá ári: 55. árg. (2002); ekkert prentað árgangsnúmer fannst'
+  analysis_notes: []

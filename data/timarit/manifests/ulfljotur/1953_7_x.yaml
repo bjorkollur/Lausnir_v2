@@ -57,8 +57,7 @@ articles:
   xlsx_row: 1195
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/337.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1953 ≠ prentað ár 1954
+  analysis_notes: []
 - title: Fangahjálpin
   authors:
   - Oscar Clausen
@@ -89,8 +88,7 @@ articles:
   xlsx_row: 1196
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/481.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1953 ≠ prentað ár 1954
+  analysis_notes: []
 - title: Old Bailey
   authors:
   - Halldór Jónatansson
@@ -121,8 +119,7 @@ articles:
   xlsx_row: 1197
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/105.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1953 ≠ prentað ár 1954
+  analysis_notes: []
 - title: Tanker om erstatning og forsikring
   authors:
   - Henry Ussing
@@ -153,8 +150,7 @@ articles:
   xlsx_row: 1198
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/298.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1953 ≠ prentað ár 1954
+  analysis_notes: []
 - title: Det norske sivillovbok-arbeidet
   authors:
   - Knut Robberstad
@@ -185,8 +181,7 @@ articles:
   xlsx_row: 1199
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/106.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1953 ≠ prentað ár 1954
+  analysis_notes: []
 - title: Straffelagsreformen i Sverige
   authors:
   - Nils Beckman
@@ -219,7 +214,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 33, prentað bls. 27'
-  - möppuár 1953 ≠ prentað ár 1954
 - title: Den islandske fiskerigrænse fra folkeretslig synspunkt
   authors:
   - Hans G. Andersen
@@ -252,7 +246,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 43, prentað bls. 34'
-  - möppuár 1953 ≠ prentað ár 1954
 - title: Löggjöfin um réttindi og skyldur starfsmanna ríkisins. Yfirlit um aðdraganda, undirbúning og efni þeirrar löggjafar
   authors:
   - Gunnar Thoroddsen
@@ -283,8 +276,7 @@ articles:
   xlsx_row: 1202
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/617.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1953 ≠ prentað ár 1954
+  analysis_notes: []
 - title: Mál Gríms Bergssonar
   authors:
   - Ólafur Lárusson
@@ -315,8 +307,7 @@ articles:
   xlsx_row: 1203
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/48.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1953 ≠ prentað ár 1954
+  analysis_notes: []
 - title: Fangelsismál landsins 1927
   authors:
   - Björn Þórðarson
@@ -347,8 +338,7 @@ articles:
   xlsx_row: 1204
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/482.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1953 ≠ prentað ár 1954
+  analysis_notes: []
 - title: Um lagaskólann
   authors:
   - Ármann Snævarr
@@ -379,8 +369,7 @@ articles:
   xlsx_row: 1205
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/49.pdf
   note: ''
-  analysis_notes:
-  - möppuár 1953 ≠ prentað ár 1954
+  analysis_notes: []
 - title: Yfirlit yfir störf Orators 1953-1954
   authors:
   - Þorvaldur Ari Arason
@@ -413,7 +402,6 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 24, prentað bls. 21'
-  - möppuár 1953 ≠ prentað ár 1954
 - title: Til laganema
   authors:
   - Örn Þór
@@ -447,4 +435,3 @@ articles:
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 27, prentað bls. 26'
   - 'FRÁVIK: greinin er undirrituð (Bragi Hannesson) en höfundar skrárinnar eru aðrir (Örn Þór); skránni haldið'
-  - möppuár 1953 ≠ prentað ár 1954

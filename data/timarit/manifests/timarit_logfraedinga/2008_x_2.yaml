@@ -161,7 +161,7 @@ articles:
   analysis_notes: []
 - title: De vestnordiske ombudsmandsmøder
   authors:
-  - Gammeltoft-Hansen, Hans
+  - Hans Gammeltoft-Hansen
   author_titles: []
   article_type: Fræðigrein
   page_start: 199
@@ -189,8 +189,7 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'á síðunni stendur: Hans Gammeltoft-Hansen'
+  analysis_notes: []
 - title: Störf og starfshættir umboðsmanns Alþingis
   authors:
   - Kjartan Bjarni Björgvinsson

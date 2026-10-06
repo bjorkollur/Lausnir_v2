@@ -34,6 +34,15 @@ page_map:
   - 93
   - 94
   - 95
+  toc_check:
+    entries: 5
+    found: 5
+    share: 1.0
+    shifted: 0
+    on_filler: 0
+    unclaimed: 0
+    pages: 95
+    by_proxy: 0
 status: review
 confidence: 0.65
 error: null
@@ -135,7 +144,7 @@ articles:
   analysis_notes: []
 - title: Hugleiðingar um dóm dómstóls EFTA í máli nr. E-16/11, Eftirlitsstofnun EFTA gegn Íslandi, frá 28. janúar 2013
   authors:
-  - Fuchs, Tobias
+  - Tobias Fuchs
   author_titles: []
   article_type: Fræðigrein
   page_start: 185
@@ -156,15 +165,14 @@ articles:
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: true
-  confidence: 0.85
+  confidence: 1.0
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - 'á síðunni stendur: Tobias Fuchs'
+  analysis_notes: []
 - title: Kveðja frá ritstjóra
   authors:
   - Róbert R. Spanó

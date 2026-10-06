@@ -22,6 +22,15 @@ page_map:
   - 4
   - 10
   - 12
+  toc_check:
+    entries: 11
+    found: 0
+    share: 0.0
+    shifted: 8
+    on_filler: 0
+    unclaimed: 0
+    pages: 30
+    by_proxy: 0
 status: review
 confidence: 0.3
 error: null
@@ -63,6 +72,8 @@ articles:
     Íslands“); titli skrárinnar haldið'
   - 'FRÁVIK: greinin er undirrituð (Þyrí Steingrímsdóttir) en höfundar skrárinnar eru aðrir (Anna Lilja Hallgrímsdóttir);
     skránni haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Málþing um skyldur lögmanna gagnvart samfélaginu
   authors:
   - Anna Lilja Hallgrímsdóttir
@@ -96,6 +107,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: greinin er undirrituð (Sigurbjörn Magnússon) en höfundar skrárinnar eru aðrir (Anna Lilja Hallgrímsdóttir); skránni
     haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Málþing um skyldur lögmanna gagnvart samfélaginu
   authors:
   - Reimar Pétursson
@@ -126,7 +139,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: 'Lagadagurinn 2016 Haukur Örn Birgisson: Eitthvað fyrir'
   authors: []
   author_titles: []
@@ -158,6 +173,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lög um stofnun millidómstigs samþykkt“) er annar titill en skrárinnar („Lagadagurinn
     2016 Haukur Örn Birgisson: Eitthvað fyrir“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: 'Aðalmálstofa Lagadagsins 2016: Hver á síðasta orðið?'
   authors:
   - Guðríður Lára Þrastardóttir
@@ -193,6 +210,8 @@ articles:
     Hver á síðasta orðið?“); titli skrárinnar haldið'
   - 'FRÁVIK: greinin er undirrituð (Fannar Guðjónsson) en höfundar skrárinnar eru aðrir (Guðríður Lára Þrastardóttir); skránni
     haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: 'Málstofa: Persónuvernd á tímum tæknibyltingar'
   authors:
   - Eva Halldórsdóttir
@@ -226,6 +245,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hver á síðasta orðið?“) er annar titill en skrárinnar („Málstofa: Persónuvernd á
     tímum tæknibyltingar“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: 'Málstofa: Eftirlitshlutverk stjórnvalda'
   authors:
   - Þórhildur Líndal
@@ -256,7 +277,9 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Er breytinga þörf á skaðabótalögum?
   authors:
   - Ingvi Snær Einarsson
@@ -290,6 +313,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Málstofa: Eftirlitshlutverk stjórnvalda“) er annar titill en skrárinnar („Rökstólar:
     Er breytinga þörf á skaðabótalögum?“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: 'Málstofa: EES-samningurinn - Hreyfiafl breytinga?'
   authors:
   - Jóhanna Bryndís Bjarnadóttir
@@ -323,6 +348,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Er breytinga þörf á skaðabótalögum?“) er annar titill en skrárinnar („Málstofa: EES-samningurinn
     - Hreyfiafl breytinga?“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Örmálstofur
   authors:
   - Þyrí Steingrímsdóttir
@@ -356,6 +383,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Málstofa: EES-samningurinn – Hreyfiafl breytinga?“) er annar titill en skrárinnar
     („Örmálstofur“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: 'Málstofa: Bankahrunsdómarnir'
   authors:
   - Þyrí Steingrímsdóttir
@@ -389,6 +418,8 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Örmálstofur“) er annar titill en skrárinnar („Málstofa: Bankahrunsdómarnir“); titli
     skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
 - title: Á léttum nótum Af Merði lögmanni 12 2 LÖGMANNABLAÐIÐ TBL 02/16
   authors: []
   author_titles: []
@@ -420,3 +451,5 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Bankahrunsmálstofa“) er annar titill en skrárinnar („Á léttum nótum Af Merði lögmanni
     12 2 LÖGMANNABLAÐIÐ TBL 02/16“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
