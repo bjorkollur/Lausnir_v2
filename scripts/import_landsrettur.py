@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import asyncio
 import base64
+import hashlib
 import json
 import logging
 import math
@@ -153,14 +154,71 @@ def _build_document(
 
 # ── DB helpers ────────────────────────────────────────────────────────────────
 
-async def _get_new_ids(session: AsyncSession, source_id: uuid.UUID, candidate_ids: list[str]) -> set[str]:
-    """Return the subset of candidate_ids not yet in the DB."""
+def is_new_ruling(old_date, old_sha: str | None, new_date, new_sha: str | None) -> bool:
+    """island.is serves every ruling of a case — the dómur, a later úrskurður, the
+    second dómur after Hæstiréttur sent the case back — under ONE id, and replaces
+    the content when a newer ruling arrives. Same id with another date AND another
+    PDF is therefore a different ruling; the same PDF under a corrected date, or
+    the same date, is the same ruling updated in place. Without a hash on both
+    sides the difference cannot be told from a corrected date, so nothing is kept."""
+    if old_date is None or new_date is None or old_date == new_date:
+        return False
+    return bool(old_sha and new_sha and old_sha != new_sha)
+
+
+async def _get_new_ids(session: AsyncSession, source_id: uuid.UUID, items: list[dict]) -> set[str]:
+    """Ids of `items` not yet in the DB, or in it with a different verdict date —
+    the latter is a newer ruling that arrived under an id we already hold."""
     from sqlalchemy import text as sa_text
-    rows = (await session.execute(
-        sa_text("SELECT external_id FROM documents WHERE source_id = :sid AND external_id = ANY(:ids)"),
-        {"sid": source_id, "ids": candidate_ids},
-    )).scalars().all()
-    return set(candidate_ids) - set(rows)
+    ids = [v["id"] for v in items]
+    stored = {
+        r[0]: r[1] for r in (await session.execute(
+            sa_text("SELECT external_id, document_date FROM documents "
+                    "WHERE source_id = :sid AND external_id = ANY(:ids)"),
+            {"sid": source_id, "ids": ids},
+        )).all()
+    }
+    new = set()
+    for v in items:
+        have = stored.get(v["id"])
+        listed = (v.get("verdictDate") or "")[:10]
+        if v["id"] not in stored or (have is not None and listed and listed != have.isoformat()):
+            new.add(v["id"])
+    return new
+
+
+async def _archive_replaced_ruling(session: AsyncSession, doc: Document) -> None:
+    """Before the upsert overwrites a row, move it out of the way when `doc` is a
+    different ruling of the same case (see is_new_ruling). The older row keeps its
+    uuid — links, citations and passages follow it — and gets the key
+    `<id>~<its date>`; the id as island.is serves it now stays with the newer one."""
+    from sqlalchemy import text as sa_text
+    row = (await session.execute(
+        sa_text("SELECT id, document_date, url, raw_api_data->>'pdf_sha256' AS sha FROM documents "
+                "WHERE source_id = :sid AND external_id = :e"),
+        {"sid": doc.source_id, "e": doc.external_id},
+    )).mappings().first()
+    if row is None:
+        return
+    pdf_b64 = (doc.raw_api_data or {}).get("pdfString")
+    new_sha = hashlib.sha256(base64.b64decode(pdf_b64)).hexdigest() if pdf_b64 else None
+    if not is_new_ruling(row["document_date"], row["sha"], doc.document_date, new_sha):
+        return
+    archived = f"{doc.external_id}~{row['document_date'].isoformat()}"
+    taken = (await session.execute(
+        sa_text("SELECT 1 FROM documents WHERE source_id = :sid AND external_id = :e"),
+        {"sid": doc.source_id, "e": archived},
+    )).first()
+    if taken:
+        log.warning("Cannot archive older ruling of %s: %s exists", doc.external_id, archived)
+        return
+    url = row["url"] or ""
+    await session.execute(
+        sa_text("UPDATE documents SET external_id = :new, url = :url WHERE id = :id"),
+        {"new": archived, "id": row["id"],
+         "url": url if "#" in url else f"{url}#{row['document_date'].isoformat()}"},
+    )
+    log.info("Kept earlier ruling of %s (%s) as %s", doc.external_id, row["document_date"], archived)
 
 
 async def _ensure_source(session: AsyncSession, config: SourceConfig) -> uuid.UUID:
@@ -315,7 +373,7 @@ async def main(limit: int | None = None, new_only: bool = False) -> None:
                 items = data["items"]
                 if new_only:
                     async with _db_conn.AsyncSessionLocal() as chk:
-                        new_ids = await _get_new_ids(chk, source_id, [v["id"] for v in items])
+                        new_ids = await _get_new_ids(chk, source_id, items)
                     if not new_ids:
                         log.info("Page %d: all %d docs already in DB — stopping", page, len(items))
                         break
@@ -336,6 +394,7 @@ async def main(limit: int | None = None, new_only: bool = False) -> None:
                 # Batch upsert — one transaction per page
                 async with _db_conn.AsyncSessionLocal() as session:
                     for doc in docs:
+                        await _archive_replaced_ruling(session, doc)
                         await _upsert_doc(session, doc)
                     await session.commit()
 
