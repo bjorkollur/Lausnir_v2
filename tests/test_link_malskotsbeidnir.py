@@ -5,10 +5,16 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
+from types import SimpleNamespace
+
 from link_malskotsbeidnir import (
     extract_outcome,
     extract_target,
+    leave_dates,
+    party_names,
     pick_judgment,
+    pick_judgment_by_leave_date,
+    pick_judgment_by_parties,
     pick_lrd,
 )
 
@@ -152,3 +158,93 @@ def test_pick_judgment_takes_the_first_hrd_judgment_after_the_petition():
 def test_pick_judgment_none_when_no_usable_candidate():
     assert pick_judgment([]) is None
     assert pick_judgment([(uuid.uuid4(), None)]) is None
+
+
+# ── leave_dates / pick_judgment_by_leave_date (pass 3) ───────────────────────
+
+def test_leave_dates_reads_the_sentences_hrd_uses():
+    assert leave_dates("... staðfesti Landsréttur. Áfrýjunarleyfi var veitt 27. apríl 2020.") == {date(2020, 4, 27)}
+    assert leave_dates("Með ákvörðun Hæstaréttar 4. maí 2021 var fallist á að málið gæti haft þýðingu") == {date(2021, 5, 4)}
+    assert leave_dates("Leyfi til að áfrýja héraðsdómi beint til Hæstaréttar var veitt 9. mars 2021.") == {date(2021, 3, 9)}
+
+
+def test_leave_dates_ignores_unrelated_dates():
+    assert leave_dates("Áfrýjandi skaut málinu til Hæstaréttar 28. apríl 2020.") == set()
+
+
+def _hrd(id_, d, plaintiffs, defendants, body=""):
+    return SimpleNamespace(id=id_, document_date=d, plaintiffs=plaintiffs, defendants=defendants, body_text=body)
+
+
+def _party(name):
+    return [{"name": name}]
+
+
+def _petition(d, plaintiffs, defendants):
+    return SimpleNamespace(document_date=d, plaintiffs=plaintiffs, defendants=defendants)
+
+
+def test_leave_date_needs_more_than_the_date():
+    """Many petitions are decided the same day: an unrelated judgment is not enough."""
+    day = date(2026, 2, 12)
+    other = _hrd(1, date(2026, 3, 27), _party("Jóhanna Bríet (Lögmaður Eitt lögmaður)"), _party("Finni Birni"))
+    p = _petition(day, _party("Isavia ANS ehf. (Stefán Geir Þórisson lögmaður)"), _party("A (Daníel Isebarn Ágústsson lögmaður)"))
+    assert pick_judgment_by_leave_date(p, None, {day: [other]}, set()) is None
+
+
+def test_leave_date_matches_on_a_shared_party_word():
+    day = date(2020, 4, 27)
+    hrd = _hrd(7, date(2021, 2, 4), _party("Hrafnista Laugarási (Jón lögmaður)"), _party("íslenska ríkinu"))
+    p = _petition(day, _party("Hrafnista, dvalarheimili aldraðra í Reykjavík (Kristinn Hallgrímsson lögmaður)"), _party("íslenska ríkinu"))
+    assert pick_judgment_by_leave_date(p, None, {day: [hrd]}, set()) == 7
+
+
+def test_leave_date_skips_a_judgment_already_claimed_by_another_petition():
+    day = date(2026, 6, 22)
+    hrd = _hrd(9, date(2026, 9, 17), _party("S8 ehf. (Reimar Pétursson lögmaður)"), _party("Reykjavíkurborg"))
+    p = _petition(day, _party("Þrotabú WOW air hf. (Sveinn Andri lögmaður)"), _party("Skúla Mogensen (Reimar Pétursson lögmaður)"))
+    assert pick_judgment_by_leave_date(p, None, {day: [hrd]}, {9}) is None
+
+
+def test_leave_date_leaves_identical_companion_cases_unlinked():
+    day = date(2020, 1, 27)
+    a = _hrd(1, date(2020, 5, 20), _party("A (Þorsteinn Einarsson lögmaður)"), _party("B, C og D (Árni Ármann Árnason lögmaður)"))
+    b = _hrd(2, date(2020, 5, 20), _party("A (Þorsteinn Einarsson lögmaður)"), _party("B, C og D (Árni Ármann Árnason lögmaður)"))
+    p = _petition(day, _party("A (Þorsteinn Einarsson lögmaður)"), _party("B, C og D (Árni Ármann Árnason lögmaður)"))
+    assert pick_judgment_by_leave_date(p, None, {day: [a, b]}, set()) is None
+
+
+# ── pick_judgment_by_parties (pass 4) ────────────────────────────────────────
+
+def _cand(id_, d, names, head=""):
+    return (id_, d, party_names(_party(names)), head)
+
+
+def test_parties_takes_the_first_judgment_after_the_petition():
+    """A later kæra between the same parties is a follow-up, not the judgment the leave produced."""
+    parties = "C hf. og TM tryggingum hf."
+    pet = party_names(_party(parties))
+    first = _cand(1, date(2026, 3, 4), parties)
+    follow_up = _cand(2, date(2026, 6, 1), parties)
+    assert pick_judgment_by_parties(pet, date(2025, 12, 22), [follow_up, first]) == 1
+
+
+def test_parties_refuses_two_judgments_on_the_same_day():
+    parties = "Jin Shan 20 Ireland Company Limited og Skúla Mogensen"
+    pet = party_names(_party(parties))
+    cands = [_cand(1, date(2026, 3, 4), parties), _cand(2, date(2026, 3, 4), parties)]
+    assert pick_judgment_by_parties(pet, date(2025, 12, 22), cands) is None
+
+
+def test_parties_single_shared_name_needs_the_leave_date_in_the_opening():
+    pet = party_names(_party("A (Anna lögmaður)"), _party("Reykjavíkurborg"))
+    without = _cand(1, date(2020, 10, 8), "Reykjavíkurborg")
+    with_date = _cand(2, date(2020, 10, 8), "Reykjavíkurborg", "Leyfi veitt 26. febrúar 2020")
+    assert pick_judgment_by_parties(pet, date(2020, 2, 26), [without]) is None
+    assert pick_judgment_by_parties(pet, date(2020, 2, 26), [without, with_date]) == 2
+
+
+def test_parties_ignores_a_judgment_before_the_petition():
+    pet = party_names(_party("Arev verðbréfafyrirtæki hf. og Arev NII slhf."))
+    old = _cand(1, date(2019, 1, 1), "Arev verðbréfafyrirtæki hf. og Arev NII slhf.")
+    assert pick_judgment_by_parties(pet, date(2022, 4, 1), [old]) is None
