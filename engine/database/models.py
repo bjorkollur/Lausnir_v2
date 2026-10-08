@@ -91,6 +91,10 @@ class Document(Base):
     # malskotsbeidnir only — did Hæstiréttur grant leave to appeal?
     # 'veitt' | 'hafnað' | NULL (no outcome stated, or not this source)
     appeal_outcome: Mapped[str | None] = mapped_column(Text)
+    # malskotsbeidnir only — case number of the Hæstiréttur appeal the granted leave
+    # led to ("51/2025"), read from island.is/s/haestirettur/afryjud-mal while the
+    # case is pending (scripts/sync_pending_hrd_cases.py). NULL otherwise.
+    hrd_case_number: Mapped[str | None] = mapped_column(Text)
 
     # ── Search ────────────────────────────────────────────────────────────────
     embedding: Mapped[Any | None] = mapped_column(Vector(3072))
