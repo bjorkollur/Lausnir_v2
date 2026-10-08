@@ -175,6 +175,160 @@ def pick_judgment(
     return min(dated, key=lambda c: c[1])[0]
 
 
+# Names too generic to identify a case on their own (anonymised initials, the
+# prosecution, the State). Left out of the party comparison in pass 3.
+_GENERIC_PARTIES = {"ákæruvaldið", "íslenska ríkið", "íslenska ríkinu", "ríkissaksóknari"}
+_MONTHS = ["janúar", "febrúar", "mars", "apríl", "maí", "júní",
+           "júlí", "ágúst", "september", "október", "nóvember", "desember"]
+_PARTY_MATCH_MIN = 0.6        # shared / larger party set
+_PARTY_MATCH_YEARS = 3        # a judgment this long after the petition still counts
+
+
+def party_names(*sides) -> set[str]:
+    """Normalised party names from plaintiffs/defendants JSONB, counsel stripped."""
+    out: set[str] = set()
+    for side in sides:
+        for p in side or []:
+            raw = p.get("name") if isinstance(p, dict) else str(p)
+            raw = re.sub(r"\s*\([^)]*\)", "", raw or "")
+            for part in re.split(r",| og ", raw):
+                part = part.strip().lower()
+                if len(part) > 3 and part not in _GENERIC_PARTIES:
+                    out.add(part)
+    return out
+
+
+def pick_judgment_by_parties(
+    petition_parties: set[str],
+    petition_date: date,
+    candidates: list[tuple[uuid.UUID, date, set[str], str]],
+) -> uuid.UUID | None:
+    """Choose the Hæstiréttur judgment for a granted petition whose contested
+    Landsréttur decision is not in the database, so pass 2 cannot reach it.
+
+    Candidates are (id, date, party names, opening text). A judgment qualifies when
+    it post-dates the petition (within _PARTY_MATCH_YEARS) and shares at least
+    _PARTY_MATCH_MIN of its parties with the petition. Where several qualify, one
+    whose opening names the petition's date ("Áfrýjunarleyfi veitt 1. apríl 2022")
+    is preferred; if that still leaves more than one the earliest is taken, unless
+    two share the earliest date — companion cases with identical parties — in which
+    case nothing is linked. A match resting
+    on a single shared name is only accepted when the opening names that date.
+    """
+    if not petition_parties:
+        return None
+    horizon = petition_date.replace(year=petition_date.year + _PARTY_MATCH_YEARS)
+    stamp = f"{petition_date.day}. {_MONTHS[petition_date.month - 1]} {petition_date.year}"
+    pool = []
+    for hid, hdate, hparties, head in candidates:
+        if not (petition_date < hdate <= horizon) or not hparties:
+            continue
+        shared = petition_parties & hparties
+        if len(shared) / max(len(petition_parties), len(hparties)) < _PARTY_MATCH_MIN:
+            continue
+        # One shared name ("Reykjavíkurborg") identifies a party, not a case —
+        # then the judgment must also name the leave date.
+        if len(shared) < 2 and stamp not in head:
+            continue
+        pool.append((hid, head, hdate))
+    if len(pool) > 1:
+        dated = [c for c in pool if stamp in c[1]]
+        pool = dated or pool
+    if len(pool) > 1:
+        # Later judgments between the same parties are follow-ups (a kæra over
+        # recusal after remand, costs, ...). The judgment the leave produced is
+        # the first of them — unless two share that date (companion cases).
+        by_date = sorted((c for c in pool), key=lambda c: c[2])
+        if by_date[0][2] < by_date[1][2]:
+            pool = by_date[:1]
+    return pool[0][0] if len(pool) == 1 else None
+
+
+# Hæstiréttur judgments state when leave was granted — "Áfrýjunarleyfi var veitt
+# 27. apríl 2020." — and that is the date of the petition's own ákvörðun. A far
+# stronger key than the parties, and it works when they differ in spelling
+# ("Hrafnista, dvalarheimili aldraðra í Reykjavík" vs "Hrafnista Laugarási").
+_DATE_RE = r"(\d{1,2})\. (" + "|".join(_MONTHS) + r") (20\d{2})"
+_LEAVE_RES = [
+    re.compile(r"leyfi[^.]{0,120}?\bveitt\b[^.]{0,60}?" + _DATE_RE, re.IGNORECASE),
+    re.compile(r"\bveitt[^.]{0,20}?(?:áfrýjunar|kæru)leyfi[^.]{0,30}?" + _DATE_RE, re.IGNORECASE),
+    re.compile(r"veitti\s+(?:áfrýjunar|kæru)leyfi[^.]{0,30}?" + _DATE_RE, re.IGNORECASE),
+    # "Með ákvörðun Hæstaréttar 4. maí 2021 var fallist á að málið gæti haft þýðingu …"
+    re.compile(r"ákvörðun Hæstaréttar\s+" + _DATE_RE + r"[^.]{0,80}?(?:\bveitt|\bfallist|tekin til greina)",
+               re.IGNORECASE),
+]
+_PARTY_STOPWORDS = {"lögmaður", "lögmaðurinn", "enginn", "sjálfur", "íslenska", "ríkinu", "ríkið",
+                    "ákæruvaldið", "saksóknari", "ríkissaksóknari", "réttargæslumaður"}
+_COUNSEL_RE = re.compile(
+    r"\(([^)]*?)\s*(?:lögmaður|hrl\.?|hdl\.?|borgarlögmaður|ríkissaksóknari|saksóknari|ríkislögmaður)")
+
+
+def leave_dates(body: str | None) -> set[date]:
+    """Dates a Hæstiréttur judgment says leave to appeal was granted."""
+    out: set[date] = set()
+    for rx in _LEAVE_RES:
+        for m in rx.finditer(body or ""):
+            day, month, year = m.groups()[-3:]
+            out.add(date(int(year), _MONTHS.index(month.lower()) + 1, int(day)))
+    return out
+
+
+def _side_texts(*sides) -> list[str]:
+    return [(p.get("name") if isinstance(p, dict) else str(p)) or ""
+            for side in sides for p in side or []]
+
+
+def party_words(*sides) -> set[str]:
+    """Distinctive words (>= 5 letters) from party names, counsel stripped."""
+    words: set[str] = set()
+    for raw in _side_texts(*sides):
+        for w in re.findall(r"[\wÁÐÉÍÓÚÝÞÆÖáðéíóúýþæö-]{5,}", re.sub(r"\([^)]*\)", "", raw).lower()):
+            if w not in _PARTY_STOPWORDS and not w.startswith("ehf"):
+                words.add(w)
+    return words
+
+
+def counsel_names(*sides) -> set[str]:
+    return {m.strip().lower() for raw in _side_texts(*sides) for m in _COUNSEL_RE.findall(raw)}
+
+
+def pick_judgment_by_leave_date(
+    petition: "Document",
+    case_ref: str | None,
+    by_leave_date: dict[date, list],
+    claimed: set[uuid.UUID],
+) -> uuid.UUID | None:
+    """Choose the Hæstiréttur judgment that names this petition's date as the
+    day leave was granted.
+
+    Several petitions are decided on the same day, so the date alone is not
+    enough: the judgment must also share a party word, counsel, or the contested
+    Landsréttur case number with the petition, and must not already be the
+    outcome of another petition. Where several judgments still qualify the best
+    scoring one wins if it is unique — companion cases with identical parties and
+    counsel stay unlinked.
+    """
+    words = party_words(petition.plaintiffs, petition.defendants)
+    counsel = counsel_names(petition.plaintiffs, petition.defendants)
+    scored = []
+    for h in by_leave_date.get(petition.document_date, []):
+        if h.id in claimed or not h.document_date or h.document_date < petition.document_date:
+            continue
+        shared_words = len(words & party_words(h.plaintiffs, h.defendants))
+        shared_counsel = len(counsel & counsel_names(h.plaintiffs, h.defendants))
+        named = bool(case_ref and case_ref in (h.body_text or ""))
+        # one shared counsel alone is thin (the same firm acts in many cases),
+        # but with a unique same-day candidate it is enough
+        if shared_words or shared_counsel >= 2 or named or shared_counsel == 1:
+            scored.append((shared_words + shared_counsel + 2 * named, h.id))
+    if not scored:
+        return None
+    scored.sort(key=lambda c: -c[0])
+    if len(scored) > 1 and scored[0][0] == scored[1][0]:
+        return None
+    return scored[0][1]
+
+
 async def main(dry_run: bool = False) -> None:
     await _db_conn.init_db()
     async with _db_conn.AsyncSessionLocal() as session:
@@ -311,6 +465,96 @@ async def main(dry_run: bool = False) -> None:
                     {"id": uuid.uuid4(), "f": pid, "t": hid, "rel": RELATION_JUDGMENT},
                 )
             stats["linked_judgment"] += 1
+
+        # ── Pass 3: the judgment names the day leave was granted ───────────────
+        await session.flush()
+        done_j = {
+            r[0] for r in (await session.execute(
+                text("SELECT from_doc_id FROM document_links WHERE relation = :rel"),
+                {"rel": RELATION_JUDGMENT},
+            )).all()
+        }
+        claimed = {
+            r[0] for r in (await session.execute(
+                text("SELECT to_doc_id FROM document_links WHERE relation = :rel"),
+                {"rel": RELATION_JUDGMENT},
+            )).all()
+        }
+        hrd_docs = (await session.execute(
+            select(Document.id, Document.document_date, Document.plaintiffs,
+                   Document.defendants, Document.body_text)
+            .join(Source, Source.id == Document.source_id)
+            .where(Source.short_name == "haestirettur", Document.body_text.ilike("%leyfi%"))
+        )).all()
+        by_leave_date: dict[date, list] = defaultdict(list)
+        for h in hrd_docs:
+            for d in leave_dates(h.body_text):
+                by_leave_date[d].append(h)
+        targets = {
+            r[0]: r[1] for r in (await session.execute(text("""
+                SELECT l.from_doc_id, t.case_number FROM document_links l
+                JOIN documents t ON t.id = l.to_doc_id WHERE l.relation = :rel"""),
+                {"rel": RELATION})).all()
+        }
+        for p in petitions:
+            if p.appeal_outcome != "veitt" or p.id in done_j or not p.document_date:
+                continue
+            hid = pick_judgment_by_leave_date(p, targets.get(p.id), by_leave_date, claimed)
+            if hid is None:
+                continue
+            if not dry_run:
+                await session.execute(
+                    text("""
+                        INSERT INTO document_links (id, from_doc_id, to_doc_id, relation, confidence, method)
+                        VALUES (:id, :f, :t, :rel, 0.9, 'leave_date')
+                        ON CONFLICT ON CONSTRAINT uq_link_from_to_rel DO NOTHING
+                    """),
+                    {"id": uuid.uuid4(), "f": p.id, "t": hid, "rel": RELATION_JUDGMENT},
+                )
+            claimed.add(hid)
+            log.info("leave_date: petition %s -> judgment %s", p.case_number, hid)
+            stats["linked_judgment_by_leave_date"] += 1
+
+        # ── Pass 4: granted petitions still unlinked — match on the parties ─────
+        # Pass 2 needs the contested Landsréttur decision in the DB. When it is
+        # missing (e.g. Lrd. 510/2021 of 11 Feb 2022 — the DB holds only the
+        # 2023 decision after remand) the petition has no appeal chain to follow,
+        # but the Hæstiréttur judgment itself is often present with the same
+        # parties. Match on those, direct from the petition.
+        await session.flush()
+        done_j = {
+            r[0] for r in (await session.execute(
+                text("SELECT from_doc_id FROM document_links WHERE relation = :rel"),
+                {"rel": RELATION_JUDGMENT},
+            )).all()
+        }
+        hrd_rows = (await session.execute(text("""
+            SELECT d.id, d.document_date, d.plaintiffs, d.defendants,
+                   substring(d.body_text FROM 1 FOR 3000) AS head
+            FROM documents d JOIN sources s ON s.id = d.source_id AND s.short_name = 'haestirettur'
+            WHERE d.document_date IS NOT NULL
+        """))).all()
+        hrd_cands = [(r.id, r.document_date, party_names(r.plaintiffs, r.defendants), r.head or "")
+                     for r in hrd_rows]
+        for p in petitions:
+            if p.appeal_outcome != "veitt" or p.id in done_j or not p.document_date:
+                continue
+            hid = pick_judgment_by_parties(
+                party_names(p.plaintiffs, p.defendants), p.document_date, hrd_cands)
+            if hid is None:
+                stats["parties_unmatched"] += 1
+                continue
+            if not dry_run:
+                await session.execute(
+                    text("""
+                        INSERT INTO document_links (id, from_doc_id, to_doc_id, relation, confidence, method)
+                        VALUES (:id, :f, :t, :rel, 0.8, 'parties_direct')
+                        ON CONFLICT ON CONSTRAINT uq_link_from_to_rel DO NOTHING
+                    """),
+                    {"id": uuid.uuid4(), "f": p.id, "t": hid, "rel": RELATION_JUDGMENT},
+                )
+            log.info("parties_direct: petition %s -> judgment %s", p.case_number, hid)
+            stats["linked_judgment_by_parties"] += 1
 
         if dry_run:
             await session.rollback()
