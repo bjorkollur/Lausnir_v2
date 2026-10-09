@@ -39,7 +39,25 @@ page_map:
   - 76
   - 77
   - 103
+  - 158
+  - 159
+  - 160
+  - 161
+  - 162
+  - 163
+  - 165
+  - 166
+  - 167
   - 171
+  - 290
+  - 291
+  - 292
+  - 293
+  - 294
+  - 295
+  - 297
+  - 298
+  - 299
   - 333
   - 393
   - 399
@@ -49,7 +67,6 @@ page_map:
   - 403
   - 404
   - 405
-  - 406
   - 407
   toc_check:
     entries: 26
@@ -61,7 +78,7 @@ page_map:
     pages: 403
     by_proxy: 0
 status: review
-confidence: 0
+confidence: 0.55
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1999.pdf
@@ -69,10 +86,10 @@ articles:
 - title: Tvískipt ríkisvald?
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 4
-  issue: '1'
+  issue: null
   pdf_pages:
   - 6
   - 9
@@ -81,26 +98,21 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    issue: toc
-    pages: page
+    title: llm
+    article_type: llm
+    pages: llm
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.35
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 1
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Dómstólar setja ekki lög
   authors:
   - Jón Steinar Gunnlaugsson
@@ -117,26 +129,23 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    issue: toc
-    pages: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: true
-  confidence: 1.0
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Um vansvefta skipstjóra og afladrjúga stýrimenn
   authors:
   - Róbert Spanó
@@ -153,26 +162,23 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    issue: toc
-    pages: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.85
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Fiskur, eignir og réttlæti
   authors:
   - Hannes Hólmsteinn Gissurarson
@@ -189,97 +195,94 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    issue: toc
-    pages: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: true
-  confidence: 1.0
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: undirritunin (Helgi Jóhannesson) stendur á eftir fyrirsögninni „Á VÍÐ OG DREIF — AÐALFUNDUR LÖGFRÆÐINGAFÉLGS
-    ÍSLANDS 1998“ á bls. 56; greinin er talin enda á undan henni'
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
-- title: Frá Lögfræðingafélagi íslands Aðalfundur 1998
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Aðalfundur Lögfræðingafélags Íslands 1998
+  authors:
+  - Kristján Gunnar Valdimarsson
   author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: '1'
-  pdf_pages: null
+  article_type: Frétt
+  page_start: 56
+  page_end: 56
+  issue: null
+  pdf_pages:
+  - 61
+  - 61
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    issue: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
-- title: Skýrsla stjómar
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 29. október 1998
+  authors:
+  - Helgi Jóhannesson
   author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: '1'
-  pdf_pages: null
+  article_type: Frétt
+  page_start: 57
+  page_end: 60
+  issue: null
+  pdf_pages:
+  - 62
+  - 65
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    issue: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Leiðrétting
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 61
   page_end: 61
-  issue: '1'
+  issue: null
   pdf_pages:
   - 66
   - 66
@@ -288,32 +291,27 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    issue: toc
-    pages: page
+    title: llm
+    article_type: llm
+    pages: llm
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.35
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 61
   - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur Íslands“ á pdf-síðu 75 sem skráin nefnir ekki; greinin er talin enda þar'
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Fangelsismál
   authors:
   - Friðgeir Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 69
   page_end: 72
   issue: '2'
@@ -325,11 +323,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    issue: toc
+    title: llm
+    article_type: llm
+    pages: leitir+llm
     authors: leitir
-    pages: leitir
+    issue: leitir
   checks:
     title_on_page: true
     printed_page_match: false
@@ -342,10 +340,7 @@ articles:
   note: ''
   analysis_notes:
   - upphafsbls. 69 er á engri síðu skjalsins (eyða í blaðsíðutali)
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Hvað er ranglátt við kvótann?
   authors:
   - Vilhjálmur Árnason
@@ -353,7 +348,7 @@ articles:
   article_type: Fræðigrein
   page_start: 73
   page_end: 84
-  issue: '2'
+  issue: null
   pdf_pages:
   - 82
   - 93
@@ -362,28 +357,23 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: page
-    issue: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 73
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
-- title: Hámark á skaðabætur - Fullar bætur
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Hámark á skaðabætur – Fullar bætur
   authors:
   - Hörður Einarsson
   author_titles: []
@@ -399,26 +389,23 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    issue: toc
-    pages: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: true
-  confidence: 1.0
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Forsjársvipting samkvæmt 25. gr. barnaverndarlaga nr. 58/1992
   authors:
   - Ingveldur Einarsdóttir
@@ -435,35 +422,31 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    authors: toc
-    issue: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: page
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
-    external_record: false
-  confidence: 0.5
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 95
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
-- title: Ráðgefandi álit EFTA-dómstólsins í máli Erlu Maríu Sveinbjörnsdóttur gegn íslenska ríkinu - Meginregla um skaðabótaábyrgð
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Ráðgefandi álit EFTA-dómstólsins í máli Erlu Maríu Sveinbjörnsdóttur gegn íslenska ríkinu – Meginregla um skaðabótaábyrgð
   authors:
   - Óttar Pálsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 111
   page_end: 140
-  issue: '2'
+  issue: null
   pdf_pages:
   - 120
   - 149
@@ -472,67 +455,61 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    authors: page
-    issue: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 111
-  - 'FRÁVIK: undirritunin (Lára V. Júlíusdóttir) stendur á eftir fyrirsögninni „Á VÍÐ OG DREIF — KÍNAFÖR LÖGFRÆÐINGAFÉLAGSINS
-    í APRÍL 1999“ á bls. 141; greinin er talin enda á undan henni'
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
-- title: Kínaför lögfræðingafélagsins í apríl 1998
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Kínaför lögfræðingafélagsins í apríl 1999
   authors:
   - Lára V. Júlíusdóttir
   author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: '2'
-  pdf_pages: null
+  article_type: Frétt
+  page_start: 141
+  page_end: 148
+  issue: null
+  pdf_pages:
+  - 150
+  - 157
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    issue: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur íslands.**. t o <5 ó> Q ce S A'' lEl“ á pdf-síðu 165 sem skráin nefnir ekki;
+    greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Þakkir og árnaðaróskir
   authors:
-  - Þorsteinn Pálsson
+  - Friðgeir Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 155
   page_end: 157
   issue: '3'
@@ -544,27 +521,24 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    issue: toc
-    pages: page
-    authors: page
+    title: llm
+    article_type: llm
+    pages: leitir+llm
+    authors: leitir
+    issue: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: false
-    external_record: false
-  confidence: 0.35
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 155
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - 'FRÁVIK: höfundar skrárinnar (Friðgeir Björnsson) stangast á við síðuna (Þorsteinn Pálsson); skránni haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Um bótaábyrgð ríkisins samkvæmt 49. gr. þinglýsingalaga nr. 39/1978
   authors:
   - Viðar Már Matthíasson
@@ -581,28 +555,24 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    authors: page
-    issue: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
-    external_record: false
-  confidence: 0.5
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 159
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
-- title: íslensku skaðabótalögin. Misheppnuð lagasmíð
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Íslensku skaðabótalögin. Misheppnuð lagasmíð
   authors:
   - Jón Erlingur Þorláksson
   author_titles: []
@@ -618,31 +588,27 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: page
-    issue: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
-    external_record: false
-  confidence: 0.5
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 187
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Ráðgefandi álit EFTA-dómstólsins í máli Erlu Maríu Sveinbjörnsdóttur og takmarkanir á framsali löggjafarvalds til
     stofnana EES
   authors:
-  - Reimar Pétursson
+  - Reimar Snæfells Pétursson
   author_titles: []
   article_type: Fræðigrein
   page_start: 197
@@ -656,27 +622,24 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    authors: toc
-    issue: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
-    author_on_page: true
-    external_record: false
-  confidence: 0.5
-  leitir_record_id: null
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 197
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - 'á síðunni stendur: Reimar Pétursson'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Skattasniðganga
   authors:
   - Kristján Gunnar Valdimarsson
@@ -693,64 +656,61 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    issue: toc
-    pages: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: true
-  confidence: 1.0
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: undirritunin (Kolbrún Linda Isleifsdóttir) stendur á eftir fyrirsögninni „A VIÐ OG DREIF — FRÁ LAGADEILD HÁSKÓLA
-    ÍSLANDS“ á bls. 263; greinin er talin enda á undan henni'
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
-- title: Frá lagadeild Háskóla íslands Deildarfréttir 1998
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Deildarfréttir 1998
+  authors:
+  - Kolbrún Linda Ísleifsdóttir
   author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: '3'
-  pdf_pages: null
+  article_type: Frétt
+  page_start: 263
+  page_end: 276
+  issue: null
+  pdf_pages:
+  - 276
+  - 289
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    issue: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur Íslands“ á pdf-síðu 297 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Breytingar á lögum um meðferð opinberra mála
   authors:
   - Friðgeir Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 283
   page_end: 286
   issue: '4'
@@ -762,26 +722,23 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    issue: toc
+    title: llm
+    article_type: llm
+    pages: leitir+llm
     authors: leitir
-    pages: leitir
+    issue: leitir
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.85
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Dómstólar og fjölmiðlar
   authors:
   - Hrafn Bragason
@@ -798,26 +755,23 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    issue: toc
-    pages: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: true
-  confidence: 1.0
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Um lagalega ábyrgð aðila sem standa fyrir félags- og tómstundastarfi fyrir börn og unglinga
   authors:
   - Jón Steinar Gunnlaugsson
@@ -834,27 +788,23 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    authors: toc
-    issue: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
-    external_record: false
-  confidence: 0.5
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 299
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Varnarþingsreglur Lúganósamningsins
   authors:
   - Eyvindur G. Gunnarsson
@@ -862,7 +812,7 @@ articles:
   article_type: Fræðigrein
   page_start: 317
   page_end: 370
-  issue: '4'
+  issue: null
   pdf_pages:
   - 334
   - 387
@@ -871,27 +821,22 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    authors: toc
-    issue: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.5
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 317
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Enn af skrímslinu
   authors:
   - Lúðvík Emil Kaaber
@@ -908,86 +853,82 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    issue: toc
-    pages: leitir
+    pages: leitir+llm
+    issue: leitir
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: true
-  confidence: 1.0
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: á eftir greininni hefst „A VIÐ OG DREIF“ á bls. 377 sem skráin nefnir ekki; greinin er talin enda þar'
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
-- title: Frá Lögfræðingafélagi íslands Aðalfundur 1999
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Aðalfundur Lögfræðingafélags Íslands 1999
+  authors:
+  - Kristján Gunnar Valdimarsson
   author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: '4'
-  pdf_pages: null
+  article_type: Frétt
+  page_start: 377
+  page_end: 377
+  issue: null
+  pdf_pages:
+  - 394
+  - 394
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    issue: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
-- title: Skýrsla stjómar 1999
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 14. október 1999
   authors: []
   author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: '4'
-  pdf_pages: null
+  article_type: Frétt
+  page_start: 378
+  page_end: 381
+  issue: null
+  pdf_pages:
+  - 395
+  - 398
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    issue: toc
+    title: llm
+    article_type: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 568; síðasta lesna blaðsíðutal 386) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður

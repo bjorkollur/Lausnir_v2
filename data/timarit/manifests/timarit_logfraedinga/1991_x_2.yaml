@@ -35,16 +35,15 @@ page_map:
     pages: 83
     by_proxy: 0
 status: review
-confidence: 0.3
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1991_02.pdf
 articles:
-- title: Benedikt Blöndal. In memoriam
-  authors:
-  - Hjörtur Torfason
+- title: Dómstólar og stjórnmál
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 81
   page_end: 85
   issue: null
@@ -56,31 +55,27 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: leitir
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.5
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 86–90
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögfræðinga“) er annar titill en skrárinnar („Benedikt Blöndal. In memoriam“); titli
-    skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Réttarfar í þinglýsingarmálum og málskotsreglur
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Benedikt Blöndal. In memoriam
   authors:
-  - Þorgeir Örlygsson
+  - Hjörtur Torfason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 86
   page_end: 90
   issue: null
@@ -92,30 +87,26 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    pages: toc
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.5
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 91–131
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Benedikt blöndal“) er annar titill en skrárinnar („Réttarfar í þinglýsingarmálum
-    og málskotsreglur“); titli skrárinnar haldið'
-  - 'FRÁVIK: greinin er undirrituð (Hjörtur Torfason) en höfundar skrárinnar eru aðrir (Þorgeir Örlygsson); skránni haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Erþörfálögumumútboðhérálandi
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Réttarfar í þinglýsingarmálum og málskotsreglur – Gildistaka nýrra reglna 1. júlí 1992
   authors:
-  - Sigurður Gizurarson
+  - Þorgeir Örlygsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 91
@@ -129,27 +120,26 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („RÉTTARFAR í ÞINGLÝSINGARMÁLUM OG MÁLSKOTSREGLUR Gildistaka nýrra reglna 1. júlí 1992“)
-    er annar titill en skrárinnar („Erþörfálögumumútboðhérálandi“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Á víð og dreif Aðalfundur Lögmannafélags íslands 1991
-  authors: []
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Er þörf á lögum um útboð hér á landi?
+  authors:
+  - Sigurður Gizurarson
   author_titles: []
   article_type: Fræðigrein
   page_start: 132
@@ -163,54 +153,86 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Er þörf á lögum um útboð hér á Landi?“) er annar titill en skrárinnar („Á víð og
-    dreif Aðalfundur Lögmannafélags íslands 1991“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Aðalfundur Lögmannafélags Íslands 1991
+  authors:
+  - Marteinn Másson
+  author_titles: []
+  article_type: Frétt
+  page_start: 148
+  page_end: 152
+  issue: null
+  pdf_pages:
+  - 69
+  - 73
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
 - title: Starfsnám við Mannréttindanefnd Evrópu
   authors:
   - Guðrún Gauksdóttir
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 148
+  article_type: Frétt
+  page_start: 153
   page_end: 155
   issue: null
   pdf_pages:
-  - 69
+  - 74
   - 76
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: leitir+toc
-    authors: page
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
-    external_record: true
-  confidence: 0.5
-  leitir_record_id: '991001868109706886'
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    á undan eða eftir) — greinalisti Claude notaður

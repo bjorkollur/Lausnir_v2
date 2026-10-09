@@ -42,11 +42,11 @@ error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1991_03.pdf
 articles:
-- title: Saga Dómarafélags íslands
+- title: Dómarafélag Íslands 50 ára
   authors:
-  - Davíö Þór Björgvinsson
+  - Valtýr Sigurðsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 161
   page_end: 163
   issue: null
@@ -58,29 +58,25 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: true
-    external_record: false
-  confidence: 0.8
-  leitir_record_id: null
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögfræðinga“) er annar titill en skrárinnar („Saga Dómarafélags íslands“); titli
-    skrárinnar haldið'
-  - 'FRÁVIK: greinin er undirrituð (Valtýr Sigurðsson) en höfundar skrárinnar eru aðrir (Davíö Þór Björgvinsson); skránni
-    haldið'
-  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Á víð og dreif Doktorsvarnir
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Saga Dómarafélags Íslands
+  authors:
+  - Davíð Þór Björgvinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 164
@@ -94,29 +90,28 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
+  - skráin segir að greinin endi á bls. 211, prentuð lokasíða er bls. 180
   - 'FRÁVIK: á eftir greininni hefst „?)fi(tíít«rín“ á bls. 181 sem skráin nefnir ekki; greinin er talin enda þar'
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Saga dómarafélags Íslands“) er annar titill en skrárinnar („Á víð og dreif Doktorsvarnir“);
-    titli skrárinnar haldið'
-  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Fimmta norræna námstefnan um réttarfar
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Doktorsvarnir
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 212
   page_end: 213
   issue: null
@@ -128,9 +123,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: true
@@ -142,38 +137,68 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Skýrsla um Lagastofnun Háskóla fslands 1990-1991 215
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Fimmta norræna námstefnan um réttarfar
   authors:
-  - Sigurður Líndal
+  - Stefán Már Stefánsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 214
-  page_end: 224
+  page_end: 214
   issue: null
   pdf_pages:
   - 55
+  - 55
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Skýrsla um Lagastofnun Háskóla Íslands 29. febrúar 1990 – 14. febrúar 1991
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Annað
+  page_start: 215
+  page_end: 224
+  issue: null
+  pdf_pages:
+  - 56
   - 65
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-    authors: page
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður

@@ -19,7 +19,6 @@ page_map:
   contested: []
   bin_ratio: 0.967
   non_article:
-  - 51
   - 58
   - 59
   - 60
@@ -29,7 +28,6 @@ page_map:
   - 64
   - 65
   - 66
-  - 67
   toc_check:
     entries: 5
     found: 0
@@ -40,16 +38,15 @@ page_map:
     pages: 67
     by_proxy: 0
 status: review
-confidence: 0.3
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1991_04.pdf
 articles:
-- title: Skaösemisábyrgö
-  authors:
-  - Jón Finnbjörnsson
+- title: EES samningurinn og íslensk lög
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 225
   page_end: 227
   issue: null
@@ -61,28 +58,25 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögfræðinga“) er annar titill en skrárinnar („Skaösemisábyrgö“); titli skrárinnar
-    haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Kenningarograunveruleiki
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Skaðsemisábyrgð
   authors:
-  - Jón Steinar Gunnlaugsson
+  - Jón Finnbjörnsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 228
@@ -96,28 +90,26 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Skaðsemisábyrgð“) er annar titill en skrárinnar („Kenningarograunveruleiki“); titli
-    skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Tilkynningaskylda víxilhafa viö greiðslufall víxils
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Kenningar og raunveruleiki
   authors:
-  - Páll Hreinsson
+  - Jón Steinar Gunnlaugsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 242
@@ -131,27 +123,26 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Kenningar og raunveruleiki“) er annar titill en skrárinnar („Tilkynningaskylda víxilhafa
-    viö greiðslufall víxils“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Á víð og dreif Frá Dómarafélagi íslands
-  authors: []
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Tilkynningaskylda víxilhafa við greiðslufall víxils
+  authors:
+  - Páll Hreinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 245
@@ -165,54 +156,301 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Tilkynningaskylda víxilhafa við greiðslu-fall víxils“) er annar titill en skrárinnar
-    („Á víð og dreif Frá Dómarafélagi íslands“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Leiörétting
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Skýrsla stjórnar Dómarafélags Íslands 1990-1991
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 259
-  page_end: 273
+  page_end: 266
   issue: null
   pdf_pages:
   - 36
-  - 50
+  - 43
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: á eftir greininni hefst „Gizurarson bœjarfógeti Akranesi. 21 Már Pétursson bœjarfóget“ á bls. 275 sem skráin
-    nefnir ekki; greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Náms- og kynnisferð dómara til Washington 26. ágúst til 2. september 1991
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 267
+  page_end: 269
+  issue: null
+  pdf_pages:
+  - 44
+  - 46
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Ályktanir II. nefndar þings Alþjóðasambands dómara 1991 um ættleiðingu
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 270
+  page_end: 270
+  issue: null
+  pdf_pages:
+  - 47
+  - 47
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Ályktanir III. nefndar þings Alþjóðasambands dómara 1991 um samfélagsþjónustu
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 270
+  page_end: 271
+  issue: null
+  pdf_pages:
+  - 47
+  - 48
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Sjóréttarráðstefna í Turku 30. september til 1. október 1991
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 272
+  page_end: 272
+  issue: null
+  pdf_pages:
+  - 49
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Aðalfundur Dómarafélags Íslands 1991
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 273
+  page_end: 277
+  issue: null
+  pdf_pages:
+  - 50
+  - 54
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Ný lög Dómarafélags Íslands
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 278
+  page_end: 279
+  issue: null
+  pdf_pages:
+  - 55
+  - 56
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Reglur fyrir dómsmálaþing Íslands
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 280
+  page_end: 280
+  issue: null
+  pdf_pages:
+  - 57
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Leiðrétting
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Annað
+  page_start: 280
+  page_end: 280
+  issue: null
+  pdf_pages:
+  - 57
+  - 57
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður

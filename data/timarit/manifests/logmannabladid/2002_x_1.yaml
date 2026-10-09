@@ -19,6 +19,7 @@ page_map:
   contested: []
   bin_ratio: 0.932
   non_article:
+  - 4
   - 12
   - 17
   - 20
@@ -37,46 +38,234 @@ error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2002 01.pdf
 articles:
-- title: Ónákvæmni í dómsorði Bls.
+- title: Af Merði lögmanni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 2
+  page_end: 2
+  issue: null
+  pdf_pages:
+  - 1
+  - 1
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Sérstaða Lögmannablaðsins
   authors:
-  - Viðar Lúðvíksson
+  - Þórður Bogason
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 3
+  page_end: 3
+  issue: null
+  pdf_pages:
+  - 2
+  - 2
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Jólaball
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Fjöldi og samsetning félagsmanna í Lögmannafélagi Íslands í lok starfsársins 2001-2002
+  authors:
+  - Ingimar Ingason
   author_titles: []
   article_type: Annað
   page_start: 6
-  page_end: 7
+  page_end: 6
   issue: null
   pdf_pages:
   - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Niðurstaða European Court of Justice í Nova málinu
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Bakvakt lögmanna endurskipulögð – nýtt þjónustunúmer
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 7
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 6
   - 6
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: llm
   checks:
     title_on_page: false
-    printed_page_match: true
+    printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Fjöldi og samsetning félagsmanna í Lögmannafélagi Íslands í lok starfsársins 2001-2002“)
-    er annar titill en skrárinnar („Ónákvæmni í dómsorði Bls.“); titli skrárinnar haldið'
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Námskeið til öfl-“) er annar titill en skrárinnar („Bakvakt lögmanna endurskipulögð
+    – nýtt þjónustunúmer“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Mismunandi forræði á beiðni um dómkvatt mat Bls.
-  authors:
-  - Björn L. Bergsson
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Námskeið til öfl-
+  authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
+  page_start: 7
+  page_end: 7
+  issue: null
+  pdf_pages:
+  - 6
+  - 6
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Ónákvæmni í dómsorði
+  authors:
+  - Viðar Lúðvíksson
+  author_titles: []
+  article_type: Fræðigrein
   page_start: 8
   page_end: 8
   issue: null
@@ -88,30 +277,28 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.5
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Ónákvæmni í dómsorði“) er annar titill en skrárinnar („Mismunandi forræði á beiðni
-    um dómkvatt mat Bls.“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: „Handbókarlögfræði“ Bls.
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Mismunandi forræði á beiðni um dómkvatt mat
   authors:
-  - Þórður Bogason
+  - Björn L. Bergsson
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 10
   page_end: 10
   issue: null
@@ -123,59 +310,474 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.5
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: á eftir greininni hefst „Pistill formanns í febrúar 2002“ á bls. 11 sem skráin nefnir ekki; greinin er talin
-    enda þar'
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Mismunandi forræði á beiðni um dómkvatt mat“) er annar titill en skrárinnar („„Handbókarlögfræði“
-    Bls.“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Hópurinn sem sæmdur var gullmerki LMFÍ á 90 ára afmæli félagsins.
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Endurskoðun laga um lögmenn nr. 77/1998
+  authors:
+  - Ásgeir Thoroddsen
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 11
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 10
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Tilmæli til lögmanna frá Hæstarétti Íslands
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
+  page_start: 11
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 10
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Pistill formanns í febrúar 2002 Endurskoðun laga um lögmenn nr. 77/1998“) er annar
+    titill en skrárinnar („Tilmæli til lögmanna frá Hæstarétti Íslands“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Lögmannavaktin 2001
+  authors:
+  - Jóna K. Kristinsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 12
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 11
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: „Handbókarlögfræði“. Um lagasnið og tilvísanir til lagagreina
+  authors:
+  - Þórður Bogason
+  author_titles: []
+  article_type: Fræðigrein
   page_start: 14
-  page_end: 16
+  page_end: 15
   issue: null
   pdf_pages:
   - 13
+  - 14
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Vínsmökkunarnámskeið
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 16
+  page_end: 16
+  issue: null
+  pdf_pages:
+  - 15
   - 15
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.35
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: á eftir greininni hefst „Mál til afgreiðslu hjá úrskurðarnefnd lögmanna á árinu 2001“ á bls. 17 sem skráin nefnir
-    ekki; greinin er talin enda þar'
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („„Handbókarlögfræði“ Um lagasnið og tilvísanir til lagagreina“) er annar titill en
-    skrárinnar („Hópurinn sem sæmdur var gullmerki LMFÍ á 90 ára afmæli félagsins.“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Mál til afgreiðslu hjá úrskurðarnefnd lögmanna á árinu 2001
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 17
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 16
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Hádegisverðarfundur um aukið samstarf félagsdeildar LMFÍ og Lögfræðingafélag Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 17
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 16
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Fréttir frá félagsdeild
+  authors:
+  - Jóna K. Kristinsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 19
+  page_end: 20
+  issue: null
+  pdf_pages:
+  - 18
+  - 19
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Jóna K'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Nýkomnar bækur á bókasafn LMFÍ
+  authors:
+  - Erla S. Árnadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Erla S. Árnadóttir) stangast á við síðuna (L Andersen, Kirsten Precht); skránni haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Groa@leiti.is
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Leifur heppni. Eiga Íslendingar vinsælustu laganema í heimi?
+  authors:
+  - Ragnar Tómas Árnason
+  author_titles: []
+  article_type: Frétt
+  page_start: 23
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 22
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Alþjóðaviðskiptastofnunin - World Trade Organization
+  authors:
+  - Ingvar Sverrisson
+  author_titles: []
+  article_type: Frétt
+  page_start: 24
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 23
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Netútgáfa Lögbirtingablaðs og Stjórnartíðinda
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 24
+  page_end: 24
+  issue: null
+  pdf_pages:
+  - 23
+  - 23
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: 90 ára afmæli Lögmannafélags Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 25
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 24
+  - 26
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður

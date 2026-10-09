@@ -19,17 +19,8 @@ page_map:
   contested: []
   bin_ratio: 0.946
   non_article:
-  - 26
-  - 27
-  - 28
-  - 29
-  - 30
-  - 31
-  - 32
-  - 33
-  - 34
-  - 37
-  - 38
+  - 4
+  - 6
   - 42
   toc_check:
     entries: 2
@@ -46,26 +37,149 @@ error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2001 05.pdf
 articles:
-- title: Lögmannafélag Íslands 90 ára Bls.
+- title: Afmæli fagnað
   authors:
-  - Davíð Þór Björgvinsson
+  - Ásgeir Thoroddsen
   author_titles: []
-  article_type: Annað
-  page_start: 16
-  page_end: 18
+  article_type: Ritstjórnargrein
+  page_start: 3
+  page_end: 4
   issue: null
   pdf_pages:
-  - 15
-  - 17
+  - 2
+  - 3
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: 'Af Merði lögmanni: tilvistarspurningar á aðventu'
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 6
+  issue: null
+  pdf_pages:
+  - 5
+  - 5
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: „Að veita afburða þjónustu“
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 8
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 7
+  - 7
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Framkvæmd nýrra lögmannalaga. Undirbúningur og reynsla
+  authors:
+  - Jakob R. Möller
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 9
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 8
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Jakob R'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Fréttatilkynning frá Lánstrausti hf. Nóvember 2001 Lánstraust hf kaupir Innheimtukerfi lögmanna – ILplús
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 11
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 10
+  - 10
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: false
@@ -77,42 +191,315 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Morgunverðarfundur LMFÍ um aukna samkeppni í lagakennslu – áherslur og áhrif“) er
-    annar titill en skrárinnar („Lögmannafélag Íslands 90 ára Bls.“); titli skrárinnar haldið'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: 90 ára 1911 -2001 Jakob R. Möller hrl. Framkvæmd nýrra lögmannalaga Bls. 9
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Um lögfræðikennslu í Háskólanum í Reykjavík
   authors:
-  - Lögmannafélag Íslands
+  - Guðfinna Bjarnadóttir
   author_titles: []
-  article_type: Annað
-  page_start: 20
-  page_end: 26
+  article_type: Fræðigrein
+  page_start: 12
+  page_end: 12
   issue: null
   pdf_pages:
-  - 19
-  - 25
+  - 11
+  - 11
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
     author_on_page: true
     external_record: false
-  confidence: 0.15
+  confidence: 0.5
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 26 sem er hvorki framhald hennar né upphaf annars efnis
-    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Samskipti lögmanna og tryggingafélaga
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Styttri námskeið á vorönn 2002 hjá Háskólanum í Reykjavík í samstarfi við Lögfræðingafélag
+    Íslands og Dómarafélag Íslands“ á bls. 14 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Morgunverðarfundur LMFÍ um aukna samkeppni í lagakennslu – áherslur og áhrif
+  authors:
+  - Ingimar Ingason
+  author_titles: []
+  article_type: Frétt
+  page_start: 16
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 15
+  - 17
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Fréttir frá félagsdeild
+  authors:
+  - Jóna K. Kristinsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 19
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 18
+  - 18
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'á síðunni stendur: Jóna K'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Lögmannafélag Íslands 90 ára
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 20
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 19
+  - 24
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Myndir frá starfi félagsins
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 26
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 25
+  - 29
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Efni úr 1. tbl. 1. árg. 1963 Blaðs lögmanna
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 31
+  page_end: 38
+  issue: null
+  pdf_pages:
+  - 30
+  - 37
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Frá morgunverðarfundi LMFÍ, LÍ, DÍ og Háskólans í Reykjavík
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 39
+  page_end: 39
+  issue: null
+  pdf_pages:
+  - 38
+  - 38
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Meistaramót LMFÍ í knattspyrnu utanhúss 2001
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 40
+  page_end: 41
+  issue: null
+  pdf_pages:
+  - 39
+  - 40
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Jólafundur Lögmannafélags Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 42
+  page_end: 42
+  issue: null
+  pdf_pages:
+  - 41
+  - 41
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0.35
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður

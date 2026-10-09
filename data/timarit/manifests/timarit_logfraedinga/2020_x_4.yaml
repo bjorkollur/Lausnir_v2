@@ -40,13 +40,14 @@ page_map:
     pages: 177
     by_proxy: 0
 status: review
-confidence: 0.3
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2020_04.pdf
 articles:
 - title: Hlutverk dómstóla í tvöföldu refsivörslukerfi
-  authors: []
+  authors:
+  - Valgerður Sólnes
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 455
@@ -60,9 +61,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: page
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: true
@@ -74,13 +76,14 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: 'Málþing um réttarríki, lýðræði og mannréttinda sátt mála Evrópu 24. september 2021: Ræður forseta Mannréttindadómstóls
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: 'Málþing um réttarríki, lýðræði og mannréttindasáttmála Evrópu 24. september 2021: Ræður forseta Mannréttindadómstóls
     Evrópu og forsætisráðherra'
-  authors: []
+  authors:
+  - Róbert R. Spanó
+  - Katrín Jakobsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 461
   page_end: 480
   issue: null
@@ -92,22 +95,22 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Ívilnanir í sköttum
   authors:
   - Sindri M. Stephensen
@@ -124,13 +127,13 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    pages: page
+    pages: leitir+llm
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: true
   confidence: 0.7
@@ -139,10 +142,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 481–532
-  - 'FRÁVIK: efnisyfirlitið segir bls. 483, prentað bls. 481'
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - skráin segir að greinin endi á bls. 532, prentuð lokasíða er bls. 517
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: 'Auknar kröfur til fjárfestaverndar með tilkomu MiFID II: Mat á hæfi og tilhlýðileika'
   authors:
   - Aðalsteinn E. Jónasson
@@ -150,23 +151,23 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 533
-  page_end: 574
+  page_end: 570
   issue: null
   pdf_pages:
   - 80
-  - 121
+  - 117
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: true
     external_record: true
   confidence: 0.7
@@ -175,74 +176,68 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 533–570
-  - 'FRÁVIK: efnisyfirlitið segir bls. 535, prentað bls. 533'
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Handhafar atkvæðisréttar í veiðifélögum
   authors:
   - Jörundur Gauksson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 575
-  page_end: 606
+  page_start: 571
+  page_end: 602
   issue: null
   pdf_pages:
-  - 122
-  - 153
+  - 118
+  - 149
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    pages: toc
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: true
-  confidence: 0.5
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 571–602
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Frá Strassborg er þetta helst
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Frá Strassborg er þetta helst 1
   authors:
   - Hildur Hjörvar
   author_titles: []
   article_type: Fræðigrein
-  page_start: 607
+  page_start: 603
   page_end: 620
   issue: null
   pdf_pages:
-  - 154
+  - 150
   - 167
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður

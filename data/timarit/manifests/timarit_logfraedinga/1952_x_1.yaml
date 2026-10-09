@@ -41,15 +41,15 @@ page_map:
     pages: 67
     by_proxy: 0
 status: review
-confidence: 0.3
+confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1952_01.pdf
 articles:
-- title: Lögmannafélag Islands 40 ára
+- title: Lögmannafélag Íslands 40 ára
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 1
   page_end: 1
   issue: null
@@ -61,29 +61,26 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: leitir+llm
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: false
-    external_record: false
-  confidence: 0.65
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 12 (bls. 51–247; síðasta lesna blaðsíðutal 49) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Sveinn Björnsson. In memoriam
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Sveinn Björnsson, forseti Íslands. In memoriam
   authors:
   - Lárus Fjeldsted
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 2
   page_end: 6
   issue: null
@@ -95,31 +92,29 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    pages: leitir+toc
+    pages: leitir+llm
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.85
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 12 (bls. 51–247; síðasta lesna blaðsíðutal 49) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Dómur í máli Stóra-Bretlands gegn Noregi
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Haagdómurinn í fiskveiðamáli Bretlands og Noregs
+  authors:
+  - Alþjóðadómstóllinn í Haag
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Dómareifun
   page_start: 7
-  page_end: 40
+  page_end: 41
   issue: null
   pdf_pages:
   - 12
@@ -129,27 +124,27 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: leitir+llm
+    authors: leitir
   checks:
     title_on_page: false
     printed_page_match: true
     author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.5
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 12 (bls. 51–247; síðasta lesna blaðsíðutal 49) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Réttur }3egna erlendra ríkja til fiskveiða í hafinu umhverfis ísland síðan 28. marz 1903
+  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („18. desember 1951 Fiskiveiðamál (Sameinaða konungsríkið Stóra-Bretland og Norður-írland
+    gegn Noregi)“) er annar titill en skrárinnar („Haagdómurinn í fiskveiðamáli Bretlands og Noregs“); titli skrárinnar haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Réttur þegna erlendra ríkja til fiskveiða í hafinu umhverfis Ísland síðan 28. marz 1903
   authors:
-  - E. A
+  - Einar Arnórsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 41
@@ -163,24 +158,21 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: false
-    external_record: false
-  confidence: 0.65
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Lögfræðingar ganga jafnan vel til fara“ á bls. 54 sem skráin nefnir ekki; greinin er
     talin enda þar'
-  - 'greinar fundust ekki í skjalinu: 12 (bls. 51–247; síðasta lesna blaðsíðutal 49) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður

@@ -16,6 +16,52 @@ page_map:
   contested: []
   bin_ratio: 0.908
   non_article:
+  - 94
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 120
+  - 121
+  - 185
+  - 186
+  - 187
+  - 188
+  - 189
+  - 190
+  - 191
+  - 192
+  - 193
+  - 194
+  - 195
+  - 196
+  - 197
+  - 198
+  - 199
+  - 200
+  - 201
+  - 202
+  - 205
   - 244
   - 245
   - 246
@@ -77,26 +123,26 @@ error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1971_1972.pdf
 articles:
-- title: Frá Lögfræðingafélagi Islands
+- title: Nestor íslenzkra lagamanna, Karl Júlíus Einarsson. Minning
   authors:
-  - Hrafn Bragason
+  - Jóhann Gunnar Ólafsson
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 27
-  page_end: 31
+  article_type: Annað
+  page_start: 1
+  page_end: 14
   issue: null
   pdf_pages:
-  - 232
-  - 239
+  - 6
+  - 19
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    authors: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: false
@@ -109,31 +155,34 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: efnisyfirlitið segir bls. 1; greinin fannst eftir titli sínum á bls. 27'
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: —
-  authors: []
+    heftisins) — greinalisti Claude notaður
+- title: Réttarsáttir
+  authors:
+  - Stefán Már Stefánsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 15
-  page_end: null
+  page_end: 69
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 20
+  - 74
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -141,29 +190,34 @@ articles:
   analysis_notes:
   - 'upphafsbls. 15 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: —
-  authors: []
+    heftisins) — greinalisti Claude notaður
+- title: Frá sjó- og verzlunardómi Reykjavíkur
+  authors:
+  - Björn Þ. Guðmundsson
+  - Stefán Már Stefánsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Dómareifun
   page_start: 70
-  page_end: null
+  page_end: 83
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 75
+  - 88
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -171,12 +225,48 @@ articles:
   analysis_notes:
   - 'upphafsbls. 70 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: —
-  authors: []
+    heftisins) — greinalisti Claude notaður
+- title: Yfirlit yfir dóma Hæstaréttar í bifreiðamálum, þar sem bætur eru lækkaðar vegna meðsakar tjónþola
+  authors:
+  - Arnljótur Björnsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 84
+  page_end: 87
+  issue: null
+  pdf_pages:
+  - 89
+  - 92
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 84 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'FRÁVIK: á eftir greininni hefst „Fi fií ccj 4?eiý“ á bls. 88 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Frá Háskólanum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 88
   page_end: null
   issue: null
   pdf_pages: null
@@ -185,9 +275,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: false
@@ -199,31 +290,35 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'upphafsbls. 84 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'upphafsbls. 88 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: —
-  authors: []
+    heftisins) — greinalisti Claude notaður
+- title: State immunity eður Friðhelgi ríkja
+  authors:
+  - Magnús Thoroddsen
   author_titles: []
   article_type: Fræðigrein
   page_start: 89
-  page_end: null
+  page_end: 117
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 122
+  - 150
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.35
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -231,29 +326,34 @@ articles:
   analysis_notes:
   - 'upphafsbls. 89 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: —
-  authors: []
+    heftisins) — greinalisti Claude notaður
+- title: Frá sjó- og verzlunardómi Reykjavíkur
+  authors:
+  - Björn Þ. Guðmundsson
+  - Stefán Már Stefánsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Dómareifun
   page_start: 118
-  page_end: null
+  page_end: 130
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 151
+  - 163
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -261,12 +361,46 @@ articles:
   analysis_notes:
   - 'upphafsbls. 118 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: —
+    heftisins) — greinalisti Claude notaður
+- title: Skýrsla um störf Lögfræðingafélags Íslands árið 1970
+  authors:
+  - Páll Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 131
+  page_end: 143
+  issue: null
+  pdf_pages:
+  - 164
+  - 176
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 131 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Leiðrétting
   authors: []
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 131
+  article_type: Annað
+  page_start: 139
   page_end: null
   issue: null
   pdf_pages: null
@@ -275,9 +409,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: false
@@ -289,13 +423,15 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'upphafsbls. 131 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - 'upphafsbls. 139 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: —
-  authors: []
+    heftisins) — greinalisti Claude notaður
+- title: 20 ár
+  authors:
+  - Gaukur Jörundsson
+  - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 140
   page_end: null
   issue: null
@@ -305,9 +441,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: false
@@ -321,12 +458,14 @@ articles:
   analysis_notes:
   - 'upphafsbls. 140 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: —
-  authors: []
+    heftisins) — greinalisti Claude notaður
+- title: Norrænu lagamannaþingin
+  authors:
+  - Gaukur Jörundsson
+  - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
-  page_start: null
+  article_type: Frétt
+  page_start: 140
   page_end: null
   issue: null
   pdf_pages: null
@@ -335,8 +474,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: false
@@ -348,29 +489,28 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
+  - 'upphafsbls. 140 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Á víð og dreif 35
+    heftisins) — greinalisti Claude notaður
+- title: Frá lagadeild
   authors:
   - Gaukur Jörundsson
   - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 35
-  page_end: 36
+  article_type: Frétt
+  page_start: 140
+  page_end: null
   issue: null
-  pdf_pages:
-  - 240
-  - 241
+  pdf_pages: null
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: false
@@ -382,43 +522,722 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - blaðsíðutal greinarinnar í efnisyfirlitinu var ólæsilegt; greinin fannst eftir titli sínum á bls. 35
-  - 'FRÁVIK: höfundar skrárinnar (Gaukur Jörundsson, Theodór B. Líndal) stangast á við síðuna (Ármann Snævarr); skránni haldið'
+  - 'upphafsbls. 140 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Um örorkumöt
+    heftisins) — greinalisti Claude notaður
+- title: Nýir hæstaréttarlögmenn
   authors:
-  - Gunnar M. Guðmundsson
+  - Gaukur Jörundsson
+  - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 51
-  page_end: 119
-  issue: '2'
-  pdf_pages:
-  - 284
-  - 352
+  article_type: Frétt
+  page_start: 143
+  page_end: null
+  issue: null
+  pdf_pages: null
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: leitir
-    pages: leitir
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 143 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Skrá um lög árið 1970
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 144
+  page_end: 150
+  issue: '2'
+  pdf_pages:
+  - 177
+  - 183
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
     issue: leitir
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.85
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - leitir.is segir bls. 113–119
+  - 'upphafsbls. 144 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Gizur Bergsteinsson hæstaréttardómari lætur af störfum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Annað
+  page_start: 8
+  page_end: 9
+  issue: '1'
+  pdf_pages:
+  - 206
+  - 207
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: page
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - leitir.is segir bls. 1; greinin fannst eftir titli sínum á bls. 8
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Nokkur viðfangsefni réttarheimspeki
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 17
+  issue: '1'
+  pdf_pages:
+  - 208
+  - 222
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 3 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Frá bæjarþingi Reykjavíkur
+  authors:
+  - Björn Þ. Guðmundsson
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 18
+  page_end: 26
+  issue: '1'
+  pdf_pages:
+  - 223
+  - 231
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 18 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Frá Lögfræðingafélagi Íslands
+  authors:
+  - Hrafn Bragason
+  author_titles: []
+  article_type: Frétt
+  page_start: 27
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 232
+  - 233
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 27 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: 26. norræna lögfræðingaþingið
+  authors:
+  - Sakari Sohlberg
+  author_titles: []
+  article_type: Frétt
+  page_start: 29
+  page_end: 36
+  issue: '1'
+  pdf_pages:
+  - 234
+  - 241
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: leitir+llm
+    authors: leitir
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 29 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - skráin segir að greinin endi á bls. 34, prentuð lokasíða er bls. 36
+  - 'FRÁVIK: á eftir greininni hefst „Hæstarettardomar“ á bls. 37 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Frá Hæstarétti
+  authors:
+  - Gaukur Jörundsson
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 35
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 35 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Frá Háskólanum
+  authors:
+  - Gaukur Jörundsson
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 35
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 35 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Nýir hæstaréttarlögmenn
+  authors:
+  - Gaukur Jörundsson
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 36
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 36 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Örorkumöt
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 37
+  page_end: 50
+  issue: '2'
+  pdf_pages:
+  - 270
+  - 283
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 37 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Um örorkumöt
+  authors:
+  - Gunnar M. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: 75
+  issue: '2'
+  pdf_pages:
+  - 284
+  - 308
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 51 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - skráin segir að greinin endi á bls. 75, prentuð lokasíða er bls. 119
   - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    heftisins) — greinalisti Claude notaður
+- title: Frá Mannréttindanefnd Evrópu
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 76
+  page_end: 89
+  issue: '2'
+  pdf_pages:
+  - 309
+  - 322
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 76 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Frá sjó- og verzlunardómi Reykjavíkur
+  authors:
+  - Björn Þ. Guðmundsson
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 90
+  page_end: 103
+  issue: null
+  pdf_pages:
+  - 323
+  - 336
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: true
+    external_record: false
+  confidence: 0.5
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 90 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: 26. norræna lögfræðingaþingið
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 104
+  page_end: 106
+  issue: '2'
+  pdf_pages:
+  - 337
+  - 345
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 104 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Frá lagadeild
+  authors:
+  - Theodór B. Líndal
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 107
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 107 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Frá Hæstarétti
+  authors:
+  - Theodór B. Líndal
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 108
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 108 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Tímaritið
+  authors:
+  - Theodór B. Líndal
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 109
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 109 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: 'Henrik Tamm: De Nordiske Juristmöder 1872–1972'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 110
+  page_end: 112
+  issue: '2'
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.2
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 110 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Realregister til Domssamlingerne i civile sager 1967–1971
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 112
+  page_end: null
+  issue: null
+  pdf_pages: null
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: false
+    author_on_page: false
+    external_record: false
+  confidence: 0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 112 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður
+- title: Skrá um lög árið 1971
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 113
+  page_end: 119
+  issue: '2'
+  pdf_pages:
+  - 346
+  - 352
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'upphafsbls. 113 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - efnisyfirlitið stóðst ekki á síðunum (2 af 10 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 199 síður
+    heftisins) — greinalisti Claude notaður

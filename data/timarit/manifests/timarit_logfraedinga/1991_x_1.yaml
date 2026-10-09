@@ -44,11 +44,11 @@ error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1991_01.pdf
 articles:
-- title: Sönnun í skaðabótamálum
+- title: Dómhús við Lækjartorg – Aðgangur að réttarkerfinu
   authors:
-  - Arnljótur Björnsson
+  - Gestur Jónsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 2
   issue: null
@@ -60,30 +60,26 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: leitir
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: true
     author_on_page: false
-    external_record: true
-  confidence: 0.5
-  leitir_record_id: '991001868109706886'
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 3–22
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögfræðinga“) er annar titill en skrárinnar („Sönnun í skaðabótamálum“); titli skrárinnar
-    haldið'
-  - 'FRÁVIK: greinin er undirrituð (Gestur Jónsson) en höfundar skrárinnar eru aðrir (Arnljótur Björnsson); skránni haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Ábyrgð dómara og innri markaður Evrópubandalagsins
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Sönnun í skaðabótamálum
   authors:
-  - Rainer Voss
+  - Arnljótur Björnsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 3
@@ -97,29 +93,26 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    pages: toc
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: true
-  confidence: 0.5
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 23–32
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Sönnuní skaðabótamálum“) er annar titill en skrárinnar („Ábyrgð dómara og innri markaður
-    Evrópubandalagsins“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    á undan eða eftir) — greinalisti Claude notaður
 - title: Ábyrgð dómara og innri markaður Evrópubandalagsins
   authors:
-  - Stefán Geir Þórisson
+  - Rainer Voss
   author_titles: []
   article_type: Fræðigrein
   page_start: 23
@@ -133,27 +126,26 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    pages: toc
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: true
-  confidence: 0.5
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 33–43
-  - 'FRÁVIK: höfundar skrárinnar (Stefán Geir Þórisson) stangast á við síðuna (Rainer Voss); skránni haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Á víð og dreif Frá lagadeild háskólans
-  authors: []
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Dómstóll Evrópubandalagsins
+  authors:
+  - Stefán Geir Þórisson
   author_titles: []
   article_type: Fræðigrein
   page_start: 33
@@ -167,55 +159,152 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Frá lagadeild háskólans. Deildarfréttir 1990
+  authors:
+  - Arnljótur Björnsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 44
+  page_end: 48
+  issue: null
+  pdf_pages:
+  - 45
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Dómstóll Evrópubandalagsins“) er annar titill en skrárinnar („Á víð og dreif Frá
-    lagadeild háskólans“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Aðalfundur Lögmannafélags íslands 1990 íslensk ritaskrá um Evrópubandalagið og Fríverslunarbandalagið Samtök evrópskra
-    laganema
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Aðalfundur Lögmannafélags Íslands 1990
+  authors:
+  - Marteinn Másson
+  author_titles: []
+  article_type: Frétt
+  page_start: 49
+  page_end: 52
+  issue: null
+  pdf_pages:
+  - 50
+  - 53
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Íslensk ritaskrá um Evrópubandalagið og Fríverslunarbandalagið
+  authors:
+  - Þórhallur Vilhjálmsson
+  author_titles: []
+  article_type: Annað
+  page_start: 53
+  page_end: 69
+  issue: null
+  pdf_pages:
+  - 54
+  - 70
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Samtök evrópskra laganema
   authors:
   - Regína Jensdóttir
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 44
+  article_type: Frétt
+  page_start: 70
   page_end: 71
   issue: null
   pdf_pages:
-  - 45
+  - 71
   - 72
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-    authors: page
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum; 4 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    á undan eða eftir) — greinalisti Claude notaður

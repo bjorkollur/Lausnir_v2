@@ -20,6 +20,7 @@ page_map:
   bin_ratio: 0.918
   non_article:
   - 93
+  - 94
   - 95
   - 96
   - 97
@@ -39,15 +40,16 @@ page_map:
     pages: 103
     by_proxy: 0
 status: review
-confidence: 0.5
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2017_02.pdf
 articles:
 - title: Breytingarákvæði stjórnarskrárinnar
-  authors: []
+  authors:
+  - Hafsteinn Þór Hauksson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 123
   page_end: 124
   issue: null
@@ -59,9 +61,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: true
@@ -74,7 +77,7 @@ articles:
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum; 1 grein hefst á síðu sem virðist auglýsing
-    eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    eða auð) — greinalisti Claude notaður
 - title: Bindandi áhrif dóma í einkamálum (Res Judicata)
   authors:
   - Arnar Þór Jónsson
@@ -91,46 +94,13 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    pages: leitir+toc
+    pages: leitir+llm
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: true
-    external_record: true
-  confidence: 1.0
-  leitir_record_id: '991001868109706886'
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum; 1 grein hefst á síðu sem virðist auglýsing
-    eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Á rökum reistur – dómur EFTA-dómstólsins í máli nr. E-17/15 (Ferskar kjötvörur gegn íslenska ríkinu)
-  authors:
-  - Ólafur Jóhannes Einarsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 169
-  page_end: 213
-  issue: null
-  pdf_pages:
-  - 48
-  - 92
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: leitir
-    pages: page
-  checks:
-    title_on_page: true
-    printed_page_match: false
     author_on_page: true
     external_record: true
   confidence: 0.7
@@ -139,43 +109,71 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 169–196
-  - 'FRÁVIK: efnisyfirlitið segir bls. 171, prentað bls. 169'
   - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum; 1 grein hefst á síðu sem virðist auglýsing
-    eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Refsiþarfir samfélagsins og lagaleg jafnvægislist
+    eða auð) — greinalisti Claude notaður
+- title: Á rökum reistur – dómur EFTA-dómstólsins í máli nr. E-17/15 (Ferskar kjötvörur gegn íslenska ríkinu)
   authors:
-  - Jónatan Þórmundsson
+  - Ólafur Jóhannes Einarsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 215
-  page_end: 215
+  page_start: 169
+  page_end: 196
   issue: null
   pdf_pages:
-  - 94
-  - 94
-  lang: en
+  - 48
+  - 75
+  lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    pages: toc
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: true
-  confidence: 0.5
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 197–213
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lögmenn“) er annar titill en skrárinnar („Refsiþarfir samfélagsins og lagaleg jafnvægislist“);
-    titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum; 1 grein hefst á síðu sem virðist auglýsing
-    eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    eða auð) — greinalisti Claude notaður
+- title: Refsiþarfir samfélagsins og lagaleg jafnvægislist
+  authors:
+  - Jónatan Þórmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 197
+  page_end: 213
+  issue: null
+  pdf_pages:
+  - 76
+  - 92
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum; 1 grein hefst á síðu sem virðist auglýsing
+    eða auð) — greinalisti Claude notaður

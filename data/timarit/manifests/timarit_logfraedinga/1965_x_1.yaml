@@ -54,81 +54,82 @@ page_map:
     pages: 90
     by_proxy: 0
 status: review
-confidence: 0
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1965_01.pdf
 articles:
-- title: 19 6
-  authors: []
+- title: Sýslumenn á Jónsbókartímabilinu 1264 ■ 1732
+  authors:
+  - Hjálmar Vilhjálmsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 5
-  page_end: 43
+  page_start: 1
+  page_end: 44
   issue: null
   pdf_pages:
-  - 10
-  - 48
+  - 6
+  - 49
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: _
-  authors: []
+  - 'á síðunni stendur: A. Inngangur'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Mannréttindakenningin í ljósi sögunnar og amerískrar löggjafar
+  authors:
+  - George D. Brabson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 44
+  page_start: 45
   page_end: 56
   issue: null
   pdf_pages:
-  - 49
+  - 50
   - 61
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: —
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Frá bæjarþingi Reykjavíkur. Nokkrir dómar frá árunum 1957–1963
+  authors:
+  - Björn Friðfinnsson
+  - Stefán Már Stefánsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Dómareifun
   page_start: 57
   page_end: 61
   issue: null
@@ -140,30 +141,59 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Frá Háskólanum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 62
+  page_end: 62
+  issue: null
+  pdf_pages:
+  - 67
+  - 67
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Nokkrir dómar frá árunum 1957—1963“) er annar titill en skrárinnar („—“); titli skrárinnar
-    haldið'
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: —
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Nýir hæstaréttarlögmenn
+  authors:
+  - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 62
   page_end: 64
   issue: null
@@ -175,83 +205,19 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: —
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Nokkrir drættir úr ensku réttarfari
-  authors:
-  - J. W. A. Thornely
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 65–122; síðasta lesna blaðsíðutal 64) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður

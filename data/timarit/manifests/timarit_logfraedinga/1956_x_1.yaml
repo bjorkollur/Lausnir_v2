@@ -19,7 +19,6 @@ page_map:
   contested: []
   bin_ratio: 0.947
   non_article:
-  - 67
   - 68
   - 69
   - 70
@@ -44,47 +43,208 @@ page_map:
     pages: 79
     by_proxy: 0
 status: review
-confidence: 0.3
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1956_01.pdf
 articles:
-- title: 'Brezkir dómar Sami: Á víð og dreif'
+- title: Þingræði á Íslandi
   authors:
-  - Theodór B. Líndal
+  - Bjarni Benediktsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 1
-  page_end: 28
+  page_end: 22
   issue: null
   pdf_pages:
   - 6
+  - 27
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 1 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 35 síður
+    heftisins) — greinalisti Claude notaður
+- title: Samstarf dómara og málflutningsmanna til eflingar réttarmenningu
+  authors:
+  - Árni Tryggvason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 23
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 28
   - 33
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 1 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 35 síður
+    heftisins) — greinalisti Claude notaður
+- title: Hvað sagði Danmörk Sþ. um réttarstöðu Grænlands?
+  authors:
+  - Jón Dúason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 29
+  page_end: 59
+  issue: null
+  pdf_pages:
+  - 34
+  - 64
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: á eftir greininni hefst „Hvað sagði Danmörk Sþ. urn réttarstöðu Grænlancls?“ á bls. 29 sem skráin nefnir ekki;
-    greinin er talin enda þar'
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Þingræði á Islandi“) er annar titill en skrárinnar („Brezkir dómar Sami: Á víð og
-    dreif“); titli skrárinnar haldið'
-  - 'greinar fundust ekki í skjalinu: 1 (bls. 127; síðasta lesna blaðsíðutal 61) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 1 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 35 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    heftisins) — greinalisti Claude notaður
+- title: Frá lagadeild Háskólans
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 60
+  page_end: 60
+  issue: null
+  pdf_pages:
+  - 65
+  - 65
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 1 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 35 síður
+    heftisins) — greinalisti Claude notaður
+- title: Nýir hæstaréttarlögmenn
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 61
+  page_end: 61
+  issue: null
+  pdf_pages:
+  - 66
+  - 66
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Jóhannes Elíasson); skránni haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 1 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 35 síður
+    heftisins) — greinalisti Claude notaður
+- title: Embætti
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 61
+  page_end: 61
+  issue: null
+  pdf_pages:
+  - 66
+  - 66
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Theodór B. Líndal) stangast á við síðuna (Júlíus Havsteen); skránni haldið'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 1 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 35 síður
+    heftisins) — greinalisti Claude notaður

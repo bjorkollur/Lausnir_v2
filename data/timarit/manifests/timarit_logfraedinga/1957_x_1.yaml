@@ -23,7 +23,7 @@ page_map:
   - 54
   - 55
   - 56
-  - 58
+  - 57
   - 59
   - 60
   - 61
@@ -42,117 +42,80 @@ page_map:
     pages: 66
     by_proxy: 0
 status: review
-confidence: 0.3
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1957_01.pdf
 articles:
-- title: '195'
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 7
-  page_end: 7
-  issue: null
-  pdf_pages:
-  - 12
-  - 12
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: 'Norræna embættismannasambandið Ág. Fjeldsted: Frá Lögmannafélagi íslands Th. B. Líndal: Bókarfregn ^ami: Á við og
-    dreif 195'
+- title: Atvinnuleysistryggingar
   authors:
-  - Einar Bjarnason
+  - Hjálmar Vilhjálmsson
   author_titles: []
-  article_type: Ritdómur
-  page_start: 8
-  page_end: 16
+  article_type: Fræðigrein
+  page_start: 1
+  page_end: 17
   issue: null
   pdf_pages:
-  - 13
-  - 21
+  - 6
+  - 22
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: —
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Um starfsháttu læknaráðs
+  authors:
+  - Sigurður Baldursson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 17
+  page_start: 18
   page_end: 29
   issue: null
   pdf_pages:
-  - 22
+  - 23
   - 34
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: —
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Úr frumvarpi til umferðarlaga sem lagt var fyrir Alþingi 1956
+  authors:
+  - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 30
   page_end: 44
   issue: null
@@ -164,56 +127,115 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Tillögur til breytinga á lögum nr. 85/1936
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 45
+  page_end: 45
+  issue: null
+  pdf_pages:
+  - 50
+  - 50
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Úr frumvarpi til umferðarlaga sem lagt var fyrir Alþingi 1956“) er annar titill en
-    skrárinnar („—“); titli skrárinnar haldið'
-  - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: —
-  authors: []
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Frá háskólanum
+  authors:
+  - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 45
+  article_type: Frétt
+  page_start: 46
+  page_end: 46
+  issue: null
+  pdf_pages:
+  - 51
+  - 51
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Nýir hæstaréttarlögmenn
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 47
   page_end: 47
   issue: null
   pdf_pages:
-  - 50
+  - 52
   - 52
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 5 (bls. 49–115; síðasta lesna blaðsíðutal 47) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 5 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður

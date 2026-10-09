@@ -48,81 +48,44 @@ page_map:
     pages: 106
     by_proxy: 0
 status: review
-confidence: 0
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1969_01.pdf
 articles:
-- title: 19 6
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 9
-  page_end: 36
-  issue: null
-  pdf_pages:
-  - 14
-  - 41
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
 - title: Þrír dómar um húftryggingu bifreiða
   authors:
   - Arnljótur Björnsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 1
-  page_end: 8
+  page_end: 36
   issue: null
   pdf_pages:
   - 6
-  - 13
+  - 41
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: page
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.35
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: skráin gaf enga upphafsblaðsíðu; greinin fannst eftir titli sínum á bls. 1'
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Ný dómstólaskipun fyrir ísland —
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Ný dómstólaskipun fyrir Ísland
   authors:
   - Hrafn Bragason
   author_titles: []
@@ -138,30 +101,27 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    pages: leitir+toc
+    pages: leitir+llm
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.85
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Um „Fjölmæli", doktorsritgerð Gunnars Thoroddsen sendiherra
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Um „Fjölmæli“, doktorsritgerð Gunnars Thoroddsen sendiherra
   authors:
   - Þórður Eyjólfsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritdómur
   page_start: 63
   page_end: 74
   issue: null
@@ -173,100 +133,91 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: llm
+    article_type: llm
     authors: leitir
-    pages: leitir+toc
+    pages: leitir+llm
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: true
-  confidence: 1.0
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Frá Lögfræðingafélagi Islands
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Frá Lögfræðingafélagi Íslands
   authors:
   - Guðmundur Jónsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 75
-  page_end: 80
+  page_end: 78
   issue: null
   pdf_pages:
   - 80
-  - 85
+  - 83
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
-    external_record: false
-  confidence: 0.8
-  leitir_record_id: null
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: 79—-
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Frá Sakfræðingafélagi Íslands
   authors:
   - Hallvarður Einvarðsson
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 81
+  article_type: Frétt
+  page_start: 79
   page_end: 81
   issue: null
   pdf_pages:
-  - 86
+  - 84
   - 86
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-    authors: page
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Det 25. Nordiske Juristmöte Oslo 1969 —
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Det 25. nordiske juristmöte Oslo 1969
   authors:
   - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 82
   page_end: 84
   issue: null
@@ -278,10 +229,42 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Frá Háskólanum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 85
+  page_end: 85
+  issue: null
+  pdf_pages:
+  - 90
+  - 90
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: true
@@ -293,566 +276,36 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: 4 dreitf
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Nýir hæstaréttarlögmenn
   authors:
   - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 85
+  article_type: Frétt
+  page_start: 86
   page_end: 86
   issue: null
   pdf_pages:
-  - 90
+  - 91
   - 91
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Ávarp
-  authors:
-  - Þorvaldur Garðar Kristjánsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Hæstiréttur íslands 50 ára
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Ræða flutt 16/2 1970
-  authors:
-  - Einar Arnalds
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Ávarp
-  authors:
-  - Jóhann Hafstein
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Hæstiréttur 25 ára
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Ræða flutt 16/2 1945
-  authors:
-  - Þórður Eyjólfsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Ávarp
-  authors:
-  - Finnur Jónsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Hæstiréttur íslands settur 16/2 1920
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Ræða flutt 16/2 1920
-  authors:
-  - Kristján Jónsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Húsnæði Hæstaréttar 1920—1970
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Hæstaréttardómarar 1920—1970
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: —
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Hæstaréttarlögmenn 16/2 1920—16/2 1970
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Málaskrá 1920—1970
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Æðsta dómsvald á íslandi —
-  authors:
-  - Theodór B. Líndal
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Minning
-  authors: []
-  author_titles: []
-  article_type: Annað
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Minning
-  authors: []
-  author_titles: []
-  article_type: Annað
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages: null
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 10 (bls. 87–170; síðasta lesna blaðsíðutal 86) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (5 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður

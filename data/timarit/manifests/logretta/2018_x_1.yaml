@@ -19,13 +19,13 @@ page_map:
   contested: []
   bin_ratio: 0.955
   non_article:
-  - 115
-  - 144
+  - 16
+  - 17
+  - 18
   - 158
   - 210
-  - 244
-  - 245
   - 266
+  - 270
   toc_check:
     entries: 3
     found: 1
@@ -36,78 +36,349 @@ page_map:
     pages: 359
     by_proxy: 0
 status: review
-confidence: 0.3
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2018 1.tbl.pdf
 articles:
-- title: Konur innan réttarvörslukerfisins rjúfa þögnina Íslenskur bótaréttur
-  authors: []
+- title: '#MeToo-byltingin: Konur innan réttarvörslukerfisins rjúfa þögnina'
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 5
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude notaður
+- title: Um efni blaðsins
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 13
+  page_end: 14
+  issue: null
+  pdf_pages:
+  - 14
+  - 15
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude notaður
+- title: Greinar um íslenskan bótarétt
+  authors:
+  - Guðmundur Sigurðsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 18
-  page_end: 69
+  page_end: 21
   issue: null
   pdf_pages:
   - 19
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude notaður
+- title: Skattaleg meðferð bótagreiðslna
+  authors:
+  - Guðmundur Sigurðsson
+  - Anna Lilja Ragnarsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 22
+  page_end: 69
+  issue: null
+  pdf_pages:
+  - 23
   - 70
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: á eftir greininni hefst „Tímabundið og varanlegt fjártjón heimavinnandi einstaklinga“ á bls. 70 sem skráin nefnir
-    ekki; greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: 266 » Nýtt fræðirit á sviði fjölmiðlaréttar eftir Halldóru Þorsteinsdóttur og dr. Eirík Jónsson 270 » Sindri M. Stephensen
-    Réttaraðstoðarvátryggingar 324 » Pétur Hrafn Hafstein Sáttamiðlun í sakamálum Nýtt rit um fjölmiðlarétt
-  authors: []
+    heftisins) — greinalisti Claude notaður
+- title: Tímabundið og varanlegt fjártjón heimavinnandi einstaklinga
+  authors:
+  - Guðmundur Sigurðsson
+  - Guðrún Lilja Sigurðardóttir
   author_titles: []
   article_type: Fræðigrein
+  page_start: 70
+  page_end: 105
+  issue: null
+  pdf_pages:
+  - 71
+  - 106
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude notaður
+- title: Slysatrygging launþega
+  authors:
+  - Guðmundur Sigurðsson
+  - Helga Sæmundsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 106
+  page_end: 156
+  issue: null
+  pdf_pages:
+  - 107
+  - 157
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude notaður
+- title: Sjúkrasjóðir stéttarfélaga
+  authors:
+  - Guðmundur Sigurðsson
+  - Sigrún Ísleifsdóttir
+  - Bergþóra Ingólfsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 158
+  page_end: 208
+  issue: null
+  pdf_pages:
+  - 159
+  - 209
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude notaður
+- title: Ákvörðun bóta vegna varanlegrar örorku barna og námsmanna
+  authors:
+  - Guðmundur Sigurðsson
+  - Sveinbjörn Claessen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 210
+  page_end: 264
+  issue: null
+  pdf_pages:
+  - 211
+  - 265
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude notaður
+- title: Nýtt fræðirit á sviði fjölmiðlaréttar
+  authors: []
+  author_titles: []
+  article_type: Ritdómur
   page_start: 266
-  page_end: 323
+  page_end: 268
   issue: null
   pdf_pages:
   - 267
+  - 269
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
+    heftisins) — greinalisti Claude notaður
+- title: Réttaraðstoðarvátryggingar
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 270
+  page_end: 323
+  issue: null
+  pdf_pages:
+  - 271
   - 324
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    heftisins) — greinalisti Claude notaður
 - title: Sáttamiðlun í sakamálum
-  authors: []
+  authors:
+  - Pétur Hrafn Hafstein
   author_titles: []
   article_type: Fræðigrein
   page_start: 324
@@ -121,19 +392,20 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.65
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (1 af 3 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 178 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    heftisins) — greinalisti Claude notaður

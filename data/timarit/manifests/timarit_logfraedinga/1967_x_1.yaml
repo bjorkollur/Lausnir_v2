@@ -46,259 +46,110 @@ page_map:
     pages: 102
     by_proxy: 0
 status: review
-confidence: 0.3
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1967_01.pdf
 articles:
-- title: Mat á geðrænu sakhæfi . —
+- title: 'Sjötugur: Dr. juris Þórður Eyjólfsson hæstaréttardómari'
   authors:
-  - Jónatan Þórmundsson
+  - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 20
-  page_end: 39
+  article_type: Annað
+  page_start: 1
+  page_end: 2
   issue: null
   pdf_pages:
-  - 25
-  - 44
+  - 6
+  - 7
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
   checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Um Lögfræðingafélag Noregs o. fl
-  authors:
-  - Arnljótur Björnsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 40
-  page_end: 44
-  issue: null
-  pdf_pages:
-  - 45
-  - 49
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Frá Lögfræðingafélagi íslands
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 45
-  page_end: 48
-  issue: null
-  pdf_pages:
-  - 50
-  - 53
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Frá Bæjarþingi Reykjavíkur. Nokkrir dómar frá 1965
-  authors:
-  - Björn Þ. Guðmundsson
-  - Stefán Már Stefánsson
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 49
-  page_end: 65
-  issue: null
-  pdf_pages:
-  - 54
-  - 70
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
-  checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.5
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - leitir.is segir bls. 117–133
-  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Á víð og dreif
-  authors:
-  - Theodór B. Líndal
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 66
-  page_end: 67
-  issue: null
-  pdf_pages:
-  - 71
-  - 72
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Lög árið 1967
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Skýrsla dómsmálaráðherra um athugun á meðferð dómsmála og dómaskipun
   authors: []
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 68
-  page_end: 73
-  issue: null
-  pdf_pages:
-  - 73
-  - 78
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance:
-    title: toc
-    article_type: toc
-    pages: toc
-  checks:
-    title_on_page: false
-    printed_page_match: true
-    author_on_page: false
-    external_record: false
-  confidence: 0.3
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: null
-  note: ''
-  analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Ár mannréttinda 1968
-  authors:
-  - Theodór B. Líndal
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: 74
+  article_type: Annað
+  page_start: 3
   page_end: 77
   issue: null
   pdf_pages:
-  - 79
+  - 8
   - 82
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: leitir+llm
   checks:
-    title_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Frá Háskólanum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 78
+  page_end: 78
+  issue: null
+  pdf_pages:
+  - 83
+  - 83
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
-- title: Alþjóðasamstarf á sviði mannréttinda og árangur þess
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Próf í Lagadeild
   authors:
-  - Sigurgeir Sigurjónsson
+  - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 78
   page_end: 80
   issue: null
@@ -310,22 +161,19 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'greinar fundust ekki í skjalinu: 2 (bls. 98–148; síðasta lesna blaðsíðutal 80) — þær eru ekki taldar með; athugaðu hvort
-    þær vanti í skjalið eða hafi ekki fundist'
-  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude ekki kominn; efnisyfirlitinu
-    haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 7 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður

@@ -19,14 +19,16 @@ page_map:
   contested: []
   bin_ratio: 0.986
   non_article:
+  - 10
+  - 17
+  - 18
+  - 31
+  - 32
+  - 34
+  - 86
+  - 128
   - 130
-  - 134
-  - 142
-  - 143
-  - 178
   - 292
-  - 298
-  - 299
   - 336
   - 337
   toc_check:
@@ -39,15 +41,286 @@ page_map:
     pages: 335
     by_proxy: 0
 status: review
-confidence: 0.3
+confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2018 2.tbl.pdf
 articles:
-- title: Kynferðisbrot í brennidepli
-  authors: []
+- title: Rökræða er samvinna
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 8
+  issue: null
+  pdf_pages:
+  - 5
+  - 9
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: Efni blaðsins
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 10
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 11
+  - 13
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: Tímamót
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 13
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 14
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: „Ákærður maður vinnur ekki stærri sigur í dómsal en að vera sýknaður“. Endurupptaka Guðmundar- og Geirfinnsmálsins
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  - Snædís Ósk Sigurjónsdóttir
   author_titles: []
   article_type: Fræðigrein
+  page_start: 18
+  page_end: 29
+  issue: null
+  pdf_pages:
+  - 19
+  - 30
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: Eilíf uppspretta ágreinings? Um skipun dómara á Íslandi
+  authors:
+  - Arnar Þór Jónsson
+  - Þórhildur Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 32
+  page_end: 32
+  issue: null
+  pdf_pages:
+  - 33
+  - 33
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Inngangur“ á bls. 34 sem skráin nefnir ekki; greinin er talin enda þar'
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: Málstofa um skipun dómara á Lagadeginum 2018
+  authors:
+  - Þórhildur Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 86
+  page_end: 105
+  issue: null
+  pdf_pages:
+  - 87
+  - 106
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: Við val á milli hæfra umsækjenda ræður að lokum almenn skynsemi » Viðtal við Björn Bjarnason og Ögmund Jónasson,
+    fyrrverandi dómsmálaráðherra
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 106
+  page_end: 117
+  issue: null
+  pdf_pages:
+  - 107
+  - 118
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: Um hvað snýst Landsréttarmálið?
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 118
+  page_end: 126
+  issue: null
+  pdf_pages:
+  - 119
+  - 127
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: Kynferðisbrot í brennidepli
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Annað
   page_start: 128
   page_end: 128
   issue: null
@@ -59,24 +332,126 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Veðsetning hugverkaréttinda
-  authors: []
+    heftisins) — greinalisti Claude notaður
+- title: „Er almennt ekki refsiglöð og aðhyllist ekki stranga refsipólitík“. Viðtal við Sigríði Á. Andersen dómsmálaráðherra
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Viðtal
+  page_start: 132
+  page_end: 139
+  issue: null
+  pdf_pages:
+  - 133
+  - 140
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: Kynbundnar takmarkanir á þátttökurétti í íþróttum
+  authors:
+  - Ragnar Baldursson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 140
+  page_end: 175
+  issue: null
+  pdf_pages:
+  - 141
+  - 176
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: Veðsetning hugverkaréttinda – gildandi réttur og kröfur viðskiptalífsins
+  authors:
+  - Íris Björk Ármannsdóttir
+  - Hafliði Kristján Lárusson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 176
+  page_end: 237
+  issue: null
+  pdf_pages:
+  - 177
+  - 238
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður
+- title: Hver er kjarni markaðsmisnotkunar?
+  authors:
+  - Andri Fannar Bergþórsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 238
@@ -90,21 +465,53 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hver er kjarni markaðsmisnotkunar?“) er annar titill en skrárinnar („Veðsetning hugverkaréttinda“);
-    titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
-    heftisins) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    heftisins) — greinalisti Claude notaður
+- title: Hve bindandi er dómsorð við aðför?
+  authors:
+  - Sindri M. Stephensen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 296
+  page_end: 334
+  issue: null
+  pdf_pages:
+  - 297
+  - 335
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 237 síður
+    heftisins) — greinalisti Claude notaður

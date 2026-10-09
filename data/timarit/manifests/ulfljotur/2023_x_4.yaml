@@ -19,9 +19,11 @@ page_map:
   contested: []
   bin_ratio: 0.885
   non_article:
+  - 5
+  - 6
+  - 7
   - 41
   - 77
-  - 133
   - 145
   - 149
   - 173
@@ -46,6 +48,38 @@ error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2023-4tbl.pdf
 articles:
+- title: Kæri lesandi
+  authors:
+  - Daníel Njarðarson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 395
+  page_end: 395
+  issue: null
+  pdf_pages:
+  - 4
+  - 4
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude notaður
 - title: Öryggisbrestur við meðferð persónuupplýsinga
   authors:
   - Hildur Þórarinsdóttir
@@ -62,23 +96,22 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.8
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude notaður
 - title: Almenna bannreglan um fjárhagslega aðstoð hlutafélaga til tengdra aðila
   authors:
   - Jónas Ástþór Hafsteinsson
@@ -95,23 +128,22 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.8
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude notaður
 - title: 'Beðið eftir mannréttindum: Vistun fatlaðs fólks á spítala vegna skorts á viðeigandi búsetuúrræðum'
   authors:
   - Kári Hólmar Ragnarsson
@@ -128,27 +160,26 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: true
     external_record: false
-  confidence: 0.8
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude notaður
 - title: Um tillögur að breytingum á mannréttindakafla stjórnarskrárinnar
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 515
   page_end: 516
   issue: null
@@ -160,9 +191,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: true
@@ -174,14 +205,108 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: á eftir greininni hefst „Vandræðagangur í Paradís: Af umhverfisákvæði fyrir stjórnarskrá“ á bls. 517 sem skráin
-    nefnir ekki; greinin er talin enda þar'
-  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude notaður
+- title: 'Vandræðagangur í Paradís: Af umhverfisákvæði fyrir stjórnarskrá'
+  authors:
+  - Aðalheiður Jóhannsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 517
+  page_end: 524
+  issue: null
+  pdf_pages:
+  - 126
+  - 133
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude notaður
+- title: 'Hugleiðingar í tilefni af greinargerð um hvort þörf sé á breytingum á mannréttindakafla stjórnarskrárinnar: Auðlindaákvæði
+    og breyting á eignarréttarákvæði stjórnarskrár'
+  authors:
+  - Ragnheiður Elfa Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 525
+  page_end: 530
+  issue: null
+  pdf_pages:
+  - 134
+  - 139
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude notaður
+- title: Persónuvernd og stjórnarskráin
+  authors:
+  - Thelma Christel Kristjánsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 531
+  page_end: 535
+  issue: null
+  pdf_pages:
+  - 140
+  - 144
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude notaður
 - title: Skýrsla stjórnar Orators skólaárið 2022–2023
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 537
   page_end: 537
   issue: null
@@ -193,9 +318,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    pages: llm
   checks:
     title_on_page: true
     printed_page_match: true
@@ -208,5 +333,4 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 538 sem skráin nefnir ekki; greinin er talin enda þar'
-  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude ekki kominn;
-    efnisyfirlitinu haldið á meðan
+  - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude notaður

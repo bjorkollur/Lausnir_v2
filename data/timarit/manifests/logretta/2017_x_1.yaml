@@ -19,19 +19,14 @@ page_map:
   contested: []
   bin_ratio: 0.985
   non_article:
+  - 11
+  - 13
+  - 14
+  - 23
+  - 24
   - 32
-  - 34
-  - 46
   - 50
-  - 52
-  - 106
-  - 122
   - 216
-  - 218
-  - 235
-  - 266
-  - 268
-  - 300
   - 310
   - 312
   - 314
@@ -54,24 +49,93 @@ error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2017 1.tbl.pdf
 articles:
-- title: List í dómsal II Kristín Haraldsdóttir
-  authors: []
+- title: Styrkar burðarstoðir
+  authors:
+  - Arnar Þór Jónsson
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 24
-  page_end: 24
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 9
   issue: null
   pdf_pages:
-  - 25
-  - 25
+  - 5
+  - 10
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Almættið vakir yfir réttlætinu
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 14
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 15
+  - 16
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Fylgst með framkvæmd réttvísinnar. Skyggnst inn í dómsal II í Hæstarétti Íslands
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 16
+  page_end: 21
+  issue: null
+  pdf_pages:
+  - 17
+  - 22
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: true
@@ -83,17 +147,213 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: á eftir greininni hefst „Dómskerfið hefur verið þjakað af álagi“ á bls. 25 sem skráin nefnir ekki; greinin er
-    talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
-    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið
-    á meðan
-- title: 50 » Sigurður Tómas Magnússon Nýtt millidómstig 104 » Dr. Davíð Þór Björgvinsson Dómstólaskipan á Íslandi 120 » Arnar
-    Þór Jónsson, Dr. Renata Martins Lýðskrum og réttarríki 150 » Kári Hólmar Ragnarsson Allt kann sá er hófið kann. Um inntak
-    stjórnskipulegrar meðalhófsreglu 216 » Dr. Bjarni Már Magnússon, Arnar Þór Jónsson Gildissviðsgatasigti 264 » Stefán A.
-    Svensson, Diljá Helgadóttir Gildi ábyrgða og annmarkar á greiðslumati 298 » Dr. Davíð Þór Björgvinsson Fúkyrði eða fullyrðing
-    304 » Svala Ísfeld Ólafsdóttir Gróska í bókaútgáfu. Fjögur ný fræðirit Sigurður Tómas Magnússon Kári Hólmar Ragnarsson
-  authors: []
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Dómskerfið hefur verið þjakað af álagi. Viðtal við Hervöru Lilju Þorvaldsdóttur forseta Landsréttar
+  authors:
+  - Arnar Þór Jónsson
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 24
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 25
+  - 31
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Hæstaréttardómur er ekki eins manns afurð » Viðtal við Markús Sigurbjörnsson hæstaréttardómara
+  authors:
+  - Arnar Þór Jónsson
+  - Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 32
+  page_end: 43
+  issue: null
+  pdf_pages:
+  - 33
+  - 44
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Stofnun millidómstigs er framfaramál fyrir íslenskt réttarkerfi » Viðtal við Kristínu Haraldsdóttur lektor við lagadeild
+    HR
+  authors:
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 44
+  page_end: 48
+  issue: null
+  pdf_pages:
+  - 45
+  - 49
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Nýtt millidómstig
+  authors:
+  - Sigurður Tómas Magnússon
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 50
+  page_end: 103
+  issue: null
+  pdf_pages:
+  - 51
+  - 104
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Dómstólaskipan á Íslandi
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 104
+  page_end: 119
+  issue: null
+  pdf_pages:
+  - 105
+  - 120
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Lýðskrum og réttarríki
+  authors:
+  - Arnar Þór Jónsson
+  - Renata Martins
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 120
+  page_end: 149
+  issue: null
+  pdf_pages:
+  - 121
+  - 150
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Allt kann sá er hófið kann – Um inntak stjórnskipulegrar meðalhófsreglu
+  authors:
+  - Kári Hólmar Ragnarsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 150
@@ -107,9 +367,145 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Gildissviðsgatasigti
+  authors:
+  - Bjarni Már Magnússon
+  - Arnar Þór Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 216
+  page_end: 263
+  issue: null
+  pdf_pages:
+  - 217
+  - 264
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Gildi ábyrgða og annmarkar á greiðslumati
+  authors:
+  - Stefán A. Svensson
+  - Diljá Helgadóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 264
+  page_end: 299
+  issue: null
+  pdf_pages:
+  - 265
+  - 300
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Fúkyrði eða fullyrðing? Dómur Mannréttindadómstóls Evrópu í máli Egils Einarssonar gegn Íslandi frá 7. nóv. 2017
+    í máli nr. 24703/15
+  authors:
+  - Davíð Þór Björgvinsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 300
+  page_end: 305
+  issue: null
+  pdf_pages:
+  - 301
+  - 306
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Gróska í bókaútgáfu
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 306
+  page_end: 308
+  issue: null
+  pdf_pages:
+  - 307
+  - 309
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: page
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: true
@@ -121,8 +517,6 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: á eftir greininni hefst „Gildissviðsgatasigti » Dr. Bjarni Már Magnússon dósent við lagadeild HR“ á bls. 216
-    sem skráin nefnir ekki; greinin er talin enda þar'
+  - 'FRÁVIK: á eftir greininni hefst „Nýtt rit um sjórétt“ á bls. 310 sem skráin nefnir ekki; greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
-    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið
-    á meðan
+    heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður

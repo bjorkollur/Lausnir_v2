@@ -37,11 +37,11 @@ error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2016 02 .pdf
 articles:
-- title: Aðalfundur Lögmannafélags Íslands
+- title: Hinn nýi Landsréttur
   authors:
-  - Anna Lilja Hallgrímsdóttir
+  - Þyrí Steingrímsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 4
   page_end: 4
   issue: null
@@ -53,32 +53,28 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hinn nýi Landsréttur“) er annar titill en skrárinnar („Aðalfundur Lögmannafélags
-    Íslands“); titli skrárinnar haldið'
-  - 'FRÁVIK: greinin er undirrituð (Þyrí Steingrímsdóttir) en höfundar skrárinnar eru aðrir (Anna Lilja Hallgrímsdóttir);
-    skránni haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Málþing um skyldur lögmanna gagnvart samfélaginu
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Aðalfundur Lögmannafélags Íslands
   authors:
   - Anna Lilja Hallgrímsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 6
   page_end: 7
   issue: null
@@ -90,16 +86,16 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -108,12 +104,12 @@ articles:
   - 'FRÁVIK: greinin er undirrituð (Sigurbjörn Magnússon) en höfundar skrárinnar eru aðrir (Anna Lilja Hallgrímsdóttir); skránni
     haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    á undan eða eftir) — greinalisti Claude notaður
 - title: Málþing um skyldur lögmanna gagnvart samfélaginu
   authors:
-  - Reimar Pétursson
+  - Anna Lilja Hallgrímsdóttir
   author_titles: []
-  article_type: Ritstjórnargrein
+  article_type: Frétt
   page_start: 8
   page_end: 9
   issue: null
@@ -125,27 +121,28 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: page
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: true
+    author_on_page: false
     external_record: false
-  confidence: 0.45
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: 'Lagadagurinn 2016 Haukur Örn Birgisson: Eitthvað fyrir'
-  authors: []
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Lög um stofnun millidómstigs samþykkt
+  authors:
+  - Reimar Pétursson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 10
   page_end: 10
   issue: null
@@ -157,29 +154,59 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0.3
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Lög um stofnun millidómstigs samþykkt“) er annar titill en skrárinnar („Lagadagurinn
-    2016 Haukur Örn Birgisson: Eitthvað fyrir“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: 'Aðalmálstofa Lagadagsins 2016: Hver á síðasta orðið?'
-  authors:
-  - Guðríður Lára Þrastardóttir
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Af Merði lögmanni
+  authors: []
   author_titles: []
   article_type: Annað
+  page_start: 12
+  page_end: 12
+  issue: null
+  pdf_pages:
+  - 11
+  - 11
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Eitthvað fyrir
+  authors:
+  - Haukur Örn Birgisson
+  author_titles: []
+  article_type: Frétt
   page_start: 14
   page_end: 15
   issue: null
@@ -191,32 +218,29 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Eitthvað fyrir alla“) er annar titill en skrárinnar („Aðalmálstofa Lagadagsins 2016:
-    Hver á síðasta orðið?“); titli skrárinnar haldið'
-  - 'FRÁVIK: greinin er undirrituð (Fannar Guðjónsson) en höfundar skrárinnar eru aðrir (Guðríður Lára Þrastardóttir); skránni
-    haldið'
+  - 'FRÁVIK: greinin er undirrituð (Fannar Guðjónsson) en höfundar skrárinnar eru aðrir (Haukur Örn Birgisson); skránni haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: 'Málstofa: Persónuvernd á tímum tæknibyltingar'
+    á undan eða eftir) — greinalisti Claude notaður
+- title: 'Aðalmálstofa Lagadagsins 2016: Hver á síðasta orðið?'
   authors:
-  - Eva Halldórsdóttir
+  - Guðríður Lára Þrastardóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 16
   page_end: 17
   issue: null
@@ -228,30 +252,28 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hver á síðasta orðið?“) er annar titill en skrárinnar („Málstofa: Persónuvernd á
-    tímum tæknibyltingar“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: 'Málstofa: Eftirlitshlutverk stjórnvalda'
+    á undan eða eftir) — greinalisti Claude notaður
+- title: 'Málstofa: Persónuvernd á tímum tæknibyltingar'
   authors:
-  - Þórhildur Líndal
+  - Eva Halldórsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 18
   page_end: 19
   issue: null
@@ -263,28 +285,28 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Er breytinga þörf á skaðabótalögum?
+    á undan eða eftir) — greinalisti Claude notaður
+- title: 'Málstofa: Eftirlitshlutverk stjórnvalda'
   authors:
-  - Ingvi Snær Einarsson
+  - Þórhildur Líndal
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 20
   page_end: 23
   issue: null
@@ -296,30 +318,28 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Málstofa: Eftirlitshlutverk stjórnvalda“) er annar titill en skrárinnar („Rökstólar:
-    Er breytinga þörf á skaðabótalögum?“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: 'Málstofa: EES-samningurinn - Hreyfiafl breytinga?'
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Er breytinga þörf á skaðabótalögum?
   authors:
-  - Jóhanna Bryndís Bjarnadóttir
+  - Ingvi Snær Einarsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 24
   page_end: 25
   issue: null
@@ -331,30 +351,28 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Er breytinga þörf á skaðabótalögum?“) er annar titill en skrárinnar („Málstofa: EES-samningurinn
-    - Hreyfiafl breytinga?“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Örmálstofur
+    á undan eða eftir) — greinalisti Claude notaður
+- title: 'Málstofa: EES-samningurinn – Hreyfiafl breytinga?'
   authors:
-  - Þyrí Steingrímsdóttir
+  - Jóhanna Bryndís Bjarnadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 26
   page_end: 27
   issue: null
@@ -366,30 +384,28 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Málstofa: EES-samningurinn – Hreyfiafl breytinga?“) er annar titill en skrárinnar
-    („Örmálstofur“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: 'Málstofa: Bankahrunsdómarnir'
+    á undan eða eftir) — greinalisti Claude notaður
+- title: Örmálstofur
   authors:
   - Þyrí Steingrímsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 28
   page_end: 29
   issue: null
@@ -401,29 +417,28 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0.3
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Örmálstofur“) er annar titill en skrárinnar („Málstofa: Bankahrunsdómarnir“); titli
-    skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
-- title: Á léttum nótum Af Merði lögmanni 12 2 LÖGMANNABLAÐIÐ TBL 02/16
-  authors: []
+    á undan eða eftir) — greinalisti Claude notaður
+- title: 'Málstofa: Bankahrunsdómarnir'
+  authors:
+  - Þyrí Steingrímsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 30
   page_end: 31
   issue: null
@@ -435,9 +450,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
   checks:
     title_on_page: false
     printed_page_match: true
@@ -449,7 +465,5 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Bankahrunsmálstofa“) er annar titill en skrárinnar („Á léttum nótum Af Merði lögmanni
-    12 2 LÖGMANNABLAÐIÐ TBL 02/16“); titli skrárinnar haldið'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
-    á undan eða eftir) — greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan
+    á undan eða eftir) — greinalisti Claude notaður
