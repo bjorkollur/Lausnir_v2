@@ -234,6 +234,49 @@ def test_build_article_raw_date_precision_is_day_only_for_a_date_that_was_printe
     assert raw["date_precision"] == precision and raw["date"] == date
 
 
+# --- Task 23e: two issues cut from one PDF that holds two volumes -----------------------------------------------
+
+_TWO_VOLUMES = _pdf(["Kápa fyrra bindis", f"1\nGrein ársins 1971\nrefur sjóbjörn sérhljóði\n{_PAD}",
+                     f"2\nrefur sjóbjörn sérhljóði\n{_PAD}", "Kápa síðara bindis",
+                     f"1\nGrein ársins 1972\nsnæugla fjallalambið\n{_PAD}", f"2\nsnæugla fjallalambið\n{_PAD}"])
+
+
+def _part(tmp_path, year, volume, window, pdf_pages):
+    p = tmp_path / "timarit_logfraedinga" / f"{year}_x_x.yaml"
+    m = IssueManifest(source="timarit_logfraedinga", year=year, volume=volume, issue=None,
+                      label=f"Tímarit lögfræðinga, {volume}. árg. ({year})", file="x/TL 1971_1972.pdf",
+                      files=["x/TL 1971_1972.pdf"], status="approved", pages=6, pdf_window=window,
+                      sha256=sha256_bytes(_TWO_VOLUMES),
+                      articles=[ArticleEntry(title=f"Grein ársins {year}", article_type="Fræðigrein", page_start=1,
+                                             page_end=2, pdf_pages=pdf_pages, lang="is", provenance={"pages": "page"},
+                                             checks={"printed_page_match": True}, confidence=0.9)])
+    save_manifest(m, p)
+    return p
+
+
+async def test_the_two_parts_of_one_pdf_are_cut_from_their_own_pages_under_names_that_do_not_collide(tmp_path, raw_dir):
+    """pdf_pages are pages of the whole file whatever the window (Task 23e): the cut and RAW work unchanged, and the
+    parts' ids, file names and issue copies differ by year and volume."""
+    read = lambda rel: _TWO_VOLUMES                                                             # noqa: E731
+    s1 = _Session()
+    assert (await _run(_part(tmp_path, 1971, 21, [0, 2], [1, 2]), s1, raw_dir, read=read))["imported"] == 1
+    (_, row1), = s1.upserts()
+    s2 = _Session(issue_row=(OTHER_ISSUE, None), docs=[(row1["external_id"], ISSUE_ID, row1["verdict_filename"])])
+    counts = await _run(_part(tmp_path, 1972, 22, [3, 5], [4, 5]), s2, raw_dir, read=read)
+    assert counts["imported"] == 1 and not counts.get("collision")
+    (_, row2), = s2.upserts()
+    assert (row1["external_id"], row2["external_id"]) == ("1971-21-x-1", "1972-22-x-1")
+    assert (row1["verdict_filename"], row2["verdict_filename"]) == ("TL_21-x_1971_bls-1-2", "TL_22-x_1972_bls-1-2")
+    one = _pages_of((raw_dir / "timarit_logfraedinga" / "TL_21-x_1971_bls-1-2.pdf").read_bytes())
+    two = _pages_of((raw_dir / "timarit_logfraedinga" / "TL_22-x_1972_bls-1-2.pdf").read_bytes())
+    assert len(one) == len(two) == 2 and "Grein ársins 1971" in one[0] and "sjóbjörn" in one[1]
+    assert "Grein ársins 1972" in two[0] and "snæugla" in two[1]
+    assert "snæugla" not in " ".join(one) and "sjóbjörn" not in " ".join(two)
+    assert [o["printed"] for o in row2["page_offsets"]] == [1, 2]
+    hefti = raw_dir / "timarit_logfraedinga" / "hefti"
+    assert (hefti / "1971_21_x.pdf").read_bytes() == (hefti / "1972_22_x.pdf").read_bytes() == _TWO_VOLUMES
+
+
 # --- import_manifest: the happy path ----------------------------------------------------------------------
 
 async def test_import_writes_documents_pdfs_markdown_and_marks_imported(tmp_path, raw_dir):

@@ -25,6 +25,10 @@ a number); entries past the last printed page are not in the file; the title, au
 the article's first page, an editorial's signature off its last. TOC titles are cleaned of OCR'd leaders and front
 matter is dropped; with no readable TOC Claude gets a digest of every page's head (fix 8).
 
+A part of a PDF that holds more than one volume (manifest `pdf_window`, Task 23e) is analysed as a document of its
+own: its pages alone are read (page map, contents, Claude's text, title search, ranges, the contents gate), and what is
+stored is then put back in the whole file's terms (_to_whole_file), so article ranges stay pages of the file.
+
 An article ends on the last page of its own text, not on the advert, blank page or unlisted item after it (Task 22c,
 pagekind.py); those pages are recorded in page_map["non_article"], which coverage allows. Where the page map is unusable
 the numbers printed on the located pages are read directly. Significant deviations between registry and print are
@@ -445,29 +449,31 @@ async def _llm_entries(texts: list[str], toc_pages: list[int], pm: PageMap, read
     """Claude's list (provenance llm): asked of the API, or of the cache and the offline queue ([] while it waits)."""
     if deps.llm_toc is None:
         return []
-    toc = await deps.llm_toc(_fallback_text(texts, toc_pages, pm, reader))
+    toc = await deps.llm_toc(_fallback_text(texts, toc_pages, pm, reader, _window_first(m)))
     return _toc_entries(toc, m, cfg, "llm") if toc else []
 
 
-def _no_claude_list(texts: list[str], toc_pages: list[int], pm: PageMap, reader: PageReader, deps: AnalyzeDeps) -> str:
+def _no_claude_list(texts: list[str], toc_pages: list[int], pm: PageMap, reader: PageReader, deps: AnalyzeDeps,
+                    first: int = 0) -> str:
     """Why a failed list stays (R47): Claude's answer is still in the offline queue, or Claude found no articles (an
     empty answer, cached), or there is no Claude to ask."""
     if deps.llm_toc is None:
         return "greinalisti Claude ekki tiltækur; efnisyfirlitinu haldið til yfirferðar"
-    if deps.llm_pending is not None and deps.llm_pending(_fallback_text(texts, toc_pages, pm, reader)):
+    if deps.llm_pending is not None and deps.llm_pending(_fallback_text(texts, toc_pages, pm, reader, first)):
         return "greinalisti Claude ekki kominn; efnisyfirlitinu haldið á meðan"
     return "Claude fann engar greinar í heftinu; efnisyfirlitinu haldið til yfirferðar"
 
 
-def _fallback_text(texts: list[str], toc_pages: list[int], pm: PageMap, reader: PageReader) -> str:
+def _fallback_text(texts: list[str], toc_pages: list[int], pm: PageMap, reader: PageReader, first: int = 0) -> str:
     """What Claude reads when the TOC parser finds nothing (fix 8 of Task 22b): the TOC pages' text, if any, then a
     digest of the whole issue, one line per page with its printed number and its first two lines
     (firstpage.page_heads_digest), so that every article's start page is in view, not only the first article's.
-    toc_via_llm cuts it to its length limit; the cache key is over the text sent."""
+    toc_via_llm cuts it to its length limit; the cache key is over the text sent. In a page window (Task 23e) the
+    issue is the window's pages, and the digest names each by its place in the whole file (`first` on)."""
     toc = "\n".join(texts[i] for i in toc_pages).strip()
     digest = FP.page_heads_digest([reader(i) for i in range(len(texts))],
                                   [_printed_at(pm, i) for i in range(len(texts))],
-                                  budget=max(0, TEXT_LIMIT - len(toc) - 2))
+                                  budget=max(0, TEXT_LIMIT - len(toc) - 2), first=first)
     return f"{toc}\n\n{digest}" if toc else digest
 
 
@@ -537,11 +543,56 @@ async def _enrich_with_leitir(entries: list[ArticleEntry], m: IssueManifest, cfg
 
 # --- an issue or volume PDF --------------------------------------------------------------------------------
 
+def _window_first(m: IssueManifest) -> int:
+    """The PDF index in the whole file of the first page analysis reads (Task 23e): the window's first, else 0."""
+    return m.pdf_window[0] if m.pdf_window else 0
+
+
 async def _analyze_container(m: IssueManifest, cfg: SourceConfig, deps: AnalyzeDeps, run: _Run) -> None:
     pdf = deps.read_bytes(m.file)
     with fitz.open(stream=pdf, filetype="pdf") as doc:
+        pages = doc.page_count
+        if m.pdf_window is not None:
+            first, last = m.pdf_window
+            if not 0 <= first <= last < pages:
+                raise ValueError(f"pdf_window [{first}, {last}] er utan skjalsins ({pages} síður)")
+            doc.select(list(range(first, last + 1)))         # the window's pages, read exactly as in the whole file
         texts = [p.get_text() for p in doc]
         await _analyze_container_pages(m, cfg, deps, run, pdf, texts, PageReader(doc))
+    if m.pdf_window is not None:
+        _to_whole_file(m, run, m.pdf_window[0], pages)
+
+
+# A note that names PDF pages (1-based, printed.py): "pdf-síðu 3", "pdf-síða 3", "pdf-síðum 3–5".
+_PDF_PAGE_NOTE = re.compile(r"(pdf-síð(?:a|u|um) )(\d+)(?:–(\d+))?")
+
+
+def _whole_file_note(note: str, first: int) -> str:
+    """A note on the pages of a window with the PDF pages it names numbered as in the whole file (Task 23e)."""
+    def moved(mt: re.Match) -> str:
+        return f"{mt.group(1)}{int(mt.group(2)) + first}" + (f"–{int(mt.group(3)) + first}" if mt.group(3) else "")
+    return _PDF_PAGE_NOTE.sub(moved, note)
+
+
+def _to_whole_file(m: IssueManifest, run: _Run, first: int, pages: int) -> None:
+    """Task 23e: a window's analysis in the whole file's terms. Analysis read the window's pages as a document of its
+    own; every PDF page index it keeps (article ranges, the pages that are no article's, the page map's segments and
+    offset, the pages a note names) moves by the window's first page, and `pages` is the file's page count again
+    (page_map["pages"] stays the count the map was fitted on, the window's). So import cuts an article from the file
+    exactly as for any other issue."""
+    m.pages = pages
+    for a in m.articles:
+        if a.pdf_pages:
+            a.pdf_pages = [a.pdf_pages[0] + first, a.pdf_pages[1] + first]
+        a.analysis_notes = [_whole_file_note(n, first) for n in a.analysis_notes]
+    run.notes = [_whole_file_note(n, first) for n in run.notes]
+    pm = m.page_map
+    if pm.get("non_article"):
+        pm["non_article"] = [i + first for i in pm["non_article"]]
+    if pm.get("segments"):
+        pm["segments"] = [[lo + first, hi + first, off - first] for lo, hi, off in pm["segments"]]
+    if pm.get("offset") is not None:
+        pm["offset"] -= first
 
 
 async def _analyze_container_pages(m: IssueManifest, cfg: SourceConfig, deps: AnalyzeDeps, run: _Run, pdf: bytes,
@@ -573,7 +624,7 @@ async def _analyze_container_pages(m: IssueManifest, cfg: SourceConfig, deps: An
             return
         note = f"{TOC_GATE_NOTE} ({'; '.join(why + gate.context())})"
         if not (claude := await _llm_entries(texts, toc_pages, pm, reader, m, cfg, deps)):
-            run.flag(f"{note} — {_no_claude_list(texts, toc_pages, pm, reader, deps)}", review=True)
+            run.flag(f"{note} — {_no_claude_list(texts, toc_pages, pm, reader, deps, _window_first(m))}", review=True)
             return
         run.notes, run.review, m.volume = before          # R47: the parsed list fails on its pages; Claude's replaces it
         run.llm, entries = True, claude

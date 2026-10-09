@@ -1073,12 +1073,14 @@ def _running_keys(pages: Sequence[Page]) -> set[str]:
     return {k for k, n in counts.items() if n >= need}
 
 
-def page_heads_digest(pages: Sequence[Page], printed: Sequence[int | None], budget: int | None = None) -> str:
+def page_heads_digest(pages: Sequence[Page], printed: Sequence[int | None], budget: int | None = None,
+                      first: int = 0) -> str:
     """One line per PDF page: "[{pdf_index}] p.{printed number or ?}: {first line} | {second line}", the two top
     lines that are not the page number, a lone letter, the running head or foot; a page whose heading (page_heading)
     is not among them gets it as well (Lögrétta prints the author above the title). With a `budget` (characters) a
     long issue is compacted step by step until it fits: the pages without a heading first keep one shortened line,
-    then only their number, then drop out, so that every article's first page stays in view."""
+    then only their number, then drop out, so that every article's first page stays in view. `first` is the PDF index
+    of pages[0] in its file (a page window of a file that holds two volumes, Task 23e)."""
     running = _running_keys(pages)
     rows = []
     for i, p in enumerate(pages):
@@ -1093,7 +1095,7 @@ def page_heads_digest(pages: Sequence[Page], printed: Sequence[int | None], budg
         if h and not any(_fold(h.text)[:30] in _fold(x) for x in heads):
             heads.append(h.text[:_DIGEST_LINE_CHARS])
         num = printed[i] if i < len(printed) and printed[i] is not None else "?"
-        rows.append((f"[{i}] p.{num}", heads, h is not None))
+        rows.append((f"[{first + i}] p.{num}", heads, h is not None))
 
     def render(level: int) -> str:
         out = []

@@ -1,9 +1,11 @@
 """Tunables for the journal pipeline (spec 2026-10-03 §5.4, §6). Four values were settled by the user in the Task 22
 pilot on 2026-10-04, after the audits of the pilot's 41 issues: APPROVE_THRESHOLD, OCR_BIN_RATIO_THRESHOLD,
-PAGE_MAP_MIN_QUALITY and COVERAGE_MAX_GAP_PAGES. The comment on each says what was chosen and, where there is one, the
-evidence. PAGE_MAP_RESTART_RATIO, the fifth value the pilot report tabulates, was left as it was. The weights are the
-plan's."""
+PAGE_MAP_MIN_QUALITY and COVERAGE_MAX_GAP_PAGES; three more in the bulk run (Task 23) on 2026-10-09, from the
+distributions of the contents gate: TOC_MIN_TITLE_SHARE, TOC_MAX_UNCLAIMED_PAGES and TOC_MAX_UNCLAIMED_SHARE. The
+comment on each says what was chosen and, where there is one, the evidence. PAGE_MAP_RESTART_RATIO, the fifth value
+the pilot report tabulates, was left as it was. The weights are the plan's."""
 from pathlib import Path
+from typing import NamedTuple
 
 from engine.config.sources import TIMARIT_DROPFOLDER_DIR, _DATA_DIR
 
@@ -34,6 +36,7 @@ COVERAGE_MAX_GAP_PAGES = 6
 # "—"), and the 22 working lists the review named (Lögmannablaðið 2016-2024, TL 1951-1, 2012-3, 2012-4, 2022-4) stand
 # at 0.80 or above. The two groups still overlap between 0.75 and 0.80: working lists TL 1952-1 (0.75) and TL 1999
 # (0.77) beside failing TL 1979, 1981 and 1983 (0.78-0.79).
+# User's choice, Task 23 bulk run, 2026-10-09: 0.8, unchanged, chosen from that distribution.
 TOC_MIN_TITLE_SHARE = 0.8
 # Task 23c, the same gate: a parsed contents list also fails when the pages of article text that no entry claims exceed
 # BOTH of these: TOC_MAX_UNCLAIMED_PAGES pages and TOC_MAX_UNCLAIMED_SHARE of the pages after the cover and the contents.
@@ -48,8 +51,34 @@ TOC_MIN_TITLE_SHARE = 0.8
 # lists. 20 pages and a fifth of the volume lie in the gap between those and the rest, and above the 22 working lists the
 # review named (at most 3 pages, 0.10). Lists that already fail on their titles leave far more (Lögrétta 2018-2: 237
 # pages, Lögrétta 2017-1: 204, TL 1971: 199, TL 1993: 185, Lögrétta 2018-1: 178), so this test would catch them too.
+# User's choice, Task 23 bulk run, 2026-10-09: 20 and 0.2, unchanged, chosen from the distribution of `unclaimed`.
 TOC_MAX_UNCLAIMED_PAGES = 20
 TOC_MAX_UNCLAIMED_SHARE = 0.2
+
+
+class SplitPart(NamedTuple):
+    """One volume of an archive PDF that holds more than one: its year and volume, and the PDF pages it takes up in the
+    file (0-based, inclusive)."""
+    year: int
+    volume: int
+    pdf_window: tuple[int, int]
+
+
+# Task 23e, the user's decision of 2026-10-09: a PDF that holds two volumes is two issues, each a page window of the
+# file (discover makes one manifest per part; analysis reads only the part's pages; import cuts from the whole file).
+# Keyed by the archive-relative path (NFC). TL 1971_1972.pdf (376 pages; its title page reads "XXI. og XXII. árg.
+# 1971—1972") is 21. árg. 1971, bls. 1–150, and 22. árg. 1972, whose numbering restarts at bls. 1 (to bls. 119). The
+# boundary was read on the pages: the 1971 part runs from the volume's title page and contents (pdf 0–3) through its
+# last numbered page, bls. 150 on pdf 183 ("Skrá um lög árið 1970"), and the adverts bound after it (pdf 184–203); the
+# 1972 part starts on its own cover, pdf 204 ("1. hefti 1972 ... EFNI"), then a blank page and bls. 1 on pdf 206 (no
+# folio printed; pdf 207's reads "9" for 2); the first number read is bls. 3 on pdf 208, the last bls. 119 on pdf 352,
+# then adverts to pdf 375.
+SPLIT_FILES: dict[str, tuple[SplitPart, ...]] = {
+    JOURNALS_ROOT + "Tímarit Lögfræðinga/TL 1971_1972.pdf": (
+        SplitPart(1971, 21, (0, 203)),
+        SplitPart(1972, 22, (204, 375)),
+    ),
+}
 MANIFEST_ROOT = Path("data/timarit/manifests")
 UNMATCHED_PATH = Path("data/timarit/_unmatched.yaml")
 # Caches are written, so they live outside the (read-only) user archive.

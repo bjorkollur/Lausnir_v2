@@ -648,6 +648,32 @@ async def test_the_same_toc_text_in_two_issues_is_queued_once_and_counted_once(t
     assert len(factory.queued) == 1 and entry["context"]["issue"] == "1"
 
 
+async def test_each_part_of_a_split_pdf_queues_its_own_pages_under_its_own_key(tmp_path, monkeypatch):
+    """Task 23e: two volumes in one PDF, neither contents list readable. Each part's text for Claude covers only its own
+    page window, so each has a key of its own (the whole file's text, which an earlier answer was given for, is
+    neither), and its queue entry names the window; an issue that is no part is queued exactly as before."""
+    vol = lambda year: [f"Bindi {year}", "Efnisyfirlit sem les ekki ...",                       # noqa: E731
+                        f"1\nJón Jónsson\nGrein ársins {year}\nTexti.\n{_PAD}", f"2\n{_PAD}", f"3\n{_PAD}"]
+    whole, repo = _archive(tmp_path, monkeypatch, _pdf(vol(1971) + vol(1972)))
+    parts = []
+    for year, volume, window in ((1971, 21, [0, 4]), (1972, 22, [5, 9])):
+        parts.append(imp.manifest_path(repo / imp.C.MANIFEST_ROOT, SRC, year, None, None))
+        save_manifest(_manifest(year=year, volume=volume, issue=None, file="j/x.pdf", pdf_window=window,
+                                label=f"Tímarit lögfræðinga, {volume}. árg. ({year})"), parts[-1])
+    factory = imp._real_deps_factory(object())
+    await analyze_manifests([whole, *parts], deps_factory=factory, save=False)
+    entries = {e["context"]["manifest"].rsplit("/", 1)[1]: e for e in pending_entries(tmp_path / "cache" / "llm")}
+    assert sorted(entries) == ["1971_x_x.yaml", "1972_x_x.yaml", "2010_60_1.yaml"] and len(factory.queued) == 3
+    first, second = (entries[n]["body_path"].read_text(encoding="utf-8") for n in ("1971_x_x.yaml", "1972_x_x.yaml"))
+    assert first.startswith("[0] p.?: Bindi 1971") and "1972" not in first
+    assert second.startswith("[5] p.?: Bindi 1972") and "1971" not in second and "[4]" not in second
+    assert entries["1971_x_x.yaml"]["context"]["pdf_window"] == [0, 4]
+    assert entries["1972_x_x.yaml"]["context"] == {
+        "manifest": "data/timarit/manifests/timarit_logfraedinga/1972_x_x.yaml", "source": SRC, "year": 1972,
+        "volume": 22, "issue": None, "label": "Tímarit lögfræðinga, 22. árg. (1972)", "pdf_window": [5, 9]}
+    assert "pdf_window" not in entries["2010_60_1.yaml"]["context"]
+
+
 async def test_cmd_analyze_without_a_key_says_in_icelandic_how_many_tocs_wait_and_where(tmp_path, monkeypatch, capsys, caplog):
     p, repo = _archive(tmp_path, monkeypatch, _unreadable_toc_pdf())
     _anthropic_must_not_be_built(monkeypatch)

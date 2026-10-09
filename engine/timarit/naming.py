@@ -7,9 +7,9 @@ from __future__ import annotations
 
 import re
 import unicodedata
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
-from engine.timarit.config import JOURNALS_ROOT
+from engine.timarit.config import JOURNALS_ROOT, SPLIT_FILES
 
 _ROMAN = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100}
 
@@ -44,6 +44,7 @@ class FileIdentity:
     page_end: int | None = None
     title_hint: str | None = None
     file_key: str | None = None
+    pdf_window: tuple[int, int] | None = None   # a part of a file that holds more than one volume (split_parts)
 
 
 J = re.escape(JOURNALS_ROOT)
@@ -119,3 +120,12 @@ def identify(rel_path: str) -> FileIdentity | None:
 
 def issue_key(fid: FileIdentity) -> tuple[str, int | None, int | None, str | None]:
     return (fid.source, fid.year, fid.volume, fid.issue)
+
+
+def split_parts(fid: FileIdentity) -> list[FileIdentity]:
+    """The issues a file is (Task 23e): itself, or, for a file that holds more than one volume (config.SPLIT_FILES), one
+    identity per volume with that volume's year, number and PDF page window. A part is one year (no year_end)."""
+    parts = SPLIT_FILES.get(nfc(fid.rel_path))
+    if not parts:
+        return [fid]
+    return [replace(fid, year=p.year, year_end=None, volume=p.volume, pdf_window=tuple(p.pdf_window)) for p in parts]

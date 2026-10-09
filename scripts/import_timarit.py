@@ -25,6 +25,9 @@ scripts/timarit_llm_queue.py (list / show / answer); the next `analyze` of the i
 
 Discovery drops two kinds of duplicate: byte-identical files (`duplicate_of`) and files whose text lies inside
 a larger volume file of the same year (`contained_in`, spec 5.6); both are listed in data/timarit/_unmatched.yaml.
+A file that holds more than one volume (config.SPLIT_FILES, Task 23e) is one issue per volume, each a page window of
+the file (`pdf_window`), kept under its year (`{year}_x_x.yaml`); analysis reads only the window, import cuts from the
+whole file.
 
 `import` takes the approved manifests (and imported ones whose file changed since their import): every article is
 cut out of its issue PDF (or taken from its own file), its text extracted page by page in `--workers` processes,
@@ -92,7 +95,7 @@ from engine.timarit.manifest import (
     ArticleEntry, IssueManifest, article_issue, assign_external_ids, date_precision, issue_label, load_manifest,
     manifest_path, manifest_sha256, merge_preserving_user, save_manifest,
 )
-from engine.timarit.naming import FileIdentity, identify, issue_key, nfc, reject_reason
+from engine.timarit.naming import FileIdentity, identify, issue_key, nfc, reject_reason, split_parts
 from engine.timarit.splitter import cut_pages, page_count, sha256_bytes
 from engine.timarit.ulfljotur_xlsx import load_xlsx
 
@@ -201,7 +204,9 @@ def plan_discovery(rel_paths: list[str], read_bytes: Callable[[str], bytes],
     every file that is not imported (not a PDF, deferred MDE, working files, no filename pattern, byte
     duplicate, content duplicate). Paths are processed in sorted NFC order, so the first of two byte-identical
     files is the one that is kept. With `page_texts` (rel path → text of each page) a file whose text lies
-    inside a larger volume file of the same year is recorded as `contained_in` and left out (spec 5.6)."""
+    inside a larger volume file of the same year is recorded as `contained_in` and left out (spec 5.6). A file that
+    holds more than one volume (config.SPLIT_FILES) is then one issue per volume, with its year, volume and page window
+    (Task 23e); the parts share the file and its sha256, so they are split only after both duplicate checks."""
     unmatched: list[dict] = []
     seen_hash: dict[str, str] = {}
     hashes: dict[str, str] = {}
@@ -221,6 +226,7 @@ def plan_discovery(rel_paths: list[str], read_bytes: Callable[[str], bytes],
         contained = find_contained_files(kept, page_texts)
         unmatched += [{"path": rel, "reason": "contained_in", "duplicate_of": holder} for rel, holder in contained.items()]
         kept = [f for f in kept if f.rel_path not in contained]
+    kept = [part for f in kept for part in split_parts(f)]
     unmatched.sort(key=lambda u: u["path"])
     groups: dict[tuple, list] = defaultdict(list)
     for fid in kept:
@@ -230,11 +236,12 @@ def plan_discovery(rel_paths: list[str], read_bytes: Callable[[str], bytes],
         cfg = get_config(source)
         containers = [f for f in fids if f.granularity in ("issue", "volume")]
         year_end = next((f.year_end for f in fids if f.year_end), None)
+        window = containers[0].pdf_window if containers else None
         m = IssueManifest(source=source, year=year, volume=volume, issue=issue,
                           label=issue_label(cfg, year, volume, issue), year_end=year_end,
                           file=containers[0].rel_path if containers else None,
                           sha256=hashes[containers[0].rel_path] if containers else None,
-                          files=sorted(f.rel_path for f in fids))
+                          files=sorted(f.rel_path for f in fids), pdf_window=list(window) if window else None)
         if len(containers) > 1:
             m.error = _DISCOVERY_ERROR + " fyrir sama hefti: " + "; ".join(c.rel_path for c in containers)
         manifests.append(m)
@@ -246,6 +253,14 @@ def write_unmatched(items: list[dict], path: Path) -> None:
     path.write_text(yaml.safe_dump(items, allow_unicode=True, sort_keys=False), encoding="utf-8")
 
 
+def discovery_path(root: Path, m: IssueManifest) -> Path:
+    """Where discover keeps an issue's manifest: {year}_{volume}_{issue}.yaml under its source. A part of a file that
+    holds more than one volume (pdf_window, Task 23e) is kept under its year alone, as the file name gives no volume
+    (the volume is the split table's): so the first part keeps the manifest, and the journal_issues row (R4), that the
+    whole file had."""
+    return manifest_path(root, m.source, m.year, None if m.pdf_window is not None else m.volume, m.issue)
+
+
 def merge_with_existing(path: Path, new: IssueManifest) -> IssueManifest:
     """The manifest to save for a freshly discovered issue. Without a file on disk that is `new` itself.
     With one, the existing manifest stays as it is — articles, status, and whatever analyze filled in (year,
@@ -253,16 +268,22 @@ def merge_with_existing(path: Path, new: IssueManifest) -> IssueManifest:
     `year_end`) and its own error. Re-running discover therefore never discards an analysis or a review.
 
     When the source file changed (another container file, other bytes under the same name, another set of
-    article files) what was derived from it is stale: sha256 (replaced by the new one), pages and page_map are
-    cleared, and an issue that is not approved/imported goes back to `pending` so analyze runs again. An
-    approved/imported issue keeps its status (R4) but is flagged in `error`. Analyze clears that flag when
+    article files, another page window) what was derived from it is stale: sha256 (replaced by the new one), pages
+    and page_map are cleared, and an issue that is not approved/imported goes back to `pending` so analyze runs again.
+    An approved/imported issue keeps its status (R4) but is flagged in `error`. Analyze clears that flag when
     it re-runs. A discovery error that discovery no longer reports is removed (what analyze appended after it
-    stays); errors written by analyze or import are left alone."""
+    stays); errors written by analyze or import are left alone.
+
+    A part of a file that holds more than one volume (Task 23e) is the split table's, the user's decision: its page
+    window, year, volume and label are discovery's too, and so is the window's absence when a manifest that was a
+    part is the whole file again."""
     if not path.exists():
         return new
     old = load_manifest(path)
     changed = (old.file != new.file or set(old.files) != set(new.files)
-               or (old.sha256 is not None and old.sha256 != new.sha256))
+               or (old.sha256 is not None and old.sha256 != new.sha256) or old.pdf_window != new.pdf_window)
+    if new.pdf_window is not None or old.pdf_window is not None:
+        old.pdf_window, old.year, old.volume, old.label = new.pdf_window, new.year, new.volume, new.label
     old.file, old.files, old.year_end = new.file, new.files, new.year_end
     if changed:
         old.sha256, old.pages, old.page_map = new.sha256, None, {}
@@ -365,7 +386,7 @@ async def cmd_discover(args) -> None:
     planned: list[tuple[Path, IssueManifest]] = []
     seen_paths: dict[Path, IssueManifest] = {}
     for m in todo:
-        path = manifest_path(REPO / C.MANIFEST_ROOT, m.source, m.year, m.volume, m.issue)
+        path = discovery_path(REPO / C.MANIFEST_ROOT, m)
         if path in seen_paths:
             raise SystemExit(f"discover: tvö hefti deila sömu yfirlitsskrá {path}: "
                              f"{seen_paths[path].label!r} og {m.label!r}")
@@ -477,8 +498,10 @@ def _llm_cache_dir() -> Path:
 
 
 def _issue_context(m: IssueManifest, path: Path) -> dict:
-    return {"manifest": _manifest_rel(path), "source": m.source, "year": m.year, "volume": m.volume,
-            "issue": m.issue, "label": m.label}
+    """Which issue a queued text came from; a part of a split file (Task 23e) also says which PDF pages are its own."""
+    ctx = {"manifest": _manifest_rel(path), "source": m.source, "year": m.year, "volume": m.volume,
+           "issue": m.issue, "label": m.label}
+    return ctx | ({"pdf_window": list(m.pdf_window)} if m.pdf_window is not None else {})
 
 
 def _real_deps_factory(client: httpx.AsyncClient, llm_client=None):

@@ -25,22 +25,56 @@ def _fravik(a) -> list[str]:
     return [n for n in a.analysis_notes if n.startswith(FRAVIK)]
 
 
+def _issue_with_adverts():
+    toc = "Efnisyfirlit\n1\nJón Jónsson:\nFyrsta greinin\n7\nAnna Pálsdóttir:\nÖnnur greinin\n9\nPáll Pálsson:\nÞriðja greinin"
+    return [[(10, 60 + 14 * k, ln) for k, ln in enumerate(toc.splitlines())],
+            [(12.5, 580, "1"), (14, 100, "Jón Jónsson:"), (16, 130, "FYRSTA GREININ")] + _body(170, 25),
+            [(12.5, 580, "2")] + _body(60, 35), [(12.5, 580, "3")] + _body(60, 12),
+            [(12.5, 580, "4")] + ADVERT, [(12.5, 580, "5")] + ADVERT, [(12.5, 580, "6")],
+            [(12.5, 580, "7"), (14, 100, "Anna Pálsdóttir:"), (16, 130, "ÖNNUR GREININ")] + _body(170, 25),
+            [(12.5, 580, "8")] + _body(60, 35),
+            [(12.5, 580, "9"), (14, 100, "Páll Pálsson:"), (16, 130, "ÞRIÐJA GREININ")] + _body(170, 25)]
+
+
 async def test_an_article_ends_on_its_last_text_page_and_the_adverts_after_it_are_no_gap():
     # TL 2024 idx 3 / Lögbrú 2013 idx 0: the article ends on p. 3; two pages of lawyers' adverts and a blank page follow
-    toc = "Efnisyfirlit\n1\nJón Jónsson:\nFyrsta greinin\n7\nAnna Pálsdóttir:\nÖnnur greinin\n9\nPáll Pálsson:\nÞriðja greinin"
-    pages = [[(10, 60 + 14 * k, ln) for k, ln in enumerate(toc.splitlines())],
-             [(12.5, 580, "1"), (14, 100, "Jón Jónsson:"), (16, 130, "FYRSTA GREININ")] + _body(170, 25),
-             [(12.5, 580, "2")] + _body(60, 35), [(12.5, 580, "3")] + _body(60, 12),
-             [(12.5, 580, "4")] + ADVERT, [(12.5, 580, "5")] + ADVERT, [(12.5, 580, "6")],
-             [(12.5, 580, "7"), (14, 100, "Anna Pálsdóttir:"), (16, 130, "ÖNNUR GREININ")] + _body(170, 25),
-             [(12.5, 580, "8")] + _body(60, 35),
-             [(12.5, 580, "9"), (14, 100, "Páll Pálsson:"), (16, 130, "ÞRIÐJA GREININ")] + _body(170, 25)]
     m = await analyze_issue(_manifest("timarit_logfraedinga", issue="1", file="x/TL 2010_01.pdf"),
-                            get_config("timarit_logfraedinga"), _deps(_typeset(pages)))
+                            get_config("timarit_logfraedinga"), _deps(_typeset(_issue_with_adverts())))
     first = m.articles[0]
     assert (first.pdf_pages, first.page_end) == ([1, 3], 3)
     assert m.page_map["non_article"] == [4, 5, 6]
     assert _coverage_ok(m)                         # the advert and blank pages are no gap between the articles
+
+
+async def test_in_a_page_window_the_adverts_and_the_ranges_are_pages_of_the_whole_file_and_coverage_holds():
+    # Task 23e: the same issue as the second volume of a file (pdf 10-19), another volume before it and one after it
+    pages = _issue_with_adverts()
+    m = await analyze_issue(_manifest("timarit_logfraedinga", issue="1", file="x/TL 2010_01.pdf", pdf_window=[10, 19]),
+                            get_config("timarit_logfraedinga"), _deps(_typeset(pages * 3)))
+    assert [a.pdf_pages for a in m.articles] == [[11, 13], [17, 18], [19, 19]]
+    assert m.page_map["non_article"] == [14, 15, 16]
+    assert m.pages == 30 and _coverage_ok(m)
+    m.pdf_window = None                            # the same ranges measured against the whole file leave 20 pages out
+    assert not _coverage_ok(m)
+
+
+async def test_in_a_page_window_a_note_names_the_pdf_page_of_the_whole_file():
+    # Task 23e: unnumbered pages, an entry without a start page found by its title on pdf 5 (the window's second page):
+    # the notes name pdf-síðu 6 (1-based), as the whole file's analysis does, not the window's 2
+    vol = lambda w: [[(20, 100, f"{w} bindið")],                                                   # noqa: E731
+                     [(14, 100, "Jón Jónsson:"), (16, 130, f"GREIN {w.upper()} BINDIS")] + _body(170, 25),
+                     _body(60, 35), _body(60, 12)]
+    llm = [TocEntry("Grein síðara bindis", ["Jón Jónsson"], None, section="Fræðigrein")]
+    notes = []
+    for window in ([4, 7], None):
+        m = await analyze_issue(_manifest("timarit_logfraedinga", issue="1", file="x/TL 2010_01.pdf",
+                                          pdf_window=window),
+                                get_config("timarit_logfraedinga"),
+                                _deps(_typeset(vol("Fyrra") + vol("Síðara")), llm=llm))
+        (a,) = m.articles
+        notes.append((a.pdf_pages, a.analysis_notes))
+    assert notes[0] == notes[1] and notes[0][0] == [5, 7]
+    assert any("pdf-síðu 6" in n for n in notes[0][1]) and not any("pdf-síðu 2" in n for n in notes[0][1])
 
 
 async def test_a_note_signed_at_its_end_takes_its_author_from_the_signature():

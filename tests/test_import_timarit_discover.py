@@ -203,6 +203,79 @@ def test_plan_discovery_stores_the_container_sha256_and_none_for_article_file_gr
     assert keys[("ulfljotur", 1957, 11, None)].sha256 is None
 
 
+# --- Task 23e: one PDF that holds two volumes is two issues --------------------------------------------------
+
+TL7172 = TL + "TL 1971_1972.pdf"
+LABEL71, LABEL72 = "Tímarit lögfræðinga, 21. árg. (1971)", "Tímarit lögfræðinga, 22. árg. (1972)"
+
+
+def test_a_split_file_is_discovered_as_one_issue_per_volume_with_its_page_window():
+    files = {TL7172: b"V", TL + "TL 1973.pdf": b"W"}
+    manifests, unmatched = plan_discovery(sorted(files), files.__getitem__)
+    tl = {m.year: m for m in manifests}
+    assert unmatched == [] and sorted(tl) == [1971, 1972, 1973]            # neither part is a byte duplicate of the other
+    a, b = tl[1971], tl[1972]
+    assert (a.volume, a.year_end, a.issue, a.pdf_window, a.label) == (21, None, None, [0, 203], LABEL71)
+    assert (b.volume, b.year_end, b.issue, b.pdf_window, b.label) == (22, None, None, [204, 375], LABEL72)
+    assert a.file == b.file == TL7172 and a.files == b.files == [TL7172] and a.sha256 == b.sha256
+    assert a.error is None and b.error is None and a.status == b.status == "pending"
+    assert tl[1973].pdf_window is None and tl[1973].volume is None
+
+
+def test_the_parts_of_a_split_file_are_never_compared_for_containment():
+    manifests, unmatched = _run({TL7172: _pages("v7172", 12), TL + "TL 1973.pdf": _pages("v73", 6)})
+    assert unmatched == [] and sorted(m.year for m in manifests) == [1971, 1972, 1973]
+
+
+def test_a_part_is_kept_under_its_year_so_the_1971_part_keeps_the_whole_files_manifest(tmp_path):
+    files = {TL7172: b"V"}
+    manifests, _ = plan_discovery(sorted(files), files.__getitem__)
+    assert [imp.discovery_path(tmp_path, m).name for m in manifests] == ["1971_x_x.yaml", "1972_x_x.yaml"]
+    # any other issue: the path of its year, volume and issue, as before
+    other = imp.manifest_path(tmp_path, "timarit_logfraedinga", 2010, None, "1")
+    assert imp.discovery_path(tmp_path, _discovered()) == other
+    logf = IssueManifest(source="logfraedingur", year=2010, volume=4, issue=None, label="L")
+    assert imp.discovery_path(tmp_path, logf) == tmp_path / "logfraedingur" / "2010_4_x.yaml"
+
+
+def _part71(**kw):
+    fields = dict(year=1971, volume=21, issue=None, label=LABEL71, file=TL7172, files=[TL7172], sha256="abc",
+                  pdf_window=[0, 203])
+    fields.update(kw)
+    return _discovered(**fields)
+
+
+def test_merge_turns_the_whole_files_manifest_into_its_first_part(tmp_path):
+    path = tmp_path / "1971_x_x.yaml"
+    _analysed(path, year=1971, volume=22, issue=None, label="Tímarit lögfræðinga, 22. árg. (1971)", file=TL7172,
+              files=[TL7172], sha256="abc", pages=376, year_end=1972, status="review")
+    out = imp.merge_with_existing(path, _part71())
+    assert (out.year, out.volume, out.year_end, out.issue, out.pdf_window, out.label) == (
+        1971, 21, None, None, [0, 203], LABEL71)
+    # the window is another issue of the file: what analysis found in the whole file is stale
+    assert out.status == "pending" and out.pages is None and out.page_map == {}
+    assert out.sha256 == "abc" and out.error is None
+    assert [a.title for a in out.articles] == ["Grein"]                      # the user's articles are not thrown away
+    save_manifest(out, path)
+    assert imp.merge_with_existing(path, _part71()) == out                   # the next discover changes nothing
+
+
+def test_merge_keeps_the_analysis_of_a_part_whose_window_is_unchanged(tmp_path):
+    path = tmp_path / "1972_x_x.yaml"
+    _analysed(path, year=1972, volume=22, issue=None, label=LABEL72, file=TL7172, files=[TL7172], sha256="abc", pages=376,
+              pdf_window=[204, 375], status="review")
+    out = imp.merge_with_existing(path, _part71(year=1972, volume=22, label=LABEL72, pdf_window=[204, 375]))
+    assert out.status == "review" and out.pages == 376 and out.page_map == {"0": 1} and out.pdf_window == [204, 375]
+    assert [a.pdf_pages for a in out.articles] == [[2, 5]]
+
+
+def test_a_new_window_on_an_approved_issue_keeps_its_status_and_flags_it(tmp_path):
+    path = tmp_path / "1971_x_x.yaml"
+    _analysed(path, year=1971, volume=22, issue=None, file=TL7172, files=[TL7172], sha256="abc", year_end=1972)
+    out = imp.merge_with_existing(path, _part71())
+    assert out.status == "approved" and out.error.startswith("frumskjal breyttist") and out.pdf_window == [0, 203]
+
+
 # --- content duplicates: a file whose text is inside a larger volume file ----------------------------------
 
 def _pages(seed, n, words=110):
@@ -428,12 +501,14 @@ async def test_upsert_issue_row_inserts_updates_and_never_downgrades():
             {"p": rel})).one()
         assert tuple(row) == (2010, None, "1", m.label, "a/TL 2010_01.pdf", "pending")
 
-        # analyze later learns the volume: same manifest → same row, now carrying the volume and label
-        m.volume, m.label, m.status = 60, "Tímarit lögfræðinga, 60. árg. 1. hefti (2010)", "approved"
+        # analyze later learns the volume: same manifest → same row, now carrying the volume and label. Volume 960, as
+        # in the import tests: uq_journal_issue (source, year, volume, issue) holds in the live database, where the
+        # real TL 2010 1. hefti is volume 60, so the test's row must have an identity no real row can have.
+        m.volume, m.label, m.status = 960, "Tímarit lögfræðinga, 960. árg. 1. hefti (2010)", "approved"
         await imp.upsert_issue_row(s, m, rel)
         rows = (await conn.execute(text(
             "SELECT volume, label, status FROM journal_issues WHERE manifest_path = :p"), {"p": rel})).all()
-        assert [tuple(r) for r in rows] == [(60, m.label, "approved")]
+        assert [tuple(r) for r in rows] == [(960, m.label, "approved")]
 
         # an approved row is not demoted by a later review result
         m.status = "review"
@@ -451,8 +526,8 @@ async def test_upsert_issue_row_inserts_updates_and_never_downgrades():
         assert tuple(row) == ("imported", "raw/hefti/x.pdf")
 
         # year None (S&S before analyze) is stored as the NOT NULL placeholder 0
-        m2 = IssueManifest(source="timarit_logfraedinga", year=None, volume=5, issue=None, label="L")
-        rel2 = rel.replace("2010_x_1", "x_5_x")
+        m2 = IssueManifest(source="timarit_logfraedinga", year=None, volume=960, issue=None, label="L")
+        rel2 = rel.replace("2010_x_1", "x_960_x")
         await imp.upsert_issue_row(s, m2, rel2)
         assert (await conn.execute(text("SELECT year FROM journal_issues WHERE manifest_path = :p"),
                                    {"p": rel2})).scalar() == 0

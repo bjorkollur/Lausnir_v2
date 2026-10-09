@@ -5,7 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from engine.timarit.naming import FileIdentity, identify, issue_key, nfc, reject_reason, roman_to_int
+from engine.timarit import config as C
+from engine.timarit.naming import FileIdentity, identify, issue_key, nfc, reject_reason, roman_to_int, split_parts
 
 FIX = Path(__file__).parent / "fixtures" / "timarit" / "filenames.txt"
 ALL = [l for l in FIX.read_text(encoding="utf-8").splitlines() if l]
@@ -119,3 +120,39 @@ def test_issue_key_groups_articles_of_one_issue():
 
 def test_roman():
     assert [roman_to_int(s) for s in ("IV", "VIII", "IX", "XII")] == [4, 8, 9, 12]
+
+
+# --- Task 23e: a PDF that holds two volumes is one identity per volume ------------------------------------
+
+TL7172 = "Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1971_1972.pdf"
+
+
+def test_the_split_table_names_archive_files_in_nfc_with_windows_that_do_not_overlap():
+    assert C.SPLIT_FILES
+    for rel, parts in C.SPLIT_FILES.items():
+        assert rel == nfc(rel) and rel in ALL and identify(rel) is not None, rel
+        windows = [p.pdf_window for p in parts]
+        assert all(0 <= a <= b for a, b in windows), rel
+        assert all(windows[i][1] < windows[i + 1][0] for i in range(len(windows) - 1)), rel
+
+
+def test_tl_1971_1972_is_the_21st_volume_1971_and_the_22nd_volume_1972():
+    # the user's decision (2026-10-09): bls. 1-150 of 1971 are pdf 0-203 (to the adverts after "Skrá um lög árið 1970"),
+    # the 1972 part starts on its own cover, pdf 204 ("1. hefti 1972"), its bls. 1 on pdf 206
+    parts = split_parts(identify(TL7172))
+    got = [(p.year, p.year_end, p.volume, p.issue, p.pdf_window, p.rel_path, p.granularity, p.source) for p in parts]
+    assert got == [
+        (1971, None, 21, None, (0, 203), TL7172, "volume", "timarit_logfraedinga"),
+        (1972, None, 22, None, (204, 375), TL7172, "volume", "timarit_logfraedinga")]
+    assert len({issue_key(p) for p in parts}) == 2
+
+
+def test_a_file_that_is_not_split_is_its_own_single_identity():
+    fid = identify("Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1973.pdf")
+    assert split_parts(fid) == [fid] and fid.pdf_window is None
+
+
+def test_the_split_table_is_looked_up_by_the_nfc_path():
+    nfd = unicodedata.normalize("NFD", TL7172)
+    fid = FileIdentity("timarit_logfraedinga", nfd, "volume", year=1971, year_end=1972)
+    assert [p.year for p in split_parts(fid)] == [1971, 1972]

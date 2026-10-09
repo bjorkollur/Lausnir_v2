@@ -29,18 +29,24 @@ def _pdf(pages: list[str], meta: dict | None = None) -> bytes:
     return d.tobytes()
 
 
-def _issue_pdf():
+def _issue_pages(titles=("Fyrsta greinin", "Önnur greinin um dóma", "Ritdómur: Bók um kröfurétt"),
+                 authors=("Jón Jónsson", "Anna Pálsdóttir", "Páll Pálsson")) -> list[str]:
     """An 11-page TL-style issue: cover, TOC (page-first, one entry per page mark), three articles starting on
     printed pages 1, 5 and 9. Every article page prints its number on the first line: printed = pdf index - 1."""
-    toc = ("Efnisyfirlit\n1\nJón Jónsson:\nFyrsta greinin\n5\nAnna Pálsdóttir:\nÖnnur greinin um dóma\n"
-           "9\nPáll Pálsson:\nRitdómur: Bók um kröfurétt\n1. hefti 60. árgangur\nvor 2010")
+    (t1, t2, t3), (a1, a2, a3) = titles, authors
+    toc = (f"Efnisyfirlit\n1\n{a1}:\n{t1}\n5\n{a2}:\n{t2}\n"
+           f"9\n{a3}:\n{t3}\n1. hefti 60. árgangur\nvor 2010")
     pages = ["Lögfræðingafélag Íslands\nTímarit lögfræðinga", toc,
-             f"1\nJón Jónsson\nFyrsta greinin\nTexti fyrstu greinar.\n{_PAD}"]
+             f"1\n{a1}\n{t1}\nTexti fyrstu greinar.\n{_PAD}"]
     pages += [f"{p}\nFramhald fyrstu greinar.\n{_PAD}" for p in (2, 3, 4)]
-    pages += [f"5\nAnna Pálsdóttir\nÖnnur greinin um dóma\nTexti.\n{_PAD}"]
+    pages += [f"5\n{a2}\n{t2}\nTexti.\n{_PAD}"]
     pages += [f"{p}\nFramhald annarrar greinar.\n{_PAD}" for p in (6, 7, 8)]
-    pages += [f"9\nPáll Pálsson\nRitdómur: Bók um kröfurétt\nRitdómur.\n{_PAD}"]
-    return _pdf(pages)
+    pages += [f"9\n{a3}\n{t3}\nRitdómur.\n{_PAD}"]
+    return pages
+
+
+def _issue_pdf():
+    return _pdf(_issue_pages())
 
 
 def _deps(pdf, leitir=None, llm=None, xlsx=(), calls=None):
@@ -788,3 +794,74 @@ async def test_sogs_blank_last_page_counts_only_when_the_printed_range_includes_
     a = m.articles[0]
     assert (a.pdf_pages, a.page_start, a.page_end) == (pages, 133, end)
     assert any("auð lokasíða" in n for n in a.analysis_notes) == (pages == [0, 2])
+
+
+# --- Task 23e: a page window of a PDF that holds two volumes --------------------------------------------------------
+
+_SECOND = (("Þriðja greinin", "Fjórða greinin um samninga", "Ritdómur: Bók um sifjarétt"),
+           ("Sigríður Jónsdóttir", "Gunnar Gunnarsson", "Helga Helgadóttir"))
+
+
+def _two_volumes(extra=()):
+    """Two volumes in one PDF, the second's numbers restarting at 1 (TL 1971_1972.pdf): pdf 0-10 and 11-21."""
+    return _pdf(_issue_pages() + _issue_pages(*_SECOND) + list(extra))
+
+
+async def test_a_page_window_is_analysed_alone_and_its_ranges_are_pages_of_the_whole_file():
+    pdf, cfg = _two_volumes(), get_config("timarit_logfraedinga")
+    whole = await analyze_issue(_manifest(), cfg, _deps(pdf))
+    assert whole.page_map["offset"] is None               # the numbers restart: the whole file has no page map
+    first = await analyze_issue(_manifest(pdf_window=[0, 10]), cfg, _deps(pdf))
+    second = await analyze_issue(_manifest(pdf_window=[11, 21]), cfg, _deps(pdf))
+    plain = await analyze_issue(_manifest(), cfg, _deps(_issue_pdf()))
+    assert [(a.title, a.page_start, a.pdf_pages) for a in first.articles] == [
+        (a.title, a.page_start, a.pdf_pages) for a in plain.articles]
+    assert [a.title for a in second.articles] == ["Þriðja greinin", "Fjórða greinin um samninga", "Bók um sifjarétt"]
+    assert [a.authors for a in second.articles] == [["Sigríður Jónsdóttir"], ["Gunnar Gunnarsson"], ["Helga Helgadóttir"]]
+    assert [(a.page_start, a.page_end) for a in second.articles] == [(1, 4), (5, 8), (9, 9)]
+    assert [a.pdf_pages for a in second.articles] == [[13, 16], [17, 20], [21, 21]]    # pages of the whole file
+    assert [a.confidence for a in second.articles] == [a.confidence for a in plain.articles]
+    assert second.status == plain.status and second.pdf_window == [11, 21]
+    assert first.pages == second.pages == 22 and first.sha256 == second.sha256 == whole.sha256
+    assert second.page_map["offset"] == plain.page_map["offset"] - 11
+    assert second.page_map["segments"] == [[s + 11, e + 11, off - 11] for s, e, off in plain.page_map["segments"]]
+
+
+async def test_claude_reads_only_the_windows_pages_named_by_their_place_in_the_whole_file():
+    vol = lambda word: [f"{word} bindið", "Efnisyfirlit sem les ekki ...",                     # noqa: E731
+                        f"1\nJón Jónsson\nGrein {word.lower()} bindis\nTexti.\n{_PAD}", f"2\n{_PAD}", f"3\n{_PAD}"]
+    pdf, cfg = _pdf(vol("Fyrra") + vol("Síðara")), get_config("timarit_logfraedinga")
+    texts = {}
+    for window in (None, [0, 4], [5, 9]):
+        calls = []
+        await analyze_issue(_manifest(pdf_window=window), cfg, _deps(pdf, llm=[], calls=calls))
+        (texts[str(window)],) = [t for kind, t in calls if kind == "llm"]
+    first, second = texts["[0, 4]"], texts["[5, 9]"]
+    assert first.startswith("[0] p.?: Fyrra bindið") and "Síðara" not in first and "[5]" not in first
+    assert second.startswith("[5] p.?: Síðara bindið") and "Fyrra" not in second and "[0]" not in second
+    assert "[9] p.3" in second
+    assert len({first, second, texts["None"]}) == 3            # three texts, three cache keys
+
+
+async def test_a_window_that_runs_past_the_file_is_an_error_that_names_it():
+    with pytest.raises(ValueError, match=r"pdf_window"):
+        await analyze_issue(_manifest(pdf_window=[11, 40]), get_config("timarit_logfraedinga"), _deps(_two_volumes()))
+
+
+def test_notes_that_name_a_pdf_page_are_moved_to_the_page_of_the_whole_file():
+    from engine.timarit.analyze import _whole_file_note
+    assert _whole_file_note("staðsett eftir nágrönnum sínum í listanum (pdf-síða 3)", 204) == \
+        "staðsett eftir nágrönnum sínum í listanum (pdf-síða 207)"
+    assert _whole_file_note("FRÁVIK: greinin er á pdf-síðu 1 en blaðsíðutal hennar fannst ekki", 204) == \
+        "FRÁVIK: greinin er á pdf-síðu 205 en blaðsíðutal hennar fannst ekki"
+    assert _whole_file_note("hefst á pdf-síðum 3–5; skráin segir bls. 3", 10) == \
+        "hefst á pdf-síðum 13–15; skráin segir bls. 3"
+    assert _whole_file_note("leitir.is segir bls. 113–119", 204) == "leitir.is segir bls. 113–119"
+
+
+def test_every_note_that_names_a_pdf_page_has_a_form_the_window_moves():
+    from pathlib import Path
+    import re
+    import engine.timarit as pkg
+    src = "".join(p.read_text(encoding="utf-8") for p in Path(pkg.__file__).parent.glob("*.py"))
+    assert set(re.findall(r"pdf-síð\w+", src, flags=re.I)) == {"pdf-síða", "pdf-síðu", "pdf-síðum"}

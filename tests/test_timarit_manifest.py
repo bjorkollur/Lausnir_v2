@@ -834,3 +834,31 @@ def test_merge_the_old_note_wins_over_a_note_in_the_new_manifest():
     old = _mm(_art("A", 7, note="notandi"))
     assert merge_preserving_user(old, _mm(_art("A", 7, note="annað"))).articles[0].note == "notandi"
     assert merge_preserving_user(_mm(_art("A", 7)), _mm(_art("A", 7, note="annað"))).articles[0].note == "annað"
+
+
+# --- Task 23e: a page window of a PDF that holds more than one volume ------------------------------------
+
+def test_a_page_window_survives_save_and_load_and_an_absent_one_is_not_written(tmp_path):
+    p = tmp_path / "m.yaml"
+    save_manifest(_m(), p)
+    assert "pdf_window" not in p.read_text(encoding="utf-8")       # every other manifest is saved as before
+    assert load_manifest(p).pdf_window is None
+    save_manifest(_m(pdf_window=[204, 375]), p)
+    assert yaml.safe_load(p.read_text(encoding="utf-8"))["pdf_window"] == [204, 375]
+    assert load_manifest(p) == _m(pdf_window=[204, 375])
+
+
+@pytest.mark.parametrize("val", ["[3]", "[5, 2]", "[-1, 4]", "x", "[a, 4]"])
+def test_load_rejects_a_page_window_that_is_not_two_page_indexes(tmp_path, val):
+    with pytest.raises(ValueError) as e:
+        _load(tmp_path, _HEAD + f"pdf_window: {val}\n")
+    assert "m.yaml" in str(e.value) and "pdf_window" in str(e.value)
+
+
+@pytest.mark.parametrize("pdf_pages,expected", [
+    ([210, 369], "approved"), ([211, 369], "review"),     # head: counted from the window's first page
+    ([204, 369], "approved"), ([204, 368], "review")])    # tail: up to the window's last page
+def test_coverage_of_a_page_window_is_measured_from_the_window_not_from_the_whole_file(pdf_pages, expected):
+    m = _covering(pages=376, pdf_window=[204, 375])
+    m.articles[0].pdf_pages = pdf_pages
+    assert issue_status(m) == expected

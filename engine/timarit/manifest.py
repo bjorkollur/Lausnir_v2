@@ -59,6 +59,10 @@ class IssueManifest:
     sha256: str | None = None
     pages: int | None = None
     year_end: int | None = None
+    # Task 23e: the PDF pages of `file` that are this issue's (0-based, inclusive), when the file holds more than one
+    # volume (config.SPLIT_FILES); None: the whole file. Analysis reads only these pages; every PDF page index the
+    # manifest stores (pdf_pages, page_map) is still the whole file's, so import cuts from the file as before.
+    pdf_window: list[int] | None = None
     page_map: dict = field(default_factory=dict)
     status: str = "pending"
     confidence: float = 0.0
@@ -257,7 +261,8 @@ def _provenance(v):
 
 _ISSUE_COERCE = {
     "source": _req_str, "year": _opt_int, "volume": _opt_int, "issue": _issue_str, "label": _req_str,
-    "file": _opt_str, "sha256": _opt_str, "pages": _opt_int, "year_end": _opt_int, "page_map": _mapping,
+    "file": _opt_str, "sha256": _opt_str, "pages": _opt_int, "year_end": _opt_int, "pdf_window": _pdf_pages,
+    "page_map": _mapping,
     "status": _status, "confidence": _float, "error": _opt_str, "files": _str_list,
 }
 _ARTICLE_COERCE = {
@@ -346,6 +351,8 @@ def _write_atomic(path: Path, text: str) -> None:
 def save_manifest(m: IssueManifest, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     data = asdict(m)
+    if data["pdf_window"] is None:          # only a part of a split file has one: any other is saved as before
+        del data["pdf_window"]
     for a in data["articles"]:
         a["date"] = _iso_date(a["date"])     # a str is dumped quoted, so it round-trips as a str
     _write_atomic(path, yaml.safe_dump(data, allow_unicode=True, sort_keys=False, width=120))
@@ -365,7 +372,8 @@ def _coverage_ok(m: IssueManifest) -> bool:
     """For an issue PDF: the articles must account for (nearly) all of it. At most COVERAGE_MAX_GAP_PAGES
     pages may lie before the first article, between two articles and after the last one; an article
     whose pages are unknown cannot vouch for anything. Pages analysis found to be no article's (adverts, blank pages:
-    page_map["non_article"], Task 22c) are no gap. Article-granularity issues have no such file."""
+    page_map["non_article"], Task 22c) are no gap. Article-granularity issues have no such file. A part of a file that
+    holds more than one volume (pdf_window, Task 23e) is measured from the first to the last page of its window."""
     if m.file is None:
         return True
     if any(not a.pdf_pages for a in m.articles):
@@ -379,10 +387,11 @@ def _coverage_ok(m: IssueManifest) -> bool:
     for s, e in spans:
         covered.update(range(s, e + 1))
     first, last = min(covered), max(covered)
-    if m.pages is not None:
-        if first > gap:                                         # pages 0 .. first-1
+    bounds = m.pdf_window or ([0, m.pages - 1] if m.pages is not None else None)
+    if bounds is not None:
+        if first - bounds[0] > gap:                             # pages before the first article
             return False
-        if m.pages - 1 - last > gap:                            # pages last+1 .. pages-1
+        if bounds[1] - last > gap:                              # pages after the last article
             return False
     run = 0
     for p in range(first, last + 1):
