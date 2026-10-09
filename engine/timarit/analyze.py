@@ -66,8 +66,8 @@ from engine.timarit.naming import FileIdentity, identify, nfc
 from engine.timarit.pagemap import PATTERNS, PageMap, build_page_map, read_page_numbers
 from engine.timarit.printed import (
     FRAVIK, NOT_FOUND_NOTE, RegistryValues, add_note, assign_ranges, drop_beyond_document, end_in_file, end_ranges,
-    fill_printed_pages, flag, given_first, last_body_page, page_heading_text, page_numbers, read_printed_page,
-    registry_values, relocate_by_title, signatures,
+    fill_printed_pages, flag, given_first, last_body_page, page_heading_text, page_numbers, place_by_neighbours,
+    read_printed_page, registry_values, relocate_by_title, signatures,
 )
 from engine.timarit.splitter import sha256_bytes
 from engine.timarit.toc import TocEntry, clean_title, find_toc_pages, is_front_matter, parse_toc, \
@@ -609,14 +609,20 @@ async def _place(entries: list[ArticleEntry], m: IssueManifest, cfg: SourceConfi
     entries, beyond = drop_beyond_document(entries, pm)
     if beyond:
         run.flag(beyond, review=True)
-    ends = end_ranges(entries, reader, numbers.at, registry_ends)   # Task 22c: articles end on their own text
+    placed = place_by_neighbours(entries, registry_ends, pm, texts, reader)  # Task 23d: by the entries around it
+    ends = end_ranges(entries, reader, numbers.at, registry_ends, placed)   # Task 22c: articles end on their own text
     m.page_map["non_article"] = ends.outside
     for a in entries:
         if a.pdf_pages:
             first, last = a.pdf_pages
             fill_printed_pages(a, lambda i, f=first, la=last: numbers.at(i, f, la), first, last)
-            read_printed_page(a, reader(first), reader(last_body_page(reader, first, last)),
-                              sign=lambda x, f=first, e=ends.ends[id(a)]: signatures(x, reader, f, e))
+            # Task 23d: of a page it shares, its own part: above the next item's heading on its last page, from its
+            # heading down on a start page its neighbours placed it on, below the item that heads that page
+            e, top = ends.ends[id(a)], placed.get(id(a))
+            own = lambda i, f=first, la=last, e=e, top=top: PK.below(            # noqa: E731
+                PK.above(reader(i), e.cut if i == la else None), top if i == f else None)
+            read_printed_page(a, own(first), own(last if e.cut is not None else last_body_page(reader, first, last)),
+                              sign=lambda x, f=first, e=e, own=own: signatures(x, own, f, e))
             page, printed, body = _visual_text(reader(first)), numbers.evidence(first), " ".join(texts[first:last + 1][:3])
         else:
             page, printed, body = "", None, ""
@@ -630,7 +636,8 @@ async def _place(entries: list[ArticleEntry], m: IssueManifest, cfg: SourceConfi
     gate = TG.check(entries, {k: r.title for k, r in registry.items()}, reader, reader.picture, ends.outside,
                     lambda title, i: _on_page(title, _visual_text(reader(i)), C.TITLE_ON_PAGE_MIN), len(texts),
                     lambda i: _visual_text(reader(i)), {k: r.authors for k, r in registry.items()},
-                    front=max([*toc_pages, *cover], default=-1) + 1)   # (unclaimed counts after cover and contents)
+                    front=max([*toc_pages, *cover], default=-1) + 1,   # (unclaimed counts after cover and contents)
+                    placed=frozenset(placed))
     m.page_map["toc_check"] = gate.as_dict()
     for k, by in gate.proxies:                   # fix round 2: placed by a name or a label, its title unverified
         a = entries[k]

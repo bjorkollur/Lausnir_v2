@@ -107,6 +107,27 @@ FILES = {
     "tl2024e": ("Tímarit Lögfræðinga/TL 2024_04.pdf", [1]),
     "ulf2024": ("Úlfljótur/Tímarit/Ulfljotur_2024-1tbl.pdf", [2, 3, 4]),
     "tl2010": ("Tímarit Lögfræðinga/TL 2010_02.pdf", [14]),
+    # Task 23d: an article's last lines at the top of the next item's start page (signed, run on mid-sentence, signed
+    # with initials, a table), its last lines over an advert, a page with a download stamp and a folio only, and short
+    # items placed by their neighbours in volumes whose page numbers restart
+    "tl1980": ("Tímarit Lögfræðinga/TL 1980.pdf", [273, 274]),
+    "lmbl2021b": ("Lögmannablaðið/Lögmannablaðið 2021 02.pdf", [17, 18]),
+    "tl1982": ("Tímarit Lögfræðinga/TL 1982.pdf", [224, 225, 226]),
+    "lmbl2009": ("Lögmannablaðið/Lögmannablaðið 2009 04.pdf", [11, 12, 13, 14, 15]),
+    "tl1976": ("Tímarit Lögfræðinga/TL 1976.pdf", [39, 40, 41]),
+    "lf2009": ("Lögfræðingur UNAK/Lögfræðingur 3 arg 2009.pdf", [55]),
+    "ulf2001": ("Úlfljótur/Tímarit/Ulfljotur_2001 54 arg/95.pdf", [28]),
+    "tl2016d": ("Tímarit Lögfræðinga/TL 2016_04.pdf", [164, 165, 166, 189, 190]),
+    "tl1993": ("Tímarit Lögfræðinga/TL 1993.pdf", [43, 44, 45, 79, 80, 81]),
+    "logretta2011": ("Lögrétta/Lögrétta 2011 1.tbl.pdf", [42, 43, 44]),
+    "tl1973": ("Tímarit Lögfræðinga/TL 1973.pdf", [34, 128, 129, 130]),
+    "logretta2013": ("Lögrétta/Lögrétta 2013 1.tbl.pdf", [33, 34]),
+    "lmbl2023c": ("Lögmannablaðið/Lögmannablaðið 2023 03.pdf", [20, 21]),
+    "tl2003": ("Tímarit Lögfræðinga/TL 2003.pdf", [209, 210]),
+    "lmbl2016e": ("Lögmannablaðið/Lögmannablaðið 2016 02 .pdf", [16, 17]),
+    "tl1953": ("Tímarit Lögfræðinga/TL 1953_04.pdf", [9]),
+    "lmbl2021c": ("Lögmannablaðið/Lögmannablaðið 2021 03.pdf", [12]),
+    "tl1971c": ("Tímarit Lögfræðinga/TL 1971_1972.pdf", [172]),
 }
 _WORDS = ("og það sem fram kemur í máli þessu var talið rétt að líta til þess hvort ákvæðin ættu við um þau atvik "
           "sem um ræðir enda verður ekki séð að annað hafi legið fyrir ").split()

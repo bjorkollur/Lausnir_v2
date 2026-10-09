@@ -109,20 +109,42 @@ def _same(a: float, b: float) -> bool:
 _LINES: dict[tuple[int, float], tuple[Page, list[Line]]] = {}
 
 
+def margin_stamp(ln: Line, page: Page) -> bool:
+    """A line set up the page's margin (Task 23d): turned on its side (its box far narrower than its text) and outside
+    the text block. TL 2014–2020 and 2024–2025 print the download stamp "logfraedingafelag.is - Hlaðið niður af
+    aðgangi …" up the left margin of every page; read as a line of running text near the top, it made a page with
+    nothing else but its folio the last page of an article (TL 2016-4 p. 689, 2015-4 p. 588)."""
+    return len(ln.text) >= 10 and 0 < ln.x1 - ln.x0 < 0.15 * len(ln.text) * ln.size and page.width > 0 \
+        and (ln.x1 <= 0.1 * page.width or ln.x0 >= 0.9 * page.width)
+
+
 def _lines(page: Page, bottom: float) -> list[Line]:
-    """firstpage._content_lines, kept per page: each page is asked many times and furniture is costly to tell."""
+    """firstpage._content_lines without margin stamps, kept per page: each page is asked many times and furniture is
+    costly to tell."""
     key = (id(page), bottom)
     hit = _LINES.get(key)
     if hit is None or hit[0] is not page:
         if len(_LINES) > 4096:
             _LINES.clear()
-        hit = _LINES[key] = (page, FP._content_lines(page, bottom))
+        hit = _LINES[key] = (page, [ln for ln in FP._content_lines(page, bottom) if not margin_stamp(ln, page)])
     return hit[1]
 
 
 def content(page: Page) -> list[Line]:
-    """The page's lines without furniture (folio, running head, the journal's name)."""
+    """The page's lines without furniture (folio, running head, the journal's name) or a stamp up its margin."""
     return _lines(page, 1.0)
+
+
+def above(page: Page, cut: float | None) -> Page:
+    """The part of the page above `cut` (the top of the next item's heading on a page two items share, End.cut): what
+    the article that ends there prints; the whole page when `cut` is None."""
+    return page if cut is None else Page([ln for ln in page.lines if ln.y < cut], page.height, page.width)
+
+
+def below(page: Page, top: float | None) -> Page:
+    """The part of the page from `top` down (the top of an item's own heading on a page it shares with the item above
+    it, Task 23d); the whole page when `top` is None."""
+    return page if top is None else Page([ln for ln in page.lines if ln.y >= top], page.height, page.width)
 
 
 def _clusters(lines: list[Line]) -> list[tuple[float, list[str]]]:
@@ -351,6 +373,13 @@ def signed_names(lines: list[Line], k: int) -> list[str]:
     return _name_only(text)
 
 
+def _heads_item(ln: Line, t: Typography, title: str | None) -> bool:
+    """The line heads another item: set clearly larger than the body, short, no part of the article (an outline, its
+    bibliography), not its own title and no name."""
+    return ln.size >= FP._PROMINENT * t.body and len(ln.text) <= 80 and not _article_part(ln.text) \
+        and not part_of_title(ln.text, title) and not FP.names_in(ln.text)
+
+
 def item_below_signature(page: Page, t: Typography, title: str | None) -> tuple[int, str] | None:
     """An item that starts half way down the page right after the article ends: its running text, a name line (the
     signature), then within two lines a heading set clearly larger than the body (TL 1985 "Á víð og dreif": "Hjördís
@@ -364,10 +393,66 @@ def item_below_signature(page: Page, t: Typography, title: str | None) -> tuple[
         if seen < 2 or len(ln.text) > 60 or not _after_text(lines, k, t) or not signed_names(lines, k):
             continue
         for nxt in lines[k + 1:k + 3]:
-            if nxt.size >= FP._PROMINENT * t.body and len(nxt.text) <= 80 and not _article_part(nxt.text) \
-                    and not part_of_title(nxt.text, title) and not FP.names_in(nxt.text):
+            if _heads_item(nxt, t, title):
                 return k, nxt.text
     return None
+
+
+_AT_TOP = 0.25            # the article's last lines on the next item's page start this high on it (as _goes_on's)
+_BREAK = 5                # a gap of this many body sizes among them: no one block (a running head over a picture)
+# Initials that sign a note off ("Þ. V.", "EI"): one to three capitals, each with or without a full stop
+_INITIALS = re.compile(r"(?:[A-ZÁÐÉÍÓÚÝÞÆÖ]\.?\s*){1,3}")
+
+
+def _sign_off(lines: list[Line], k: int, t: Typography, page: Page, title: str | None) -> tuple[str, ...] | None:
+    """The line ends the article's text with its signature (the names, from signed_names) or with initials set apart
+    ((): they name nobody), else None."""
+    ln = lines[k]
+    if len(ln.text) > 60 or not _after_text(lines, k, t) or not _set_apart(lines, k, t, page) \
+            or _caption_or_advert(lines, k, t):
+        return None
+    if names := _not_subject(signed_names(lines, k), title):
+        return tuple(names)
+    return () if _INITIALS.fullmatch(ln.text.strip()) else None
+
+
+class Tail(NamedTuple):
+    """The article's last lines at the top of the page where the next item starts (tail_on_next)."""
+    cut: float                      # the top of the next item's heading: the article owns the page above it
+    signed: tuple[str, ...] = ()    # the name(s) it is signed with there
+
+
+def tail_on_next(page: Page, t: Typography, title: str | None) -> Tail | None:
+    """The article's last lines at the top of the page where the next located item starts below them (Task 23d: TL's
+    notices, magazines), else None. The lines above the first heading of another item (_heads_item) on the page are
+    the article's when they start at the top of the page, not with a heading of their own (a section label, a heading
+    of any size but an outline's), and either the first of them goes on with a sentence of the page before (_goes_on:
+    it starts in lower case), or one of the last two signs the article off (a signature or initials set apart,
+    _sign_off) after two lines of its running text or more, in lines mostly in its type. A running head alone is
+    furniture (content) and goes on with nothing; the next item's byline over its heading follows no running text
+    (Lögrétta 2013-1 p. 49); a caption half way down the page under a picture is not at its top (LMBL 2023-3 p. 22),
+    nor are captions under a section's running head with a picture between (a gap of _BREAK body sizes above the name
+    they end with: LMBL 2016-2; a wide space after a signature is the next item's: TL 1953-4, LMBL 2021-3);
+    and the article's page before stopping without a full stop says nothing (a bibliography, a table: TL 2003 p. 198
+    before the next article's author box)."""
+    lines = content(page)
+    worded = [k for k, ln in enumerate(lines) if len(re.findall(r"[^\W\d_]", ln.text)) >= 2]
+    head = next((k for k in worded if _heads_item(lines[k], t, title)), None)
+    top = [k for k in worded if head is not None and k < head]
+    if not top:
+        return None                                   # no other item's heading, or one at the top of the page
+    block = [lines[k] for k in top]
+    first = block[0]
+    if first.y > _AT_TOP * page.height or FP.is_label_line(first.text) \
+            or first.size >= FP._PROMINENT * t.body and not _article_part(first.text):
+        return None
+    for k in reversed(top[-2:]):
+        own = [lines[j] for j in top if j <= k]                  # the lines down to the signature: one block
+        text = sum(1 for ln in own[:-1] if _is_running(ln, t) and _same(ln.size, t.body))
+        if text >= 2 and not any(b.y - a.y >= _BREAK * t.body for a, b in zip(own, own[1:])) \
+                and (names := _sign_off(lines, k, t, page, title)) is not None and _in_type(block, t):
+            return Tail(lines[head].y, names)
+    return Tail(lines[head].y) if _goes_on(block, t, page) else None
 
 
 def item_heading(page: Page, t: Typography, title: str | None) -> str | None:
@@ -455,7 +540,21 @@ def classify(page: Page, t: Typography, title: str | None, picture: float = 0.0,
             running and running[0] is lines[0] and lines[0].y <= 0.25 * page.height or _in_type(lines, t)
             or _goes_on(lines, t, page)):
         return Kind.TEXT                              # its last lines at the top of the page; a list or table that ends it
+    if after_text and _goes_on(lines, t, page) and _tail_over_advert(lines, t):
+        return Kind.TEXT                              # its last lines over an advert (Task 23d)
     return Kind.ADVERT if advert else Kind.OTHER
+
+
+def _tail_over_advert(lines: list[Line], t: Typography) -> bool:
+    """The page's first lines, up to the first line set in another type (an advert's), are the article's: two or more
+    in its sizes and no advert's mark among them (Lögfræðingur 2009 p. 55 over Lögmannsstofan's advert; Úlfljótur 2001
+    p. 69 over the sponsors')."""
+    head: list[Line] = []
+    for ln in lines:
+        if not _in_sizes(ln, t):
+            break
+        head.append(ln)
+    return len(head) >= 2 and not any(_marks(ln.text) for ln in head)
 
 
 def _goes_on(lines: list[Line], t: Typography, page: Page) -> bool:
@@ -548,6 +647,7 @@ class End(NamedTuple):
     unlisted: tuple[int, str] | None = None     # (page, heading) of the item that starts right after it
     signed: tuple[str, ...] = ()    # the name(s) the article is signed with where its text ends
     kept: tuple[int, ...] = ()      # the uncertain pages kept after its text (`uncertain`)
+    cut: float | None = None        # `last` is the next item's start page: the article owns it above this y (23d)
 
 
 def _filler(page: Page, kind: Kind) -> bool:
@@ -593,7 +693,7 @@ def _contact(page: Page, after: int = -1) -> bool:
 
 def article_end(page: Callable[[int], Page], first: int, last: int, title: str | None,
                 picture: Callable[[int], float] | None = None, authors: Sequence[str] = (),
-                ink: Callable[[int], int] | None = None) -> End:
+                ink: Callable[[int], int] | None = None, *, shared: bool = False) -> End:
     """Where the article that starts on PDF page `first` ends, at most at `last` (the page before the next located
     article, or the file's last page). Its pages are classified until another item starts, at a page's top or under
     its signature half way down one of its pages; the end is its last TEXT page, and OTHER pages right after it are
@@ -604,7 +704,10 @@ def article_end(page: Callable[[int], Page], first: int, last: int, title: str |
     page (an old layout) and it ends there. `unlisted` is set only when the item that follows has text of its own (an
     advert's heading is no item; an item under a name line half way down without text of its own is no item either).
     `ink(i)`: the vector drawings of page i (asked of a page without text lines). Without running text to measure (a
-    picture, a one-line page) the range stays."""
+    picture, a one-line page) the range stays.
+    `shared` (Task 23d): page `last` + 1 is where the next located item starts. When the article's text runs to `last`
+    and its last lines stand at the top of that page, above the item's heading (tail_on_next), it ends there: the page
+    is both items' (`cut`: the top of the item's heading), and its signature is the one above that heading."""
     following = range(first + 1, min(first + _PROFILE_PAGES, last + 1))
     scan = picture is None or all(picture(i) >= _SCAN for i in (first, *following))
     profile = [page(first)] + [page(i) for i in following      # its next pages, except those that look like adverts
@@ -665,6 +768,10 @@ def article_end(page: Callable[[int], Page], first: int, last: int, title: str |
         pending = []                                  # no text of its own after them: they are not the article's
     if pending:
         end = pending[-1]
+    if shared and end == last and stop == last + 1 and signed_at is None and not pending:
+        nxt = page(last + 1)
+        if (tail := tail_on_next(nxt, _scaled(t, nxt) if scan else t, title)) is not None:
+            return End(last + 1, signed=tail.signed, cut=tail.cut)
     outside = tuple(j for j in range(end + 1, last + 1) if j != stop and _filler(page(j), kind(j)))
     at = signed_at if signed_at is not None and stop == end + 1 else None
     return End(end, bool(pending), outside, unlisted, tuple(signature(page(end), t, title, before=at)), tuple(pending))

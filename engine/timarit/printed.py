@@ -229,6 +229,89 @@ def _in_contents_order(entries: list[ArticleEntry], starts: dict[int, int], k: i
     return lo < here < hi
 
 
+PLACED_NOTE = "staðsett eftir nágrönnum sínum í listanum"
+
+
+def place_by_neighbours(entries: list[ArticleEntry], registry_ends: dict[int, int | None], pm: PageMap,
+                        page_texts: list[str], reader: PageReader) -> dict[int, float | None]:
+    """Task 23d, rule 2 (R48a): an entry still without a page after relocate_by_title (the map could not locate its
+    printed start, title search missed it: a short section item, a heading in body type, a page another entry starts
+    on too) is placed at its printed start plus the offset (PDF index − printed start) of the nearest located entries
+    before and after it in list order, where that page or one either side prints its title or opens with its section
+    label (_prints_entry). Neighbours that disagree have a restart between them (TL 1993: each hefti numbered from 1;
+    an unnumbered page): each offset is tried and only a page that prints the title counts (two such pages: none). The
+    place stays between the neighbours' starts (list order is page order within a hefti: never in another hefti). A
+    placed entry gets a plain note (no deviation: the page prints its title), is a neighbour for the entries after it,
+    and the ranges are recomputed, so that the entries around it end before it (TL 1993 idx 3 no longer runs on through
+    pp. 43–65). `registry_ends`: the end page each entry's registry gave (by id), as relocate_by_title uses them.
+    Returns the entries placed (by id), each with the top of its heading on a start page it shares with the item above
+    it (_SHARED lines of text or more over the heading; None when it heads its page, a byline or a name over it): the
+    contents gate counts them as the list's failures (tocgate.check), and analysis reads a shared start page from that
+    heading down, not the item above it (pagekind.below)."""
+    n = len(page_texts)
+    starts = {id(a): a.pdf_pages[0] for a in entries if a.pdf_pages}
+    placed: dict[int, float | None] = {}
+    for k, a in enumerate(entries):
+        if a.pdf_pages or a.page_start is None or not a.title:
+            continue
+        before = next((b for b in reversed(entries[:k]) if id(b) in starts and b.page_start is not None), None)
+        after = next((b for b in entries[k + 1:] if id(b) in starts and b.page_start is not None), None)
+        lo = starts[id(before)] if before is not None else 0
+        hi = starts[id(after)] if after is not None else n - 1
+        # (a page where another entry of the same title starts prints that entry's heading: TL 1973's two memorials
+        # of Jóhann J. Ragnarsson, the second without a heading of its own)
+        same = {starts[id(b)] for b in entries if id(b) in starts and _fold(b.title or "") == _fold(a.title)}
+        hits: dict[int, float] = {}
+        for off in dict.fromkeys(starts[id(b)] - b.page_start for b in (before, after) if b is not None):
+            at = a.page_start + off
+            for i in (at, at - 1, at + 1):
+                if lo <= i <= hi and i not in same and (y := _prints_entry(reader(i), a)) is not None:
+                    hits[i] = y
+                    break
+        if len(hits) == 1:
+            (i, y), = hits.items()
+            over = [ln for ln in PK.content(reader(i)) if ln.y < y and len(re.findall(r"[^\W\d_]", ln.text)) >= 2]
+            starts[id(a)], placed[id(a)] = i, y if len(over) >= _SHARED else None
+            add_note(a, f"{PLACED_NOTE} (pdf-síða {i + 1})")
+    if placed:
+        last_text = max((i for i, t in enumerate(page_texts) if t.strip()), default=n - 1)
+        located = []
+        for a in entries:
+            if id(a) in starts:
+                a.page_end = registry_ends.get(id(a)) if a.provenance.get("pages") != "page" else None
+                located.append((starts[id(a)], a))
+        assign_ranges(located, pm, last_text)
+    return placed
+
+
+def _prints_entry(page: Page, a: ArticleEntry) -> float | None:
+    """Where the page prints the entry's title as a heading, bold or set a little larger than the lines just above and
+    below it, wherever it stands (a short item starts where it may on a page it shares: TL 1973's "BÓKAÞÁTTUR" near
+    the foot of p. 68), or opens with the entry's section label: the top of that heading, else None. A copy of the
+    title that is no heading (a running head, a name over a memorial's heading: TL 1993 p. 75; running text) is passed
+    over for the next one. (Not the page's body size: a title in 30 pt may make most of its page, Lögrétta 2011-1 p. 53,
+    and a bibliography in small type most of an article's last page.)"""
+    label, rest = split_label(a.title or "")
+    if label and (at := next((ln for ln in FP.top_lines(page)[:3] if FP._match_label(ln.text) == label.lower()), None)):
+        return at.y
+    lines = FP._content_lines(page, 1.0)
+    for _ in range(_COPIES):
+        h = FP.printed_title(Page(lines, page.height, page.width), rest, contain=True, bottom=1.0,
+                             loose=a.provenance.get("title") == "filename") if rest else None
+        if h is None:
+            return None
+        around = [lines[i] for i in (h.first - 1, h.last + 1) if 0 <= i < len(lines)]
+        if all(ln.bold for ln in lines[h.first:h.last + 1]) or around and all(h.size >= FP.EMPHASIS * ln.size
+                                                                              for ln in around):
+            return lines[h.first].y
+        lines = lines[:h.first] + lines[h.last + 1:]
+    return None
+
+
+_COPIES = 3              # copies of a title on one page that _prints_entry reads before it gives up
+_SHARED = 3              # lines of text over a placed entry's heading that are another item's: it shares the page
+
+
 NOT_FOUND_NOTE = "greinar fundust ekki í skjalinu"
 
 
@@ -356,20 +439,30 @@ def end_article(a: ArticleEntry, e: PK.End, number: Callable[[int], int | None],
 
 
 def end_ranges(entries: Sequence[ArticleEntry], reader: PageReader, number: Callable[..., int | None],
-               registry_ends: dict[int, int | None] | None = None) -> Ends:
+               registry_ends: dict[int, int | None] | None = None, tops: dict[int, float | None] | None = None) -> Ends:
     """End every located article of an issue PDF on the last page of its own text (Task 22c; pagekind). `number(i, lo,
     hi)`: the printed number of PDF page i of an article on pages lo–hi; `registry_ends`: the end page the registry
-    gave each article (by id), if any."""
+    gave each article (by id), if any; `tops`: for an entry placed by its neighbours (place_by_neighbours, by id), the
+    top of its heading on its start page, which it reads from there down (the item above it signs off there: TL 1971's
+    "Páll Líndal." over "LEIÐRÉTTING:")."""
     ends: dict[int, PK.End] = {}
     outside: set[int] = set()
+    order = sorted((a for a in entries if a.pdf_pages), key=lambda a: a.pdf_pages[0])     # (stable: list order)
+    following = {id(a): b.pdf_pages[0] for a, b in zip(order, order[1:])}
     for a in entries:
         if not a.pdf_pages:
             continue
         first, last = a.pdf_pages
-        e = PK.article_end(reader, first, last, a.title, reader.picture, a.authors, reader.drawings)
-        cut = _signed_after_item(a, reader, first, e)
+        page: Callable[[int], Page] = reader
+        if (top := (tops or {}).get(id(a))) is not None:
+            own = PK.below(reader(first), top)
+            page = lambda i, f=first, own=own: own if i == f else reader(i)      # noqa: E731
+        # Task 23d: the next item in page order starts on the page after the range; the article may end on that page
+        e = PK.article_end(page, first, last, a.title, reader.picture, a.authors, reader.drawings,
+                           shared=following.get(id(a)) == last + 1)
+        cut = _signed_after_item(a, page, first, e)
         if cut is not None:
-            e = PK.article_end(reader, first, cut[0] - 1, a.title, reader.picture, a.authors, reader.drawings)
+            e = PK.article_end(page, first, cut[0] - 1, a.title, reader.picture, a.authors, reader.drawings)
         end_article(a, e, lambda i, f=first, la=e.last: number(i, f, la), (registry_ends or {}).get(id(a)))
         if cut is not None:
             at = number(cut[0], first, last)
@@ -381,7 +474,8 @@ def end_ranges(entries: Sequence[ArticleEntry], reader: PageReader, number: Call
     return Ends(ends, sorted(outside))
 
 
-def _signed_after_item(a: ArticleEntry, reader: PageReader, first: int, e: PK.End) -> tuple[int, str, list[str]] | None:
+def _signed_after_item(a: ArticleEntry, reader: Callable[[int], Page], first: int,
+                       e: PK.End) -> tuple[int, str, list[str]] | None:
     """A range that ran on into the next item (Task 23b): the signature where its text ends names other people than
     the registry (TL 1996: "Allan V. Magnússon" under the Dómarafélag report, the registry's "Jón L. Arnalds"), and a
     page between its start and that signature starts another item (pagekind.item_heading). (that page, its heading, the
@@ -399,8 +493,11 @@ def _signed_after_item(a: ArticleEntry, reader: PageReader, first: int, e: PK.En
 
 
 def last_body_page(reader: PageReader, first: int, last: int) -> int:
-    """The last page of a range that prints more than a page number or a running head (a blank page ends many)."""
-    return next((i for i in range(last, first - 1, -1) if any(not FP.is_furniture(ln) for ln in reader(i).lines)), first)
+    """The last page of a range that prints more than a page number, a running head or a stamp up its margin (a blank
+    page ends many)."""
+    def printed(i: int) -> bool:
+        return any(not FP.is_furniture(ln) and not PK.margin_stamp(ln, reader(i)) for ln in reader(i).lines)
+    return next((i for i in range(last, first - 1, -1) if printed(i)), first)
 
 
 _COLLECTIVE = re.compile(r"^(?:ritstjórn\w*|ritnefnd\w*|stjórn\b.*|útgefandi|ritstjóri)$", re.I)
@@ -421,7 +518,8 @@ def signatures(a: ArticleEntry, page: Callable[[int], Page], first: int, e: PK.E
     names = list(e.signed)
     if is_memorial(a):
         t = PK.typography([page(i) for i in range(first, min(first + PK._PROFILE_PAGES, e.last + 1))])
-        parts = [n for i in range(first, e.last + 1) for n in PK.part_signatures(page(i), t, a.title)] if t.sizes else []
+        own = [PK.above(page(i), e.cut) if i == e.last else page(i) for i in range(first, e.last + 1)]   # (23d)
+        parts = [n for p in own for n in PK.part_signatures(p, t, a.title)] if t.sizes else []
         names = [n for k, n in enumerate(parts + names) if n not in (parts + names)[:k]]
     return names
 

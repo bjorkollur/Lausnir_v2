@@ -357,12 +357,13 @@ def _window_text(lines: list[Line], i: int, j: int) -> str:
 
 
 def printed_title(page: Page, title: str, *, min_share: float = 0.3, loose: bool = False,
-                  contain: bool = False) -> Heading | None:
+                  contain: bool = False, bottom: float = _TOP) -> Heading | None:
     """Where the top of the page prints `title`, and how: the window of up to _MAX_WINDOW consecutive lines that
     matches it best (a window matching the whole title before one that only contains it or is contained in it), widened
     to the neighbouring lines of the same heading (same font size, set larger than the body). None when no window
-    reaches SAME_TITLE."""
-    lines = top_lines(page)
+    reaches SAME_TITLE. `bottom`: how far down the page to look (the top part by default; Task 23d reads a short item's
+    heading wherever it starts on a page it shares; `first` and `last` then index _content_lines(page, bottom))."""
+    lines = _content_lines(page, bottom)
     ft = _fold(title)
     folded = [_fold(_GLUED_YEAR.sub(r"\1 \2", ln.text)) for ln in lines]
     words = [w for w in ft.split() if len(w) >= 4] or ft.split()

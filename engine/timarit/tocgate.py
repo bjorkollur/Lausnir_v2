@@ -233,12 +233,14 @@ def found_at(title: str, authors: Sequence[str], first: bool, i: int, on_page: C
 def check(entries: Sequence[ArticleEntry], titles: dict[int, str | None], reader: Callable[[int], Page],
           picture: Callable[[int], float], non_article: Sequence[int], on_page: Callable[[str, int], bool],
           n_pages: int, text_of: Callable[[int], str] | None = None,
-          authors: dict[int, list[str]] | None = None, front: int | None = None) -> TocCheck:
+          authors: dict[int, list[str]] | None = None, front: int | None = None,
+          placed: frozenset[int] = frozenset()) -> TocCheck:
     """Measure a located, verified list. `titles` and `authors`: each entry's registry title (None for a section label)
     and authors by id (R41); `on_page(title, i)`: is the title printed at the top of PDF page i (analyze._on_page over
     the page's visual text); `text_of(i)`: that text; `non_article`: the pages end_ranges found to be no article's;
     `front`: the first page after the cover and the contents (unclaimed counts from there, or from the first located
-    start without it).
+    start without it); `placed`: the entries (by id) printed.place_by_neighbours placed (Task 23d): the list's own page
+    numbers did not locate them, so they count as unlocated, never found.
 
     An entry is found when its title is on its start page (title_on_page) or the page holds it otherwise (found_at,
     fix round 1). A name or a label (found_at's "höfundi", "viðmælanda", "merki") does not place an entry whose title
@@ -246,7 +248,7 @@ def check(entries: Sequence[ArticleEntry], titles: dict[int, str | None], reader
     ritstjórn") is left out of the count, like a section label; a row without a title ("—") is counted, never found."""
     text_of = text_of or (lambda i: "")
     authors = authors or {}
-    starts = [a.pdf_pages[0] if a.pdf_pages else None for a in entries]
+    starts = [a.pdf_pages[0] if a.pdf_pages and id(a) not in placed else None for a in entries]
     titled = [k for k, a in enumerate(entries) if titles.get(id(a)) and not _rubric(titles[id(a)])]
 
     def on_neighbour(k: int) -> bool:
@@ -257,7 +259,8 @@ def check(entries: Sequence[ArticleEntry], titles: dict[int, str | None], reader
     how: dict[int, str] = {}
     for k in titled:
         title = titles[id(entries[k])]
-        if _letterless(title) or starts[k] is None and not entries[k].checks.get("title_on_page"):
+        if _letterless(title) or starts[k] is None and (id(entries[k]) in placed
+                                                        or not entries[k].checks.get("title_on_page")):
             continue
         if entries[k].checks.get("title_on_page"):
             how[k] = "titli"
