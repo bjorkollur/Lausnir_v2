@@ -128,6 +128,9 @@ FILES = {
     "tl1953": ("Tímarit Lögfræðinga/TL 1953_04.pdf", [9]),
     "lmbl2021c": ("Lögmannablaðið/Lögmannablaðið 2021 03.pdf", [12]),
     "tl1971c": ("Tímarit Lögfræðinga/TL 1971_1972.pdf", [172]),
+    # Task 23d fix round 1: a box set in another article's page (LMBL 1999-1), a heading in bold body type (TL 1996)
+    "lmbl1999": ("Lögmannablaðið/Lögmannablaðið 1999 01.pdf", [9, 10]),
+    "tl1996b": ("Tímarit Lögfræðinga/TL 1996.pdf", [68, 69]),
 }
 _WORDS = ("og það sem fram kemur í máli þessu var talið rétt að líta til þess hvort ákvæðin ættu við um þau atvik "
           "sem um ræðir enda verður ekki séð að annað hafi legið fyrir ").split()

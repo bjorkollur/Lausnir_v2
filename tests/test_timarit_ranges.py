@@ -356,11 +356,63 @@ def test_a_placed_entry_reads_its_start_page_from_its_own_heading_down():
     # TL 1953-4 idx 0 (bulk sample): signed "Árni Tryggvason." at the top of p. 9; a wide space, then the next article's
     # "Theodór B. Líndal:" over its title: the space lies between the two items, not inside the article's last lines
     ("tl1953/9", Typography((12.0,), 55.0), "Aðstaða dómara til andsvara við gagnrýni", ("Árni Tryggvason",)),
-    # LMBL 2021-3 idx 3 (bulk sample): the report runs on in lower case at the top of p. 13, signed; a wide space, the
-    # section's running head "LAGADAGURINN 2021" and "III. ÖRMÁLSTOFUR"
-    ("lmbl2021c/12", Typography((10.2,), 55.0), "II. Peningaþvætti og alþjóðleg regluvarsla",
-     ("Hrafnhildur Sæberg Þorsteinsdóttir",)),
+    # LMBL 2021-3 idx 3 (bulk sample): the report runs on in lower case at the top of p. 13 (its signature "…
+    # Hrafnhildur Sæberg Þorsteinsdóttir" ends a line of the two columns, no sign-off line); a wide space, the section's
+    # running head "LAGADAGURINN 2021" and "III. ÖRMÁLSTOFUR"
+    ("lmbl2021c/12", Typography((10.2,), 55.0), "II. Peningaþvætti og alþjóðleg regluvarsla", ()),
 ])
 def test_a_wide_space_after_the_articles_last_lines_is_the_next_items(key, t, title, signed):
     tail = PK.tail_on_next(page(key), t, title)
-    assert tail is not None and tail.signed in (signed, ())
+    assert tail is not None and tail.signed == signed
+
+
+
+# --- fix round 1 (review of 23d) --------------------------------------------------------------------------------------
+
+def test_a_box_on_another_articles_page_does_not_take_that_articles_run_on():
+    # LMBL 1999-1 idx 10 "Úrskurðarnefnd" (review): a box half way down p. 10 (pdf 9) of idx 9 "Bótaréttur launþega";
+    # p. 11's left column is idx 9 going on down the page beside "Prófnefnd vegna hdl." in the right column
+    r = Reader(["lmbl1999/9", "lmbl1999/10"])
+    host = ArticleEntry(title="Bótaréttur launþega – er breytinga þörf?", page_start=10, pdf_pages=[0, 0],
+                        provenance={"title": "llm"})
+    box = ArticleEntry(title="Úrskurðarnefnd", page_start=10, pdf_pages=[0, 0], provenance={"title": "llm"})
+    nxt = ArticleEntry(title="Prófnefnd vegna hdl.", page_start=11, pdf_pages=[1, 1], provenance={"title": "llm"})
+    PR.end_ranges([host, box, nxt], r, lambda i, lo=None, hi=None: {0: 10, 1: 11}.get(i))
+    assert (host.pdf_pages, box.pdf_pages, box.page_end) == ([0, 0], [0, 0], None)
+    t = Typography((9.0,), 35.0)
+    assert PK.tail_on_next(page("lmbl1999/10"), t, "Úrskurðarnefnd", beside=True) is None
+    assert PK.tail_on_next(page("lmbl1999/10"), t, "Úrskurðarnefnd") is not None    # (a lone item: its column goes on)
+
+
+def test_the_next_items_heading_in_bold_body_type_is_found_by_its_title():
+    # TL 1996 idx 8 "Dómaraþing 1995" (review): its report runs on to the top of p. 64 in lower case, signed "Þorgeir
+    # Ingi Njálsson", over "DÓMSMÁLAÞING 9.-10. NÓVEMBER 1995", set bold in the body's size like every heading of the
+    # volume: no line is set larger than the body, so the next entry's own title marks where it starts
+    r = Reader(["tl1996b/68", "tl1996b/69"])
+    a = ArticleEntry(title="Dómaraþing 1995", page_start=63, pdf_pages=[0, 0], provenance={"title": "llm"})
+    b = ArticleEntry(title="Dómsmálaþing 9.–10. nóvember 1995", page_start=64, pdf_pages=[1, 1],
+                     provenance={"title": "llm"})
+    ends = PR.end_ranges([a, b], r, lambda i, lo=None, hi=None: {0: 63, 1: 64}.get(i))
+    assert (a.pdf_pages, a.page_end, b.pdf_pages) == ([0, 1], 64, [1, 1])
+    heading = next(ln.y for ln in page("tl1996b/69").lines if ln.text.startswith("DÓMSMÁLAÞING"))
+    assert ends.ends[id(a)].cut == heading and ends.ends[id(a)].signed == ("Þorgeir Ingi Njálsson",)
+
+
+def test_a_section_label_at_the_top_of_the_page_places_an_entry_named_by_it():
+    # _prints_entry's label path: TL 1993 p. 43 (pdf 44) opens with "A VIÐ OG DREIF" (OCR for "Á víð og dreif")
+    label = next(ln for ln in page("tl1993/44").lines if ln.text == "A VIÐ OG DREIF")
+    for title in ("Á víð og dreif", "Á víð og dreif: Skýrsla stjórnar Dómarafélags Íslands"):
+        assert PR._prints_entry(page("tl1993/44"), ArticleEntry(title=title)) == label.y
+    assert PR._prints_entry(page("tl1993/43"), ArticleEntry(title="Á víð og dreif")) is None
+
+
+def test_an_entry_whose_neighbours_offsets_find_its_title_on_two_pages_stays_unlocated():
+    # the neighbours disagree (offsets 1 and 5) and each offset finds the title printed: two places, none taken
+    a3 = ArticleEntry(title="Samræmd túlkun Luganosamningsins", page_start=33, pdf_pages=[34, 77],
+                      provenance={"title": "llm"})
+    a4 = ArticleEntry(title="Skýrsla stjórnar Dómarafélags Íslands starfsárið 1991–1992", page_start=43,
+                      provenance={"title": "llm"})
+    a7 = ArticleEntry(title="Samstarf við samtök lögfræðinga", page_start=73, pdf_pages=[78, 81],
+                      provenance={"title": "llm"})
+    assert _place([a3, a4, a7], Reader({44: "tl1993/44", 48: "tl1993/44"})) == {}
+    assert (a4.pdf_pages, a3.pdf_pages, _notes(a4)) == (None, [34, 77], [])

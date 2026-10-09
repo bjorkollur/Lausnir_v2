@@ -422,7 +422,8 @@ class Tail(NamedTuple):
     signed: tuple[str, ...] = ()    # the name(s) it is signed with there
 
 
-def tail_on_next(page: Page, t: Typography, title: str | None) -> Tail | None:
+def tail_on_next(page: Page, t: Typography, title: str | None, *, heading: Line | None = None,
+                 beside: bool = False) -> Tail | None:
     """The article's last lines at the top of the page where the next located item starts below them (Task 23d: TL's
     notices, magazines), else None. The lines above the first heading of another item (_heads_item) on the page are
     the article's when they start at the top of the page, not with a heading of their own (a section label, a heading
@@ -434,10 +435,16 @@ def tail_on_next(page: Page, t: Typography, title: str | None) -> Tail | None:
     nor are captions under a section's running head with a picture between (a gap of _BREAK body sizes above the name
     they end with: LMBL 2016-2; a wide space after a signature is the next item's: TL 1953-4, LMBL 2021-3);
     and the article's page before stopping without a full stop says nothing (a bibliography, a table: TL 2003 p. 198
-    before the next article's author box)."""
+    before the next article's author box).
+    `heading` (fix round 1): the first line of the next item's own title where the page prints it as a heading
+    (printed._entry_heading), which marks where it starts when no line is set clearly larger than the body (TL 1993 and
+    1996 set their headings bold in the body's size). `beside`: the article starts below another item on its own first
+    page (a box set in another article's page): then the lines above the heading are no run-on of it when their column
+    goes on down the page beside that heading (LMBL 1999-1 p. 11: the host article's left column, the next item in the
+    right one)."""
     lines = content(page)
     worded = [k for k, ln in enumerate(lines) if len(re.findall(r"[^\W\d_]", ln.text)) >= 2]
-    head = next((k for k in worded if _heads_item(lines[k], t, title)), None)
+    head = next((k for k in worded if _heads_item(lines[k], t, title) or lines[k] is heading), None)
     top = [k for k in worded if head is not None and k < head]
     if not top:
         return None                                   # no other item's heading, or one at the top of the page
@@ -446,6 +453,8 @@ def tail_on_next(page: Page, t: Typography, title: str | None) -> Tail | None:
     if first.y > _AT_TOP * page.height or FP.is_label_line(first.text) \
             or first.size >= FP._PROMINENT * t.body and not _article_part(first.text):
         return None
+    if beside and _column_goes_on(lines, head, block, t):
+        return None
     for k in reversed(top[-2:]):
         own = [lines[j] for j in top if j <= k]                  # the lines down to the signature: one block
         text = sum(1 for ln in own[:-1] if _is_running(ln, t) and _same(ln.size, t.body))
@@ -453,6 +462,15 @@ def tail_on_next(page: Page, t: Typography, title: str | None) -> Tail | None:
                 and (names := _sign_off(lines, k, t, page, title)) is not None and _in_type(block, t):
             return Tail(lines[head].y, names)
     return Tail(lines[head].y) if _goes_on(block, t, page) else None
+
+
+def _column_goes_on(lines: list[Line], head: int, block: list[Line], t: Typography) -> bool:
+    """Running text below the heading lines[head], beside it (no part of the heading's width) and under the lines
+    above it (`block`): their column goes on down the page past the heading."""
+    hd = lines[head]
+    left, right = min(ln.x0 for ln in block), max(ln.x1 for ln in block)
+    return hd.x1 > 0 and any(_is_running(ln, t) and ln.y > hd.y and (ln.x1 < hd.x0 or ln.x0 > hd.x1)
+                             and ln.x0 < right and ln.x1 > left for ln in lines[head + 1:])
 
 
 def item_heading(page: Page, t: Typography, title: str | None) -> str | None:
@@ -693,7 +711,8 @@ def _contact(page: Page, after: int = -1) -> bool:
 
 def article_end(page: Callable[[int], Page], first: int, last: int, title: str | None,
                 picture: Callable[[int], float] | None = None, authors: Sequence[str] = (),
-                ink: Callable[[int], int] | None = None, *, shared: bool = False) -> End:
+                ink: Callable[[int], int] | None = None, *, shared: bool = False,
+                next_heading: Callable[[Page], Line | None] | None = None, beside: bool = False) -> End:
     """Where the article that starts on PDF page `first` ends, at most at `last` (the page before the next located
     article, or the file's last page). Its pages are classified until another item starts, at a page's top or under
     its signature half way down one of its pages; the end is its last TEXT page, and OTHER pages right after it are
@@ -707,7 +726,9 @@ def article_end(page: Callable[[int], Page], first: int, last: int, title: str |
     picture, a one-line page) the range stays.
     `shared` (Task 23d): page `last` + 1 is where the next located item starts. When the article's text runs to `last`
     and its last lines stand at the top of that page, above the item's heading (tail_on_next), it ends there: the page
-    is both items' (`cut`: the top of the item's heading), and its signature is the one above that heading."""
+    is both items' (`cut`: the top of the item's heading), and its signature is the one above that heading.
+    `next_heading(page)`: the line where that page prints the next item's title as a heading; `beside`: the article
+    starts below another item on its first page (tail_on_next)."""
     following = range(first + 1, min(first + _PROFILE_PAGES, last + 1))
     scan = picture is None or all(picture(i) >= _SCAN for i in (first, *following))
     profile = [page(first)] + [page(i) for i in following      # its next pages, except those that look like adverts
@@ -770,7 +791,8 @@ def article_end(page: Callable[[int], Page], first: int, last: int, title: str |
         end = pending[-1]
     if shared and end == last and stop == last + 1 and signed_at is None and not pending:
         nxt = page(last + 1)
-        if (tail := tail_on_next(nxt, _scaled(t, nxt) if scan else t, title)) is not None:
+        at = next_heading(nxt) if next_heading is not None else None
+        if (tail := tail_on_next(nxt, _scaled(t, nxt) if scan else t, title, heading=at, beside=beside)) is not None:
             return End(last + 1, signed=tail.signed, cut=tail.cut)
     outside = tuple(j for j in range(end + 1, last + 1) if j != stop and _filler(page(j), kind(j)))
     at = signed_at if signed_at is not None and stop == end + 1 else None

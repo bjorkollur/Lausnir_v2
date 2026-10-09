@@ -821,6 +821,27 @@ def _cited(doc: _Doc) -> _Doc:
     return doc
 
 
+def _unprinted_blank_page(a: ArticleEntry, doc: _Doc) -> None:
+    """R51 (Task 23d fix round 1): a Stjórnmál og stjórnsýsla file that ends on a blank page (nothing but a folio, a
+    running head or a stamp up its margin) while its first page cites a range one page shorter than the file
+    ("(133-151)" on the 20 pages of Vol08's 133-152_New_Public_Management.pdf): that page is not the article's, and the
+    range and page_end end before it, with a plain note. A cited range that includes it, or none printed, keeps it
+    (the earlier ruling: most files print their range with the blank page)."""
+    n = len(doc.texts)
+    if not a.pdf_pages or n < 2 or len(doc.pages) < 2:
+        return
+    last = doc.last_page()
+    if any(not FP.is_furniture(ln) and not PK.margin_stamp(ln, last) for ln in last.lines):
+        return
+    cited = sogs.printed_range(doc.first, n)
+    if cited is None or cited[1] - cited[0] + 1 != n - 1:
+        return
+    a.pdf_pages = [0, n - 2]
+    if a.page_end is not None:
+        a.page_end -= 1
+    _add_analysis_note(a, f"auð lokasíða skjalsins er ekki talin með: greinin prentar bilið bls. {cited[0]}–{cited[1]}")
+
+
 def _sogs_articles(docs: list[_Doc], m: IssueManifest, cfg: SourceConfig, run: _Run) -> list[ArticleEntry]:
     """R5: the folder gives only the volume; the first page prints "N. tbl. N. árg. YYYY". Title and authors are read
     off the first page as printed (sogs.read_first_page, Task 23b), the text layer's lines only when it shows no title;
@@ -974,6 +995,8 @@ async def _analyze_article_files(m: IssueManifest, cfg: SourceConfig, deps: Anal
         if a.page_start is not None and a.page_end is None and d.texts:
             last = d.last_printed if d.last_printed is not None and d.last_printed >= a.page_start else None
             a.page_end = last or a.page_start + len(d.texts) - 1          # the file is the whole article
+        if cfg.short_name == "stjornmal_stjornsysla":
+            _unprinted_blank_page(a, d)
         a.lang = detect_lang(" ".join(d.texts[:3]), cfg.lang_default)
         if not has_text_layer(d.texts):
             _add_analysis_note(a, NO_TEXT_LAYER)

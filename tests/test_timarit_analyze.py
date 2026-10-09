@@ -770,3 +770,21 @@ def test_a_contents_heading_that_names_an_article_type_types_its_rows():
            TocEntry("Endurskoðun stjórnarskrárinnar", [], 107, section=None)]
     got = [(a.article_type, a.provenance["article_type"]) for a in _toc_entries(toc, m, get_config("ulfljotur"), "toc")]
     assert got == [("Frétt", "toc"), ("Annað", "toc"), ("Viðtal", "toc"), ("Fræðigrein", "toc"), ("Fræðigrein", "toc")]
+
+
+# --- Task 23d fix round 1, R51: an S&S file's blank last page counts only when the printed range includes it ----------
+
+@pytest.mark.parametrize("cited,pages,end", [
+    ("(133-135)", [0, 2], 135),            # the range ends before the blank page (Vol08 133-152_…: "(133-151)")
+    ("(133-136)", [0, 3], 136),            # its range includes it: kept (the earlier ruling)
+    ("", [0, 3], 136),                     # no range printed: kept, as before
+])
+async def test_sogs_blank_last_page_counts_only_when_the_printed_range_includes_it(cited, pages, end):
+    first = (f"133\nNýskipan í ríkisrekstri\nEva Marín Hlynsdóttir, doktorsnemi\n"
+             f"Stjórnmál & stjórnsýsla 1. tbl., 8. árg. 2012 {cited}\n{_PAD}")
+    rel = _SOGS + "133-136_New_Public_Management.pdf"
+    m = await analyze_issue(_sogs_manifest([rel]), get_config("stjornmal_stjornsysla"),
+                            _deps(_pdf([first, f"134\n{_PAD}", f"135\n{_PAD}", ""])))
+    a = m.articles[0]
+    assert (a.pdf_pages, a.page_start, a.page_end) == (pages, 133, end)
+    assert any("auð lokasíða" in n for n in a.analysis_notes) == (pages == [0, 2])

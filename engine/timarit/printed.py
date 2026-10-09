@@ -24,7 +24,7 @@ from engine.timarit import firstpage as FP
 from engine.timarit import pagekind as PK
 from engine.timarit.article_type import infer_article_type
 from engine.timarit.authors import looks_like_person
-from engine.timarit.firstpage import Page, PageReader
+from engine.timarit.firstpage import Line, Page, PageReader
 from engine.timarit.manifest import ArticleEntry
 from engine.timarit.pagemap import PageMap, read_page_numbers
 from engine.timarit.toc import _nominative, is_label, label_type, split_label
@@ -285,15 +285,21 @@ def place_by_neighbours(entries: list[ArticleEntry], registry_ends: dict[int, in
 
 
 def _prints_entry(page: Page, a: ArticleEntry) -> float | None:
+    """The top of the entry's heading on the page (_entry_heading), else None."""
+    line = _entry_heading(page, a)
+    return line.y if line is not None else None
+
+
+def _entry_heading(page: Page, a: ArticleEntry) -> Line | None:
     """Where the page prints the entry's title as a heading, bold or set a little larger than the lines just above and
     below it, wherever it stands (a short item starts where it may on a page it shares: TL 1973's "BÓKAÞÁTTUR" near
-    the foot of p. 68), or opens with the entry's section label: the top of that heading, else None. A copy of the
-    title that is no heading (a running head, a name over a memorial's heading: TL 1993 p. 75; running text) is passed
-    over for the next one. (Not the page's body size: a title in 30 pt may make most of its page, Lögrétta 2011-1 p. 53,
-    and a bibliography in small type most of an article's last page.)"""
+    the foot of p. 68), or opens with the entry's section label: the heading's (or label's) first line, else None. A
+    copy of the title that is no heading (a running head, a name over a memorial's heading: TL 1993 p. 75; running
+    text) is passed over for the next one. (Not the page's body size: a title in 30 pt may make most of its page,
+    Lögrétta 2011-1 p. 53, and a bibliography in small type most of an article's last page.)"""
     label, rest = split_label(a.title or "")
     if label and (at := next((ln for ln in FP.top_lines(page)[:3] if FP._match_label(ln.text) == label.lower()), None)):
-        return at.y
+        return at
     lines = FP._content_lines(page, 1.0)
     for _ in range(_COPIES):
         h = FP.printed_title(Page(lines, page.height, page.width), rest, contain=True, bottom=1.0,
@@ -303,7 +309,7 @@ def _prints_entry(page: Page, a: ArticleEntry) -> float | None:
         around = [lines[i] for i in (h.first - 1, h.last + 1) if 0 <= i < len(lines)]
         if all(ln.bold for ln in lines[h.first:h.last + 1]) or around and all(h.size >= FP.EMPHASIS * ln.size
                                                                               for ln in around):
-            return lines[h.first].y
+            return lines[h.first]
         lines = lines[:h.first] + lines[h.last + 1:]
     return None
 
@@ -448,7 +454,8 @@ def end_ranges(entries: Sequence[ArticleEntry], reader: PageReader, number: Call
     ends: dict[int, PK.End] = {}
     outside: set[int] = set()
     order = sorted((a for a in entries if a.pdf_pages), key=lambda a: a.pdf_pages[0])     # (stable: list order)
-    following = {id(a): b.pdf_pages[0] for a, b in zip(order, order[1:])}
+    following = {id(a): b for a, b in zip(order, order[1:])}
+    under = {id(b) for a, b in zip(order, order[1:]) if a.pdf_pages[0] == b.pdf_pages[0]}  # starts below another
     for a in entries:
         if not a.pdf_pages:
             continue
@@ -457,9 +464,13 @@ def end_ranges(entries: Sequence[ArticleEntry], reader: PageReader, number: Call
         if (top := (tops or {}).get(id(a))) is not None:
             own = PK.below(reader(first), top)
             page = lambda i, f=first, own=own: own if i == f else reader(i)      # noqa: E731
-        # Task 23d: the next item in page order starts on the page after the range; the article may end on that page
-        e = PK.article_end(page, first, last, a.title, reader.picture, a.authors, reader.drawings,
-                           shared=following.get(id(a)) == last + 1)
+        # Task 23d: the next item in page order starts on the page after the range; the article may end on that page,
+        # above that item's heading (its title printed as one, fix round 1)
+        nb = following.get(id(a))
+        shared = nb is not None and nb.pdf_pages[0] == last + 1
+        e = PK.article_end(page, first, last, a.title, reader.picture, a.authors, reader.drawings, shared=shared,
+                           next_heading=(lambda p, nb=nb: _entry_heading(p, nb)) if shared else None,
+                           beside=id(a) in under)
         cut = _signed_after_item(a, page, first, e)
         if cut is not None:
             e = PK.article_end(page, first, cut[0] - 1, a.title, reader.picture, a.authors, reader.drawings)
