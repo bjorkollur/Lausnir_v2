@@ -42,7 +42,7 @@ page_map:
     by_proxy: 0
 status: imported
 confidence: 0.0
-error: null
+error: 'innflutningur: 11 greinar fluttar ekki inn (árekstur 11) — sjá analysis_notes'
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_afmaelistimarit_2007.pdf
 articles:
@@ -167,7 +167,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-357 er þegar til í öðru hefti
 - title: Stjórnarskráin og meðferð utanríkismála
   authors:
   - Björg Thorarensen
@@ -198,7 +199,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-399 er þegar til í öðru hefti
 - title: Leiðardómar Mannréttindadómstóls Evrópu
   authors:
   - Davíð Þór Björgvinsson
@@ -229,7 +231,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-463 er þegar til í öðru hefti
 - title: Sitt er hvað, sönnunarbyrði og sönnunarmat. Umfjöllun um dóm Hæstaréttar 20. október 2005 í máli nr. 148/2005
   authors:
   - Eiríkur Tómasson
@@ -260,7 +263,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-481 er þegar til í öðru hefti
 - title: Réttarríkið og andstæðingar þess
   authors:
   - Garðar Gíslason
@@ -291,7 +295,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-517 er þegar til í öðru hefti
 - title: Fjárdráttur
   authors:
   - Jónatan Þórmundsson
@@ -322,7 +327,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-535 er þegar til í öðru hefti
 - title: Málsmeðferð fyrir Alþjóðadómstólnum í Haag – tiltekin útgáfa einkamálaréttarfars á alþjóðavísu?
   authors:
   - Pétur Dam Leifsson
@@ -353,7 +359,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-589 er þegar til í öðru hefti
 - title: Markmiðsskýring
   authors:
   - Róbert R. Spanó
@@ -384,7 +391,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-621 er þegar til í öðru hefti
 - title: Stjórnspeki Snorra Sturlusonar, eins og hún birtist í Heimskringlu
   authors:
   - Sigurður Líndal
@@ -415,7 +423,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-651 er þegar til í öðru hefti
 - title: Er draugur í dómsalnum? Um vilja löggjafans sem lögskýringasjónarmið
   authors:
   - Skúli Magnússon
@@ -446,7 +455,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-733 er þegar til í öðru hefti
 - title: Bein krafa. Um rétt kaupanda fasteignar til að hafa uppi kröfu gegn viðsemjanda seljanda eða öðrum fyrri samningsaðilum
   authors:
   - Viðar Már Matthíasson
@@ -477,4 +487,5 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - auðkenni 2007-60-3-747 er þegar til í öðru hefti
