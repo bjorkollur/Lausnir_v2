@@ -332,7 +332,8 @@ articles:
   leitir_record_id: null
   xlsx_row: null
   source_file: null
-  note: 'Höfundur staðfestur 2026-10-09: undirritað „ALH.“; starfsmannalisti blaðsins: Anna Lilja Hermannsdóttir, lögfræðingur (efnisyfirlitið prentar ranglega Hallgrímsdóttir).'
+  note: 'Höfundur staðfestur 2026-10-09: undirritað „ALH.“; starfsmannalisti blaðsins: Anna Lilja Hermannsdóttir, lögfræðingur
+    (efnisyfirlitið prentar ranglega Hallgrímsdóttir).'
   analysis_notes: []
 - title: Af Merði lögmanni
   authors: []

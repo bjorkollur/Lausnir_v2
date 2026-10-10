@@ -33,7 +33,7 @@ page_map:
   - 253
   - 255
   - 256
-status: approved
+status: imported
 confidence: 1.0
 error: null
 files:

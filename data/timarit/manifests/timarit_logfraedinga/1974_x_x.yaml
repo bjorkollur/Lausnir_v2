@@ -83,7 +83,7 @@ page_map:
     unclaimed: 33
     pages: 296
     by_proxy: 0
-status: approved
+status: imported
 confidence: 0.0
 error: null
 files:

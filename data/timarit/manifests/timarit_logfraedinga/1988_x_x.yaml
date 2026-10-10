@@ -71,7 +71,7 @@ page_map:
     unclaimed: 0
     pages: 297
     by_proxy: 1
-status: approved
+status: imported
 confidence: 0.45
 error: null
 files:

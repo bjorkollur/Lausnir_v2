@@ -53,7 +53,7 @@ page_map:
     unclaimed: 0
     pages: 103
     by_proxy: 1
-status: approved
+status: imported
 confidence: 0.5
 error: null
 files:

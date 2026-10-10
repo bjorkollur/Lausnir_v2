@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.939
-status: approved
+status: imported
 confidence: 0.55
 error: null
 files:

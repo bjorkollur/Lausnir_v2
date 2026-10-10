@@ -28,7 +28,7 @@ page_map:
   contested: []
   bin_ratio: 0.935
   non_article: []
-status: approved
+status: imported
 confidence: 0.45
 error: null
 files:

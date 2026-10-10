@@ -20,7 +20,7 @@ page_map:
   bin_ratio: 0.964
   non_article:
   - 49
-status: approved
+status: imported
 confidence: 1.0
 error: null
 files:
