@@ -203,3 +203,7 @@ Reglur sem gilda í öllum prófum:
 - Leita eftir hlutverki/texta (`getByRole`, `getByText`), **ekki** `data-testid`
 - `renderWithProviders` fyrir íhluti sem þurfa Router/QueryClient
 - `src/test/setup.ts` stubbar `IntersectionObserver` sem no-op og `scrollIntoView`. Próf sem þarf að kveikja á athuguninni setur sinn eigin staðbundna override og skilar hinum global aftur á eftir.
+
+## Tímaritshaus í `DocPanel`
+
+Þegar `doc.journal` er til staðar kemur **heftismerkið og blaðsíðubilið** þar sem dómar hafa dagsetningu og tegund: `Tímarit lögfræðinga, 60. árg. 1. hefti (2010) · bls. 7–47` (stök blaðsíða: `bls. 7`; engin blaðsíða: aðeins merkið). Titillinn er áfram H1 (`case_number_is_title`). Tegundin `JournalRef` er í `frontend/src/api/types.ts`; prófað í `DocPanel.test.tsx`. Efnisgreinaakkerið `bls. N` birtist í leitarniðurstöðum eins og málsgreinanúmer dóma. `CatalogPage` (Heimildir) felur flokkinn `timarit` ásamt `baekur` og `lagasafn`.

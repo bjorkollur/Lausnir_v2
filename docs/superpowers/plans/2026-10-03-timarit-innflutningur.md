@@ -4788,3 +4788,16 @@ Plus `python3 -c` over `data/timarit/_unmatched.yaml` to print reason counts. Re
 - **Time per issue:** analyze ≈ 4 s (leitir.is cached), import ≈ 3 s, passages ≈ 0.1 s per article.
 - **Fixed during the pilot:** Tasks 22a (offline Claude queue), 22b (printed page outranks registries), 22c (articles end on their own last text page, end signatures, FRÁVIK flags), 22d (the user's thresholds, vefrit year), 22e (own-file cuts, contents row titles), 22f (anchors from page-read and user numbers, `import --reimport`, contents headings, S&S 2008 skipped page numbers).
 - **Open before the bulk run (Task 23):** an edited imported manifest whose import fails is later reported unchanged; renamed article files are not removed on re-import; `uq_journal_issue` (source, year, volume, issue) index still missing in the live DB; Úlfljótur 1952–57 folder years one too early (analysis uses the printed year).
+
+## Niðurstöður keyrslu
+
+Task 23 (bulk run), Step 4 acceptance, 2026-10-09/10. Numbers read from the live DB on 2026-10-10.
+
+- **Result:** 463 issues imported, 43 left in `review`; 5,143 articles in ten sources (TL 1,672, Lögmannablaðið 1,651, Úlfljótur 1,196, S&S 282, Lögrétta 133, Rannsóknir 100, Lögfræðingur 56, Úlfljótur vefrit 41, Lögbrú 10, Ýmsar 2); 117,468 passages, 114,721 (98 %) with a printed-page anchor (the web journal has none by design). `ix_passage_fts_is` 661 MB, no REINDEX needed.
+- **Contents lists:** 37 answered by Claude in the Claude Code session (no API key). TL 1971_1972.pdf split into two issues by page window (23e).
+- **Verification:** all 4,672 review articles were checked one by one (Sonnet verifiers over text evidence packs, about 4.6k tokens per article; a pilot against audit 5 caught 28 of 32 erroneous articles). 2,355 proposed changes in 43 groups: the user approved all high-confidence groups (1,729 applied) and dropped 109 notices; all 510 low-confidence changes were re-checked by Opus on the page: 469 applied, 39 kept the old value.
+- **Accuracy before verification:** audit 5 (120 articles) citation 86 %, range 77 %.
+- **Acceptance audits** (101 articles each, stratified by source, citation compared with the printed pages): first 91/101; after 23f 92/101 strict (91 %), 94/101 (93 %) counting a missing subtitle as correct.
+- **Gate not met:** the plan's 98 % gate was **not** met. The user accepted about 93 % on 2026-10-10. The remaining errors are scattered (a rubric prefixed to a title, spelling, a caption byline, a truncated subtitle).
+- **Thresholds in force:** `APPROVE_THRESHOLD` 0.9, `OCR_BIN_RATIO_THRESHOLD` None, `COVERAGE_MAX_GAP_PAGES` 6, `PAGE_MAP_MIN_QUALITY` 0.5, `TOC_MIN_TITLE_SHARE` 0.8, `TOC_MAX_UNCLAIMED_PAGES` 20, `TOC_MAX_UNCLAIMED_SHARE` 0.2.
+- **Still open:** the 43 review issues (14 without articles: 12 scans with no text layer and 2 without a contents list; Úlfljótur 1995/1996 duplicate fragment items; TL 1973/1993 restart numbering per hefti; 3 with invalid fix values; the rest with more than half of the ranges changed); articles are not yet citing documents (`build_citations` covers COURT_SOURCES only); MDE material deferred; `--prune` recreates UUIDs when an `external_id` changes.

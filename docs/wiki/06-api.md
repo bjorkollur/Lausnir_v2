@@ -192,3 +192,12 @@ Sækir texta einnar lagagreinar.
 ```
 
 404 með lýsandi skilaboðum ef lögin, greinin eða málsgreinin finnst ekki (t.d. *„218. gr. not found in law '19/1940' (has 264 articles)"*).
+
+### Tímaritssvið í svörum
+
+`GET /api/document/{doc_id}` og leitarniðurstöður bera ný svið (NULL utan tímarita):
+
+- `volume`, `issue`, `page_start`, `page_end`, `lang` — úr `documents`.
+- `journal` — blokk sem er `null` nema heimildin sé tímarit: `{label, year, volume, issue, page_start, page_end, date_precision}`. `label` kemur úr `journal_issues` (LEFT JOIN; vanti heftisröð er það `display_name` heimildarinnar), `date_precision` er `"year"` (aðeins ár þekkt, `document_date` er 1. janúar), `"day"` eða `null`. Framendinn teiknar haus lesarans úr þessu.
+- `urlausn` er bókfræðilegt form tímaritsins (`_citation()` tekur `plaintiffs`, `volume`, `issue`, `page_start`, `page_end`, `date_precision`); `anchor` efnisgreinar er `bls. 23` þegar blaðsíða er þekkt. `DATE_PRECISION_SQL` les `raw_api_data->>'date_precision'` aðeins fyrir vefritin svo heit leitarsmíð detoasti ekki `raw_api_data` annarra heimilda.
+- `scope=timarit` í `/api/search`, `/api/facets`; `/api/sources` skilar flokknum.

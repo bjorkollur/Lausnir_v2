@@ -280,6 +280,62 @@ Meðvituð ákvörðun (sjá [08-þróun](08-throun.md)) — endurheimt með end
 ### Import-loggar
 `update_all.py` skrifar loggana í `$DATA_DIR/logs/update/{heimild}.log` (sjálfgefið `/Volumes/RuleOfLaw/Lausnir_Data/logs/update/`), ekki lengur í `/tmp/lausnir_update/` sem hreinsaðist við endurræsingu (breytt 01.10.2026). Hver keyrsla skrifar yfir log fyrri keyrslu fyrir sömu heimild.
 
+## Tímarit — gildrur (innflutningur 2026-10-03 til 10-10)
+
+### Skráarnöfn á disknum eru NFD
+macOS skilar öllum 1.663 nöfnum í sundurliðuðu formi („ð“ og „ó“ sem tvö tákn). Samanburður við NFC-strengi úr Excel, leitir.is eða yfirferðarskrám bregst þögult. **Allt sem er lesið af diski (skráar- og möppunöfn) er stöðlað í NFC áður en það er borið saman eða geymt**; `source_filename` í `raw_api_data` er NFC.
+
+### Árgangur er ekki ár
+Árgangsnúmer fylgja ekki árinu: Úlfljótur 1947 = 1. árg. en 1959 = 12. árg. (eitt ár féll úr eftir 1957, 1951 vantar); Lögfræðingur 1. árg. 2006, 2. árg. 2008. `volume_base_year` í `SourceConfig` er **aðeins til vara** og greinin er þá merkt til yfirferðar. Heimildaröð: skrá (Excel/leitir.is) → efnisyfirlit → prentaður haus → skráarnafn → varagildi.
+
+### Úlfljótur: möppuár 1952–57 eru einu ári of snemma
+Greiningin notar prentað ár, ekki möppuárið.
+
+### leitir.is krefst URL-kóðunar
+Primo-API-ið (`/primaws/rest/pub/pnxs`) skilar HTTP 400 ef bil og íslenskir stafir í fyrirspurn eru ekki URL-kóðaðir. Svörin eru í skyndiminni `Lausnir_Data/cache/timarit/leitir/`.
+
+### Gæði textalags: BÍN-hlutfall og OCR-bönd
+Textalag PDF-skránna er ójafnt (miðgildi stafa á síðu: TL 1951–70 um 800, TL frá 1990 um 2.000; Lögmannablaðið 1990–99 479; Úlfljótur 1947–2009 um 2.900). BÍN-hlutfall (`ExtractedText.bin_ratio`) var mælt sem vísbending um slæmt textalag, en í tilraunakeyrslunni voru lág hlutföll **enskar greinar**, ekki slæmur texti. Notandi valdi því `OCR_BIN_RATIO_THRESHOLD = None`: engin sjálfvirk endur-OCR. Þegar texti er skemmdur sést það á lágu öryggi greinar (titill finnst ekki á síðunni) og hún fer í yfirferð. 14 af 43 `review`-heftum hafa enga grein af því að textalagið vantar alveg (skönnuð hefti).
+
+### Blaðsíðukort og varaleið þess
+Prentuð tala er aðeins lesin á hluta síðna (50–60% hjá TL og S&S, 10–20% hjá Úlfljóti og Lögmannablaðinu). `printed = pdf_index + k` er fundið línulega; síður sem víkja fá gildi úr sambandinu. Sé `page_map_quality` undir `PAGE_MAP_MIN_QUALITY` (0,5) fer heftið í yfirferð. Prentaðar blaðsíður sem **endurræsa** (TL-árgangar þar sem hvert hefti byrjar á bls. 1 í sumum árum; TL 1973/1993) rugla kortið. **Greinin ræður**: prentað efnisyfirlit getur haft rangar blaðsíður (TL 2016–2020) og þá gildir blaðsíðan sem greinin sjálf ber. Vanti tölu á upphafssíðu er hún lesin af síðunni, úr korti heftisins, eða sett af notanda (`user`); að öðru leyti er talið áfram frá fyrri síðu. Prentun sem sleppir tölu (S&S 2008: 5, 7, 8 …) er skráð í `raw_api_data.page_note`.
+
+### Bundnir TL-árgangar: hefti er lesið af kápu
+Í sumum árum bundinna árganga endurræsir blaðsíðutalið í hverju hefti og efnisyfirlit árgangsins nefnir ekki hefti. `import_timarit.py hefti` les prentað hefti af kápum (365 greinar í 15 árgöngum), og `external_id` notar það.
+
+### Eitt PDF getur geymt tvo árganga
+TL 1971_1972.pdf (376 síður) er 21. árg. 1971 og 22. árg. 1972, hvort með sitt blaðsíðutal. `SPLIT_FILES` í `engine/timarit/config.py` lýsir síðugluggunum (`pdf_window`); `discover` býr til eina yfirferðarskrá á hluta og `analyze` les aðeins síður hlutans.
+
+### Breytt `external_id` krefst `import --prune` — og nýrra UUID
+Greinin er einkvæm á `(source_id, external_id)`. Þegar blaðsíða, hefti eða árgangur greinar breytist breytist `external_id`, og importerinn getur ekki haldið UUID: `--prune` eyðir gömlu röðinni (og skrám) og býr til nýja. Tilvísanir í gamla UUID (t.d. vistuð leit) brotna.
+
+### Vísir `uq_journal_issue` og próf
+`uq_journal_issue` (expression-vísir á `(source_id, year, coalesce(volume,-1), coalesce(issue,''))`) er til í lifandi grunni frá 2026-10-09. Gagnagrunnspróf verða að nota **árekstralaus auðkenni** (árgangur 960) svo þau rekist ekki á raunveruleg hefti.
+
+### `analyze` í bakgrunni tekur meira en 30 mínútur á bundnum TL-árgöngum
+Keyrðu það **eina heimild í einu**, ekki allar í einu.
+
+### Mállíkanaröðin þarf að vera svöruð í lotunni
+Án API-lykils (`ANTHROPIC_API_KEY`) bíða efnisyfirlit og vafaatriði í röð (`scripts/timarit_llm_queue.py`) þar til Claude Code-lotan svarar þeim; engin þögul varaleið. 37 efnisyfirlit voru svöruð þannig í magnkeyrslunni.
+
+### MCP `get_document` og löng grein: `max_chars ≤ 40.000`
+Tímaritsgrein getur verið tugir síðna. `get_document` skilar aldrei meira en 40.000 stöfum í `text` (`text_truncated: true`) — lestu langar greinar með `get_passages` (raðað, með `bls.`-akkerum) eða `passage_context`, og vitnaðu í `urlausn` + `anchor`.
+
+### Greinar eru ekki enn í `citations`
+`build_citations` nær aðeins yfir `COURT_SOURCES`. Greinar vitna því hvorki í dóma í `citations`/`document_links` né eru taldar sem vitnandi skjöl (eftirfylgni).
+
+## Tímarit — ólokið (10.10.2026)
+
+- **43 hefti í `review`** (staða `review` í `journal_issues`), öll heildarvandamál hefta:
+  - 14 hafa engar greinar (12 skannanir án textalags, 2 án efnisyfirlits);
+  - Úlfljótur 1995/1996 hafa tvítekna brotaliði milli eigin skráa;
+  - TL 1973/1993 endurræsa númeringu í hverju hefti;
+  - 3 hafa ógild leiðréttingargildi;
+  - afgangurinn eru hefti þar sem meira en helmingur blaðsíðubila breyttist.
+- **Greinar sem vitnandi skjöl** — útvíkka `build_citations` yfir `JOURNAL_SOURCES`.
+- **MDE-efni** (`mde_is` fyrir íslenskar reifanir, `mde` fyrir enskar heilar úrlausnir) — frestað að ósk notanda; sér forskrift síðar.
+- **Nákvæmni:** samþykkisúttekt 92/101 (strangt) og 94/101 (vantandi undirtitill talinn réttur), um 93% — 98% markið náðist ekki; notandi samþykkti 10.10.2026. Villur dreifðar (yfirskrift á undan titli, stafsetning, myndatextahöfundur, stytt undirtitill).
+
 ## Ólokið verk
 
 ### 1. PDF-útdráttur fyrir bækur

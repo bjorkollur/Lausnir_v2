@@ -5,7 +5,7 @@
 PostgreSQL, gagnagrunnur `lausnir_v2`, tenging `postgresql+asyncpg://geiri@localhost/lausnir_v2`.
 Viðbætur í notkun: **pgvector** (fyrir `embedding`), **pg_trgm** (fyrir regex-leit).
 
-Fimm töflur + `alembic_version`.
+Sex töflur + `alembic_version` (`journal_issues` bættist við með alembic 0005, 2026-10-03).
 
 ## `sources` — 111 raðir
 
@@ -47,6 +47,12 @@ Fimm töflur + `alembic_version`.
 | `provisions` | jsonb | `[{num, suffix, text, sub:[{num,text}]}]` — **aðeins lagasafn** (915 skjöl) |
 | `isbn` | text | **Aðeins `logfraedibaekur`** |
 | `publisher` | text | **Aðeins `logfraedibaekur`** |
+| `volume` | smallint | **Árgangur tímarits** (alembic 0005); NULL utan tímarita og þegar árgangur er óþekktur |
+| `issue` | text | **Hefti/tbl. tímarits**, „1“ eða „3-4“ eins og prentað; NULL fyrir árgangsrit og vefrit |
+| `page_start` / `page_end` | integer | **Prentað blaðsíðubil greinar**; NULL þegar engar blaðsíður eru prentaðar (vefrit, `fraedigreinar_ymsar`) |
+| `lang` | text | Mál textans: `is`, `en`. Sjálfgefið úr `SourceConfig.lang_default`, leiðrétt úr textanum (`engine/timarit/lang.py`). Stýrir lemmun — BÍN aðeins á `is` |
+| `page_offsets` | jsonb | `[{"char": 0, "pdf_page": 0, "printed": 7}, …]` — hvar hver PDF-síða byrjar í `body_text` og hvaða prentaða tölu hún ber (`printed` getur verið NULL). Rót blaðsíðuakkera efnisgreina |
+| `journal_issue_id` | uuid FK → `journal_issues` ON DELETE SET NULL | Heftið sem greinin kom úr; NULL utan tímarita. Vísir `ix_doc_journal_issue` |
 
 ### Leit
 | Dálkur | Tegund | Athugasemd |
@@ -102,6 +108,7 @@ Hver skjal er skipt í tilvitnanlegar efnisgreinar (spec `2026-09-27-passages-de
 | `section_path` | text | Texti næstu fyrirsagnar fyrir ofan, t.d. `"Niðurstaða"`, `"III"`, `"Dómsorð"`, eða fyrir lagasafn `"12. gr"`; NULL ef engin fyrirsögn |
 | `section_kind` | text | Flokkur frá `processors/sections.py`: `reifun`, `malsmedferd`, `malsatvik`, `malsastaedur`, `nidurstada`, `domsord`, `annad` |
 | `para_from` / `para_to` | smallint | Málsgreinabil innan lags (NULL fyrir flatan texta) |
+| `page_from` / `page_to` | smallint | **Prentuð blaðsíða** sem efnisgreinin nær yfir (alembic 0005), reiknuð úr `documents.page_offsets` í `build_passage_rows()`; aðeins `body`-lagið. NULL fyrir dóma og greinar án prentaðra blaðsíðna. 114.721 af 117.468 efnisgreinum tímarita bera blaðsíðu |
 | `char_start` / `char_end` | integer | Staðsetning í upprunadálki lagsins |
 | `text` | text | Efnisgreinartextinn sjálfur |
 | `word_count` | smallint | |
@@ -118,6 +125,31 @@ Hver skjal er skipt í tilvitnanlegar efnisgreinar (spec `2026-09-27-passages-de
 | `ix_passage_section_kind` | btree | `section_kind`-sían |
 
 Fyllt/uppfært af `scripts/backfill_passages.py --source X` (eða `update_all.py`, sem keyrir það sjálfkrafa á öll skjöl með úreltan/vantandi `documents.passage_hash`).
+
+## `journal_issues` — 506 raðir (alembic 0005, 2026-10-03)
+
+Eitt hefti (eða árgangur, eða stök grein sem kom sem eigið PDF) úr tímariti. Taflan er bæði yfirlit fyrir notanda og **endurræsingarpunktur** innflutningsins; yfirferðarskráin (YAML í `data/timarit/manifests/`) er sannleikurinn, taflan speglar hana. Sjá [04-innflutningur](04-innflutningur.md).
+
+| Dálkur | Tegund | Athugasemd |
+|---|---|---|
+| `id` | uuid PK | |
+| `source_id` | uuid FK → sources ON DELETE CASCADE | |
+| `year` | smallint NOT NULL | |
+| `volume` | smallint | árgangur; NULL ef óþekktur |
+| `issue` | text | NULL fyrir árgangsrit |
+| `label` | text NOT NULL | „Tímarit lögfræðinga, 60. árg. 1. hefti (2010)“ — fer í haus lesarans (`journal.label`) |
+| `file_path` | text | slóð heftisins á RAW (`raw/{heimild}/hefti/…`), afstæð við `DATA_DIR` |
+| `sha256`, `page_count`, `toc_text` | | af heftinu; efnisyfirlitið eins og það las úr skjalinu |
+| `manifest_path` | text NOT NULL, **einkvæmt** | slóð yfirferðarskrár, afstæð við rót repósins; upsert rekst á þessum dálki |
+| `manifest_sha256` | text | útgáfan sem síðast var flutt inn — mismunur þýðir að skráin var breytt |
+| `status` | text NOT NULL | `pending`, `review`, `approved`, `imported`, `failed` |
+| `confidence` | double precision | lægsta öryggi greinar í heftinu |
+| `error` | text | síðasta villa |
+| `created_at`, `updated_at` | timestamp | naive, eins og annars staðar |
+
+Vísar: `uq_journal_issue_manifest` (einkvæmt á `manifest_path`), `uq_journal_issue` (einkvæmt expression-vísir á `(source_id, year, coalesce(volume,-1), coalesce(issue,''))`, til í lifandi grunni frá 2026-10-09), `ix_journal_issue_source (source_id, year)`, `ix_journal_issue_status`.
+
+Staða 10.10.2026: **463 `imported`, 43 `review`** (sjá [09-gildrur](09-gildrur.md), „Tímarit — ólokið“).
 
 ## `document_links` — ≈ 48.113 raðir (25.245 áfrýjun/málskotsbeiðni + 22.868 `cites`)
 
@@ -228,3 +260,9 @@ Flestar „villurnar" eru `keywords: Missing` sem er væntanlegt fyrir heimildir
 ## Staða tilvitnana (29.09.2026, keyrsla #2)
 
 44.513 skjöl unnin (öll sjö dómstólaheimildir með texta), 60.669 `citations`-raðir, 22.868 `cites`-brýr, 0 villur, 409 s með 8 verkferlum. Sjá „Niðurstöður keyrslu" í `docs/superpowers/plans/2026-09-29-citations.md` fyrir fulla sundurliðun eftir stöðu og lagi.
+
+## Staða tímarita (10.10.2026)
+
+Tíu heimildir í flokknum `timarit`. **5.143 greinar** (skjöl með `journal_issue_id`), **117.468 efnisgreinar** (114.721 með prentaða blaðsíðu, 98%), 463 hefti flutt inn, 43 í `review`. Tegundir: Fræðigrein 2.416, Frétt 1.362, Annað 651, Ritstjórnargrein 435, Viðtal 164, Dómareifun 61, Ritdómur 54. Sundurliðun á heimildir: [`sources_catalogue.md`](../../sources_catalogue.md) kafli 11. Kerfið allt eftir innflutninginn: 98.228 skjöl, 119 heimildir, 1.898.730 efnisgreinar; `ix_passage_fts_is` 661 MB (ekki þurfti REINDEX).
+
+`document_date` er `ÁÁÁÁ-01-01` þegar engin dagsetning er prentuð; `raw_api_data.date_precision = "year"` segir þá til. Greinar eru ekki enn í `citations` (`build_citations` nær aðeins yfir dómasafnið).

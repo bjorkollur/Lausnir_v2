@@ -22,6 +22,13 @@ class SourceConfig:
     h1_use_display_name: bool    # H1 notar fullt heiti í stað skammstöfunar
     case_number_is_title: bool   # case_number geymir frjálsan titil (ritgerðir/bækur)
     stjornarradid_source: bool   # heimildin er á stjornarradid.is
+    # Tegund heimildar (hönnun 2026-10-03):
+    kind: str = "ruling"         # 'ruling' | 'book' | 'journal'
+    issue_term: str | None       # 'hefti' | 'tbl.' — orðalag í urlausn; None = ekkert heftisstig
+    citation_name: str | None    # heiti tímarits í urlausn (sjálfgefið display_name í haus)
+    cite_by_date: bool           # vefrit: urlausn gefur útgáfudag, hvorki árgang né blaðsíður
+    lang_default: str            # 'is'; enskar greinar fá lang='en' úr textanum
+    volume_base_year: int | None # ár 1. árgangs — AÐEINS til vara, greinin þá merkt til yfirferðar
 ```
 
 Hjálparföll: `cfg.markdown_path(vf)` → `{DATA_DIR}/markdown/{short_name}/{vf}.md`, `cfg.pdf_path(vf)` → `{DATA_DIR}/raw/{short_name}/{vf}.pdf`. Til að **finna** PDF skjals skal nota `engine.processors.stored_pdf.find_stored_pdf()` — heimildirnar nefna skrárnar ekki eins (`verdict_filename`, `external_id` eða `thesis_stem()`), sjá [09-gildrur](09-gildrur.md).
@@ -42,7 +49,7 @@ Landsréttur og Héraðsdómstólar nota `heading_fonts={"Bold": "## "}` því f
 
 ## Flokkunartréð (leitarsvið)
 
-`engine/config/source_groups.py`. Fjórir yfirflokkar sem spegla Fons Juris:
+`engine/config/source_groups.py`. Yfirflokkar sem spegla Fons Juris (sjötti, „Tímarit og fræðigreinar“, bættist við 2026-10-03; lykill `timarit`, notaður sem `scope`):
 
 | Flokkur | Innihald |
 |---|---|
@@ -50,6 +57,7 @@ Landsréttur og Héraðsdómstólar nota `heading_fonts={"Bold": "## "}` því f
 | **Stjórnsýsla o.fl.** | Fjarskiptastofa, Fjölmiðlanefnd, Persónuvernd, Samgöngustofa, Samkeppniseftirlitið, Umboðsmaður Alþingis, Hugverkastofa |
 | **Nefndir o.fl.** | Allt annað — kærunefndir, úrskurðarnefndir, ráðuneytaúrskurðir |
 | **Bækur og fræðiskrif** | `logfraediritgerdir` (Skemman), `logfraedibaekur` |
+| **Tímarit og fræðigreinar** | tíu tímarita-/greinaheimildir (`kind="journal"`), sjá næsta kafla |
 | **Lagasafn** | 48 kaflar Alþingis-lagasafnsins |
 
 **Sjálfviðhaldandi:** „Nefndir" er skilgreint sem *allt sem er ekki í hinum flokkunum* — ný nefndarheimild lendir þar sjálfkrafa. `validate_catalog()` (prófað í `tests/test_source_groups.py`) tryggir að **hver heimild lendi í nákvæmlega einum flokki**.
@@ -110,3 +118,24 @@ Gátlisti úr `CLAUDE.md`:
 ```
 
 Til er sérsniðið Claude-skill, `lausnir-new-source`, sem keyrir 7-fasa verkflæði með staðfestingu notanda í hverjum fasa.
+
+## Tímarit og fræðigreinar — flokkurinn `timarit`
+
+Tíu heimildir, allar með `kind="journal"`, `case_number_is_title=True` (titill greinarinnar í `case_number`), `has_footnotes=True`, `parse_parties="none"`, `instance_tier=1`. Höfundar eru í `plaintiffs` (eins og hjá bókum). Greinin er skjalið, líka þegar PDF-ið er heilt hefti — heftið er klofið. `verdict_type` er tegund greinar: `Fræðigrein`, `Ritstjórnargrein`, `Ritdómur`, `Viðtal`, `Frétt`, `Dómareifun`, `Annað` (sjálfgefið `Fræðigrein`, Lögmannablaðið `Annað`).
+
+| `short_name` | Heiti í `urlausn` | `issue_term` | Árg. 1 (aðeins til vara) |
+|---|---|---|---|
+| `timarit_logfraedinga` | Tímarit lögfræðinga | hefti | 1951 |
+| `ulfljotur` | Úlfljótur | tbl. | 1947 |
+| `ulfljotur_vefrit` | Úlfljótur vefrit | — (`cite_by_date`) | — |
+| `logmannabladid` | Lögmannablaðið | tbl. | 1995 |
+| `logretta` | Lögrétta | tbl. | 2004 |
+| `logfraedingur` | Lögfræðingur | tbl. | — |
+| `logbru` | Lögbrú | tbl. | — |
+| `stjornmal_stjornsysla` | Stjórnmál og stjórnsýsla | tbl. | 2005 |
+| `rannsoknir_lagadeild` | Rannsóknir í félagsvísindum | — | — |
+| `fraedigreinar_ymsar` | (ekkert — stök rit) | — | — |
+
+`JOURNAL_SOURCES` í `engine/config/sources.py` er listinn; `source_groups.py` smíðar flokkinn úr honum og `validate_catalog()` heldur „nákvæmlega einn flokkur“. Heimildayfirlitið í framendanum (`CatalogPage`) felur flokkinn (`EXCLUDED_KEYS`), því tímarit eru hvorki dómar né úrskurðir — leitarsían `scope=timarit` geymir hann áfram.
+
+Magn og tímabil hverrar heimildar: [`sources_catalogue.md`](../../sources_catalogue.md) kafli 11.

@@ -182,3 +182,34 @@ Pípan:
 5. Keyrir `backfill_fts_is` og `backfill_passages` sjálfkrafa í lokin
 
 Kortlagning bókagilda (sjá [02-gagnagrunnur](02-gagnagrunnur.md)): titill → `case_number`, höfundar → `plaintiffs` (ein færsla per höfund), ISBN → `isbn`, útgefandi → `publisher`.
+
+### Tímarit og fræðigreinar — `import_timarit.py` (fjögur þrep)
+
+Greinin er skjalið, en PDF-ið er oft heilt hefti eða árgangur, svo pípan er **fjögur þrep með yfirferðarskrá á milli** (hönnun `docs/superpowers/specs/2026-10-03-timarit-innflutningur-design.md`, áætlun `docs/superpowers/plans/2026-10-03-timarit-innflutningur.md`). Allt keyrt með `uv run --env-file .env python scripts/import_timarit.py <þrep> [--source X] [--issue ÁR[_ÁRG[_HEFTI]]] [--dry-run] [--workers N] [--limit N] [--prune] [--reimport]`:
+
+1. **`discover`** — gengur um skjalasafn notanda (`Lausnir_Data/dropfolder_timarit/`, **aðeins lesið, aldrei skrifað**) og býr til eina yfirferðarskrá á hefti. Skráarnöfn eru NFD og eru stöðluð í NFC. PDF með tveimur árgöngum verður tvö hefti (`SPLIT_FILES`/`pdf_window`: TL 1971_1972.pdf → 21. árg. 1971 og 22. árg. 1972). Óparaðar skrár fara í `data/timarit/_unmatched.yaml`.
+2. **`analyze`** — les PDF, byggir blaðsíðukort (prentuð tala á hverri síðu), finnur greinalistann (Excel-tafla Úlfljóts, leitir.is, efnisyfirlit heftisins, skráarnafn, fyrsta síða; mállíkan sem varaleið) og gefur hverri grein öryggi úr fjórum athugunum (`WEIGHTS`: titill á síðu 0,35, prentuð blaðsíða 0,30, höfundur á síðu 0,15, ytri skrá 0,20). Hvert gildi ber uppruna: `xlsx`, `leitir`, `toc`, `filename`, `page`, `llm`, `user`; `user` er aldrei yfirskrifað og `llm` setur þak 0,70 á öryggi. Hefti sem standast öryggismat verða `approved`, önnur `review`. Efnisyfirlitsgáttin (`tocgate.py`) vísar lista sem lesturinn hitti illa til mállíkansins. Í lotukeyrslu er biðröð fyrir mállíkanið (`scripts/timarit_llm_queue.py`); án API-lykils eru svörin skrifuð í Claude Code-lotunni (sjá [09-gildrur](09-gildrur.md)).
+3. **Yfirferð** — notandi (eða staðfestingarlota) breytir YAML-skránni í `review`-hefti; staðfest hefti fær `approved`.
+4. **`import`** — klýfur heftið í greinar (PDF-síður greinarinnar afritaðar óbreyttar með PyMuPDF), vistar heftið sjálft á RAW, skrifar `documents`-raðir (`external_id = {ár}-{árg}-{hefti}-{upphafsbls}`; vefrit `{dagsetning}-{slug}`), `page_offsets`, `.md` og efnisgreinar með blaðsíðuakkerum. Upsert á `(source_id, external_id)`.
+
+Aukaskipanir: `status` (talning eftir stöðu), `hefti` (les prentað hefti af kápum TL-árganga). `--reimport` flytur inn hefti sem þegar eru innflutt þótt skráin sé óbreytt; `--prune` eyðir greinum sem skráin nefnir ekki lengur (og skrám þeirra).
+
+**Hvar hlutirnir búa:**
+
+| Hvað | Hvar |
+|---|---|
+| Yfirferðarskrár | `data/timarit/manifests/{heimild}/{ár}_{árg}_{hefti}.yaml` (`x` fyrir vantar) — **í git** |
+| Listi óparaðra skráa | `data/timarit/_unmatched.yaml` — í git |
+| Skjalasafn notanda | `Lausnir_Data/dropfolder_timarit/` — **read-only** |
+| Skyndiminni (leitir.is, Claude) | `Lausnir_Data/cache/timarit/{leitir,llm}/` |
+| Hefti á RAW | `Lausnir_Data/raw/{heimild}/hefti/{ár}_{árg}_{hefti}.pdf` |
+| Greinar á RAW | `Lausnir_Data/raw/{heimild}/{verdict_filename}.pdf` |
+| Stillanleg gildi | `engine/timarit/config.py` (hvert með athugasemd um valið og rökin) |
+
+`verdict_filename` er `{dómstóll-án-punkta}_{árg}-{hefti}_{ár}_bls-{frá}-{til}` (t.d. `TL_60-1_2010_bls-7-47`; vantar eitthvað er það `x`; engar blaðsíður → `_{slug40}`).
+
+**Stillingar sem notandi valdi** (Task 22, 2026-10-04, og Task 23, 2026-10-09): `APPROVE_THRESHOLD = 0.9` (≥ 0,9 gaf 31/31 réttar tilvitnanir í úttekt, ≥ 0,85 gaf 34/36), `OCR_BIN_RATIO_THRESHOLD = None` (aldrei endurlesa texta — lágt BÍN-hlutfall reyndist vera ensk grein, ekki slæmt textalag), `COVERAGE_MAX_GAP_PAGES = 6`, `PAGE_MAP_MIN_QUALITY = 0.5`, `TOC_MIN_TITLE_SHARE = 0.8`, `TOC_MAX_UNCLAIMED_PAGES = 20`, `TOC_MAX_UNCLAIMED_SHARE = 0.2`. Ártal vefritsgreina án dagsetningar kemur úr PDF-lýsigögnum (`date_precision: year`).
+
+**Magnkeyrslan (Task 23, 2026-10-09/10):** 37 efnisyfirlit svöruð af Claude í lotunni; allar 4.672 greinar í `review` sannreyndar ein og ein (Sonnet-sannreynarar lásu texta upphafs- og endasíðna, ~4,6 þús. tákn á grein; 2.355 breytingatillögur í 43 hópum, 1.729 samþykktar, 109 tilkynningar felldar brott; 510 lágöryggisbreytingar yfirfarnar af Opus á síðunni: 469 beittar, 39 héldu gamla gildinu). Innflutt með `import --workers 8`, síðan `--prune`-endurinnflutningar eftir lagfæringar. Niðurstaða: **463 hefti flutt inn, 43 eftir í `review`**. Samþykkisúttekt (101 grein hvor, lagskipt eftir heimild, tilvitnun borin saman við prentaðar síður): 91/101, eftir 23f 92/101 strangt (94/101 ef vantandi undirtitill telst réttur). **98% markið í áætlun náðist ekki**; notandi samþykkti um 93% þann 10.10.2026. Skekkjurnar sem eftir standa eru dreifðar (yfirskrift á undan titli, stafsetning, myndatextahöfundur, stytt undirtitill). Nánar: „Niðurstöður keyrslu“ í áætluninni.
+
+⚠️ Importerinn getur ekki haldið UUID þegar `external_id` breytist; `--prune` eyðir og býr til nýtt (sjá [09-gildrur](09-gildrur.md)).

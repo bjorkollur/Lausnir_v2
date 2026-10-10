@@ -32,6 +32,7 @@ Uppflettirit yfir uppbyggingu kerfisins. Skrifað út frá raunverulegum kóða 
 | Stærð gagnagrunns | 76 GB |
 | Stærð `Lausnir_Data/` | 49 GB |
 | Fulltextaleit (`fts_is`) | 93.048 / 93.048 (100%) |
+| Tímaritsgreinar (flokkurinn `timarit`, 10.10.2026) | 5.143 greinar, 117.468 efnisgreinar, 463 hefti (43 í yfirferð) |
 | Merkingarleit (`embedding`) | 0 / 93.048 (ekki byggt) |
 
 ## Tæknistafli

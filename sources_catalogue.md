@@ -150,6 +150,27 @@ Gögn: engin vefheimild — PDF sett í `{DATA_DIR}/dropfolder/` og flutt inn me
 
 ---
 
+## 11. Tímarit og fræðigreinar
+
+Gögn: engin vefheimild — PDF í skjalasafni notanda (`Lausnir_Data/dropfolder_timarit/`, aðeins lesið), flutt inn með `scripts/import_timarit.py` (discover → analyze → yfirferð → import); yfirferðarskrár í `data/timarit/manifests/`. Skjalið er **greinin**, ekki heftið. Flokkur í leit: `timarit`. Tölur úr grunninum 10. október 2026: **5.143 greinar**, 117.468 efnisgreinar, 463 hefti flutt inn og 43 í `review`. Sjá [wiki 04](docs/wiki/04-innflutningur.md) og [wiki 09](docs/wiki/09-gildrur.md).
+
+| short_name | Heiti | Skst. | Tier | Aðilar | Skjöl | Tímabil | Hefti inn / yfirferð | Athugasemdir |
+|---|---|---|---|---|---|---|---|---|
+| `timarit_logfraedinga` | Tímarit lögfræðinga | TL | 1 | none | 1.672 | 1951–2025 | 161 / 9 | hefti 1951–70 og 2003–25, árgangsrit 1971–2002 (hefti lesið af kápum); 1971–72 í einu PDF → tveir árgangar |
+| `logmannabladid` | Lögmannablaðið | Lögmannablaðið | 1 | none | 1.651 | 1998–2025 | 109 / 8 | fagblað: fréttir, viðtöl; tegund sjálfgefið `Annað`; 8 skrár án textalags (1995–97) |
+| `ulfljotur` | Úlfljótur | Úlfljótur | 1 | none | 1.196 | 1947–2024 | 134 / 9 | greinalisti úr Excel-töflu (`_meta/Ulfljotur_efnisyfirlit.xlsx`); möppuár 1952–57 einu ári of snemma |
+| `stjornmal_stjornsysla` | Stjórnmál og stjórnsýsla | Stjórnmál og stjórnsýsla | 1 | none | 282 | 2005–2025 | 18 / 4 | stök grein per PDF; 90 greinar á ensku (`lang=en`) |
+| `logretta` | Lögrétta | Lögrétta | 1 | none | 133 | 2005–2019 | 21 / 13 | hefti; blaðsíðumerki „a 9“; flest hefti í yfirferð eftir að efnisyfirlit brást |
+| `rannsoknir_lagadeild` | Rannsóknir í félagsvísindum — Lagadeild | Rannsóknir í félagsvísindum | 1 | none | 100 | 2003–2011 | 10 / 0 | ráðstefnurit, rómverskar tölur í árgangi |
+| `logfraedingur` | Lögfræðingur (Þemis, HA) | Lögfræðingur | 1 | none | 56 | 2006–2012 | 6 / 0 | árgangur; 13 greinar á ensku |
+| `ulfljotur_vefrit` | Úlfljótur — vefrit | Úlfljótur vefrit | 1 | none | 41 | 2017–2023 | 1 / 0 | engar prentaðar blaðsíður; `urlausn` með útgáfudegi; ár úr PDF-lýsigögnum þegar dagsetning vantar |
+| `logbru` | Lögbrú | Lögbrú | 1 | none | 10 | 2013–2015 | 2 / 0 | hefti |
+| `fraedigreinar_ymsar` | Ýmsar fræðigreinar | — | 1 | none | 2 | 2019 | 1 / 0 | skýrsla starfshóps og grein; `urlausn` án tímaritsheitis |
+
+Aðrir hlutar skjalasafnsins eru **ekki** komnir inn: MDE Dómareifanir (63 skrár, frestað — `mde_is`/`mde`). Greinar eru ekki enn í `citations` (vitna ekki í dóma).
+
+---
+
 ## Lagasafn Alþingis
 
 **Uppruni:** https://www.althingi.is/lagasafn/zip/nuna/allt.zip (ZIP, ISO-8859-1)

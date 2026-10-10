@@ -142,3 +142,10 @@ Tilvitnun er staðsett í texta með `char_start`/`char_end` í sama textadálki
 ## Merkingarleit (semantic) — ekki byggð
 
 `documents.embedding vector(3072)` er til í skemanu og `pgvector` er uppsett, en **0 af 91.152 skjölum eru með embedding**. Engin vektorleit er útfærð neins staðar í kóðanum. Þetta er ætlað framtíðarverk, ekki bilun.
+
+## Tímarit — blaðsíðuakkeri, tungumál og `scope=timarit`
+
+- **`scope=timarit`** (flokkslykillinn í `source_groups.py`) þrengir leit að tímaritum og fræðigreinum; einstök tímarit eru valin með `short_name` (sjá [03-heimildir](03-heimildir.md)). Skipanin kemur með í `list_sources`.
+- **Akkeri `bls.`:** `passage_anchor()` fær röðina málsgreinanúmer → **prentuð blaðsíða** → `section_path` → „hluti N“. Efnisgrein á einni síðu fær `bls. 23`, yfir tvær `bls. 23–24`. Blaðsíðan er afleidd úr `documents.page_offsets` í `build_passage_rows()` (`pages_for_span`, aðeins `body`-lagið) og geymd í `passages.page_from`/`page_to`; síður án lesinnar tölu eru sleppt. Dómar breytast ekki — þeir hafa málsgreinanúmer. 98% efnisgreina tímarita bera blaðsíðu (S&S 98%, vefrit 0% með hönnun — engar prentaðar blaðsíður; þar verður akkerið `section_path` eða `hluti N`).
+- **`lang`:** `lemmatize_rows(rows, lang=…)` notar BÍN aðeins þegar `documents.lang = 'is'`. Á ensku „lemmar“ BÍN alvöru orð í hávaða, svo ensk skjöl (um 130 greinar, mest Stjórnmál og stjórnsýsla) fá lágstafa-tákn óbreytt og finnast á orðréttri leit. `lang` fyllist við innflutning (`engine/timarit/lang.py`).
+- `urlausn` greinar: `Höfundur: „Titill“ Tímarit, N. árg. M. hefti (ár), bls. a–b`; fleiri en tveir höfundar → „Fyrsti o.fl.“; enginn höfundur → titillinn fyrst; vefrit: `… Úlfljótur vefrit, 21. janúar 2022` (án blaðsíðna, ártal eitt og sér ef `date_precision` er `year`).
