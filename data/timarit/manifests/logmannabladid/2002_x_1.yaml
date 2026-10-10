@@ -649,7 +649,8 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (0 af 4 titlum fundust á upphafssíðum sínum; 3 titlar standa á upphafssíðu greinarinnar
     á undan eða eftir) — greinalisti Claude notaður
 - title: Groa@leiti.is
-  authors: []
+  authors:
+  - Gróa
   author_titles: []
   article_type: Annað
   page_start: 22
@@ -666,6 +667,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

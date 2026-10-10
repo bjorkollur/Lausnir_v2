@@ -213,3 +213,30 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
+- title: Norræna málflutningskeppnin 2015
+  authors:
+  - Magnús Heimir Jónasson
+  author_titles: []
+  article_type: Frétt
+  page_start: 308
+  page_end: 310
+  issue: null
+  pdf_pages:
+  - 182
+  - 184
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

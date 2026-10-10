@@ -240,14 +240,41 @@ articles:
     er talin enda á undan henni'
 - title: Viðtal við Ingibjörgu Benediktsdóttur, fyrrverandi hæstaréttardómara
   authors:
-  - Ragnheiður Kristín Finnbogadóttir
+  - Stefán Kristinsson
   author_titles: []
   article_type: Viðtal
   page_start: 467
-  page_end: 480
+  page_end: 473
   issue: null
   pdf_pages:
   - 149
+  - 155
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Viðtal við Kolbrúnu Benediktsdóttur, varahéraðssaksóknara
+  authors:
+  - Ragnheiður Kristín Finnbogadóttir
+  author_titles: []
+  article_type: Viðtal
+  page_start: 474
+  page_end: 480
+  issue: null
+  pdf_pages:
+  - 156
   - 162
   lang: null
   date: null

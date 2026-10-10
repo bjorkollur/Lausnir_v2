@@ -27,11 +27,12 @@ articles:
   - 0
   - 301
   lang: is
-  date: null
+  date: '2019-01-01'
   summary: null
   keywords: []
   provenance:
     title: page
+    date: user
   checks:
     title_on_page: true
     printed_page_match: false
