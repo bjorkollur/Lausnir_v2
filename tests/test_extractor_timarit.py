@@ -37,6 +37,12 @@ def test_extract_unknown_article_type_falls_back_to_source_default():
     assert f["verdict_type"] == "Annað"
 
 
+def test_an_initial_keeps_its_period_in_the_author():
+    # Task 23f: manifests analysed before the fix hold "E A" and "E. A" (TL 1951); the document names "E. A."
+    f = Extractor(get_config("timarit_logfraedinga")).extract({**RAW, "authors": ["E A", "E. A", "Sindri M Stephensen"]})
+    assert [p["name"] for p in f["plaintiffs"]] == ["E. A.", "E. A.", "Sindri M. Stephensen"]
+
+
 def test_all_journals_registered():
     from engine.config.sources import JOURNAL_SOURCES
     for s in JOURNAL_SOURCES:

@@ -134,6 +134,18 @@ def test_verdict_filename_journal_and_vefrit():
     assert verdict_filename(d, VEF) == "UlfljoturVefrit_x-x_2022_loftslagsvain-og-domstolar"
 
 
+def test_an_article_of_a_bound_volume_cites_its_hefti_and_its_initials_as_printed():
+    # Task 23f: TL 1980 bls. 248 (4. hefti), TL 1951 bls. 46 signed "E. A."; without its hefti the article was
+    # "TL_30-x_1980_…" and "30. árg. (1980)"
+    d = _doc(document_date=date(1980, 1, 1), volume=30, issue="4", page_start=248, page_end=262,
+             case_number="Grein", plaintiffs=[{"name": "E. A.", "lawyer": None}], external_id="1980-30-4-248")
+    assert to_urlausn(d, TL) == "E. A.: „Grein“ Tímarit lögfræðinga, 30. árg. 4. hefti (1980), bls. 248–262"
+    assert verdict_filename(d, TL) == "TL_30-4_1980_bls-248-262"
+    d.issue = None
+    assert to_urlausn(d, TL).endswith("Tímarit lögfræðinga, 30. árg. (1980), bls. 248–262")
+    assert verdict_filename(d, TL) == "TL_30-x_1980_bls-248-262"
+
+
 def test_urlausn_omits_a_non_numeric_issue_key_but_the_file_name_keeps_it():
     # Task 17a (R32): "afmaelisrit" (Úlfljótur's anniversary issue) and slugs such as "power-and-democracy-in-iceland"
     # are identity only: no "afmaelisrit. tbl." in the citation; verdict_filename (and external_id) keep the key.

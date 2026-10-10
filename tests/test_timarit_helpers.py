@@ -1,6 +1,6 @@
 # tests/test_timarit_helpers.py
 from engine.timarit.article_type import infer_article_type
-from engine.timarit.authors import clean_author, looks_like_person, split_authors
+from engine.timarit.authors import clean_author, looks_like_person, restore_initials, split_authors
 from engine.timarit.lang import detect_lang
 
 
@@ -15,8 +15,21 @@ def test_clean_author_strips_titles_and_roles():
 
 def test_split_authors():
     assert split_authors("Arnar Heimir Lárusson og Jörgen Már Ágústsson") == ["Arnar Heimir Lárusson", "Jörgen Már Ágústsson"]
-    assert split_authors("A B, C D og E F") == ["A B", "C D", "E F"]
+    # a lone capital letter is an initial and is written with its period (Task 23f)
+    assert split_authors("A B, C D og E F") == ["A. B.", "C. D.", "E. F."]
     assert split_authors("Hafsteinn Einarsson") == ["Hafsteinn Einarsson"]
+
+
+def test_initials_keep_their_periods():
+    # Task 23f: TL 1951 signs "E. A."; its contents print "E. A.:" and once "E A.:" (bls. 46); both came out "E. A" and
+    # "E A" in urlausn. A period after an initial is not stripped, and a bare initial gets its period back.
+    assert clean_author("E. A.") == ("E. A.", None)
+    assert split_authors("E. A.") == ["E. A."] and split_authors("E A.") == ["E. A."]
+    assert clean_author("Sindri M Stephensen") == ("Sindri M. Stephensen", None)
+    assert clean_author("Stefán A. Svensson hrl.") == ("Stefán A. Svensson", "hrl.")
+    assert clean_author("Jón Jónsson.") == ("Jón Jónsson", None)          # a sentence's period after a name still goes
+    assert restore_initials("E. A.") == "E. A." and restore_initials("E A") == "E. A."
+    assert restore_initials("Gústaf A Sveinsson") == "Gústaf A. Sveinsson" and restore_initials("E.A.") == "E.A."
 
 
 def test_looks_like_person():

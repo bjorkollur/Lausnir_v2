@@ -79,6 +79,9 @@ SPLIT_FILES: dict[str, tuple[SplitPart, ...]] = {
         SplitPart(1972, 22, (204, 375)),
     ),
 }
+# Task 23f: sources whose bound volumes ({year}_x_x.yaml) hold several hefti, each opening on its own cover; analysis
+# (and `import_timarit.py hefti` for frozen manifests) gives each article without an issue the hefti it falls in.
+BOUND_VOLUME_SOURCES: tuple[str, ...] = ("timarit_logfraedinga",)
 MANIFEST_ROOT = Path("data/timarit/manifests")
 UNMATCHED_PATH = Path("data/timarit/_unmatched.yaml")
 # Caches are written, so they live outside the (read-only) user archive.

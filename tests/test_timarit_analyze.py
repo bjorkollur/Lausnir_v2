@@ -214,6 +214,37 @@ async def test_tl_annual_volume_uses_the_page_last_layout_and_keeps_the_hefti_pe
     assert m.issue is None and all(a.provenance["issue"] == "toc" for a in m.articles)
 
 
+def _pdf_at(pages: list) -> bytes:
+    """Like _pdf, but a page may be [(text, y), ...]: lines set at y points from the top (a cover's issue line stands
+    below the margin band, which _pdf's y = 72 is inside)."""
+    d = fitz.open()
+    for t in pages:
+        page = d.new_page()
+        for text, y in ([(t, 72)] if isinstance(t, str) else t):
+            if text:
+                page.insert_text((72, y), text, fontsize=11)
+    return d.tobytes()
+
+
+async def test_a_bound_volume_whose_contents_name_no_hefti_takes_each_articles_hefti_from_the_covers():
+    """Task 23f: the contents list the articles without "N. hefti" headings; each hefti's cover says where it starts,
+    and an article without an issue gets the hefti its first page falls in (provenance `page`)."""
+    toc = ("Efnisyfirlit\nFyrsta grein um samninga eftir Jón Jónsson ........ 1\n"
+           "Önnur grein um eignarrétt eftir Önnu Pálsdóttur ........ 5\n"
+           "Þriðja grein um refsirétt eftir Pál Pálsson ........ 9")
+    pages = ["TÍMARIT LÖGFRÆÐINGA\n35. ÁRGANGUR\n1985", toc, [("1. HEFTI 35. ÁRGANGUR MAÍ 1985", 240)],
+             f"1\nFyrsta grein um samninga\nJón Jónsson\n{_PAD}"]
+    pages += [f"{p}\n{_PAD}" for p in (2, 3, 4)]
+    pages += [f"5\nÖnnur grein um eignarrétt\nAnna Pálsdóttir\n{_PAD}", f"6\n{_PAD}", f"7\n{_PAD}", f"8\n{_PAD}",
+              [("2. HEFTI 35. ÁRGANGUR OKTÓBER 1985", 240)],     # (the page map needs a few pages after it)
+              f"9\nÞriðja grein um refsirétt\nPáll Pálsson\n{_PAD}"] + [f"{p}\n{_PAD}" for p in range(10, 17)]
+    m = _manifest(year=1985, volume=None, issue=None, label="Tímarit lögfræðinga (1985)",
+                  file=J + "Tímarit Lögfræðinga/TL 1985.pdf", files=[J + "Tímarit Lögfræðinga/TL 1985.pdf"])
+    m = await analyze_issue(m, get_config("timarit_logfraedinga"), _deps(_pdf_at(pages)))
+    assert [(a.page_start, a.issue, a.provenance.get("issue")) for a in m.articles] == [
+        (1, "1", "page"), (5, "1", "page"), (9, "2", "page")]
+
+
 async def test_tl_issue_pdf_uses_the_page_first_layout_even_without_a_known_path():
     """The brief's manifests carry a file path naming no archive pattern: an issue (m.issue set) reads page-first."""
     m = await analyze_issue(_manifest(file="anything.pdf"), get_config("timarit_logfraedinga"), _deps(_issue_pdf()))

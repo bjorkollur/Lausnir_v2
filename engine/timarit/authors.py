@@ -60,6 +60,16 @@ def _is_initial(t: str) -> bool:
     return len(t) in (1, 2) and t[0].isupper() and (len(t) == 1 or t[1] == ".")
 
 
+_BARE_INITIAL = re.compile(r"(?<![^\s])([^\W\d_])(?=\s|$)")
+
+
+def restore_initials(name: str) -> str:
+    """Initials written with their periods (Task 23f): a lone capital letter in a name is an initial and gets its period
+    ("E A" → "E. A.", "Sindri M Stephensen" → "Sindri M. Stephensen"); one that has it keeps it, and so does "E.A."
+    TL 1951's contents print "E A.:" once for the "E. A." the articles are signed with; leitir.is drops the period."""
+    return _BARE_INITIAL.sub(lambda m: m.group(1) + "." if m.group(1).isupper() else m.group(0), name)
+
+
 def clean_author(raw: str) -> tuple[str, str | None]:
     s = " ".join((raw or "").split())
     titles = [m.group(0) for m in _TITLE_RE.finditer(s)]
@@ -70,7 +80,7 @@ def clean_author(raw: str) -> tuple[str, str | None]:
     name = re.sub(r"[,;:]+", ",", name).strip(" ,.-")
     name = re.sub(r"\s+,", ",", name)
     name = name.split(",")[0].strip() if "," in name and len(name.split(",")[0].split()) >= 2 else name
-    name = _titlecase_if_shouting(name)
+    name = restore_initials(_titlecase_if_shouting(name))      # the strip above took a final initial's period too
     norm_titles = []
     for t in titles:
         t = t.strip()

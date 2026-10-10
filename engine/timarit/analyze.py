@@ -62,6 +62,7 @@ from engine.timarit.article_type import infer_article_type
 from engine.timarit.authors import clean_author
 from engine.timarit.extract import bin_known_ratio, bin_known_share, has_text_layer
 from engine.timarit.firstpage import Page, PageReader, eftir_authors, publication_date, read_page, sogs_heading
+from engine.timarit.hefti import assign_hefti, bound_volume
 from engine.timarit.lang import detect_lang
 from engine.timarit.leitir_articles import LeitirArticle, best_match
 from engine.timarit.llm_toc import ARTICLE_TYPES, TEXT_LIMIT
@@ -558,7 +559,10 @@ async def _analyze_container(m: IssueManifest, cfg: SourceConfig, deps: AnalyzeD
                 raise ValueError(f"pdf_window [{first}, {last}] er utan skjalsins ({pages} síður)")
             doc.select(list(range(first, last + 1)))         # the window's pages, read exactly as in the whole file
         texts = [p.get_text() for p in doc]
-        await _analyze_container_pages(m, cfg, deps, run, pdf, texts, PageReader(doc))
+        reader = PageReader(doc)
+        await _analyze_container_pages(m, cfg, deps, run, pdf, texts, reader)
+        if bound_volume(m):              # Task 23f: each article's hefti from the hefti covers (the window's pages)
+            assign_hefti(m, reader, 0, len(texts) - 1)
     if m.pdf_window is not None:
         _to_whole_file(m, run, m.pdf_window[0], pages)
 

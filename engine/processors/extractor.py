@@ -16,6 +16,7 @@ import pdfplumber
 from bs4 import BeautifulSoup
 
 from engine.config.sources import JOURNAL_SOURCES, SourceConfig
+from engine.timarit.authors import restore_initials
 
 
 class Extractor:
@@ -2614,7 +2615,8 @@ def _extract_timarit(raw: dict, config: SourceConfig) -> dict:
     minus the text, so the provenance of every value survives in the row.
     """
     title = (raw.get("title") or "").strip() or None
-    authors = [a for a in (raw.get("authors") or []) if a]
+    # an initial keeps its period (Task 23f): manifests analysed before the fix hold "E A" / "E. A" for "E. A."
+    authors = [restore_initials(a) for a in (raw.get("authors") or []) if a]
     iso = raw.get("date")
     doc_date = _parse_icelandic_date(iso) if iso else (date(int(raw["year"]), 1, 1) if raw.get("year") else None)
     article_type = raw.get("article_type") or config.verdict_type_default

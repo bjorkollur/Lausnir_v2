@@ -1252,7 +1252,7 @@ def _main(monkeypatch, argv):
     async def spy(args):
         seen.append(args)
     monkeypatch.setattr(imp, "_setup_logging", lambda command: [])
-    for name in ("cmd_import", "cmd_status", "cmd_discover", "cmd_analyze"):
+    for name in ("cmd_import", "cmd_status", "cmd_discover", "cmd_analyze", "cmd_hefti"):
         monkeypatch.setattr(imp, name, spy)
     imp.main(argv)
     return seen[0]
@@ -1878,3 +1878,128 @@ async def test_the_live_db_precheck_fails_loudly_when_the_test_ids_exist():
             return _Res(scalar=2)
     with pytest.raises(pytest.fail.Exception, match="already has the test ids"):
         await _test_ids_are_free(Taken())
+
+
+# --- hefti: the hefti of each article in a bound volume, applied to frozen manifests (Task 23f) ----------------------
+
+def _pdf_at(pages):
+    """Like _pdf, but a page may be [(text, y), ...] (a cover's issue line stands below the margin band)."""
+    d = fitz.open()
+    for t in pages:
+        page = d.new_page()
+        for text_, y in ([(t, 72)] if isinstance(t, str) else t):
+            if text_:
+                page.insert_text((72, y), text_, fontsize=11)
+    return d.tobytes()
+
+
+VOLUME = _pdf_at(["TÍMARIT LÖGFRÆÐINGA", [("1. HEFTI 30. ÁRGANGUR APRÍL 1980", 240)],
+                  f"1\nJón Jónsson\nFyrsta greinin\n{_PAD}", f"2\nFramhald.\n{_PAD}",
+                  [("2. HEFTI 30. ÁRGANGUR ÁGÚST 1980", 240)],
+                  f"248\nAnna Pálsdóttir\nÖnnur greinin\n{_PAD}", f"249\nFramhald.\n{_PAD}",
+                  f"250\nPáll Pálsson\nÞriðja greinin\n{_PAD}"])
+
+
+def _volume_manifest(root: Path, **over):
+    p = root / "timarit_logfraedinga" / "1980_x_x.yaml"
+    base = dict(source="timarit_logfraedinga", year=1980, volume=30, issue=None,
+                label="Tímarit lögfræðinga, 30. árg. (1980)", file="x/TL 1980.pdf", files=["x/TL 1980.pdf"],
+                status="imported", pages=8, sha256=sha256_bytes(VOLUME),
+                page_map={"offset": 1, "segments": [[2, 3, -1], [5, 7, 243]]})
+    base.update(over)
+    m = IssueManifest(**base)
+    m.articles = [
+        ArticleEntry(title="Fyrsta greinin", authors=["Jón Jónsson"], article_type="Fræðigrein", page_start=1, page_end=2,
+                     pdf_pages=[2, 3], lang="is", provenance={"title": "toc"}, confidence=0.9),
+        ArticleEntry(title="Önnur greinin", authors=["Anna Pálsdóttir"], article_type="Fræðigrein", page_start=248,
+                     page_end=249, pdf_pages=[5, 6], lang="is", provenance={"title": "llm"}, confidence=0.7),
+        ArticleEntry(title="Þriðja greinin", authors=["Páll Pálsson"], article_type="Fræðigrein", page_start=250,
+                     page_end=250, issue="1", pdf_pages=[7, 7], lang="is", provenance={"issue": "leitir"}, confidence=0.9),
+        ArticleEntry(title="Utan skjals", page_start=400, pdf_pages=None, confidence=0.1),
+    ]
+    save_manifest(m, p)
+    return p, m
+
+
+def test_hefti_gives_unset_articles_their_hefti_and_changes_nothing_else(tmp_path, capsys):
+    p, before = _volume_manifest(tmp_path)
+    counts = imp.hefti_manifest(p, read_bytes=lambda rel: VOLUME, dry_run=False)
+    after = load_manifest(p)
+    assert [(a.issue, a.provenance.get("issue")) for a in after.articles] == [
+        ("1", "page"), ("2", "page"), ("1", "leitir"), (None, None)]   # a set hefti stays, even against the page
+    assert after.articles[3].analysis_notes == ["hefti greinarinnar var ekki skráð: engar síður eru skráðar á hana (pdf_pages)"]
+    assert counts == {"assigned": 2, "unset": 1, "disagree": 1, "changed": 1}
+    # nothing else moved: the issue's fields and every other field of every article
+    for a in after.articles:
+        a.issue = None
+        a.provenance.pop("issue", None)
+        a.analysis_notes = []
+    for a in before.articles:
+        a.issue = None
+        a.provenance.pop("issue", None)
+    assert after == before
+    out = capsys.readouterr().out
+    assert "1. hefti: pdf-síða 2 (bls. 1)" in out and "2. hefti: pdf-síða 5 (bls. 248)" in out
+    assert "bls. 248 → 2. hefti" in out and "skráð 1. hefti (leitir), síðurnar segja 2. hefti" in out
+
+
+def test_hefti_dry_run_writes_nothing(tmp_path, capsys):
+    p, _ = _volume_manifest(tmp_path)
+    raw = p.read_bytes()
+    counts = imp.hefti_manifest(p, read_bytes=lambda rel: VOLUME, dry_run=True)
+    assert p.read_bytes() == raw and counts["assigned"] == 2 and "changed" not in counts
+    assert "bls. 1 → 1. hefti" in capsys.readouterr().out
+
+
+def test_hefti_run_twice_changes_nothing_the_second_time(tmp_path):
+    p, _ = _volume_manifest(tmp_path)
+    imp.hefti_manifest(p, read_bytes=lambda rel: VOLUME, dry_run=False)
+    once = p.read_bytes()
+    counts = imp.hefti_manifest(p, read_bytes=lambda rel: VOLUME, dry_run=False)
+    assert p.read_bytes() == once and counts.get("assigned", 0) == 0 and "changed" not in counts
+
+
+def test_hefti_leaves_a_volume_whose_pdf_changed_since_its_analysis(tmp_path):
+    p, _ = _volume_manifest(tmp_path, sha256="0" * 64)
+    raw = p.read_bytes()
+    assert imp.hefti_manifest(p, read_bytes=lambda rel: VOLUME, dry_run=False) == {"source_changed": 1}
+    assert p.read_bytes() == raw
+
+
+async def test_cmd_hefti_takes_only_bound_volumes(tmp_path, monkeypatch, capsys):
+    drop, repo = tmp_path / "drop", tmp_path / "repo"
+    (drop / "x").mkdir(parents=True)
+    (drop / "x" / "TL 1980.pdf").write_bytes(VOLUME)
+    (drop / "x" / "TL 2010_01.pdf").write_bytes(ISSUE)
+    monkeypatch.setattr(imp, "DROP", drop)
+    monkeypatch.setattr(imp, "REPO", repo)
+    root = repo / imp.C.MANIFEST_ROOT
+    vol, _ = _volume_manifest(root)
+    issue, _ = _manifest(root, "2010_60_1.yaml")
+    issue_raw = issue.read_bytes()
+    await imp.cmd_hefti(_args(command="hefti"))
+    assert load_manifest(vol).articles[1].issue == "2" and issue.read_bytes() == issue_raw
+    assert "hefti: 1 bindi" in capsys.readouterr().out
+
+
+def test_hefti_is_a_command(monkeypatch):
+    assert _main(monkeypatch, ["hefti", "--dry-run", "--source", "timarit_logfraedinga"]).command == "hefti"
+
+
+async def test_an_article_given_its_hefti_is_imported_under_a_new_id_and_name_and_its_old_row_is_left_stale(tmp_path,
+                                                                                                         raw_dir):
+    """What a re-import does after `hefti` (Task 23f): the id and the file name carry the hefti now, so the upsert
+    makes a new row; the row stored under the old id is no longer named by the manifest (counted orphaned; --prune
+    deletes it). The citation names the hefti."""
+    p, _ = _volume_manifest(tmp_path)
+    imp.hefti_manifest(p, read_bytes=lambda rel: VOLUME, dry_run=False)
+    old = [("1980-30-x-1", ISSUE_ID, "TL_30-x_1980_bls-1-2"), ("1980-30-x-248", ISSUE_ID, "TL_30-x_1980_bls-248-249"),
+           ("1980-30-1-250", ISSUE_ID, "TL_30-1_1980_bls-250")]
+    session = _Session(issue_row=(ISSUE_ID, "an older manifest"), docs=old)
+    counts = await _run(p, session, raw_dir, read=lambda rel: VOLUME)
+    ups = [(params["external_id"], params["verdict_filename"]) for _, params in session.upserts()]
+    assert ups == [("1980-30-1-1", "TL_30-1_1980_bls-1-2"), ("1980-30-2-248", "TL_30-2_1980_bls-248-249"),
+                   ("1980-30-1-250", "TL_30-1_1980_bls-250")]
+    assert counts["orphaned"] == 2 and counts["reimported"] == 1
+    md = (_md_dir(raw_dir) / "timarit_logfraedinga" / "TL_30-2_1980_bls-248-249.md").read_text(encoding="utf-8")
+    assert "Tímarit lögfræðinga, 30. árg. 2. hefti (1980), bls. 248–249" in md

@@ -4,6 +4,7 @@
     uv run --env-file .env python scripts/import_timarit.py analyze --source timarit_logfraedinga
     uv run --env-file .env python scripts/import_timarit.py import --dry-run
     uv run --env-file .env python scripts/import_timarit.py status
+    uv run --env-file .env python scripts/import_timarit.py hefti --dry-run --source timarit_logfraedinga
 
 The archive in TIMARIT_DROPFOLDER_DIR is read-only; manifests live in
 data/timarit/manifests (git); state lives in journal_issues.
@@ -50,12 +51,22 @@ passage_hash to NULL). Issues in review/pending/failed are never touched; --sour
 
 A re-import that gives an article a new file name (its page_end was corrected) removes the old markdown and PDF after
 the commit; `--dry-run` lists them. `status` also lists `imported` issues that carry an error.
+
+`hefti` (Task 23f) gives each article of a bound volume (Tímarit lögfræðinga's `{year}_x_x.yaml`) that has no `issue`
+the hefti its first page falls in, read from the hefti covers in the PDF (engine/timarit/hefti.py, the same function
+analyze uses), with provenance `page`; an article whose hefti cannot be told gets a note instead. It is meant for
+manifests analyze no longer touches (approved, imported): it changes nothing but those `issue` values, their provenance
+and that note, never a status or any other field, and never an `issue` that is set. It writes no database row. The
+article's external_id and file name carry the hefti, so the next import of an imported volume stores the article under
+a new id; the rows under the old ids are then stale (`import --prune` deletes them). `hefti --dry-run` saves nothing
+and prints, per volume, the hefti found and what each article would get.
 """
 from __future__ import annotations
 
 import argparse
 import asyncio
 import contextlib
+import copy
 import contextvars
 import datetime
 import logging
@@ -89,6 +100,8 @@ from engine.processors.validator import validate
 from engine.timarit import config as C
 from engine.timarit.analyze import AnalyzeDeps, analyze_issue
 from engine.timarit.extract import ExtractedText, extract_article
+from engine.timarit.firstpage import PageReader
+from engine.timarit.hefti import assign_hefti, bound_volume
 from engine.timarit.leitir_articles import search_articles
 from engine.timarit.llm_toc import PENDING_DIR, cache_key, is_pending, toc_via_llm
 from engine.timarit.manifest import (
@@ -1398,6 +1411,96 @@ async def cmd_import(args) -> None:
         raise SystemExit(f"import stöðvað: {stop}")
 
 
+# --- hefti (Task 23f) -------------------------------------------------------------------------------------------------
+
+_HEFTI_LABELS = {"assigned": "greinar fengu hefti", "unset": "greinar án heftis (athugasemd)",
+                 "disagree": "skráð hefti stangast á við síðurnar (óbreytt)", "changed": "yfirlitsskrár vistaðar",
+                 "doubt": "bindi þar sem heftaskil eru ótraust", "source_changed": "frumskjal breytt (sleppt)",
+                 "failed": "bindi mistókust"}
+
+
+def _printed_start(m: IssueManifest, first: int) -> int | None:
+    """The first printed page number at or after PDF page `first`, from the page map's segments (None: unknown)."""
+    for lo, hi, off in sorted(m.page_map.get("segments") or []):
+        if hi >= first:
+            return max(lo, first) + off
+    return None
+
+
+def _where(a: ArticleEntry) -> str:
+    return f"bls. {a.page_start}" if a.page_start is not None else f"„{a.title or ''}“"
+
+
+def hefti_manifest(path: Path, *, read_bytes: Callable[[str], bytes], dry_run: bool) -> dict[str, int]:
+    """`hefti` for one bound volume: assign_hefti over its PDF (its window for a part of a split file) and, unless
+    `dry_run`, save the manifest when an article changed. Only `issue`, its provenance and the hefti note can change.
+    A volume whose PDF is no longer the one it was analysed with is left alone. Prints what it found and did."""
+    m = load_manifest(path)
+    pdf = read_bytes(m.file)
+    print(f"{m.label}  ({path.name})")
+    if m.sha256 and sha256_bytes(pdf) != m.sha256:
+        log.warning("%s: %s changed since it was analysed; left alone", path.name, m.file)
+        print("  sleppt: frumskjalið breyttist eftir greiningu (keyrðu discover og analyze)")
+        return {"source_changed": 1}
+    before = [copy.deepcopy(a) for a in m.articles]
+    with fitz.open(stream=pdf, filetype="pdf") as doc:
+        first, last = m.pdf_window or (0, doc.page_count - 1)
+        r = assign_hefti(m, PageReader(doc), first, last)
+    for h in r.hefti:
+        name = f"{h.issue}. hefti" + (f" {h.foreign} (bundið inn, ekki bindisins)" if h.foreign else "")
+        printed = _printed_start(m, h.first)
+        print(f"  {name}: pdf-síða {h.first + 1}" + (f" (bls. {printed})" if printed is not None else ""))
+    if r.doubt:
+        print(f"  heftaskil ótraust: {r.doubt} — engin grein fær hefti")
+    for k in r.assigned:
+        a = m.articles[k]
+        print(f"  {_where(a)} → {a.issue}. hefti  {a.title or ''}")
+    for k, why in r.unset.items():
+        print(f"  ekki skráð: {_where(m.articles[k])}  {m.articles[k].title or ''} — {why}")
+    for k, was, pages in r.disagree:
+        a = m.articles[k]
+        print(f"  ósamræmi: {_where(a)} skráð {was}. hefti ({a.provenance.get('issue') or 'án uppruna'}), "
+              f"síðurnar segja {pages}. hefti — skráningin stendur  {a.title or ''}")
+    counts = {"assigned": len(r.assigned), "unset": len(r.unset), "disagree": len(r.disagree), "doubt": int(bool(r.doubt))}
+    if m.articles != before and not dry_run:
+        save_manifest(m, path)
+        counts["changed"] = 1
+    return {k: n for k, n in counts.items() if n}
+
+
+def _bound(path: Path) -> bool:
+    try:
+        return bound_volume(load_manifest(path))
+    except (ValueError, OSError):
+        return False
+
+
+async def cmd_hefti(args) -> None:
+    paths = [p for p in _select_manifests(argparse.Namespace(**{**vars(args), "limit": None})) if _bound(p)]
+    paths = paths[:args.limit] if args.limit else paths
+    if not paths:
+        print("Engin bundin bindi fundust (rýmkaðu --source/--issue).")
+        return
+    totals: dict[str, int] = defaultdict(int)
+    for path in paths:
+        try:
+            counts = hefti_manifest(path, read_bytes=_read_drop, dry_run=args.dry_run)
+        except Exception as exc:  # noqa: BLE001 — one bad volume must not stop the run
+            log.exception("hefti failed for %s", path.name)
+            print(f"  ✗ {path.name}: {_error_text(exc)}")
+            counts = {"failed": 1}
+        for k, n in counts.items():
+            totals[k] += n
+    print(f"hefti: {len(paths)} bindi")
+    for k, n in sorted(totals.items()):
+        print(f"  {_HEFTI_LABELS.get(k, k):45s} {n:5d}")
+    if args.dry_run:
+        print("Þurrkeyrsla: engin yfirlitsskrá var vistuð (og ekkert skrifað í gagnagrunn).")
+    elif totals.get("changed"):
+        print("Auðkenni (external_id) og skráarnöfn greinanna sem fengu hefti breytast við næsta innflutning; "
+              "eldri raðir þeirra verða úreltar (import --prune eyðir þeim).")
+
+
 def _setup_logging(command: str) -> list[logging.Handler]:
     """stderr plus Lausnir_Data/logs/timarit/{command}_{date}.log (spec 7.4); the file is best effort.
     Returns the handlers it attached to the root logger."""
@@ -1417,7 +1520,7 @@ def _setup_logging(command: str) -> list[logging.Handler]:
 
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("command", choices=["discover", "analyze", "import", "status"])
+    ap.add_argument("command", choices=["discover", "analyze", "import", "status", "hefti"])
     ap.add_argument("--source")
     ap.add_argument("--issue", help="ÁR[_ÁRG[_HEFTI]] (x = vantar)")
     ap.add_argument("--dry-run", action="store_true")
@@ -1433,7 +1536,8 @@ def main(argv=None) -> None:
             print(f"Aðvörun: --{flag} gildir aðeins um import; það er hunsað við {args.command}.", file=sys.stderr)
             setattr(args, flag, False)
     _setup_logging(args.command)
-    cmd = {"discover": cmd_discover, "status": cmd_status, "analyze": cmd_analyze, "import": cmd_import}[args.command]
+    cmd = {"discover": cmd_discover, "status": cmd_status, "analyze": cmd_analyze, "import": cmd_import,
+           "hefti": cmd_hefti}[args.command]
     asyncio.run(cmd(args))
 
 
