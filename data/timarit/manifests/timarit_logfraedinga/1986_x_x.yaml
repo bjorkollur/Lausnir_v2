@@ -562,7 +562,7 @@ articles:
   article_type: Ritstjórnargrein
   page_start: 149
   page_end: 150
-  issue: '2'
+  issue: '3'
   pdf_pages:
   - 162
   - 163
@@ -575,6 +575,7 @@ articles:
     authors: user
     pages: user
     article_type: user
+    issue: user
   checks: {}
   confidence: 0.0
   leitir_record_id: null

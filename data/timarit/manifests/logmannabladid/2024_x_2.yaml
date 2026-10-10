@@ -162,7 +162,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: HRINGBORÐSUMRÆÐUR Konur, lögmannsstarfið og samfélagið
+- title: Konur, lögmannsstarfið og samfélagið
   authors: []
   author_titles: []
   article_type: Viðtal
@@ -177,7 +177,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: user
     pages: toc
   checks:

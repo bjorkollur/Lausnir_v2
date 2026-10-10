@@ -384,7 +384,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Fréttir frá félagsdeild
-  authors: []
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Frétt
   page_start: 28
@@ -401,6 +402,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -395,7 +395,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Skýrsla stjórnar Lögfræðingafélags íslands á aðalfundi 31. október 1991
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 31. október 1991
   authors:
   - Garðar Gíslason
   author_titles: []
@@ -411,7 +411,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: user
     pages: toc
     issue: toc

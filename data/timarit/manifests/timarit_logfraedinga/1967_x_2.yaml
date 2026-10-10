@@ -237,11 +237,11 @@ articles:
   author_titles: []
   article_type: Ritdómur
   page_start: 134
-  page_end: 134
+  page_end: 135
   issue: null
   pdf_pages:
   - 55
-  - 55
+  - 56
   lang: is
   date: null
   summary: null
@@ -250,7 +250,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true

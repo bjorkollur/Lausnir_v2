@@ -160,7 +160,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Sjálfsfjármögnunarbann
+- title: Sjálfsfjármögnunarbann – Um 2. mgr. 104. gr. laga um hlutafélög nr. 2/1995
   authors:
   - Davíð Þorláksson
   author_titles: []
@@ -176,7 +176,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
   checks:

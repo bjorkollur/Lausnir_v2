@@ -484,7 +484,7 @@ articles:
   article_type: Frétt
   page_start: 40
   page_end: 40
-  issue: '2'
+  issue: '1'
   pdf_pages:
   - 45
   - 45
@@ -497,7 +497,7 @@ articles:
     article_type: llm
     authors: leitir
     pages: llm
-    issue: leitir
+    issue: user
   checks:
     title_on_page: true
     printed_page_match: true
