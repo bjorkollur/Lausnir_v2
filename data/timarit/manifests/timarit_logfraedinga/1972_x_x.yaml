@@ -181,7 +181,7 @@ articles:
   article_type: Frétt
   page_start: 27
   page_end: 28
-  issue: null
+  issue: '1'
   pdf_pages:
   - 232
   - 233
@@ -194,6 +194,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -245,7 +246,7 @@ articles:
   article_type: Frétt
   page_start: 35
   page_end: 35
-  issue: null
+  issue: '1'
   pdf_pages:
   - 240
   - 240
@@ -258,6 +259,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -278,7 +280,7 @@ articles:
   article_type: Frétt
   page_start: 35
   page_end: 36
-  issue: null
+  issue: '1'
   pdf_pages:
   - 240
   - 241
@@ -291,6 +293,7 @@ articles:
     article_type: llm
     authors: llm
     pages: user
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -310,7 +313,7 @@ articles:
   article_type: Frétt
   page_start: 36
   page_end: 36
-  issue: null
+  issue: '1'
   pdf_pages:
   - 241
   - 241
@@ -323,6 +326,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -439,7 +443,7 @@ articles:
   article_type: Dómareifun
   page_start: 90
   page_end: 103
-  issue: null
+  issue: '2'
   pdf_pages:
   - 323
   - 336
@@ -452,6 +456,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -503,7 +508,7 @@ articles:
   article_type: Frétt
   page_start: 107
   page_end: 108
-  issue: null
+  issue: '2'
   pdf_pages:
   - 340
   - 341
@@ -516,6 +521,7 @@ articles:
     article_type: llm
     authors: llm
     pages: user
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -535,7 +541,7 @@ articles:
   article_type: Frétt
   page_start: 108
   page_end: 108
-  issue: null
+  issue: '2'
   pdf_pages:
   - 341
   - 341
@@ -548,6 +554,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: false
     printed_page_match: true
@@ -567,7 +574,7 @@ articles:
   article_type: Ritstjórnargrein
   page_start: 109
   page_end: 109
-  issue: null
+  issue: '2'
   pdf_pages:
   - 342
   - 342
@@ -580,6 +587,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -630,7 +638,7 @@ articles:
   article_type: Ritdómur
   page_start: 112
   page_end: 112
-  issue: null
+  issue: '2'
   pdf_pages:
   - 345
   - 345
@@ -643,6 +651,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true

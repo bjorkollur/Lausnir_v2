@@ -194,7 +194,7 @@ articles:
   article_type: Frétt
   page_start: 38
   page_end: 38
-  issue: null
+  issue: '1'
   pdf_pages:
   - 43
   - 43
@@ -207,6 +207,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -226,7 +227,7 @@ articles:
   article_type: Frétt
   page_start: 38
   page_end: 39
-  issue: null
+  issue: '1'
   pdf_pages:
   - 43
   - 44
@@ -239,6 +240,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: false
     printed_page_match: true
@@ -260,7 +262,7 @@ articles:
   article_type: Frétt
   page_start: 39
   page_end: 39
-  issue: null
+  issue: '1'
   pdf_pages:
   - 44
   - 44
@@ -273,6 +275,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -292,7 +295,7 @@ articles:
   article_type: Frétt
   page_start: 39
   page_end: 40
-  issue: null
+  issue: '1'
   pdf_pages:
   - 44
   - 45
@@ -305,6 +308,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -324,7 +328,7 @@ articles:
   article_type: Frétt
   page_start: 41
   page_end: 42
-  issue: null
+  issue: '1'
   pdf_pages:
   - 46
   - 47
@@ -337,6 +341,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -356,7 +361,7 @@ articles:
   article_type: Frétt
   page_start: 42
   page_end: 43
-  issue: null
+  issue: '1'
   pdf_pages:
   - 47
   - 48
@@ -369,6 +374,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -388,7 +394,7 @@ articles:
   article_type: Frétt
   page_start: 44
   page_end: 47
-  issue: null
+  issue: '1'
   pdf_pages:
   - 49
   - 52
@@ -401,6 +407,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -455,7 +462,7 @@ articles:
   article_type: Fræðigrein
   page_start: 51
   page_end: 75
-  issue: null
+  issue: '2'
   pdf_pages:
   - 60
   - 84
@@ -468,6 +475,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -554,7 +562,7 @@ articles:
   article_type: Frétt
   page_start: 94
   page_end: 95
-  issue: null
+  issue: '2'
   pdf_pages:
   - 103
   - 104
@@ -566,6 +574,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -784,7 +793,7 @@ articles:
   article_type: Fræðigrein
   page_start: 126
   page_end: 148
-  issue: null
+  issue: '3'
   pdf_pages:
   - 139
   - 161
@@ -797,6 +806,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -816,7 +826,7 @@ articles:
   article_type: Frétt
   page_start: 149
   page_end: 149
-  issue: null
+  issue: '3'
   pdf_pages:
   - 162
   - 162
@@ -829,6 +839,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -848,7 +859,7 @@ articles:
   article_type: Frétt
   page_start: 150
   page_end: 154
-  issue: null
+  issue: '3'
   pdf_pages:
   - 163
   - 167
@@ -861,6 +872,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -914,7 +926,7 @@ articles:
   article_type: Fræðigrein
   page_start: 163
   page_end: 173
-  issue: null
+  issue: '4'
   pdf_pages:
   - 182
   - 192
@@ -927,6 +939,7 @@ articles:
     article_type: llm
     authors: llm
     pages: user
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -945,7 +958,7 @@ articles:
   article_type: Frétt
   page_start: 173
   page_end: 173
-  issue: null
+  issue: '4'
   pdf_pages:
   - 192
   - 192
@@ -957,6 +970,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -976,7 +990,7 @@ articles:
   article_type: Fræðigrein
   page_start: 174
   page_end: 205
-  issue: null
+  issue: '4'
   pdf_pages:
   - 193
   - 224
@@ -989,6 +1003,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1009,7 +1024,7 @@ articles:
   article_type: Fræðigrein
   page_start: 206
   page_end: 211
-  issue: null
+  issue: '4'
   pdf_pages:
   - 225
   - 230
@@ -1022,6 +1037,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1074,7 +1090,7 @@ articles:
   article_type: Frétt
   page_start: 216
   page_end: 217
-  issue: null
+  issue: '4'
   pdf_pages:
   - 235
   - 236
@@ -1087,6 +1103,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1106,7 +1123,7 @@ articles:
   article_type: Frétt
   page_start: 217
   page_end: 218
-  issue: null
+  issue: '4'
   pdf_pages:
   - 236
   - 237
@@ -1119,6 +1136,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: false
     printed_page_match: true
@@ -1138,7 +1156,7 @@ articles:
   article_type: Frétt
   page_start: 219
   page_end: 220
-  issue: null
+  issue: '4'
   pdf_pages:
   - 238
   - 239
@@ -1151,6 +1169,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1170,7 +1189,7 @@ articles:
   article_type: Frétt
   page_start: 221
   page_end: 223
-  issue: null
+  issue: '4'
   pdf_pages:
   - 240
   - 242
@@ -1183,6 +1202,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1202,7 +1222,7 @@ articles:
   article_type: Frétt
   page_start: 224
   page_end: 225
-  issue: null
+  issue: '4'
   pdf_pages:
   - 243
   - 244
@@ -1215,6 +1235,7 @@ articles:
     article_type: llm
     authors: llm
     pages: llm
+    issue: page
   checks:
     title_on_page: true
     printed_page_match: true
