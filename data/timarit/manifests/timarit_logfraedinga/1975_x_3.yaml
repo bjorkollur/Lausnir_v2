@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.97
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -21,9 +21,10 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1975_03/1975_98.pdf
 articles:
 - title: Virðing almennings fyrir lögum og rétti
-  authors: []
+  authors:
+  - Páll S. Pálsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 98
   page_end: 99
   issue: null
@@ -37,6 +38,8 @@ articles:
   provenance:
     pages: filename+page
     title: page
+    authors: user
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: true

@@ -53,8 +53,9 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/683.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/684.pdf
 articles:
-- title: null
-  authors: []
+- title: Eru héraðsdómstólar nógu öflugir til þess að óhætt sé að takmarka áfrýjunarmöguleika?
+  authors:
+  - Þórunn Guðmundsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 67
@@ -69,6 +70,8 @@ articles:
   keywords: []
   provenance:
     pages: page
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -81,12 +84,40 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.59)
-- title: null
-  authors: []
+- title: Eru héraðsdómstólar nógu öflugir til þess að óhætt sé að takmarka áfrýjunarmöguleika?
+  authors:
+  - Örn Clausen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 68
+  page_end: 69
+  issue: null
+  pdf_pages:
+  - 1
+  - 1
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/598.pdf
+  note: ''
+  analysis_notes: []
+- title: Er áfrýjunarfjárhæðin 300.000 kr. of há?
+  authors:
+  - Magnús M. Norðdahl
   author_titles: []
   article_type: Fræðigrein
   page_start: 70
-  page_end: 70
+  page_end: 71
   issue: null
   pdf_pages:
   - 0
@@ -96,7 +127,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    pages: page
+    pages: user
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -109,22 +142,25 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.58)
-- title: null
-  authors: []
+- title: Dómur Hæstaréttar í máli nr. 436/1994 frá 14. nóvember 1994 - réttmæti hans og áhrif
+  authors:
+  - Magnús Thoroddsen
   author_titles: []
   article_type: Fræðigrein
   page_start: 71
-  page_end: 73
+  page_end: 72
   issue: null
   pdf_pages:
   - 0
-  - 2
+  - 1
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    pages: page
+    pages: user
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -137,12 +173,39 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.56)
-- title: null
+- title: Fjöldi áfrýjunarstefna fyrir og eftir gildistöku l. nr. 38/1994 um breyting á lögum um meðferð einkamála
   authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 73
+  page_end: 73
+  issue: null
+  pdf_pages:
+  - 2
+  - 2
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/596.pdf
+  note: ''
+  analysis_notes: []
+- title: Nýtur fiskveiðiréttur í sjó eignarréttarverndar sem atvinnuréttur?
+  authors:
+  - Skúli Magnússon
   author_titles: []
   article_type: Fræðigrein
   page_start: 199
-  page_end: 199
+  page_end: 200
   issue: null
   pdf_pages:
   - 0
@@ -152,7 +215,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    pages: page
+    pages: user
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -165,12 +230,13 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.53)
-- title: null
-  authors: []
+- title: Er rétt að heimila veðsetningu aflaheimilda?
+  authors:
+  - Jónas Haraldsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 203
-  page_end: 205
+  page_end: 210
   issue: null
   pdf_pages:
   - 0
@@ -180,7 +246,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    pages: page
+    pages: user
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -193,8 +261,9 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.57)
-- title: null
-  authors: []
+- title: Aðhald að íslenskum lögum?
+  authors:
+  - Björn Þ. Guðmundsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 315
@@ -209,6 +278,8 @@ articles:
   keywords: []
   provenance:
     pages: page
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -221,12 +292,13 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.63)
-- title: null
-  authors: []
+- title: Eru mannréttindi lögfræði?
+  authors:
+  - Guðrún Gauksdóttir
   author_titles: []
   article_type: Fræðigrein
-  page_start: 456
-  page_end: 456
+  page_start: 455
+  page_end: 457
   issue: null
   pdf_pages:
   - 0
@@ -236,7 +308,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    pages: page
+    pages: user
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -249,12 +323,13 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.59)
-- title: null
-  authors: []
+- title: Hvernig ber að vernda efnahagsleg, félagsleg og menningarleg réttindi að landslögum?
+  authors:
+  - Asbjørn Eide
   author_titles: []
   article_type: Fræðigrein
   page_start: 457
-  page_end: 458
+  page_end: 459
   issue: null
   pdf_pages:
   - 0
@@ -264,7 +339,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    pages: page
+    pages: user
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -277,12 +354,13 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.60)
-- title: null
-  authors: []
+- title: Lögfræðingar í ríki réttarins
+  authors:
+  - Hreinn Loftsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 459
-  page_end: 460
+  page_end: 461
   issue: null
   pdf_pages:
   - 0
@@ -292,7 +370,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    pages: page
+    pages: user
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -305,8 +385,9 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.71)
-- title: null
-  authors: []
+- title: Hvert er hlutverk lögfræðinga og samtaka þeirra í mannréttindastarfi?
+  authors:
+  - J. Ross Harper
   author_titles: []
   article_type: Fræðigrein
   page_start: 461
@@ -321,6 +402,8 @@ articles:
   keywords: []
   provenance:
     pages: page
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -333,12 +416,14 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.59)
-- title: null
-  authors: []
+- title: Geta aflaheimildir talist eign í skilningi 67. gr. stjórnarskrár? Hvaða þýðingu hefur 3. ml. 1. gr. laga nr. 38/1990
+    um stjórn fiskveiða í þessu sambandi?
+  authors:
+  - Jón Steinar Gunnlaugsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 200
+  page_end: 202
   issue: null
   pdf_pages:
   - 0
@@ -347,7 +432,10 @@ articles:
   date: null
   summary: null
   keywords: []
-  provenance: {}
+  provenance:
+    title: user
+    authors: user
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -361,12 +449,13 @@ articles:
   analysis_notes:
   - engin röð í töflu passaði (best 0.58)
   - 'FRÁVIK: blaðsíðutal greinarinnar fannst hvorki á síðunni né í skránni'
-- title: null
-  authors: []
+- title: Framtíð Landsdóms eftir Tamílamálið
+  authors:
+  - Jørgen Albæk Jensen
   author_titles: []
   article_type: Fræðigrein
   page_start: null
-  page_end: null
+  page_end: 312
   issue: null
   pdf_pages:
   - 0
@@ -375,7 +464,10 @@ articles:
   date: null
   summary: null
   keywords: []
-  provenance: {}
+  provenance:
+    authors: user
+    pages: user
+    title: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -519,7 +611,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 62
-  page_end: 66
+  page_end: 67
   issue: '1'
   pdf_pages:
   - 0
@@ -531,7 +623,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -544,13 +636,13 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/597.pdf
   note: ''
   analysis_notes: []
-- title: Hæstiréttur Íslands 75 ára
+- title: Á að taka upp millidómstig?
   authors:
-  - Þorgeir Örlygsson
+  - Allan V. Magnússon
   author_titles: []
   article_type: Fræðigrein
   page_start: 69
-  page_end: 69
+  page_end: 70
   issue: '1'
   pdf_pages:
   - 0
@@ -560,9 +652,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
-    pages: page
+    title: user
+    authors: user
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -709,7 +801,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 198
-  page_end: 198
+  page_end: 199
   issue: '2'
   pdf_pages:
   - 0
@@ -721,7 +813,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -740,7 +832,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 202
-  page_end: 202
+  page_end: 203
   issue: '2'
   pdf_pages:
   - 0
@@ -752,7 +844,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -770,7 +862,7 @@ articles:
   - Jónas Haraldsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 206
+  page_start: 203
   page_end: 210
   issue: '2'
   pdf_pages:
@@ -783,7 +875,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: page
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -797,24 +889,25 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 203, prentað bls. 206'
-- title: Mannréttindi samkynhneigðra
-  authors: []
+- title: Tilurð stjórnarskráa og réttindi einstaklinga
+  authors:
+  - Magnús Gylfi Þorsteinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 468
-  page_end: 470
+  page_end: 469
   issue: '2'
   pdf_pages:
   - 0
-  - 2
+  - 1
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
-    pages: page
+    title: user
+    authors: user
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -829,11 +922,11 @@ articles:
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 228, prentað bls. 468'
   - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
-- title: Aðhald að íslenskum lögum
+- title: Mannréttindi samkynhneigðra
   authors:
-  - Björn Þ. Guðmundsson
+  - hjh
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 228
   page_end: 231
   issue: '3'
@@ -845,10 +938,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
+    title: user
+    authors: user
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -961,7 +1055,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 305
-  page_end: 307
+  page_end: 308
   issue: '3'
   pdf_pages:
   - 0
@@ -973,7 +1067,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -992,7 +1086,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 308
-  page_end: 309
+  page_end: 310
   issue: '3'
   pdf_pages:
   - 0
@@ -1004,7 +1098,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -1017,13 +1111,13 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/376.pdf
   note: ''
   analysis_notes: []
-- title: Landsdómur óþarfur?
+- title: Mörk hollustunnar
   authors:
-  - Sverrir Jakobsson
+  - Jens Peter Christensen
   author_titles: []
   article_type: Fræðigrein
   page_start: 312
-  page_end: 312
+  page_end: 313
   issue: '3'
   pdf_pages:
   - 0
@@ -1033,9 +1127,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
-    pages: page
+    title: user
+    authors: user
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -1049,13 +1143,13 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 313, prentað bls. 312'
-- title: Efnisþáttur Tamílamálsins
+- title: Landsdómur óþarfur?
   authors:
-  - Henrik Zahle
+  - Sverrir Jakobsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 313
-  page_end: 314
+  page_end: 315
   issue: '3'
   pdf_pages:
   - 0
@@ -1065,9 +1159,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
-    pages: page
+    title: user
+    authors: user
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -1205,12 +1299,12 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/381.pdf
   note: ''
   analysis_notes: []
-- title: Lýðræðisleg dómgreind og lögfræði
+- title: Hvert er hlutverk lögfræðinga og samtaka þeirra í mannréttindastarfi?
   authors:
-  - Neil McCormick
+  - Adama Dieng
   author_titles: []
   article_type: Fræðigrein
-  page_start: 464
+  page_start: 463
   page_end: 465
   issue: '4'
   pdf_pages:
@@ -1221,9 +1315,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
-    pages: page
+    title: user
+    authors: user
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -1243,7 +1337,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 466
-  page_end: 467
+  page_end: 468
   issue: '4'
   pdf_pages:
   - 0
@@ -1255,7 +1349,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false

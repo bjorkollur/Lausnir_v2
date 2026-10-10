@@ -53,7 +53,7 @@ page_map:
     unclaimed: 0
     pages: 103
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
@@ -61,9 +61,9 @@ files:
 articles:
 - title: Fullkomin lögjöfnun og 7. gr. Mannréttindasáttmála Evrópu
   authors:
-  - Róbert Spanó
+  - Róbert R. Spanó
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 239
   page_end: 244
   issue: null
@@ -76,9 +76,9 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -164,11 +164,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 319
-  page_end: 319
+  page_end: 328
   issue: null
   pdf_pages:
   - 82
-  - 82
+  - 91
   lang: is
   date: null
   summary: null
@@ -177,7 +177,7 @@ articles:
     title: toc
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

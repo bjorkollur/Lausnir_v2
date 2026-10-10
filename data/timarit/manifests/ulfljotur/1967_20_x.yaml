@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.834
-status: review
+status: approved
 confidence: 0.55
 error: null
 files:
@@ -23,8 +23,7 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1967 20 arg/66.pdf
 articles:
 - title: Um nokkur atriði félagaréttar
-  authors:
-  - Þórður Eyjólfsson
+  authors: []
   author_titles: []
   article_type: Fræðigrein
   page_start: 5
@@ -39,7 +38,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:
@@ -57,7 +56,7 @@ articles:
   authors:
   - Jón Ingvarsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 17
   page_end: 18
   issue: '1'
@@ -73,6 +72,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

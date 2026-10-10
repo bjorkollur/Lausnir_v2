@@ -77,17 +77,16 @@ page_map:
     unclaimed: 9
     pages: 303
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1994.pdf
 articles:
 - title: Skinka og löggjafarvilji
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 4
   issue: '1'
@@ -100,10 +99,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -342,7 +341,7 @@ articles:
 - title: Hvert stefnir?
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 69
   page_end: 71
   issue: '2'
@@ -355,7 +354,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
   checks:
@@ -565,7 +564,7 @@ articles:
 - title: „Dómskerfið slær á fingur okkar“
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 151
   page_end: 153
   issue: '3'
@@ -578,7 +577,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
   checks:
@@ -1048,7 +1047,7 @@ articles:
   authors:
   - Guðrún Erlendsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 278
   page_end: 279
   issue: '4'
@@ -1061,7 +1060,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
     issue: toc

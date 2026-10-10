@@ -42,7 +42,7 @@ page_map:
     unclaimed: 35
     pages: 79
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -153,11 +153,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 60
-  page_end: 60
+  page_end: 61
   issue: null
   pdf_pages:
   - 65
-  - 65
+  - 66
   lang: is
   date: null
   summary: null
@@ -166,7 +166,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

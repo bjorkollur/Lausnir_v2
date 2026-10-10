@@ -33,7 +33,7 @@ page_map:
   - 79
   - 80
   - 81
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -137,7 +137,7 @@ articles:
   authors:
   - Einar Arnórsson
   author_titles: []
-  article_type: Dómareifun
+  article_type: Fræðigrein
   page_start: 121
   page_end: 123
   issue: null
@@ -150,7 +150,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: leitir
     pages: leitir+llm
   checks:

@@ -34,7 +34,7 @@ page_map:
     unclaimed: 0
     pages: 30
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -75,7 +75,7 @@ articles:
   authors:
   - Reimar Pétursson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 6
   page_end: 7
   issue: null
@@ -88,7 +88,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -102,26 +102,26 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Jólahugvekja: Fjórða iðnbyltingin'
+- title: Fjórða iðnbyltingin
   authors:
   - Jóhann Alfreð Kristinsson
   author_titles: []
   article_type: Annað
   page_start: 8
-  page_end: 8
+  page_end: 9
   issue: null
   pdf_pages:
   - 7
-  - 7
+  - 8
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -133,8 +133,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ HERVÖRU ÞORVALDS- DÓTTUR Að Landsréttur tali einu máli
-  authors: []
+- title: Að Landsréttur tali einu máli
+  authors:
+  - Víðir Smári Petersen
   author_titles: []
   article_type: Viðtal
   page_start: 10
@@ -148,9 +149,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -44,7 +44,7 @@ page_map:
     unclaimed: 3
     pages: 99
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -54,8 +54,8 @@ articles:
   authors:
   - E. A
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 1
+  article_type: Ritstjórnargrein
+  page_start: 2
   page_end: 3
   issue: null
   pdf_pages:
@@ -67,9 +67,9 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -284,7 +284,7 @@ articles:
 - title: Nítjánda þing norrænna lagamanna
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 73
   page_end: 75
   issue: null
@@ -297,7 +297,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
   checks:
     title_on_page: true

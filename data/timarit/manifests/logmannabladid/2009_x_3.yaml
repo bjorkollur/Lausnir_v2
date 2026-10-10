@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 4
   - 26
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -120,26 +120,25 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Hringborðsumræður: Eru verkefnin framundan réttarkerfinu ofviða?'
-  authors:
-  - Borgar Þór Einarsson
+- title: Eru verkefnin framundan réttarkerfinu ofviða?
+  authors: []
   author_titles: []
   article_type: Viðtal
   page_start: 12
-  page_end: 14
+  page_end: 15
   issue: null
   pdf_pages:
   - 11
-  - 13
+  - 14
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
-    authors: llm
-    pages: llm
+    authors: user
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -180,7 +179,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Úr myndasafni: Söguleg stund: Tvær konur í stjórn LMFÍ'
+- title: 'Söguleg stund: Tvær konur í stjórn LMFÍ'
   authors: []
   author_titles: []
   article_type: Annað
@@ -195,7 +194,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     pages: llm
   checks:

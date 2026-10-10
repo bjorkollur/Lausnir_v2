@@ -23,7 +23,7 @@ page_map:
   - 16
   - 22
   - 30
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -96,7 +96,7 @@ articles:
 - title: Aðgerðir gegn peningaþvætti
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
   page_end: 8
   issue: null
@@ -109,7 +109,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     pages: llm
   checks:
     title_on_page: true

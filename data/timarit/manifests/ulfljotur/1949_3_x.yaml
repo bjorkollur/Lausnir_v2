@@ -52,6 +52,32 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/212.pdf
   note: ''
   analysis_notes: []
+- title: Stúdentaskipti
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 11
+  page_end: 11
+  issue: '1'
+  pdf_pages:
+  - 8
+  - 8
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/212.pdf
+  note: ''
+  analysis_notes: []
 - title: Nokkur orð um rannsóknarlögregluna í Reykjavík
   authors:
   - Valdimar Stefánsson

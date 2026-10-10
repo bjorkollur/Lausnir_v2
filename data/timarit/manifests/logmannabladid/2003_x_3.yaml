@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 4
   - 29
-status: review
+status: approved
 confidence: 0.45
 error: null
 files:
@@ -330,7 +330,7 @@ articles:
 - title: Námskeið á haustönn
   authors: []
   author_titles: []
-  article_type: Frétt
+  article_type: Annað
   page_start: 26
   page_end: 27
   issue: null
@@ -343,7 +343,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     pages: llm
   checks:
     title_on_page: true
@@ -357,7 +357,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Tilkynning dómstólaráðs nr. 1/2003 – Reglur um málskostnaðartryggingar fyrir héraðsdómi
-  authors: []
+  authors:
+  - Sigurður Tómas Magnússon
   author_titles: []
   article_type: Annað
   page_start: 28
@@ -374,6 +375,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -419,7 +421,7 @@ articles:
 - title: Nýjar bækur á bókasafni LMFÍ
   authors: []
   author_titles: []
-  article_type: Frétt
+  article_type: Annað
   page_start: 31
   page_end: 31
   issue: null
@@ -432,7 +434,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     pages: llm
   checks:
     title_on_page: true

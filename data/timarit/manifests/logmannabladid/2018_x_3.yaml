@@ -32,7 +32,7 @@ page_map:
     unclaimed: 1
     pages: 30
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -72,9 +72,8 @@ articles:
 - title: Góðir lögmannshættir
   authors:
   - Berglind Svavarsdóttir
-  - Sveinn Snorrason
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 6
   page_end: 6
   issue: null
@@ -87,8 +86,8 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    authors: page
+    article_type: user
+    authors: user
     pages: toc
   checks:
     title_on_page: true
@@ -105,7 +104,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
   page_end: 12
   issue: null
@@ -118,7 +117,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -134,6 +133,32 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Yfirlýsing kvenna innan réttarvörslukerfisins:“ á bls. 13 sem skráin nefnir ekki; greinin
     er talin enda þar'
+- title: 'Yfirlýsing kvenna innan réttarvörslukerfisins: Málast upp mynd af samfélagi smánunar, áreiti og niðurlægingar'
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Hröð endurnýjun lögmannastéttar
   authors:
   - Ingimar Ingason
@@ -168,7 +193,7 @@ articles:
 - title: Mannabreytingar á skrifstofu Lögmannafélags Íslands
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 17
   page_end: 17
   issue: null
@@ -181,7 +206,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: true
@@ -229,7 +254,7 @@ articles:
   authors:
   - Sigurður Ágústsson
   author_titles: []
-  article_type: Annað
+  article_type: Dómareifun
   page_start: 20
   page_end: 21
   issue: null
@@ -242,7 +267,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -291,7 +316,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Viðtal
   page_start: 24
   page_end: 28
   issue: null
@@ -304,7 +329,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

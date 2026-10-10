@@ -32,7 +32,7 @@ page_map:
     unclaimed: 1
     pages: 34
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -44,11 +44,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 4
-  page_end: 4
+  page_end: 34
   issue: null
   pdf_pages:
   - 3
-  - 3
+  - 33
   lang: is
   date: null
   summary: null
@@ -57,7 +57,7 @@ articles:
     title: page
     article_type: page
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -73,7 +73,7 @@ articles:
   authors:
   - Reimar Pétursson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 6
   page_end: 7
   issue: null
@@ -86,7 +86,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -164,7 +164,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 18
   page_end: 18
   issue: null
@@ -177,7 +177,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -282,11 +282,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Jólasnapsmót LMFÍ: Ný kynslóð komin fram á sjónarsviðið'
+- title: Ný kynslóð komin fram á sjónarsviðið
   authors:
   - Magnús Björn Brynjólfsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 30
   page_end: 31
   issue: null
@@ -298,8 +298,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
   checks:

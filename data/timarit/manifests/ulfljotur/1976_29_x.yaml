@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.935
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -29,10 +29,10 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/567.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1976 29 arg/568.pdf
 articles:
-- title: null
+- title: Leiðrétting
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 209
   page_end: 209
   issue: null
@@ -45,6 +45,8 @@ articles:
   keywords: []
   provenance:
     pages: page
+    title: user
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -462,7 +464,7 @@ articles:
   authors:
   - Bjarni Björgvinsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 210
   page_end: 212
   issue: '3'
@@ -478,6 +480,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

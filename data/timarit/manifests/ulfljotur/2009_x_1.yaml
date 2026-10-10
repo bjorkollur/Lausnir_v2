@@ -30,7 +30,7 @@ page_map:
   - 89
   - 90
   - 91
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -216,3 +216,55 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „GESTABÁLKUR“ á bls. 73 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Sigríður Rut Júlíusdóttir
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 75
+  page_end: 80
+  issue: null
+  pdf_pages:
+  - 75
+  - 80
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Antonin Scalia
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 81
+  page_end: 86
+  issue: null
+  pdf_pages:
+  - 81
+  - 86
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

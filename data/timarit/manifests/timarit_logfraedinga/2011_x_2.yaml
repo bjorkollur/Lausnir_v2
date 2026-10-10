@@ -274,25 +274,26 @@ articles:
   analysis_notes:
   - skráin segir að greinin endi á bls. 189, prentuð lokasíða er bls. 179
   - 'FRÁVIK: á eftir greininni hefst „brota.“ á bls. 183 sem skráin nefnir ekki; greinin er talin enda þar'
-- title: 'Um ákæruvaldið á Norðurlöndum: Jørgen Steen-Sørensen, ríkissaksóknari Danmerkur Tor-Aksel Busch, ríkissaksóknari
-    Noregs Anders Perklev, ríkissaksóknari Svíþjóðar Matti Nissinen, ríkissaksóknari Finnlands'
-  authors: []
+- title: Indlæg ved den islandske anklagemyndigheds 50 års-jubilæum den 1. juli 2011
+  authors:
+  - Jørgen Steen Sørensen
   author_titles: []
   article_type: Fræðigrein
   page_start: 191
-  page_end: 195
+  page_end: 194
   issue: null
   pdf_pages:
   - 64
-  - 68
+  - 67
   lang: en
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
-    pages: toc
+    pages: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -308,3 +309,84 @@ articles:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („INDLÆG VED DEN ISLANDSKE ANKLAGEMYNDIGHEDS“) er annar titill en skrárinnar („Um ákæruvaldið
     á Norðurlöndum: Jørgen Steen-Sørensen, ríkissaksóknari Danmerkur Tor-Aksel Busch, ríkissaksóknari Noregs Anders Perklev,
     ríkissaksóknari Svíþjóðar Matti Nissinen, ríkissaksóknari Finnlands“); titli skrárinnar haldið'
+- title: Påtalemyndigheten i Norge
+  authors:
+  - Tor-Aksel Busch
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 195
+  page_end: 205
+  issue: null
+  pdf_pages:
+  - 68
+  - 78
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Åklagarens självständighet i Sverige
+  authors:
+  - Anders Perklev
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 207
+  page_end: 213
+  issue: null
+  pdf_pages:
+  - 80
+  - 86
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Public prosecutors and the prosecution service in Finland
+  authors:
+  - Matti Nissinen
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 215
+  page_end: 219
+  issue: null
+  pdf_pages:
+  - 88
+  - 92
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

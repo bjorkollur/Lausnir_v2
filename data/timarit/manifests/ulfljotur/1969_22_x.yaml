@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.89
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -442,7 +442,7 @@ articles:
   authors:
   - Baldur Guðlaugsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 270
   page_end: 271
   issue: '3'
@@ -458,6 +458,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

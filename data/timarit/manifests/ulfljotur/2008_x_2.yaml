@@ -28,7 +28,7 @@ page_map:
   - 183
   - 184
   - 185
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -243,3 +243,83 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Lögfræðiaðstoð Orators“ á bls. 335 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Lögfræðiaðstoð Orators
+  authors:
+  - Barbara Inga Albertsdóttir
+  - Helga Lára Hauksdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 335
+  page_end: 356
+  issue: null
+  pdf_pages:
+  - 145
+  - 166
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fréttir úr lagadeild skólaárið 2007–2008
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 357
+  page_end: 362
+  issue: null
+  pdf_pages:
+  - 167
+  - 172
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rekabálkur
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 363
+  page_end: 370
+  issue: null
+  pdf_pages:
+  - 173
+  - 180
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

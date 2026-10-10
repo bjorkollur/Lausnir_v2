@@ -41,7 +41,7 @@ page_map:
     unclaimed: 9
     pages: 177
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -79,8 +79,7 @@ articles:
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
-- title: 'Málþing um réttarríki, lýðræði og mannréttindasáttmála Evrópu 24. september 2021: Ræður forseta Mannréttindadómstóls
-    Evrópu og forsætisráðherra'
+- title: 'Málþing um réttarríki, lýðræði og mannréttindasáttmála Evrópu 24. september 2021: Ræður framsögumanna'
   authors:
   - Róbert R. Spanó
   - Katrín Jakobsdóttir
@@ -97,7 +96,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     authors: llm
     pages: llm

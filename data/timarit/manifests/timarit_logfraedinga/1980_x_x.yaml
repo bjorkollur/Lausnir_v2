@@ -66,7 +66,7 @@ page_map:
     unclaimed: 89
     pages: 280
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -775,7 +775,7 @@ articles:
     heftisins) — greinalisti Claude notaður
 - title: Andmælareglan og stjórnsýslan
   authors:
-  - Ingibjörg Þórunn Rafnar
+  - Ingibjörg Rafnar
   author_titles: []
   article_type: Fræðigrein
   page_start: 149
@@ -791,7 +791,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
     issue: leitir
   checks:
@@ -1500,6 +1500,58 @@ articles:
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
     heftisins) — greinalisti Claude notaður
+- title: Sýslumannafélagið
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 253
+  page_end: 253
+  issue: null
+  pdf_pages:
+  - 270
+  - 270
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Dómarafélag Reykjavíkur
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 253
+  page_end: 253
+  issue: null
+  pdf_pages:
+  - 270
+  - 270
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Réttarráðgjöfin — endurgjaldslaus lögfræðiaðstoð fyrir almenning
   authors:
   - Atli Gíslason

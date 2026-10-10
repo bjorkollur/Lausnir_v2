@@ -25,7 +25,7 @@ page_map:
   - 65
   - 66
   - 67
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -128,7 +128,7 @@ articles:
   authors:
   - Þórdís Kolbrún Reykfjörð Gylfadóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 10
   page_end: 13
   issue: null
@@ -141,7 +141,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:
@@ -595,7 +595,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Dómareifun
+  article_type: Frétt
   page_start: 47
   page_end: 47
   issue: null
@@ -608,7 +608,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:
@@ -716,8 +716,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Nýjar reglur um hámarkslengd stefnu og greinargerða í einkamálum
-  authors:
-  - Dómstólasýslan
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 60
@@ -733,7 +732,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
+    authors: user
     pages: llm
   checks:
     title_on_page: true

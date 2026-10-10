@@ -23,7 +23,7 @@ page_map:
   - 8
   - 26
   - 30
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -423,7 +423,12 @@ articles:
   note: ''
   analysis_notes: []
 - title: 'Fimm ár frá hruni: Hefur íslenskt réttarkerfi staðist álagið?'
-  authors: []
+  authors:
+  - Ragnar H. Hall
+  - Lára V. Júlíusdóttir
+  - Lárentsínus Kristjánsson
+  - Birgir Tjörvi Pétursson
+  - Sigríður Rut Júlíusdóttir
   author_titles: []
   article_type: Frétt
   page_start: 28
@@ -440,6 +445,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

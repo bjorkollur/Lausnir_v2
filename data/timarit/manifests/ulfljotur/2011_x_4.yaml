@@ -30,7 +30,7 @@ page_map:
   - 196
   - 197
   - 198
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -129,3 +129,55 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Ádrepur af félagslífi laganema“ á bls. 661 sem skráin nefnir ekki; greinin er talin
     enda þar'
+- title: Ádrepur af félagslífi laganema
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 661
+  page_end: 668
+  issue: null
+  pdf_pages:
+  - 151
+  - 158
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar Orators fyrir starfsárið 2010-2011
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 669
+  page_end: 701
+  issue: null
+  pdf_pages:
+  - 159
+  - 191
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

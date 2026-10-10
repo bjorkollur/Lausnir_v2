@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.845
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -93,7 +93,7 @@ articles:
   authors:
   - Gunnar Jónsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 37
   page_end: 39
   issue: '1'
@@ -109,6 +109,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 4
   - 20
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -179,7 +179,7 @@ articles:
   authors:
   - Stefán Geir Þórisson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 11
   page_end: 11
   issue: null
@@ -192,7 +192,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:

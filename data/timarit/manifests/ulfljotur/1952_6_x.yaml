@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.807
-status: review
+status: approved
 confidence: 0.55
 error: null
 files:
@@ -216,13 +216,13 @@ articles:
   authors:
   - Sigurður Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 16
-  page_end: 26
+  page_end: 27
   issue: '3'
   pdf_pages:
   - 0
-  - 10
+  - 11
   lang: is
   date: null
   summary: null
@@ -230,8 +230,9 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: page
+    pages: user
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

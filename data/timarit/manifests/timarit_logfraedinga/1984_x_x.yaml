@@ -66,7 +66,7 @@ page_map:
     unclaimed: 3
     pages: 249
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -76,7 +76,7 @@ articles:
   authors:
   - Jónatan Þórmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 2
   issue: '1'
@@ -89,7 +89,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -321,7 +321,7 @@ articles:
   authors:
   - Jónatan Þórmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 57
   page_end: 58
   issue: '2'
@@ -334,7 +334,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir

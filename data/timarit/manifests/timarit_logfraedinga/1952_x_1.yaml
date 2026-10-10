@@ -40,7 +40,7 @@ page_map:
     unclaimed: 2
     pages: 67
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
@@ -109,8 +109,7 @@ articles:
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (3 af 4 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Haagdómurinn í fiskveiðamáli Bretlands og Noregs
-  authors:
-  - Alþjóðadómstóllinn í Haag
+  authors: []
   author_titles: []
   article_type: Dómareifun
   page_start: 7
@@ -118,7 +117,7 @@ articles:
   issue: null
   pdf_pages:
   - 12
-  - 45
+  - 46
   lang: is
   date: null
   summary: null
@@ -126,8 +125,8 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: leitir+llm
-    authors: leitir
+    pages: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

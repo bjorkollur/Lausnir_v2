@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.83
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -128,7 +128,7 @@ articles:
   authors:
   - Ragnar Tómas Árnason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 71
   page_end: 72
   issue: '1'
@@ -144,6 +144,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -161,7 +162,7 @@ articles:
   - Vagn Greve
   - William Rentzmann
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 83
   page_end: 85
   issue: '1'
@@ -177,6 +178,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -506,7 +508,7 @@ articles:
   - Edda Andrésdóttir
   - Jónína S. Lárusdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 475
   page_end: 476
   issue: '4'
@@ -522,6 +524,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

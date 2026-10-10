@@ -55,7 +55,7 @@ page_map:
     unclaimed: 1
     pages: 111
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -223,9 +223,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Starfsemi Lögfræðingafélags Íslands 2009-2010
-  authors: []
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 419
   page_end: 420
   issue: null
@@ -238,8 +239,9 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

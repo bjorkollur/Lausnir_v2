@@ -65,7 +65,7 @@ page_map:
     unclaimed: 3
     pages: 236
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -936,11 +936,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 144
-  page_end: 149
+  page_end: 145
   issue: null
   pdf_pages:
   - 157
-  - 162
+  - 158
   lang: is
   date: null
   summary: null
@@ -948,7 +948,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

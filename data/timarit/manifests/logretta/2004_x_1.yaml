@@ -160,7 +160,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 87
-  page_end: null
+  page_end: 96
   issue: null
   pdf_pages:
   - 71
@@ -173,7 +173,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false

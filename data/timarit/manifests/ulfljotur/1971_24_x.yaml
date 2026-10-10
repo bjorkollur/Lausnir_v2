@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.806
-status: review
+status: approved
 confidence: 0.55
 error: null
 files:
@@ -374,7 +374,7 @@ articles:
   authors:
   - Roald Engeness
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 236
   page_end: 239
   issue: '3'
@@ -390,6 +390,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

@@ -32,7 +32,7 @@ page_map:
     unclaimed: 9
     pages: 27
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -137,22 +137,22 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 6
-  page_end: 6
+  page_end: 7
   issue: null
   pdf_pages:
   - 5
-  - 5
+  - 6
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

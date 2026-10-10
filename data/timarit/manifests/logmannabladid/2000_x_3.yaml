@@ -22,7 +22,7 @@ page_map:
   - 16
   - 20
   - 24
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -258,7 +258,8 @@ articles:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 26; síðasta lesna blaðsíðutal 24) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Groa@leiti.is
-  authors: []
+  authors:
+  - Gróa
   author_titles: []
   article_type: Annað
   page_start: 11
@@ -275,6 +276,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false

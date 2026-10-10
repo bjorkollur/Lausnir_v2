@@ -22,7 +22,7 @@ page_map:
   - 4
   - 8
   - 31
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -389,7 +389,7 @@ articles:
   authors:
   - Dögg Pálsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 28
   page_end: 31
   issue: null
@@ -402,7 +402,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:
@@ -420,7 +420,7 @@ articles:
   authors:
   - Guðmundur Sigurðsson
   author_titles: []
-  article_type: Dómareifun
+  article_type: Fræðigrein
   page_start: 33
   page_end: 35
   issue: null
@@ -433,7 +433,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:

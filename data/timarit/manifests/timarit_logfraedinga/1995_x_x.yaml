@@ -77,17 +77,17 @@ page_map:
     unclaimed: 0
     pages: 336
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1995.pdf
 articles:
-- title: Avarp
+- title: Ávarp
   authors:
-  - Harald Henrysson
+  - Haraldur Henrysson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 1
   page_end: 3
   issue: '1'
@@ -99,9 +99,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
+    title: user
+    article_type: user
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -340,10 +340,9 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „Kemst langt á sparnaði“ á pdf-síðu 116 sem skráin nefnir ekki; greinin er talin enda
     þar'
 - title: Eftir afmælið
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 107
   page_end: 110
   issue: '2'
@@ -356,10 +355,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -564,10 +563,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Álitamál
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 189
   page_end: 191
   issue: '3'
@@ -580,10 +578,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -691,10 +689,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá 75 ára afmæli Hæstaréttar Islands Pétur Kr. Hafstein
-  authors: []
+- title: Frá 75 ára afmæli Hæstaréttar
+  authors:
+  - Pétur Kr. Hafstein
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 217
   page_end: 219
   issue: '3'
@@ -706,10 +705,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -722,24 +722,26 @@ articles:
   note: ''
   analysis_notes: []
 - title: 'Þorsteinn Pálsson dómsmálaráðherra:'
-  authors: []
+  authors:
+  - Þorsteinn Pálsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 219
-  page_end: 220
+  page_end: 221
   issue: '3'
   pdf_pages:
   - 236
-  - 237
+  - 238
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: page
-    article_type: toc
-    pages: toc
+    article_type: user
+    pages: user
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -751,25 +753,27 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Hrafn Bragason
-  authors: []
+- title: 'Hrafn Bragason forseti Hæstaréttar Íslands:'
+  authors:
+  - Hrafn Bragason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 221
-  page_end: 224
+  page_end: 225
   issue: '3'
   pdf_pages:
   - 238
-  - 241
+  - 242
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -782,9 +786,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: 'Nils Pontoppidan forseti Hæstaréttar Danmerkur:'
-  authors: []
+  authors:
+  - Nils Pontoppidan
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 225
   page_end: 226
   issue: '3'
@@ -797,9 +802,10 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -811,25 +817,27 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Allan Vagn Magnússon formaður
-  authors: []
+- title: 'Allan Vagn Magnússon formaður Dómarafélags Íslands:'
+  authors:
+  - Allan Vagn Magnússon
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 226
-  page_end: 226
+  page_end: 227
   issue: '3'
   pdf_pages:
   - 243
-  - 243
+  - 244
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -841,10 +849,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Ragnar Aðalsteinsson formaður
-  authors: []
+- title: 'Ragnar Aðalsteinsson formaður Lögmannafélags Íslands:'
+  authors:
+  - Ragnar Aðalsteinsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 227
   page_end: 228
   issue: '3'
@@ -856,10 +865,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1000,10 +1010,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Umræða
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 245
   page_end: 247
   issue: '4'
@@ -1016,10 +1025,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1160,10 +1169,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Nýr heiðursfélagi Lögfræðingafélags Islands
-  authors: []
+- title: Nýr heiðursfélagi Lögfræðingafélags Íslands
+  authors:
+  - Dögg Pálsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 301
   page_end: 303
   issue: '4'
@@ -1175,10 +1185,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

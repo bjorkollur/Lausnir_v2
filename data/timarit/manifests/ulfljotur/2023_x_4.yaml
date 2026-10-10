@@ -42,7 +42,7 @@ page_map:
     unclaimed: 43
     pages: 179
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -179,7 +179,7 @@ articles:
 - title: Um tillögur að breytingum á mannréttindakafla stjórnarskrárinnar
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 515
   page_end: 516
   issue: null
@@ -192,7 +192,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     pages: llm
   checks:
     title_on_page: true

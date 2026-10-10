@@ -63,7 +63,7 @@ page_map:
     unclaimed: 195
     pages: 300
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -171,7 +171,7 @@ articles:
   authors:
   - Sigurður T. Magnússon
   author_titles: []
-  article_type: Dómareifun
+  article_type: Fræðigrein
   page_start: 57
   page_end: 67
   issue: null
@@ -184,7 +184,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:
@@ -460,7 +460,7 @@ articles:
   authors:
   - Páll Sigurðsson
   author_titles: []
-  article_type: Dómareifun
+  article_type: Fræðigrein
   page_start: 126
   page_end: 132
   issue: '2'
@@ -473,7 +473,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: leitir
     pages: leitir+llm
     issue: leitir
@@ -881,7 +881,7 @@ articles:
   authors:
   - Jóhannes Sigurðsson
   author_titles: []
-  article_type: Dómareifun
+  article_type: Fræðigrein
   page_start: 252
   page_end: 258
   issue: null
@@ -894,7 +894,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:

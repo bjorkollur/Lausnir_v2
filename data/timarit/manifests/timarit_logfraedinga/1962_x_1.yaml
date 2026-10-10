@@ -38,7 +38,7 @@ page_map:
   - 81
   - 82
   - 83
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -106,7 +106,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Janúar:'
+- title: Á víð og dreif
   authors:
   - Theodór B. Líndal
   author_titles: []
@@ -122,7 +122,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm

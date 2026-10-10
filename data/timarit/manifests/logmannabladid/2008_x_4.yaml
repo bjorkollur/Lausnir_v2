@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 4
   - 13
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -210,7 +210,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: 'Hádegisverðarfundur: Hinn nýi Landsyfirréttur'
-  authors: []
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Frétt
   page_start: 16
@@ -227,6 +228,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -421,7 +423,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: 'Umsögn laganefndar: Veist að þagnarskyldu lögmanna'
-  authors: []
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Annað
   page_start: 28
@@ -438,6 +441,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

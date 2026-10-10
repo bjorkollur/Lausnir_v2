@@ -30,7 +30,7 @@ page_map:
     unclaimed: 0
     pages: 30
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -104,7 +104,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
   page_end: 9
   issue: null
@@ -117,7 +117,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -135,7 +135,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 10
   page_end: 12
   issue: null
@@ -148,7 +148,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -165,7 +165,7 @@ articles:
 - title: Félag kvenna í lögmennsku 20 ára
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 13
   page_end: 13
   issue: null
@@ -178,7 +178,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: true

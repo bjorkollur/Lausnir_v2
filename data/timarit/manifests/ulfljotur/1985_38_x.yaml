@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.56
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -61,13 +61,13 @@ articles:
   authors:
   - Jóhannes Sigurðsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 74
-  page_end: 75
+  page_end: 76
   issue: '1'
   pdf_pages:
   - 0
-  - 1
+  - 2
   lang: is
   date: null
   summary: null
@@ -75,8 +75,9 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: page
+    pages: user
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

@@ -24,7 +24,7 @@ page_map:
   - 20
   - 26
   - 30
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -307,7 +307,7 @@ articles:
   authors:
   - Anna Lilja Hallgrímsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 22
   page_end: 23
   issue: null
@@ -320,7 +320,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:

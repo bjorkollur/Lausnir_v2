@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.959
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -175,10 +175,10 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.57)
-- title: null
+- title: Hvað tekur við?
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 439
   page_end: 459
   issue: null
@@ -191,6 +191,8 @@ articles:
   keywords: []
   provenance:
     pages: page
+    article_type: user
+    title: user
   checks:
     title_on_page: false
     printed_page_match: false

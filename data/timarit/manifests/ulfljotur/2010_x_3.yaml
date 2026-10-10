@@ -28,7 +28,7 @@ page_map:
   - 174
   - 175
   - 176
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -126,3 +126,85 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Alþjóðlega Philip C. Jessup Málflutningskeppnin 2010“ á bls. 341 sem skráin nefnir ekki;
     greinin er talin enda þar'
+- title: Alþjóðlega Philip C. Jessup Málflutningskeppnin 2010
+  authors:
+  - Ásta Sóley Sigurðardóttir
+  - Inga Þórey Óskarsdóttir
+  - Ingunn Anna Hjaltadóttir
+  - Jens Fjalar Skaptason
+  author_titles: []
+  article_type: Frétt
+  page_start: 341
+  page_end: 346
+  issue: null
+  pdf_pages:
+  - 129
+  - 134
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fréttir úr Lagadeild Háskóla Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 347
+  page_end: 351
+  issue: null
+  pdf_pages:
+  - 135
+  - 139
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar Orators starfsárið 2009–2010
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 352
+  page_end: 383
+  issue: null
+  pdf_pages:
+  - 140
+  - 171
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

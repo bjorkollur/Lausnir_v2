@@ -58,7 +58,7 @@ page_map:
     unclaimed: 7
     pages: 305
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -66,7 +66,7 @@ files:
 articles:
 - title: Hæstiréttur ísraels
   authors:
-  - Stefán Már Stefánsson
+  - Stefán M. Stefánsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 1
@@ -84,7 +84,7 @@ articles:
     article_type: toc
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -311,7 +311,7 @@ articles:
   authors:
   - Þór Vilhjálmsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 81
   page_end: 82
   issue: '2'
@@ -324,7 +324,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -1098,9 +1098,9 @@ articles:
   analysis_notes: []
 - title: Frá Dómarafélagi íslands
   authors:
-  - Ásgeir Pétursson
+  - Már Pétursson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 280
   page_end: 284
   issue: '4'
@@ -1113,10 +1113,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

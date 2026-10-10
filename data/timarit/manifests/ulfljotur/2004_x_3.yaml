@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.945
-status: review
+status: approved
 confidence: 0.2
 error: null
 files:
@@ -143,10 +143,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Aðferðir við skipun hæstaréttardómara
-  authors:
-  - Ragnar Halldór Hall
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 473
   page_end: 473
   issue: null
@@ -159,8 +158,9 @@ articles:
   keywords: []
   provenance:
     title: page
-    authors: xlsx
+    authors: user
     pages: page
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false

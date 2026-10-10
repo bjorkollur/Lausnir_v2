@@ -70,7 +70,7 @@ page_map:
     unclaimed: 0
     pages: 295
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -202,10 +202,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Lagabókmenntir Evrópubandalagið eftir dr. Gunnar G. Schram eftirGylfa Knudsen
-  authors: []
+- title: 'Gunnar G. Schram: Evrópubandalagið'
+  authors:
+  - Gylfi Knudsen
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritdómur
   page_start: 51
   page_end: 54
   issue: '1'
@@ -217,10 +218,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

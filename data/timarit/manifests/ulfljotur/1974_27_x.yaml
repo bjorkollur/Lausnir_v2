@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.745
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -59,10 +59,9 @@ articles:
   analysis_notes:
   - engin röð í töflu passaði (best 0.48)
 - title: Umræður um fóstureyðingar
-  authors:
-  - Ritstjórn
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Viðtal
   page_start: 5
   page_end: 41
   issue: '1'
@@ -75,9 +74,10 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -249,7 +249,7 @@ articles:
   authors:
   - Skúli Thoroddsen
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 176
   page_end: 179
   issue: '2'
@@ -265,6 +265,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

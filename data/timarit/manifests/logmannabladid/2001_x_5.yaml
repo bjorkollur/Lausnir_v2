@@ -31,7 +31,7 @@ page_map:
     unclaimed: 13
     pages: 43
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -196,7 +196,7 @@ articles:
   authors:
   - Guðfinna Bjarnadóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 12
   page_end: 12
   issue: null
@@ -209,7 +209,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:

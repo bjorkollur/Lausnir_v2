@@ -1059,7 +1059,7 @@ articles:
   authors:
   - Benedikt Bogason
   author_titles: []
-  article_type: Dómareifun
+  article_type: Fræðigrein
   page_start: 38
   page_end: 43
   issue: '4'
@@ -1072,7 +1072,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: leitir
     pages: leitir+llm
     issue: leitir

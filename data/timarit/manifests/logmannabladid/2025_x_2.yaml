@@ -29,7 +29,7 @@ page_map:
   - 76
   - 77
   - 78
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -101,7 +101,7 @@ articles:
   authors:
   - Þorbjörg Sigríður Gunnlaugsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 8
   page_end: 9
   issue: null
@@ -114,7 +114,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:
@@ -554,30 +554,56 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Myndir frá Lagadegi/kvöldi
+- title: Lagadagurinn
   authors: []
   author_titles: []
   article_type: Annað
   page_start: 44
-  page_end: 45
+  page_end: 44
   issue: null
   pdf_pages:
   - 43
-  - 44
+  - 43
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
     author_on_page: false
     external_record: false
   confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lagadagskvöldið
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 45
+  page_end: 45
+  issue: null
+  pdf_pages:
+  - 44
+  - 44
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

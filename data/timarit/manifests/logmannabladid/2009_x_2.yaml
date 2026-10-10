@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 4
   - 25
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -58,7 +58,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Aðalfundur LMFÍ 2009: Varnarbarátta í algleymingi'
+- title: Varnarbarátta í algleymingi
   authors: []
   author_titles: []
   article_type: Frétt
@@ -73,7 +73,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     pages: llm
   checks:
@@ -88,7 +88,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Ályktun stjórnar Lögmannafélags Íslands
-  authors: []
+  authors:
+  - Lárentsínus Kristjánsson
   author_titles: []
   article_type: Annað
   page_start: 7
@@ -105,6 +106,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -391,7 +393,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Vegvísir í völundarhúsi laganna. Viðtal við Ingimar Ingason
+- title: Vegvísir í völundarhúsi laganna
   authors: []
   author_titles: []
   article_type: Viðtal
@@ -406,7 +408,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     pages: llm
   checks:
@@ -661,7 +663,7 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („„Hef áhuga á að fara í sakamálin““) er annar titill en skrárinnar („Hdl.-námskeið
     í tíu ár“); titli skrárinnar haldið'
-- title: „Hef áhuga á að fara í sakamálin“. Viðtal við Jóhannes Stefán Ólafsson
+- title: „Hef áhuga á að fara í sakamálin“
   authors: []
   author_titles: []
   article_type: Viðtal
@@ -676,7 +678,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     pages: llm
   checks:
@@ -721,7 +723,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Úr myndasafni: Arnbjörg Edda ráðin til félagsins'
+- title: Arnbjörg Edda ráðin til félagsins
   authors: []
   author_titles: []
   article_type: Annað
@@ -736,7 +738,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     pages: llm
   checks:

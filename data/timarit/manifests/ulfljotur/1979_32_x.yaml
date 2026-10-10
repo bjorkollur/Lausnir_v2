@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.83
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -275,7 +275,7 @@ articles:
   analysis_notes: []
 - title: Lög og skylda I
   authors:
-  - Mike Marlies (Mikael Karlsson)
+  - Mike Marlies
   author_titles: []
   article_type: Fræðigrein
   page_start: 162
@@ -290,7 +290,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:

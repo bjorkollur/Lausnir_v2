@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.874
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -59,12 +59,13 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.62)
-- title: null
-  authors: []
+- title: Úr Nokkrar bráðabirgða-athugasemdir um ríkisréttarstöðu Íslands
+  authors:
+  - L. H. Bjarnason
   author_titles: []
   article_type: Fræðigrein
   page_start: 83
-  page_end: 86
+  page_end: 87
   issue: null
   pdf_pages:
   - 0
@@ -74,7 +75,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    pages: page
+    pages: user
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -184,9 +187,9 @@ articles:
   authors:
   - Jón E. Ragnarsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 39
-  page_end: 39
+  page_end: 40
   issue: '1'
   pdf_pages:
   - 0
@@ -198,8 +201,9 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true

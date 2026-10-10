@@ -20,7 +20,7 @@ page_map:
   bin_ratio: 0.966
   non_article:
   - 27
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -694,15 +694,19 @@ articles:
   note: ''
   analysis_notes: []
 - title: 'Skýrsla rannsóknarnefndar Alþingis: Þurfa lögmenn að líta í eigin barm?'
-  authors: []
+  authors:
+  - Þórunn Guðmundsdóttir
+  - Jóhannes Karl Sveinsson
+  - Helgi Áss Grétarsson
+  - Hildur Friðleifsdóttir
   author_titles: []
   article_type: Annað
   page_start: 26
-  page_end: 26
+  page_end: 27
   issue: null
   pdf_pages:
   - 25
-  - 25
+  - 26
   lang: is
   date: null
   summary: null
@@ -710,7 +714,8 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

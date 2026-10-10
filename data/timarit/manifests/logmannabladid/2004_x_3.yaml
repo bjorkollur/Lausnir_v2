@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 4
   - 8
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -121,6 +121,32 @@ articles:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hverfandi landamæri „Leitum meira til lögmennskunnar samstarfsaðila“) er annar titill
     en skrárinnar („„Leitum meira til samstarfsaðila erlendis en þeir hingað.“ Viðtal við Gunnar Sturluson“); titli skrárinnar
     haldið'
+- title: Hverfandi landamæri lögmennskunnar
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 10
+  issue: null
+  pdf_pages:
+  - 9
+  - 9
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: „Mikilvægt að hleypa heimdraganum“. Viðtal við Baldvin Björn Haraldsson
   authors: []
   author_titles: []

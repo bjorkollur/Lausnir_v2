@@ -19,7 +19,7 @@ page_map:
   contested: []
   bin_ratio: 0.95
   non_article: []
-status: review
+status: approved
 confidence: 0.35
 error: null
 files:
@@ -28,7 +28,7 @@ articles:
 - title: Samræming lögmannsmenntunar innan Evrópu
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 2
   page_end: 2
   issue: null
@@ -41,7 +41,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     pages: llm
   checks:
     title_on_page: true
@@ -377,7 +377,8 @@ articles:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 22; síðasta lesna blaðsíðutal 18) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Groa@leiti.is
-  authors: []
+  authors:
+  - Gróa
   author_titles: []
   article_type: Annað
   page_start: 19
@@ -394,6 +395,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: false

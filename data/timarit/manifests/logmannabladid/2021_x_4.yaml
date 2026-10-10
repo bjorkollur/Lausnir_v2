@@ -33,7 +33,7 @@ page_map:
     unclaimed: 3
     pages: 34
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -106,7 +106,7 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 7
   page_end: 7
   issue: null
@@ -119,7 +119,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -196,9 +196,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ HELGU KRISTÍNU AUÐUNSDÓTTUR Staðbundnar venjur og samþjöppun eignarhalds ræður hegðun fjárfesta í mun
-    ríkari mæli en regluverkið
-  authors: []
+- title: Staðbundnar venjur og samþjöppun eignarhalds ræður hegðun fjárfesta í mun ríkari mæli en regluverkið
+  authors:
+  - Hildur Þórarinsdóttir
   author_titles: []
   article_type: Viðtal
   page_start: 16
@@ -212,9 +212,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -226,8 +227,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ MARÍU RÚN BJARNADÓTTUR Þurfum vakandi lögfræðinga til að stafræn þróun verði í þágu réttarríkisins
-  authors: []
+- title: Þurfum vakandi lögfræðinga til að stafræn þróun verði í þágu réttarríkisins
+  authors:
+  - Unnur Lilja Hermannsdóttir
   author_titles: []
   article_type: Viðtal
   page_start: 20
@@ -241,9 +243,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -321,7 +324,7 @@ articles:
   authors:
   - Oddur Ástráðsson
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 29
   page_end: 29
   issue: null
@@ -334,7 +337,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -348,8 +351,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ JÓNAS AÐALSTEINSSON Hef alltaf notið þess að starfa við lögmennsku
-  authors: []
+- title: Hef alltaf notið þess að starfa við lögmennsku
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 30
@@ -363,9 +367,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

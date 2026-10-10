@@ -23,7 +23,7 @@ page_map:
   - 6
   - 22
   - 29
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -461,7 +461,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Úr myndasafni: Hæstaréttarlögmenn á 25 ára afmæli Hæstaréttar'
+- title: Hæstaréttarlögmenn á 25 ára afmæli Hæstaréttar
   authors: []
   author_titles: []
   article_type: Annað
@@ -476,7 +476,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     pages: llm
   checks:

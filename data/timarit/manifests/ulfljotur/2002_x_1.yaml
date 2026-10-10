@@ -204,13 +204,15 @@ articles:
 - title: Ber manni siðferðileg skylda til að fara að lögum?
   authors:
   - Garðar Gíslason
+  - Jón Steinar Gunnlaugsson
+  - Skúli Magnússon
   author_titles: []
   article_type: Fræðigrein
-  page_start: 112
+  page_start: 111
   page_end: 123
   issue: null
   pdf_pages:
-  - 109
+  - 108
   - 120
   lang: is
   date: null
@@ -218,8 +220,8 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
-    pages: xlsx
+    authors: user
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

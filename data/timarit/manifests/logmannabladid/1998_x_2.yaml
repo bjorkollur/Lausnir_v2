@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 4
   - 27
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -150,7 +150,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Lög um lögmenn, nr. 77/1998
-  authors: []
+  authors:
+  - Marteinn Másson
   author_titles: []
   article_type: Frétt
   page_start: 11
@@ -167,6 +168,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

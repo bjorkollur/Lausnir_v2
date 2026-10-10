@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.87
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -567,7 +567,7 @@ articles:
   - Aðalheiður Jóhannsdóttir
   - Helga Tatjana Zharov
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 345
   page_end: 348
   issue: '3'
@@ -583,6 +583,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -661,7 +662,7 @@ articles:
   authors:
   - Áslaug Björgvinsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 405
   page_end: 416
   issue: '4'
@@ -677,6 +678,7 @@ articles:
     authors: xlsx
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true

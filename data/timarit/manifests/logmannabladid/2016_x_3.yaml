@@ -34,7 +34,7 @@ page_map:
     unclaimed: 0
     pages: 38
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -230,7 +230,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 22
   page_end: 24
   issue: null
@@ -243,7 +243,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -379,7 +379,7 @@ articles:
   analysis_notes: []
 - title: Lögbann á heimilisfang og afleiðingar þess
   authors:
-  - Jens Pétur Jensson
+  - Jens Pétur Jensen
   author_titles: []
   article_type: Annað
   page_start: 30
@@ -395,7 +395,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: user
     pages: toc
   checks:
     title_on_page: true
@@ -410,10 +410,10 @@ articles:
   analysis_notes:
   - 'FRÁVIK: höfundar skrárinnar (Jens Pétur Jensson) stangast á við síðuna (Jens Pétur Jensen Þjóðhagfræðingur); skránni
     haldið'
-- title: Nýr stafsmaður á skrifstofu LMFÍ
+- title: Nýr starfsmaður á skrifstofu LMFÍ
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 32
   page_end: 32
   issue: null
@@ -425,8 +425,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
   checks:
     title_on_page: false
@@ -474,7 +474,7 @@ articles:
   authors:
   - María Rún Bjarnadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 34
   page_end: 35
   issue: null
@@ -487,7 +487,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -502,9 +502,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Ný lög um útlendinga
-  authors: []
+  authors:
+  - Arndís A. K. Gunnarsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 36
   page_end: 38
   issue: null
@@ -517,8 +518,9 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

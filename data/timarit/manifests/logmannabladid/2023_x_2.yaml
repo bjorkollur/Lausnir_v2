@@ -30,7 +30,7 @@ page_map:
     unclaimed: 0
     pages: 30
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -230,7 +230,7 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 12
   page_end: 14
   issue: null
@@ -243,7 +243,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -322,9 +322,8 @@ articles:
 - title: Sameiginlegt evrópskt einkaleyfi – sérdómstóll ESB í einkaleyfamálum
   authors:
   - Árni Vilhjálmsson
-  - Logos Lögmannsþjónustu
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 20
   page_end: 23
   issue: null
@@ -337,8 +336,8 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    authors: page
+    article_type: user
+    authors: user
     pages: toc
   checks:
     title_on_page: true
@@ -386,7 +385,7 @@ articles:
   authors:
   - Hrafnhildur Bragadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 26
   page_end: 27
   issue: null
@@ -399,7 +398,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

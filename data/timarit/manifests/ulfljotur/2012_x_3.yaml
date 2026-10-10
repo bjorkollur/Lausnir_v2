@@ -35,7 +35,7 @@ page_map:
   - 143
   - 144
   - 145
-status: review
+status: approved
 confidence: 0.85
 error: null
 files:
@@ -134,3 +134,57 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Þórhildur Líndal forstöðumaður Rannsóknastofnunar Ármanns Snævarr um fjölskyldumálefni“
     á bls. 363 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Þórhildur Líndal forstöðumaður Rannsóknastofnunar Ármanns Snævarr um fjölskyldumálefni
+  authors:
+  - Guðrún Inga Guðmundsdóttir
+  - Snædís Björt Agnarsdóttir
+  author_titles: []
+  article_type: Viðtal
+  page_start: 363
+  page_end: 367
+  issue: null
+  pdf_pages:
+  - 97
+  - 101
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar Orators skólaárið 2011-2012
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 369
+  page_end: 399
+  issue: null
+  pdf_pages:
+  - 103
+  - 133
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

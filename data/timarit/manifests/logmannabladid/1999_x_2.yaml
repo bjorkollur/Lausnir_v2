@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 4
   - 7
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -384,7 +384,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Tilmæli Fangelsismálastofnunar
-  authors: []
+  authors:
+  - Sigrún Ágústsd.
   author_titles: []
   article_type: Frétt
   page_start: 16
@@ -401,6 +402,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -473,7 +475,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Reglur um öflun málflutningsréttinda fyrir Hæstarétti
-  authors: []
+  authors:
+  - Jakob R. Möller
+  - Hervör Þorvaldsdóttir
+  - Viðar Már Matthíasson
   author_titles: []
   article_type: Annað
   page_start: 18
@@ -490,6 +495,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -562,10 +568,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Rökstuðningur máls-
+- title: Rökstuðningur málskostnaðarkröfu
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 24
   page_end: 24
   issue: null
@@ -577,8 +583,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: llm
+    title: user
+    article_type: user
     pages: llm
   checks:
     title_on_page: false

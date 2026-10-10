@@ -34,7 +34,7 @@ page_map:
     unclaimed: 0
     pages: 42
     by_proxy: 2
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -137,7 +137,7 @@ articles:
   authors:
   - Eleonora Bergþórsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 10
   page_end: 15
   issue: null
@@ -150,7 +150,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -196,7 +196,7 @@ articles:
   note: ''
   analysis_notes:
   - titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir viðmælanda
-- title: Lagadagur Málstofur
+- title: Lagadagurinn 2019
   authors: []
   author_titles: []
   article_type: Annað
@@ -211,7 +211,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
   checks:
@@ -229,7 +229,7 @@ articles:
   authors:
   - Arna Pálsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 24
   page_end: 26
   issue: null
@@ -242,7 +242,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -352,7 +352,7 @@ articles:
   authors:
   - Daníel Isebarn Ágústsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 37
   page_end: 41
   issue: null
@@ -365,7 +365,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

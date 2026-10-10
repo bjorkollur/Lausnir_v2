@@ -88,7 +88,7 @@ page_map:
     unclaimed: 0
     pages: 425
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -411,9 +411,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Skýrsla Stjórnar Lögfræðingafélags íslands 2000
-  authors: []
+  authors:
+  - Ragnhildur Arnljótsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 128
   page_end: 132
   issue: '2'
@@ -426,9 +427,10 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -760,9 +762,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Skýrsla Stjórnar Lögfræðingafélags íslands 2000-2001
-  authors: []
+  authors:
+  - Ragnhildur Arnljótsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 384
   page_end: 390
   issue: '4'
@@ -775,9 +778,10 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -261,7 +261,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 159
-  page_end: 188
+  page_end: 181
   issue: '3'
   pdf_pages:
   - 0
@@ -273,7 +273,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: page
+    pages: user
     issue: page
   checks:
     title_on_page: true

@@ -40,7 +40,7 @@ page_map:
     unclaimed: 0
     pages: 119
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -170,30 +170,86 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Með og á móti: Hver á að ákvarða nálgunarbann? Benedikt Bogason'
-  authors: []
+- title: Hugleiðing um nálgunarbann
+  authors:
+  - Benedikt Bogason
   author_titles: []
   article_type: Fræðigrein
   page_start: 95
-  page_end: 110
+  page_end: 98
   issue: null
   pdf_pages:
   - 96
-  - 111
+  - 99
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
-    pages: toc
+    pages: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
     author_on_page: false
     external_record: false
   confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hver á að hafa ákvörðunarvald um nálgunarbann?
+  authors:
+  - Hafsteinn Dan Kristjánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 99
+  page_end: 103
+  issue: null
+  pdf_pages:
+  - 100
+  - 104
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Á lögregla að taka ákvörðun um nálgunarbann?
+  authors:
+  - Sigríður Hjaltested
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 105
+  page_end: 110
+  issue: null
+  pdf_pages:
+  - 106
+  - 111
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

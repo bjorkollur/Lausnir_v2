@@ -24,7 +24,7 @@ page_map:
   - 18
   - 24
   - 30
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -65,7 +65,7 @@ articles:
   authors:
   - Ingveldur Einarsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 6
   page_end: 6
   issue: null
@@ -78,7 +78,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:

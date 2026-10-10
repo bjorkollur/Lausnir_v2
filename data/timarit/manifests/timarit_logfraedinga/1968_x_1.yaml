@@ -37,7 +37,7 @@ page_map:
   - 93
   - 94
   - 95
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -107,7 +107,7 @@ articles:
   analysis_notes: []
 - title: Um Lögfræðingafélag Noregs o. fl.
   authors:
-  - Arnljótur Björnsson
+  - Guðmundur Jónsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 41
@@ -123,7 +123,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
   checks:
     title_on_page: true

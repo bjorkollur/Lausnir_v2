@@ -22,7 +22,7 @@ page_map:
   - 4
   - 12
   - 19
-status: review
+status: approved
 confidence: 0.35
 error: null
 files:
@@ -90,7 +90,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Peningaþvætti og lögmenn
-  authors: []
+  authors:
+  - Marteinn Másson
   author_titles: []
   article_type: Fræðigrein
   page_start: 6
@@ -107,6 +108,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -151,9 +153,9 @@ articles:
   analysis_notes: []
 - title: Samtök um vernd eignarréttinda á sviði iðnaðar
   authors:
-  - Árni Vilhjálms
+  - Árni Vilhjálmsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 12
   page_end: 12
   issue: null
@@ -166,8 +168,8 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
-    authors: page
+    article_type: user
+    authors: user
     pages: llm
   checks:
     title_on_page: true

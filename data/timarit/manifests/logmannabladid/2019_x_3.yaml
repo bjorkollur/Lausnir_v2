@@ -36,7 +36,7 @@ page_map:
     unclaimed: 1
     pages: 42
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -77,7 +77,7 @@ articles:
   authors:
   - Flóki Ásgeirsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 6
   page_end: 7
   issue: null
@@ -90,7 +90,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: page
     pages: toc
   checks:
@@ -261,6 +261,32 @@ articles:
   analysis_notes:
   - 'FRÁVIK: höfundar skrárinnar (Eyrún Ingadóttir) stangast á við síðuna (Könnun Meðal Lögmanna, Ákærenda Um Dómstólana);
     skránni haldið'
+- title: Ný stjórn Félags kvenna í lögmennsku
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 30
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 29
+  - 29
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Margt býr í skikkjunni
   authors:
   - Marín Guðrún Hrafnsdóttir

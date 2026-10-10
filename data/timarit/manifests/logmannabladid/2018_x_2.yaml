@@ -31,7 +31,7 @@ page_map:
     unclaimed: 1
     pages: 34
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -72,7 +72,7 @@ articles:
   authors:
   - Berglind Svavarsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 6
   page_end: 6
   issue: null
@@ -85,7 +85,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -196,7 +196,7 @@ articles:
   authors:
   - Auður Björg Jónsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 14
   page_end: 15
   issue: null
@@ -209,7 +209,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -226,7 +226,7 @@ articles:
 - title: Hlutverk Alþingis við skipun dómara
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 16
   page_end: 17
   issue: null
@@ -239,7 +239,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: true
@@ -256,7 +256,7 @@ articles:
   authors:
   - Anna Lilja Hallgrímsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 18
   page_end: 20
   issue: null
@@ -269,7 +269,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -287,7 +287,7 @@ articles:
   authors:
   - Ingvi Snær Einarsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 21
   page_end: 23
   issue: null
@@ -300,7 +300,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -318,7 +318,7 @@ articles:
   authors:
   - Katrín Smári Ólafsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 24
   page_end: 26
   issue: null
@@ -331,7 +331,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -348,7 +348,7 @@ articles:
 - title: Lagadagur að kvöldi
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 27
   page_end: 27
   issue: null
@@ -361,7 +361,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: true
@@ -374,8 +374,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ BERGLIND SVAVARSDÓTTUR Hver formaður hefur sína ásýnd
-  authors: []
+- title: Hver formaður hefur sína ásýnd
+  authors:
+  - Eva Halldórsdóttir
   author_titles: []
   article_type: Viðtal
   page_start: 28
@@ -389,9 +390,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

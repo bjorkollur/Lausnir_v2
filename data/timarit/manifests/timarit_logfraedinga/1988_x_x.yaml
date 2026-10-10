@@ -71,7 +71,7 @@ page_map:
     unclaimed: 0
     pages: 297
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.45
 error: null
 files:
@@ -1045,11 +1045,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Í bokahillunni Skírnir 1988 ÞAÐ Á EKKI AÐ SEMJA DÓMA „FYRIR“ EINHVERN
+- title: Það á ekki að semja dóma „fyrir“ einhvern
   authors:
   - Björn Þ. Guðmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritdómur
   page_start: 266
   page_end: 269
   issue: '4'
@@ -1061,8 +1061,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: page
@@ -1078,3 +1078,30 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „FRÁ ORATOR“ á bls. 269 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Frá Orator
+  authors:
+  - Björn L. Bergsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 269
+  page_end: 271
+  issue: '4'
+  pdf_pages:
+  - 286
+  - 288
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

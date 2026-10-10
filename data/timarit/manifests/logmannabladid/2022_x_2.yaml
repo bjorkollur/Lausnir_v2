@@ -30,7 +30,7 @@ page_map:
     unclaimed: 0
     pages: 34
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -133,9 +133,9 @@ articles:
   analysis_notes: []
 - title: Stafræn framtíð dómstólanna
   authors:
-  - Arnar Vilhjálmur Arnarson
+  - Arnar Vilhjálmur Arnarsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 10
   page_end: 13
   issue: null
@@ -148,8 +148,8 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    authors: toc
+    article_type: user
+    authors: user
     pages: toc
   checks:
     title_on_page: true
@@ -194,8 +194,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ JÓN KARL HELGASON Glæpir og refsing í bókmenntum
-  authors: []
+- title: Glæpir og refsing í bókmenntum
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 20
@@ -209,9 +210,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -289,7 +291,7 @@ articles:
   authors:
   - Sindri M. Stephensen
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 25
   page_end: 25
   issue: null
@@ -302,7 +304,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -378,7 +380,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ SVÖLU THORLACIUS Það var klassi yfir fulltrúaembættinu
+- title: Það var klassi yfir fulltrúaembættinu
   authors: []
   author_titles: []
   article_type: Viðtal
@@ -393,7 +395,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
   checks:

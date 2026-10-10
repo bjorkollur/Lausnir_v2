@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.944
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -26,10 +26,10 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/620.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/666.pdf
 articles:
-- title: null
+- title: Efnahagsreikningur
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 128
   page_end: 128
   issue: null
@@ -42,6 +42,8 @@ articles:
   keywords: []
   provenance:
     pages: page
+    title: user
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -54,6 +56,33 @@ articles:
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.47)
+- title: Lög
+  authors:
+  - Páll Vídalín
+  author_titles: []
+  article_type: Annað
+  page_start: 128
+  page_end: 128
+  issue: null
+  pdf_pages:
+  - 0
+  - 0
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/666.pdf
+  note: ''
+  analysis_notes: []
 - title: Um ákæruvaldið
   authors:
   - Valdimar Stefánsson

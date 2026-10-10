@@ -32,7 +32,7 @@ page_map:
     unclaimed: 0
     pages: 30
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -166,7 +166,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 14
   page_end: 15
   issue: null
@@ -179,7 +179,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -228,7 +228,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 20
   page_end: 22
   issue: null
@@ -241,7 +241,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

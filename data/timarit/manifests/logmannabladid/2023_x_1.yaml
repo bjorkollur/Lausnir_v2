@@ -31,7 +31,7 @@ page_map:
     unclaimed: 2
     pages: 30
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -105,7 +105,7 @@ articles:
   authors:
   - Eva Hrönn Jónsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
   page_end: 10
   issue: null
@@ -118,7 +118,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -136,7 +136,7 @@ articles:
 - title: Í fréttum er þetta helst
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 11
   page_end: 12
   issue: null
@@ -149,7 +149,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: true
@@ -257,7 +257,7 @@ articles:
   authors:
   - Sveinn Andri Sveinsson
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 18
   page_end: 21
   issue: null
@@ -270,7 +270,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

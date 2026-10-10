@@ -32,7 +32,7 @@ page_map:
     unclaimed: 0
     pages: 38
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -196,10 +196,10 @@ articles:
   analysis_notes: []
 - title: Staða réttarvörslukerfisins í ljósi umræðu um meðferð kynferðisbrotamála – samtal um lausnir
   authors:
-  - Arnar Vilhjálmur Arnarson
+  - Arnar Vilhjálmur Arnarsson
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 20
   page_end: 22
   issue: null
@@ -212,8 +212,8 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    authors: toc
+    article_type: user
+    authors: user
     pages: toc
   checks:
     title_on_page: true
@@ -226,7 +226,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ ARNÞÓR GUNNARSSON Óskabarn hins fullvalda ríkis eða pólitískt bitbein?
+- title: Óskabarn hins fullvalda ríkis eða pólitískt bitbein?
   authors: []
   author_titles: []
   article_type: Viðtal
@@ -241,7 +241,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
   checks:
@@ -322,7 +322,7 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 32
   page_end: 32
   issue: null
@@ -335,7 +335,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -349,9 +349,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ KRISTJÁN STEFÁNSSON Þegar maður neitar sök þá hefur verjandi hans ekki forsendur eða leyfi til að rengja
-    hann
-  authors: []
+- title: Þegar maður neitar sök þá hefur verjandi hans ekki forsendur eða leyfi til að rengja hann
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 34
@@ -365,9 +365,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

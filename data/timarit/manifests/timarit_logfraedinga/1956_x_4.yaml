@@ -35,7 +35,7 @@ page_map:
   - 77
   - 78
   - 79
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -73,8 +73,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Um náttúruvernd
-  authors:
-  - Ármann Snævarr
+  authors: []
   author_titles: []
   article_type: Annað
   page_start: 227
@@ -91,7 +90,7 @@ articles:
     title: llm
     article_type: llm
     pages: leitir+llm
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

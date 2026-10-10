@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.838
-status: review
+status: approved
 confidence: 0.55
 error: null
 files:
@@ -246,9 +246,9 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 202, prentað bls. 201'
-- title: Lagamál
+- title: Málfar og stjórnarfar
   authors:
-  - Þórey Aðalsteinsdóttir
+  - Sigurður Líndal
   author_titles: []
   article_type: Fræðigrein
   page_start: 53
@@ -262,8 +262,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
+    title: user
+    authors: user
     pages: page
     issue: xlsx
   checks:
@@ -278,9 +278,9 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 259, prentað bls. 53'
-- title: Lagamál
+- title: Stjórnsýsluorð í belg
   authors:
-  - Þórey Aðalsteinsdóttir
+  - Björn Þ. Guðmundsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 173
@@ -294,8 +294,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
+    title: user
+    authors: user
     pages: page
     issue: xlsx
   checks:

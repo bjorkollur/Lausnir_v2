@@ -30,7 +30,7 @@ page_map:
     unclaimed: 0
     pages: 30
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -71,7 +71,7 @@ articles:
   authors:
   - Ágúst Karl Karlsson
   author_titles: []
-  article_type: Annað
+  article_type: Dómareifun
   page_start: 6
   page_end: 8
   issue: null
@@ -84,7 +84,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -226,7 +226,7 @@ articles:
   authors:
   - Daníel Isebarn Ágústsson
   author_titles: []
-  article_type: Annað
+  article_type: Dómareifun
   page_start: 16
   page_end: 18
   issue: null
@@ -239,7 +239,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -288,7 +288,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 20
   page_end: 21
   issue: null
@@ -301,7 +301,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -382,7 +382,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 26
   page_end: 27
   issue: null
@@ -395,7 +395,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

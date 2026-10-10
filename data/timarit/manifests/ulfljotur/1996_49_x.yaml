@@ -35,9 +35,9 @@ articles:
 - title: Búvörusamningurinn
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 98
-  page_end: 98
+  page_end: 99
   issue: null
   pdf_pages:
   - 0
@@ -47,8 +47,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    pages: page
+    pages: user
     title: page
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -98,7 +99,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 74
-  page_end: 74
+  page_end: 75
   issue: '1'
   pdf_pages:
   - 0
@@ -110,7 +111,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -123,13 +124,13 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/310.pdf
   note: ''
   analysis_notes: []
-- title: Slysatrygging ökumanns, samkvæmt 92. Gr. umferðalaga
+- title: Notkunarhugtak 1. mgr. 88. gr. og 1. mgr. 91. gr. umfl.
   authors:
-  - Guðný Björnsdóttir
+  - Hákon Árnason
   author_titles: []
   article_type: Fræðigrein
   page_start: 75
-  page_end: 78
+  page_end: 79
   issue: '1'
   pdf_pages:
   - 0
@@ -139,9 +140,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    authors: xlsx
-    pages: page
+    title: user
+    authors: user
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -155,7 +156,7 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 79, prentað bls. 75'
-- title: Gildissvið slysatryggingar ökumanns samkvæmt 92. Gr. Umferðarlaga
+- title: Gildissvið slysatryggingar ökumanns samkvæmt 92. gr. umferðarlaga nr. 50/1987
   authors:
   - Guðný Björnsdóttir
   author_titles: []
@@ -171,7 +172,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -187,11 +188,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Jákvæð mismunun
-  authors:
-  - Lára V. Júlíusdóttir
-  - Haukur Guðmundsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 95
   page_end: 95
   issue: '1'
@@ -204,9 +203,10 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: page
+    authors: user
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -219,12 +219,12 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
-- title: Búvörusamningurinn
+- title: Bótaábyrgð lækna
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 99
-  page_end: 100
+  page_end: 101
   issue: '1'
   pdf_pages:
   - 0
@@ -234,10 +234,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
-    pages: page
+    pages: user
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -251,10 +252,10 @@ articles:
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 98, prentað bls. 99'
   - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
-- title: Bótaábyrgð lækna
+- title: Samkeppnisréttarseminar
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 101
   page_end: 103
   issue: '1'
@@ -266,10 +267,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -439,13 +441,13 @@ articles:
 - title: Réttindi kynskiptinga
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 197
-  page_end: 200
+  page_end: 197
   issue: '2'
   pdf_pages:
   - 0
-  - 3
+  - 0
   lang: is
   date: null
   summary: null
@@ -453,8 +455,9 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -467,6 +470,32 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
+- title: Málþing um framtíð Háskólans
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 197
+  page_end: 200
+  issue: '2'
+  pdf_pages:
+  - 0
+  - 3
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1996 49 arg/389.pdf
+  note: ''
+  analysis_notes: []
 - title: Mannréttindastarf Sameinuðu þjóðanna
   authors:
   - Guðmundur S. Alfreðsson

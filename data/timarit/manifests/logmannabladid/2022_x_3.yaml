@@ -32,7 +32,7 @@ page_map:
     unclaimed: 1
     pages: 34
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -101,11 +101,11 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hlýðni“) er annar titill en skrárinnar („Frá ritstjórn“); titli skrárinnar haldið'
-- title: 'Lagadagurinn 2022: Umræður um kaupauka á málstofu um fjármálalögfræði'
+- title: Umræður um kaupauka á málstofu um fjármálalögfræði
   authors:
   - Hildur Þórarinsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
   page_end: 10
   issue: null
@@ -117,8 +117,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -132,11 +132,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Lagadagurinn 2022: „Street food“ stemning'
+- title: „Street food“ stemning
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 11
   page_end: 11
   issue: null
@@ -148,8 +148,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -163,11 +163,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Lagadagurinn 2022: Sókn í sjálfbærni'
+- title: Sókn í sjálfbærni
   authors:
   - Unnur Lilja Hermannsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 12
   page_end: 13
   issue: null
@@ -179,8 +179,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -194,11 +194,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Lagadagurinn 2022: Loftslagsbreytingar fyrir dómstólum'
+- title: Loftslagsbreytingar fyrir dómstólum
   authors:
   - Unnur Lilja Hermannsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 14
   page_end: 17
   issue: null
@@ -210,8 +210,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -288,8 +288,9 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Helstu niðurstöður“ á bls. 22 sem skráin nefnir ekki; greinin er talin enda þar'
-- title: VIÐTAL VIÐ BJARKA MÁ MAGNÚSSON Skipunarferli skiptastjóra og aðfinnslumál
-  authors: []
+- title: Skipunarferli skiptastjóra og aðfinnslumál
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 24
@@ -303,9 +304,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -349,8 +351,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ PÁL ARNÓR PÁLSSON Ég undi mér vel í lögmannsstarfinu
-  authors: []
+- title: Ég undi mér vel í lögmannsstarfinu
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 30
@@ -364,9 +367,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.721
-status: review
+status: approved
 confidence: 0.55
 error: null
 files:
@@ -461,7 +461,7 @@ articles:
   authors:
   - Örn Þór
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 26
   page_end: 26
   issue: '4'
@@ -477,6 +477,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -490,3 +491,30 @@ articles:
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 27, prentað bls. 26'
   - 'FRÁVIK: greinin er undirrituð (Bragi Hannesson) en höfundar skrárinnar eru aðrir (Örn Þór); skránni haldið'
+- title: (fundargerð með undirskrift Bragi Hannesson; titill og upphaf á bls. 25 vantar)
+  authors:
+  - Bragi Hannesson
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 26
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 0
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/932.pdf
+  note: ''
+  analysis_notes: []

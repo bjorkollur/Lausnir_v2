@@ -27,7 +27,7 @@ page_map:
   - 187
   - 188
   - 189
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -155,3 +155,61 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Starfsnám laganema“ á bls. 295 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Starfsnám laganema
+  authors:
+  - Hildur Hjörvar
+  - Inga Valgerður Stefánsdóttir
+  - Ingimundur Einarsson
+  - Helga Melkorka Óttarsdóttir
+  - Halldór Oddsson
+  author_titles: []
+  article_type: Annað
+  page_start: 295
+  page_end: 304
+  issue: null
+  pdf_pages:
+  - 169
+  - 178
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Alþjóðlega Philip C. Jessup málflutningskeppnin 2015
+  authors:
+  - Dagbjartur Gunnar Lúðvíksson
+  author_titles: []
+  article_type: Frétt
+  page_start: 305
+  page_end: 307
+  issue: null
+  pdf_pages:
+  - 179
+  - 181
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

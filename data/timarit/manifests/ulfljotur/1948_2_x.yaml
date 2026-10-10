@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.944
-status: review
+status: approved
 confidence: 0.0
 error: null
 files:
@@ -209,7 +209,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 1
-  page_end: 10
+  page_end: 11
   issue: '2'
   pdf_pages:
   - 0
@@ -221,7 +221,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true

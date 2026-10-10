@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 4
   - 31
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -241,7 +241,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Groa@leiti.is
-  authors: []
+  authors:
+  - Gró
   author_titles: []
   article_type: Annað
   page_start: 15
@@ -258,6 +259,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -32,7 +32,7 @@ page_map:
     unclaimed: 3
     pages: 30
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -168,7 +168,7 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 16
   page_end: 17
   issue: null
@@ -181,7 +181,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -195,7 +195,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Víðtækara hlutverk og valdsvið kærunefndar jafnréttismála
+- title: Viðtækara hlutverk og valdsvið kærunefndar jafnréttismála
   authors:
   - Ari Karlsson
   author_titles: []
@@ -211,7 +211,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -230,7 +230,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 20
   page_end: 21
   issue: null
@@ -243,7 +243,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

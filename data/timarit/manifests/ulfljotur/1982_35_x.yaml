@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.947
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -53,7 +53,7 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „''°,n*m m"J’‘ «>**« s F ÍM >*,“ á bls. 17 sem skráin nefnir ekki; greinin er talin enda
     þar'
-- title: Skaðabótaábyrgð útgerðarmanns utan samninga Stutt yfirlit'
+- title: Skaðabótaábyrgð útgerðarmanns utan samninga Stutt yfirlit
   authors:
   - Arnljótur Björnsson
   author_titles: []
@@ -69,7 +69,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx

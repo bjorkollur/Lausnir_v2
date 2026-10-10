@@ -23,7 +23,7 @@ page_map:
   - 16
   - 24
   - 30
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -467,7 +467,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Laganefnd mótfallin frumvarpi um breytingu á innheimtulögum
-  authors: []
+  authors:
+  - Anna Lilja Hermannsdóttir
   author_titles: []
   article_type: Frétt
   page_start: 30
@@ -484,6 +485,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

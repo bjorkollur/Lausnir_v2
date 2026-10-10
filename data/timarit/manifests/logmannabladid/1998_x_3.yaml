@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 4
   - 20
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -91,7 +91,7 @@ articles:
   authors:
   - Sigurmar K. Albertsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 7
   page_end: 9
   issue: null
@@ -104,7 +104,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:
@@ -278,21 +278,21 @@ articles:
 - title: Frá laganefnd LMFÍ
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 22
-  page_end: 22
+  page_end: 23
   issue: null
   pdf_pages:
   - 21
-  - 21
+  - 22
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: llm
-    article_type: llm
-    pages: llm
+    article_type: user
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
