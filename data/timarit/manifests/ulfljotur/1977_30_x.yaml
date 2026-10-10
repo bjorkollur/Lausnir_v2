@@ -125,7 +125,7 @@ articles:
   authors:
   - Valgeir Pálsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 38
   page_end: 39
   issue: '1'
@@ -141,6 +141,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -342,7 +343,7 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 184, prentað bls. 175'
-- title: Menningar- |K- - málastofnun Sameinuðu þjóðanna - UNESCO ^KM
+- title: Menningarmálastofnun Sameinuðu þjóðanna — UNESCO
   authors:
   - Jón Ögmundur Þormóðsson
   author_titles: []
@@ -358,7 +359,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: page
     issue: xlsx
@@ -376,7 +377,7 @@ articles:
   - 'FRÁVIK: taflan segir bls. 249, prentað bls. 185'
   - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 248–249 sem er hvorki framhald hennar né upphaf annars
     efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
-- title: Um innheimtu tekju- og eignarskatts O.FL.1
+- title: Um innheimtu tekju- og eignarskatts o.fl.
   authors:
   - Guðmundur Vignir Jósefsson
   author_titles: []
@@ -392,7 +393,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx

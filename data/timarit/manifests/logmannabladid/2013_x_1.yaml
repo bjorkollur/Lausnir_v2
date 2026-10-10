@@ -131,11 +131,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 8
-  page_end: 8
+  page_end: 9
   issue: null
   pdf_pages:
   - 7
-  - 7
+  - 8
   lang: is
   date: null
   summary: null
@@ -144,7 +144,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -459,16 +459,15 @@ articles:
   note: ''
   analysis_notes: []
 - title: Dómkvaddir matsmenn
-  authors:
-  - Björn Þorri Viktorsson
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 30
-  page_end: 30
+  page_end: 31
   issue: null
   pdf_pages:
   - 29
-  - 29
+  - 30
   lang: is
   date: null
   summary: null
@@ -476,8 +475,8 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
-    authors: page
+    pages: user
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

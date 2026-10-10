@@ -103,22 +103,22 @@ articles:
   authors:
   - Anna Lilja Hallgrímsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
-  page_end: 9
+  page_end: 10
   issue: null
   pdf_pages:
   - 7
-  - 8
+  - 9
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -131,9 +131,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Matbók og matsmannanámskeið
-  authors: []
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 10
   page_end: 10
   issue: null
@@ -146,8 +147,9 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -159,11 +161,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Gæði lagasetningar Samhljómur um að vanda til verka
+- title: Samhljómur um að vanda til verka
   authors:
   - Elísabet Anna Jónsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 11
   page_end: 13
   issue: null
@@ -175,8 +177,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
   checks:

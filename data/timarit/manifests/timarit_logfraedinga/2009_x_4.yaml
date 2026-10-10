@@ -47,15 +47,16 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2009_04.pdf
 articles:
 - title: Þarf að fjölga hæstaréttardómurum?
-  authors: []
+  authors:
+  - Róbert R. Spanó
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 339
-  page_end: 339
+  page_end: 342
   issue: null
   pdf_pages:
   - 2
-  - 2
+  - 5
   lang: is
   date: null
   summary: null
@@ -63,7 +64,8 @@ articles:
   provenance:
     title: toc
     article_type: page
-    pages: toc
+    pages: user
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -114,11 +116,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 383
-  page_end: 395
+  page_end: 413
   issue: null
   pdf_pages:
   - 46
-  - 58
+  - 76
   lang: is
   date: null
   summary: null
@@ -127,7 +129,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -147,11 +149,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 415
-  page_end: 445
+  page_end: 449
   issue: null
   pdf_pages:
   - 78
-  - 108
+  - 112
   lang: is
   date: null
   summary: null
@@ -160,7 +162,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

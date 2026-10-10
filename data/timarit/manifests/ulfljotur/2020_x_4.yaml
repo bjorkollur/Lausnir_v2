@@ -25,7 +25,7 @@ page_map:
   - 193
   - 194
   - 195
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -94,6 +94,33 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Hugtakið landareign í vatnalögum nr. 15/1923 og þýðing þess fyrir takmarkanir á aðskilnaði
     veiðiréttinda frá landareign“ á bls. 495 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Hugtakið landareign í vatnalögum nr. 15/1923 og þýðing þess fyrir takmarkanir á aðskilnaði veiðiréttinda frá landareign
+  authors:
+  - Jón Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 495
+  page_end: 518
+  issue: null
+  pdf_pages:
+  - 80
+  - 103
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Hluthafasamkomulög
   authors:
   - Sigurður Örn Hilmarsson
@@ -157,3 +184,56 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 578 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Skýrsla stjórnar Orators skólaárið 2019-2020
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 577
+  page_end: 577
+  issue: null
+  pdf_pages:
+  - 162
+  - 162
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ávarp formanns Orators
+  authors:
+  - Guðjón Andri Jónsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 578
+  page_end: 580
+  issue: null
+  pdf_pages:
+  - 163
+  - 165
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -28,7 +28,7 @@ page_map:
   - 133
   - 134
   - 135
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -94,7 +94,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Milli stríðs og orða*1 Um sértækar þvingunaraðgerðir, árangur þeirra og óviljandi afleiðingar
+- title: 'Milli stríðs og orða: Um sértækar þvingunaraðgerðir, árangur þeirra og óviljandi afleiðingar'
   authors:
   - Kolfinna Tómasdóttir
   - Kári Hólmar Ragnarsson
@@ -111,7 +111,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
   checks:
@@ -127,3 +127,56 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Viðtal við Viðar Má Matthíasson, fyrrverandi prófessor og hæstaréttardómara“ á bls.
     369 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Viðtal við Viðar Má Matthíasson, fyrrverandi prófessor og hæstaréttardómara
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 369
+  page_end: 373
+  issue: null
+  pdf_pages:
+  - 116
+  - 120
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Öfundarefni heimsbyggðarinnar - af vettvangi enska réttarvörslukerfisins
+  authors:
+  - Þorsteinn Davíð Stefánsson
+  author_titles: []
+  article_type: Annað
+  page_start: 375
+  page_end: 381
+  issue: null
+  pdf_pages:
+  - 122
+  - 128
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

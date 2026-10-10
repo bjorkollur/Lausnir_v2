@@ -69,12 +69,12 @@ articles:
   - Bjarni Már Magnússon
   author_titles: []
   article_type: Fræðigrein
-  page_start: 459
-  page_end: 518
+  page_start: 449
+  page_end: 458
   issue: null
   pdf_pages:
-  - 40
-  - 99
+  - 30
+  - 39
   lang: is
   date: null
   summary: null
@@ -82,7 +82,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -101,11 +101,11 @@ articles:
   - Tómas Hrafn Sveinsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 519
+  page_start: 459
   page_end: 519
   issue: null
   pdf_pages:
-  - 100
+  - 40
   - 100
   lang: is
   date: null
@@ -114,7 +114,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -123,6 +123,32 @@ articles:
   confidence: 0.65
   leitir_record_id: null
   xlsx_row: 279
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félagslífið í lagadeild
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 521
+  page_end: 526
+  issue: null
+  pdf_pages:
+  - 102
+  - 107
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []

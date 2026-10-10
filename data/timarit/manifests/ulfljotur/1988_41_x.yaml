@@ -153,7 +153,7 @@ articles:
   - 'FRÁVIK: taflan segir bls. 123, prentað bls. 117'
 - title: Endurgreiðsla ofgreidds fjár
   authors:
-  - Sigríður Jósepsdóttir
+  - Sigríður Jósefsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 135
@@ -168,7 +168,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:
@@ -188,7 +188,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 187
-  page_end: 190
+  page_end: 191
   issue: '2'
   pdf_pages:
   - 0
@@ -200,7 +200,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: false
@@ -213,11 +213,11 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/639.pdf
   note: ''
   analysis_notes: []
-- title: Hälsingar från Sverige
+- title: Hälsningar från Sverige
   authors:
   - Svala Ólafsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 201
   page_end: 203
   issue: '2'
@@ -229,10 +229,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -371,7 +372,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1988 41 arg/579.pdf
   note: ''
   analysis_notes: []
-- title: 03.00.10. heimspekilegum forspjallsvísindum
+- title: 03.00.10 Heimspekileg forspjallsvísindi
   authors:
   - Baldvin Björn
   author_titles: []
@@ -387,7 +388,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: page
     issue: xlsx

@@ -31,7 +31,7 @@ page_map:
     unclaimed: 0
     pages: 26
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.45
 error: null
 files:
@@ -68,7 +68,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá ritstjórn
+- title: …Að hér varð hrun
   authors:
   - Ari Karlsson
   author_titles: []
@@ -84,7 +84,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -104,7 +104,7 @@ articles:
 - title: Ný stjórn Lögmannafélags Íslands.
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 7
   page_end: 7
   issue: null
@@ -117,7 +117,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: true
@@ -163,9 +163,9 @@ articles:
   analysis_notes: []
 - title: Hraðahindranir á brautum dómskerfisins
   authors:
-  - Hulda Rós Rúríksdóttir
+  - Hulda Rós Rúriksdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 10
   page_end: 11
   issue: null
@@ -178,8 +178,8 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    authors: toc
+    article_type: user
+    authors: user
     pages: toc
   checks:
     title_on_page: true
@@ -196,7 +196,7 @@ articles:
   authors:
   - Ásbjörn Jónasson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 12
   page_end: 13
   issue: null
@@ -209,7 +209,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -226,21 +226,21 @@ articles:
 - title: LAGADAGSKVÖLDIÐ Var gaman?
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 14
-  page_end: 14
+  page_end: 15
   issue: null
   pdf_pages:
   - 13
-  - 13
+  - 14
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    pages: toc
+    article_type: user
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -256,7 +256,7 @@ articles:
   authors:
   - Eva Hrönn Jónsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 16
   page_end: 17
   issue: null
@@ -269,7 +269,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -287,22 +287,22 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 18
-  page_end: 18
+  page_end: 19
   issue: null
   pdf_pages:
   - 17
-  - 17
+  - 18
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -315,7 +315,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: VIÐTAL VIÐ RAGNHEIÐI BRAGADÓTTUR Hef alltaf haft áhuga á mannlega þættinum í lögfræðinni
-  authors: []
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 20
@@ -332,6 +333,7 @@ articles:
     title: toc
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -375,9 +377,12 @@ articles:
   note: ''
   analysis_notes: []
 - title: MEISTARAMÓT Á SUMARDAGINN NÆSTSÍÐASTA Af sólarsamba og sigurvegurum
-  authors: []
+  authors:
+  - Eyrún Ingadóttir
+  - Inga Lillý Brynjólfsdóttir
+  - Þyrí Steingrímsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 24
   page_end: 25
   issue: null
@@ -390,8 +395,9 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -429,6 +435,33 @@ articles:
     author_on_page: true
     external_record: false
   confidence: 0.8
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Bókasafni LMFÍ lokað
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

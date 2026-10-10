@@ -33,7 +33,7 @@ page_map:
     unclaimed: 0
     pages: 107
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -104,6 +104,7 @@ articles:
 - title: Fimmtíu ára afmæli Lagastofnunar Háskóla Íslands
   authors:
   - Friðrik Árni Friðriksson Hirst
+  - Kristín Benediktsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 87
@@ -120,7 +121,7 @@ articles:
     title: toc
     article_type: toc
     pages: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

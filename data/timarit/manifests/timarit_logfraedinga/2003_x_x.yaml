@@ -103,10 +103,9 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2003.pdf
 articles:
 - title: Yfirþjóðlegt vald
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 3
   issue: '1'
@@ -119,10 +118,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -166,7 +165,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Stjórnarskrárbundið fullveldi Islands
+- title: Stjórnarskrárbundið fullveldi Íslands
   authors:
   - Kristrún Heimisdóttir
   author_titles: []
@@ -182,7 +181,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -295,9 +294,9 @@ articles:
   analysis_notes: []
 - title: Aðalfundur Lögmannafélags Islands 2002
   authors:
-  - Davíð Þór Björgvinsson
+  - Ingimar Ingason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 96
   page_end: 102
   issue: '1'
@@ -310,10 +309,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -326,10 +325,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Skipun dómara
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 111
   page_end: 113
   issue: '2'
@@ -342,10 +340,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -454,10 +452,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Öryrkjadómarnir
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 213
   page_end: 216
   issue: '3'
@@ -470,10 +467,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -517,7 +514,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Vernd verkfallsréttar samkvæmt 74. gr. stjórnarskrárinnar
+- title: Vernd verkfallsréttarins skv. 74. gr. stjórnarskrárinnar
   authors:
   - Elín Blöndal
   author_titles: []
@@ -533,7 +530,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     authors: page
     pages: toc
@@ -582,9 +579,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Aðalfundur Lögmannafélags íslands 2003
-  authors: []
+  authors:
+  - Ingimar Ingason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 325
   page_end: 327
   issue: '3'
@@ -597,9 +595,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -614,7 +613,7 @@ articles:
 - title: Ritrýni
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 328
   page_end: 328
   issue: '3'
@@ -627,7 +626,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
   checks:
@@ -642,10 +641,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Mannréttindasáttmáli Evrópu
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 337
   page_end: 339
   issue: '4'
@@ -658,10 +656,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -675,7 +673,7 @@ articles:
   analysis_notes: []
 - title: Mannréttindasáttmáli Evrópu 50 ára
   authors:
-  - Bjöm Bjamason
+  - Björn Bjarnason
   author_titles: []
   article_type: Fræðigrein
   page_start: 341
@@ -691,7 +689,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -737,7 +735,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Ahrif Mannréttindasáttmála Evrópu á vernd tjáningarfrelsis að íslenskum rétti
+- title: Áhrif Mannréttindasáttmála Evrópu á vernd tjáningarfrelsis að íslenskum rétti
   authors:
   - Björg Thorarensen
   author_titles: []
@@ -753,7 +751,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -769,8 +767,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Screening af danske regeringsforslags overensstemmelse med Den Europæiske Menneskerettighedskonvention og andre intemationale
-    konventioner om menneskerettigheder
+- title: Screening af danske regeringslovforslags overensstemmelse med Den Europæiske Menneskerettighedskonvention og andre
+    internationale konventioner om menneskerettigheder
   authors:
   - Nina Holst-Christensen
   author_titles: []
@@ -786,7 +784,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc

@@ -40,7 +40,7 @@ page_map:
     unclaimed: 237
     pages: 335
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -188,11 +188,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 32
-  page_end: 32
+  page_end: 84
   issue: null
   pdf_pages:
   - 33
-  - 33
+  - 85
   lang: is
   date: null
   summary: null
@@ -201,7 +201,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -322,11 +322,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 128
-  page_end: 128
+  page_end: 131
   issue: null
   pdf_pages:
   - 129
-  - 129
+  - 132
   lang: is
   date: null
   summary: null
@@ -335,7 +335,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -455,11 +455,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 238
-  page_end: 290
+  page_end: 295
   issue: null
   pdf_pages:
   - 239
-  - 291
+  - 296
   lang: is
   date: null
   summary: null
@@ -468,7 +468,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -97,11 +97,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 245
-  page_end: 259
+  page_end: 284
   issue: null
   pdf_pages:
   - 8
-  - 22
+  - 47
   lang: is
   date: null
   summary: null
@@ -110,7 +110,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

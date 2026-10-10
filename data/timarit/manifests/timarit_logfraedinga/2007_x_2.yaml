@@ -30,7 +30,7 @@ page_map:
   - 100
   - 101
   - 102
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -38,7 +38,7 @@ files:
 articles:
 - title: Nýjar úrlausnir Mannréttindadómstóls Evrópu um ne bis in idem
   authors:
-  - Róbert Spanó
+  - Róbert R. Spanó
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 103
@@ -54,7 +54,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
   checks:
     title_on_page: true

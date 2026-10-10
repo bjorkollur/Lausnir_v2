@@ -24,7 +24,7 @@ page_map:
   - 157
   - 158
   - 159
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -122,3 +122,29 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Viðtal við Dr. Pál Sigurðsson prófessor“ á bls. 385 sem skráin nefnir ekki; greinin
     er talin enda þar'
+- title: Viðtal við Dr. Pál Sigurðsson prófessor
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 385
+  page_end: 391
+  issue: null
+  pdf_pages:
+  - 148
+  - 154
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -26,11 +26,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 3
-  page_end: 16
+  page_end: 26
   issue: '1'
   pdf_pages:
   - 0
-  - 13
+  - 23
   lang: is
   date: null
   summary: null
@@ -38,7 +38,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true

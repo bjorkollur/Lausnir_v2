@@ -35,7 +35,7 @@ page_map:
   - 163
   - 164
   - 165
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -162,3 +162,86 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „FRÆðABÁLKUR“ á bls. 127 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Fræðabálkur
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 127
+  page_end: 127
+  issue: null
+  pdf_pages:
+  - 128
+  - 128
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Valdheimildir samkeppnisyfirvalda á Íslandi
+  authors:
+  - Regin Mogensen
+  - Stefán Holm
+  - Bryndís Hlöðversdóttir
+  - Birgir Ármannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 129
+  page_end: 142
+  issue: null
+  pdf_pages:
+  - 130
+  - 143
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rekabálkur
+  authors:
+  - Hákon Zimsen
+  author_titles: []
+  article_type: Frétt
+  page_start: 143
+  page_end: 148
+  issue: null
+  pdf_pages:
+  - 144
+  - 149
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

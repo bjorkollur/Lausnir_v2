@@ -118,7 +118,7 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 24, prentað bls. 21'
-- title: Nogle ord om den stilling, islandsk ret tager til spörgsmalet om gyldighed af forfatningsstridige love
+- title: Nogle ord om den stilling, islandsk ret tager til spörgsmålet om gyldigheden af forfatningsstridige love
   authors:
   - Ólafur Jóhannesson
   author_titles: []
@@ -134,7 +134,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -180,7 +180,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/233.pdf
   note: ''
   analysis_notes: []
-- title: Ávarp við setningu IX. móts norrænna laganema og ungra lögfræðinga
+- title: Ávarp við setningu IX. móts norrænna laganema og ungra lögfræðikandidata
   authors:
   - Ármann Snævarr
   author_titles: []
@@ -196,7 +196,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: page
     issue: xlsx
@@ -275,11 +275,11 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/155.pdf
   note: ''
   analysis_notes: []
-- title: Stjórn Orators 1952-1953.
+- title: Störf Orators 1952—1953
   authors:
   - Þór Vilhjálmsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 23
   page_end: 26
   issue: '4'
@@ -291,10 +291,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -311,7 +312,7 @@ articles:
   authors:
   - Þorvaldur Ari Arason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 29
   page_end: 30
   issue: '4'
@@ -327,6 +328,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -340,3 +342,29 @@ articles:
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 30, prentað bls. 29'
   - 'FRÁVIK: á eftir greininni hefst „•K9“ á bls. 30 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Festar og hjúskapur
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 30
+  page_end: 30
+  issue: '4'
+  pdf_pages:
+  - 1
+  - 1
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1952 06 arg/901.pdf
+  note: ''
+  analysis_notes: []

@@ -43,7 +43,7 @@ page_map:
     unclaimed: 0
     pages: 95
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -53,7 +53,7 @@ articles:
   authors:
   - Róbert R. Spanó
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 113
   page_end: 115
   issue: null
@@ -66,7 +66,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     authors: page
   checks:
@@ -177,7 +177,7 @@ articles:
   authors:
   - Róbert R. Spanó
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 193
   page_end: 193
   issue: null
@@ -190,7 +190,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     authors: page
   checks:

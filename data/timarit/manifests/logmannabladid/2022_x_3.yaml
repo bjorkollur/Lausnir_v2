@@ -42,7 +42,7 @@ articles:
   authors:
   - Sigurður Örn Hilmarsson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 4
   page_end: 4
   issue: null
@@ -55,7 +55,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -69,7 +69,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá ritstjórn
+- title: Hlýðni
   authors:
   - Ari Karlsson
   author_titles: []
@@ -85,7 +85,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -229,7 +229,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 18
   page_end: 19
   issue: null
@@ -242,7 +242,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -256,24 +256,26 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ KRISTÍNU HARALDSDÓTTUR Óþreyju gætir varðandi tæknivæðingu dómstólanna
-  authors: []
+- title: Óþreyju gætir varðandi tæknivæðingu dómstólanna
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 20
-  page_end: 21
+  page_end: 22
   issue: null
   pdf_pages:
   - 19
-  - 20
+  - 21
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
-    pages: toc
+    pages: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -320,7 +322,7 @@ articles:
   - Þyrí Steingrímsdóttir
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 28
   page_end: 29
   issue: null
@@ -333,7 +335,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

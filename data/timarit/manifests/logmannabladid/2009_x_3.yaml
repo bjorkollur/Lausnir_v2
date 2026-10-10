@@ -58,8 +58,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Könnun Lögmannablaðsins: Mikil áhrif bankahrunsins á störf lögmanna'
-  authors: []
+- title: Mikil áhrif bankahrunsins á störf lögmanna
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Annað
   page_start: 6
@@ -73,9 +74,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

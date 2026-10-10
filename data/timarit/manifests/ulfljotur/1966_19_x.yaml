@@ -54,7 +54,7 @@ articles:
   analysis_notes: []
 - title: Nordisk rättsgemenskab och nordisk lagstiftningssamarbete
   authors:
-  - Gustaf Petrèn
+  - Gustaf Petrén
   author_titles: []
   article_type: Fræðigrein
   page_start: 22
@@ -69,7 +69,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: page
     issue: xlsx
   checks:
@@ -210,6 +210,32 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 158, prentað bls. 145'
+- title: Blaðað í gömlum dómum
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 158
+  page_end: 158
+  issue: '4'
+  pdf_pages:
+  - 13
+  - 13
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/1345.pdf
+  note: ''
+  analysis_notes: []
 - title: Þættir úr sögu landhelgisgæzlunnar
   authors:
   - Garðar Pálsson
@@ -238,6 +264,32 @@ articles:
   confidence: 1.0
   leitir_record_id: null
   xlsx_row: 1052
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/64.pdf
+  note: ''
+  analysis_notes: []
+- title: Blaðað í gömlum dómum
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 164
+  page_end: 164
+  issue: '4'
+  pdf_pages:
+  - 5
+  - 5
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1966 19 arg/64.pdf
   note: ''
   analysis_notes: []

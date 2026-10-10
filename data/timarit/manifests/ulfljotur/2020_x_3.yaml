@@ -29,7 +29,7 @@ page_map:
   - 137
   - 138
   - 139
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -129,6 +129,32 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Persónuverndarréttarleg álitaefni í tengslum við notkun kortaupplýsinga í sóttvarnaskyni“
     á bls. 389 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Persónuverndarréttarleg álitaefni í tengslum við notkun kortaupplýsinga í sóttvarnaskyni
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 389
+  page_end: 389
+  issue: null
+  pdf_pages:
+  - 110
+  - 110
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Heimildir sóttvarnalæknis við gagnaöflun og vinnslu persónuupplýsinga í tengslum við sóttvarnaráðstafanir vegna Covid-19-veirunnar
   authors:
   - Helga Þórisdóttir
@@ -221,3 +247,30 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Borg humlanna“ á bls. 409 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: 'Borg humlanna: Af skiptinámi og LL.M. námi í Leuven í Belgíu'
+  authors:
+  - Arnar Sveinn Harðarson
+  author_titles: []
+  article_type: Annað
+  page_start: 409
+  page_end: 413
+  issue: null
+  pdf_pages:
+  - 130
+  - 134
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

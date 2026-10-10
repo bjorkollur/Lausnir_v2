@@ -160,7 +160,7 @@ articles:
   authors:
   - Theodór B. Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 128
   page_end: 132
   issue: null
@@ -173,7 +173,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: leitir
     pages: leitir+llm
   checks:

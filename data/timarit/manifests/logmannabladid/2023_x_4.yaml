@@ -35,7 +35,7 @@ page_map:
     unclaimed: 0
     pages: 30
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -72,7 +72,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá ritstjórn
+- title: Losnar og raknar sá hnútur…
   authors:
   - Ari Karlsson
   author_titles: []
@@ -88,7 +88,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -109,22 +109,22 @@ articles:
   authors:
   - Unnur Lilja Hermannsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
-  page_end: 9
+  page_end: 10
   issue: null
   pdf_pages:
   - 7
-  - 8
+  - 9
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -138,9 +138,9 @@ articles:
   analysis_notes: []
 - title: Fullnustukerfið og stafrænt réttarfar – breytingar til hins góða?
   authors:
-  - Arnar Vilhjálmur Arnarson
+  - Arnar Vilhjálmur Arnarsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 12
   page_end: 14
   issue: null
@@ -153,8 +153,8 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    authors: toc
+    article_type: user
+    authors: user
     pages: toc
   checks:
     title_on_page: true
@@ -171,7 +171,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 16
   page_end: 20
   issue: null
@@ -184,7 +184,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -231,7 +231,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 22
   page_end: 22
   issue: null
@@ -244,7 +244,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -260,7 +260,7 @@ articles:
   analysis_notes: []
 - title: Skiljum illsku – á vettvangi hroðaverka nasista
   authors:
-  - Svala Ólafsdóttir
+  - Svala Ísfeld Ólafsdóttir
   author_titles: []
   article_type: Annað
   page_start: 24
@@ -276,7 +276,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: user
     pages: toc
   checks:
     title_on_page: true
@@ -289,8 +289,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ JAKOB R. MÖLLER Setti mér það markmið að verða formaður
-  authors: []
+- title: Setti mér það markmið að verða formaður
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 26
@@ -304,9 +305,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

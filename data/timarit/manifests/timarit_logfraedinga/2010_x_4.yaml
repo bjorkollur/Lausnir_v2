@@ -98,11 +98,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 325
-  page_end: 330
+  page_end: 349
   issue: null
   pdf_pages:
   - 6
-  - 11
+  - 30
   lang: is
   date: null
   summary: null
@@ -111,7 +111,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -125,26 +125,26 @@ articles:
   analysis_notes:
   - skráin segir að greinin endi á bls. 349, prentuð lokasíða er bls. 330
   - 'FRÁVIK: á eftir greininni hefst „2.3 Umfang úrræðisins“ á bls. 332 sem skráin nefnir ekki; greinin er talin enda þar'
-- title: Dyﬂinnarsamstarﬁð um ákvörðun ábyrgðar á umsókn um hæli og beiting 2. mgr. 3. gr. Dyﬂinnarreglugerðarinnar
+- title: Dyflinnarsamstarfið um ákvörðun ábyrgðar á umsókn um hæli og beiting 2. mgr. 3. gr. Dyflinnarreglugerðarinnar
   authors:
   - Erna Kristín Blöndal
   author_titles: []
   article_type: Fræðigrein
   page_start: 351
-  page_end: 377
+  page_end: 398
   issue: null
   pdf_pages:
   - 32
-  - 58
+  - 79
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -164,11 +164,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 399
-  page_end: 399
+  page_end: 412
   issue: null
   pdf_pages:
   - 80
-  - 80
+  - 93
   lang: is
   date: null
   summary: null
@@ -177,7 +177,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

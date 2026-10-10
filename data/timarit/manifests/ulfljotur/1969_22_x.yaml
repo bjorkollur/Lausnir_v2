@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.89
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/119.pdf
@@ -32,8 +32,9 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/69.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/70.pdf
 articles:
-- title: FR AM K VÆ M D A V aldið
-  authors: []
+- title: Framkvæmdavaldið
+  authors:
+  - Jón Sigurðsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 35
@@ -48,13 +49,14 @@ articles:
   keywords: []
   provenance:
     pages: page
-    title: page
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/351.pdf
@@ -189,7 +191,7 @@ articles:
   authors:
   - Hallvarður Einvarðsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 76
   page_end: 77
   issue: '2'
@@ -205,6 +207,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -311,7 +314,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/149.pdf
   note: ''
   analysis_notes: []
-- title: Nordisk institutt for sjörett
+- title: Nordisk institutt for sjørett
   authors:
   - Arnljótur Björnsson
   author_titles: []
@@ -327,7 +330,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -342,7 +345,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1969 22 arg/283.pdf
   note: ''
   analysis_notes: []
-- title: Stjórnarskrárinnar frá 17. Júní 1944
+- title: Heildarendurskoðun stjórnarskrárinnar frá 17. júní 1944
   authors:
   - Jón Ögmundur Þormóðsson
   author_titles: []
@@ -358,7 +361,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -467,12 +470,11 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 271, prentað bls. 270'
-- title: BOKASKRA Sigurgeirs Sigurjónssonar hrl. varðandi eignarréttindi á sviði iðnaðar, óréttmæta verzlunarháttu, rithöfundarétt
+- title: BÓKASKRÁ Sigurgeirs Sigurjónssonar hrl. varðandi eignarréttindi á sviði iðnaðar, óréttmæta verzlunarháttu, rithöfundarétt
     og prentrétt
-  authors:
-  - Sigurgeir Sigurjónsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 276
   page_end: 281
   issue: '3'
@@ -484,10 +486,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    authors: xlsx
+    title: user
+    authors: user
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true

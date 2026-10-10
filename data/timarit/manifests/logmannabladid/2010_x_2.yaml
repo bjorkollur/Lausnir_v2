@@ -94,6 +94,32 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „Athugasemd frá ritstjóra:“ á bls. 4 sem skráin nefnir ekki; greinin er talin enda þar'
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Hústaka á bjargi“) er annar titill en skrárinnar („Athugasemd: Pólitísk ritstjóragrein
     Lögmannablaðsins í 1. tölublaði 2010“); titli skrárinnar haldið'
+- title: Athugasemd frá ritstjóra
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Formannskosning í fyrsta skipti í 16 ár
   authors: []
   author_titles: []
@@ -246,7 +272,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Nemendur lagadeildar HR þjálfaðir í tæknivæddum dómsal
-  authors: []
+  authors:
+  - JK
   author_titles: []
   article_type: Frétt
   page_start: 11
@@ -263,6 +290,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

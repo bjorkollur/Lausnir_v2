@@ -9,8 +9,8 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.87
-status: review
-confidence: 0
+status: approved
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3338.pdf
@@ -48,7 +48,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3338.pdf
@@ -176,7 +176,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Viðtal við dr. juris Jens Evald, lagaprófessor við Arósarháskóla
-  authors: []
+  authors:
+  - Stefán Karl Kristjánsson
   author_titles: []
   article_type: Viðtal
   page_start: 739
@@ -193,21 +194,22 @@ articles:
     pages: page
     title: page
     article_type: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3345.pdf
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.50)
-- title: Fréttir úr lagadeild Starfmannamál
+- title: Fréttir úr lagadeild
   authors:
-  - Þorgeir Örlygsson
+  - María Thejl
   author_titles: []
   article_type: Frétt
   page_start: 743
@@ -222,25 +224,25 @@ articles:
   keywords: []
   provenance:
     pages: page
-    title: page
+    title: user
     article_type: page
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3346.pdf
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.44)
-- title: Lagabalkur
+- title: Fréttir af Alþingi
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 749
   page_end: 754
   issue: null
@@ -253,13 +255,14 @@ articles:
   keywords: []
   provenance:
     pages: page
-    title: page
+    title: user
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3347.pdf
@@ -269,7 +272,7 @@ articles:
 - title: Skýrsla stjórnar Orators fyrir starfsárið 2004-2005
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 755
   page_end: 772
   issue: null
@@ -283,12 +286,13 @@ articles:
   provenance:
     pages: page
     title: page
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2005_4_tbl/3348.pdf

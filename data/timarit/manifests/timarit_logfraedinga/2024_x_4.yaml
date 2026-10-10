@@ -35,7 +35,7 @@ page_map:
     unclaimed: 0
     pages: 165
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.45
 error: null
 files:
@@ -72,7 +72,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Hæfisreglan í sveitarstjórnarlögunum
+- title: Sérstakt hæfi í sveitarfélögum
   authors:
   - Trausti Fannar Valsson
   author_titles: []
@@ -88,7 +88,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -106,7 +106,7 @@ articles:
   - 'titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir höfundi (fyrirsögn síðunnar: „SÉRSTAKT HÆFI Í SVEITARFÉLÖGUM“)'
 - title: Málsforræði og kærunefnd útboðsmála
   authors:
-  - Reimar Snæfells Pétursson
+  - Reimar Pétursson
   author_titles: []
   article_type: Fræðigrein
   page_start: 485
@@ -122,7 +122,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: leitir
+    authors: user
     pages: leitir+toc
   checks:
     title_on_page: true

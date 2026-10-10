@@ -27,7 +27,7 @@ page_map:
   - 175
   - 176
   - 177
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -39,11 +39,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 115
-  page_end: 149
+  page_end: 150
   issue: null
   pdf_pages:
   - 10
-  - 44
+  - 45
   lang: is
   date: null
   summary: null
@@ -51,7 +51,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -155,6 +155,32 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Inngangur“ á bls. 263 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Inngangur
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 263
+  page_end: 263
+  issue: null
+  pdf_pages:
+  - 158
+  - 158
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Ríkið er ekki andstæðingur borgaranna
   authors:
   - Daníel Isebarn Ágústsson

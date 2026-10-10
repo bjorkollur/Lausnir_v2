@@ -348,11 +348,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 22
-  page_end: 22
+  page_end: 23
   issue: null
   pdf_pages:
   - 21
-  - 21
+  - 22
   lang: is
   date: null
   summary: null
@@ -361,7 +361,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

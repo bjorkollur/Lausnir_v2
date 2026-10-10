@@ -24,7 +24,7 @@ page_map:
   - 18
   - 29
   - 30
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -277,11 +277,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 25
-  page_end: 26
+  page_end: 25
   issue: null
   pdf_pages:
   - 24
-  - 25
+  - 24
   lang: is
   date: null
   summary: null
@@ -289,7 +289,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -303,6 +303,32 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Nýjar bækur á bókasafni LMFÍ“ á bls. 27 sem skráin nefnir ekki; greinin er talin enda
     þar'
+- title: Nýjar bækur á bókasafni LMFÍ
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Í sjálfboðavinnu fyrir íslenska ríkið
   authors:
   - Helga Vala Helgadóttir

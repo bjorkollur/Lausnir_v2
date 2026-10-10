@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.939
-status: review
+status: approved
 confidence: 0.55
 error: null
 files:
@@ -88,6 +88,32 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 9, prentað bls. 3'
+- title: Bandarískir námsstyrkir
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 9
+  page_end: 9
+  issue: '2'
+  pdf_pages:
+  - 6
+  - 6
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/978.pdf
+  note: ''
+  analysis_notes: []
 - title: Prentfrelsi
   authors:
   - Gaukur Jörundsson
@@ -123,7 +149,7 @@ articles:
   authors:
   - Eyjólfur K. Jónsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 23
   page_end: 24
   issue: '2'
@@ -139,6 +165,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -157,7 +184,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 3
-  page_end: 17
+  page_end: 18
   issue: '3'
   pdf_pages:
   - 0
@@ -169,7 +196,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -218,7 +245,7 @@ articles:
   authors:
   - Matthías Á. Mathiesen
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 21
   page_end: 25
   issue: '3'
@@ -234,6 +261,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -282,7 +310,7 @@ articles:
   authors:
   - Matthías Á. Mathiesen
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 8
   page_end: 10
   issue: '4'
@@ -298,6 +326,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -310,11 +339,63 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 9, prentað bls. 8'
+- title: Lagasöfn
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 10
+  issue: '4'
+  pdf_pages:
+  - 2
+  - 2
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/1001.pdf
+  note: ''
+  analysis_notes: []
+- title: Lögjöfnun eða hvað?
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 10
+  page_end: 10
+  issue: '4'
+  pdf_pages:
+  - 2
+  - 2
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/1001.pdf
+  note: ''
+  analysis_notes: []
 - title: Aðalfundur Orators 1956
   authors:
   - Bjarni Beinteinsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 11
   page_end: 11
   issue: '4'
@@ -330,6 +411,7 @@ articles:
     authors: xlsx
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -345,13 +427,13 @@ articles:
   authors:
   - Jón A. Ólafsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 12
-  page_end: 14
+  page_end: 12
   issue: '4'
   pdf_pages:
   - 0
-  - 2
+  - 0
   lang: is
   date: null
   summary: null
@@ -359,8 +441,9 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: page
+    pages: user
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -373,3 +456,31 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 14, prentað bls. 12'
+- title: Reikningar Orators og Úlfljóts 1956
+  authors:
+  - Auður Þorbergsdóttir
+  - Vilhjálmur Þórhallsson
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 14
+  issue: '4'
+  pdf_pages:
+  - 1
+  - 2
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1955 09 arg/1003.pdf
+  note: ''
+  analysis_notes: []

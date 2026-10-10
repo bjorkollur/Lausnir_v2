@@ -43,7 +43,7 @@ page_map:
     unclaimed: 204
     pages: 319
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -425,11 +425,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 264
-  page_end: 299
+  page_end: 298
   issue: null
   pdf_pages:
   - 265
-  - 300
+  - 299
   lang: is
   date: null
   summary: null
@@ -438,7 +438,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -492,11 +492,11 @@ articles:
   author_titles: []
   article_type: Ritdómur
   page_start: 306
-  page_end: 308
+  page_end: 307
   issue: null
   pdf_pages:
   - 307
-  - 309
+  - 308
   lang: is
   date: null
   summary: null
@@ -505,7 +505,7 @@ articles:
     title: page
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -520,3 +520,109 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „Nýtt rit um sjórétt“ á bls. 310 sem skráin nefnir ekki; greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 204 síður
     heftisins; 1 grein hefst á síðu sem virðist auglýsing eða auð) — greinalisti Claude notaður
+- title: Lög og samfélag
+  authors: []
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 308
+  page_end: 309
+  issue: null
+  pdf_pages:
+  - 309
+  - 310
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýtt rit um sjórétt
+  authors: []
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 310
+  page_end: 311
+  issue: null
+  pdf_pages:
+  - 311
+  - 312
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fullveldi í 99 ár
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 312
+  page_end: 314
+  issue: null
+  pdf_pages:
+  - 313
+  - 315
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Afmælisrit til heiðurs Jóni Steinari
+  authors:
+  - Heimir Örn Herbertsson
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 316
+  page_end: 318
+  issue: null
+  pdf_pages:
+  - 317
+  - 319
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

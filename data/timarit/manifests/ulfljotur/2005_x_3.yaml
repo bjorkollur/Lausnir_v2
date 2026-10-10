@@ -34,7 +34,7 @@ page_map:
   - 175
   - 176
   - 177
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -136,11 +136,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 539
-  page_end: 552
+  page_end: 550
   issue: null
   pdf_pages:
   - 96
-  - 109
+  - 107
   lang: is
   date: null
   summary: null
@@ -148,7 +148,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -157,6 +157,32 @@ articles:
   confidence: 1.0
   leitir_record_id: null
   xlsx_row: 294
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Er þörf á stjórnarskrárbreytingu?
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 551
+  page_end: 552
+  issue: null
+  pdf_pages:
+  - 108
+  - 109
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []

@@ -41,13 +41,13 @@ page_map:
   - 172
   - 173
   - 174
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_4_tbl.pdf
 articles:
-- title: Geti stofnast á grundvelli hefðar
+- title: Skilyrði þess að til eignarréttar geti stofnast á grundvelli hefðar
   authors:
   - Karl Axelsson
   - Hulda Árnadóttir
@@ -64,7 +64,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
   checks:
@@ -140,3 +140,56 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Fyrsta starfsár eftir endurstofnun ELSA Iceland“ á bls. 587 sem skráin nefnir ekki;
     greinin er talin enda þar'
+- title: 'Opnum fleiri dyr: Fyrsta starfsár eftir endurstofnun ELSA Iceland'
+  authors:
+  - Kolfinna Tómasdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 587
+  page_end: 591
+  issue: null
+  pdf_pages:
+  - 123
+  - 127
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar Orators skólaárið 2017-2018
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 592
+  page_end: 592
+  issue: null
+  pdf_pages:
+  - 128
+  - 128
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

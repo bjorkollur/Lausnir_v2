@@ -42,7 +42,7 @@ page_map:
     unclaimed: 0
     pages: 115
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -52,7 +52,7 @@ articles:
   authors:
   - Hafsteinn Þór Hauksson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 361
   page_end: 363
   issue: null
@@ -65,7 +65,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     authors: page
   checks:
@@ -173,10 +173,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Eyrún Ingadóttir: Starfsemi Lögfræðingafélags Íslands 2014-2015'
-  authors: []
+- title: Starfsemi Lögfræðingafélags Íslands 2014-2015
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 459
   page_end: 462
   issue: null
@@ -188,9 +189,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

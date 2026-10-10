@@ -79,7 +79,7 @@ articles:
 - title: Dómhús
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 2
   issue: '1'
@@ -92,7 +92,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
   checks:
@@ -232,25 +232,25 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: FrálagadeildHáskólaíslands
+- title: Frá lagadeild Háskóla Íslands. Deildarfréttir 1989
   authors:
   - Sigurður Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 55
-  page_end: 68
+  page_end: 59
   issue: '1'
   pdf_pages:
   - 60
-  - 73
+  - 64
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
     authors: page
   checks:
@@ -264,10 +264,37 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Á víð og dreif
+- title: Skýrsla um Lagastofnun Háskóla Íslands 29. febrúar 1989 – 28. febrúar 1990
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 59
+  page_end: 68
+  issue: '1'
+  pdf_pages:
+  - 64
+  - 73
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frágangur handrita
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 69
   page_end: 72
   issue: '1'
@@ -279,8 +306,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
   checks:
@@ -294,10 +321,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Íslenskirlögfræðingarogumheimurinn
+- title: Íslenskir lögfræðingar og umheimurinn
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 81
   page_end: 82
   issue: '2'
@@ -309,8 +336,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
   checks:
@@ -420,7 +447,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Ávíðogdreif
+- title: Þing Alþjóðasambands dómara
   authors: []
   author_titles: []
   article_type: Fræðigrein
@@ -435,7 +462,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
     issue: toc
@@ -450,10 +477,36 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Réttarheimildiroglagatúlkun
+- title: Auðkennaréttur
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
+  page_start: 120
+  page_end: 123
+  issue: '2'
+  pdf_pages:
+  - 129
+  - 132
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttarheimildir og lagatúlkun
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
   page_start: 129
   page_end: 132
   issue: '3'
@@ -465,8 +518,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
   checks:
@@ -486,7 +539,7 @@ articles:
   authors:
   - Guðmundur Ingvi Sigurðsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 133
   page_end: 134
   issue: '3'
@@ -499,7 +552,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: leitir
     pages: leitir+toc
     issue: toc
@@ -610,25 +663,27 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Ávíðogdreif
-  authors: []
+- title: Skýrsla um Lagastofnun Háskóla Íslands 29. febrúar 1988 – 28. febrúar 1989
+  authors:
+  - Sigurður Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 181
-  page_end: 196
+  page_end: 188
   issue: '3'
   pdf_pages:
   - 194
-  - 209
+  - 201
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -640,10 +695,90 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 25. október 1990
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Frétt
+  page_start: 189
+  page_end: 193
+  issue: '3'
+  pdf_pages:
+  - 202
+  - 206
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur Lögfræðingafélags Íslands 1990
+  authors:
+  - Ingvar J. Rögnvaldsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 194
+  page_end: 195
+  issue: '3'
+  pdf_pages:
+  - 207
+  - 208
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tilkynning
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 196
+  page_end: 196
+  issue: '3'
+  pdf_pages:
+  - 209
+  - 209
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Félagsmál dómara
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 201
   page_end: 202
   issue: '4'
@@ -656,7 +791,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
   checks:
@@ -798,31 +933,63 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Á víð og dreif
-  authors: []
+- title: Skýrsla stjórnar Dómarafélags Íslands 1989–1990
+  authors:
+  - Friðgeir Björnsson
+  - Halldór Kristinsson
+  - Haraldur Henrýsson
+  - Pétur Kr. Hafstein
+  - Valtýr Sigurðsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 260
-  page_end: 272
+  page_end: 270
   issue: '4'
   pdf_pages:
   - 277
-  - 289
+  - 287
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
     author_on_page: false
     external_record: false
   confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá aðalfundi Dómarafélags Íslands 1990
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 271
+  page_end: 272
+  issue: '4'
+  pdf_pages:
+  - 288
+  - 289
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

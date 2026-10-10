@@ -48,7 +48,7 @@ error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2023-4tbl.pdf
 articles:
-- title: Kæri lesandi
+- title: Frá ritstjóra
   authors:
   - Daníel Njarðarson
   author_titles: []
@@ -64,7 +64,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     authors: llm
     pages: llm
@@ -334,3 +334,57 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 538 sem skráin nefnir ekki; greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 43 síður heftisins) — greinalisti Claude notaður
+- title: Ávarp formanns Orators
+  authors:
+  - Katla Ýr Sebastiansdóttir Peters
+  author_titles: []
+  article_type: Frétt
+  page_start: 538
+  page_end: 540
+  issue: null
+  pdf_pages:
+  - 147
+  - 149
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla varaformanns Orators
+  authors:
+  - Líney Helgadóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 541
+  page_end: 544
+  issue: null
+  pdf_pages:
+  - 150
+  - 153
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

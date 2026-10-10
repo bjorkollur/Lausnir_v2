@@ -72,7 +72,7 @@ articles:
   authors:
   - Reimar Pétursson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 6
   page_end: 7
   issue: null
@@ -85,7 +85,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -103,7 +103,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
   page_end: 11
   issue: null
@@ -116,7 +116,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -134,7 +134,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 12
   page_end: 14
   issue: null
@@ -147,7 +147,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -165,7 +165,7 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 15
   page_end: 15
   issue: null
@@ -178,7 +178,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -196,7 +196,7 @@ articles:
   authors:
   - Auður Björg Jónsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 16
   page_end: 17
   issue: null
@@ -209,7 +209,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -227,7 +227,7 @@ articles:
   authors:
   - Víðir Smári Petersen
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 18
   page_end: 19
   issue: null
@@ -240,7 +240,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -258,7 +258,7 @@ articles:
   authors:
   - Guðríður Svana Bjarnadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 20
   page_end: 21
   issue: null
@@ -271,7 +271,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -289,7 +289,7 @@ articles:
   authors:
   - Ívar Pálsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 22
   page_end: 23
   issue: null
@@ -302,7 +302,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -320,7 +320,7 @@ articles:
   authors:
   - Katrín Smári Ólafsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 24
   page_end: 25
   issue: null
@@ -333,7 +333,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -347,11 +347,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Dómstólanna
+- title: Af vettvangi dómstólanna
   authors:
   - Guðný Hjaltadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 26
   page_end: 29
   issue: null
@@ -363,8 +363,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -413,11 +413,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 32
-  page_end: 32
+  page_end: 34
   issue: null
   pdf_pages:
   - 31
-  - 31
+  - 33
   lang: is
   date: null
   summary: null
@@ -426,7 +426,7 @@ articles:
     title: toc
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -469,10 +469,36 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Ný stjórn FKL Málstofa I, Lagadagurinn 2017. Elfur Logadóttir.
+- title: Leiðrétting
   authors: []
   author_titles: []
   article_type: Annað
+  page_start: 34
+  page_end: 34
+  issue: null
+  pdf_pages:
+  - 33
+  - 33
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ný stjórn FKL
+  authors: []
+  author_titles: []
+  article_type: Frétt
   page_start: 35
   page_end: 35
   issue: null
@@ -484,8 +510,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
   checks:
     title_on_page: false

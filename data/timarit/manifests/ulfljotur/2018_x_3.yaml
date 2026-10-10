@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.959
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201830.pdf
@@ -20,11 +20,11 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201834.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201835.pdf
 articles:
-- title: 'Samningar sem hafa að markmiði að raska samkeppni: Dómur EFTA-dómstólsins í máli E-3/16'
+- title: Frá ritstjóra
   authors:
-  - Peter Dalmay
+  - Jóhannes Tómasson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 329
   page_end: 329
   issue: null
@@ -36,9 +36,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
+    title: user
+    authors: user
     pages: page
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -81,8 +82,9 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201831.pdf
   note: ''
   analysis_notes: []
-- title: null
-  authors: []
+- title: Aðilasamlagsvarnarþing í einkamálum
+  authors:
+  - Jón Gunnar Ásbjörnsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 353
@@ -97,20 +99,23 @@ articles:
   keywords: []
   provenance:
     pages: page
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201832.pdf
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.50)
-- title: Áhrif(aleysi) ólögfestra mann-
-  authors: []
+- title: Áhrif(aleysi) ólögfestra mannréttindasamninga í dómaframkvæmd og hugsanlegar stjórnarskrárbreytingar
+  authors:
+  - Kári Hólmar Ragnarsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 387
@@ -125,21 +130,23 @@ articles:
   keywords: []
   provenance:
     pages: page
-    title: page
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201833.pdf
   note: ''
   analysis_notes:
   - engin röð í töflu passaði (best 0.37)
-- title: Lagasnið lagafrumvarpa
-  authors: []
+- title: Lagasnið lagafrumvarpa – er breytinga þörf?
+  authors:
+  - Hafdís H. Ólafsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 425
@@ -154,13 +161,14 @@ articles:
   keywords: []
   provenance:
     pages: page
-    title: page
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201834.pdf
@@ -188,7 +196,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_3_tbl/201835.pdf

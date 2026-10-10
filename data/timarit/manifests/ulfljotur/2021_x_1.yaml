@@ -22,13 +22,13 @@ page_map:
   - 47
   - 73
   - 113
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2021-1tbl.pdf
 articles:
-- title: Læknamistök í dómaframkvæmd Mannréttindadómstóls Evrópu ? fyrri hluti
+- title: Læknamistök í dómaframkvæmd Mannréttindadómstóls Evrópu – fyrri hluti
   authors:
   - Ivana Anna Nikolic
   author_titles: []
@@ -44,7 +44,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
   checks:
@@ -58,8 +58,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Takmörkun á upply?singarétti almennings varðandi starfssamband opinberra aðila við starfsfólk sitt ?að öðru leyti?
-    skv. 1. mgr. 7. gr. upply?singalaga
+- title: Takmörkun á upplýsingarétti almennings varðandi starfssamband opinberra aðila við starfsfólk sitt „að öðru leyti“
+    skv. 1. mgr. 7. gr. upplýsingalaga
   authors:
   - Oddur Þorri Viðarsson
   author_titles: []
@@ -75,7 +75,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
   checks:
@@ -151,3 +151,30 @@ articles:
   analysis_notes:
   - 'FRÁVIK: undirritunin (María Rún Bjarnadóttir) stendur á eftir fyrirsögninni „MINNINGARBÁLKUR“ á bls. 161; greinin er
     talin enda á undan henni'
+- title: Ruth Bader Ginsburg
+  authors:
+  - María Rún Bjarnadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 161
+  page_end: 167
+  issue: null
+  pdf_pages:
+  - 162
+  - 168
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

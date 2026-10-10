@@ -34,7 +34,7 @@ page_map:
   - 210
   - 211
   - 212
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
@@ -197,3 +197,83 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Fréttir frá Alþingi“ á bls. 497 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Fréttir frá Alþingi
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 497
+  page_end: 504
+  issue: null
+  pdf_pages:
+  - 180
+  - 187
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Alþjóðlega málflutningskeppnin Jessup 2003
+  authors:
+  - Ásgeir Helgi Jóhannsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 505
+  page_end: 508
+  issue: null
+  pdf_pages:
+  - 188
+  - 191
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norræna málflutningskeppnin 2003
+  authors:
+  - Særún María Gunnarsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 509
+  page_end: 512
+  issue: null
+  pdf_pages:
+  - 192
+  - 195
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

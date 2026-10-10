@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.758
-status: review
+status: approved
 confidence: 0.8
 error: null
 files:
@@ -63,11 +63,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 35
-  page_end: 56
+  page_end: 55
   issue: '1'
   pdf_pages:
   - 0
-  - 21
+  - 20
   lang: is
   date: null
   summary: null
@@ -75,7 +75,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -94,11 +94,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 57
-  page_end: 72
+  page_end: 71
   issue: '1'
   pdf_pages:
   - 0
-  - 15
+  - 14
   lang: is
   date: null
   summary: null
@@ -106,7 +106,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -157,11 +157,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 95
-  page_end: 122
+  page_end: 121
   issue: '1'
   pdf_pages:
   - 0
-  - 27
+  - 26
   lang: is
   date: null
   summary: null
@@ -169,7 +169,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -220,11 +220,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 151
-  page_end: 184
+  page_end: 183
   issue: '2'
   pdf_pages:
   - 0
-  - 33
+  - 32
   lang: is
   date: null
   summary: null
@@ -232,7 +232,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -316,11 +316,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 229
-  page_end: 252
+  page_end: 251
   issue: '2'
   pdf_pages:
   - 0
-  - 23
+  - 22
   lang: is
   date: null
   summary: null
@@ -328,7 +328,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true

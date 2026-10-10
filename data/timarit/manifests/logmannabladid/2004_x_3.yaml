@@ -212,9 +212,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Golfmót Golfmót sumarsins sumarsins
-  authors:
-  - Hörður Orri Grettisson
+- title: Golfmót sumarsins
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 18
@@ -228,10 +227,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

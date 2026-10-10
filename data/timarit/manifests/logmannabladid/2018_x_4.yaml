@@ -76,7 +76,7 @@ articles:
   authors:
   - Berglind Svavarsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 6
   page_end: 6
   issue: null
@@ -89,7 +89,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -138,7 +138,7 @@ articles:
   authors:
   - Davíð Þór Björgvinsson
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 10
   page_end: 14
   issue: null
@@ -151,7 +151,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -166,6 +166,33 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Hver er tilgangur“ á bls. 15 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Hver er tilgangur birtinga dóma á netinu?
+  authors:
+  - Anna Lilja Hallgrímsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 15
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 14
+  - 14
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Mikilvægast að vera heiðarleg. Viðtal við Þórunni Guðmundsdóttur
   authors:
   - Eva Halldórsdóttir
@@ -298,7 +325,7 @@ articles:
   authors:
   - Katrín Smári Ólafsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Viðtal
   page_start: 30
   page_end: 32
   issue: null
@@ -311,7 +338,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

@@ -77,7 +77,7 @@ page_map:
     unclaimed: 33
     pages: 403
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.55
 error: null
 files:
@@ -148,7 +148,7 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Um vansvefta skipstjóra og afladrjúga stýrimenn
   authors:
-  - Róbert Spanó
+  - Róbert R. Spanó
   author_titles: []
   article_type: Fræðigrein
   page_start: 17
@@ -164,7 +164,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
     issue: leitir
   checks:
@@ -308,8 +308,7 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur Íslands“ á pdf-síðu 75 sem skráin nefnir ekki; greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Fangelsismál
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 69
@@ -326,7 +325,7 @@ articles:
     title: llm
     article_type: llm
     pages: leitir+llm
-    authors: leitir
+    authors: user
     issue: leitir
   checks:
     title_on_page: true
@@ -506,8 +505,7 @@ articles:
     greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Þakkir og árnaðaróskir
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 155
@@ -524,7 +522,7 @@ articles:
     title: llm
     article_type: llm
     pages: leitir+llm
-    authors: leitir
+    authors: user
     issue: leitir
   checks:
     title_on_page: true
@@ -608,7 +606,7 @@ articles:
 - title: Ráðgefandi álit EFTA-dómstólsins í máli Erlu Maríu Sveinbjörnsdóttur og takmarkanir á framsali löggjafarvalds til
     stofnana EES
   authors:
-  - Reimar Snæfells Pétursson
+  - Reimar Pétursson
   author_titles: []
   article_type: Fræðigrein
   page_start: 197
@@ -624,7 +622,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
     issue: leitir
   checks:
@@ -707,8 +705,7 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur Íslands“ á pdf-síðu 297 sem skráin nefnir ekki; greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (20 af 26 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Breytingar á lögum um meðferð opinberra mála
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 283
@@ -725,7 +722,7 @@ articles:
     title: llm
     article_type: llm
     pages: leitir+llm
-    authors: leitir
+    authors: user
     issue: leitir
   checks:
     title_on_page: true

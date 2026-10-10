@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.745
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/109.pdf
@@ -27,8 +27,9 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/5.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/53.pdf
 articles:
-- title: Refsivörzlu ríkisins
-  authors: []
+- title: Sérbrot gegn refsivörzlu ríkisins
+  authors:
+  - Jónatan Þórmundsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 297
@@ -43,13 +44,14 @@ articles:
   keywords: []
   provenance:
     pages: page
-    title: page
+    title: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1974 27 arg/498.pdf
@@ -275,7 +277,7 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 179, prentað bls. 176'
-- title: Oversigt over islandske forsikringer der dækker arbejdsulykker pa sömænd
+- title: Oversigt over islandske forsikringer der dækker arbejdsulykker på sømænd
   authors:
   - Arnljótur Björnsson
   author_titles: []
@@ -291,7 +293,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -402,7 +404,6 @@ articles:
   analysis_notes: []
 - title: Bætur fyrir lífs- og líkamstjón
   authors:
-  - Eiríkur Tómasson
   - Þórir Bergsson
   author_titles: []
   article_type: Fræðigrein
@@ -418,7 +419,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    authors: page
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:

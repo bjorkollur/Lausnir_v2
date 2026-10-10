@@ -72,8 +72,8 @@ page_map:
     unclaimed: 3
     pages: 244
     by_proxy: 0
-status: review
-confidence: 0
+status: approved
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1978.pdf
@@ -82,7 +82,7 @@ articles:
   authors:
   - Þór Vilhjálmsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 1
   issue: '1'
@@ -95,7 +95,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -184,7 +184,7 @@ articles:
   authors:
   - Þór Vilhjálmsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 38
   page_end: 39
   issue: '1'
@@ -197,7 +197,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -216,6 +216,112 @@ articles:
     enda þar'
   - 'greinar fundust ekki í skjalinu: 1 (bls. 221; síðasta lesna blaðsíðutal 216) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Frá aðalfundi Dómarafélags Íslands
+  authors:
+  - Kristinn Ólafsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 39
+  page_end: 39
+  issue: '1'
+  pdf_pages:
+  - 44
+  - 44
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Heimsókn bandarískra dómara
+  authors:
+  - Magnús Thoroddsen
+  author_titles: []
+  article_type: Frétt
+  page_start: 39
+  page_end: 40
+  issue: '1'
+  pdf_pages:
+  - 44
+  - 45
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skipulagsbreyting í fangelsismálum
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 40
+  page_end: 42
+  issue: '1'
+  pdf_pages:
+  - 45
+  - 47
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Haagdómurinn um fiskveiðilögsöguna
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 42
+  page_end: 42
+  issue: '1'
+  pdf_pages:
+  - 47
+  - 47
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Lagareglur um ríkisstjórnina
   authors:
   - Þór Vilhjálmsson
@@ -257,7 +363,7 @@ articles:
   - Sveinn H. Ragnarsson
   - Gunnar J. Möller
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 51
   page_end: 56
   issue: '2'
@@ -270,7 +376,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -323,7 +429,10 @@ articles:
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Samning dóma. Erindi Benedikts Sigurjónssonar, Haralds Henrýssonar og Magnúsar Thoroddsen á málþingi Dómarafélags
     íslands
-  authors: []
+  authors:
+  - Benedikt Sigurjónsson
+  - Haraldur Henrýsson
+  - Magnús Thoroddsen
   author_titles: []
   article_type: Fræðigrein
   page_start: 66
@@ -341,6 +450,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -354,11 +464,11 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 221; síðasta lesna blaðsíðutal 216) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
-- title: Frá Lögmannafélagi íslands
+- title: Aðalfundur 1978
   authors:
   - Stefán Pálsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 87
   page_end: 88
   issue: '2'
@@ -370,8 +480,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: page
@@ -388,11 +498,11 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 221; síðasta lesna blaðsíðutal 216) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
-- title: Frá lagadeild Háskólans
+- title: Deildarfréttir
   authors:
   - Arnljótur Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 89
   page_end: 92
   issue: '2'
@@ -404,8 +514,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -423,24 +533,26 @@ articles:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 221; síðasta lesna blaðsíðutal 216) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Amnesty international fær friðarverðlaun nobels
-  authors: []
+  authors:
+  - Friðgeir Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 93
-  page_end: 97
+  page_end: 95
   issue: '2'
   pdf_pages:
   - 102
-  - 106
+  - 104
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: page
-    article_type: toc
-    pages: toc
+    article_type: user
+    pages: user
     issue: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -454,6 +566,59 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 221; síðasta lesna blaðsíðutal 216) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Stokkhólmsyfirlýsingin 11. desember 1977
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 96
+  page_end: 96
+  issue: '2'
+  pdf_pages:
+  - 105
+  - 105
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málþing um samningu dóma
+  authors:
+  - Ólafur St. Sigurðsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 97
+  page_end: 97
+  issue: '2'
+  pdf_pages:
+  - 106
+  - 106
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Skiptalögin 100 ára
   authors:
   - Þór Vilhjálmsson
@@ -493,7 +658,7 @@ articles:
   authors:
   - Guðjón Lárusson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 98
   page_end: 98
   issue: '3'
@@ -506,7 +671,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -659,25 +824,80 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 221; síðasta lesna blaðsíðutal 216) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
-- title: Lögfræöingafélagl Islands FÉLAGSFUNDIR
+- title: Frá fundi ríkissaksóknara Norðurlanda 1978
+  authors:
+  - Þórður Björnsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 151
+  page_end: 160
+  issue: '3'
+  pdf_pages:
+  - 172
+  - 181
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýr dómsmálaráðherra
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
+  page_start: 160
+  page_end: 160
+  issue: '3'
+  pdf_pages:
+  - 181
+  - 181
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félagsfundir
+  authors:
+  - Jón Steinar Gunnlaugsson
+  author_titles: []
+  article_type: Frétt
   page_start: 161
-  page_end: 161
+  page_end: 162
   issue: '3'
   pdf_pages:
   - 182
-  - 182
+  - 183
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -691,11 +911,11 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 221; síðasta lesna blaðsíðutal 216) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
-- title: Frá Lögfræðingafélagi íslands
+- title: Félagsfundir
   authors:
   - Jón Steinar Gunnlaugsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 161
   page_end: 162
   issue: '3'
@@ -707,8 +927,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -726,9 +946,10 @@ articles:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 221; síðasta lesna blaðsíðutal 216) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Endurskoðun stjórnarskrárinnar
-  authors: []
+  authors:
+  - Þór Vilhjálmsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 173
   page_end: 174
   issue: '4'
@@ -741,9 +962,10 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -759,9 +981,11 @@ articles:
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Gunnar Þorsteinsson — Jón P. Emils — Magnús Thorlacius
   authors:
-  - Gunnar Þorsteinn Þorsteinsson
+  - Freymóður Þorsteinsson
+  - Björn Tryggvason
+  - Ólafur Þorgrímsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 175
   page_end: 178
   issue: '4'
@@ -774,10 +998,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -895,28 +1119,62 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 221; síðasta lesna blaðsíðutal 216) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
-- title: Á víð og dreif
+- title: Ályktun
+  authors:
+  - Guðjón Steingrímsson
+  - Hákon Árnason
+  - Skarphéðinn Þórisson
+  - Stefán Pálsson
+  - Jón E. Ragnarsson
+  author_titles: []
+  article_type: Annað
+  page_start: 211
+  page_end: 212
+  issue: '4'
+  pdf_pages:
+  - 236
+  - 237
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ný stjórnarskrárnefnd
   authors: []
   author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  article_type: Frétt
+  page_start: 213
+  page_end: 213
   issue: '4'
-  pdf_pages: null
+  pdf_pages:
+  - 238
+  - 238
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     issue: toc
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -924,28 +1182,33 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 221; síðasta lesna blaðsíðutal 216) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
-- title: Frá lagadeild Háskólans
-  authors: []
+- title: Skýrsla um Lagastofnun Háskóla Íslands 28. febrúar 1977 — 27. febrúar 1978
+  authors:
+  - Sigurður Líndal
   author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  article_type: Frétt
+  page_start: 214
+  page_end: 216
   issue: '4'
-  pdf_pages: null
+  pdf_pages:
+  - 239
+  - 241
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     issue: toc
+    authors: user
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

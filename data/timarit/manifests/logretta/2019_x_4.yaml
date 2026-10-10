@@ -17,7 +17,7 @@ page_map:
   bin_ratio: 0.959
   non_article: []
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2019 4.tbl.pdf
@@ -28,10 +28,12 @@ articles:
   - Ómar H. Kristmundsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: null
-  page_end: null
+  page_start: 1
+  page_end: 24
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 0
+  - 23
   lang: is
   date: null
   summary: null
@@ -40,12 +42,13 @@ articles:
     title: llm
     article_type: llm
     authors: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

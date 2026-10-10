@@ -913,11 +913,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 177
-  page_end: 185
+  page_end: 186
   issue: null
   pdf_pages:
   - 190
-  - 198
+  - 199
   lang: is
   date: null
   summary: null
@@ -925,7 +925,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -976,7 +976,7 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 187
-  page_end: 191
+  page_end: 187
   issue: '3'
   pdf_pages:
   - 200
@@ -989,7 +989,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: leitir+llm
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -1005,8 +1005,7 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (13 af 19 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 89 síður
     heftisins) — greinalisti Claude notaður
 - title: Sérkjarasamningur Lögfræðingafélags Íslands og fjármálaráðherra f.h. ríkissjóðs 1. mars 1980 til 28. febr. 1982
-  authors:
-  - Jón G. Tómasson
+  authors: []
   author_titles: []
   article_type: Annað
   page_start: 188
@@ -1023,7 +1022,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

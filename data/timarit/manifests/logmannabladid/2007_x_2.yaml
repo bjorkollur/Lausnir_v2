@@ -96,11 +96,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 8
-  page_end: 8
+  page_end: 9
   issue: null
   pdf_pages:
   - 7
-  - 7
+  - 8
   lang: is
   date: null
   summary: null
@@ -109,7 +109,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -303,7 +303,7 @@ articles:
   authors:
   - Ragnhildur Benediktsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 22
   page_end: 23
   issue: null
@@ -316,7 +316,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:
@@ -367,11 +367,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 26
-  page_end: 26
+  page_end: 27
   issue: null
   pdf_pages:
   - 25
-  - 25
+  - 26
   lang: is
   date: null
   summary: null
@@ -380,7 +380,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

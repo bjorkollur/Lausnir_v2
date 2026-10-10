@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.456
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
@@ -79,11 +79,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 23
-  page_end: 40
+  page_end: 39
   issue: '1'
   pdf_pages:
   - 0
-  - 17
+  - 16
   lang: en
   date: null
   summary: null
@@ -91,7 +91,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -249,11 +249,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 117
-  page_end: 136
+  page_end: 135
   issue: '1'
   pdf_pages:
   - 0
-  - 19
+  - 18
   lang: is
   date: null
   summary: null
@@ -261,7 +261,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -283,11 +283,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 137
-  page_end: 162
+  page_end: 161
   issue: '1'
   pdf_pages:
   - 0
-  - 25
+  - 24
   lang: is
   date: null
   summary: null
@@ -295,7 +295,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -388,11 +388,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 205
-  page_end: 226
+  page_end: 225
   issue: '1'
   pdf_pages:
   - 0
-  - 21
+  - 20
   lang: en
   date: null
   summary: null
@@ -400,7 +400,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -421,8 +421,8 @@ articles:
   - Gunnar Helgi Kristinsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 229
-  page_end: 250
+  page_start: 227
+  page_end: 248
   issue: '2'
   pdf_pages:
   - 0
@@ -434,7 +434,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -735,8 +735,8 @@ articles:
   - Óskar Dýrmundur Ólafsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 405
-  page_end: 416
+  page_start: 399
+  page_end: 410
   issue: '2'
   pdf_pages:
   - 0
@@ -748,7 +748,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -767,7 +767,6 @@ articles:
   authors:
   - Eva Heiða Önnudóttir
   - Ólafur Þ. Harðarson
-  - Björn Matthíasson
   author_titles: []
   article_type: Fræðigrein
   page_start: 411
@@ -782,7 +781,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    authors: page
+    authors: user
     pages: page
     issue: page
   checks:
@@ -912,11 +911,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 497
-  page_end: 522
+  page_end: 521
   issue: '2'
   pdf_pages:
   - 0
-  - 25
+  - 24
   lang: is
   date: null
   summary: null
@@ -924,7 +923,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true

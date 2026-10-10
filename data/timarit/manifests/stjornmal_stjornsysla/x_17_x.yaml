@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.639
-status: review
+status: approved
 confidence: 0.8
 error: null
 files:
@@ -33,11 +33,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 1
-  page_end: 22
+  page_end: 21
   issue: '1'
   pdf_pages:
   - 0
-  - 21
+  - 20
   lang: en
   date: null
   summary: null
@@ -45,7 +45,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -99,11 +99,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 49
-  page_end: 78
+  page_end: 77
   issue: '1'
   pdf_pages:
   - 0
-  - 29
+  - 28
   lang: is
   date: null
   summary: null
@@ -111,7 +111,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -165,11 +165,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 107
-  page_end: 130
+  page_end: 129
   issue: '1'
   pdf_pages:
   - 0
-  - 23
+  - 22
   lang: is
   date: null
   summary: null
@@ -177,7 +177,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -362,11 +362,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 235
-  page_end: 260
+  page_end: 259
   issue: '2'
   pdf_pages:
   - 0
-  - 25
+  - 24
   lang: is
   date: null
   summary: null
@@ -374,7 +374,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true

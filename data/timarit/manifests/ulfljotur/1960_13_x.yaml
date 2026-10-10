@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.807
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -49,6 +49,32 @@ articles:
   confidence: 1.0
   leitir_record_id: null
   xlsx_row: 1130
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/109.pdf
+  note: ''
+  analysis_notes: []
+- title: Verðlaunaritgerð
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 6
+  page_end: 6
+  issue: '1'
+  pdf_pages:
+  - 3
+  - 3
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/109.pdf
   note: ''
   analysis_notes: []
@@ -178,10 +204,36 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 129, prentað bls. 126'
+- title: Yfirferðin í vetur í fyrri hluta
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 129
+  page_end: 129
+  issue: '4'
+  pdf_pages:
+  - 3
+  - 3
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1960 13 arg/1134.pdf
+  note: ''
+  analysis_notes: []
 - title: Forvitnilegt erlent skaðabótamál og hámark dánarbóta
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 149
   page_end: 149
   issue: '4'
@@ -197,6 +249,7 @@ articles:
     authors: xlsx
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -209,26 +262,27 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: höfundurinn „Ritstjórn“ úr skránni er hvergi prentaður við greinina og var felldur niður'
-- title: Bækur og fræðimenn
+- title: Stjórnskipun Íslands
   authors:
   - Gaukur Jörundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritdómur
   page_start: 150
-  page_end: 153
+  page_end: 152
   issue: '4'
   pdf_pages:
   - 0
-  - 3
+  - 2
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true

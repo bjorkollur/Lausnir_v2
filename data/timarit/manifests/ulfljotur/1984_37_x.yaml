@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.845
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/131.pdf
@@ -27,34 +27,6 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/629.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/87.pdf
 articles:
-- title: null
-  authors: []
-  author_titles: []
-  article_type: Fræðigrein
-  page_start: null
-  page_end: null
-  issue: null
-  pdf_pages:
-  - 0
-  - 5
-  lang: is
-  date: null
-  summary: null
-  keywords: []
-  provenance: {}
-  checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
-    external_record: false
-  confidence: 0
-  leitir_record_id: null
-  xlsx_row: null
-  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1984 37 arg/153-3976-2.pdf
-  note: ''
-  analysis_notes:
-  - engin röð í töflu passaði (best 0.59)
-  - 'FRÁVIK: blaðsíðutal greinarinnar fannst hvorki á síðunni né í skránni'
 - title: Lögbók og lagahreinsun
   authors:
   - Páll Sigurðsson
@@ -214,7 +186,7 @@ articles:
   - 'FRÁVIK: taflan segir bls. 77, prentað bls. 71'
 - title: Lögfræðingakönnun
   authors:
-  - Jóhan Albertsson
+  - Jóhann Albertsson
   - Gísli Gíslason
   author_titles: []
   article_type: Fræðigrein
@@ -230,7 +202,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: page
     issue: xlsx
   checks:

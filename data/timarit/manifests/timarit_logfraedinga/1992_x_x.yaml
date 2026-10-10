@@ -73,7 +73,7 @@ page_map:
     unclaimed: 1
     pages: 305
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -82,7 +82,7 @@ articles:
 - title: 1. júlí 1992
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 2
   issue: '1'
@@ -95,7 +95,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
   checks:
@@ -209,7 +209,7 @@ articles:
   authors:
   - Arnljótur Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 58
   page_end: 61
   issue: '1'
@@ -222,7 +222,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -237,11 +237,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Skýrsla um Lagastofnun Háskóla Islands 15. febrúar 1991 - 19. febrúar 1992.
+- title: Skýrsla um Lagastofnun Háskóla Íslands 15. febrúar 1991 - 19. febrúar 1992.
   authors:
   - Sigurður Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 62
   page_end: 71
   issue: '1'
@@ -253,8 +253,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -272,7 +272,7 @@ articles:
 - title: Mál og lög
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 81
   page_end: 84
   issue: '2'
@@ -285,7 +285,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
   checks:
@@ -367,7 +367,7 @@ articles:
   authors:
   - Páll Skúlason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritdómur
   page_start: 140
   page_end: 144
   issue: '2'
@@ -380,7 +380,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
     issue: toc
@@ -396,9 +396,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Skýrsla stjórnar Lögfræðingafélags íslands á aðalfundi 31. október 1991
-  authors: []
+  authors:
+  - Garðar Gíslason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 145
   page_end: 149
   issue: '2'
@@ -411,9 +412,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -429,7 +431,7 @@ articles:
   authors:
   - Ingvar J. Rögnvaldsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 150
   page_end: 151
   issue: '2'
@@ -442,7 +444,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -491,7 +493,7 @@ articles:
   analysis_notes: []
 - title: Dómstólar í breytilegum heimi
   authors:
-  - Ragnar Áðalsteinsson
+  - Ragnar Aðalsteinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 161
@@ -507,7 +509,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -523,9 +525,9 @@ articles:
   analysis_notes: []
 - title: Magnús Fr. Árnason. In memoriam
   authors:
-  - Þórarinn Ámason
+  - Þórarinn Árnason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 166
   page_end: 167
   issue: '3'
@@ -538,8 +540,8 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    authors: toc
+    article_type: user
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -623,11 +625,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 177
-  page_end: 181
+  page_end: 182
   issue: '3'
   pdf_pages:
   - 190
-  - 194
+  - 195
   lang: is
   date: null
   summary: null
@@ -636,7 +638,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
     issue: toc
   checks:
     title_on_page: true
@@ -669,7 +671,7 @@ articles:
     frá fyrstu stundu til hinnar síðustu“ á bls. 182 sem skráin nefnir ekki; greinin er talin enda þar'
 - title: Þróunarkenningin um lög
   authors:
-  - Hannes Hólmsteinn Gissurarson
+  - Hannes H. Gissurarson
   author_titles: []
   article_type: Fræðigrein
   page_start: 183
@@ -685,7 +687,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: leitir
+    authors: user
     pages: leitir+toc
     issue: toc
   checks:
@@ -700,11 +702,11 @@ articles:
   note: ''
   analysis_notes:
   - 'á síðunni stendur: Hannes H. Gissurarson'
-- title: A víð og dreif Aðalfundur Lögmannafélags Islands 1992
+- title: Aðalfundur L.M.F.Í. 27. mars og framhaldsaðalfundir 25. maí og 7. júlí 1992
   authors:
   - Marteinn Másson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 209
   page_end: 226
   issue: '3'
@@ -716,8 +718,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -764,7 +766,7 @@ articles:
   analysis_notes: []
 - title: Rýmkuð sakarregla
   authors:
-  - Amljót Bjömsson
+  - Arnljótur Björnsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 237
@@ -780,7 +782,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -891,11 +893,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Skýrsla Stjórnar Lögfræðingafélags Islands á aðalfundi 30. október 1992.
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 30. október 1992.
   authors:
   - Garðar Gíslason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 269
   page_end: 274
   issue: '4'
@@ -907,8 +909,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -923,11 +925,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Aðalfundur Lögfræðingafélags Islands 1992
+- title: Aðalfundur Lögfræðingafélags Íslands 1992
   authors:
   - Ingvar J. Rögnvaldsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 275
   page_end: 276
   issue: '4'
@@ -939,8 +941,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -956,9 +958,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Norrænt lögfræðingaþing
-  authors: []
+  authors:
+  - Ármann Snævarr
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 277
   page_end: 278
   issue: '4'
@@ -971,9 +974,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

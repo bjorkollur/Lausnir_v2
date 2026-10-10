@@ -71,7 +71,7 @@ page_map:
   - 372
   - 373
   - 374
-status: review
+status: approved
 confidence: 0.45
 error: null
 files:
@@ -277,11 +277,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 35
-  page_end: 35
+  page_end: 36
   issue: null
   pdf_pages:
   - 240
-  - 240
+  - 241
   lang: is
   date: null
   summary: null
@@ -290,7 +290,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -502,11 +502,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 107
-  page_end: 107
+  page_end: 108
   issue: null
   pdf_pages:
   - 340
-  - 340
+  - 341
   lang: is
   date: null
   summary: null
@@ -515,7 +515,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -601,7 +601,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 343
-  - 344
+  - 345
   lang: is
   date: null
   summary: null
@@ -610,7 +610,7 @@ articles:
     title: llm
     article_type: llm
     authors: leitir
-    pages: leitir+llm
+    pages: user
     issue: leitir
   checks:
     title_on_page: true

@@ -151,6 +151,60 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/298.pdf
   note: ''
   analysis_notes: []
+- title: UTVEKLINGSTENDENSER I DOMSTOLSKONTROLLEN AV FÖRVALTNINGEN
+  authors:
+  - V. Merikoski
+  author_titles: []
+  article_type: Annað
+  page_start: 17
+  page_end: 17
+  issue: '2'
+  pdf_pages:
+  - 13
+  - 13
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/298.pdf
+  note: ''
+  analysis_notes: []
+- title: DEN ISLANDSKE LOVBOKEN GRAGAS
+  authors:
+  - Ólafur Lárusson
+  author_titles: []
+  article_type: Annað
+  page_start: 17
+  page_end: 17
+  issue: '2'
+  pdf_pages:
+  - 13
+  - 13
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/298.pdf
+  note: ''
+  analysis_notes: []
 - title: Det norske sivillovbok-arbeidet
   authors:
   - Knut Robberstad
@@ -182,7 +236,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1953 07 arg/106.pdf
   note: ''
   analysis_notes: []
-- title: Straffelagsreformen i Sverige
+- title: Strafflagsreformen i Sverige
   authors:
   - Nils Beckman
   author_titles: []
@@ -198,7 +252,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: page
     issue: xlsx
@@ -374,7 +428,7 @@ articles:
   authors:
   - Þorvaldur Ari Arason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 21
   page_end: 24
   issue: '4'
@@ -390,6 +444,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

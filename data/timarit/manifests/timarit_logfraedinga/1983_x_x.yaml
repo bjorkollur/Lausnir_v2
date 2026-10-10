@@ -64,7 +64,7 @@ page_map:
     unclaimed: 1
     pages: 304
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -179,7 +179,7 @@ articles:
   issue: '1'
   pdf_pages:
   - 12
-  - 35
+  - 36
   lang: is
   date: null
   summary: null
@@ -188,7 +188,7 @@ articles:
     title: llm
     article_type: llm
     authors: leitir
-    pages: leitir+llm
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -394,11 +394,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 49
-  page_end: 51
+  page_end: 52
   issue: null
   pdf_pages:
   - 54
-  - 56
+  - 57
   lang: is
   date: null
   summary: null
@@ -406,7 +406,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -591,11 +591,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 66
-  page_end: 71
+  page_end: 72
   issue: null
   pdf_pages:
   - 75
-  - 80
+  - 81
   lang: is
   date: null
   summary: null
@@ -604,7 +604,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1556,7 +1556,7 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Dómar Mannréttindadómstóls Evrópu 1982 og 1983
   authors:
-  - Mannréttindadómstóll Evrópu
+  - Þór Vilhjálmsson
   author_titles: []
   article_type: Dómareifun
   page_start: 248
@@ -1572,7 +1572,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
     issue: leitir
   checks:

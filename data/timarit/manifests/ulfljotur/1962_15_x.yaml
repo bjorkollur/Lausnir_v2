@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.944
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/112.pdf
@@ -47,7 +47,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/666.pdf
@@ -276,7 +276,7 @@ articles:
   authors:
   - Hörður Einarsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 116
   page_end: 121
   issue: '3'
@@ -292,6 +292,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -335,7 +336,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1962 15 arg/61.pdf
   note: ''
   analysis_notes: []
-- title: Varsjársáttmálinn frá 1929
+- title: Varsjársáttmálinn frá 1929 og sáttmálaaukinn frá 1955
   authors:
   - Gizur Bergsteinsson
   author_titles: []
@@ -351,7 +352,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx

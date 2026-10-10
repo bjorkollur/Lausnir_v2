@@ -230,11 +230,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 149
-  page_end: 154
+  page_end: 153
   issue: '2'
   pdf_pages:
   - 0
-  - 5
+  - 4
   lang: is
   date: null
   summary: null
@@ -242,7 +242,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -252,6 +252,32 @@ articles:
   confidence: 1.0
   leitir_record_id: null
   xlsx_row: 661
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/89.pdf
+  note: ''
+  analysis_notes: []
+- title: Formenn Orators 1929—1989
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 155
+  page_end: 156
+  issue: '2'
+  pdf_pages:
+  - 6
+  - 7
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/89.pdf
   note: ''
   analysis_notes: []
@@ -412,7 +438,7 @@ articles:
   analysis_notes: []
 - title: Nauðasamningar
   authors:
-  - Elíln S. Jónsdóttir
+  - Elín S. Jónsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 277
@@ -427,7 +453,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:
@@ -507,7 +533,7 @@ articles:
   authors:
   - Björg Thorarensen
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 331
   page_end: 337
   issue: '3'
@@ -523,6 +549,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -694,12 +721,39 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Starfsemi Elsa, samtaka evrópskra laganema“ á bls. 423 sem skráin nefnir ekki; greinin
     er talin enda þar'
+- title: Starfsemi ELSA, samtaka evrópskra laganema
+  authors:
+  - Kristbjörg Stephensen
+  author_titles: []
+  article_type: Frétt
+  page_start: 423
+  page_end: 425
+  issue: '4'
+  pdf_pages:
+  - 6
+  - 8
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1989 42 arg/276.pdf
+  note: ''
+  analysis_notes: []
 - title: Haustráðstefna ELSA International í London
   authors:
   - Áslaug Magnúsdóttir
   - Ingibjörg Ingvadóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 427
   page_end: 434
   issue: '4'
@@ -715,6 +769,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

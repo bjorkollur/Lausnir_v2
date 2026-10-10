@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.864
-status: review
+status: approved
 confidence: 0.85
 error: null
 files:
@@ -166,8 +166,8 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2001 54 arg/611.pdf
   note: ''
   analysis_notes: []
-- title: Upplýsingagjöf lögreglu meðan á rannsókn mál stendur og takmarkanir á aðgangi sakbornings og verjanda að gögnum máls
-    á rannsóknarstigi
+- title: Upplýsingagjöf lögreglu meðan á rannsókn máls stendur og takmarkanir á aðgangi sakbornings og verjanda að gögnum
+    máls á rannsóknarstigi
   authors:
   - Kristín Edwald
   author_titles: []
@@ -183,7 +183,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -449,7 +449,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2001 54 arg/47.pdf
   note: ''
   analysis_notes: []
-- title: Reglur um verðbréfa markaði og viðfangsefni verðbréfamarkaðsréttar
+- title: Reglur um verðbréfamarkaði og viðfangsefni verðbréfamarkaðsréttar
   authors:
   - Áslaug Björgvinsdóttir
   author_titles: []
@@ -465,7 +465,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx

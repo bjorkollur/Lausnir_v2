@@ -30,7 +30,7 @@ page_map:
   - 27
   - 31
   - 34
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -378,11 +378,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 33
-  page_end: 33
+  page_end: 34
   issue: null
   pdf_pages:
   - 32
-  - 32
+  - 33
   lang: is
   date: null
   summary: null
@@ -391,7 +391,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -404,8 +404,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Umsögn um frumvarp til laga um fullnustu refsinga
-  authors:
-  - Laganefnd LMFÍ
+  authors: []
   author_titles: []
   article_type: Annað
   page_start: 34
@@ -421,7 +420,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
+    authors: user
     pages: llm
   checks:
     title_on_page: true

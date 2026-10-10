@@ -69,7 +69,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá ritstjórn
+- title: Um form og efni
   authors:
   - Ari Karlsson
   author_titles: []
@@ -85,7 +85,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -102,8 +102,9 @@ articles:
   analysis_notes:
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Um form og efni“) er annar titill en skrárinnar („Frá ritstjórn“); titli skrárinnar
     haldið'
-- title: VIÐTAL VIÐ ÓSKAR MAGNÚSSON Hef skáldað mér friðhelgi
-  authors: []
+- title: Hef skáldað mér friðhelgi
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 10
@@ -117,9 +118,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -135,7 +137,7 @@ articles:
   authors:
   - Ari Karlsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 13
   page_end: 15
   issue: null
@@ -148,7 +150,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -255,7 +257,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Það er ekki skilnaðurinn sjálfur sem veldur skaða
+- title: Það er ekki skilnaðurinn sjálfur sem veldur skaða, heldur það hvernig staðið er að honum!
   authors:
   - Gyða Hjartardóttir
   author_titles: []
@@ -271,7 +273,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -290,7 +292,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 24
   page_end: 24
   issue: null
@@ -303,7 +305,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -317,8 +319,36 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ ÓLAF H. RAGNARSSON Hef bara tíma fyrir gott fólk
-  authors: []
+- title: Styrkur til fræðiskrifa
+  authors:
+  - Eyrún Ingadóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 25
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 24
+  - 24
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hef bara tíma fyrir gott fólk
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 26
@@ -332,9 +362,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

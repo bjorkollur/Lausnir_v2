@@ -42,7 +42,7 @@ articles:
   authors:
   - Sigurður Örn Hilmarsson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 4
   page_end: 4
   issue: null
@@ -55,7 +55,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -104,7 +104,7 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
   page_end: 10
   issue: null
@@ -117,7 +117,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -136,7 +136,7 @@ articles:
   - Unnur Lilja Hermannsdóttir
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 11
   page_end: 17
   issue: null
@@ -149,7 +149,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -255,10 +255,12 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'RÓBERT R. SPANÓ OG HILDUR HJÖRVAR Mannréttindadómstóll Evrópu: Nýtt málsmeðferðarkerfi fyrir nýjan áratug'
-  authors: []
+- title: 'Mannréttindadómstóll Evrópu: Nýtt málsmeðferðarkerfi fyrir nýjan áratug'
+  authors:
+  - Róbert R. Spanó
+  - Hildur Hjörvar
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 26
   page_end: 29
   issue: null
@@ -270,9 +272,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -288,7 +291,7 @@ articles:
   authors:
   - Rannveig Stefánsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 30
   page_end: 31
   issue: null
@@ -301,7 +304,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -381,7 +384,7 @@ articles:
   authors:
   - Unnur Lilja Hermannsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 38
   page_end: 39
   issue: null
@@ -394,7 +397,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.772
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
@@ -25,7 +25,7 @@ files:
 - Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol03/85-116_General_Competence_of_Local_Authorities.pdf
 articles:
 - title: Stjórnarmyndanir á Íslandi 1971-2007 Frá framsóknaráratugum til drottinsvalds Sjálfstæðisflokksins (með drauminn
-    um samfylkingu jafnaðarmanna í bakgrunni)1
+    um samfylkingu jafnaðarmanna í bakgrunni)
   authors:
   - Guðni Th. Jóhannesson
   author_titles: []
@@ -41,7 +41,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: page
     pages: filename
     issue: page
@@ -125,11 +125,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 85
-  page_end: 116
+  page_end: 115
   issue: '2'
   pdf_pages:
   - 0
-  - 31
+  - 30
   lang: is
   date: null
   summary: null
@@ -137,7 +137,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -250,11 +250,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 211
-  page_end: 230
+  page_end: 229
   issue: '2'
   pdf_pages:
   - 0
-  - 19
+  - 18
   lang: is
   date: null
   summary: null
@@ -262,7 +262,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -281,11 +281,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 231
-  page_end: 264
+  page_end: 263
   issue: '2'
   pdf_pages:
   - 0
-  - 33
+  - 32
   lang: is
   date: null
   summary: null
@@ -293,7 +293,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -313,11 +313,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 265
-  page_end: 288
+  page_end: 286
   issue: '2'
   pdf_pages:
   - 0
-  - 23
+  - 21
   lang: is
   date: null
   summary: null
@@ -325,7 +325,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true

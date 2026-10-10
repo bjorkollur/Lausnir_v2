@@ -46,22 +46,22 @@ articles:
   authors:
   - Berglind Svavarsdóttir
   author_titles: []
-  article_type: Annað
-  page_start: 4
-  page_end: 4
+  article_type: Ritstjórnargrein
+  page_start: 6
+  page_end: 6
   issue: null
   pdf_pages:
-  - 3
-  - 3
+  - 5
+  - 5
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -76,8 +76,61 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „Siðareglur lögmanna“ á bls. 6 sem skráin nefnir ekki; greinin er talin enda þar'
   - 'FRÁVIK: fyrirsögnin á fyrstu síðu („Breytingar framundan“) er annar titill en skrárinnar („Siðareglur lögmanna“); titli
     skrárinnar haldið'
-- title: Jólahugvekja Bergur ebbi
+- title: Lögmannablaðið 25 ára og breytingar framundan
   authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Gagnagrunnur til varnar peningaþvætti
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 4
+  page_end: 4
+  issue: null
+  pdf_pages:
+  - 3
+  - 3
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Húmbúkk skal rétt upp raðast
+  authors:
+  - Bergur Ebbi
   author_titles: []
   article_type: Annað
   page_start: 8
@@ -91,9 +144,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -138,7 +192,7 @@ articles:
   analysis_notes: []
 - title: Samskipti dómara og lögmanna
   authors:
-  - Daníel Isebarn
+  - Daníel Isebarn Ágústsson
   author_titles: []
   article_type: Annað
   page_start: 12
@@ -154,7 +208,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: user
     pages: toc
   checks:
     title_on_page: true
@@ -263,6 +317,32 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Verið velkomin“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Verið velkomin á bókasafnið
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Óvenju fámenn útskrift
   authors:
   - Ingimar Ingason
@@ -325,11 +405,38 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
+- title: Hinsta kveðja
+  authors:
+  - Berglind Svavarsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 33
+  page_end: 33
+  issue: null
+  pdf_pages:
+  - 32
+  - 32
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Er fjöldi dóma MDE í málum gegn Íslandi áhyggjuefni?
   authors:
   - Anna Lilja Hallgrímsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 34
   page_end: 36
   issue: null
@@ -342,7 +449,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -358,3 +465,55 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Farið fram á niðurfellingu málflutningsréttinda níu lögmanna“ á bls. 37 sem skráin nefnir
     ekki; greinin er talin enda þar'
+- title: Farið fram á niðurfellingu málflutningsréttinda níu lögmanna
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 37
+  page_end: 37
+  issue: null
+  pdf_pages:
+  - 36
+  - 36
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Golfmótið 2019
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 38
+  page_end: 38
+  issue: null
+  pdf_pages:
+  - 37
+  - 37
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

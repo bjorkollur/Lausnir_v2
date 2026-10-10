@@ -162,10 +162,12 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: HÁDEGISVERÐARFUNDUR Fyrirkomulag Landsréttar í Danmörku
-  authors: []
+- title: Fyrirkomulag Landsréttar í Danmörku
+  authors:
+  - Eva Halldórsdóttir
+  - Björgvin Halldór Björnsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 14
   page_end: 15
   issue: null
@@ -177,9 +179,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -222,24 +225,26 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: SKÝRSLA OG FÉLAGSFUNDUR LMFÍ skorar á dómsmálaráðherra að tryggja réttindi hælisleitenda
-  authors: []
+- title: LMFÍ skorar á dómsmálaráðherra að tryggja réttindi hælisleitenda
+  authors:
+  - Bjarnveig Eiríksdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 20
-  page_end: 21
+  page_end: 23
   issue: null
   pdf_pages:
   - 19
-  - 20
+  - 22
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -251,25 +256,25 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: SAGA ANNARS STOFNANDA MÁLFLUTNINGSMANNAFÉLAGS ÍSLANDS Ævisaga og aldarspegill
+- title: Ævisaga og aldarspegill
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
-  page_start: 22
+  article_type: Viðtal
+  page_start: 24
   page_end: 27
   issue: null
   pdf_pages:
-  - 21
+  - 23
   - 26
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     authors: page
   checks:
     title_on_page: false

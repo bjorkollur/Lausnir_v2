@@ -48,7 +48,7 @@ files:
 articles:
 - title: Ráðherra sem málsvari laga og réttar
   authors:
-  - Róbert Spanó
+  - Róbert R. Spanó
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 1
@@ -65,7 +65,7 @@ articles:
     title: toc
     article_type: page
     pages: leitir+toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -64,11 +64,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 6
-  page_end: 8
+  page_end: 9
   issue: null
   pdf_pages:
   - 5
-  - 7
+  - 8
   lang: is
   date: null
   summary: null
@@ -76,7 +76,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -120,7 +120,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Tillögur um breytingar á innheimtulögum nr. 95/2008
-  authors: []
+  authors:
+  - Ingimar Ingason
   author_titles: []
   article_type: Frétt
   page_start: 11
@@ -137,6 +138,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -211,7 +213,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Húsleit á lögmannsstofum – trúnaðarskylda lögmanna
-  authors: []
+  authors:
+  - Ingimar Ingason
   author_titles: []
   article_type: Frétt
   page_start: 16
@@ -228,6 +231,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -240,7 +244,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Lögmannanámskeið
-  authors: []
+  authors:
+  - Ingimar Ingason
   author_titles: []
   article_type: Frétt
   page_start: 16
@@ -257,6 +262,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -300,7 +306,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Stjórnsýsla og málskot í gjafsóknarmálum
-  authors: []
+  authors:
+  - Ingimar Ingason
   author_titles: []
   article_type: Frétt
   page_start: 17
@@ -317,6 +324,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -365,11 +373,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 20
-  page_end: 22
+  page_end: 23
   issue: null
   pdf_pages:
   - 19
-  - 21
+  - 22
   lang: is
   date: null
   summary: null
@@ -378,7 +386,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -391,7 +399,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Drög að viðmiðunarreglum dómstólaráðs um málskostnaðarákvörðun á áritaða stefnu í útivistarmáli
-  authors: []
+  authors:
+  - Ingimar Ingason
   author_titles: []
   article_type: Frétt
   page_start: 23
@@ -408,6 +417,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -480,7 +490,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Samkeyrsla upplýsinga vegna lögbundins eftirlits með lögmönnum
-  authors: []
+  authors:
+  - Ingimar Ingason
   author_titles: []
   article_type: Frétt
   page_start: 26
@@ -497,6 +508,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -509,7 +521,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Beiðni um niðurfellingu málflutningsréttinda
-  authors: []
+  authors:
+  - Ingimar Ingason
   author_titles: []
   article_type: Frétt
   page_start: 26
@@ -526,6 +539,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -572,11 +586,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 28
-  page_end: 28
+  page_end: 29
   issue: null
   pdf_pages:
   - 27
-  - 27
+  - 28
   lang: is
   date: null
   summary: null
@@ -585,7 +599,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -598,7 +612,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Fjárhæð þóknunar lögmanna og sérfróðra meðdómsmanna í gjafsóknarmálum
-  authors: []
+  authors:
+  - Ingimar Ingason
   author_titles: []
   article_type: Frétt
   page_start: 29
@@ -615,6 +630,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

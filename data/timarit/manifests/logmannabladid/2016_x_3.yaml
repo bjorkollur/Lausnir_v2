@@ -75,7 +75,7 @@ articles:
   authors:
   - Reimar Pétursson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 6
   page_end: 8
   issue: null
@@ -88,7 +88,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -106,7 +106,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 10
   page_end: 11
   issue: null
@@ -119,7 +119,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -137,7 +137,7 @@ articles:
   authors:
   - Eva Halldórsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 12
   page_end: 14
   issue: null
@@ -150,7 +150,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -168,7 +168,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 16
   page_end: 17
   issue: null
@@ -181,7 +181,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -195,8 +195,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Um kosti þess að fyrirtæki ráði lögfræðinga
-  authors: []
+- title: Viljum aukna umræðu um kosti þess að fyrirtæki ráði lögfræðinga
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 18
@@ -210,9 +211,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -284,8 +286,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Leikmenn í öllu verða oft sérfræðingar í engu VIÐTAL VIÐ GUÐMUND PÁL LÍNDAL
-  authors: []
+- title: Leikmenn í öllu verða oft sérfræðingar í engu
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 26
@@ -299,9 +302,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -346,7 +350,7 @@ articles:
   authors:
   - Þyrí Steingrímsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 29
   page_end: 29
   issue: null
@@ -359,7 +363,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -435,7 +439,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Lán í ólani – eða hvað?
+- title: Lán í óláni – eða hvað?
   authors:
   - Ragnar Halldór Hall
   author_titles: []
@@ -451,7 +455,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc

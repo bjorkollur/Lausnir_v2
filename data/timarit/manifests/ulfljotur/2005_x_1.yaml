@@ -33,7 +33,7 @@ page_map:
   - 253
   - 255
   - 256
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -191,3 +191,85 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Prófessor í Lundi og forstöðumaður Raoul Wallenberg-stofnunarinnar“ á bls. 229 sem skráin
     nefnir ekki; greinin er talin enda þar'
+- title: Guðmundur Alfreðsson, prófessor í Lundi og forstöðumaður Raoul Wallenberg-stofnunarinnar
+  authors:
+  - Ásgeir Jóhannesson
+  author_titles: []
+  article_type: Viðtal
+  page_start: 229
+  page_end: 234
+  issue: null
+  pdf_pages:
+  - 229
+  - 234
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fræðabálkur
+  authors:
+  - Ágúst Stefánsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 235
+  page_end: 236
+  issue: null
+  pdf_pages:
+  - 235
+  - 236
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Rekabálkur
+  authors:
+  - Arndís Soffía Sigurðardóttir
+  - Valgerður María Sigurðardóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 237
+  page_end: 242
+  issue: null
+  pdf_pages:
+  - 237
+  - 242
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

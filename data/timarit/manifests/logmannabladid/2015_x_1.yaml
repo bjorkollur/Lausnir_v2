@@ -26,7 +26,7 @@ page_map:
   - 26
   - 33
   - 34
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -38,11 +38,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 4
-  page_end: 5
+  page_end: 4
   issue: null
   pdf_pages:
   - 3
-  - 4
+  - 3
   lang: is
   date: null
   summary: null
@@ -51,7 +51,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -71,11 +71,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 6
-  page_end: 6
+  page_end: 10
   issue: null
   pdf_pages:
   - 5
-  - 5
+  - 9
   lang: is
   date: null
   summary: null
@@ -84,7 +84,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -286,11 +286,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 24
-  page_end: 24
+  page_end: 25
   issue: null
   pdf_pages:
   - 23
-  - 23
+  - 24
   lang: is
   date: null
   summary: null
@@ -298,7 +298,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -408,11 +408,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 32
-  page_end: 32
+  page_end: 33
   issue: null
   pdf_pages:
   - 31
-  - 31
+  - 32
   lang: is
   date: null
   summary: null
@@ -421,7 +421,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -457,6 +457,32 @@ articles:
     author_on_page: false
     external_record: false
   confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýjar bækur á bókasafni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 34
+  page_end: 34
+  issue: null
+  pdf_pages:
+  - 33
+  - 33
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

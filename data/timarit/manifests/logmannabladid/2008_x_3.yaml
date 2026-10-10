@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 6
   - 22
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -33,11 +33,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 4
-  page_end: 5
+  page_end: 4
   issue: null
   pdf_pages:
   - 3
-  - 4
+  - 3
   lang: is
   date: null
   summary: null
@@ -46,7 +46,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -64,11 +64,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 6
-  page_end: 6
+  page_end: 8
   issue: null
   pdf_pages:
   - 5
-  - 5
+  - 7
   lang: is
   date: null
   summary: null
@@ -77,7 +77,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -42,7 +42,7 @@ articles:
   authors:
   - Berglind Svavarsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 4
   page_end: 4
   issue: null
@@ -55,7 +55,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -70,9 +70,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: 'SKÝRSLA VINNUHÓPS UM LÖGMENN OG #METOO: Kynbundin og kynferðisleg áreitni ásamt einelti viðgengst í stétt lögmanna'
-  authors: []
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 6
   page_end: 6
   issue: null
@@ -85,8 +86,9 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -102,7 +104,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
   page_end: 12
   issue: null
@@ -115,7 +117,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -133,7 +135,7 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 13
   page_end: 13
   issue: null
@@ -146,7 +148,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -195,7 +197,7 @@ articles:
   authors:
   - Ragnar Halldór Hall
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 16
   page_end: 19
   issue: null
@@ -208,7 +210,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -254,7 +256,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: 'VIÐTAL VIÐ ARNLJÓT ÁSTVALDSSON: Spennandi að tengja praktík og fræðimennsku'
-  authors: []
+  authors:
+  - Ágúst Karl Karlsson
+  - Daníel Isebarn Ágústsson
   author_titles: []
   article_type: Viðtal
   page_start: 24
@@ -271,6 +275,7 @@ articles:
     title: toc
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -287,7 +292,7 @@ articles:
   authors:
   - Víðir Smári Petersen
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 28
   page_end: 28
   issue: null
@@ -300,7 +305,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -318,7 +323,7 @@ articles:
   authors:
   - Guðrún Olsen
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 29
   page_end: 31
   issue: null
@@ -331,7 +336,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

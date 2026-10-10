@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.734
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -273,7 +273,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1987 40 arg/295.pdf
   note: ''
   analysis_notes: []
-- title: Aðgreiningarhæfi vörumerkja skv. vörumerkja-
+- title: Aðgreiningarhæfi vörumerkja skv. vörumerkjalögunum
   authors:
   - Jón L. Arnalds
   author_titles: []
@@ -289,7 +289,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -306,9 +306,10 @@ articles:
   analysis_notes: []
 - title: Fjárfestingarfélag Íslands hf.
   authors:
-  - Gunnar Óskarsson
+  - Pétur Kristinsson
+  - Þorsteinn Hjaltason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Viðtal
   page_start: 379
   page_end: 384
   issue: '4'
@@ -321,9 +322,10 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

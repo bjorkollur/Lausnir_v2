@@ -159,11 +159,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 14
-  page_end: 14
+  page_end: 15
   issue: null
   pdf_pages:
   - 13
-  - 13
+  - 14
   lang: is
   date: null
   summary: null
@@ -172,7 +172,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -260,7 +260,7 @@ articles:
   authors:
   - Víðir Smári Petersen
   author_titles: []
-  article_type: Annað
+  article_type: Viðtal
   page_start: 22
   page_end: 23
   issue: null
@@ -273,7 +273,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -321,7 +321,7 @@ articles:
 - title: Golfmót í uppstyttu og sól
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 29
   page_end: 29
   issue: null
@@ -334,7 +334,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: true

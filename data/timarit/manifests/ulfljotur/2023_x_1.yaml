@@ -27,31 +27,31 @@ page_map:
   - 113
   - 114
   - 115
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2023-1tbl.pdf
 articles:
-- title: Gerir grein fyrir almennum og sérstökum skilyrðum miskabótaréttar. Þá teiknar
+- title: Almenn og sérstök skilyrði miskabótaréttar
   authors:
   - Guðmundur Sigurðsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 3
+  page_start: 7
   page_end: 40
   issue: null
   pdf_pages:
-  - 4
+  - 8
   - 41
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -125,3 +125,110 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Um frelsi fjölmiðla til fréttaflutnings við meðferð sakamála“ á bls. 95 sem skráin nefnir
     ekki; greinin er talin enda þar'
+- title: Um frelsi fjölmiðla til fréttaflutnings við meðferð sakamála
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 95
+  page_end: 95
+  issue: null
+  pdf_pages:
+  - 96
+  - 96
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Opinber málsmeðferð og bann við samtímaendursögn framburða
+  authors:
+  - Kristín Benediktsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 96
+  page_end: 98
+  issue: null
+  pdf_pages:
+  - 97
+  - 99
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um heimild fjölmiðla til að segja fréttir af sakamálum á meðan á skýrslutökum yfir aðilum og vitnum stendur
+  authors:
+  - Ingibjörg Þorsteinsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 99
+  page_end: 101
+  issue: null
+  pdf_pages:
+  - 100
+  - 102
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvað er opið þinghald á 21. öldinni?
+  authors:
+  - Sigrún Ingibjörg Gísladóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 102
+  page_end: 107
+  issue: null
+  pdf_pages:
+  - 103
+  - 108
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

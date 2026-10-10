@@ -119,17 +119,43 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
+- title: Aðalfundur
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Fáein orð um öflun lögmannsréttinda
   authors:
   - Jóhannes Rúnar Jóhannsson
   author_titles: []
   article_type: Annað
   page_start: 14
-  page_end: 14
+  page_end: 15
   issue: null
   pdf_pages:
   - 13
-  - 13
+  - 14
   lang: is
   date: null
   summary: null
@@ -138,7 +164,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -185,11 +211,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 16
-  page_end: 19
+  page_end: 18
   issue: null
   pdf_pages:
   - 15
-  - 18
+  - 17
   lang: is
   date: null
   summary: null
@@ -198,7 +224,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -305,11 +331,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 26
-  page_end: 27
+  page_end: 26
   issue: null
   pdf_pages:
   - 25
-  - 26
+  - 25
   lang: is
   date: null
   summary: null
@@ -318,7 +344,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -53,13 +53,13 @@ page_map:
     unclaimed: 0
     pages: 90
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1965_01.pdf
 articles:
-- title: Sýslumenn á Jónsbókartímabilinu 1264 ■ 1732
+- title: Sýslumenn á Jónsbókartímabilinu 1264–1732
   authors:
   - Hjálmar Vilhjálmsson
   author_titles: []
@@ -75,7 +75,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm

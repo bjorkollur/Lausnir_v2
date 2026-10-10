@@ -30,7 +30,7 @@ page_map:
   - 202
   - 203
   - 204
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -42,11 +42,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 545
-  page_end: 605
+  page_end: 606
   issue: null
   pdf_pages:
   - 5
-  - 65
+  - 66
   lang: is
   date: null
   summary: null
@@ -54,7 +54,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -128,3 +128,83 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Norræna málflutningskeppnin í Helsinki 2006“ á bls. 699 sem skráin nefnir ekki; greinin
     er talin enda þar'
+- title: Norræna málflutningskeppnin í Helsinki 2006
+  authors:
+  - Marta Margrét Ö. Rúnarsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 699
+  page_end: 705
+  issue: null
+  pdf_pages:
+  - 159
+  - 165
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fréttir úr lagadeild
+  authors:
+  - María Thejll
+  author_titles: []
+  article_type: Frétt
+  page_start: 707
+  page_end: 711
+  issue: null
+  pdf_pages:
+  - 167
+  - 171
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar og annarrar starfsemi Orators fyrir starfsárið 2005-2006
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 713
+  page_end: 738
+  issue: null
+  pdf_pages:
+  - 173
+  - 198
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

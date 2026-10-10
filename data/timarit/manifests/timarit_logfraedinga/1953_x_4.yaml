@@ -34,7 +34,7 @@ page_map:
   - 83
   - 84
   - 85
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -168,6 +168,8 @@ articles:
 - title: Tuttugasta þing norrænna lagamanna í Oslo 1954
   authors:
   - Árni Tryggvason
+  - Ólafur Jóhannesson
+  - Theodór B. Líndal
   author_titles: []
   article_type: Frétt
   page_start: 257
@@ -184,7 +186,7 @@ articles:
     title: llm
     article_type: llm
     pages: leitir+llm
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

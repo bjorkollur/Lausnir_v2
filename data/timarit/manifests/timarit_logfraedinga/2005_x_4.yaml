@@ -30,7 +30,7 @@ page_map:
   - 149
   - 150
   - 151
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -67,7 +67,6 @@ articles:
   analysis_notes: []
 - title: Valdmörk stjórnvalda
   authors:
-  - Sigurður Líndal
   - Páll Hreinsson
   author_titles: []
   article_type: Fræðigrein
@@ -84,7 +83,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: page
+    authors: user
     pages: leitir+llm
   checks:
     title_on_page: true
@@ -133,7 +132,7 @@ articles:
     efnis (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
 - title: Efnisskilyrði meginreglunnar um ne bis in idem samkvæmt 1. mgr. 4. gr. 7. viðauka við mannréttindasáttmála Evrópu
   authors:
-  - Róbert Spanó
+  - Róbert R. Spanó
   author_titles: []
   article_type: Fræðigrein
   page_start: 535
@@ -149,7 +148,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: llm
   checks:
     title_on_page: true

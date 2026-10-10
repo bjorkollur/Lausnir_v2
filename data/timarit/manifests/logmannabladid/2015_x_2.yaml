@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 22
   - 26
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -309,7 +309,7 @@ articles:
   analysis_notes: []
 - title: Lagadagurinn að kvöldi – í fylgd ritstjóra Lögmannablaðsins
   authors:
-  - Þyrí Halla Steingrímsdóttir
+  - Þyrí Steingrímsdóttir
   author_titles: []
   article_type: Frétt
   page_start: 22
@@ -325,7 +325,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
+    authors: user
     pages: llm
   checks:
     title_on_page: true

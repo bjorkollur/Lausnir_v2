@@ -30,7 +30,7 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/649.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/681.pdf
 articles:
-- title: Sönnun í kynferðismálum
+- title: Sönnun í kynferðisbrotamálum
   authors:
   - Margrét Steinarsdóttir
   author_titles: []
@@ -46,7 +46,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -251,9 +251,8 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1994 47 arg/367.pdf
   note: ''
   analysis_notes: []
-- title: Det nordiske lovsamarbejde og fe fællenordiske love som faktorer i nordisk integration og identitet
+- title: Det nordiske lovsamarbejde og de fællesnordiske love som faktorer i nordisk integration og identitet
   authors:
-  - Indledning. Oplæg
   - Ármann Snævarr
   author_titles: []
   article_type: Fræðigrein
@@ -268,8 +267,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: page
+    title: user
+    authors: user
     pages: page
     issue: xlsx
   checks:

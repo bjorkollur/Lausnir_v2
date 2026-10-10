@@ -43,7 +43,7 @@ page_map:
     unclaimed: 0
     pages: 115
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -53,7 +53,7 @@ articles:
   authors:
   - Róbert R. Spanó
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 3
   issue: null
@@ -66,7 +66,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     authors: page
   checks:
@@ -144,7 +144,7 @@ articles:
   analysis_notes: []
 - title: Aðal- og aukaatriði í sögu stjórnarskrárinnar
   authors:
-  - Reimar Snæfells Pétursson
+  - Reimar Pétursson
   author_titles: []
   article_type: Fræðigrein
   page_start: 99
@@ -160,7 +160,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: leitir
+    authors: user
     pages: leitir+toc
   checks:
     title_on_page: true

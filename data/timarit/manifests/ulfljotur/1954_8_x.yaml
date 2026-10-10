@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.942
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/483.pdf
@@ -22,10 +22,10 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/964.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/966.pdf
 articles:
-- title: null
+- title: Rekabálkur
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 25
   page_end: 25
   issue: null
@@ -38,12 +38,14 @@ articles:
   keywords: []
   provenance:
     pages: page
+    title: user
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/5.pdf
@@ -54,7 +56,7 @@ articles:
   authors:
   - Þorkell Jóhannesson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 4
   page_end: 4
   issue: '1'
@@ -70,6 +72,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -119,11 +122,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 18
-  page_end: 29
+  page_end: 27
   issue: '2'
   pdf_pages:
   - 0
-  - 11
+  - 9
   lang: is
   date: null
   summary: null
@@ -131,7 +134,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -141,6 +144,32 @@ articles:
   confidence: 1.0
   leitir_record_id: null
   xlsx_row: 1189
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/50.pdf
+  note: ''
+  analysis_notes: []
+- title: Rekstrarreikningur og efnahagsreikningur Orators og Úlfljóts
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 27
+  page_end: 29
+  issue: '2'
+  pdf_pages:
+  - 9
+  - 11
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/50.pdf
   note: ''
   analysis_notes: []
@@ -175,7 +204,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/542.pdf
   note: ''
   analysis_notes: []
-- title: Þróun íslenzks réttar eftir 1262. M
+- title: Þróun íslenzks réttar eftir 1262
   authors:
   - Ólafur Lárusson
   author_titles: []
@@ -191,7 +220,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -203,6 +232,32 @@ articles:
   confidence: 1.0
   leitir_record_id: null
   xlsx_row: 1191
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/51.pdf
+  note: ''
+  analysis_notes: []
+- title: Helsingforsháskóli heiðrar prófessor Olaf Lárusson
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 17
+  page_end: 17
+  issue: '4'
+  pdf_pages:
+  - 14
+  - 14
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1954 08 arg/51.pdf
   note: ''
   analysis_notes: []

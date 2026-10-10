@@ -100,7 +100,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Ur fundargerðum landskjörsstjórnar við Alþingiskosningar 1956
+- title: Úr fundargerðum landskjörsstjórnar við Alþingiskosningar 1956
   authors:
   - Theodór B. Líndal
   author_titles: []
@@ -116,7 +116,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: leitir
     pages: leitir+llm
@@ -195,7 +195,7 @@ articles:
   analysis_notes: []
 - title: Frá Félagsdómi
   authors:
-  - Hákon Guðmundsson
+  - H. G.
   author_titles: []
   article_type: Dómareifun
   page_start: 122
@@ -211,7 +211,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
   checks:
     title_on_page: true

@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.908
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/169.pdf
@@ -74,7 +74,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/598.pdf
@@ -102,7 +102,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/595.pdf
@@ -130,7 +130,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/596.pdf
@@ -158,7 +158,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/372.pdf
@@ -186,7 +186,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/202.pdf
@@ -214,7 +214,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/373.pdf
@@ -242,7 +242,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/382.pdf
@@ -270,7 +270,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/380.pdf
@@ -298,7 +298,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/384.pdf
@@ -326,7 +326,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/383.pdf
@@ -353,7 +353,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/370.pdf
@@ -381,7 +381,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/375.pdf
@@ -389,7 +389,7 @@ articles:
   analysis_notes:
   - engin röð í töflu passaði (best 0.62)
   - 'FRÁVIK: blaðsíðutal greinarinnar fannst hvorki á síðunni né í skránni'
-- title: Hæstiréttur Islands 75 ára - Kveðja frá Lagadeild Háskóla Islands
+- title: Hæstiréttur Íslands 75 ára - Kveðja frá Lagadeild Háskóla Íslands
   authors:
   - Þorgeir Örlygsson
   author_titles: []
@@ -405,7 +405,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: page
     issue: xlsx
@@ -485,6 +485,34 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Athugun á prófum í lagadeild“ á bls. 41 sem skráin nefnir ekki; greinin er talin enda
     þar'
+- title: Athugun á prófum í lagadeild
+  authors:
+  - Guðmundur B. Arnkelsson
+  - Friðrik H. Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 41
+  page_end: 50
+  issue: '1'
+  pdf_pages:
+  - 8
+  - 17
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/650.pdf
+  note: ''
+  analysis_notes: []
 - title: Rökin að baki réttarfarsbreytingunni
   authors:
   - Viðar Már Matthíasson
@@ -644,7 +672,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1995 48 arg/169.pdf
   note: ''
   analysis_notes: []
-- title: Afbrot og Islendingar 1
+- title: Afbrot og Íslendingar 1
   authors:
   - Helgi Gunnlaugsson
   author_titles: []
@@ -660,7 +688,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -1117,7 +1145,7 @@ articles:
   analysis_notes: []
 - title: Lýðræðisleg dómgreind og lögfræði
   authors:
-  - Neil McCormick
+  - Neil MacCormick
   author_titles: []
   article_type: Fræðigrein
   page_start: 413
@@ -1132,7 +1160,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:

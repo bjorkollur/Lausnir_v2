@@ -32,7 +32,7 @@ page_map:
   - 110
   - 111
   - 112
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
@@ -44,11 +44,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 155
-  page_end: 175
+  page_end: 176
   issue: null
   pdf_pages:
   - 5
-  - 25
+  - 26
   lang: en
   date: null
   summary: null
@@ -56,7 +56,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -130,6 +130,59 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst efni á bls. 223 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Starfsval eftir opinber störf
+  authors:
+  - Ólöf Embla Eyjólfsdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 223
+  page_end: 227
+  issue: null
+  pdf_pages:
+  - 73
+  - 77
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hvalveiðar
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 229
+  page_end: 229
+  issue: null
+  pdf_pages:
+  - 79
+  - 79
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Hvalveiðar Íslendinga í atvinnuskyni eru löglegar
   authors:
   - Helgi Áss Grétarsson
@@ -166,11 +219,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 238
-  page_end: 241
+  page_end: 244
   issue: null
   pdf_pages:
   - 88
-  - 91
+  - 94
   lang: is
   date: null
   summary: null
@@ -178,7 +231,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -197,11 +250,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 245
-  page_end: 247
+  page_end: 249
   issue: null
   pdf_pages:
   - 95
-  - 97
+  - 99
   lang: is
   date: null
   summary: null
@@ -209,7 +262,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -258,11 +311,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 256
-  page_end: 257
+  page_end: 259
   issue: null
   pdf_pages:
   - 106
-  - 107
+  - 109
   lang: is
   date: null
   summary: null
@@ -270,7 +323,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true

@@ -108,7 +108,7 @@ articles:
   authors:
   - Ásgeir Pétursson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 3
   page_end: 5
   issue: '1'
@@ -121,7 +121,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -200,24 +200,24 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá Lögfræðingafélagi íslands
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands 1982-1983
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 41
-  page_end: 44
+  page_end: 45
   issue: '1'
   pdf_pages:
   - 46
-  - 49
+  - 50
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
   checks:
     title_on_page: true
@@ -230,25 +230,25 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Á vfð og dreif
+- title: Ritstjóraskipti
   authors:
   - Jónatan Þórmundsson
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 45
+  article_type: Ritstjórnargrein
+  page_start: 46
   page_end: 46
   issue: '1'
   pdf_pages:
-  - 50
+  - 51
   - 51
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
     authors: page
   checks:
@@ -264,6 +264,59 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „FRÁ SAKFRÆÐIFÉLAGI ÍSLANDS“ á bls. 46 sem skráin nefnir ekki; greinin er talin enda
     þar'
+- title: Frá Sakfræðifélagi Íslands
+  authors:
+  - Þorsteinn A. Jónsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 46
+  page_end: 48
+  issue: '1'
+  pdf_pages:
+  - 51
+  - 53
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frétt frá Íslandsdeild Norræna embættismannasambandsins
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 48
+  page_end: 50
+  issue: '1'
+  pdf_pages:
+  - 53
+  - 55
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Nýtt lagasafn
   authors:
   - Jónatan Þórmundsson
@@ -330,9 +383,11 @@ articles:
   analysis_notes: []
 - title: Agnar Kl. Jónsson — Einar Viðar — Guðbrandur ísberg
   authors:
+  - Guðmundur Benediktsson
+  - Sveinn H. Valdimarsson
   - Ragnhildur Helgadóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 60
   page_end: 65
   issue: '2'
@@ -345,10 +400,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -426,7 +481,7 @@ articles:
   analysis_notes: []
 - title: Áhrif verðbólgu á einkaréttarskyldur í ísrael
   authors:
-  - Aaron Yoran
+  - Aharon Yoran
   author_titles: []
   article_type: Fræðigrein
   page_start: 96
@@ -442,7 +497,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: leitir
+    authors: user
     pages: leitir+toc
     issue: toc
   checks:
@@ -488,10 +543,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá Lögfræðingafélagi íslands
-  authors: []
+- title: Námskeið og málþing Lögfræðingafélags Íslands
+  authors:
+  - Arnljótur Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 110
   page_end: 111
   issue: '2'
@@ -503,10 +559,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -518,11 +575,37 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá Lögmannafélagi Islands
+- title: Leiðrétting
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 111
+  page_end: 111
+  issue: '2'
+  pdf_pages:
+  - 120
+  - 120
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Um starfsemi Lögmannafélags Íslands starfsárið 1983-1984
   authors:
   - Jón Steinar Gunnlaugsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 112
   page_end: 116
   issue: '2'
@@ -534,8 +617,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -586,7 +669,7 @@ articles:
   authors:
   - Þór Vilhjálmsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 123
   page_end: 124
   issue: '3'
@@ -599,7 +682,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -678,11 +761,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá Lögfræðingafélagi íslands
+- title: Skýrsla formanns Lögfræðingafélags Íslands á aðalfundi 25. september 1984
   authors:
   - Arnljótur Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 156
   page_end: 158
   issue: '3'
@@ -694,8 +777,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -710,11 +793,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá lagadeild Háskólans
+- title: Deildarfréttir
   authors:
   - Björn Þ. Guðmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 160
   page_end: 163
   issue: '3'
@@ -726,8 +809,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -744,11 +827,38 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „SKÝRSLA UM LAGASTOFNUN HÁSKÓLA ÍSLANDS“ á bls. 163 sem skráin nefnir ekki; greinin er
     talin enda þar'
+- title: Skýrsla um Lagastofnun Háskóla Íslands 28. febrúar 1983 — 29. febrúar 1984
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 163
+  page_end: 165
+  issue: '3'
+  pdf_pages:
+  - 176
+  - 178
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Frá dómarafélagi reykjavíkur
   authors:
   - Steingrímur Gautur Kristjánsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 166
   page_end: 167
   issue: '3'
@@ -761,7 +871,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -778,11 +888,64 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „NORRÆNN DÓMSIVIÁLARÁÐHERRAFUNDUR“ á bls. 167 sem skráin nefnir ekki; greinin er talin
     enda þar'
+- title: Norrænn dómsmálaráðherrafundur að Laugarvatni 19.–20. júní 1984
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 167
+  page_end: 168
+  issue: '3'
+  pdf_pages:
+  - 180
+  - 181
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Í bókahillunni: „Tema með tilbrigðum“'
+  authors:
+  - Björn Þ. Guðmundsson
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 169
+  page_end: 172
+  issue: '3'
+  pdf_pages:
+  - 182
+  - 185
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Fórnárlömbin hafa gleymst
   authors:
   - Jónatan Þórmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 177
   page_end: 179
   issue: '4'
@@ -795,7 +958,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -812,9 +975,10 @@ articles:
   analysis_notes: []
 - title: Bárður Jakobsson — Jón S. Ólafsson
   authors:
-  - Bárður Jónas Jakobsson
+  - Jóhannes Ásgeirsson
+  - Hallgrímur Dalberg
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 180
   page_end: 184
   issue: '4'
@@ -827,10 +991,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -908,8 +1072,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Hugleiðingar um dóm Hæstaréttar 21. desember 1984 (ættleiðingarmál) eftir Þorgeir örlygsson
-  authors: []
+- title: Hugleiðingar um dóm Hæstaréttar 21. desember 1984 (ættleiðingarmál)
+  authors:
+  - Þorgeir Örlygsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 216
@@ -923,10 +1088,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -942,7 +1108,7 @@ articles:
   authors:
   - Páll Sigurðsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 225
   page_end: 226
   issue: '4'
@@ -955,7 +1121,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -972,3 +1138,57 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „FRÁ FÉLAGI ÁHUGAMANNA UM RÉTTARSÖGU“ á bls. 226 sem skráin nefnir ekki; greinin er talin
     enda þar'
+- title: Frá Félagi áhugamanna um réttarsögu
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 226
+  page_end: 228
+  issue: '4'
+  pdf_pages:
+  - 243
+  - 245
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Dómarafélagi Reykjavíkur
+  authors:
+  - Bragi Steinarsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 228
+  page_end: 229
+  issue: '4'
+  pdf_pages:
+  - 245
+  - 246
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

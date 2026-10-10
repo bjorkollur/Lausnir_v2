@@ -24,7 +24,7 @@ page_map:
   - 117
   - 118
   - 119
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -122,6 +122,34 @@ articles:
   analysis_notes:
   - 'FRÁVIK: undirritunin (Stefán Kristinsson, Aron Freyr Jóhannsson) stendur á eftir fyrirsögninni „REKABÁLKUR“ á bls. 207;
     greinin er talin enda á undan henni'
+- title: Jessup málflutningskeppnin
+  authors:
+  - Stefán Kristinsson
+  - Aron Freyr Jóhannsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 207
+  page_end: 210
+  issue: null
+  pdf_pages:
+  - 107
+  - 110
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Geta fréttamenn sér að refsilausu birt upplýsingar sem bankaleynd nær yfir?
   authors:
   - Andrés Þorleifsson

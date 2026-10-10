@@ -38,16 +38,17 @@ page_map:
     unclaimed: 0
     pages: 153
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2021_02.pdf
 articles:
 - title: Fræðiskrif á íslensku og háskólarnir
-  authors: []
+  authors:
+  - Sindri M. Stephensen
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 173
   page_end: 174
   issue: null
@@ -60,8 +61,9 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

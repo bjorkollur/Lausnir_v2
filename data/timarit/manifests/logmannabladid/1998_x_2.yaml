@@ -120,15 +120,15 @@ articles:
   analysis_notes: []
 - title: Réttarbót í skattamálum
   authors:
-  - Halldór Jóns
+  - Halldór Jónsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 9
-  page_end: 10
+  page_end: 11
   issue: null
   pdf_pages:
   - 8
-  - 9
+  - 10
   lang: is
   date: null
   summary: null
@@ -136,8 +136,8 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: page
-    pages: llm
+    authors: user
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -209,6 +209,32 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
+- title: Úr siðareglum L.M.F.Í.
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Um lögmannafélög í Bandaríkjunum
   authors:
   - Jón Ögmundsson
@@ -240,9 +266,35 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
+- title: Leiðrétting
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 17
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 16
+  - 16
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Rafbréf
   authors:
-  - Tryggvi Axels
+  - Tryggvi Axelsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 18
@@ -258,7 +310,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: page
+    authors: user
     pages: llm
   checks:
     title_on_page: true
@@ -276,11 +328,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 20
-  page_end: 21
+  page_end: 20
   issue: null
   pdf_pages:
   - 19
-  - 20
+  - 19
   lang: is
   date: null
   summary: null
@@ -288,7 +340,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -305,11 +357,11 @@ articles:
   author_titles: []
   article_type: Dómareifun
   page_start: 22
-  page_end: 25
+  page_end: 23
   issue: null
   pdf_pages:
   - 21
-  - 24
+  - 22
   lang: is
   date: null
   summary: null
@@ -317,7 +369,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

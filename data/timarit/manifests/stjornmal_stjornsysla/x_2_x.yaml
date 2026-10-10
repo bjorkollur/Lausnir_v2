@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.813
-status: review
+status: approved
 confidence: 0.8
 error: null
 files:
@@ -29,11 +29,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 5
-  page_end: 30
+  page_end: 29
   issue: '1'
   pdf_pages:
   - 0
-  - 25
+  - 24
   lang: is
   date: null
   summary: null
@@ -41,7 +41,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -153,11 +153,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 95
-  page_end: 128
+  page_end: 127
   issue: '1'
   pdf_pages:
   - 0
-  - 33
+  - 32
   lang: is
   date: null
   summary: null
@@ -165,7 +165,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true

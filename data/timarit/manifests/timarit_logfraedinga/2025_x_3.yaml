@@ -37,7 +37,7 @@ page_map:
     unclaimed: 0
     pages: 167
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -108,7 +108,8 @@ articles:
   note: ''
   analysis_notes: []
 - title: Hvaða sjónarmið ber stjórn að leggja til grundvallar ákvörðunum sínum samkvæmt íslenskum hlutafélagarétti? Um fjárhagslegan
-    ávinning og ótilhlýðilega hagsmuni í skilningi hlutafélagaréttar og samspil sjónarmiða
+    ávinning og ótilhlýðilega hagsmuni í skilningi hlutafélagaréttar og samspil sjónarmiða hlutafélagaréttar við sjónarmið
+    á öðrum réttarsviðum
   authors:
   - Arnljótur Ástvaldsson
   author_titles: []
@@ -124,7 +125,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     authors: toc
     pages: toc

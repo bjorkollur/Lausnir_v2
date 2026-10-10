@@ -459,11 +459,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 40
-  page_end: 40
+  page_end: 41
   issue: null
   pdf_pages:
   - 45
-  - 45
+  - 46
   lang: is
   date: null
   summary: null
@@ -471,7 +471,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -489,11 +489,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 41
-  page_end: 44
+  page_end: 45
   issue: null
   pdf_pages:
   - 46
-  - 49
+  - 50
   lang: is
   date: null
   summary: null
@@ -501,7 +501,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -615,7 +615,7 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (15 af 19 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: 'Finnskt réttarfar: Breytingar og breytingatillögur'
   authors:
-  - Curt Olof Olsson
+  - Curt Olsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 54
@@ -631,7 +631,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
     issue: leitir
   checks:
@@ -717,11 +717,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 108
-  page_end: 108
+  page_end: 109
   issue: null
   pdf_pages:
   - 117
-  - 117
+  - 118
   lang: is
   date: null
   summary: null
@@ -729,7 +729,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -905,11 +905,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 118
-  page_end: 143
+  page_end: 149
   issue: null
   pdf_pages:
   - 131
-  - 156
+  - 162
   lang: is
   date: null
   summary: null
@@ -918,7 +918,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1215,11 +1215,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 167
-  page_end: 167
+  page_end: 168
   issue: null
   pdf_pages:
   - 180
-  - 180
+  - 181
   lang: is
   date: null
   summary: null
@@ -1227,7 +1227,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -279,8 +279,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Dómstólalög
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
   article_type: Fræðigrein
   page_start: 87
@@ -298,7 +297,7 @@ articles:
     article_type: toc
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -310,7 +309,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Afbrot, refsingar og afstaða Islendinga
+- title: Afbrot, refsingar og afstaða Íslendinga
   authors:
   - Helgi Gunnlaugsson
   author_titles: []
@@ -326,7 +325,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     pages: toc
     issue: toc
@@ -406,11 +405,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Deildarfréttir
+- title: Deildarfréttir 1997
   authors:
   - Björn Þ. Guðmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 152
   page_end: 162
   issue: '2'
@@ -422,8 +421,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -439,8 +438,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Lagasetning
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
   article_type: Fræðigrein
   page_start: 171
@@ -458,7 +456,7 @@ articles:
     article_type: toc
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -566,7 +564,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Neikvætt félagafrelsi og staða Lögmannafélags Islands
+- title: Neikvætt félagafrelsi og staða Lögmannafélags Íslands
   authors:
   - Áslaug Björgvinsdóttir
   author_titles: []
@@ -582,7 +580,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -602,7 +600,7 @@ articles:
   authors:
   - Helgi Jóhannesson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 255
   page_end: 257
   issue: '4'
@@ -615,7 +613,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: leitir
     pages: leitir+toc
     issue: toc
@@ -630,7 +628,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Ágrip af sögu Lögfræðingafélags Islands
+- title: Ágrip af sögu Lögfræðingafélags Íslands
   authors:
   - Davíð Þór Björgvinsson
   author_titles: []
@@ -646,7 +644,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc

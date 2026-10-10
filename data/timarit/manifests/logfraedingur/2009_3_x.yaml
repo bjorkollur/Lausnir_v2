@@ -30,7 +30,7 @@ page_map:
     unclaimed: 8
     pages: 85
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -74,11 +74,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 6
-  page_end: 6
+  page_end: 7
   issue: null
   pdf_pages:
   - 6
-  - 6
+  - 7
   lang: is
   date: null
   summary: null
@@ -87,7 +87,7 @@ articles:
     title: toc
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -137,11 +137,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 22
-  page_end: 24
+  page_end: 27
   issue: null
   pdf_pages:
   - 22
-  - 24
+  - 27
   lang: is
   date: null
   summary: null
@@ -150,7 +150,7 @@ articles:
     title: toc
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -167,12 +167,12 @@ articles:
   - Ingibjörg Björnsdóttir
   author_titles: []
   article_type: Fræðigrein
-  page_start: 25
-  page_end: 36
+  page_start: 28
+  page_end: 37
   issue: null
   pdf_pages:
-  - 25
-  - 36
+  - 28
+  - 37
   lang: is
   date: null
   summary: null
@@ -181,7 +181,7 @@ articles:
     title: toc
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -193,7 +193,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Lax a Feminist Íssue
+- title: Tax is a Feminist Issue
   authors:
   - Rachael Lorna Johnstone
   author_titles: []
@@ -209,7 +209,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     authors: toc
     pages: page
@@ -291,7 +291,7 @@ articles:
 - title: Polar Law Program
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 80
   page_end: 80
   issue: null
@@ -304,7 +304,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: page
   checks:
     title_on_page: true

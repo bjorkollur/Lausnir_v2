@@ -22,7 +22,7 @@ page_map:
   - 6
   - 29
   - 31
-status: review
+status: approved
 confidence: 0.45
 error: null
 files:
@@ -66,11 +66,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 5
-  page_end: 6
+  page_end: 8
   issue: null
   pdf_pages:
   - 4
-  - 5
+  - 7
   lang: is
   date: null
   summary: null
@@ -78,7 +78,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -186,6 +186,32 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „Reglu R“ á bls. 11 sem skráin nefnir ekki; greinin er talin enda þar'
   - 'greinar fundust ekki í skjalinu: 1 (bls. 31; síðasta lesna blaðsíðutal 30) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Reglur fyrir knattspyrnumót LMFÍ 2003
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 11
+  page_end: 11
+  issue: null
+  pdf_pages:
+  - 10
+  - 10
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Pistill formanns
   authors:
   - Gunnar Jónsson
@@ -219,6 +245,32 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 31; síðasta lesna blaðsíðutal 30) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Meira af fótbolta…
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Om forskelle og ligheder mellem udøvelse af islandsk og dansk advokatvirksomhed
   authors:
   - Peter Mollerup
@@ -285,9 +337,35 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 31; síðasta lesna blaðsíðutal 30) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
-- title: 'Hádegisverðarfundur LMFÍ og LÍ: Jafnrétti og bann við mismunun í Mannréttindasáttmála Evrópu'
+- title: Groa@leiti.is
   authors:
-  - Oddný Mjöll
+  - Gróa
+  author_titles: []
+  article_type: Annað
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Hádegisverðarfundur LMFÍ og LÍ: Jafnrétti og bann við mismunun í Mannréttindasáttmála Evrópu'
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 19
@@ -304,7 +382,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -350,7 +428,8 @@ articles:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 31; síðasta lesna blaðsíðutal 30) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Golfmót lögmanna sumarið 2003
-  authors: []
+  authors:
+  - Ásgeir Ragnarsson
   author_titles: []
   article_type: Frétt
   page_start: 22
@@ -367,6 +446,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

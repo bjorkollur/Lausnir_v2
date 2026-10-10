@@ -69,7 +69,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá ritstjórn
+- title: Á trúnó í síðasta sinn
   authors:
   - Ari Karlsson
   author_titles: []
@@ -85,7 +85,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -105,21 +105,21 @@ articles:
 - title: 'FRÆÐSLUFUNDUR MEÐ JÓLAÍVAFI: Nauðsyn upplýsingatæknikunnáttu fyrir lögfræðinga'
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 7
-  page_end: 8
+  page_end: 9
   issue: null
   pdf_pages:
   - 6
-  - 7
+  - 8
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    pages: toc
+    article_type: user
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -132,7 +132,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: VIÐTAL VIÐ KRISTÍNU BENEDIKTSDÓTTUR „Umboðsmaður Alþingis er orðin hún“
-  authors: []
+  authors:
+  - Ari Karlsson
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 10
@@ -149,6 +151,7 @@ articles:
     title: toc
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -163,7 +166,7 @@ articles:
 - title: INNLEIÐING S-MÁLA Réttarvörslugátt á góðri leið
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 14
   page_end: 15
   issue: null
@@ -176,7 +179,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: true
@@ -193,7 +196,7 @@ articles:
   authors:
   - Jóhann Óli Eiðsson
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 16
   page_end: 18
   issue: null
@@ -206,7 +209,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -222,6 +225,84 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Afhending mannréttindaverðlauna CCBE“ á bls. 19 sem skráin nefnir ekki; greinin er talin
     enda þar'
+- title: Afhending mannréttindaverðlauna CCBE
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 19
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 18
+  - 18
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Evrópusáttmáli um vernd lögmanna
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 19
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 18
+  - 18
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Útskrift nýrra lögmanna
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 19
+  page_end: 19
+  issue: null
+  pdf_pages:
+  - 18
+  - 18
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Dómsalur í sýndarveruleika
   authors:
   - Eyrún Ingadóttir
@@ -258,7 +339,7 @@ articles:
   - Kristrún Elsa Harðardóttir
   - Þorbjörg Inga Jónsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 22
   page_end: 23
   issue: null
@@ -271,7 +352,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -315,3 +396,55 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Námskeið ársins“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Mentorprógramm í blóma
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ert þú skráð/ur á lögmannalistann?
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

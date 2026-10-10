@@ -55,7 +55,33 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/52.pdf
   note: ''
   analysis_notes: []
-- title: Nokkrir höfuðdrættir í íslenzkri erfðalöggjöf.1)
+- title: Formenn Orators 1929—1957
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 7
+  page_end: 7
+  issue: '1'
+  pdf_pages:
+  - 4
+  - 4
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/52.pdf
+  note: ''
+  analysis_notes: []
+- title: Nokkrir höfuðdrættir í íslenzkri erfðalöggjöf
   authors:
   - Ármann Snævarr
   author_titles: []
@@ -71,7 +97,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -277,7 +303,7 @@ articles:
   authors:
   - Ólafur St. Sigurðsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 16
   page_end: 16
   issue: '4'
@@ -293,6 +319,7 @@ articles:
     authors: xlsx
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -308,7 +335,7 @@ articles:
   authors:
   - Magnús Thoroddsen
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 26
   page_end: 26
   issue: '4'
@@ -324,6 +351,7 @@ articles:
     authors: xlsx
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -336,3 +364,29 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „REKABÁLKUR“ á bls. 26 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Rekabálkur
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 26
+  issue: '4'
+  pdf_pages:
+  - 0
+  - 0
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1956 10 arg/1036.pdf
+  note: ''
+  analysis_notes: []

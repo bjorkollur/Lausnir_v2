@@ -34,7 +34,7 @@ page_map:
   - 204
   - 205
   - 206
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -252,3 +252,85 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Alþjóðlega málflutningskeppnin Jessup 2004“ á bls. 657 sem skráin nefnir ekki; greinin
     er talin enda þar'
+- title: Alþjóðlega málflutningskeppnin Jessup 2004
+  authors:
+  - Benedikt Egill Árnason
+  - Ásgeir Helgi Jóhannsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 657
+  page_end: 661
+  issue: null
+  pdf_pages:
+  - 160
+  - 164
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Norræna málflutningskeppnin 2004
+  authors:
+  - Hervör Pálsdóttir
+  - Sesselja Sigurðardóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 663
+  page_end: 668
+  issue: null
+  pdf_pages:
+  - 166
+  - 171
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar Orators árið 2003 – 2004
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 669
+  page_end: 689
+  issue: null
+  pdf_pages:
+  - 172
+  - 192
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

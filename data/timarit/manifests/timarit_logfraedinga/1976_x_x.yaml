@@ -862,8 +862,7 @@ articles:
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (13 af 22 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Námskeið um verslunarrétt
-  authors:
-  - Steingrímur Gautur Kristjánsson
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 79
@@ -880,7 +879,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1516,11 +1515,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 147
-  page_end: 166
+  page_end: 167
   issue: null
   pdf_pages:
   - 162
-  - 181
+  - 182
   lang: is
   date: null
   summary: null
@@ -1529,7 +1528,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

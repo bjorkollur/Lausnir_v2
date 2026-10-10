@@ -36,7 +36,7 @@ error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2017_1_tbl.pdf
 articles:
-- title: Um inntak og eðli ���������������������
+- title: Um inntak og eðli viðurkenningarkrafna í almennum einkamálum
   authors:
   - Hafsteinn Dan Kristjánsson
   author_titles: []
@@ -52,7 +52,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
   checks:

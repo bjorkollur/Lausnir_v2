@@ -237,11 +237,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 61
-  page_end: 61
+  page_end: 62
   issue: null
   pdf_pages:
   - 62
-  - 62
+  - 63
   lang: is
   date: null
   summary: null
@@ -249,7 +249,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

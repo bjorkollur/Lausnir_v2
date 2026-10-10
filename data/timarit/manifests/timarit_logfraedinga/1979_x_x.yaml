@@ -56,7 +56,7 @@ page_map:
     unclaimed: 4
     pages: 248
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -95,6 +95,32 @@ articles:
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+- title: Tímarit lögfræðinga
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 2
+  page_end: 2
+  issue: '1'
+  pdf_pages:
+  - 7
+  - 7
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Um starfsstjórnir
   authors:
   - Björn Bjarnason
@@ -456,7 +482,7 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Réttarstaða sakaðra manna
   authors:
-  - Jón Abraham Ólafsson
+  - Jón A. Ólafsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 76
@@ -472,7 +498,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
     issue: leitir
   checks:
@@ -887,11 +913,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 163
-  page_end: 172
+  page_end: 173
   issue: null
   pdf_pages:
   - 182
-  - 191
+  - 192
   lang: is
   date: null
   summary: null
@@ -900,7 +926,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

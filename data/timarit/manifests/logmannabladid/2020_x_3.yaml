@@ -40,7 +40,7 @@ articles:
   authors:
   - Berglind Svavarsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 4
   page_end: 4
   issue: null
@@ -53,7 +53,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -102,7 +102,7 @@ articles:
   authors:
   - Olga Dís Þorvaldsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 9
   page_end: 11
   issue: null
@@ -115,7 +115,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -195,7 +195,7 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 15
   page_end: 15
   issue: null
@@ -208,7 +208,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -257,7 +257,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 18
   page_end: 19
   issue: null
@@ -270,7 +270,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -319,7 +319,7 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 22
   page_end: 23
   issue: null
@@ -332,7 +332,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -413,7 +413,7 @@ articles:
   authors:
   - Ari Karlsson
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 28
   page_end: 30
   issue: null
@@ -426,7 +426,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

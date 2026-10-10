@@ -83,6 +83,32 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/536.pdf
   note: ''
   analysis_notes: []
+- title: Merki fyrir Orator
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 18
+  page_end: 18
+  issue: '1'
+  pdf_pages:
+  - 5
+  - 5
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/536.pdf
+  note: ''
+  analysis_notes: []
 - title: Áfrýjunardómstólar á Íslandi
   authors:
   - Árni Tryggvason
@@ -149,13 +175,13 @@ articles:
   authors:
   - Ármann Kristinsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritdómur
   page_start: 7
-  page_end: 9
+  page_end: 8
   issue: '3'
   pdf_pages:
   - 0
-  - 2
+  - 1
   lang: is
   date: null
   summary: null
@@ -163,8 +189,9 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -173,6 +200,33 @@ articles:
   confidence: 0.7
   leitir_record_id: null
   xlsx_row: 1235
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/2.pdf
+  note: ''
+  analysis_notes: []
+- title: Frá norræna stúdentamótinu 1949
+  authors:
+  - Guðmundur Benediktsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 8
+  page_end: 9
+  issue: '3'
+  pdf_pages:
+  - 1
+  - 2
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1949 03 arg/2.pdf
   note: ''
   analysis_notes: []
@@ -212,7 +266,7 @@ articles:
   authors:
   - Jón Ísberg
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 15
   page_end: 17
   issue: '4'
@@ -228,6 +282,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false

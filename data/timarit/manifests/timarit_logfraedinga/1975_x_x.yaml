@@ -62,7 +62,7 @@ page_map:
     unclaimed: 87
     pages: 172
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -73,11 +73,11 @@ articles:
   - Kristjana Jónsdóttir
   author_titles: []
   article_type: Ritstjórnargrein
-  page_start: 1
+  page_start: 2
   page_end: 3
   issue: '1'
   pdf_pages:
-  - 6
+  - 7
   - 8
   lang: is
   date: null
@@ -87,7 +87,7 @@ articles:
     title: llm
     article_type: llm
     authors: leitir
-    pages: page
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -210,11 +210,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 28
-  page_end: 29
+  page_end: 30
   issue: null
   pdf_pages:
   - 33
-  - 34
+  - 35
   lang: is
   date: null
   summary: null
@@ -223,7 +223,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -406,8 +406,7 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
     heftisins) — greinalisti Claude notaður
 - title: Nýir héraðsdómslögmenn
-  authors:
-  - Guðmundur Karl Jónsson
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 39
@@ -424,7 +423,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -439,8 +438,7 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
     heftisins) — greinalisti Claude notaður
 - title: Nýir hæstaréttarlögmenn
-  authors:
-  - Hákon Árnason
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 40
@@ -457,7 +455,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -511,11 +509,11 @@ articles:
   - Þór Vilhjálmsson
   author_titles: []
   article_type: Ritstjórnargrein
-  page_start: 49
+  page_start: 50
   page_end: 50
   issue: '2'
   pdf_pages:
-  - 58
+  - 59
   - 59
   lang: is
   date: null
@@ -525,7 +523,7 @@ articles:
     title: llm
     article_type: llm
     authors: leitir
-    pages: page
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -621,7 +619,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 63
-  - 64
+  - 65
   lang: is
   date: null
   summary: null
@@ -630,7 +628,7 @@ articles:
     title: llm
     article_type: llm
     authors: leitir
-    pages: leitir+llm
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -788,7 +786,7 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 78
-  page_end: 79
+  page_end: 78
   issue: '2'
   pdf_pages:
   - 87
@@ -801,7 +799,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: leitir+llm
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -924,11 +922,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 82
-  page_end: 83
+  page_end: 84
   issue: null
   pdf_pages:
   - 91
-  - 92
+  - 93
   lang: is
   date: null
   summary: null
@@ -937,7 +935,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1048,7 +1046,7 @@ articles:
     heftisins) — greinalisti Claude notaður
 - title: Dómar í sjóréttarmálum
   authors:
-  - Páll Skúlason
+  - P. Sk.
   author_titles: []
   article_type: Ritdómur
   page_start: 88
@@ -1064,7 +1062,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
+    authors: user
     pages: llm
   checks:
     title_on_page: true
@@ -1182,9 +1180,34 @@ articles:
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
     heftisins) — greinalisti Claude notaður
+- title: Efnisyfirlit
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 182
+  page_end: 182
+  issue: null
+  pdf_pages:
+  - 151
+  - 151
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Aðalfundur 1975 með fræðilegum þætti
-  authors:
-  - Jón Steinar Gunnlaugsson
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 183
@@ -1200,7 +1223,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
+    authors: user
     pages: llm
   checks:
     title_on_page: true
@@ -1254,11 +1277,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 187
-  page_end: 191
+  page_end: 189
   issue: '4'
   pdf_pages:
   - 156
-  - 157
+  - 158
   lang: is
   date: null
   summary: null
@@ -1267,7 +1290,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: leitir+llm
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -1418,11 +1441,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 195
-  page_end: 196
+  page_end: 197
   issue: null
   pdf_pages:
   - 164
-  - 165
+  - 166
   lang: is
   date: null
   summary: null
@@ -1431,7 +1454,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true

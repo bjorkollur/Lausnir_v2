@@ -83,8 +83,8 @@ page_map:
     unclaimed: 33
     pages: 296
     by_proxy: 0
-status: review
-confidence: 0
+status: approved
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1974.pdf
@@ -328,11 +328,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 49
-  page_end: 49
+  page_end: 50
   issue: null
   pdf_pages:
   - 54
-  - 54
+  - 55
   lang: is
   date: null
   summary: null
@@ -340,7 +340,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -361,11 +361,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 50
-  page_end: 52
+  page_end: 51
   issue: null
   pdf_pages:
   - 55
-  - 57
+  - 56
   lang: is
   date: null
   summary: null
@@ -374,7 +374,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -388,40 +388,32 @@ articles:
   analysis_notes:
   - 'upphafsbls. 50 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
-- title: Aðgerða er þörf eftir Tómas Gunnarsson hdl. Frá Lögfræðingafélagi íslands
+- title: Lög Lögfræðingafélags Íslands
   authors: []
   author_titles: []
   article_type: Annað
-  page_start: 177
-  page_end: null
-  issue: '1'
+  page_start: 51
+  page_end: 52
+  issue: null
   pdf_pages:
-  - 242
-  - 242
-  lang: is
+  - 56
+  - 57
+  lang: null
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: llm
-    pages: page
-    issue: leitir
-  checks:
-    title_on_page: true
-    printed_page_match: false
-    author_on_page: false
-    external_record: true
-  confidence: 0.55
-  leitir_record_id: '991001868109706886'
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - leitir.is segir bls. 44–52
-  - 'upphafsbls. 50 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - Claude segir bls. 50; greinin fannst eftir titli sínum á bls. 177
-  - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
+  analysis_notes: []
 - title: Kjaramál ríkisstarfsmanna
   authors:
   - Guðríður Þorsteinsdóttir
@@ -432,7 +424,7 @@ articles:
   issue: '1'
   pdf_pages:
   - 58
-  - 59
+  - 60
   lang: is
   date: null
   summary: null
@@ -441,7 +433,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: leitir+llm
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -492,7 +484,7 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Lögmenn — starfsmörk og þjónusta
   authors:
-  - Páll Sigþór Pálsson
+  - Páll S. Pálsson
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 66
@@ -508,7 +500,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
     issue: leitir
   checks:
@@ -534,7 +526,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 77
-  - 77
+  - 78
   lang: is
   date: null
   summary: null
@@ -543,7 +535,7 @@ articles:
     title: llm
     article_type: llm
     authors: leitir
-    pages: leitir+llm
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -602,7 +594,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 79
-  - 79
+  - 80
   lang: is
   date: null
   summary: null
@@ -611,7 +603,7 @@ articles:
     title: llm
     article_type: llm
     authors: leitir
-    pages: leitir+llm
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -964,16 +956,15 @@ articles:
   - 'upphafsbls. 148 fannst ekki: blaðsíðutal skjalsins óljóst'
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Minnisvarði við Breiðabólstað
-  authors:
-  - Skúli Pálsson
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 149
-  page_end: 154
+  page_end: 150
   issue: null
   pdf_pages:
   - 162
-  - 167
+  - 163
   lang: is
   date: null
   summary: null
@@ -981,8 +972,8 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
-    pages: llm
+    authors: user
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1001,11 +992,11 @@ articles:
   - Páll S. Pálsson
   author_titles: []
   article_type: Annað
-  page_start: 154
+  page_start: 150
   page_end: 154
   issue: null
   pdf_pages:
-  - 167
+  - 163
   - 167
   lang: is
   date: null
@@ -1015,13 +1006,13 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: page
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -1407,7 +1398,7 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 194
-  page_end: 196
+  page_end: 195
   issue: '4'
   pdf_pages:
   - 259
@@ -1420,7 +1411,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: leitir+llm
+    pages: user
     issue: leitir
   checks:
     title_on_page: true
@@ -1707,11 +1698,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 215
-  page_end: 217
+  page_end: 218
   issue: null
   pdf_pages:
   - 280
-  - 282
+  - 283
   lang: is
   date: null
   summary: null
@@ -1720,7 +1711,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -1740,11 +1731,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 218
-  page_end: null
+  page_end: 220
   issue: null
   pdf_pages:
   - 283
-  - 284
+  - 285
   lang: is
   date: null
   summary: null
@@ -1753,7 +1744,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

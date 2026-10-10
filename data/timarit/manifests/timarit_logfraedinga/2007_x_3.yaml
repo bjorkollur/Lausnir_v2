@@ -29,7 +29,7 @@ page_map:
   - 133
   - 134
   - 135
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -37,7 +37,7 @@ files:
 articles:
 - title: Stjórnsýslulög og frumvarp til laga um meðferð sakamála
   authors:
-  - Róbert Spanó
+  - Róbert R. Spanó
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 205
@@ -53,7 +53,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
   checks:
     title_on_page: true

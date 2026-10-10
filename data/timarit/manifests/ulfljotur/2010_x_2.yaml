@@ -27,7 +27,7 @@ page_map:
   - 114
   - 115
   - 116
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -155,6 +155,32 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Er hægt að takmarka aðgang almennings að dómstólum?“ á bls. 185 sem skráin nefnir ekki;
     greinin er talin enda þar'
+- title: Er hægt að takmarka aðgang almennings að dómstólum?
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 185
+  page_end: 185
+  issue: null
+  pdf_pages:
+  - 90
+  - 90
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Réttur manna til að vera viðstaddur þinghöld er ekki afdráttarlaus
   authors:
   - Eiríkur Tómasson
@@ -217,3 +243,29 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Norræna málflutningskeppnin“ á bls. 201 sem skráin nefnir ekki; greinin er talin enda
     þar'
+- title: Norræna málflutningskeppnin 2010
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 201
+  page_end: 206
+  issue: null
+  pdf_pages:
+  - 106
+  - 111
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

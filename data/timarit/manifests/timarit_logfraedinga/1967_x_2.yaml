@@ -38,7 +38,7 @@ page_map:
   - 77
   - 78
   - 79
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -293,7 +293,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 3 til Nordisk Domssamling for 1958–1964
+- title: 3) Hovedregister til Nordisk Domssamling for 1958–1964. Universitetsforlaget, Oslo 1967.
   authors:
   - Theodór B. Líndal
   author_titles: []
@@ -309,7 +309,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm

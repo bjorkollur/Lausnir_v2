@@ -76,11 +76,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 49
-  page_end: 93
+  page_end: 94
   issue: null
   pdf_pages:
   - 49
-  - 93
+  - 94
   lang: is
   date: null
   summary: null
@@ -88,7 +88,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -106,11 +106,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 95
-  page_end: 131
+  page_end: 132
   issue: null
   pdf_pages:
   - 95
-  - 131
+  - 132
   lang: is
   date: null
   summary: null
@@ -118,7 +118,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -132,3 +132,59 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Reglugerð um enduraðlögunarstyrk og ferðastyrk til umsækjanda um alþjóðlega vernd“ á
     bls. 133 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Reglugerð um enduraðlögunarstyrk og ferðastyrk til umsækjanda um alþjóðlega vernd
+  authors:
+  - Sigríður Á. Andersen
+  - Albert Björn Lúðvíksson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 133
+  page_end: 141
+  issue: null
+  pdf_pages:
+  - 133
+  - 141
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Leigumarkaðsráðgjöf Úlfljóts
+  authors:
+  - Arnór Hreiðarsson
+  - Sigvaldi Fannar Jónsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 143
+  page_end: 145
+  issue: null
+  pdf_pages:
+  - 143
+  - 145
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

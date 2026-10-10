@@ -130,6 +130,32 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „Eiga bætur vegna brota á samkeppnislögum að vera hærri en mat á tjóni?“ á bls. 59 sem
     skráin nefnir ekki; greinin er talin enda þar'
 - title: Eiga bætur vegna brota á samkeppnislögum að vera hærri en mat á tjóni?
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 59
+  page_end: 59
+  issue: null
+  pdf_pages:
+  - 59
+  - 59
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Eiga bætur vegna brota á samkeppnislögum að vera hærri en mat á tjóni?
   authors:
   - Jóna Björk Helgadóttir
   author_titles: []

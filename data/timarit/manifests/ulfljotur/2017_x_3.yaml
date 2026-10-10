@@ -39,7 +39,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 265
-  page_end: null
+  page_end: 310
   issue: null
   pdf_pages:
   - 11
@@ -51,7 +51,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -73,7 +73,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 311
-  page_end: null
+  page_end: 347
   issue: null
   pdf_pages:
   - 56
@@ -85,7 +85,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -106,7 +106,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 349
-  page_end: null
+  page_end: 377
   issue: null
   pdf_pages:
   - 92
@@ -118,7 +118,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -139,7 +139,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 379
-  page_end: null
+  page_end: 410
   issue: null
   pdf_pages:
   - 120
@@ -151,7 +151,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -173,7 +173,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 411
-  page_end: null
+  page_end: 438
   issue: null
   pdf_pages:
   - 151
@@ -185,7 +185,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -206,7 +206,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 439
-  page_end: null
+  page_end: 461
   issue: null
   pdf_pages:
   - 177
@@ -218,7 +218,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -239,7 +239,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 463
-  page_end: null
+  page_end: 480
   issue: null
   pdf_pages:
   - 200
@@ -251,7 +251,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false

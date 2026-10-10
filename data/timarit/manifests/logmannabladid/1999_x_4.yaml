@@ -22,7 +22,7 @@ page_map:
   - 7
   - 20
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1999 04.pdf
@@ -33,11 +33,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 3
-  page_end: 3
+  page_end: 4
   issue: null
   pdf_pages:
   - 2
-  - 2
+  - 3
   lang: is
   date: null
   summary: null
@@ -46,7 +46,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -59,8 +59,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Nýr framkvæmdastjóri Lögmannafélags Íslands
-  authors:
-  - Ingimar Ingason
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 4
@@ -77,13 +76,13 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -123,11 +122,11 @@ articles:
   author_titles: []
   article_type: Viðtal
   page_start: 7
-  page_end: 7
+  page_end: 9
   issue: null
   pdf_pages:
   - 6
-  - 6
+  - 8
   lang: is
   date: null
   summary: null
@@ -135,7 +134,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -170,7 +169,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -212,22 +211,22 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 12
-  page_end: 12
+  page_end: 13
   issue: null
   pdf_pages:
   - 11
-  - 11
+  - 12
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -262,7 +261,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -291,7 +290,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -334,11 +333,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 15
-  page_end: 16
+  page_end: 17
   issue: null
   pdf_pages:
   - 14
-  - 15
+  - 16
   lang: is
   date: null
   summary: null
@@ -346,7 +345,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false

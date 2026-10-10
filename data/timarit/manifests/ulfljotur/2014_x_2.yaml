@@ -30,7 +30,7 @@ page_map:
   - 240
   - 241
   - 242
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -187,3 +187,29 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 343 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Skýrsla stjórnar Orators skólaárið 2013-2014
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 341
+  page_end: 385
+  issue: null
+  pdf_pages:
+  - 193
+  - 237
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

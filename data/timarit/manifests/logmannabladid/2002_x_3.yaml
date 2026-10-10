@@ -22,8 +22,8 @@ page_map:
   - 4
   - 8
   - 17
-status: review
-confidence: 0
+status: approved
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2002 03.pdf
@@ -369,10 +369,12 @@ articles:
   authors: []
   author_titles: []
   article_type: Frétt
-  page_start: null
-  page_end: null
+  page_start: 26
+  page_end: 26
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 25
+  - 25
   lang: is
   date: null
   summary: null
@@ -380,12 +382,13 @@ articles:
   provenance:
     title: llm
     article_type: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -488,11 +491,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 31
-  page_end: 31
+  page_end: 32
   issue: null
   pdf_pages:
   - 30
-  - 30
+  - 31
   lang: is
   date: null
   summary: null
@@ -501,7 +504,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -519,11 +522,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 32
-  page_end: 32
+  page_end: 34
   issue: null
   pdf_pages:
   - 31
-  - 34
+  - 33
   lang: is
   date: null
   summary: null
@@ -532,7 +535,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true

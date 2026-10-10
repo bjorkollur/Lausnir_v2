@@ -23,7 +23,7 @@ page_map:
   - 20
   - 24
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2000 03.pdf
@@ -99,11 +99,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 4
-  page_end: 5
+  page_end: 6
   issue: null
   pdf_pages:
   - 3
-  - 4
+  - 5
   lang: is
   date: null
   summary: null
@@ -112,7 +112,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -152,7 +152,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -183,7 +183,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -230,11 +230,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 10
-  page_end: 10
+  page_end: 11
   issue: null
   pdf_pages:
   - 9
-  - 9
+  - 10
   lang: is
   date: null
   summary: null
@@ -243,7 +243,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -280,7 +280,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -327,11 +327,11 @@ articles:
   author_titles: []
   article_type: Ritdómur
   page_start: 14
-  page_end: 14
+  page_end: 15
   issue: null
   pdf_pages:
   - 13
-  - 13
+  - 14
   lang: is
   date: null
   summary: null
@@ -340,7 +340,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -355,8 +355,7 @@ articles:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 26; síðasta lesna blaðsíðutal 24) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Útskriftarathöfn námskeiðs til öflunar héraðsdómslögmannsréttinda
-  authors:
-  - Eiríkur Tómasson
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 15
@@ -373,13 +372,13 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -616,3 +615,30 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 26; síðasta lesna blaðsíðutal 24) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Úrslit Golfmóts – Guðmundarbikararinn
+  authors:
+  - Ólafur Gústafsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

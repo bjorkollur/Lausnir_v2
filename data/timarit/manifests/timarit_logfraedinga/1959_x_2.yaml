@@ -33,13 +33,13 @@ page_map:
   - 110
   - 112
   - 113
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1959_02.pdf
 articles:
-- title: Ættleiðing og ættleiðingarlöggjöf1 11
+- title: Ættleiðing og ættleiðingarlöggjöf
   authors:
   - Ármann Snævarr
   author_titles: []
@@ -55,7 +55,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm

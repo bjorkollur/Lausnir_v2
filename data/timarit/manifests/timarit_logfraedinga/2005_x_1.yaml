@@ -28,15 +28,14 @@ page_map:
   - 127
   - 128
   - 129
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2005_01.pdf
 articles:
 - title: Mannréttindaumræða
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 1
@@ -53,7 +52,7 @@ articles:
     title: llm
     article_type: llm
     pages: leitir+llm
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

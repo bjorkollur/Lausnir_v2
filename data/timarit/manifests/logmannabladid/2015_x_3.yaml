@@ -102,11 +102,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 10
-  page_end: 11
+  page_end: 12
   issue: null
   pdf_pages:
   - 9
-  - 10
+  - 11
   lang: is
   date: null
   summary: null
@@ -115,7 +115,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -375,11 +375,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 26
-  page_end: 26
+  page_end: 28
   issue: null
   pdf_pages:
   - 25
-  - 25
+  - 27
   lang: is
   date: null
   summary: null
@@ -388,7 +388,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -401,8 +401,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: 'Golfsumarið 2015: Verðir réttlætisins sakna kvenna'
-  authors:
-  - Bernharð Bogason
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 30
@@ -419,7 +418,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

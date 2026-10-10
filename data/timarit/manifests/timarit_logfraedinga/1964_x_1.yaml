@@ -235,16 +235,15 @@ articles:
   note: ''
   analysis_notes: []
 - title: Frá Hæstarétti
-  authors:
-  - Theodór B. Líndal
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 56
-  page_end: 56
+  page_end: 57
   issue: null
   pdf_pages:
   - 61
-  - 61
+  - 62
   lang: is
   date: null
   summary: null
@@ -252,8 +251,8 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
-    pages: llm
+    authors: user
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -266,16 +265,15 @@ articles:
   note: ''
   analysis_notes: []
 - title: Nýir hæstaréttarlögmenn 1964
-  authors:
-  - Theodór B. Líndal
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 57
-  page_end: 57
+  page_end: 58
   issue: null
   pdf_pages:
   - 62
-  - 62
+  - 63
   lang: is
   date: null
   summary: null
@@ -283,8 +281,8 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
-    pages: llm
+    authors: user
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false

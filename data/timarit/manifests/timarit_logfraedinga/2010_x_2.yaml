@@ -57,15 +57,16 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2010_02.pdf
 articles:
 - title: Stjórnskipulegur neyðarréttur?
-  authors: []
+  authors:
+  - Róbert R. Spanó
   author_titles: []
   article_type: Fræðigrein
   page_start: 107
-  page_end: 109
+  page_end: 111
   issue: null
   pdf_pages:
   - 2
-  - 4
+  - 6
   lang: is
   date: null
   summary: null
@@ -73,7 +74,8 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    pages: toc
+    pages: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -86,26 +88,26 @@ articles:
   note: ''
   analysis_notes:
   - titill efnisyfirlitsins fannst ekki á síðunni; greinin staðsett eftir merki
-- title: Hæﬁlögreglustjóra til að rannsaka sakamál, einkum brot gegn valdstjórninni, sem beinst hafa gegn undirmönnum hans
+- title: Hæfi lögreglustjóra til að rannsaka sakamál, einkum brot gegn valdstjórninni, sem beinst hafa gegn undirmönnum hans
   authors:
   - Hafsteinn Dan Kristjánsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 113
-  page_end: 117
+  page_end: 177
   issue: null
   pdf_pages:
   - 8
-  - 12
+  - 72
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -156,11 +158,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 201
-  page_end: 203
+  page_end: 205
   issue: null
   pdf_pages:
   - 96
-  - 98
+  - 100
   lang: is
   date: null
   summary: null
@@ -169,7 +171,7 @@ articles:
     title: toc
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

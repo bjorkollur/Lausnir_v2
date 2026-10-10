@@ -31,7 +31,7 @@ page_map:
     unclaimed: 0
     pages: 204
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -161,7 +161,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Veitir það vísbendingu um gildi kenningar um stjórn fiskveiða, jafnræði og atvinnufrelsi?
+- title: Stjórnkerfi veiða á norsk-íslensku síldinni 1994-2007. Veitir það vísbendingu um gildi kenningar um stjórn fiskveiða,
+    jafnræði og atvinnufrelsi?
   authors:
   - Helgi Áss Grétarsson
   author_titles: []
@@ -177,7 +178,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
     authors: page

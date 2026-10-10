@@ -142,7 +142,7 @@ articles:
   - skráin segir að greinin endi á bls. 92, prentuð lokasíða er bls. 91
 - title: Skilyrði veitingar lögmannsréttinda
   authors:
-  - Reimar Snæfells Pétursson
+  - Reimar Pétursson
   author_titles: []
   article_type: Fræðigrein
   page_start: 93
@@ -158,7 +158,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: leitir
+    authors: user
     pages: leitir+toc
   checks:
     title_on_page: true

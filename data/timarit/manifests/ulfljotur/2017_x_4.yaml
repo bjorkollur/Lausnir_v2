@@ -20,7 +20,7 @@ page_map:
   bin_ratio: 0.878
   non_article:
   - 82
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
@@ -92,11 +92,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 567
-  page_end: 592
+  page_end: 590
   issue: null
   pdf_pages:
   - 83
-  - 108
+  - 106
   lang: en
   date: null
   summary: null
@@ -104,7 +104,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -118,3 +118,56 @@ articles:
   analysis_notes:
   - 'FRÁVIK: undirritunin (Kolfinna Tómasdóttir) stendur á eftir fyrirsögninni „Fræðabálkur“ á bls. 593; greinin er talin
     enda á undan henni'
+- title: ELSA Ísland – Sækjum tækifærin
+  authors:
+  - Kolfinna Tómasdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 591
+  page_end: 594
+  issue: null
+  pdf_pages:
+  - 107
+  - 110
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar Orators skólaárið 2016–2017
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 595
+  page_end: 633
+  issue: null
+  pdf_pages:
+  - 111
+  - 149
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

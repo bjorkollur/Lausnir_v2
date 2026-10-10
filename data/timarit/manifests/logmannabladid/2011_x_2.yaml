@@ -22,7 +22,7 @@ page_map:
   - 4
   - 22
   - 30
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -96,11 +96,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 8
-  page_end: 11
+  page_end: 12
   issue: null
   pdf_pages:
   - 7
-  - 10
+  - 11
   lang: is
   date: null
   summary: null
@@ -109,7 +109,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -276,11 +276,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 18
-  page_end: 18
+  page_end: 19
   issue: null
   pdf_pages:
   - 17
-  - 17
+  - 18
   lang: is
   date: null
   summary: null
@@ -289,7 +289,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

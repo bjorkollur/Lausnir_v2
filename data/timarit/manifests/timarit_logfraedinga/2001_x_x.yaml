@@ -95,10 +95,9 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2001.pdf
 articles:
 - title: Um réttarheimildir og norskan dóm
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 3
   issue: '1'
@@ -111,10 +110,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -158,9 +157,12 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Itrekunartíðni afbrota á Islandi eftir dr. Eric Baumer, dr. Helga Gunnlaugsson, Kristrúnu Kristmundsdóttur og dr.
-    Richard Wright
-  authors: []
+- title: Ítrekunartíðni afbrota á Íslandi
+  authors:
+  - Helgi Gunnlaugsson
+  - Eric Baumer
+  - Kristrún Kristinsdóttir
+  - Richard Wright
   author_titles: []
   article_type: Fræðigrein
   page_start: 25
@@ -174,10 +176,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -221,10 +224,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: A víð og dreif Skýrsla um Lagastofnun Háskóla Islands 27. febrúar 1999 til 1. marz 2000
-  authors: []
+- title: Skýrsla um Lagastofnun Háskóla Íslands 27. febrúar 1999 til 1. marz 2000
+  authors:
+  - Sigurður Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 53
   page_end: 63
   issue: '1'
@@ -236,10 +240,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -252,11 +257,36 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Hæstiréttur Íslands“ á pdf-síðu 79 sem skráin nefnir ekki; greinin er talin enda þar'
-- title: Opinber málsmeðferð
-  authors:
-  - Friðgeir Björnsson
+- title: Tilkynning frá ritstjóra
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
+  page_start: 63
+  page_end: 63
+  issue: '1'
+  pdf_pages:
+  - 68
+  - 68
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Opinber málsmeðferð
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
   page_start: 71
   page_end: 73
   issue: '2'
@@ -269,10 +299,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -348,11 +378,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: A víð og dreif Frá Lögfræðingafélagi íslands Aðalfundur Lögfræðingafélags íslands 2000
+- title: Aðalfundur Lögfræðingafélags Íslands 2000
   authors:
   - Brynhildur Flóvenz
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 127
   page_end: 127
   issue: '2'
@@ -364,8 +394,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -410,11 +440,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá lagadeild Háskóla íslands Skýrsla um Lagastofnun Háskóla íslands 27. febrúar 1997- 28. febrúar 1998
+- title: Skýrsla um Lagastofnun Háskóla Íslands 27. febrúar 1997 - 28. febrúar 1998
   authors:
   - Sigurður Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 133
   page_end: 143
   issue: '2'
@@ -426,8 +456,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -443,10 +473,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Um löggjafarvald og dómsvald
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 151
   page_end: 154
   issue: '3'
@@ -459,10 +488,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -542,7 +571,7 @@ articles:
   authors:
   - Friðgeir Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 245
   page_end: 251
   issue: '3'
@@ -555,7 +584,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -574,7 +603,7 @@ articles:
   authors:
   - Ásgeir Thoroddsen
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 259
   page_end: 262
   issue: '4'
@@ -587,7 +616,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: leitir
     pages: leitir+toc
     issue: toc
@@ -668,7 +697,7 @@ articles:
   analysis_notes: []
 - title: Upphaf samfélagsþjónustu sem viðurlagategundar - danskur réttur
   authors:
-  - Jón Þór Ölason
+  - Jón Þór Ólason
   author_titles: []
   article_type: Fræðigrein
   page_start: 341
@@ -684,7 +713,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -702,7 +731,7 @@ articles:
   authors:
   - Brynhildur Flóvenz
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 383
   page_end: 383
   issue: '4'
@@ -715,7 +744,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -761,9 +790,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Aðalfundur Lögmannafélags íslands 2001
-  authors: []
+  authors:
+  - Ingimar Ingason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 390
   page_end: 393
   issue: '4'
@@ -776,9 +806,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

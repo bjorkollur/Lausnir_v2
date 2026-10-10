@@ -37,7 +37,7 @@ page_map:
   - 93
   - 94
   - 95
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -168,7 +168,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Dr. jur. Axel H. Pedersen: Det Danske Advokatsamfund 1919—1969. Udgivet af Ad-'
+- title: 'Dr. jur. Axel H. Pedersen: Det Danske Advokatsamfund 1919—1969. Udgivet af Advokatrådet på Jurist-forbundets forlag,
+    1969.'
   authors:
   - Theodór B. Líndal
   author_titles: []
@@ -184,7 +185,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm
@@ -230,7 +231,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Próf 1 lögfræði
+- title: Próf í lögfræði
   authors:
   - Theodór B. Líndal
   author_titles: []
@@ -246,7 +247,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm
@@ -256,6 +257,33 @@ articles:
     author_on_page: false
     external_record: false
   confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýir hæstaréttarlögmenn
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 154
+  page_end: 154
+  issue: null
+  pdf_pages:
+  - 69
+  - 69
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

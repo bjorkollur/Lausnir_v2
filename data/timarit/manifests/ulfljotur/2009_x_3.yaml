@@ -20,7 +20,7 @@ page_map:
   bin_ratio: 0.964
   non_article:
   - 49
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -118,3 +118,30 @@ articles:
   analysis_notes:
   - 'FRÁVIK: undirritunin (Salvör Þórisdóttir) stendur á eftir fyrirsögninni „REKABÁLKUR“ á bls. 350; greinin er talin enda
     á undan henni'
+- title: Rekabálkur
+  authors:
+  - Salvör Þórisdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 350
+  page_end: 354
+  issue: null
+  pdf_pages:
+  - 103
+  - 107
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

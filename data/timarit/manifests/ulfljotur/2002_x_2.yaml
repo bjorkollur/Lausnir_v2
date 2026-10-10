@@ -9,8 +9,8 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.918
-status: review
-confidence: 0
+status: approved
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/100.pdf
@@ -145,11 +145,10 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/701.pdf
   note: ''
   analysis_notes: []
-- title: Í 53. árgangi Úlfljóts birtist í fyrsta sinn annáll Mannréttindadómstóls Evrópu
-  authors:
-  - Páll Þórhallsson
+- title: Dómabálkur
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 262
   page_end: 262
   issue: null
@@ -161,9 +160,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    authors: xlsx
+    title: user
+    authors: user
     pages: page
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -210,7 +210,7 @@ articles:
   analysis_notes:
   - 'FRÁVIK: höfundar skrárinnar (Dóra Sif Tynes, Gunnar Þór Pétursson, Martin Eyjólfsson) stangast á við síðuna (Dóra Sifog
     Gunnar Þór); skránni haldið'
-- title: Annáll Mannréttindadómstóls Evrópu
+- title: Annáll Mannréttindadómstóls Evrópu árið 2001
   authors:
   - Páll Þórhallsson
   author_titles: []
@@ -226,7 +226,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
   checks:
@@ -270,10 +270,10 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3097.pdf
   note: ''
   analysis_notes: []
-- title: Stjornsyslubalkur
+- title: Stjórnsýslubálkur
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 320
   page_end: 320
   issue: null
@@ -286,13 +286,14 @@ articles:
   keywords: []
   provenance:
     pages: page
-    title: page
+    title: user
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2002_2_tbl/3099.pdf

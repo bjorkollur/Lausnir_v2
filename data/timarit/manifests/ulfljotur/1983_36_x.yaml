@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.933
-status: review
+status: approved
 confidence: 0.85
 error: null
 files:
@@ -87,7 +87,7 @@ articles:
 - title: Samruni löggjafar- og framkvæmdarvalds
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 52
   page_end: 55
   issue: '1'
@@ -103,6 +103,7 @@ articles:
     authors: xlsx
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true

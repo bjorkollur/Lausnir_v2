@@ -127,11 +127,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 36
-  page_end: 60
+  page_end: 57
   issue: '1'
   pdf_pages:
   - 0
-  - 24
+  - 21
   lang: is
   date: null
   summary: null
@@ -139,7 +139,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -153,6 +153,33 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: greinin er undirrituð (Eirikur Tómasson) en höfundar skrárinnar eru aðrir (Páll Sigurðsson); skránni haldið'
+- title: XIV. Formannaráðstefna N. S. J. R.
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Frétt
+  page_start: 58
+  page_end: 60
+  issue: '1'
+  pdf_pages:
+  - 22
+  - 24
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1972 25 arg/74.pdf
+  note: ''
+  analysis_notes: []
 - title: Hjúskaparlöggjöf á hvörfum
   authors:
   - Ármann Snævarr

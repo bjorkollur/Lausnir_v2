@@ -46,7 +46,7 @@ files:
 articles:
 - title: Eftirlit Alþingis með framkvæmdarvaldinu
   authors:
-  - Róbert Spanó
+  - Róbert R. Spanó
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 235
@@ -63,7 +63,7 @@ articles:
     title: toc
     article_type: page
     pages: leitir+toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

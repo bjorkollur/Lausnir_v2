@@ -32,7 +32,7 @@ page_map:
   - 130
   - 131
   - 132
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -137,11 +137,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 295
-  page_end: 322
+  page_end: 323
   issue: null
   pdf_pages:
   - 83
-  - 110
+  - 111
   lang: is
   date: null
   summary: null
@@ -150,7 +150,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

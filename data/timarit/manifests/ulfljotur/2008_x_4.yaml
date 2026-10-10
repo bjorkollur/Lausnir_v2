@@ -26,7 +26,7 @@ page_map:
   - 260
   - 261
   - 262
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -125,17 +125,43 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „100 ára afmæli lagadeildar“ á bls. 725 sem skráin nefnir ekki; greinin er talin enda
     þar'
+- title: 100 ára afmæli lagadeildar
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 725
+  page_end: 734
+  issue: null
+  pdf_pages:
+  - 207
+  - 216
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Recent challenges and developments at International Court of Justice
   authors:
   - Rosalyn Higgins
   author_titles: []
   article_type: Fræðigrein
   page_start: 735
-  page_end: 748
+  page_end: 744
   issue: null
   pdf_pages:
   - 217
-  - 230
+  - 226
   lang: en
   date: null
   summary: null
@@ -143,7 +169,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -157,3 +183,55 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Skýrsla Stjórnar Orators starfsárið 2007–2008“ á bls. 749 sem skráin nefnir ekki; greinin
     er talin enda þar'
+- title: Rekabálkur
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 745
+  page_end: 748
+  issue: null
+  pdf_pages:
+  - 227
+  - 230
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar Orators starfsárið 2007–2008
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 749
+  page_end: 771
+  issue: null
+  pdf_pages:
+  - 231
+  - 253
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

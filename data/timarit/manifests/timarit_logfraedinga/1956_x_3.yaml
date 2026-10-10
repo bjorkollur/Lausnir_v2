@@ -104,7 +104,7 @@ articles:
   analysis_notes: []
 - title: Frá bæjarþingi og sjó- og verzlunardómi Reykjavíkur. Nokkrir dómar frá árunum 1955 og 1956
   authors:
-  - Gunnar M. Guðmundsson
+  - G. M. G.
   author_titles: []
   article_type: Dómareifun
   page_start: 158
@@ -120,7 +120,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
   checks:
     title_on_page: true
@@ -227,7 +227,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Tuttugasta og fyrsta þing norrænna lögfræðinga í Helsingfors 1957
-  authors: []
+  authors:
+  - Árni Tryggvason
+  - Ólafur Jóhannesson
+  - Theodór B. Líndal
   author_titles: []
   article_type: Frétt
   page_start: 190
@@ -244,6 +247,7 @@ articles:
     title: llm
     article_type: llm
     pages: leitir+llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

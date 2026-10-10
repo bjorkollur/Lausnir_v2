@@ -33,7 +33,7 @@ page_map:
   - 78
   - 80
   - 81
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
@@ -49,7 +49,7 @@ articles:
   issue: null
   pdf_pages:
   - 2
-  - 56
+  - 57
   lang: is
   date: null
   summary: null
@@ -58,7 +58,7 @@ articles:
     title: llm
     article_type: llm
     authors: leitir
-    pages: leitir+llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -66,23 +66,25 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2012_04.pdf
 articles:
 - title: Lögfesting barnasáttmála Sameinuðu þjóðanna
-  authors: []
+  authors:
+  - Róbert R. Spanó
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 339
-  page_end: 339
+  page_end: 341
   issue: null
   pdf_pages:
   - 2
-  - 2
+  - 4
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    pages: toc
+    article_type: user
+    pages: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -102,11 +104,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 343
-  page_end: 375
+  page_end: 385
   issue: null
   pdf_pages:
   - 6
-  - 38
+  - 48
   lang: is
   date: null
   summary: null
@@ -115,7 +117,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -135,11 +137,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 387
-  page_end: 390
+  page_end: 406
   issue: null
   pdf_pages:
   - 50
-  - 53
+  - 69
   lang: is
   date: null
   summary: null
@@ -148,7 +150,7 @@ articles:
     title: toc
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -168,11 +170,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 407
-  page_end: 436
+  page_end: 445
   issue: null
   pdf_pages:
   - 70
-  - 99
+  - 108
   lang: is
   date: null
   summary: null
@@ -181,7 +183,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

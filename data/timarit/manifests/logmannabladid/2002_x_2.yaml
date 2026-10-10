@@ -19,7 +19,7 @@ page_map:
   contested: []
   bin_ratio: 0.924
   non_article: []
-status: review
+status: approved
 confidence: 0.45
 error: null
 files:
@@ -182,11 +182,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 14
-  page_end: 14
+  page_end: 15
   issue: null
   pdf_pages:
   - 13
-  - 13
+  - 14
   lang: is
   date: null
   summary: null
@@ -195,7 +195,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -578,7 +578,7 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 30
-  page_end: 30
+  page_end: 31
   issue: null
   pdf_pages:
   - 29
@@ -590,7 +590,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

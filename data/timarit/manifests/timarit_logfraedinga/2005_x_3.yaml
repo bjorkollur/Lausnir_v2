@@ -38,8 +38,7 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2005_03.pdf
 articles:
 - title: Stjórnsýsluréttur eða réttarfar? – Hugleiðingar um dóm Hæstaréttar 16. júní 2005 í máli nr. 46/2005
-  authors:
-  - Róbert Spanó
+  authors: []
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 353
@@ -56,7 +55,7 @@ articles:
     title: llm
     article_type: llm
     pages: leitir+llm
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

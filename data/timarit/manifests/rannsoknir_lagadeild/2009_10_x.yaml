@@ -35,7 +35,7 @@ page_map:
     unclaimed: 0
     pages: 260
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -196,7 +196,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: A Sketch of an Answer.1
+- title: Are Law and Justice Intrinsically Related? A Sketch of an Answer
   authors:
   - Hafsteinn Þór Hauksson
   author_titles: []
@@ -212,7 +212,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     pages: toc
     authors: page
@@ -320,7 +320,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: A European Court with a “constitutional” mission for a sui generis Legal Order
+- title: 'The ECJ and EC law: A European Court with a “constitutional” mission for a sui generis legal order'
   authors:
   - M. Elvira Méndez-Pinedo
   author_titles: []
@@ -336,7 +336,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc

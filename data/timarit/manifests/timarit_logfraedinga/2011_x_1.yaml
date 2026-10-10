@@ -129,24 +129,24 @@ files:
 articles:
 - title: Ákvörðun Hæstaréttar um ógildingu kosninga til stjórnlagaþings
   authors:
-  - Róbert Spanó
+  - Róbert R. Spanó
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
-  page_end: 3
+  page_end: 4
   issue: null
   pdf_pages:
   - 2
-  - 4
+  - 5
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    pages: leitir+toc
-    authors: leitir
+    article_type: user
+    pages: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -166,11 +166,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 5
-  page_end: 15
+  page_end: 33
   issue: null
   pdf_pages:
   - 6
-  - 16
+  - 34
   lang: is
   date: null
   summary: null
@@ -179,7 +179,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -194,26 +194,26 @@ articles:
   - skráin segir að greinin endi á bls. 33, prentuð lokasíða er bls. 15
   - 'FRÁVIK: á eftir greininni hefst „������������������������������������������������������������“ á bls. 25 sem skráin nefnir
     ekki; greinin er talin enda þar'
-- title: Grunneðli aﬂeiðna sem áhættugerninga - í ljósi dóms Hæstaréttar í máli nr. 561/2010
+- title: Grunneðli afleiðna sem áhættugerninga - í ljósi dóms Hæstaréttar í máli nr. 561/2010
   authors:
   - Aðalsteinn E. Jónasson
   author_titles: []
   article_type: Fræðigrein
   page_start: 35
-  page_end: 35
+  page_end: 58
   issue: null
   pdf_pages:
   - 36
-  - 36
+  - 59
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -226,26 +226,26 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst efni á bls. 43 sem skráin nefnir ekki; greinin er talin enda þar'
-- title: Samningar um vanefndaaﬂeiðingar
+- title: Samningar um vanefndaafleiðingar
   authors:
   - Eyvindur G. Gunnarsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 59
-  page_end: 59
+  page_end: 88
   issue: null
   pdf_pages:
   - 60
-  - 60
+  - 89
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -264,11 +264,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 89
-  page_end: 90
+  page_end: 119
   issue: null
   pdf_pages:
   - 90
-  - 91
+  - 120
   lang: is
   date: null
   summary: null
@@ -277,7 +277,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

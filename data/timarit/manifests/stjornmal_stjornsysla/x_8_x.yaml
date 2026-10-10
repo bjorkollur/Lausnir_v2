@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.569
-status: review
+status: approved
 confidence: 0.8
 error: null
 files:
@@ -687,11 +687,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 389
-  page_end: 412
+  page_end: 411
   issue: '2'
   pdf_pages:
   - 0
-  - 23
+  - 22
   lang: is
   date: null
   summary: null
@@ -699,7 +699,7 @@ articles:
   provenance:
     title: page
     authors: page
-    pages: filename+page
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -810,24 +810,23 @@ articles:
 - title: Will you still need me, will you still feed me? Old-age pensions in Iceland from a gender perspective
   authors:
   - Steinunn Rögnvaldsdóttir
-  - Gyða Margrét
   - Gyða Margrét Pétursdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 469
-  page_end: 490
+  page_end: 489
   issue: '2'
   pdf_pages:
   - 0
-  - 21
+  - 20
   lang: en
   date: null
   summary: null
   keywords: []
   provenance:
     title: page
-    authors: page
-    pages: filename+page
+    authors: user
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -842,23 +841,25 @@ articles:
   analysis_notes: []
 - title: Towards a Better Understanding of Climate Change Negotiations
   authors:
+  - Bryndís Arndal Woods
   - Daði Már Kristófersson
+  - Silja Bára Ómarsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 491
-  page_end: 514
+  page_end: 513
   issue: '2'
   pdf_pages:
   - 0
-  - 23
+  - 22
   lang: en
   date: null
   summary: null
   keywords: []
   provenance:
     title: page
-    authors: page
-    pages: filename+page
+    authors: user
+    pages: user
     issue: page
   checks:
     title_on_page: true
@@ -875,24 +876,23 @@ articles:
 - title: Skipulag íslenskra fyrirtækja 2004-2007
   authors:
   - Einar Svansson
-  - Runólfur Smári
   - Runólfur Smári Steinþórsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 515
-  page_end: 542
+  page_end: 541
   issue: '2'
   pdf_pages:
   - 0
-  - 27
+  - 26
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: page
-    authors: page
-    pages: filename+page
+    authors: user
+    pages: user
     issue: page
   checks:
     title_on_page: true

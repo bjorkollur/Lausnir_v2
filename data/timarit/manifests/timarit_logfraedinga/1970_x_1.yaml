@@ -47,7 +47,7 @@ page_map:
   - 113
   - 114
   - 115
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -296,7 +296,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: RÆÐA Kristjáns Jónssonar, dómstjóra Hæstaréttar, flutt í dómsal réttarins, er rétturinn var settur fyrsta sinn 16.
-    febr
+    febr. 1920
   authors:
   - Kristján Jónsson
   author_titles: []
@@ -312,7 +312,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: leitir
     pages: leitir+llm

@@ -79,17 +79,17 @@ page_map:
     unclaimed: 0
     pages: 361
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.2
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1997.pdf
 articles:
-- title: Hollvinir lagadeildar Háskóla Islands
+- title: Hollvinir lagadeildar Háskóla Íslands
   authors:
   - Dögg Pálsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 3
   issue: '1'
@@ -101,8 +101,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
     issue: toc
@@ -214,9 +214,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Aðalfundur Lögmannafélags íslands 1996
-  authors: []
+  authors:
+  - Marteinn Másson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 49
   page_end: 50
   issue: '1'
@@ -229,9 +230,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -244,10 +246,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Frumvarp til lögræðislaga
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 59
   page_end: 61
   issue: '2'
@@ -260,10 +261,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -339,11 +340,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá lagadeild Háskóla Islands Deildarfréttir 1996
+- title: Deildarfréttir 1996
   authors:
   - Björn Þ. Guðmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 120
   page_end: 125
   issue: '2'
@@ -355,8 +356,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -375,7 +376,7 @@ articles:
   authors:
   - Sigurður Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 125
   page_end: 135
   issue: '2'
@@ -388,7 +389,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -403,10 +404,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Utgáfa lögfræðirita
+- title: Útgáfa lögfræðirita
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 143
   page_end: 145
   issue: '3'
@@ -418,8 +419,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
   checks:
@@ -530,25 +531,27 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Bandaríkjaferð Lögfræðingafélags íslands
-  authors: []
+- title: Ferð Lögfræðingafélags Íslands til Washington DC í apríl 1997
+  authors:
+  - Dögg Pálsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 218
-  page_end: 225
+  page_end: 221
   issue: '3'
   pdf_pages:
   - 233
-  - 251
+  - 236
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -561,24 +564,25 @@ articles:
   note: ''
   analysis_notes: []
 - title: Almenningur vill
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 227
   page_end: 228
   issue: '4'
-  pdf_pages: null
+  pdf_pages:
+  - 250
+  - 251
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    pages: leitir+toc
+    article_type: user
+    pages: user
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: false
@@ -593,9 +597,9 @@ articles:
   - 'upphafsbls. 227 fannst ekki: blaðsíðutalið óljóst (talan stendur á fleiri en einni síðu)'
 - title: Gizur Bergsteinsson. Minning
   authors:
-  - Harald Henrysson
+  - Haraldur Henrysson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 229
   page_end: 230
   issue: '4'
@@ -608,8 +612,8 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    authors: toc
+    article_type: user
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -720,11 +724,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: A víð og dreif Skýrsla Stjórnar Lögfræðingafélags íslands 1997
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 30. október 1997
   authors:
   - Dögg Pálsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 318
   page_end: 324
   issue: '4'
@@ -736,8 +740,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page

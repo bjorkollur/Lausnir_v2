@@ -63,11 +63,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 6
-  page_end: 7
+  page_end: 6
   issue: null
   pdf_pages:
   - 5
-  - 6
+  - 5
   lang: is
   date: null
   summary: null
@@ -75,7 +75,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -215,11 +215,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 14
-  page_end: 14
+  page_end: 15
   issue: null
   pdf_pages:
   - 13
-  - 13
+  - 14
   lang: is
   date: null
   summary: null
@@ -228,7 +228,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -298,6 +298,33 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
+- title: Groa@leiti.is
+  authors:
+  - Gróa
+  author_titles: []
+  article_type: Annað
+  page_start: 17
+  page_end: 17
+  issue: null
+  pdf_pages:
+  - 16
+  - 16
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Málskostnaðarákvarðanir og málskostnaðarkröfur í munnlega fluttum málum
   authors:
   - Þórunn Guðmundsdóttir
@@ -358,6 +385,33 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
+- title: Groa@leiti.is
+  authors:
+  - Gróa
+  author_titles: []
+  article_type: Annað
+  page_start: 22
+  page_end: 22
+  issue: null
+  pdf_pages:
+  - 21
+  - 21
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Af Merði lögmanni
   authors: []
   author_titles: []
@@ -388,15 +442,16 @@ articles:
   note: ''
   analysis_notes: []
 - title: Golfmót lögmanna sumarið 2002
-  authors: []
+  authors:
+  - Ásgeir Á. Ragnarsson
   author_titles: []
   article_type: Frétt
   page_start: 24
-  page_end: 24
+  page_end: 25
   issue: null
   pdf_pages:
   - 23
-  - 23
+  - 24
   lang: is
   date: null
   summary: null
@@ -404,7 +459,8 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

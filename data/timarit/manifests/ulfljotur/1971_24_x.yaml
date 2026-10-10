@@ -31,7 +31,7 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/670.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/73.pdf
 articles:
-- title: „ferð“ í merkingu X. kafla siglingalag-
+- title: Nokkrar athugasemdir um hugtakið „ferð“ í merkingu X. kafla siglingalaganna
   authors:
   - Páll Sigurðsson
   author_titles: []
@@ -47,7 +47,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -247,6 +247,32 @@ articles:
   confidence: 1.0
   leitir_record_id: null
   xlsx_row: 969
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/285.pdf
+  note: ''
+  analysis_notes: []
+- title: Leiðrétting
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 145
+  page_end: 145
+  issue: '2'
+  pdf_pages:
+  - 18
+  - 18
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/285.pdf
   note: ''
   analysis_notes: []
@@ -500,7 +526,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1971 24 arg/670.pdf
   note: ''
   analysis_notes: []
-- title: Juristens rolle i samfunnet för, nå og i fremtiden
+- title: Juristenes rolle i samfunnet — før, nå og i fremtiden
   authors:
   - Torstein Eckhoff
   author_titles: []
@@ -516,7 +542,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: page
     issue: xlsx

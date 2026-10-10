@@ -67,8 +67,7 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1996.pdf
 articles:
 - title: Aukastörf dómara
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 1
@@ -85,7 +84,7 @@ articles:
     title: llm
     article_type: llm
     pages: leitir+llm
-    authors: leitir
+    authors: user
     issue: leitir
   checks:
     title_on_page: true
@@ -643,8 +642,7 @@ articles:
   - staðsett eftir nágrönnum sínum í listanum (pdf-síða 155)
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Nýtt dómhús Hæstaréttar Íslands
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 153
@@ -661,7 +659,7 @@ articles:
     title: llm
     article_type: llm
     pages: leitir+llm
-    authors: leitir
+    authors: user
     issue: leitir
   checks:
     title_on_page: true
@@ -781,14 +779,15 @@ articles:
     nefnir ekki; greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Lítið eitt um refsingar
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 139
   page_end: 141
   issue: '4'
-  pdf_pages: null
+  pdf_pages:
+  - 270
+  - 272
   lang: is
   date: null
   summary: null
@@ -796,8 +795,8 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: leitir+llm
-    authors: leitir
+    pages: user
+    authors: user
     issue: leitir
   checks:
     title_on_page: false
@@ -883,7 +882,7 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Hugleiðing um réttarsáttir
   authors:
-  - Jón Laxdal Arnalds
+  - Jón L. Arnalds
   author_titles: []
   article_type: Fræðigrein
   page_start: 199
@@ -899,7 +898,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
     issue: leitir
   checks:

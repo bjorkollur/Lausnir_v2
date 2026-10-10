@@ -99,11 +99,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 8
-  page_end: 9
+  page_end: 8
   issue: null
   pdf_pages:
   - 7
-  - 8
+  - 7
   lang: is
   date: null
   summary: null
@@ -112,7 +112,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -192,11 +192,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 16
-  page_end: 17
+  page_end: 18
   issue: null
   pdf_pages:
   - 15
-  - 16
+  - 17
   lang: is
   date: null
   summary: null
@@ -205,7 +205,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -218,8 +218,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Um 300 manns sóttu ráðgjöf 2024
-  authors:
-  - Kristófer Jónasson
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 18
@@ -236,7 +235,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -835,6 +834,32 @@ articles:
     author_on_page: true
     external_record: false
   confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hver/Hvað/Hvert
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 66
+  page_end: 67
+  issue: null
+  pdf_pages:
+  - 65
+  - 66
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

@@ -26,7 +26,7 @@ page_map:
   - 20
   - 24
   - 34
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -337,8 +337,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Léttleikandi sambabolti
-  authors:
-  - Erlendur Þór Gunnarsson
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 30
@@ -355,7 +354,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -373,11 +372,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 32
-  page_end: 34
+  page_end: 33
   issue: null
   pdf_pages:
   - 31
-  - 33
+  - 32
   lang: is
   date: null
   summary: null
@@ -386,7 +385,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

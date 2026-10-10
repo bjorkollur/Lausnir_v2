@@ -39,7 +39,7 @@ page_map:
     unclaimed: 0
     pages: 119
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -49,7 +49,7 @@ articles:
   authors:
   - Hafsteinn Þór Hauksson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 353
   page_end: 354
   issue: null
@@ -62,7 +62,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     authors: page
   checks:
@@ -140,27 +140,27 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 367–424
-- title: Eru 37. til 41. gr., og 89. og 90. gr. laga nr. 15/2016 um fullnustu refsingar brot gegn 2. og 60. gr. stjórnar skrár
-    lýðveldisins Íslands og 6. gr. mannréttinda sáttmála Evrópu?
+- title: Eru 37. til 41. gr., og 89. og 90. gr. laga nr. 15/2016 um fullnustu refsingar brot gegn 2. og 60. gr. stjórnarskrár
+    lýðveldisins Íslands og 6. gr. mannréttindasáttmála Evrópu?
   authors:
   - Ástríður Grímsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 425
-  page_end: 445
+  page_end: 446
   issue: null
   pdf_pages:
   - 74
-  - 94
+  - 95
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

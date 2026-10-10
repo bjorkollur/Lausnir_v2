@@ -25,31 +25,31 @@ page_map:
   - 168
   - 169
   - 170
-status: review
+status: approved
 confidence: 0.5
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_1_tbl.pdf
 articles:
-- title: Gagnvart skipan eignarréttar
+- title: Hlutleysi EES- og EB-réttar gagnvart skipan eignarréttar
   authors:
   - Kristín Haraldsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 5
-  page_end: 37
+  page_end: 38
   issue: null
   pdf_pages:
   - 5
-  - 37
+  - 38
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -61,25 +61,25 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Viðurkenningarkröfur um �������������������
+- title: Viðurkenningarkröfur um (ó)lögmæti einhvers
   authors:
   - Hafsteinn Dan Kristjánsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 39
-  page_end: 81
+  page_end: 82
   issue: null
   pdf_pages:
   - 39
-  - 81
+  - 82
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -91,7 +91,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Mann réttindasáttmála Evrópu og réttindi í velferðarkerfum
+- title: Um eignarhugtak eignarréttarákvæðis mannréttindasáttmála Evrópu og réttindi í velferðarkerfum
   authors:
   - Helgi Áss Grétarsson
   author_titles: []
@@ -107,7 +107,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
   checks:
@@ -121,7 +121,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Einkamálum og sakamálum
+- title: Kæra til æðri dóms í einkamálum og sakamálum
   authors:
   - Valgerður Sólnes
   author_titles: []
@@ -137,7 +137,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
   checks:
@@ -151,7 +151,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Ráðherra við skipun dómara
+- title: Svigrúm og ábyrgð/ábyrgðarleysi ráðherra við skipun dómara
   authors:
   - Björg Thorarensen
   author_titles: []
@@ -167,7 +167,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
   checks:
@@ -185,7 +185,7 @@ articles:
   authors:
   - Erla Ylfa Óskarsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 163
   page_end: 166
   issue: null
@@ -200,6 +200,7 @@ articles:
     title: page
     authors: xlsx
     pages: xlsx
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: true

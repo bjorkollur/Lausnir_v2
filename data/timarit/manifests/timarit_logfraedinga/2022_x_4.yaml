@@ -37,17 +37,17 @@ page_map:
     unclaimed: 0
     pages: 141
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2022_04.pdf
 articles:
-- title: Stjórnsýsluréttar og sala sveitarfélaga á byggingarlóðum sínum
+- title: Nýtt rit um efnisreglur stjórnsýsluréttar og sala sveitarfélaga á byggingarlóðum sínum
   authors:
   - Valgerður Sólnes
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 505
   page_end: 508
   issue: null
@@ -59,8 +59,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     authors: page
   checks:

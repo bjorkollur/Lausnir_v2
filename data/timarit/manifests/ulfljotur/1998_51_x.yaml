@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.936
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1998 51 arg/153.pdf
@@ -30,26 +30,27 @@ articles:
 - title: Hátíðarsamkoma í tilefni 90 ára afmælis lagakennslu á Islandi
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 497
-  page_end: 504
+  page_end: 498
   issue: null
   pdf_pages:
   - 0
-  - 7
+  - 1
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    pages: page
+    pages: user
     title: page
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1998 51 arg/2879.pdf
@@ -59,9 +60,10 @@ articles:
   - 'FRÁVIK: á eftir greininni hefst „Gildilögfræðimenntunar fyrir sjálfstæðiþjóðar“ á bls. 506 sem skráin nefnir ekki; greinin
     er talin enda þar'
 - title: Lagadeild á tímamótum
-  authors: []
+  authors:
+  - Jónatan Þórmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 499
   page_end: 502
   issue: null
@@ -75,6 +77,8 @@ articles:
   provenance:
     title: filename
     pages: page
+    authors: user
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -152,9 +156,9 @@ articles:
   analysis_notes: []
 - title: Gagnaöflun í forsjármálum
   authors:
-  - Sigríður Ingvarsdóttir
+  - Ingibjörg Bjarnadóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritdómur
   page_start: 143
   page_end: 149
   issue: '1'
@@ -167,9 +171,10 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -311,7 +316,7 @@ articles:
   analysis_notes: []
 - title: Launaréttur sjómanna í slysa- og veikindaforföllum samkvæmt 36.gr. sjómannalaga nr. 35/1985
   authors:
-  - Friðrik Á Hermannsson
+  - Friðrik Á. Hermannsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 325
@@ -326,7 +331,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:

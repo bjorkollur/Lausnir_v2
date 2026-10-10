@@ -41,7 +41,7 @@ page_map:
   - 189
   - 190
   - 191
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -138,6 +138,32 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Réttarheimspeki“ á bls. 596 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Réttarheimspeki
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 596
+  page_end: 596
+  issue: null
+  pdf_pages:
+  - 41
+  - 41
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Ber okkur siðferðileg skylda til að fara að lögum
   authors:
   - Eiríkur Jónsson
@@ -199,6 +225,32 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Umhverfisréttur“ á bls. 618 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Umhverfisréttur
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 618
+  page_end: 618
+  issue: null
+  pdf_pages:
+  - 63
+  - 63
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Reglur um erfðabreyttar lífverur
   authors:
   - Björk Viðarsdóttir
@@ -262,6 +314,59 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Stjórnsýslubálkur“ á bls. 668 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Stjórnsýslubálkur
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 668
+  page_end: 668
+  issue: null
+  pdf_pages:
+  - 113
+  - 113
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Upplýsingatækni og stjórnsýslan
+  authors:
+  - Kristján Andri Stefánsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 669
+  page_end: 677
+  issue: null
+  pdf_pages:
+  - 114
+  - 122
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Rafræn stjórnsýsla
   authors:
   - Gunnar Þór Þórarinsson
@@ -324,3 +429,137 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Um tengsl lögfræði og hagfræði“ á bls. 698 sem skráin nefnir ekki; greinin er talin
     enda þar'
+- title: Um tengsl lögfræði og hagfræði
+  authors:
+  - Ásgeir Jóhannesson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 698
+  page_end: 698
+  issue: null
+  pdf_pages:
+  - 143
+  - 143
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Lög og hagkvæmni: Eru óhagkvæm lög samfélagslega viðunandi?'
+  authors:
+  - Ragnar Árnason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 699
+  page_end: 702
+  issue: null
+  pdf_pages:
+  - 144
+  - 147
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tengsl lögfræði og hagfræði frá sjónarhóli atvinnulífsins
+  authors:
+  - Birgir Ármannsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 703
+  page_end: 706
+  issue: null
+  pdf_pages:
+  - 148
+  - 151
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Lögfræði og hagfræði ættu að skarast í kennslu
+  authors:
+  - Ágúst Ólafur Ágústsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 707
+  page_end: 709
+  issue: null
+  pdf_pages:
+  - 152
+  - 154
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 710
+  page_end: 731
+  issue: null
+  pdf_pages:
+  - 155
+  - 176
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

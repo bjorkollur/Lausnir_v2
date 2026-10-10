@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 72
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2016 1.tbl.pdf
@@ -32,9 +32,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 4
-  page_end: null
+  page_end: 8
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 0
+  - 4
   lang: is
   date: null
   summary: null
@@ -43,13 +45,13 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -83,7 +85,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -116,7 +118,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -229,11 +231,11 @@ articles:
   author_titles: []
   article_type: Viðtal
   page_start: 64
-  page_end: 78
+  page_end: 79
   issue: null
   pdf_pages:
   - 57
-  - 71
+  - 72
   lang: is
   date: null
   summary: null
@@ -242,7 +244,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -256,3 +258,138 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 5 (bls. 80–224; síðasta lesna blaðsíðutal 78) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Merk kvenréttindakona kveður
+  authors:
+  - Svala Ísfeld Ólafsdóttir
+  author_titles: []
+  article_type: Annað
+  page_start: 80
+  page_end: 86
+  issue: null
+  pdf_pages:
+  - 73
+  - 79
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ábyrgð á tjóni af völdum mengunar frá skipum
+  authors:
+  - Guðmundur Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 88
+  page_end: 142
+  issue: null
+  pdf_pages:
+  - 80
+  - 134
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hryggjarstykki skattaréttar – lögskýringin
+  authors:
+  - Bjarnfreður Ólafsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 144
+  page_end: 191
+  issue: null
+  pdf_pages:
+  - 135
+  - 182
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Smámálameðferð – bættur aðgangur að dómstólum
+  authors:
+  - Aldís Geirdal Sverrisdóttir
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 192
+  page_end: 223
+  issue: null
+  pdf_pages:
+  - 183
+  - 214
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ubi jus ibi remedium est
+  authors:
+  - Þór Jónsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 224
+  page_end: 231
+  issue: null
+  pdf_pages:
+  - 215
+  - 222
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

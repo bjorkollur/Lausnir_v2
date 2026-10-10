@@ -119,11 +119,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 481
-  page_end: 517
+  page_end: 531
   issue: null
   pdf_pages:
   - 28
-  - 64
+  - 78
   lang: is
   date: null
   summary: null
@@ -132,7 +132,7 @@ articles:
     title: llm
     article_type: llm
     authors: leitir
-    pages: leitir+llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -222,7 +222,7 @@ articles:
   note: ''
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
-- title: Frá Strassborg er þetta helst 1
+- title: Frá Strassborg er þetta helst
   authors:
   - Hildur Hjörvar
   author_titles: []
@@ -238,7 +238,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm

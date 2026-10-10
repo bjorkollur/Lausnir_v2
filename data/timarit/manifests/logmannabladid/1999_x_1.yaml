@@ -20,8 +20,8 @@ page_map:
   bin_ratio: 0.957
   non_article:
   - 12
-status: review
-confidence: 0
+status: approved
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 1999 01.pdf
@@ -220,11 +220,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 7
-  page_end: 7
+  page_end: 8
   issue: null
   pdf_pages:
   - 6
-  - 6
+  - 7
   lang: is
   date: null
   summary: null
@@ -233,7 +233,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -270,7 +270,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -317,11 +317,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 10
-  page_end: 10
+  page_end: 11
   issue: null
   pdf_pages:
   - 9
-  - 9
+  - 10
   lang: is
   date: null
   summary: null
@@ -330,7 +330,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -409,8 +409,7 @@ articles:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 15; síðasta lesna blaðsíðutal 14) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Fræðslumál – Námskeið á vormisseri
-  authors:
-  - Andri Árnason
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 12
@@ -427,7 +426,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -536,3 +535,29 @@ articles:
     haldið'
   - 'greinar fundust ekki í skjalinu: 1 (bls. 15; síðasta lesna blaðsíðutal 14) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Fulltrúamál
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 15
+  page_end: 15
+  issue: null
+  pdf_pages:
+  - 14
+  - 14
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

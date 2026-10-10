@@ -49,9 +49,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Áki Jakobsson
-  authors: []
+  authors:
+  - Einar Ingimundarson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 100
   page_end: 101
   issue: null
@@ -65,6 +66,8 @@ articles:
   provenance:
     pages: filename+page
     title: page
+    authors: user
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -77,9 +80,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Þórður Eyjólfsson
-  authors: []
+  authors:
+  - Ásgeir Pétursson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 101
   page_end: 103
   issue: null
@@ -93,6 +97,8 @@ articles:
   provenance:
     pages: filename+page
     title: page
+    authors: user
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -134,6 +140,32 @@ articles:
   source_file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1975_03/1975_104.pdf
   note: ''
   analysis_notes: []
+- title: Nokkrar nefndir
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 113
+  page_end: 113
+  issue: null
+  pdf_pages:
+  - 9
+  - 9
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1975_03/1975_104.pdf
+  note: ''
+  analysis_notes: []
 - title: Skipulag og starfsemi verkalýðsfélaga og samtaka þeirra
   authors:
   - Jón Þorsteinsson
@@ -164,29 +196,110 @@ articles:
   source_file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1975_03/1975_114.pdf
   note: ''
   analysis_notes: []
-- title: Endurskoðun hinna Norrænu kaupalaga og samningalága
+- title: Frumvörp um umferðarmál
   authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 122
+  page_end: 122
+  issue: null
+  pdf_pages:
+  - 8
+  - 8
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1975_03/1975_114.pdf
+  note: ''
+  analysis_notes: []
+- title: Endurskoðun hinna Norrænu kaupalaga og samningalága
+  authors:
+  - Páll Sigurðsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 123
-  page_end: 131
+  page_end: 127
   issue: null
   pdf_pages:
   - 0
-  - 8
+  - 4
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    pages: filename+page
+    pages: user
     title: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
     author_on_page: false
     external_record: false
   confidence: 0.3
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1975_03/1975_123.pdf
+  note: ''
+  analysis_notes: []
+- title: Fréttir frá BSRB
+  authors:
+  - Gunnar Eydal
+  author_titles: []
+  article_type: Frétt
+  page_start: 127
+  page_end: 128
+  issue: null
+  pdf_pages:
+  - 4
+  - 5
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1975_03/1975_123.pdf
+  note: ''
+  analysis_notes: []
+- title: Embættaveitingar
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 128
+  page_end: 131
+  issue: null
+  pdf_pages:
+  - 5
+  - 8
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1975_03/1975_123.pdf

@@ -35,11 +35,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 4
-  page_end: 5
+  page_end: 4
   issue: null
   pdf_pages:
   - 3
-  - 4
+  - 3
   lang: is
   date: null
   summary: null
@@ -48,7 +48,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

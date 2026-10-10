@@ -217,11 +217,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 165
-  page_end: 168
+  page_end: 167
   issue: '4'
   pdf_pages:
   - 0
-  - 3
+  - 2
   lang: is
   date: null
   summary: null
@@ -229,7 +229,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -239,6 +239,32 @@ articles:
   confidence: 1.0
   leitir_record_id: null
   xlsx_row: 806
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/162.pdf
+  note: ''
+  analysis_notes: []
+- title: Dómar úr stjórnskipunarrétti
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 168
+  page_end: 168
+  issue: '4'
+  pdf_pages:
+  - 3
+  - 3
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1980 33 arg/162.pdf
   note: ''
   analysis_notes: []

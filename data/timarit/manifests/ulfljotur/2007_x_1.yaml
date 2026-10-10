@@ -25,7 +25,7 @@ page_map:
   - 199
   - 200
   - 201
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -153,6 +153,32 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Málfrelsi hluthafa samkvæmt 3. mgr 80. gr hlutafélagalaga“ á bls. 173 sem skráin nefnir
     ekki; greinin er talin enda þar'
+- title: Málfrelsi hluthafa samkvæmt 3. mgr 80. gr hlutafélagalaga
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 173
+  page_end: 174
+  issue: null
+  pdf_pages:
+  - 174
+  - 175
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Málfrelsi hluthafa á hluthafafundum
   authors:
   - Áslaug Björgvinsdóttir
@@ -215,3 +241,81 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Ákæruvaldinu skipt í þrjú stjórnsýslustig“ á bls. 183 sem skráin nefnir ekki; greinin
     er talin enda þar'
+- title: Ákæruvaldinu skipt í þrjú stjórnsýslustig
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 183
+  page_end: 185
+  issue: null
+  pdf_pages:
+  - 184
+  - 186
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málþing og fræðafundir á vegum Orators
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 185
+  page_end: 187
+  issue: null
+  pdf_pages:
+  - 186
+  - 188
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félagslífið í lagadeild
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 189
+  page_end: 196
+  issue: null
+  pdf_pages:
+  - 190
+  - 197
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

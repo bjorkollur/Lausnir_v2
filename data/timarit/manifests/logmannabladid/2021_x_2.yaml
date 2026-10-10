@@ -32,7 +32,7 @@ page_map:
     unclaimed: 3
     pages: 30
     by_proxy: 1
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -42,7 +42,7 @@ articles:
   authors:
   - Sigurður Örn Hilmarsson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 4
   page_end: 4
   issue: null
@@ -55,7 +55,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -73,7 +73,7 @@ articles:
   authors:
   - Ari Karlsson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 6
   page_end: 6
   issue: null
@@ -86,7 +86,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -132,7 +132,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: VIÐTAL VIÐ SIGURÐ ÖRN HILMARSSON Lögmenn eru þjónar réttarríkisins
-  authors: []
+  authors:
+  - Ari Karlsson
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 10
@@ -149,6 +151,7 @@ articles:
     title: toc
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -161,15 +164,16 @@ articles:
   note: ''
   analysis_notes: []
 - title: VIÐTÖL VIÐ LÖGMENN Alls konar aukastörf lögmanna
-  authors: []
+  authors:
+  - Eyrún Ingadóttir
   author_titles: []
   article_type: Viðtal
   page_start: 14
-  page_end: 14
+  page_end: 17
   issue: null
   pdf_pages:
   - 13
-  - 13
+  - 16
   lang: is
   date: null
   summary: null
@@ -177,7 +181,8 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    pages: toc
+    pages: user
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -190,11 +195,11 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Ég er … Bóndi“ á bls. 15 sem skráin nefnir ekki; greinin er talin enda þar'
-- title: Hugleiðingar vegna dóms Hæstaréttar í máli nr. 5/2021
+- title: 'Hlutfallsreglan: Hugleiðingar vegna dóms Hæstaréttar í máli nr. 5/2021'
   authors:
   - Eva Bryndís Helgadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 18
   page_end: 19
   issue: null
@@ -206,8 +211,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -226,7 +231,7 @@ articles:
   - Agnar Þór Guðmundsson
   - Haukur Freyr Axelsson
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 19
   page_end: 21
   issue: null
@@ -239,7 +244,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -257,7 +262,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 22
   page_end: 26
   issue: null
@@ -270,7 +275,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -285,7 +290,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: VIÐTAL VIÐ GARÐAR GARÐARSSON Er hættur á bráðavaktinni
-  authors: []
+  authors:
+  - Eyrún Ingadóttir
+  - Unnur Lilja Hermannsdóttir
   author_titles: []
   article_type: Viðtal
   page_start: 28
@@ -302,6 +309,7 @@ articles:
     title: toc
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true

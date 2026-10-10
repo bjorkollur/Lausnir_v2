@@ -9,8 +9,8 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.917
-status: review
-confidence: 0
+status: approved
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/175.pdf
@@ -29,7 +29,7 @@ articles:
 - title: Embættispróf 1978
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 328
   page_end: 329
   issue: null
@@ -43,12 +43,13 @@ articles:
   provenance:
     pages: page
     title: page
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1978 31 arg/28.pdf
@@ -154,11 +155,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 49
-  page_end: 56
+  page_end: 55
   issue: '1'
   pdf_pages:
   - 0
-  - 7
+  - 6
   lang: is
   date: null
   summary: null
@@ -166,7 +167,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true

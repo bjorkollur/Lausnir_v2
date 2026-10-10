@@ -65,11 +65,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 6
-  page_end: 6
+  page_end: 8
   issue: null
   pdf_pages:
   - 5
-  - 5
+  - 7
   lang: is
   date: null
   summary: null
@@ -78,7 +78,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -91,6 +91,58 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Félagsdeild LMFÍ“ á bls. 8 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Ný bók eftir Ármann Snævarr
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 9
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 8
+  - 8
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 100 ára afmæli
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 9
+  page_end: 9
+  issue: null
+  pdf_pages:
+  - 8
+  - 8
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Nýr formaður LMFÍ. Viðtal við Lárentsínus Kristjánsson
   authors: []
   author_titles: []
@@ -175,6 +227,32 @@ articles:
     author_on_page: false
     external_record: false
   confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tilkynningar Dómstólaráðs
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 13
+  page_end: 13
+  issue: null
+  pdf_pages:
+  - 12
+  - 12
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -422,7 +500,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Lárentsínus Kristjánsson hrl.
+- title: Formannspistill
   authors:
   - Lárentsínus Kristjánsson
   author_titles: []
@@ -438,7 +516,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm
@@ -601,6 +679,32 @@ articles:
     author_on_page: true
     external_record: false
   confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fjárhæð starfsábyrgðartryggingar lögmanna
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 30
+  page_end: 30
+  issue: null
+  pdf_pages:
+  - 29
+  - 29
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

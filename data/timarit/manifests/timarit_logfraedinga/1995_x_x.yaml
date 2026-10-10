@@ -115,7 +115,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Hlutverk og þróun Hæstaréttar Islands
+- title: Hlutverk og þróun Hæstaréttar Íslands
   authors:
   - Hrafn Bragason
   author_titles: []
@@ -131,7 +131,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -307,24 +307,24 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Skrá um hæstaréttarmál 1920-1994
+- title: Skrá yfir mál, sem stefnt hefur verið fyrir Hæstarétt 1920-1994, svo og dóma uppkveðna á sama tímabili
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 98
-  page_end: 98
+  page_end: 99
   issue: '1'
   pdf_pages:
   - 103
-  - 103
+  - 104
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
   checks:
     title_on_page: false
@@ -371,9 +371,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Réttarstaðan á Barentshafi eftir dr. Gunnar G. Schram
+- title: Réttarstaðan á Barentshafi
   authors:
-  - Gunnar G. Shram
+  - Gunnar G. Schram
   author_titles: []
   article_type: Fræðigrein
   page_start: 111
@@ -387,11 +387,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
     issue: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -499,11 +499,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: A víð og dreif Frá Lagadeild Háskóla íslands Deildarfréttir 1994
+- title: Frá Lagadeild Háskóla Íslands Deildarfréttir 1994
   authors:
   - Þorgeir Örlygsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 167
   page_end: 173
   issue: '2'
@@ -515,8 +515,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -531,11 +531,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Skýrsla um Lagastofnun Háskóla íslands 28. febrúar
+- title: Skýrsla um Lagastofnun Háskóla Íslands 28. febrúar 1994 - 28. febrúar 1995
   authors:
   - Sigurður Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 173
   page_end: 181
   issue: '2'
@@ -547,8 +547,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -875,7 +875,7 @@ articles:
   authors:
   - Hrafn Bragason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 229
   page_end: 231
   issue: '3'
@@ -888,7 +888,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -904,9 +904,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: Aðalfundur Lögfræðingafélags íslands 1994
-  authors: []
+  authors:
+  - Ingvar J. Rögnvaldsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 232
   page_end: 233
   issue: '3'
@@ -919,9 +920,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -933,11 +935,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Skýrsla stjórnar Lögfræðingafélags íslands á aðal-
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 26. október 1994
   authors:
   - Gunnlaugur Claessen
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 234
   page_end: 237
   issue: '3'
@@ -949,8 +951,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -969,7 +971,7 @@ articles:
   authors:
   - Pétur Kr. Hafstein
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 237
   page_end: 237
   issue: '3'
@@ -982,7 +984,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -1061,7 +1063,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Nýmæli í réttarfarslöggjöf á sviði sifjaréttar. Réttarfar í málum samkvæmt hjúskapar-lögum nr. 31/1993 og barnalögum
+- title: Nýmæli í réttarfarslöggjöf á sviði sifjaréttar. Réttarfar í málum samkvæmt hjúskaparlögum nr. 31/1993 og barnalögum
     nr. 20/1992
   authors:
   - Sigríður Ingvarsdóttir
@@ -1078,7 +1080,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -1188,11 +1190,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Aðalfundur Lögmannafélags Islands 1995
+- title: Aðalfundur Lögmannafélags Íslands 1995
   authors:
   - Marteinn Másson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 304
   page_end: 308
   issue: '4'
@@ -1204,8 +1206,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page

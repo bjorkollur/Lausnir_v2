@@ -42,7 +42,7 @@ page_map:
     unclaimed: 0
     pages: 171
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -52,7 +52,7 @@ articles:
   authors:
   - Hafsteinn Þór Hauksson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 103
   page_end: 104
   issue: null
@@ -65,7 +65,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     authors: page
   checks:

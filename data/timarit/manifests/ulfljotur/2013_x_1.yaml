@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 29
   - 67
-status: review
+status: approved
 confidence: 0.85
 error: null
 files:
@@ -123,11 +123,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 85
-  page_end: 93
+  page_end: 88
   issue: null
   pdf_pages:
   - 86
-  - 94
+  - 89
   lang: is
   date: null
   summary: null
@@ -135,7 +135,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

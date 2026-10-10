@@ -31,7 +31,7 @@ page_map:
   contested: []
   bin_ratio: 0.896
   non_article: []
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -162,7 +162,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Heildarendurskoðun höfundalaga og Þróun íslensks höfundaréttar frá 20091
+- title: Heildarendurskoðun höfundalaga og þróun íslensks höfundaréttar frá 2009
   authors:
   - Rán Tryggvadóttir
   author_titles: []
@@ -178,7 +178,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm

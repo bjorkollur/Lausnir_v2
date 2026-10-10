@@ -35,13 +35,13 @@ page_map:
   - 62
   - 63
   - 64
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1951_04.pdf
 articles:
-- title: Um lögkjör forseta Islands
+- title: Um lögkjör forseta Íslands
   authors:
   - Bjarni Benediktsson
   author_titles: []
@@ -57,7 +57,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     authors: llm
     pages: llm

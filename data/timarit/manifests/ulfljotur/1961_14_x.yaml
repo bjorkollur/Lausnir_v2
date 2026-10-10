@@ -10,7 +10,7 @@ year_end: null
 page_map:
   bin_ratio: 0.874
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/10.pdf
@@ -30,7 +30,7 @@ files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/59.pdf
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/9.pdf
 articles:
-- title: Ur ritgjörð utn meðferð sakamála og um kviðdóm
+- title: Úr ritgjörð um meðferð sakamála og um kviðdóm
   authors: []
   author_titles: []
   article_type: Fræðigrein
@@ -46,13 +46,13 @@ articles:
   keywords: []
   provenance:
     pages: page
-    title: page
+    title: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/56.pdf
@@ -80,7 +80,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/57.pdf
@@ -215,7 +215,7 @@ articles:
   authors:
   - Ólafur Jóhannesson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 42
   page_end: 42
   issue: '1'
@@ -231,6 +231,7 @@ articles:
     authors: xlsx
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -307,7 +308,7 @@ articles:
 - title: Gömul umferðalög
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 87
   page_end: 87
   issue: '2'
@@ -323,6 +324,7 @@ articles:
     authors: xlsx
     pages: xlsx
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -492,17 +494,69 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/59.pdf
   note: ''
   analysis_notes: []
+- title: Fleygar setningar
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 196
+  page_end: 196
+  issue: '4'
+  pdf_pages:
+  - 3
+  - 3
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/59.pdf
+  note: ''
+  analysis_notes: []
+- title: Vörutalning
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 196
+  page_end: 196
+  issue: '4'
+  pdf_pages:
+  - 3
+  - 3
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/59.pdf
+  note: ''
+  analysis_notes: []
 - title: Blindur er bóklaus maður
   authors:
   - Logi Guðbrandsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 197
-  page_end: 198
+  page_end: 199
   issue: '4'
   pdf_pages:
   - 0
-  - 1
+  - 2
   lang: is
   date: null
   summary: null
@@ -510,7 +564,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -525,3 +579,29 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Tillaga send deildarforseta“ á bls. 199 sem skráin nefnir ekki; greinin er talin enda
     þar'
+- title: Tillaga send deildarforseta
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 199
+  page_end: 199
+  issue: '4'
+  pdf_pages:
+  - 2
+  - 2
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1961 14 arg/10.pdf
+  note: ''
+  analysis_notes: []

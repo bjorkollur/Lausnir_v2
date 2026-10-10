@@ -25,7 +25,7 @@ page_map:
   contested: []
   bin_ratio: 0.977
   non_article: []
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -70,11 +70,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 153
-  page_end: 168
+  page_end: 169
   issue: null
   pdf_pages:
   - 38
-  - 53
+  - 54
   lang: is
   date: null
   summary: null
@@ -83,7 +83,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

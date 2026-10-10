@@ -27,7 +27,7 @@ page_map:
   - 235
   - 236
   - 237
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -65,6 +65,34 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Hátíðisdagur Úlfljóts“ á bls. 197 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Hátíðisdagur Úlfljóts
+  authors:
+  - Jóhannes Eiríksson
+  - Einar Björgvin Sigurbergsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 197
+  page_end: 199
+  issue: null
+  pdf_pages:
+  - 14
+  - 16
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Túlkun reglugerðarheimilda
   authors:
   - Róbert R. Spanó

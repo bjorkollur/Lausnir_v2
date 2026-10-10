@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 15
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2000 01.pdf
@@ -152,11 +152,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 9
-  page_end: 10
+  page_end: 11
   issue: null
   pdf_pages:
   - 8
-  - 9
+  - 10
   lang: is
   date: null
   summary: null
@@ -165,7 +165,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -200,7 +200,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

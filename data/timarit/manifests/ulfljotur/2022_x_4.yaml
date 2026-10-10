@@ -37,7 +37,7 @@ page_map:
   - 161
   - 162
   - 163
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -135,6 +135,32 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Lagaleg álitaefni um sjálfbærni og stjórnarhætti í hlutafélögum“ á bls. 503 sem skráin
     nefnir ekki; greinin er talin enda þar'
+- title: Lagaleg álitaefni um sjálfbærni og stjórnarhætti í hlutafélögum
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 503
+  page_end: 503
+  issue: null
+  pdf_pages:
+  - 116
+  - 116
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Mega eða eiga stjórnendur að horfa til sjálfbærni við ákvarðanatöku?
   authors:
   - Hildur Sveinsdóttir
@@ -196,3 +222,56 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Ávarp formanns Orators“ á bls. 521 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Skýrsla stjórnar Orators skólaárið 2021–2022
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 519
+  page_end: 519
+  issue: null
+  pdf_pages:
+  - 132
+  - 132
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Ávarp formanns Orators
+  authors:
+  - Guðmundur Skarphéðinsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 521
+  page_end: 522
+  issue: null
+  pdf_pages:
+  - 134
+  - 135
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -21,7 +21,7 @@ page_map:
   non_article:
   - 24
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2000 02.pdf
@@ -156,11 +156,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 8
-  page_end: 8
+  page_end: 9
   issue: null
   pdf_pages:
   - 7
-  - 7
+  - 8
   lang: is
   date: null
   summary: null
@@ -168,13 +168,13 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -187,11 +187,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 10
-  page_end: 11
+  page_end: 12
   issue: null
   pdf_pages:
   - 9
-  - 10
+  - 11
   lang: is
   date: null
   summary: null
@@ -200,7 +200,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -310,11 +310,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 18
-  page_end: 18
+  page_end: 19
   issue: null
   pdf_pages:
   - 17
-  - 17
+  - 18
   lang: is
   date: null
   summary: null
@@ -323,7 +323,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -359,7 +359,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -370,11 +370,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 20
-  page_end: 21
+  page_end: 22
   issue: null
   pdf_pages:
   - 19
-  - 20
+  - 21
   lang: is
   date: null
   summary: null
@@ -382,7 +382,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -419,7 +419,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -431,11 +431,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 23
-  page_end: 24
+  page_end: 26
   issue: null
   pdf_pages:
   - 22
-  - 23
+  - 25
   lang: is
   date: null
   summary: null
@@ -444,7 +444,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -520,7 +520,8 @@ articles:
   - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 29 sem er hvorki framhald hennar né upphaf annars efnis
     (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
 - title: Kynning félagsdeildar LMFÍ og aðila að „bestukjarasamningum“
-  authors: []
+  authors:
+  - Jóna Kristinsdóttir
   author_titles: []
   article_type: Frétt
   page_start: 30
@@ -537,6 +538,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

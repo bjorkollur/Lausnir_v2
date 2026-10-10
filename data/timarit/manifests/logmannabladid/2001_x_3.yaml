@@ -30,8 +30,8 @@ page_map:
     unclaimed: 12
     pages: 27
     by_proxy: 0
-status: review
-confidence: 0
+status: approved
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2001 03.pdf
@@ -74,11 +74,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 3
-  page_end: 3
+  page_end: 4
   issue: null
   pdf_pages:
   - 2
-  - 2
+  - 3
   lang: is
   date: null
   summary: null
@@ -87,7 +87,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -126,7 +126,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -311,11 +311,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 16
-  page_end: 16
+  page_end: 18
   issue: null
   pdf_pages:
   - 15
-  - 15
+  - 17
   lang: is
   date: null
   summary: null
@@ -324,7 +324,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -443,7 +443,7 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 25
-  page_end: 25
+  page_end: 26
   issue: null
   pdf_pages:
   - 24
@@ -456,7 +456,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -472,6 +472,33 @@ articles:
   - efnisyfirlitið stóðst ekki á síðunum (0 af 2 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
   - 'greinar fundust ekki í skjalinu: 1 (bls. 26; síðasta lesna blaðsíðutal 25) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Fréttir frá félagsdeild
+  authors:
+  - Jóna K. Kristinsdóttir
+  author_titles: []
+  article_type: Frétt
+  page_start: 26
+  page_end: 26
+  issue: null
+  pdf_pages:
+  - 25
+  - 25
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Norræna málflutningskeppnin í 17. sinn
   authors:
   - Sif Konráðsdóttir

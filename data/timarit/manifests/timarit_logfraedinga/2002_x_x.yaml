@@ -93,10 +93,9 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2002.pdf
 articles:
 - title: Áhrif að utan
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 5
   issue: '1'
@@ -109,10 +108,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -284,10 +283,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Um lagakennslu
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 97
   page_end: 100
   issue: '2'
@@ -300,10 +298,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -325,7 +323,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 110
-  - 133
+  - 137
   lang: is
   date: null
   summary: null
@@ -334,7 +332,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
     issue: toc
   checks:
     title_on_page: true
@@ -352,12 +350,12 @@ articles:
   - Davíð Þór Björgvinsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 125
-  page_end: 148
+  page_start: 129
+  page_end: 152
   issue: '2'
   pdf_pages:
-  - 134
-  - 157
+  - 138
+  - 161
   lang: is
   date: null
   summary: null
@@ -366,7 +364,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: toc
+    pages: user
     issue: toc
   checks:
     title_on_page: false
@@ -385,12 +383,12 @@ articles:
   - Páll Hreinsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 149
-  page_end: 170
+  page_start: 153
+  page_end: 173
   issue: '2'
   pdf_pages:
-  - 158
-  - 179
+  - 162
+  - 182
   lang: is
   date: null
   summary: null
@@ -399,7 +397,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: toc
+    pages: user
     issue: toc
   checks:
     title_on_page: false
@@ -418,12 +416,12 @@ articles:
   - Unnur Gunnarsdóttir
   author_titles: []
   article_type: Fræðigrein
-  page_start: 171
-  page_end: 180
+  page_start: 175
+  page_end: 184
   issue: '2'
   pdf_pages:
-  - 180
-  - 189
+  - 184
+  - 193
   lang: is
   date: null
   summary: null
@@ -432,7 +430,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: toc
+    pages: user
     issue: toc
   checks:
     title_on_page: false
@@ -446,25 +444,27 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 175–184
-- title: Frá lagadeild Háskóla Islands Deildarfréttir haustið 2000 og árið 2001
-  authors: []
+- title: Deildarfréttir haustið 2000 og árið 2001
+  authors:
+  - Kolbrún Linda Ísleifsdóttir
   author_titles: []
-  article_type: Fræðigrein
-  page_start: 181
+  article_type: Frétt
+  page_start: 185
   page_end: 190
   issue: '2'
   pdf_pages:
-  - 190
+  - 194
   - 199
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -476,10 +476,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Úrskurðarvald í stjómsýslunni
+- title: Úrskurðarvald í stjórnsýslunni
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 197
   page_end: 199
   issue: '3'
@@ -491,8 +491,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
   checks:
@@ -606,7 +606,7 @@ articles:
   authors:
   - Erla S. Árnadóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 299
   page_end: 300
   issue: '3'
@@ -619,7 +619,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -635,10 +635,9 @@ articles:
   note: ''
   analysis_notes: []
 - title: Um húsleit
-  authors:
-  - Friðgeir Björnsson
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 307
   page_end: 310
   issue: '4'
@@ -651,10 +650,10 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
-    authors: leitir
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

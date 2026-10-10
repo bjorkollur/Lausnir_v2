@@ -36,7 +36,7 @@ page_map:
     unclaimed: 0
     pages: 157
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -46,7 +46,7 @@ articles:
   authors:
   - Ragnhildur Helgadóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 2
   issue: null
@@ -59,7 +59,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     authors: page
   checks:
@@ -136,8 +136,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: 'Dr. jur. Páll Hreinsson forseti EFTA-dómstólsins: Samræmd EES-túlkun landsréttar í 25 ár'
-  authors: []
+- title: Samræmd EES-túlkun landsréttar í 25 ár
+  authors:
+  - Páll Hreinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 89
@@ -151,9 +152,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

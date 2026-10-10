@@ -480,7 +480,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Fjöldi félagsmanna LMFÍ yfir 800 félagasamtök
+- title: Fjöldi félagsmanna LMFÍ yfir 800
   authors:
   - Ingimar Ingason
   author_titles: []
@@ -496,7 +496,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm
@@ -572,8 +572,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Tjallar í tuðrutraðki
-  authors:
-  - Ian Cater
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 24
@@ -590,7 +589,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -697,11 +696,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 28
-  page_end: 30
+  page_end: 29
   issue: null
   pdf_pages:
   - 27
-  - 29
+  - 28
   lang: is
   date: null
   summary: null
@@ -710,7 +709,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

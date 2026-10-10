@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.893
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -59,7 +59,7 @@ articles:
 - title: Framsetning kröfugerða í riftunarmálum
   authors:
   - Gunnar Ármannsson
-  - Bjarki Diego
+  - Bjarki H. Diego
   author_titles: []
   article_type: Fræðigrein
   page_start: 39
@@ -74,7 +74,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:
@@ -245,7 +245,6 @@ articles:
   analysis_notes: []
 - title: Mannúðarlög
   authors:
-  - International Humanitarian Law
   - Hjörtur Bragi Sverrisson
   author_titles: []
   article_type: Fræðigrein
@@ -261,7 +260,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: page
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:

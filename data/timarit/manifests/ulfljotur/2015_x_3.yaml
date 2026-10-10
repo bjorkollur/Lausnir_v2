@@ -19,7 +19,7 @@ page_map:
   contested: []
   bin_ratio: 0.871
   non_article: []
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -238,3 +238,30 @@ articles:
   analysis_notes:
   - 'FRÁVIK: undirritunin (Ragnheiður Kristín Finnbogadóttir) stendur á eftir fyrirsögninni „Gestabálkur“ á bls. 467; greinin
     er talin enda á undan henni'
+- title: Viðtal við Ingibjörgu Benediktsdóttur, fyrrverandi hæstaréttardómara
+  authors:
+  - Ragnheiður Kristín Finnbogadóttir
+  author_titles: []
+  article_type: Viðtal
+  page_start: 467
+  page_end: 480
+  issue: null
+  pdf_pages:
+  - 149
+  - 162
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

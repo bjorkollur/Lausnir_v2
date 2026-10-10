@@ -28,7 +28,7 @@ page_map:
   contested: []
   bin_ratio: 0.943
   non_article: []
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -96,8 +96,8 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Getur Það talist til bágrar stöðu skv. 1. tl. 1. mgr. 227. gr. a. hgl. um mansal að stunda vændi? þörf ákvæðis 5.
-    mgr. 206. gr. hgl. um flutning fólks á milli landa til að stunda vændi.1
+- title: Getur það talist til bágrar stöðu skv. 1. tl. 1. mgr. 227. gr. a. hgl. um mansal að stunda vændi? þörf ákvæðis 5.
+    mgr. 206. gr. hgl. um flutning fólks á milli landa til að stunda vændi.
   authors:
   - Klara Dögg Steingrímsdóttir
   - Hulda María Stefánsdóttir
@@ -114,7 +114,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm

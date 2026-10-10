@@ -43,7 +43,7 @@ articles:
   authors:
   - Berglind Svavarsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 4
   page_end: 4
   issue: null
@@ -56,7 +56,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -74,7 +74,7 @@ articles:
   authors:
   - Ari Karlsson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 6
   page_end: 6
   issue: null
@@ -87,7 +87,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -135,7 +135,7 @@ articles:
 - title: Félagsfundur um reglur og verklag við ákvörðun þóknunar fyrir verjenda- og réttargæslustörf lögmanna
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 12
   page_end: 14
   issue: null
@@ -148,7 +148,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: true
@@ -196,7 +196,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 18
   page_end: 21
   issue: null
@@ -209,7 +209,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -227,7 +227,7 @@ articles:
   authors:
   - Ingi Poulsen
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 22
   page_end: 24
   issue: null
@@ -240,7 +240,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -257,7 +257,7 @@ articles:
 - title: 'Áskorun til dómsmálaráðherra: Hröðum áformum um rafrænt réttarfar'
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 25
   page_end: 25
   issue: null
@@ -270,7 +270,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: true
@@ -287,22 +287,22 @@ articles:
   authors:
   - Arnar Vilhjálmur Arnarsson
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 26
-  page_end: 28
+  page_end: 27
   issue: null
   pdf_pages:
   - 25
-  - 27
+  - 26
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -38,11 +38,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 205
-  page_end: 249
+  page_end: 251
   issue: null
   pdf_pages:
   - 0
-  - 44
+  - 46
   lang: is
   date: null
   summary: null
@@ -51,7 +51,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -102,11 +102,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 269
-  page_end: 288
+  page_end: 289
   issue: null
   pdf_pages:
   - 61
-  - 80
+  - 81
   lang: is
   date: null
   summary: null
@@ -115,7 +115,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

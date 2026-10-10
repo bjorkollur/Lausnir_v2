@@ -37,7 +37,7 @@ page_map:
     unclaimed: 5
     pages: 67
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -176,7 +176,7 @@ articles:
 - title: Skýrsla stjórnar Dómarafélags Íslands 1990-1991
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 259
   page_end: 267
   issue: null
@@ -189,7 +189,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     pages: llm
   checks:
     title_on_page: true
@@ -302,11 +302,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 272
-  page_end: 272
+  page_end: 273
   issue: null
   pdf_pages:
   - 49
-  - 49
+  - 50
   lang: is
   date: null
   summary: null
@@ -314,7 +314,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

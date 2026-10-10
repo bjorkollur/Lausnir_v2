@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.789
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -88,7 +88,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/549.pdf
   note: ''
   analysis_notes: []
-- title: Nokkur sjónarmið í skaðabóta-réttii)
+- title: Nokkur sjónarmið í skaðabótarétti
   authors:
   - Gizur Bergsteinsson
   author_titles: []
@@ -104,7 +104,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -185,7 +185,7 @@ articles:
   authors:
   - Lauri J. Nordberg
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 133
   page_end: 134
   issue: '2'
@@ -201,6 +201,7 @@ articles:
     authors: xlsx
     pages: page
     issue: xlsx
+    article_type: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -244,7 +245,34 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/621.pdf
   note: ''
   analysis_notes: []
-- title: Bótaábyrgð z á skaðaverkum barna
+- title: Leiðrétting
+  authors:
+  - Ó. J.
+  author_titles: []
+  article_type: Annað
+  page_start: 171
+  page_end: 171
+  issue: '3'
+  pdf_pages:
+  - 7
+  - 7
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1963 16 arg/621.pdf
+  note: ''
+  analysis_notes: []
+- title: Bótaábyrgð á skaðaverkum barna
   authors:
   - Steingrímur Gautur Kristjánsson
   author_titles: []
@@ -260,7 +288,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -308,7 +336,7 @@ articles:
   analysis_notes: []
 - title: Mannréttindasáttmáli Evrópu og stofnanir samkv. honum
   authors:
-  - Sigurjón Sigurjónsson
+  - Sigurgeir Sigurjónsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 222
@@ -323,7 +351,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: page
     issue: xlsx
   checks:

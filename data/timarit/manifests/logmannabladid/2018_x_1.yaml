@@ -131,24 +131,24 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: HRINGBORÐSUMRÆÐUR Fjölskylduábyrgðin þarf að komast í umræðuna
+- title: Fjölskylduábyrgðin þarf að komast í umræðuna
   authors: []
   author_titles: []
   article_type: Annað
   page_start: 12
-  page_end: 17
+  page_end: 18
   issue: null
   pdf_pages:
   - 11
-  - 16
+  - 17
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -191,8 +191,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: VIÐTAL VIÐ KATRÍNU JOHNSON Vinnustaðasamskipti og kynjapólitík
-  authors: []
+- title: Vinnustaðasamskipti og kynjapólitík
+  authors:
+  - Anna Lilja Hallgrímsdóttir
   author_titles: []
   article_type: Viðtal
   page_start: 20
@@ -206,9 +207,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     pages: toc
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -220,10 +222,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: MÁLÞING FKL Jafnréttisparadísin Ísland?
+- title: Jafnréttisparadísin Ísland?
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 25
   page_end: 25
   issue: null
@@ -235,8 +237,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
   checks:
     title_on_page: true
@@ -249,10 +251,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: HÁDEGISVERÐARFUNDUR Réttlát málsmeðferð við málskot til æðri dóms samkvæmt 6. gr. MSE
-  authors: []
+- title: Réttlát málsmeðferð við málskot til æðri dóms samkvæmt 6. gr. MSE
+  authors:
+  - Heiða Björg Pálmadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 26
   page_end: 28
   issue: null
@@ -264,9 +267,10 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -309,10 +313,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: HÁDEGISVERÐARFUNDUR Skilyrði áfrýjunarleyfis fyrir Hæstarétti Noregs
+- title: Skilyrði áfrýjunarleyfis fyrir Hæstarétti Noregs
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 33
   page_end: 34
   issue: null
@@ -324,8 +328,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
   checks:
     title_on_page: true

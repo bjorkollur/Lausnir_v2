@@ -340,7 +340,7 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 298, prentað bls. 296'
-- title: Réttindi og skyldur sveitarstjórnar-manna
+- title: Réttindi og skyldur sveitarstjórnarmanna
   authors:
   - Steingrímur Gautur Kristjánsson
   author_titles: []
@@ -356,7 +356,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx

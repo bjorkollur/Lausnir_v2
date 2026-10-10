@@ -43,7 +43,7 @@ files:
 articles:
 - title: Grunddragen av domstolsorganisationen och rättegångsförfarandet i tvistemål enligt gällande finsk rätt
   authors:
-  - Tauno Tibkkonen
+  - Tauno Tirkkonen
   author_titles: []
   article_type: Fræðigrein
   page_start: 193
@@ -59,7 +59,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: page
+    authors: user
     pages: llm
   checks:
     title_on_page: true

@@ -75,7 +75,7 @@ articles:
   authors:
   - Berglind Svavarsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 6
   page_end: 6
   issue: null
@@ -88,7 +88,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -319,10 +319,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Jólasnafsmótið
+- title: Jólasnapsmótið 2018
   authors: []
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 36
   page_end: 36
   issue: null
@@ -334,8 +334,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
   checks:
     title_on_page: true

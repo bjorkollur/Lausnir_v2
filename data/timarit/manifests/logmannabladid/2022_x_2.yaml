@@ -40,7 +40,7 @@ articles:
   authors:
   - Sigurður Örn Hilmarsson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 4
   page_end: 4
   issue: null
@@ -53,7 +53,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -67,7 +67,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá ritstjórn
+- title: Frá Sjöundá til stafrænnar framtíðar
   authors:
   - Ari Karlsson
   author_titles: []
@@ -83,7 +83,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -104,7 +104,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 8
   page_end: 9
   issue: null
@@ -117,7 +117,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -167,7 +167,7 @@ articles:
   - Eyrún Ingadóttir
   - Katrín Smári Ólafsdóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 14
   page_end: 19
   issue: null
@@ -180,7 +180,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -226,10 +226,8 @@ articles:
 - title: Lagaumhverfi sjálfbærni í mótun
   authors:
   - Eva Margrét Ævarsdóttir
-  - Lex Lögmannsstofu
-  - Ráðgjafi Í Sjálfbærni
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 22
   page_end: 23
   issue: null
@@ -242,8 +240,8 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    authors: page
+    article_type: user
+    authors: user
     pages: toc
   checks:
     title_on_page: true
@@ -256,11 +254,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Lagadeild Háskólans í Reykjavík setur á stofn sjálfbærni- og loftslags
+- title: Lagadeild Háskólans í Reykjavík setur á stofn sjálfbærni- og loftslagsréttarstofnun
   authors:
   - Ingi Poulsen
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 24
   page_end: 24
   issue: null
@@ -272,8 +270,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -322,7 +320,7 @@ articles:
   authors:
   - María Rún Bjarnadóttir
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 26
   page_end: 27
   issue: null
@@ -335,7 +333,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -353,7 +351,7 @@ articles:
   authors:
   - Þorvarður A. Ágústsson
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 27
   page_end: 29
   issue: null
@@ -366,7 +364,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

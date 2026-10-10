@@ -182,6 +182,33 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/457.pdf
   note: ''
   analysis_notes: []
+- title: Leiðrétting
+  authors:
+  - Ritstjóri
+  author_titles: []
+  article_type: Annað
+  page_start: 127
+  page_end: 127
+  issue: '2'
+  pdf_pages:
+  - 8
+  - 8
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/457.pdf
+  note: ''
+  analysis_notes: []
 - title: Af siðferðis og réttarreglum
   authors:
   - Þorsteinn Hjaltason
@@ -244,10 +271,9 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/674.pdf
   note: ''
   analysis_notes: []
-- title: Erstattning för miljöskador
+- title: Ersättning för miljöskador
   authors:
-  - Bengtsson
-  - Bertil
+  - Bertil Bengtsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 155
@@ -261,8 +287,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
+    title: user
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:
@@ -277,25 +303,25 @@ articles:
   note: ''
   analysis_notes:
   - 'á síðunni stendur: Bertil Bengtsson'
-- title: Juridiske infaldsvinkler på den danske lovgivning om fysisk planlægning
+- title: Juridiske indfaldsvinkler på den danske lovgivning om fysisk planlægning
   authors:
   - Ole Christiansen
   author_titles: []
   article_type: Fræðigrein
   page_start: 163
-  page_end: 178
+  page_end: 177
   issue: 3-4
   pdf_pages:
   - 0
-  - 15
+  - 14
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -308,7 +334,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/132.pdf
   note: ''
   analysis_notes: []
-- title: Miljöskyddet speciellt ur vattenrattslig synspunkt
+- title: Miljöskyddet speciellt ur vattenrättslig synpunkt
   authors:
   - Erkki J. Hollo
   author_titles: []
@@ -324,7 +350,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -339,9 +365,9 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/473.pdf
   note: ''
   analysis_notes: []
-- title: Forholdet mellem klassisk jura og moderne miljöret
+- title: Forholdet mellem klassisk jura og moderne miljøret
   authors:
-  - W.E.v. Eyben
+  - W.E. von Eyben
   author_titles: []
   article_type: Fræðigrein
   page_start: 189
@@ -355,8 +381,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
-    authors: xlsx
+    title: user
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:
@@ -370,7 +396,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1985 38 arg/472.pdf
   note: ''
   analysis_notes: []
-- title: Kort oversigt over dansk miljöret
+- title: Kort oversigt over dansk miljøret
   authors:
   - W.E. von Eyben
   author_titles: []
@@ -386,7 +412,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx

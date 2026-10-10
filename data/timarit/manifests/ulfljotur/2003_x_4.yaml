@@ -47,7 +47,7 @@ page_map:
   - 184
   - 185
   - 186
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -234,6 +234,58 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „ORAtOR 75 áRA“ á bls. 633 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Orator 75 ára
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 633
+  page_end: 674
+  issue: null
+  pdf_pages:
+  - 102
+  - 143
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Rökstólar: Framkvæmd Alþingiskosninga'
+  authors: []
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 675
+  page_end: 675
+  issue: null
+  pdf_pages:
+  - 144
+  - 144
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: 'Nýtt kosningakerfi: Jafnari atkvæðisréttur'
   authors:
   - Ólafur Þ. Harðarson
@@ -300,11 +352,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 683
-  page_end: 705
+  page_end: 686
   issue: null
   pdf_pages:
   - 152
-  - 174
+  - 155
   lang: is
   date: null
   summary: null
@@ -312,7 +364,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -321,6 +373,32 @@ articles:
   confidence: 1.0
   leitir_record_id: null
   xlsx_row: 348
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar – Starfsannáll Orators veturinn 2002-2003
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 687
+  page_end: 705
+  issue: null
+  pdf_pages:
+  - 156
+  - 174
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: null
   note: ''
   analysis_notes: []

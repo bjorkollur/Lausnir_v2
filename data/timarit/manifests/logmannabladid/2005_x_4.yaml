@@ -29,8 +29,8 @@ page_map:
   - 43
   - 45
   - 46
-status: review
-confidence: 0
+status: approved
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2005 04.pdf
@@ -180,7 +180,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -252,11 +252,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 26
-  page_end: 27
+  page_end: 26
   issue: null
   pdf_pages:
   - 25
-  - 26
+  - 25
   lang: is
   date: null
   summary: null
@@ -265,7 +265,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -511,7 +511,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

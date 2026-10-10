@@ -9,8 +9,8 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.958
-status: review
-confidence: 0
+status: approved
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201820.pdf
@@ -45,7 +45,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201820.pdf
@@ -143,9 +143,10 @@ articles:
   note: ''
   analysis_notes: []
 - title: 'Málþing Orators í samstarfi við ELSA: Ný persónuverndarlöggjöf'
-  authors: []
+  authors:
+  - Lísbet Sigurðardóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 305
   page_end: 315
   issue: null
@@ -159,12 +160,14 @@ articles:
   provenance:
     pages: page
     title: page
+    authors: user
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201824.pdf
@@ -175,7 +178,7 @@ articles:
   authors:
   - Marta Jónsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 317
   page_end: 322
   issue: null
@@ -190,12 +193,13 @@ articles:
     pages: page
     title: page
     authors: page
+    article_type: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_2018_2_tbl/201825.pdf

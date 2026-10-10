@@ -222,8 +222,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Hvað ættu lögmenn að hafa í huga við málflutning?
-  authors:
-  - Ritstjórn LMFÍ
+  authors: []
   author_titles: []
   article_type: Viðtal
   page_start: 20
@@ -239,7 +238,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
+    authors: user
     pages: llm
   checks:
     title_on_page: true
@@ -253,8 +252,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Að nálgast mál sem fagmenn
-  authors:
-  - Ritstjórn LMFÍ
+  authors: []
   author_titles: []
   article_type: Viðtal
   page_start: 26
@@ -270,7 +268,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
+    authors: user
     pages: llm
   checks:
     title_on_page: true
@@ -284,8 +282,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Málflutningur er ávanabindandi
-  authors:
-  - Ritstjórn LMFÍ
+  authors: []
   author_titles: []
   article_type: Viðtal
   page_start: 28
@@ -301,7 +298,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
+    authors: user
     pages: llm
   checks:
     title_on_page: true
@@ -315,8 +312,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Vertu Jakob
-  authors:
-  - Ritstjórn LMFÍ
+  authors: []
   author_titles: []
   article_type: Viðtal
   page_start: 30
@@ -332,7 +328,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: llm
+    authors: user
     pages: llm
   checks:
     title_on_page: true
@@ -413,7 +409,7 @@ articles:
   authors:
   - Eyrún Ingadóttir
   author_titles: []
-  article_type: Frétt
+  article_type: Viðtal
   page_start: 34
   page_end: 37
   issue: null
@@ -426,7 +422,7 @@ articles:
   keywords: []
   provenance:
     title: llm
-    article_type: llm
+    article_type: user
     authors: llm
     pages: llm
   checks:
@@ -446,11 +442,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 38
-  page_end: 39
+  page_end: 40
   issue: null
   pdf_pages:
   - 37
-  - 38
+  - 39
   lang: is
   date: null
   summary: null
@@ -459,7 +455,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -472,8 +468,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Tekjuviðmið gjafsóknar of lágt fyrir öryrkja
-  authors:
-  - Árni Freyr Árnason
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 40
@@ -490,7 +485,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -528,6 +523,32 @@ articles:
     author_on_page: true
     external_record: false
   confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Óbreytt tímagjald í áratug
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 43
+  page_end: 43
+  issue: null
+  pdf_pages:
+  - 42
+  - 42
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -849,11 +870,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 73
-  page_end: 74
+  page_end: 75
   issue: null
   pdf_pages:
   - 72
-  - 73
+  - 74
   lang: is
   date: null
   summary: null
@@ -862,7 +883,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -875,8 +896,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Lögmannafélag Íslands óskar skýringa frá Landsrétti vegna þóknunarákvarðana
-  authors:
-  - Kristín Haraldsdóttir
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 75
@@ -893,13 +913,39 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
     author_on_page: false
     external_record: false
   confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Hver/Hvað/Hvert
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 76
+  page_end: 79
+  issue: null
+  pdf_pages:
+  - 75
+  - 78
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null

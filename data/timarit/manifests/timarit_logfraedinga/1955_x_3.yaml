@@ -34,7 +34,7 @@ page_map:
   - 66
   - 67
   - 68
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -134,8 +134,8 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: höfundar skrárinnar (Knud Illum) stangast á við síðuna (Knucl Illuirt); skránni haldið'
-- title: 'Kjeld Rördam: Afhandlinger vedrörende Baltcon-Certepartiet, G. E. C. Gad, Köbenhavn, 1958. Sami: Treatises on The
-    Baltcon-Charterparty, G. E. C. Gacl og Gcorge Allen & Unwin'
+- title: 'Kjeld Rördam: Afhandlinger vedrörende Baltcon-Certepartiet, G. E. C. Gad, Köbenhavn, 1953. Sami: Treatises on The
+    Baltcon-Charterparty, G. E. C. Gad og George Allen & Unwin Ltd., Köbenhavn og London, 1954'
   authors:
   - Einar B. Guðmundsson
   author_titles: []
@@ -151,7 +151,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
     pages: llm

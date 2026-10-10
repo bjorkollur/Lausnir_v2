@@ -26,7 +26,7 @@ page_map:
   - 107
   - 108
   - 109
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -124,6 +124,32 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Viðtal við Gretu Baldursdóttur hæstaréttardómara“ á bls. 93 sem skráin nefnir ekki;
     greinin er talin enda þar'
+- title: Viðtal við Gretu Baldursdóttur hæstaréttardómara
+  authors: []
+  author_titles: []
+  article_type: Viðtal
+  page_start: 93
+  page_end: 97
+  issue: null
+  pdf_pages:
+  - 94
+  - 98
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Sjálfstæði lögmanna,- skiptir það máli?
   authors:
   - Berglind Svavarsdóttir

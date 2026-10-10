@@ -18,7 +18,7 @@ page_map:
   non_article:
   - 64
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2004 1.tbl.pdf
@@ -29,9 +29,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 11
-  page_end: null
+  page_end: 35
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 0
+  - 24
   lang: is
   date: null
   summary: null
@@ -40,13 +42,13 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -58,12 +60,12 @@ articles:
   - Svala Ísfeld Ólafsdóttir
   author_titles: []
   article_type: Fræðigrein
-  page_start: 49
-  page_end: null
+  page_start: 37
+  page_end: 49
   issue: null
   pdf_pages:
   - 25
-  - 56
+  - 37
   lang: is
   date: null
   summary: null
@@ -72,7 +74,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: page
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -86,26 +88,26 @@ articles:
   analysis_notes:
   - 'upphafsbls. 37 fannst ekki: blaðsíðutal skjalsins óljóst'
   - Claude segir bls. 37; greinin fannst eftir titli sínum á bls. 49
-- title: 5*2. Bráðabirgðalögsem réttarheimild íljósi
+- title: Bráðabirgðalög sem réttarheimild
   authors:
   - Ólafur E. Friðriksson
   author_titles: []
   article_type: Fræðigrein
   page_start: 51
-  page_end: null
+  page_end: 77
   issue: null
   pdf_pages:
-  - 57
-  - 63
+  - 38
+  - 64
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -125,7 +127,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 79
-  page_end: null
+  page_end: 84
   issue: null
   pdf_pages:
   - 65
@@ -138,7 +140,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false

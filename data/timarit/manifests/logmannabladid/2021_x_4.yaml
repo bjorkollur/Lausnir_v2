@@ -43,7 +43,7 @@ articles:
   authors:
   - Sigurður Örn Hilmarsson
   author_titles: []
-  article_type: Annað
+  article_type: Ritstjórnargrein
   page_start: 4
   page_end: 4
   issue: null
@@ -56,7 +56,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -70,7 +70,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá ritstjórn
+- title: Umbj. minn
   authors:
   - Ari Karlsson
   author_titles: []
@@ -86,7 +86,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -170,11 +170,11 @@ articles:
   - Eyrún Ingadóttir
   author_titles: []
   article_type: Annað
-  page_start: 13
+  page_start: 10
   page_end: 15
   issue: null
   pdf_pages:
-  - 12
+  - 9
   - 14
   lang: is
   date: null
@@ -184,7 +184,7 @@ articles:
     title: toc
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -259,7 +259,7 @@ articles:
   authors:
   - Reimar Pétursson
   author_titles: []
-  article_type: Annað
+  article_type: Fræðigrein
   page_start: 24
   page_end: 26
   issue: null
@@ -272,7 +272,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:
@@ -290,7 +290,7 @@ articles:
   authors:
   - Ingimar Ingason
   author_titles: []
-  article_type: Annað
+  article_type: Frétt
   page_start: 28
   page_end: 28
   issue: null
@@ -303,7 +303,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
   checks:

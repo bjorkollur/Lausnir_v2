@@ -31,7 +31,7 @@ page_map:
     unclaimed: 0
     pages: 30
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -202,7 +202,7 @@ articles:
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
     á undan eða eftir) — greinalisti Claude notaður
-- title: Eitthvað fyrir
+- title: Eitthvað fyrir alla
   authors:
   - Haukur Örn Birgisson
   author_titles: []
@@ -218,7 +218,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     authors: llm
     pages: llm
@@ -368,6 +368,32 @@ articles:
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
     á undan eða eftir) — greinalisti Claude notaður
+- title: Nýjar bækur á bókasafni
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 25
+  page_end: 25
+  issue: null
+  pdf_pages:
+  - 24
+  - 24
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: 'Málstofa: EES-samningurinn – Hreyfiafl breytinga?'
   authors:
   - Jóhanna Bryndís Bjarnadóttir
@@ -434,7 +460,7 @@ articles:
   analysis_notes:
   - efnisyfirlitið stóðst ekki á síðunum (0 af 11 titlum fundust á upphafssíðum sínum; 8 titlar standa á upphafssíðu greinarinnar
     á undan eða eftir) — greinalisti Claude notaður
-- title: 'Málstofa: Bankahrunsdómarnir'
+- title: Bankahrunsmálstofa
   authors:
   - Þyrí Steingrímsdóttir
   author_titles: []
@@ -444,16 +470,16 @@ articles:
   issue: null
   pdf_pages:
   - 29
-  - 31
+  - 30
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: llm
+    title: user
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true

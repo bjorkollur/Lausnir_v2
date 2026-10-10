@@ -413,11 +413,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 20
-  page_end: 23
+  page_end: 22
   issue: null
   pdf_pages:
   - 19
-  - 22
+  - 21
   lang: is
   date: null
   summary: null
@@ -426,7 +426,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -440,3 +440,29 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 22; síðasta lesna blaðsíðutal 18) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Fótbolti utanhúss
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 22
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 21
+  - 22
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -39,14 +39,16 @@ page_map:
     unclaimed: 0
     pages: 175
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2023_04.pdf
 articles:
 - title: Að fortíð skal hyggja, ef frumlegt skal byggja – lögfræði og réttarsaga
-  authors: []
+  authors:
+  - Valgerður Sólnes
+  - Viðar Pálsson
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 667
@@ -63,6 +65,7 @@ articles:
     title: toc
     article_type: page
     pages: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -202,7 +205,7 @@ articles:
 - title: Ritaskrá Sigurðar Líndal (1931–2023)
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 815
   page_end: 832
   issue: null
@@ -215,7 +218,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
   checks:
     title_on_page: false

@@ -91,7 +91,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/521.pdf
   note: ''
   analysis_notes: []
-- title: Stríðsglæpir og vond VERK1 11
+- title: Stríðsglæpir og vond verk
   authors:
   - Ágúst Hjörtur Ingþórsson
   author_titles: []
@@ -107,7 +107,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: page
     issue: xlsx
@@ -129,11 +129,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 29
-  page_end: 37
+  page_end: 34
   issue: '1'
   pdf_pages:
   - 0
-  - 8
+  - 5
   lang: is
   date: null
   summary: null
@@ -141,7 +141,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -151,6 +151,33 @@ articles:
   confidence: 1.0
   leitir_record_id: null
   xlsx_row: 580
+  source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/308.pdf
+  note: ''
+  analysis_notes: []
+- title: Ný námsskipan í lagadeild
+  authors:
+  - Jónas Þór Guðmundsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 35
+  page_end: 37
+  issue: '1'
+  pdf_pages:
+  - 6
+  - 8
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1993 46 arg/308.pdf
   note: ''
   analysis_notes: []
@@ -250,6 +277,7 @@ articles:
   analysis_notes: []
 - title: Samningur Sameinuðu þjóðanna um réttindi barnsins
   authors:
+  - Anna Guðrún Björnsdóttir
   - Guðmundur Eiríksson
   author_titles: []
   article_type: Fræðigrein
@@ -265,7 +293,7 @@ articles:
   keywords: []
   provenance:
     title: xlsx
-    authors: xlsx
+    authors: user
     pages: xlsx
     issue: xlsx
   checks:

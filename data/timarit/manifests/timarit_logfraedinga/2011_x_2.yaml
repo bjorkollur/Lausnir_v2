@@ -115,11 +115,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 133
-  page_end: 134
+  page_end: 145
   issue: null
   pdf_pages:
   - 6
-  - 7
+  - 18
   lang: is
   date: null
   summary: null
@@ -128,7 +128,7 @@ articles:
     title: page
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -148,11 +148,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 147
-  page_end: 147
+  page_end: 157
   issue: null
   pdf_pages:
   - 20
-  - 20
+  - 30
   lang: is
   date: null
   summary: null
@@ -161,7 +161,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -181,11 +181,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 159
-  page_end: 163
+  page_end: 172
   issue: null
   pdf_pages:
   - 32
-  - 36
+  - 45
   lang: is
   date: null
   summary: null
@@ -194,7 +194,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -214,11 +214,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 173
-  page_end: 175
+  page_end: 177
   issue: null
   pdf_pages:
   - 46
-  - 48
+  - 50
   lang: is
   date: null
   summary: null
@@ -227,7 +227,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -247,11 +247,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 179
-  page_end: 179
+  page_end: 189
   issue: null
   pdf_pages:
   - 52
-  - 52
+  - 62
   lang: is
   date: null
   summary: null
@@ -260,7 +260,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

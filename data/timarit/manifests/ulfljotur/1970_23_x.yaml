@@ -9,7 +9,7 @@ pages: null
 year_end: null
 page_map:
   bin_ratio: 0.923
-status: review
+status: approved
 confidence: 0.7
 error: null
 files:
@@ -272,7 +272,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1970 23 arg/72.pdf
   note: ''
   analysis_notes: []
-- title: Nokkrar hugleið-ingar um notkun banka á víxlum við veitingu lána 1.0
+- title: Nokkrar hugleiðingar um notkun banka á víxlum við veitingu lána
   authors:
   - Hrafn Bragason
   author_titles: []
@@ -288,7 +288,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx

@@ -96,11 +96,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 6
-  page_end: 6
+  page_end: 7
   issue: null
   pdf_pages:
   - 5
-  - 5
+  - 6
   lang: is
   date: null
   summary: null
@@ -109,7 +109,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -247,11 +247,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 12
-  page_end: 12
+  page_end: 13
   issue: null
   pdf_pages:
   - 11
-  - 11
+  - 12
   lang: is
   date: null
   summary: null
@@ -259,7 +259,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -332,8 +332,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Vínsmökkunarnámskeið
-  authors:
-  - Már Ragnarsson
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 14
@@ -350,7 +349,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -519,11 +518,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 28
-  page_end: 30
+  page_end: 31
   issue: null
   pdf_pages:
   - 27
-  - 29
+  - 30
   lang: is
   date: null
   summary: null
@@ -532,7 +531,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -549,11 +548,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 30
-  page_end: 31
+  page_end: 30
   issue: null
   pdf_pages:
   - 29
-  - 30
+  - 29
   lang: is
   date: null
   summary: null
@@ -561,7 +560,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true

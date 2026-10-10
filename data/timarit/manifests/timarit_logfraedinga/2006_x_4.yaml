@@ -31,7 +31,7 @@ page_map:
   - 124
   - 125
   - 126
-status: review
+status: approved
 confidence: 0.3
 error: null
 files:
@@ -39,7 +39,7 @@ files:
 articles:
 - title: Stjórnsýslumat við undirbúning lagafrumvarpa
   authors:
-  - Róbert Spanó
+  - Róbert R. Spanó
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 345
@@ -55,7 +55,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    authors: leitir
+    authors: user
     pages: leitir+llm
   checks:
     title_on_page: true

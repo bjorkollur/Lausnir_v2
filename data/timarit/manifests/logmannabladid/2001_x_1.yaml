@@ -24,7 +24,7 @@ page_map:
   - 19
   - 20
 status: review
-confidence: 0
+confidence: 0.0
 error: null
 files:
 - Tímarit og fræðigreinar/Lögmannablaðið/Lögmannablaðið 2001 01.pdf
@@ -66,11 +66,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 3
-  page_end: 3
+  page_end: 4
   issue: null
   pdf_pages:
   - 2
-  - 2
+  - 3
   lang: is
   date: null
   summary: null
@@ -79,7 +79,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -133,11 +133,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 9
-  page_end: 9
+  page_end: 10
   issue: null
   pdf_pages:
   - 8
-  - 8
+  - 9
   lang: is
   date: null
   summary: null
@@ -146,7 +146,7 @@ articles:
     title: llm
     article_type: llm
     authors: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -183,7 +183,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -312,7 +312,7 @@ articles:
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.0
   leitir_record_id: null
   xlsx_row: null
   source_file: null
@@ -384,11 +384,36 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 23; síðasta lesna blaðsíðutal 20) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Stjórn LMFÍ hefur samþykkt eftirfarandi verklagsreglur í tengslum við vanskil á fjárvörsluyfirlýsingum og innheimtu
+    gjaldfallinna árgjalda
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 18
+  page_end: 18
+  issue: null
+  pdf_pages:
+  - 17
+  - 17
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Fyrirlestrar um evrópskan félaga- og skattarétt á vegum lagadeildar HÍ, Lögmannafélags Íslands, Lögfræðingafélags
     Íslands og Félags lögfræðinga í fjármálafyrirtækjum
-  authors:
-  - Karsten Engsig
-  - Karsten Engsig Sørensen
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 19
@@ -405,7 +430,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -420,8 +445,7 @@ articles:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 23; síðasta lesna blaðsíðutal 20) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
 - title: Nýr sýslumaður
-  authors:
-  - Ástríður Grímsdóttir
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 22
@@ -438,7 +462,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: false
@@ -452,7 +476,7 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 23; síðasta lesna blaðsíðutal 20) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
-- title: Málflutningskeppni Nýkomnar
+- title: Nýkomnar bækur
   authors:
   - Erla S. Árnadóttir
   author_titles: []
@@ -468,7 +492,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: llm
     pages: llm
     authors: page
@@ -485,6 +509,32 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 23; síðasta lesna blaðsíðutal 20) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Málflutningskeppni
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 23
+  page_end: 23
+  issue: null
+  pdf_pages:
+  - 22
+  - 22
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Viska - Vald – Námskeið fyrir lögmenn
   authors: []
   author_titles: []
@@ -579,3 +629,29 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 1 (bls. 23; síðasta lesna blaðsíðutal 20) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
+- title: Aðalfundur Lögmannafélags Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 27
+  page_end: 27
+  issue: null
+  pdf_pages:
+  - 26
+  - 26
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

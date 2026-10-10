@@ -25,7 +25,7 @@ page_map:
   - 32
   - 38
   - 39
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -276,9 +276,7 @@ articles:
   note: ''
   analysis_notes: []
 - title: Hdl útskrift
-  authors:
-  - Hulda María Stefánsdóttir
-  - Eva Halldórsdóttir
+  authors: []
   author_titles: []
   article_type: Frétt
   page_start: 19
@@ -295,7 +293,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
-    authors: page
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -403,11 +401,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 26
-  page_end: 26
+  page_end: 27
   issue: null
   pdf_pages:
   - 25
-  - 25
+  - 26
   lang: is
   date: null
   summary: null
@@ -415,7 +413,7 @@ articles:
   provenance:
     title: llm
     article_type: llm
-    pages: llm
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

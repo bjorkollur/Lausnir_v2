@@ -83,26 +83,26 @@ articles:
   analysis_notes:
   - 'greinar fundust ekki í skjalinu: 5 (bls. 77–236; síðasta lesna blaðsíðutal 75) — þær eru ekki taldar með; athugaðu hvort
     þær vanti í skjalið eða hafi ekki fundist'
-- title: Eggert Clausen. In memoriam
+- title: Eggert Claessen, hæstaréttarlögmaður
   authors:
   - Gústaf A. Sveinsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 4
-  page_end: 5
+  page_end: 6
   issue: null
   pdf_pages:
   - 11
-  - 12
+  - 13
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
-    pages: toc
+    pages: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -252,7 +252,7 @@ articles:
   authors:
   - Benedikt Sigurjónsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Dómareifun
   page_start: 61
   page_end: 73
   issue: null
@@ -265,7 +265,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: leitir
     pages: leitir+toc
   checks:

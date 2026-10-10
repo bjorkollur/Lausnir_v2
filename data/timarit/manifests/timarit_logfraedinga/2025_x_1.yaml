@@ -39,7 +39,7 @@ page_map:
     unclaimed: 0
     pages: 225
     by_proxy: 0
-status: review
+status: approved
 confidence: 0.65
 error: null
 files:
@@ -145,7 +145,7 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 151
-  page_end: 201
+  page_end: 202
   issue: null
   pdf_pages:
   - 152
@@ -158,7 +158,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: leitir+toc
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true

@@ -81,7 +81,7 @@ articles:
   authors:
   - Jónatan Þórmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 1
   page_end: 4
   issue: '1'
@@ -94,7 +94,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -109,11 +109,12 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: — Siguröur Ellert Ólason
+- title: Björn Sveinbjörnsson — Sigurður Ellert Ólason
   authors:
-  - Björn Sveinbjörnsson
+  - Jón Finnsson
+  - Þorvaldur Lúðvíksson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 5
   page_end: 8
   issue: '1'
@@ -125,9 +126,9 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    authors: toc
+    title: user
+    article_type: user
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -242,24 +243,24 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Á víð og dreif
+- title: Bókafregnir
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritdómur
   page_start: 57
-  page_end: 58
+  page_end: 57
   issue: '1'
   pdf_pages:
   - 62
-  - 63
+  - 62
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
   checks:
     title_on_page: false
@@ -273,11 +274,37 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 266–269
-- title: Ftéttarsiðfræði
+- title: Ritstjórnarfulltrúi
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 58
+  page_end: 58
+  issue: '1'
+  pdf_pages:
+  - 63
+  - 63
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Réttarsiðfræði
   authors:
   - Jónatan Þórmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 65
   page_end: 66
   issue: '2'
@@ -289,8 +316,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -404,25 +431,25 @@ articles:
   analysis_notes: []
 - title: Norrænt lögfræðingaþing á Íslandi árið 1990
   authors:
-  - Þór Vilhjálmsson
+  - Ármann Snævarr
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 126
-  page_end: 127
+  page_end: 126
   issue: '2'
   pdf_pages:
   - 135
-  - 136
+  - 135
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: page
-    article_type: toc
-    pages: toc
+    article_type: user
+    pages: user
     issue: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -435,11 +462,38 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 266–269
+- title: 4. Norræna námsráðstefnan um réttarfar
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 126
+  page_end: 127
+  issue: '2'
+  pdf_pages:
+  - 135
+  - 136
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Hagsmunaárekstur
   authors:
   - Jónatan Þórmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 133
   page_end: 134
   issue: '3'
@@ -452,7 +506,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -471,7 +525,7 @@ articles:
   authors:
   - Valgarður Sigurðsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 135
   page_end: 136
   issue: '3'
@@ -484,7 +538,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -595,10 +649,10 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá Dómarafélagi íslands
+- title: Skýrsla stjórnar Dómarafélags Íslands starfsárið 1987-1988, lögð fram á dómaraþingi 3.-4. nóvember 1988
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 180
   page_end: 185
   issue: '3'
@@ -610,8 +664,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
   checks:
@@ -625,11 +679,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá Lögmannafélagi íslands
+- title: Um starfsemi Lögmannafélags Íslands starfsárið 1987-1988
   authors:
   - Hafþór Ingi Jónsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 186
   page_end: 191
   issue: '3'
@@ -641,8 +695,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -660,21 +714,21 @@ articles:
 - title: Dómaraþing
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 192
-  page_end: 193
+  page_end: 192
   issue: '3'
   pdf_pages:
   - 205
-  - 206
+  - 205
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
     title: page
-    article_type: toc
-    pages: toc
+    article_type: user
+    pages: user
     issue: toc
   checks:
     title_on_page: false
@@ -688,6 +742,32 @@ articles:
   note: ''
   analysis_notes:
   - leitir.is segir bls. 266–269
+- title: Bókafregnir
+  authors: []
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 192
+  page_end: 193
+  issue: '3'
+  pdf_pages:
+  - 205
+  - 206
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Luganosamningurinn um dómsvald og um fullnustu dóma í einkamálum
   authors:
   - Ólafur W. Stefánsson
@@ -725,7 +805,7 @@ articles:
   authors:
   - Baldvin Tryggvason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 204
   page_end: 206
   issue: '4'
@@ -738,7 +818,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -850,11 +930,11 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: höfundar skrárinnar (Markús Sigurbjörnsson) stangast á við síðuna (Dómur Hæstaréttar); skránni haldið'
-- title: Frá Lögfræðingafélagi íslands
+- title: Aðalfundur 1987
   authors:
   - Guðrún Björnsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 260
   page_end: 261
   issue: '4'
@@ -866,8 +946,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -884,6 +964,87 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „SKÝRSLA STJÓRNAR LÖGFRÆÐINGAFÉLAGS“ á bls. 261 sem skráin nefnir ekki; greinin er talin
     enda þar'
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 20. október 1988
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Frétt
+  page_start: 261
+  page_end: 264
+  issue: '4'
+  pdf_pages:
+  - 278
+  - 281
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fréttatilkynning
+  authors:
+  - Ingvar J. Rögnvaldsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 264
+  page_end: 264
+  issue: '4'
+  pdf_pages:
+  - 281
+  - 281
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur 1988
+  authors:
+  - Ingvar J. Rögnvaldsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 264
+  page_end: 265
+  issue: '4'
+  pdf_pages:
+  - 281
+  - 282
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Í bokahillunni Skírnir 1988 ÞAÐ Á EKKI AÐ SEMJA DÓMA „FYRIR“ EINHVERN
   authors:
   - Björn Þ. Guðmundsson

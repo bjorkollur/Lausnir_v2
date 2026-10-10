@@ -115,7 +115,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Bandarikjaferð
+- title: Bandaríkjaferð
   authors:
   - Friðgeir Björnsson
   author_titles: []
@@ -131,7 +131,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: page
     pages: toc
@@ -245,7 +245,7 @@ articles:
   analysis_notes: []
 - title: Hraðari meðferð játningarmála. Sjálfsögð krafa um skilvirkni
   authors:
-  - Omar Smári Ámannsson
+  - Ómar Smári Ármannsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 41
@@ -261,7 +261,7 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: page
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -277,9 +277,9 @@ articles:
   analysis_notes: []
 - title: Frá Lagadeild Háskóla Íslands Deildarfréttir 1993
   authors:
-  - Gunnur G. Schram
+  - Gunnar G. Schram
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 46
   page_end: 51
   issue: '1'
@@ -292,8 +292,8 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
-    authors: toc
+    article_type: user
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -311,7 +311,7 @@ articles:
   authors:
   - Sigurður Líndal
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 51
   page_end: 59
   issue: '1'
@@ -324,7 +324,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
     issue: toc
@@ -470,7 +470,7 @@ articles:
   authors:
   - Ingvar J. Rögnvaldsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 133
   page_end: 134
   issue: '2'
@@ -483,7 +483,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
     issue: toc
@@ -501,7 +501,7 @@ articles:
 - title: Skýrsla stjórnar Lögfræðingafélags íslands á aðalfundi 28. október 1993
   authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 135
   page_end: 139
   issue: '2'
@@ -514,7 +514,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
   checks:
@@ -624,7 +624,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Ahrif alþjóðlegra siðareglna á íslenska réttarvörslu
+- title: Áhrif alþjóðlegra siðareglna á íslenska réttarvörslu
   authors:
   - Þorsteinn A. Jónsson
   author_titles: []
@@ -640,7 +640,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
     pages: toc
@@ -688,11 +688,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Aðalfundur Lögmannafélags Islands 18. mars 1994
+- title: Aðalfundur Lögmannafélags Íslands 18. mars 1994
   authors:
   - Marteinn Másson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 206
   page_end: 213
   issue: '3'
@@ -704,8 +704,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     authors: toc
     pages: toc
     issue: toc
@@ -724,7 +724,7 @@ articles:
   authors:
   - Hrafn Bragason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 214
   page_end: 216
   issue: '3'
@@ -737,7 +737,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     authors: toc
     pages: toc
     issue: toc
@@ -754,9 +754,9 @@ articles:
   analysis_notes: []
 - title: Útkoma Lögfræðingatals
   authors:
-  - Kristína Briem
+  - Kristín Briem
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 217
   page_end: 218
   issue: '3'
@@ -769,8 +769,8 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
-    authors: toc
+    article_type: user
+    authors: user
     pages: toc
     issue: toc
   checks:
@@ -784,26 +784,26 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: A mörkum lífsiðfræði og lögfræði
+- title: Á mörkum lífsiðfræði og lögfræði
   authors:
   - Ragnar Aðalsteinsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 227
-  page_end: 228
+  page_end: 229
   issue: '4'
   pdf_pages:
   - 246
-  - 247
+  - 248
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
-    pages: page
+    pages: user
     issue: toc
   checks:
     title_on_page: true
@@ -818,26 +818,26 @@ articles:
   analysis_notes:
   - upphafsbls. 226 er á engri síðu skjalsins (eyða í blaðsíðutali)
   - 'FRÁVIK: efnisyfirlitið segir bls. 226, prentað bls. 227'
-- title: Bótaábyrgð heilbriðgðisstétta og sjúkrastofnana
+- title: Bótaábyrgð heilbrigðisstétta og sjúkrastofnana
   authors:
-  - Arnljótur Bjömsson
+  - Arnljótur Björnsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 229
-  page_end: 240
+  page_start: 230
+  page_end: 241
   issue: '4'
   pdf_pages:
-  - 248
-  - 259
+  - 249
+  - 260
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
-    authors: toc
-    pages: toc
+    authors: user
+    pages: user
     issue: toc
   checks:
     title_on_page: true
@@ -855,12 +855,12 @@ articles:
   - Gunnlaugur Claessen
   author_titles: []
   article_type: Fræðigrein
-  page_start: 241
-  page_end: 245
+  page_start: 242
+  page_end: 246
   issue: '4'
   pdf_pages:
-  - 260
-  - 264
+  - 261
+  - 265
   lang: is
   date: null
   summary: null
@@ -869,7 +869,7 @@ articles:
     title: toc
     article_type: toc
     authors: leitir
-    pages: toc
+    pages: user
     issue: toc
   checks:
     title_on_page: false
@@ -885,15 +885,15 @@ articles:
   - leitir.is segir bls. 242–246
 - title: Ábyrgðartryggingar heilbrigðisstétta
   authors:
-  - Ingvar Sveinbjömsson
+  - Ingvar Sveinbjörnsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 246
-  page_end: 249
+  page_start: 247
+  page_end: 250
   issue: '4'
   pdf_pages:
-  - 265
-  - 268
+  - 266
+  - 269
   lang: is
   date: null
   summary: null
@@ -901,8 +901,8 @@ articles:
   provenance:
     title: toc
     article_type: toc
-    authors: toc
-    pages: toc
+    authors: user
+    pages: user
     issue: toc
   checks:
     title_on_page: false
@@ -915,26 +915,26 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Tengsl bótaábyrgðar heilbrigðisstétta og sjúkrastofnana
+- title: Tengsl bótaábyrgðar heilbrigðisstétta og sjúkrahúsa
   authors:
   - Logi Guðbrandsson
   author_titles: []
   article_type: Fræðigrein
-  page_start: 250
+  page_start: 251
   page_end: 259
   issue: '4'
   pdf_pages:
-  - 269
+  - 270
   - 278
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: toc
-    pages: toc
+    pages: user
     issue: toc
   checks:
     title_on_page: false
@@ -981,10 +981,42 @@ articles:
   analysis_notes:
   - 'FRÁVIK: undirritunin (Sigurður Tómas Magnússon) stendur á eftir fyrirsögninni „Á VÍÐ OG DREIF — DÓMARAÞING 1994“ á bls.
     265; greinin er talin enda á undan henni'
-- title: Úr skýrslu Stjórnar Dómarafélags Islands starfsárið 1993-1994
-  authors: []
+- title: Dómaraþing 1994
+  authors:
+  - Sigurður Tómas Magnússon
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
+  page_start: 265
+  page_end: 271
+  issue: '4'
+  pdf_pages:
+  - 284
+  - 290
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Úr skýrslu Stjórnar Dómarafélags Íslands starfsárið 1993-1994
+  authors:
+  - Valtýr Sigurðsson
+  - Allan Vagn Magnússon
+  - Helgi I. Jónsson
+  - Ólafur Börkur Þorvaldsson
+  - Ólöf Pétursdóttir
+  author_titles: []
+  article_type: Frétt
   page_start: 272
   page_end: 277
   issue: '4'
@@ -996,10 +1028,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
+    authors: user
   checks:
     title_on_page: true
     printed_page_match: true

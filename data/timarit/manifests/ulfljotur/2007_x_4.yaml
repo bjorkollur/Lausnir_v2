@@ -29,7 +29,7 @@ page_map:
   - 287
   - 288
   - 289
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -157,3 +157,190 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Norræna málflutningskeppnin“ á bls. 965 sem skráin nefnir ekki; greinin er talin enda
     þar'
+- title: Norræna málflutningskeppnin 2007
+  authors:
+  - Hrannar M. S. Hafberg
+  author_titles: []
+  article_type: Frétt
+  page_start: 965
+  page_end: 971
+  issue: null
+  pdf_pages:
+  - 191
+  - 197
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Alþjóðlega Philip C. Jessup málflutningskeppnin 2007
+  authors:
+  - Eggert Ólafsson
+  - Hrafnhildur Bragadóttir
+  - Valgerður B. Eggertsdóttir
+  - Þorvaldur Heiðar Þorsteinsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 973
+  page_end: 978
+  issue: null
+  pdf_pages:
+  - 199
+  - 204
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fréttir úr lagadeild skólaárið 2006–2007
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 979
+  page_end: 984
+  issue: null
+  pdf_pages:
+  - 205
+  - 210
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Málþing, fræðafundir og önnur starfsemi á vegum Orators
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 985
+  page_end: 990
+  issue: null
+  pdf_pages:
+  - 211
+  - 216
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fréttir frá Alþingi
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 991
+  page_end: 996
+  issue: null
+  pdf_pages:
+  - 217
+  - 222
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Félagslífið í lagadeild
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 997
+  page_end: 1002
+  issue: null
+  pdf_pages:
+  - 223
+  - 228
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skýrsla stjórnar og annarrar starfsemi Orators fyrir starfsárið 2006-2007
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 1003
+  page_end: 1042
+  issue: null
+  pdf_pages:
+  - 229
+  - 268
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

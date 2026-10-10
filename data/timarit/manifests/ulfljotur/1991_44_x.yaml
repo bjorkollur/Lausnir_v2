@@ -187,7 +187,7 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: taflan segir bls. 68, prentað bls. 65'
-- title: Lagamál
+- title: Nýhugtök
   authors:
   - Björn Þ. Guðmundsson
   author_titles: []
@@ -203,7 +203,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx
@@ -224,11 +224,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 133
-  page_end: 139
+  page_end: 158
   issue: '2'
   pdf_pages:
   - 0
-  - 6
+  - 25
   lang: is
   date: null
   summary: null
@@ -236,7 +236,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
     issue: xlsx
   checks:
     title_on_page: true
@@ -373,7 +373,7 @@ articles:
   source_file: Tímarit og fræðigreinar/Úlfljótur/Tímarit/Ulfljotur_1991 44 arg/520.pdf
   note: ''
   analysis_notes: []
-- title: Lagamál
+- title: Sprangkrafa
   authors:
   - Ólafur Kristinsson
   author_titles: []
@@ -389,7 +389,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: xlsx
+    title: user
     authors: xlsx
     pages: xlsx
     issue: xlsx

@@ -26,7 +26,7 @@ page_map:
   - 152
   - 153
   - 154
-status: review
+status: approved
 confidence: 1.0
 error: null
 files:
@@ -101,11 +101,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 179
-  page_end: 236
+  page_end: 230
   issue: null
   pdf_pages:
   - 86
-  - 143
+  - 137
   lang: is
   date: null
   summary: null
@@ -113,7 +113,7 @@ articles:
   provenance:
     title: xlsx
     authors: xlsx
-    pages: xlsx
+    pages: user
   checks:
     title_on_page: true
     printed_page_match: true
@@ -127,3 +127,56 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Fréttir frá Lagadeild Háskóla Islands“ á bls. 237 sem skráin nefnir ekki; greinin er
     talin enda þar'
+- title: Fasteignir og fasteignakaup eftir Viðar Má Matthíasson – Ritdómur
+  authors:
+  - Matthías G. Pálsson
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 231
+  page_end: 236
+  issue: null
+  pdf_pages:
+  - 138
+  - 143
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Fréttir frá Lagadeild Háskóla Íslands
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 237
+  page_end: 242
+  issue: null
+  pdf_pages:
+  - 144
+  - 149
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

@@ -104,7 +104,7 @@ articles:
   - Magnús Þ. Torfason
   - Sveinn Snorrason
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 3
   page_end: 7
   issue: '1'
@@ -117,7 +117,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -260,27 +260,26 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Embættisskipanir 0G lausnir frá 1. OKT. 1985 til 1. júní 1987
-  authors:
-  - Þór Vilhjálmsson
+- title: Embættisskipanir og lausnir frá 1. okt. 1985 til 1. júní 1987
+  authors: []
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 77
-  page_end: 80
+  page_end: 79
   issue: '1'
   pdf_pages:
   - 82
-  - 85
+  - 84
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -293,6 +292,33 @@ articles:
   note: ''
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „Wonder rafhlöður“ á bls. 82 sem skráin nefnir ekki; greinin er talin enda þar'
+- title: Nýr doktor í lögum
+  authors:
+  - Þór Vilhjálmsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 79
+  page_end: 80
+  issue: '1'
+  pdf_pages:
+  - 84
+  - 85
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Eftir Stokkhólmsferð
   authors:
   - Þór Vilhjálmsson
@@ -329,7 +355,7 @@ articles:
   authors:
   - Jón G. Tómasson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 83
   page_end: 84
   issue: '2'
@@ -342,7 +368,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -485,11 +511,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá Lögmannafélagi íslands
+- title: Um starfsemi Lögmannafélags Íslands starfsárið 1986-1987
   authors:
   - Hafþór Ingi Jónsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 143
   page_end: 147
   issue: '2'
@@ -501,8 +527,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -517,27 +543,27 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Þýskt-íslenskt refslréttarmálþing
+- title: Þýskt-íslenskt refsiréttarmálþing
   authors:
-  - Ragnheiður Thorlacius
+  - Jónatan Þórmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 148
-  page_end: 150
+  page_end: 149
   issue: '2'
   pdf_pages:
   - 157
-  - 159
+  - 158
   lang: is
   date: null
   summary: null
   keywords: []
   provenance:
-    title: page
-    article_type: toc
-    pages: toc
+    title: user
+    article_type: user
+    pages: user
     issue: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
@@ -551,11 +577,64 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „NÝTT KENNSLURET í SKAÐABÓTARÉTTI“ á bls. 150 sem skráin nefnir ekki; greinin er talin
     enda þar'
+- title: Þing norrænna kvenlögfræðinga
+  authors:
+  - Ragnheiður Thorlacius
+  author_titles: []
+  article_type: Frétt
+  page_start: 149
+  page_end: 150
+  issue: '2'
+  pdf_pages:
+  - 158
+  - 159
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýtt kennslurit í skaðabótarétti
+  authors: []
+  author_titles: []
+  article_type: Frétt
+  page_start: 150
+  page_end: 151
+  issue: '2'
+  pdf_pages:
+  - 159
+  - 160
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Endurskoðun viðurlagakerfisins
   authors:
   - Jónatan Þórmundsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Ritstjórnargrein
   page_start: 157
   page_end: 158
   issue: '3'
@@ -568,7 +647,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -587,7 +666,7 @@ articles:
   authors:
   - Gísli G. Ísleifsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 159
   page_end: 160
   issue: '3'
@@ -600,7 +679,7 @@ articles:
   keywords: []
   provenance:
     title: page
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -615,7 +694,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Dómsmálaskipan, meðferð dómsmála, staða dómara og lögkjör þeirra við amts- og landsrétt í Munchen í Þýskalandi
+- title: Dómsmálaskipan, meðferð dómsmála, staða dómara og lögkjör þeirra við amts- og landsrétt í München í Þýskalandi
   authors:
   - Valtýr Sigurðsson
   author_titles: []
@@ -631,7 +710,7 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
+    title: user
     article_type: toc
     authors: leitir
     pages: leitir+toc
@@ -679,11 +758,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá Lögfræðingafélagi íslands
+- title: Aðalfundur 1986
   authors:
   - Guðný Björnsdóttir
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 216
   page_end: 217
   issue: '3'
@@ -695,8 +774,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -713,6 +792,33 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „SKÝRSLA STJÓRNAR LÖGFRÆÐINGAFÉLAGS“ á bls. 217 sem skráin nefnir ekki; greinin er talin
     enda þar'
+- title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 27. október 1987
+  authors:
+  - Eiríkur Tómasson
+  author_titles: []
+  article_type: Frétt
+  page_start: 217
+  page_end: 219
+  issue: '3'
+  pdf_pages:
+  - 230
+  - 232
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
 - title: Hugleiðing um gerðardóma
   authors:
   - Sveinn Snorrason
@@ -749,7 +855,7 @@ articles:
   authors:
   - Gísli G. Ísleifsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Annað
   page_start: 227
   page_end: 228
   issue: '4'
@@ -762,7 +868,7 @@ articles:
   keywords: []
   provenance:
     title: toc
-    article_type: toc
+    article_type: user
     pages: leitir+toc
     issue: toc
     authors: leitir
@@ -841,11 +947,11 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Frá lagadeild Háskólans
+- title: Deildarfréttir 1987
   authors:
   - Arnljótur Björnsson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 273
   page_end: 276
   issue: '4'
@@ -857,8 +963,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -875,11 +981,38 @@ articles:
   analysis_notes:
   - 'FRÁVIK: á eftir greininni hefst „SKÝRSLA UM LAGASTOFNUN HÁSKÓLA ÍSLANDS“ á bls. 276 sem skráin nefnir ekki; greinin er
     talin enda þar'
-- title: Frá Dómarafélagi íslands
+- title: Skýrsla um Lagastofnun Háskóla Íslands 28. febrúar 1986 — 27. febrúar 1987
+  authors:
+  - Sigurður Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 276
+  page_end: 280
+  issue: '4'
+  pdf_pages:
+  - 293
+  - 297
+  lang: null
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: user
+    authors: user
+    pages: user
+    article_type: user
+  checks: {}
+  confidence: 0.0
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Aðalfundur Dómarafélags Íslands 1987
   authors:
   - Haraldur Henrysson
   author_titles: []
-  article_type: Fræðigrein
+  article_type: Frétt
   page_start: 281
   page_end: 282
   issue: '4'
@@ -891,8 +1024,8 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: toc
-    article_type: toc
+    title: user
+    article_type: user
     pages: toc
     issue: toc
     authors: page
@@ -907,9 +1040,9 @@ articles:
   source_file: null
   note: ''
   analysis_notes: []
-- title: Tillögur um breytingar á laganami
+- title: Tillögur um breytingar á laganámi
   authors:
-  - Eiríkur Tómasson
+  - Guðmundur S. Alfreðsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 283
@@ -923,11 +1056,11 @@ articles:
   summary: null
   keywords: []
   provenance:
-    title: page
+    title: user
     article_type: toc
     pages: toc
     issue: toc
-    authors: page
+    authors: user
   checks:
     title_on_page: false
     printed_page_match: true
