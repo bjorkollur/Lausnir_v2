@@ -19,6 +19,7 @@ page_map:
   contested: []
   bin_ratio: 0.914
   non_article:
+  - 65
   - 132
   - 133
   - 134
@@ -87,7 +88,7 @@ articles:
   issue: null
   pdf_pages:
   - 4
-  - 65
+  - 64
   lang: is
   date: null
   summary: null

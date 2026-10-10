@@ -199,11 +199,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 38
-  page_end: 38
+  page_end: 39
   issue: null
   pdf_pages:
   - 43
-  - 43
+  - 44
   lang: is
   date: null
   summary: null
@@ -297,11 +297,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 41
-  page_end: 41
+  page_end: 42
   issue: null
   pdf_pages:
   - 46
-  - 46
+  - 47
   lang: is
   date: null
   summary: null
@@ -595,7 +595,7 @@ articles:
   issue: '3'
   pdf_pages:
   - 112
-  - 112
+  - 113
   lang: is
   date: null
   summary: null
@@ -628,7 +628,7 @@ articles:
   issue: '3'
   pdf_pages:
   - 113
-  - 113
+  - 114
   lang: is
   date: null
   summary: null
@@ -650,8 +650,6 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Benedikt Sigurjónsson) en höfundar skrárinnar eru aðrir (Hjálmar Vilhjálmsson); skránni
-    haldið'
   - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Jón N. Sigurðsson
   authors:
@@ -663,7 +661,7 @@ articles:
   issue: '3'
   pdf_pages:
   - 114
-  - 115
+  - 116
   lang: is
   date: null
   summary: null
@@ -685,7 +683,6 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Hjálmar Vilhjálmsson) en höfundar skrárinnar eru aðrir (Ágúst Fjeldsted); skránni haldið'
   - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Kjartan Þórðarson
   authors:
@@ -1021,7 +1018,7 @@ articles:
   issue: '4'
   pdf_pages:
   - 231
-  - 234
+  - 235
   lang: is
   date: null
   summary: null
@@ -1050,11 +1047,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 216
-  page_end: 216
+  page_end: 217
   issue: null
   pdf_pages:
   - 235
-  - 235
+  - 236
   lang: is
   date: null
   summary: null
@@ -1178,11 +1175,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 224
-  page_end: 224
+  page_end: 225
   issue: null
   pdf_pages:
   - 243
-  - 243
+  - 244
   lang: is
   date: null
   summary: null

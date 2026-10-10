@@ -21,6 +21,7 @@ page_map:
   non_article:
   - 3
   - 7
+  - 29
   - 41
   - 91
   - 92
@@ -244,7 +245,7 @@ articles:
   issue: null
   pdf_pages:
   - 27
-  - 29
+  - 28
   lang: is
   date: null
   summary: null

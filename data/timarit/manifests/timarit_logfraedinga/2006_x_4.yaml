@@ -162,15 +162,16 @@ articles:
   note: ''
   analysis_notes: []
 - title: Frá Lögfræðingafélagi Íslands
-  authors: []
+  authors:
+  - Benedikt Bogason
   author_titles: []
   article_type: Frétt
   page_start: 453
-  page_end: 456
+  page_end: 457
   issue: null
   pdf_pages:
   - 109
-  - 112
+  - 113
   lang: is
   date: null
   summary: null
@@ -179,6 +180,7 @@ articles:
     title: llm
     article_type: llm
     pages: llm
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true

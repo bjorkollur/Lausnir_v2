@@ -15,18 +15,53 @@ page_map:
   segments: []
   contested: []
   bin_ratio: 0.925
-  non_article: []
+  non_article:
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 88
+  - 89
+  - 157
+  - 158
+  - 159
+  - 160
+  - 161
+  - 162
+  - 163
+  - 164
+  - 165
+  - 166
+  - 168
+  - 169
+  - 257
+  - 258
+  - 259
+  - 260
+  - 261
+  - 262
+  - 263
+  - 264
+  - 265
+  - 266
+  - 269
   toc_check:
     entries: 28
     found: 19
     share: 0.679
     shifted: 0
     on_filler: 0
-    unclaimed: 49
+    unclaimed: 24
     pages: 347
     by_proxy: 0
 status: review
-confidence: 0
+confidence: 0.2
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1996.pdf
@@ -267,17 +302,17 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 46 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: undirritunin (Ingveldur Einarsdóttir) stendur á eftir fyrirsögninni „Á VÍÐ OG DREIF — FRÁ DÓMARAFÉLAGI ÍSLANDS“
-    á bls. 60; greinin er talin enda á undan henni'
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Úr skýrslu stjórnar Dómarafélags Íslands starfsárið 1994–1995
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 60
-  page_end: null
+  page_end: 63
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 65
+  - 68
   lang: is
   date: null
   summary: null
@@ -287,17 +322,18 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 60 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 66)
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Dómaraþing 1995
   authors:
@@ -305,9 +341,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 63
-  page_end: null
+  page_end: 64
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 68
+  - 69
   lang: is
   date: null
   summary: null
@@ -318,17 +356,18 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 63 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 69)
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Dómsmálaþing 9.–10. nóvember 1995
   authors:
@@ -336,9 +375,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 64
-  page_end: null
+  page_end: 71
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 69
+  - 76
   lang: is
   date: null
   summary: null
@@ -350,16 +391,17 @@ articles:
     pages: llm
   checks:
     title_on_page: false
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.3
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 64 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 70)
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Sjálfstæð og óháð lögmannastétt
   authors:
@@ -497,8 +539,6 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 126 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: undirritunin (Friðgeir Björnsson) stendur á eftir fyrirsögninni „A VIÐ OG DREIF — FRÁ LAGADEILD HÁSKÓLA ÍSLANDS“
-    á bls. 132; greinin er talin enda á undan henni'
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Deildarfréttir 1995
   authors:
@@ -506,9 +546,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 132
-  page_end: null
+  page_end: 137
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 143
+  - 148
   lang: is
   date: null
   summary: null
@@ -519,17 +561,18 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 132 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 144)
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Skýrsla um Lagastofnun Háskóla Íslands 28.2.1995–29.2.1996
   authors:
@@ -537,9 +580,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 137
-  page_end: null
+  page_end: 143
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 148
+  - 154
   lang: is
   date: null
   summary: null
@@ -550,17 +595,18 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
-    author_on_page: false
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.5
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 137 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 149)
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Heimsókn dómara til London 1995
   authors:
@@ -568,9 +614,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 143
-  page_end: null
+  page_end: 145
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 154
+  - 156
   lang: is
   date: null
   summary: null
@@ -581,17 +629,18 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 143 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 155)
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Nýtt dómhús Hæstaréttar Íslands
   authors:
@@ -693,8 +742,6 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 190 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: undirritunin (Dögg Pálsdóttir) stendur á eftir fyrirsögninni „A VIÐ OG DREIF — SKÝRSLA STJÓRNAR LÖGFRÆÐINGAFÉLAGS
-    ÍSLANDS Á AÐAL-“ á bls. 233; greinin er talin enda á undan henni'
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 31. október 1995
   authors:
@@ -702,9 +749,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 233
-  page_end: null
+  page_end: 239
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 250
+  - 256
   lang: is
   date: null
   summary: null
@@ -715,17 +764,21 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 233 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 251)
+  - 'FRÁVIK: á eftir greininni hefst „Góður mælikvarði á þjónustu „Sparisjóður Reykjavíkur og nágrennis skaraði löluvert fram
+    úr viðskiptabönkunum og öðrum stærri sparisjóðum hvað innlánsþróun snertir á síðastliðnu ári.““ á pdf-síðu 268 sem skráin
+    nefnir ekki; greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Lítið eitt um refsingar
   authors:
@@ -861,8 +914,6 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 199 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: undirritunin (Allan V. Magnússon) stendur á eftir fyrirsögninni „Á VÍÐ OG DREIF — SKÝRSLA STJÓRNAR LÖGFRÆÐINGAFÉLAGS
-    ÍSLANDS Á“ á bls. 205; greinin er talin enda á undan henni'
   - 'á síðunni stendur: Jón L. Arnalds'
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Skýrsla stjórnar Lögfræðingafélags Íslands á aðalfundi 4. október 1996
@@ -871,9 +922,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 205
-  page_end: null
+  page_end: 210
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 336
+  - 341
   lang: is
   date: null
   summary: null
@@ -884,17 +937,18 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 205 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 337)
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Úr skýrslu stjórnar Dómarafélags Íslands starfsárið 1995–1996
   authors:
@@ -902,9 +956,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 211
-  page_end: null
+  page_end: 217
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 342
+  - 348
   lang: is
   date: null
   summary: null
@@ -915,17 +971,18 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 211 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 343)
   - efnisyfirlitið stóðst ekki á síðunum (19 af 28 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Leiðrétting
   authors: []

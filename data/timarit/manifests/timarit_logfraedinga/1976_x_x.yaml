@@ -313,11 +313,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 28
-  page_end: 28
+  page_end: 29
   issue: null
   pdf_pages:
   - 33
-  - 33
+  - 34
   lang: is
   date: null
   summary: null
@@ -345,11 +345,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 29
-  page_end: 29
+  page_end: 30
   issue: null
   pdf_pages:
   - 34
-  - 34
+  - 35
   lang: is
   date: null
   summary: null
@@ -508,11 +508,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 34
-  page_end: 35
+  page_end: 36
   issue: null
   pdf_pages:
   - 39
-  - 40
+  - 41
   lang: is
   date: null
   summary: null
@@ -611,7 +611,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 55
-  - 55
+  - 56
   lang: is
   date: null
   summary: null
@@ -644,7 +644,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 56
-  - 58
+  - 59
   lang: is
   date: null
   summary: null
@@ -666,7 +666,6 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
-  - 'FRÁVIK: greinin er undirrituð (Matthías Á. Mathiesen) en höfundar skrárinnar eru aðrir (Ragnar Jónsson); skránni haldið'
   - efnisyfirlitið stóðst ekki á síðunum (13 af 22 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Hermann Jónasson
   authors:
@@ -678,7 +677,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 59
-  - 61
+  - 62
   lang: is
   date: null
   summary: null
@@ -774,11 +773,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 72
-  page_end: 77
+  page_end: 78
   issue: null
   pdf_pages:
   - 80
-  - 85
+  - 86
   lang: is
   date: null
   summary: null
@@ -932,11 +931,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 86
-  page_end: 88
+  page_end: 89
   issue: null
   pdf_pages:
   - 94
-  - 96
+  - 97
   lang: is
   date: null
   summary: null
@@ -1128,11 +1127,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 124
-  page_end: 124
+  page_end: 125
   issue: null
   pdf_pages:
   - 136
-  - 136
+  - 137
   lang: is
   date: null
   summary: null
@@ -1194,11 +1193,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 126
-  page_end: 128
+  page_end: 127
   issue: '3'
   pdf_pages:
   - 138
-  - 138
+  - 139
   lang: is
   date: null
   summary: null
@@ -1220,6 +1219,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
+  - skráin segir að greinin endi á bls. 128, prentuð lokasíða er bls. 127
   - efnisyfirlitið stóðst ekki á síðunum (13 af 22 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Starfsemi sjálfstætt starfandi háskólamanna
   authors:
@@ -1291,11 +1291,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 130
-  page_end: 131
+  page_end: 132
   issue: null
   pdf_pages:
   - 142
-  - 143
+  - 144
   lang: is
   date: null
   summary: null
@@ -1425,7 +1425,7 @@ articles:
   issue: '4'
   pdf_pages:
   - 160
-  - 160
+  - 161
   lang: is
   date: null
   summary: null
@@ -1584,7 +1584,7 @@ articles:
   issue: '4'
   pdf_pages:
   - 183
-  - 189
+  - 190
   lang: is
   date: null
   summary: null
@@ -1646,11 +1646,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 182
-  page_end: 182
+  page_end: 183
   issue: null
   pdf_pages:
   - 197
-  - 197
+  - 198
   lang: is
   date: null
   summary: null
@@ -1809,11 +1809,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 191
-  page_end: 192
+  page_end: 193
   issue: null
   pdf_pages:
   - 206
-  - 207
+  - 208
   lang: is
   date: null
   summary: null

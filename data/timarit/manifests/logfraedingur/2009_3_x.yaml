@@ -21,7 +21,6 @@ page_map:
   non_article:
   - 7
   - 37
-  - 55
   toc_check:
     entries: 9
     found: 8
@@ -200,11 +199,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 38
-  page_end: 54
+  page_end: 55
   issue: null
   pdf_pages:
   - 38
-  - 54
+  - 55
   lang: en
   date: null
   summary: null

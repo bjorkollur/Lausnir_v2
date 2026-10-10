@@ -312,11 +312,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 34
-  page_end: 34
+  page_end: 35
   issue: null
   pdf_pages:
   - 39
-  - 39
+  - 40
   lang: is
   date: null
   summary: null
@@ -345,11 +345,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 35
-  page_end: 35
+  page_end: 36
   issue: null
   pdf_pages:
   - 40
-  - 40
+  - 41
   lang: is
   date: null
   summary: null
@@ -378,11 +378,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 36
-  page_end: 38
+  page_end: 39
   issue: null
   pdf_pages:
   - 41
-  - 43
+  - 44
   lang: is
   date: null
   summary: null
@@ -587,7 +587,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 62
-  - 62
+  - 63
   lang: is
   date: null
   summary: null
@@ -691,7 +691,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 68
-  - 68
+  - 69
   lang: is
   date: null
   summary: null
@@ -863,7 +863,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 89
-  - 89
+  - 90
   lang: is
   date: null
   summary: null
@@ -957,11 +957,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 84
-  page_end: 84
+  page_end: 85
   issue: null
   pdf_pages:
   - 93
-  - 93
+  - 94
   lang: is
   date: null
   summary: null
@@ -1320,11 +1320,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 192
-  page_end: 194
+  page_end: 193
   issue: '4'
   pdf_pages:
   - 161
-  - 161
+  - 162
   lang: is
   date: null
   summary: null
@@ -1345,6 +1345,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
+  - skráin segir að greinin endi á bls. 194, prentuð lokasíða er bls. 193
   - efnisyfirlitið stóðst ekki á síðunum (3 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 87 síður
     heftisins) — greinalisti Claude notaður
 - title: Orator

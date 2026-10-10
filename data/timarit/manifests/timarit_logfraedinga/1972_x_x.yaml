@@ -1,0 +1,686 @@
+source: timarit_logfraedinga
+year: 1972
+volume: 22
+issue: null
+label: Tímarit lögfræðinga, 22. árg. (1972)
+file: Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1971_1972.pdf
+sha256: 10d89ac2fab956edfbb7668ef66948ad63b80b9de3182a9208ceeb905a532949
+pages: 376
+year_end: null
+pdf_window:
+- 204
+- 375
+page_map:
+  offset: -233
+  quality: 0.628
+  runner_up_share: 0.013
+  pages: 172
+  segments:
+  - - 208
+    - 241
+    - -205
+  - - 271
+    - 352
+    - -233
+  contested: []
+  bin_ratio: 0.921
+  non_article:
+  - 244
+  - 245
+  - 246
+  - 247
+  - 248
+  - 249
+  - 250
+  - 251
+  - 252
+  - 253
+  - 254
+  - 255
+  - 256
+  - 257
+  - 258
+  - 259
+  - 260
+  - 261
+  - 262
+  - 263
+  - 264
+  - 265
+  - 267
+  - 268
+  - 269
+  - 353
+  - 354
+  - 355
+  - 356
+  - 357
+  - 358
+  - 359
+  - 360
+  - 361
+  - 362
+  - 363
+  - 364
+  - 365
+  - 366
+  - 367
+  - 368
+  - 369
+  - 371
+  - 372
+  - 373
+  - 374
+status: review
+confidence: 0.45
+error: null
+files:
+- Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1971_1972.pdf
+articles:
+- title: Gizur Bergsteinsson hæstaréttardómari lætur af störfum
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Annað
+  page_start: 1
+  page_end: 2
+  issue: '1'
+  pdf_pages:
+  - 206
+  - 207
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nokkur viðfangsefni réttarheimspeki
+  authors:
+  - Garðar Gíslason
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 3
+  page_end: 17
+  issue: '1'
+  pdf_pages:
+  - 208
+  - 222
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá bæjarþingi Reykjavíkur
+  authors:
+  - Björn Þ. Guðmundsson
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 18
+  page_end: 26
+  issue: '1'
+  pdf_pages:
+  - 223
+  - 231
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Lögfræðingafélagi Íslands
+  authors:
+  - Hrafn Bragason
+  author_titles: []
+  article_type: Frétt
+  page_start: 27
+  page_end: 28
+  issue: null
+  pdf_pages:
+  - 232
+  - 233
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 26. norræna lögfræðingaþingið
+  authors:
+  - Sakari Sohlberg
+  author_titles: []
+  article_type: Frétt
+  page_start: 29
+  page_end: 34
+  issue: '1'
+  pdf_pages:
+  - 234
+  - 239
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: leitir+llm
+    authors: leitir
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Hæstarétti
+  authors:
+  - Gaukur Jörundsson
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 35
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 240
+  - 240
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - 'FRÁVIK: höfundar skrárinnar (Gaukur Jörundsson, Theodór B. Líndal) stangast á við síðuna (Ármann Snævarr); skránni haldið'
+- title: Frá Háskólanum
+  authors:
+  - Gaukur Jörundsson
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 35
+  page_end: 35
+  issue: null
+  pdf_pages:
+  - 240
+  - 240
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Nýir hæstaréttarlögmenn
+  authors:
+  - Gaukur Jörundsson
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 36
+  page_end: 36
+  issue: null
+  pdf_pages:
+  - 241
+  - 241
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Örorkumöt
+  authors:
+  - Páll Sigurðsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 37
+  page_end: 50
+  issue: '2'
+  pdf_pages:
+  - 270
+  - 283
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: false
+    author_on_page: false
+    external_record: true
+  confidence: 0.55
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes:
+  - upphafsbls. 37 er á engri síðu skjalsins (eyða í blaðsíðutali)
+- title: Um örorkumöt
+  authors:
+  - Gunnar M. Guðmundsson
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 51
+  page_end: 75
+  issue: '2'
+  pdf_pages:
+  - 284
+  - 308
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Mannréttindanefnd Evrópu
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Fræðigrein
+  page_start: 76
+  page_end: 89
+  issue: '2'
+  pdf_pages:
+  - 309
+  - 322
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá sjó- og verzlunardómi Reykjavíkur
+  authors:
+  - Björn Þ. Guðmundsson
+  - Stefán Már Stefánsson
+  author_titles: []
+  article_type: Dómareifun
+  page_start: 90
+  page_end: 103
+  issue: null
+  pdf_pages:
+  - 323
+  - 336
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.7
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 26. norræna lögfræðingaþingið
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Frétt
+  page_start: 104
+  page_end: 106
+  issue: '2'
+  pdf_pages:
+  - 337
+  - 339
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá lagadeild
+  authors:
+  - Theodór B. Líndal
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 107
+  page_end: 107
+  issue: null
+  pdf_pages:
+  - 340
+  - 340
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Frá Hæstarétti
+  authors:
+  - Theodór B. Líndal
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Frétt
+  page_start: 108
+  page_end: 108
+  issue: null
+  pdf_pages:
+  - 341
+  - 341
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: false
+    printed_page_match: true
+    author_on_page: true
+    external_record: false
+  confidence: 0.45
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Tímaritið
+  authors:
+  - Theodór B. Líndal
+  - Gaukur Jörundsson
+  author_titles: []
+  article_type: Ritstjórnargrein
+  page_start: 109
+  page_end: 109
+  issue: null
+  pdf_pages:
+  - 342
+  - 342
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: 'Henrik Tamm: De Nordiske Juristmöder 1872–1972'
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 110
+  page_end: 112
+  issue: '2'
+  pdf_pages:
+  - 343
+  - 344
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: leitir
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Realregister til Domssamlingerne i civile sager 1967–1971
+  authors:
+  - Theodór B. Líndal
+  author_titles: []
+  article_type: Ritdómur
+  page_start: 112
+  page_end: 112
+  issue: null
+  pdf_pages:
+  - 345
+  - 345
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    authors: llm
+    pages: llm
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: false
+  confidence: 0.65
+  leitir_record_id: null
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []
+- title: Skrá um lög árið 1971
+  authors: []
+  author_titles: []
+  article_type: Annað
+  page_start: 113
+  page_end: 119
+  issue: '2'
+  pdf_pages:
+  - 346
+  - 352
+  lang: is
+  date: null
+  summary: null
+  keywords: []
+  provenance:
+    title: llm
+    article_type: llm
+    pages: leitir+llm
+    issue: leitir
+  checks:
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: false
+    external_record: true
+  confidence: 0.7
+  leitir_record_id: '991001868109706886'
+  xlsx_row: null
+  source_file: null
+  note: ''
+  analysis_notes: []

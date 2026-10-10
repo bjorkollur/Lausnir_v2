@@ -153,7 +153,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 75
-  - 75
+  - 76
   lang: is
   date: null
   summary: null
@@ -381,11 +381,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 110
-  page_end: 110
+  page_end: 111
   issue: null
   pdf_pages:
   - 119
-  - 119
+  - 120
   lang: is
   date: null
   summary: null
@@ -447,11 +447,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 113
-  page_end: 113
+  page_end: 114
   issue: null
   pdf_pages:
   - 122
-  - 122
+  - 123
   lang: is
   date: null
   summary: null
@@ -543,11 +543,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 116
-  page_end: 116
+  page_end: 117
   issue: null
   pdf_pages:
   - 125
-  - 125
+  - 126
   lang: is
   date: null
   summary: null
@@ -648,7 +648,7 @@ articles:
   issue: '3'
   pdf_pages:
   - 139
-  - 139
+  - 140
   lang: is
   date: null
   summary: null
@@ -848,11 +848,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 172
-  page_end: 175
+  page_end: 176
   issue: null
   pdf_pages:
   - 185
-  - 188
+  - 189
   lang: is
   date: null
   summary: null
@@ -1112,7 +1112,7 @@ articles:
   issue: '4'
   pdf_pages:
   - 215
-  - 215
+  - 216
   lang: is
   date: null
   summary: null
@@ -1180,7 +1180,7 @@ articles:
   issue: '4'
   pdf_pages:
   - 218
-  - 219
+  - 220
   lang: is
   date: null
   summary: null
@@ -1341,11 +1341,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 239
-  page_end: 241
+  page_end: 242
   issue: null
   pdf_pages:
   - 256
-  - 258
+  - 259
   lang: is
   date: null
   summary: null
@@ -1441,11 +1441,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 248
-  page_end: 251
+  page_end: 252
   issue: null
   pdf_pages:
   - 265
-  - 268
+  - 269
   lang: is
   date: null
   summary: null
@@ -1508,11 +1508,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 254
-  page_end: 255
+  page_end: 256
   issue: null
   pdf_pages:
   - 271
-  - 272
+  - 273
   lang: is
   date: null
   summary: null
@@ -1541,11 +1541,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 256
-  page_end: 256
+  page_end: 257
   issue: null
   pdf_pages:
   - 273
-  - 273
+  - 274
   lang: is
   date: null
   summary: null
@@ -1573,11 +1573,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 257
-  page_end: 258
+  page_end: 259
   issue: null
   pdf_pages:
   - 274
-  - 275
+  - 276
   lang: is
   date: null
   summary: null

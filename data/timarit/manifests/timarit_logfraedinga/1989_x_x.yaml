@@ -205,11 +205,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 68
-  page_end: 70
+  page_end: 71
   issue: null
   pdf_pages:
   - 73
-  - 75
+  - 76
   lang: is
   date: null
   summary: null
@@ -495,11 +495,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 133
-  page_end: 134
+  page_end: 135
   issue: null
   pdf_pages:
   - 142
-  - 143
+  - 144
   lang: is
   date: null
   summary: null
@@ -915,11 +915,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 259
-  page_end: 259
+  page_end: 260
   issue: null
   pdf_pages:
   - 276
-  - 276
+  - 277
   lang: is
   date: null
   summary: null
@@ -983,11 +983,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 263
-  page_end: 269
+  page_end: 268
   issue: '4'
   pdf_pages:
   - 280
-  - 284
+  - 285
   lang: is
   date: null
   summary: null
@@ -1009,6 +1009,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
+  - skráin segir að greinin endi á bls. 269, prentuð lokasíða er bls. 268
   - efnisyfirlitið stóðst ekki á síðunum (efnisyfirlitið nær ekki yfir 195 síður heftisins) — greinalisti Claude notaður
 - title: Fréttatilkynning
   authors:

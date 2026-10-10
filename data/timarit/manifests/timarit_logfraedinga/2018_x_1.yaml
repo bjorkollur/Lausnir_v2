@@ -20,7 +20,6 @@ page_map:
   bin_ratio: 0.896
   non_article:
   - 103
-  - 104
   - 120
   - 122
   - 123
@@ -172,3 +171,5 @@ articles:
   note: ''
   analysis_notes:
   - skráin segir að greinin endi á bls. 120, prentuð lokasíða er bls. 101
+  - 'FRÁVIK: á eftir greininni hefst „Í umfjöllun yfirskattanefndar segir síðan: „Samkvæmt framans“ á bls. 103 sem skráin
+    nefnir ekki; greinin er talin enda þar'

@@ -113,7 +113,7 @@ articles:
   issue: '1'
   pdf_pages:
   - 8
-  - 8
+  - 9
   lang: is
   date: null
   summary: null
@@ -271,11 +271,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 45
-  page_end: 45
+  page_end: 46
   issue: null
   pdf_pages:
   - 50
-  - 50
+  - 51
   lang: is
   date: null
   summary: null
@@ -878,11 +878,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 111
-  page_end: 112
+  page_end: 113
   issue: null
   pdf_pages:
   - 120
-  - 121
+  - 122
   lang: is
   date: null
   summary: null
@@ -910,11 +910,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 113
-  page_end: 113
+  page_end: 114
   issue: null
   pdf_pages:
   - 122
-  - 122
+  - 123
   lang: is
   date: null
   summary: null
@@ -1107,7 +1107,7 @@ articles:
   issue: '3'
   pdf_pages:
   - 139
-  - 139
+  - 140
   lang: is
   date: null
   summary: null
@@ -1334,11 +1334,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 197
-  page_end: 197
+  page_end: 198
   issue: null
   pdf_pages:
   - 210
-  - 210
+  - 211
   lang: is
   date: null
   summary: null
@@ -1593,11 +1593,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 286
-  page_end: 288
+  page_end: 287
   issue: '4'
   pdf_pages:
   - 303
-  - 303
+  - 304
   lang: is
   date: null
   summary: null
@@ -1619,6 +1619,7 @@ articles:
   source_file: null
   note: ''
   analysis_notes:
+  - skráin segir að greinin endi á bls. 288, prentuð lokasíða er bls. 287
   - efnisyfirlitið stóðst ekki á síðunum (18 af 23 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Skýrsla um mannréttindi
   authors:

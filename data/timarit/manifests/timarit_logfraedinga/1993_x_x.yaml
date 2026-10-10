@@ -53,11 +53,11 @@ page_map:
     share: 0.571
     shifted: 0
     on_filler: 0
-    unclaimed: 185
+    unclaimed: 187
     pages: 295
     by_proxy: 0
 status: review
-confidence: 0
+confidence: 0.35
 error: null
 files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 1993.pdf
@@ -93,7 +93,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Dómaskipan Danmerkur, Svíþjóðar og Noregs
   authors:
@@ -128,7 +128,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 5 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Hvaða tilgangi þjóna lögregluskýrslur í dómsmáli?
   authors:
@@ -162,7 +162,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 22 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Samræmd túlkun Luganosamningsins
   authors:
@@ -170,11 +170,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 33
-  page_end: 65
+  page_end: 42
   issue: '1'
   pdf_pages:
   - 34
-  - 66
+  - 43
   lang: is
   date: null
   summary: null
@@ -197,17 +197,18 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 33 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - skráin segir að greinin endi á bls. 42, prentuð lokasíða er bls. 65
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Skýrsla stjórnar Dómarafélags Íslands starfsárið 1991–1992
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 43
-  page_end: null
+  page_end: 60
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 44
+  - 61
   lang: is
   date: null
   summary: null
@@ -217,27 +218,30 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 43 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 45)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Aðalfundur Dómarafélags Íslands 1992
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 61
-  page_end: null
+  page_end: 61
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 62
+  - 62
   lang: is
   date: null
   summary: null
@@ -247,27 +251,30 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 61 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 63)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Dómsmálaþing 1992
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 62
-  page_end: null
+  page_end: 65
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 63
+  - 66
   lang: is
   date: null
   summary: null
@@ -277,18 +284,19 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 62 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 64)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Samstarf við samtök lögfræðinga á hinum Norðurlöndunum
   authors:
@@ -300,7 +308,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 78
-  - 81
+  - 79
   lang: is
   date: null
   summary: null
@@ -323,8 +331,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 73 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: greinin er undirrituð (Pétur Guðgeirsson) en höfundar skrárinnar eru aðrir (Gunnlaugur Claessen); skránni haldið'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Þórður Björnsson
   authors:
@@ -334,7 +341,9 @@ articles:
   page_start: 75
   page_end: 76
   issue: '2'
-  pdf_pages: null
+  pdf_pages:
+  - 80
+  - 81
   lang: is
   date: null
   summary: null
@@ -346,18 +355,19 @@ articles:
     pages: leitir+llm
     issue: leitir
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.2
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 75 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 81)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Stutt yfirlit um skaðabótaskyldu lögmanna og önnur bótaúrræði
   authors:
@@ -391,7 +401,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 77 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Er sjálfstæði dómstólanna nægilegt?
   authors:
@@ -425,7 +435,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 99 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Stjórnskipulegt vald dómstólanna
   authors:
@@ -433,11 +443,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 106
-  page_end: 130
+  page_end: 116
   issue: null
   pdf_pages:
   - 111
-  - 135
+  - 121
   lang: is
   date: null
   summary: null
@@ -459,7 +469,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 106 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Deildarfréttir 1992
   authors:
@@ -467,9 +477,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 117
-  page_end: null
+  page_end: 120
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 122
+  - 125
   lang: is
   date: null
   summary: null
@@ -480,18 +492,19 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
+    title_on_page: true
     printed_page_match: false
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.35
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 117 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 123)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Skýrsla um Lagastofnun Háskóla Íslands 20. febrúar 1992 – 25. febrúar 1993
   authors:
@@ -499,9 +512,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 121
-  page_end: null
+  page_end: 130
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 126
+  - 135
   lang: is
   date: null
   summary: null
@@ -512,18 +527,19 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 121 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 127)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Heimsókn Claus Larsen
   authors:
@@ -557,7 +573,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 131 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Um valdsins þrískipta grein
   authors: []
@@ -590,7 +606,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 139 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Magnús Þ. Torfason f. 5. maí 1922, d. 1. júní 1993
   authors:
@@ -625,7 +641,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 145 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Takmarkanir málskotsheimilda
   authors:
@@ -660,7 +676,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 149 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Skaðabótaábyrgð lögmanna
   authors:
@@ -694,7 +710,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 153 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Hvernig valda íslenskir dómstólar hlutverki sínu?
   authors:
@@ -702,11 +718,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 167
-  page_end: 185
+  page_end: 171
   issue: null
   pdf_pages:
   - 178
-  - 196
+  - 182
   lang: is
   date: null
   summary: null
@@ -728,16 +744,18 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 167 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Aðalfundur L.M.F.Í. 26. mars 1993
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 172
-  page_end: null
+  page_end: 178
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 183
+  - 189
   lang: is
   date: null
   summary: null
@@ -747,27 +765,30 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 172 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 184)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Framhaldsaðalfundur 29. júní 1993
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 178
-  page_end: null
+  page_end: 181
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 189
+  - 192
   lang: is
   date: null
   summary: null
@@ -777,27 +798,30 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 178 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 190)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Um stöðu dómara í Evrópu
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 182
-  page_end: null
+  page_end: 184
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 193
+  - 195
   lang: is
   date: null
   summary: null
@@ -807,27 +831,30 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 182 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 194)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Riddarinn sjónumhryggi
   authors: []
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 185
-  page_end: null
+  page_end: 185
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 196
+  - 196
   lang: is
   date: null
   summary: null
@@ -837,18 +864,19 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 185 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 197)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Lögfesting mannréttindasáttmála
   authors:
@@ -860,7 +888,7 @@ articles:
   issue: '4'
   pdf_pages:
   - 206
-  - 213
+  - 209
   lang: is
   date: null
   summary: null
@@ -883,8 +911,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 1 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: greinin er undirrituð (Már Pétursson) en höfundar skrárinnar eru aðrir (Ragnar Aðalsteinsson); skránni haldið'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Pétur Þorsteinsson
   authors:
@@ -894,7 +921,9 @@ articles:
   page_start: 5
   page_end: 8
   issue: '4'
-  pdf_pages: null
+  pdf_pages:
+  - 210
+  - 213
   lang: is
   date: null
   summary: null
@@ -906,18 +935,19 @@ articles:
     pages: leitir+llm
     issue: leitir
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: true
-  confidence: 0.2
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 5 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 211)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Lögfesting mannréttindasáttmála Evrópu og breyting á réttarfarsákvæðum hans
   authors:
@@ -952,7 +982,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 9 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Siðferðileg ímynd lögfræðinga í augum almennings
   authors:
@@ -987,7 +1017,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 21 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Hlutafélög á Íslandi og hlutafélagalög
   authors:
@@ -995,11 +1025,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 27
-  page_end: 81
+  page_end: 37
   issue: '4'
   pdf_pages:
   - 232
-  - 286
+  - 242
   lang: is
   date: null
   summary: null
@@ -1023,7 +1053,7 @@ articles:
   analysis_notes:
   - leitir.is segir bls. 219–229
   - 'upphafsbls. 27 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Hæstaréttardómur um riftun greiðslu með óvenjulegum greiðslueyri
   authors:
@@ -1033,7 +1063,9 @@ articles:
   page_start: 38
   page_end: 43
   issue: '4'
-  pdf_pages: null
+  pdf_pages:
+  - 243
+  - 248
   lang: is
   date: null
   summary: null
@@ -1045,27 +1077,30 @@ articles:
     pages: leitir+llm
     issue: leitir
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: true
-  confidence: 0.2
+  confidence: 0.7
   leitir_record_id: '991001868109706886'
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 38 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 244)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Skýrsla stjórnar Dómarafélags Íslands starfsárið 1992–1993
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 44
-  page_end: null
+  page_end: 57
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 249
+  - 262
   lang: is
   date: null
   summary: null
@@ -1075,27 +1110,30 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 44 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 250)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Aðalfundur Dómarafélags Íslands 1993
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 58
-  page_end: null
+  page_end: 68
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 263
+  - 273
   lang: is
   date: null
   summary: null
@@ -1105,27 +1143,30 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 58 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 264)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Dómsmálaþing 1993
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 69
-  page_end: null
+  page_end: 74
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 274
+  - 279
   lang: is
   date: null
   summary: null
@@ -1135,27 +1176,30 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 69 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 275)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Norræn ráðstefna um afbrotafræði
   authors: []
   author_titles: []
   article_type: Frétt
   page_start: 75
-  page_end: null
+  page_end: 78
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 280
+  - 283
   lang: is
   date: null
   summary: null
@@ -1165,18 +1209,21 @@ articles:
     article_type: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 75 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 281)
+  - 'FRÁVIK: lok greinar óviss: á eftir texta hennar kemur efni á bls. 78 sem er hvorki framhald hennar né upphaf annars efnis
+    (mynd, auglýsing eða texti án textalags?); það er talið með greininni'
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Á alþjóðafundi lögfræðinga í Manila
   authors:
@@ -1184,9 +1231,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 79
-  page_end: null
+  page_end: 81
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 284
+  - 286
   lang: is
   date: null
   summary: null
@@ -1197,18 +1246,19 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 79 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 285)
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður
 - title: Frá ritstjórn
   authors: []
@@ -1240,5 +1290,5 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 82 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 185 síður
+  - efnisyfirlitið stóðst ekki á síðunum (4 af 7 titlum fundust á upphafssíðum sínum; efnisyfirlitið nær ekki yfir 187 síður
     heftisins) — greinalisti Claude notaður

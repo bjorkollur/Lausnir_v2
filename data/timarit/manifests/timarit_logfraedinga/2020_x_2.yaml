@@ -19,6 +19,8 @@ page_map:
   contested: []
   bin_ratio: 0.851
   non_article:
+  - 71
+  - 141
   - 233
   - 234
   - 235
@@ -78,11 +80,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 95
-  page_end: 162
+  page_end: 161
   issue: null
   pdf_pages:
   - 4
-  - 71
+  - 70
   lang: is
   date: null
   summary: null
@@ -102,18 +104,19 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 162, prentuð lokasíða er bls. 161
 - title: Skaðabætur í aðdraganda samningsgerðar – Culpa in Contrahendo
   authors:
   - Jóhannes Tómasson
   author_titles: []
   article_type: Fræðigrein
   page_start: 163
-  page_end: 232
+  page_end: 231
   issue: null
   pdf_pages:
   - 72
-  - 141
+  - 140
   lang: is
   date: null
   summary: null
@@ -133,7 +136,8 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 232, prentuð lokasíða er bls. 231
 - title: Matsgerðir dómkvaddra matsmanna í einkamálum - samanburður á vestnorrænum rétti
   authors:
   - Sigmar Aron Ómarsson

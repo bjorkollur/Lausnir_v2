@@ -19,12 +19,13 @@ page_map:
   contested: []
   bin_ratio: 0.96
   non_article:
+  - 69
+  - 137
   - 138
   - 139
   - 140
   - 141
   - 142
-  - 143
   - 144
   - 145
   - 146
@@ -83,11 +84,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 399
-  page_end: 464
+  page_end: 463
   issue: null
   pdf_pages:
   - 4
-  - 69
+  - 68
   lang: is
   date: null
   summary: null
@@ -115,11 +116,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 465
-  page_end: 532
+  page_end: 531
   issue: null
   pdf_pages:
   - 70
-  - 137
+  - 136
   lang: is
   date: null
   summary: null

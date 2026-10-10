@@ -771,11 +771,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 411
-  page_end: 430
+  page_end: 429
   issue: '2'
   pdf_pages:
   - 0
-  - 19
+  - 18
   lang: en
   date: null
   summary: null
@@ -797,6 +797,7 @@ articles:
   note: ''
   analysis_notes:
   - skráarnafn segir bls. 417–436, PDF-skjalið bls. 411–430
+  - 'auð lokasíða skjalsins er ekki talin með: greinin prentar bilið bls. 411–429'
   - 'FRÁVIK: blaðsíðutal skráarnafnanna er 6 síðum hærra en prentað blaðsíðutal í 10 skrám af 26 (t.d. skráarnafn segir bls.
     289–312, PDF-skjalið bls. 283–306)'
 - title: Réttarumhverfi félagasamtaka á Íslandi

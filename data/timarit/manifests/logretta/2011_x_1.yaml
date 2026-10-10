@@ -18,7 +18,7 @@ page_map:
   non_article:
   - 68
 status: review
-confidence: 0
+confidence: 0.7
 error: null
 files:
 - Tímarit og fræðigreinar/Lögrétta/Lögrétta 2011 1.tbl.pdf
@@ -29,11 +29,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 9
-  page_end: 77
+  page_end: 51
   issue: null
   pdf_pages:
   - 0
-  - 67
+  - 42
   lang: is
   date: null
   summary: null
@@ -61,9 +61,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 53
-  page_end: null
+  page_end: 77
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 43
+  - 67
   lang: is
   date: null
   summary: null
@@ -74,17 +76,18 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    title_on_page: true
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.7
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 53 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 44)
 - title: Heimildir stjórnvalda til að taka afstöðu til þess hvort lög samrýmist stjórnarskránni
   authors:
   - Hafsteinn Dan Kristjánsson

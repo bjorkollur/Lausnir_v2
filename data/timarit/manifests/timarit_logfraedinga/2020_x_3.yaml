@@ -19,6 +19,8 @@ page_map:
   contested: []
   bin_ratio: 0.761
   non_article:
+  - 39
+  - 117
   - 119
   - 120
   - 121
@@ -80,11 +82,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 333
-  page_end: 368
+  page_end: 367
   issue: null
   pdf_pages:
   - 4
-  - 39
+  - 38
   lang: is
   date: null
   summary: null
@@ -142,11 +144,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 409
-  page_end: 446
+  page_end: 445
   issue: null
   pdf_pages:
   - 80
-  - 117
+  - 116
   lang: is
   date: null
   summary: null
@@ -166,4 +168,5 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - skráin segir að greinin endi á bls. 446, prentuð lokasíða er bls. 445

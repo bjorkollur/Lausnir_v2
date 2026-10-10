@@ -48,11 +48,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 5
-  page_end: 38
+  page_end: 37
   issue: '1'
   pdf_pages:
   - 0
-  - 33
+  - 32
   lang: en
   date: null
   summary: null
@@ -72,7 +72,8 @@ articles:
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/5-38_Iceland’s_external_affairs_in_the_Middle.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'auð lokasíða skjalsins er ekki talin með: greinin prentar bilið bls. 5–37'
 - title: Þróun tekjuskiptingarinnar á Íslandi 1992–2010
   authors:
   - Stefán Ólafsson
@@ -80,11 +81,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 39
-  page_end: 72
+  page_end: 71
   issue: '1'
   pdf_pages:
   - 0
-  - 33
+  - 32
   lang: is
   date: null
   summary: null
@@ -104,7 +105,8 @@ articles:
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/39-72_Development_of_Income_Distribution_in_Ic.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'auð lokasíða skjalsins er ekki talin með: greinin prentar bilið bls. 39–71'
 - title: Sendur í sveit
   authors:
   - Jónína Einarsdóttir
@@ -142,11 +144,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 93
-  page_end: 108
+  page_end: 107
   issue: '1'
   pdf_pages:
   - 0
-  - 15
+  - 14
   lang: is
   date: null
   summary: null
@@ -166,7 +168,8 @@ articles:
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/93-108_A_Review_of_the_Current_Situation_of.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'auð lokasíða skjalsins er ekki talin með: greinin prentar bilið bls. 93–107'
 - title: 'Iceland and the EU’s Common Security and Defence Policy: Challenge or Opportunity?'
   authors:
   - Alyson JK Bailes
@@ -174,11 +177,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 109
-  page_end: 132
+  page_end: 131
   issue: '1'
   pdf_pages:
   - 0
-  - 23
+  - 22
   lang: en
   date: null
   summary: null
@@ -198,18 +201,19 @@ articles:
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/109-132_Iceland_and_the_EU’s_Common_Security_and.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'auð lokasíða skjalsins er ekki talin með: greinin prentar bilið bls. 109–131'
 - title: 'Nýskipan í ríkisrekstri: Þjónustusamningar hins opinbera og réttarstaða notenda þjónustu'
   authors:
   - Eva Marín Hlynsdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 133
-  page_end: 152
+  page_end: 151
   issue: '1'
   pdf_pages:
   - 0
-  - 19
+  - 18
   lang: is
   date: null
   summary: null
@@ -229,7 +233,8 @@ articles:
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/133-152_New_Public_Management.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'auð lokasíða skjalsins er ekki talin með: greinin prentar bilið bls. 133–151'
 - title: Stefnumótun og áætlanagerð ráðuneyta Leiðir að einföldun og samhæfingu
   authors:
   - Héðinn Unnsteinsson
@@ -268,11 +273,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 173
-  page_end: 194
+  page_end: 193
   issue: '1'
   pdf_pages:
   - 0
-  - 21
+  - 20
   lang: is
   date: null
   summary: null
@@ -292,18 +297,19 @@ articles:
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/173-194_A_Time_to_Connect__On_Tourism_Policy.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'auð lokasíða skjalsins er ekki talin með: greinin prentar bilið bls. 173–193'
 - title: Nýja kvennahreyfingin á Norðurlöndum á áttunda áratug 20. aldar
   authors:
   - Sigríður Matthíasdóttir
   author_titles: []
   article_type: Fræðigrein
   page_start: 195
-  page_end: 218
+  page_end: 217
   issue: '1'
   pdf_pages:
   - 0
-  - 23
+  - 22
   lang: is
   date: null
   summary: null
@@ -323,7 +329,8 @@ articles:
   xlsx_row: null
   source_file: Tímarit og fræðigreinar/Stjórnmál og Stjórnsýsla/Vol08/195-218_The_New_Feminist_Movement_in_the_Nordic.pdf
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'auð lokasíða skjalsins er ekki talin með: greinin prentar bilið bls. 195–217'
 - title: Lífskjör og réttlæti
   authors:
   - Ólafur Páll Jónsson

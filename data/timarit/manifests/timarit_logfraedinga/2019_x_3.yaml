@@ -105,7 +105,23 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes: []
+  analysis_notes:
+  - 'FRÁVIK: á eftir greininni hefst „Í dómi héraðsdóms er komist að þeirri niðurstöðu að ríkissaksóknari hefði fullnaðarúrskurðarvald
+    um það hvort tilefni væri til frekari rannsóknar á tilgreindu meintu refsiverðu broti eða fella bæri rannsókn niður, jafnvel
+    þótt lög mæli ekki skýrlega fyrir um þá tilhögun. Í forsendum meirihluta Hæstaréttar er málinu hins vegar vísað frá héraðsdómi
+    á grundvelli þess að sakarefnið sé þess eðlis að það sé undanskilið lögsögu dómstóla, sbr. 1. mgr. 24. gr. eml.27 Þótt
+    forsendur meirihluta Hæstaréttar séu ekki ítarlegar má álíta að mat á rannsóknargögnum og tilefni til frekari rannsóknar
+    hafi verið talið þess eðlis að það félli utan lögsögu dómstóla í einkamáli að taka afstöðu til álitaefna þar að lútandi.
+    Hugsanlega búa að baki forsendum meirihluta Hæstaréttar sjónarmið um það að rannsóknarréttarfar hafi verið aflagt hér
+    á landi og því sé það ekki hlutverk dómstóla að hafa frumkvæði að frekari rannsókn sakamáls telji lögregla eða handhafar
+    ákæruvalds ekki tilefni til hennar. Í ljósi ákæruréttarfars sem auðkennir íslenskt sakamálaréttarfar komi það aðeins til
+    kasta dómstóla að taka afstöðu til sektar eða sýknu í ljósi framlagðra sönnunargagna sé mál höfðað með útgáfu ákæru.28
+    Hefur í umfjöllun um dóminn meðal annars verið vísað til þess að ef dómstólar endurskoðuðu ákvarðanir ríkissaksóknara
+    um að fella niður rannsókn væru þeir farnir að hafa önnur afskipti af rannsókn sakamála en samrýmist 2. gr. stjskr. sem
+    og 1. mgr. 70. gr. stjskr. um rétt manna til þess að fá leyst úr málum sínum af sjálfstæðum og óvilhöllum dómstóli.29
+    Í sératkvæði eins hæstaréttardómara er vísað til hefðbundinna sjónarmiða um endurskoðunarvald dómstóla á stjórnvaldsákvörðunum,
+    sbr. umfjöllun í kaflanum hér að framan, og talið að málið ætti að fá efnislega meðferð“ á bls. 320 sem skráin nefnir
+    ekki; greinin er talin enda þar'
 - title: Kynjajafnrétti í íþróttum – staða sveitarfélaga að lögum
   authors:
   - María Rún Bjarnadóttir

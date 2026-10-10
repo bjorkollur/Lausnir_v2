@@ -19,8 +19,10 @@ page_map:
   contested: []
   bin_ratio: 0.95
   non_article:
+  - 7
   - 65
   - 79
+  - 167
   - 169
   - 170
   - 171
@@ -51,11 +53,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 455
-  page_end: 460
+  page_end: 459
   issue: null
   pdf_pages:
   - 2
-  - 7
+  - 6
   lang: is
   date: null
   summary: null
@@ -143,6 +145,17 @@ articles:
   note: ''
   analysis_notes:
   - skráin segir að greinin endi á bls. 532, prentuð lokasíða er bls. 517
+  - 'FRÁVIK: á eftir greininni hefst „Ekki allt of litlum mæli og um ekki allt of skamman tíma.63 Umrædd skilgreining hefur
+    í skattframkvæmd verið lögð til grundvallar, með tilbrigðum, þegar mat er lagt á það hvort tilgreind starfsemi teljist
+    atvinnurekstur og tekjur vegna hennar falli undir B. lið 7. gr. tsl.64 Óneitanlega er tilgreind skilgreining nokkuð matskennd
+    og þarf því atviksbundið mat við afmörkun á því hvort tiltekin starfsemi nái því umfangi að teljast til atvinnurekstrar.
+    Það athugast þó að hvað varðar útleigu á íbúðarhúsnæði, frístundahúsnæði og öðru húsnæði er í 58. gr. a tsl. að finna
+    hlutlæga afmörkun á því hvenær slík leiga telst til atvinnurekstrar samkvæmt lögunum. Í E. lið reglna nr. 1434/2020 segir
+    að ekki sé veitt lækkun á grundvelli 6. tölul. 1. mgr. 65. gr. tsl. vegna taps á hlutabréfum eða lánum sem tengjast atvinnurekstri.
+    Sama á við um verðbréfaeign og hlutdeild í til dæmis peningamarkaðssjóðum. Með atvinnurekstri er í þessu sambandi átt
+    við atvinnurekstur sem einstaklingur hefur með höndum og eignarhlut í lögaðila sé hann verulegur. Eignarhlutur telst almennt
+    verulegur ef hann er 20% eða meiri, enda sé ekki um að ræða lögaðila sem er að öðru leyti í eigu fjölskyldu eða samstarfsmanns“
+    á bls. 519 sem skráin nefnir ekki; greinin er talin enda þar'
   - efnisyfirlitið stóðst ekki á síðunum (3 af 6 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: 'Auknar kröfur til fjárfestaverndar með tilkomu MiFID II: Mat á hæfi og tilhlýðileika'
   authors:
@@ -215,11 +228,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 603
-  page_end: 620
+  page_end: 619
   issue: null
   pdf_pages:
   - 150
-  - 167
+  - 166
   lang: is
   date: null
   summary: null

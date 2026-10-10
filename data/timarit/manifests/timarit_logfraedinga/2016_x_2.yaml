@@ -19,13 +19,14 @@ page_map:
   contested: []
   bin_ratio: 0.927
   non_article:
+  - 3
   - 63
+  - 103
   - 193
   - 194
   - 195
   - 196
   - 197
-  - 198
   - 199
   - 200
   - 201
@@ -39,7 +40,7 @@ page_map:
     share: 0.6
     shifted: 1
     on_filler: 0
-    unclaimed: 20
+    unclaimed: 0
     pages: 205
     by_proxy: 0
 status: review
@@ -54,11 +55,11 @@ articles:
   author_titles: []
   article_type: Ritstjórnargrein
   page_start: 127
-  page_end: 128
+  page_end: 127
   issue: null
   pdf_pages:
   - 2
-  - 3
+  - 2
   lang: is
   date: null
   summary: null
@@ -121,11 +122,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 189
-  page_end: 228
+  page_end: 227
   issue: null
   pdf_pages:
   - 64
-  - 103
+  - 102
   lang: is
   date: null
   summary: null

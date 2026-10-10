@@ -340,15 +340,16 @@ articles:
   note: ''
   analysis_notes: []
 - title: Frá lagadeild Háskóla Islands Deildarfréttir 1996
-  authors: []
+  authors:
+  - Björn Þ. Guðmundsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 120
-  page_end: 124
+  page_end: 125
   issue: '2'
   pdf_pages:
   - 131
-  - 135
+  - 136
   lang: is
   date: null
   summary: null
@@ -358,6 +359,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true

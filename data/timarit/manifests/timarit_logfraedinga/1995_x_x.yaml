@@ -500,15 +500,16 @@ articles:
   note: ''
   analysis_notes: []
 - title: A víð og dreif Frá Lagadeild Háskóla íslands Deildarfréttir 1994
-  authors: []
+  authors:
+  - Þorgeir Örlygsson
   author_titles: []
   article_type: Fræðigrein
   page_start: 167
-  page_end: 172
+  page_end: 173
   issue: '2'
   pdf_pages:
   - 178
-  - 183
+  - 184
   lang: is
   date: null
   summary: null
@@ -518,6 +519,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -694,11 +696,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 217
-  page_end: 218
+  page_end: 219
   issue: '3'
   pdf_pages:
   - 234
-  - 235
+  - 236
   lang: is
   date: null
   summary: null
@@ -784,11 +786,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 225
-  page_end: 225
+  page_end: 226
   issue: '3'
   pdf_pages:
   - 242
-  - 242
+  - 243
   lang: is
   date: null
   summary: null
@@ -932,15 +934,16 @@ articles:
   note: ''
   analysis_notes: []
 - title: Skýrsla stjórnar Lögfræðingafélags íslands á aðal-
-  authors: []
+  authors:
+  - Gunnlaugur Claessen
   author_titles: []
   article_type: Fræðigrein
   page_start: 234
-  page_end: 236
+  page_end: 237
   issue: '3'
   pdf_pages:
   - 251
-  - 253
+  - 254
   lang: is
   date: null
   summary: null
@@ -950,6 +953,7 @@ articles:
     article_type: toc
     pages: toc
     issue: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true

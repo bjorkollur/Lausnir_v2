@@ -196,11 +196,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 42
-  page_end: 42
+  page_end: 43
   issue: null
   pdf_pages:
   - 47
-  - 47
+  - 48
   lang: is
   date: null
   summary: null
@@ -328,9 +328,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 49
-  page_end: null
+  page_end: 49
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 54
+  - 54
   lang: is
   date: null
   summary: null
@@ -341,16 +343,17 @@ articles:
     pages: llm
   checks:
     title_on_page: false
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.3
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 49 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 55)
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Námskeið í vinnurétti
   authors:
@@ -565,7 +568,7 @@ articles:
   issue: '2'
   pdf_pages:
   - 78
-  - 78
+  - 79
   lang: is
   date: null
   summary: null
@@ -765,11 +768,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 113
-  page_end: 113
+  page_end: 114
   issue: null
   pdf_pages:
   - 122
-  - 122
+  - 123
   lang: is
   date: null
   summary: null
@@ -933,11 +936,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 148
-  page_end: 148
+  page_end: 149
   issue: null
   pdf_pages:
   - 161
-  - 161
+  - 162
   lang: is
   date: null
   summary: null
@@ -966,11 +969,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 149
-  page_end: 153
+  page_end: 154
   issue: null
   pdf_pages:
   - 162
-  - 166
+  - 167
   lang: is
   date: null
   summary: null
@@ -999,11 +1002,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 154
-  page_end: 155
+  page_end: 154
   issue: null
   pdf_pages:
   - 167
-  - 168
+  - 167
   lang: is
   date: null
   summary: null
@@ -1033,9 +1036,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 154
-  page_end: null
+  page_end: 155
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 167
+  - 168
   lang: is
   date: null
   summary: null
@@ -1047,16 +1052,17 @@ articles:
     pages: llm
   checks:
     title_on_page: false
-    printed_page_match: false
-    author_on_page: false
+    printed_page_match: true
+    author_on_page: true
     external_record: false
-  confidence: 0
+  confidence: 0.45
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 154 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 168)
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Norrænir fundir
   authors:
@@ -1064,11 +1070,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 156
-  page_end: 158
+  page_end: 157
   issue: '3'
   pdf_pages:
   - 169
-  - 169
+  - 170
   lang: is
   date: null
   summary: null
@@ -1091,6 +1097,7 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 156 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - skráin segir að greinin endi á bls. 158, prentuð lokasíða er bls. 157
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Hádegisfundur
   authors:
@@ -1098,11 +1105,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 157
-  page_end: 157
+  page_end: 158
   issue: null
   pdf_pages:
   - 170
-  - 170
+  - 171
   lang: is
   date: null
   summary: null
@@ -1300,7 +1307,7 @@ articles:
   issue: '4'
   pdf_pages:
   - 244
-  - 244
+  - 245
   lang: is
   date: null
   summary: null
@@ -1500,11 +1507,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 200
-  page_end: 203
+  page_end: 204
   issue: null
   pdf_pages:
   - 265
-  - 268
+  - 269
   lang: is
   date: null
   summary: null
@@ -1559,8 +1566,6 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 204 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: á eftir greininni hefst „STARFSEMI SAMBANDS ÍSLENSKRA“ á bls. 205 sem skráin nefnir ekki; greinin er talin enda
-    þar'
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Starfsemi Sambands íslenskra sveitarfélaga 1974
   authors:
@@ -1568,9 +1573,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 205
-  page_end: null
+  page_end: 208
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 270
+  - 273
   lang: is
   date: null
   summary: null
@@ -1582,16 +1589,17 @@ articles:
     pages: llm
   checks:
     title_on_page: false
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.3
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 205 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 271)
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Félag Sameinuðu þjóðanna á Íslandi
   authors:
@@ -1599,11 +1607,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 208
-  page_end: 208
+  page_end: 209
   issue: null
   pdf_pages:
   - 273
-  - 273
+  - 274
   lang: is
   date: null
   summary: null
@@ -1658,8 +1666,6 @@ articles:
   note: ''
   analysis_notes:
   - 'upphafsbls. 209 fannst ekki: blaðsíðutal skjalsins óljóst'
-  - 'FRÁVIK: á eftir greininni hefst „LÖGFRÆÐINGASAMBAND FINNLANDS“ á bls. 213 sem skráin nefnir ekki; greinin er talin enda
-    þar'
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Lögfræðingasamband Finnlands
   authors:
@@ -1667,9 +1673,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 213
-  page_end: null
+  page_end: 215
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 278
+  - 280
   lang: is
   date: null
   summary: null
@@ -1681,16 +1689,17 @@ articles:
     pages: llm
   checks:
     title_on_page: false
-    printed_page_match: false
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.3
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 213 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 279)
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Hið sænska samband lögfræðinga og þjóðfélagsfræðinga
   authors:
@@ -1698,11 +1707,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 215
-  page_end: null
+  page_end: 217
   issue: null
   pdf_pages:
   - 280
-  - 284
+  - 282
   lang: is
   date: null
   summary: null
@@ -1733,7 +1742,9 @@ articles:
   page_start: 218
   page_end: null
   issue: null
-  pdf_pages: null
+  pdf_pages:
+  - 283
+  - 284
   lang: is
   date: null
   summary: null
@@ -1744,17 +1755,18 @@ articles:
     authors: llm
     pages: llm
   checks:
-    title_on_page: false
-    printed_page_match: false
+    title_on_page: true
+    printed_page_match: true
     author_on_page: false
     external_record: false
-  confidence: 0
+  confidence: 0.65
   leitir_record_id: null
   xlsx_row: null
   source_file: null
   note: ''
   analysis_notes:
   - 'upphafsbls. 218 fannst ekki: blaðsíðutal skjalsins óljóst'
+  - staðsett eftir nágrönnum sínum í listanum (pdf-síða 284)
   - efnisyfirlitið stóðst ekki á síðunum (12 af 17 titlum fundust á upphafssíðum sínum) — greinalisti Claude notaður
 - title: Íslandsdeild Amnesty International
   authors:
@@ -1762,11 +1774,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 220
-  page_end: 220
+  page_end: 221
   issue: null
   pdf_pages:
   - 285
-  - 285
+  - 286
   lang: is
   date: null
   summary: null

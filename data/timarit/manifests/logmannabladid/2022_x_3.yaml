@@ -21,7 +21,6 @@ page_map:
   non_article:
   - 6
   - 22
-  - 28
   - 34
   - 35
   toc_check:
@@ -323,11 +322,11 @@ articles:
   author_titles: []
   article_type: Annað
   page_start: 28
-  page_end: 28
+  page_end: 29
   issue: null
   pdf_pages:
   - 27
-  - 27
+  - 28
   lang: is
   date: null
   summary: null

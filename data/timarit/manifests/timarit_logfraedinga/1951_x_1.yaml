@@ -122,11 +122,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 6
-  page_end: 20
+  page_end: 21
   issue: null
   pdf_pages:
   - 13
-  - 27
+  - 28
   lang: is
   date: null
   summary: null
@@ -155,11 +155,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 21
-  page_end: 45
+  page_end: 46
   issue: null
   pdf_pages:
   - 28
-  - 52
+  - 53
   lang: is
   date: null
   summary: null
@@ -188,11 +188,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 46
-  page_end: 54
+  page_end: 55
   issue: null
   pdf_pages:
   - 53
-  - 61
+  - 62
   lang: is
   date: null
   summary: null
@@ -258,7 +258,7 @@ articles:
   issue: null
   pdf_pages:
   - 68
-  - 79
+  - 80
   lang: is
   date: null
   summary: null

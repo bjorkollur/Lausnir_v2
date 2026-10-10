@@ -19,11 +19,12 @@ page_map:
   contested: []
   bin_ratio: 0.857
   non_article:
+  - 163
+  - 190
   - 191
   - 192
   - 193
   - 194
-  - 195
   - 196
   - 197
   - 198
@@ -148,7 +149,7 @@ articles:
   issue: null
   pdf_pages:
   - 106
-  - 163
+  - 162
   lang: is
   date: null
   summary: null
@@ -175,11 +176,11 @@ articles:
   author_titles: []
   article_type: Fræðigrein
   page_start: 663
-  page_end: 689
+  page_end: 688
   issue: null
   pdf_pages:
   - 164
-  - 190
+  - 189
   lang: is
   date: null
   summary: null
@@ -199,5 +200,4 @@ articles:
   xlsx_row: null
   source_file: null
   note: ''
-  analysis_notes:
-  - skráin segir að greinin endi á bls. 688, prentuð lokasíða er bls. 689
+  analysis_notes: []

@@ -19,6 +19,8 @@ page_map:
   contested: []
   bin_ratio: 0.949
   non_article:
+  - 5
+  - 99
   - 104
   - 105
   - 106
@@ -47,15 +49,16 @@ files:
 - Tímarit og fræðigreinar/Tímarit Lögfræðinga/TL 2014_04.pdf
 articles:
 - title: Millidómstig
-  authors: []
+  authors:
+  - Hafsteinn Þór Hauksson
   author_titles: []
   article_type: Fræðigrein
   page_start: 361
-  page_end: 364
+  page_end: 363
   issue: null
   pdf_pages:
   - 2
-  - 5
+  - 4
   lang: is
   date: null
   summary: null
@@ -64,6 +67,7 @@ articles:
     title: toc
     article_type: toc
     pages: toc
+    authors: page
   checks:
     title_on_page: true
     printed_page_match: true
@@ -148,7 +152,7 @@ articles:
   issue: null
   pdf_pages:
   - 64
-  - 99
+  - 98
   lang: is
   date: null
   summary: null

@@ -22,7 +22,6 @@ page_map:
   - 4
   - 6
   - 9
-  - 24
   - 32
   - 34
   toc_check:
@@ -231,11 +230,11 @@ articles:
   author_titles: []
   article_type: Viðtal
   page_start: 20
-  page_end: 24
+  page_end: 25
   issue: null
   pdf_pages:
   - 19
-  - 23
+  - 24
   lang: is
   date: null
   summary: null

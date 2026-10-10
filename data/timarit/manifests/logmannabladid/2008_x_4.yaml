@@ -21,7 +21,6 @@ page_map:
   non_article:
   - 4
   - 13
-  - 21
 status: review
 confidence: 0.3
 error: null
@@ -305,11 +304,11 @@ articles:
   author_titles: []
   article_type: Frétt
   page_start: 20
-  page_end: 21
+  page_end: 22
   issue: null
   pdf_pages:
   - 19
-  - 20
+  - 21
   lang: is
   date: null
   summary: null
