@@ -157,10 +157,10 @@ def test_urlausn_omits_a_non_numeric_issue_key_but_the_file_name_keeps_it():
     assert to_urlausn(d, ULF).endswith("Úlfljótur, 60. árg. (2007), bls. 9–20")
     # numeric issues and ranges are cited as before
     d.issue = "3-4"
-    assert to_urlausn(d, ULF).endswith("Úlfljótur, 60. árg. 3-4. tbl. (2007), bls. 9–20")
+    assert to_urlausn(d, ULF).endswith("Úlfljótur, 60. árg. 3.–4. tbl. (2007), bls. 9–20")
     # R35: a double issue written "1/2" (leitir.is keeps that form) is a number too
     d.issue = "1/2"
-    assert to_urlausn(d, ULF).endswith("Úlfljótur, 60. árg. 1/2. tbl. (2007), bls. 9–20")
+    assert to_urlausn(d, ULF).endswith("Úlfljótur, 60. árg. 1.–2. tbl. (2007), bls. 9–20")
     assert verdict_filename(d, ULF) == "Ulfljotur_60-1-2_2007_bls-9-20"
 
 

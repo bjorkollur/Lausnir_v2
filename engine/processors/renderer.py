@@ -352,6 +352,11 @@ def citable_issue(issue) -> bool:
     return issue is not None and bool(_CITABLE_ISSUE.fullmatch(str(issue)))
 
 
+def issue_ordinal(issue) -> str:
+    """'3' -> '3.', a double issue '3-4' or '1/2' -> '3.–4.' / '1.–2.' (en dash, a period after each number)."""
+    return "–".join(f"{n}." for n in re.split(r"[-/]", str(issue)))
+
+
 def journal_citation(doc: "Document", config: "SourceConfig") -> str:
     """'Höfundur: „Titill“ Tímarit, 60. árg. 1. hefti (2010), bls. 7–47' (spec §4.5).
 
@@ -374,7 +379,7 @@ def journal_citation(doc: "Document", config: "SourceConfig") -> str:
     if doc.volume is not None:
         bib.append(f"{doc.volume}. árg.")
     if citable_issue(doc.issue) and config.issue_term:
-        bib.append(f"{doc.issue}. {config.issue_term}")
+        bib.append(f"{issue_ordinal(doc.issue)} {config.issue_term}")
     bib_s = " ".join(bib)
     label = f"{name}, {bib_s}" if name and bib_s else (name or bib_s)
     year = f"({doc.document_date.year})" if doc.document_date else ""

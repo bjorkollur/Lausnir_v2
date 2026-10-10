@@ -15,7 +15,7 @@ from pathlib import Path
 import yaml
 
 from engine.config.sources import SourceConfig, get_config
-from engine.processors.renderer import citable_issue
+from engine.processors.renderer import citable_issue, issue_ordinal
 from engine.timarit import config as C
 
 USER = "user"
@@ -88,7 +88,7 @@ def issue_label(cfg: SourceConfig, year, volume, issue) -> str:
     if volume is not None:
         bib.append(f"{volume}. árg.")
     if citable_issue(issue) and cfg.issue_term:
-        bib.append(f"{issue}. {cfg.issue_term}")
+        bib.append(f"{issue_ordinal(issue)} {cfg.issue_term}")
     label = f"{name}, {' '.join(bib)}" if bib else name
     return f"{label} ({year})" if year is not None else label
 

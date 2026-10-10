@@ -36,12 +36,17 @@ def test_issue_label_per_source():
     assert issue_label(get_config("rannsoknir_lagadeild"), 2007, 8, None) == "Rannsóknir í félagsvísindum, 8. árg. (2007)"
 
 
+def test_issue_label_double_issue():
+    assert issue_label(get_config("timarit_logfraedinga"), 1978, 28, "3-4") == "Tímarit lögfræðinga, 28. árg. 3.–4. hefti (1978)"
+    assert issue_label(get_config("timarit_logfraedinga"), 1978, 28, "1/2") == "Tímarit lögfræðinga, 28. árg. 1.–2. hefti (1978)"
+
+
 def test_issue_label_without_volume_has_no_dangling_comma():
     assert issue_label(get_config("logbru"), 2013, None, None) == "Lögbrú (2013)"
 
 
 def test_issue_label_issue_without_volume():
-    assert issue_label(get_config("ulfljotur"), 2002, None, "3-4") == "Úlfljótur, 3-4. tbl. (2002)"
+    assert issue_label(get_config("ulfljotur"), 2002, None, "3-4") == "Úlfljótur, 3.–4. tbl. (2002)"
 
 
 def test_issue_label_omits_year_when_unknown():
@@ -63,10 +68,10 @@ def test_issue_label_omits_a_non_numeric_issue_key():
     assert issue_label(sogs, 2018, 14, "power-and-democracy-in-iceland") == "Stjórnmál og stjórnsýsla, 14. árg. (2018)"
     assert issue_label(get_config("rannsoknir_lagadeild"), 2010, 11, "trausti-fannar") == "Rannsóknir í félagsvísindum, 11. árg. (2010)"
     # numbers and number ranges are still printed
-    assert issue_label(ulf, 2002, None, "3-4") == "Úlfljótur, 3-4. tbl. (2002)"
+    assert issue_label(ulf, 2002, None, "3-4") == "Úlfljótur, 3.–4. tbl. (2002)"
     assert issue_label(ulf, 2004, 57, "2") == "Úlfljótur, 57. árg. 2. tbl. (2004)"
     # R35: "1/2" (a double issue as leitir.is writes it) stays citable
-    assert issue_label(ulf, 2004, 57, "1/2") == "Úlfljótur, 57. árg. 1/2. tbl. (2004)"
+    assert issue_label(ulf, 2004, 57, "1/2") == "Úlfljótur, 57. árg. 1.–2. tbl. (2004)"
 
 
 def test_external_id_and_manifest_path_keep_a_non_numeric_issue_key(tmp_path):

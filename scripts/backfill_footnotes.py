@@ -50,6 +50,12 @@ async def main(source: str, dry_run: bool, limit: int | None, redo: bool) -> Non
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     config = get_config(source)
+    if config.kind == "journal":
+        raise SystemExit(
+            f"{source!r} er tímarit: þessi skrifta má ekki keyrast á tímaritum, því hún myndi skipta "
+            f"body_text út fyrir óunnið parse_pdf-úttak og skekkja page_offsets. "
+            f"Notaðu innflutning tímarita (engine.timarit) í staðinn."
+        )
     if not config.has_footnotes:
         raise SystemExit(
             f"{source!r} is not configured with has_footnotes=True — nothing to do. "

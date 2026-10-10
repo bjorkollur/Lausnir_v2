@@ -21,6 +21,7 @@ target_metadata = Base.metadata
 _DB_ONLY_INDEXES = {
     "ix_doc_fts", "ix_doc_body_trgm", "ix_doc_lower_body_trgm",
     "ix_doc_summary_trgm", "ix_doc_case_number_trgm", "ix_doc_cited_provisions",
+    "uq_journal_issue",  # expression index (coalesce) the model cannot declare
 }
 _DB_ONLY_COLUMNS = {("documents", "fts")}
 
